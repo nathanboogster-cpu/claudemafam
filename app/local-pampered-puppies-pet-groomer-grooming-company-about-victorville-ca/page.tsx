@@ -7,6 +7,7 @@ import { TestimonialCard } from "@/components/TestimonialCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { CheckIcon } from "@/components/icons";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
 
 export const metadata: Metadata = {
   title: "About Pampered Puppies | Victorville, CA Dog & Cat Groomer",
@@ -53,8 +54,11 @@ export default function AboutPage() {
             Donna&rsquo;s approach is simple: know the animal in front of her,
             work at their pace, and keep them out of a cage as much as
             possible. She&rsquo;s first-aid trained, including for seizures and
-            heart attacks, and regularly works with senior pets, anxious pets,
-            and dogs other groomers have turned away.
+            heart attacks, and regularly works with{" "}
+            <Link href={PATHS.anxious} className="font-semibold text-terracotta-dark hover:underline">
+              senior pets, anxious pets, and dogs other groomers have turned away
+            </Link>
+            .
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <CallButton location="about_top" label="Book with Donna" />
@@ -87,6 +91,12 @@ export default function AboutPage() {
             quote="This review is specifically for groomer Donna - She is simply is the best dog groomer, period... The grooming itself has always been superb, which speaks a lot given that he is a double-coated German Shepherd and Terrier mix, with two different texture fur and three different colored hairs. His nails are dark and other groomers have made accidents which leads to bleeding, but never had that concern with Donna."
             attribution="Lila S."
           />
+        </div>
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <WhyChooseUs />
         </div>
       </section>
 

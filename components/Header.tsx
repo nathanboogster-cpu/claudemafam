@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { business, mainNav, PATHS } from "@/lib/site-data";
+import { business, PATHS, serviceNav, areaNavLinks } from "@/lib/site-data";
 import { PawIcon } from "./PawIcon";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { CallButton } from "./CTAButton";
+import { NavDropdown } from "./NavDropdown";
 
 export function Header() {
   return (
@@ -17,11 +18,26 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-5 text-sm font-medium text-ink-soft">
-          {mainNav.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-terracotta-dark whitespace-nowrap">
-              {item.label}
-            </Link>
-          ))}
+          <Link href={PATHS.home} className="hover:text-terracotta-dark whitespace-nowrap">
+            Home
+          </Link>
+          <Link href={PATHS.about} className="hover:text-terracotta-dark whitespace-nowrap">
+            About
+          </Link>
+          <NavDropdown label="Services" items={serviceNav} />
+          <NavDropdown label="Service Areas" items={areaNavLinks} />
+          <Link href={PATHS.gallery} className="hover:text-terracotta-dark whitespace-nowrap">
+            Gallery
+          </Link>
+          <Link href={PATHS.reviews} className="hover:text-terracotta-dark whitespace-nowrap">
+            Reviews
+          </Link>
+          <Link href={PATHS.faq} className="hover:text-terracotta-dark whitespace-nowrap">
+            FAQ
+          </Link>
+          <Link href={PATHS.contact} className="hover:text-terracotta-dark whitespace-nowrap">
+            Contact
+          </Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-3 shrink-0">

@@ -138,6 +138,57 @@ export const testimonials = [
   },
 ] as const;
 
+// Verified trust facts, structured for the "Why Pet Parents Choose Pampered Puppies"
+// grid used across major pages. Nothing here beyond what's in the source docs.
+export const trustPoints = [
+  {
+    title: `${business.googleRating}★ on Google`,
+    body: `${business.googleReviewCount} Google reviews — more than most local competitors.`,
+  },
+  {
+    title: "BBB Accredited, A+ Rating",
+    body: "Verified accreditation with the Better Business Bureau.",
+  },
+  {
+    title: "35+ Years of Experience",
+    body: "Donna Nichols has 35+ years of hands-on dog & cat grooming experience.",
+  },
+  {
+    title: "First-Aid Trained",
+    body: "Trained for pet emergencies, including seizures and heart attacks.",
+  },
+  {
+    title: "Low Cage-Time Philosophy",
+    body: "One-on-one attention with minimal cage/kennel time while your pet is in our care.",
+  },
+  {
+    title: "Consultation-First",
+    body: "A quick consultation before every groom so there are no surprises.",
+  },
+] as const;
+
+// Verified 4-step process, used across service pages. Every step is sourced from
+// the Build Brief (consultation-first approach) and Handoff (low cage time, notice
+// for difficult dogs, mobile vs. in-store) — nothing invented.
+export const processSteps = [
+  {
+    title: "Call or Request an Appointment",
+    body: "Reach us by phone or the contact form. Let us know your pet's breed, size, and needs — and give advance notice if your pet is aggressive or anxious, so we can prepare.",
+  },
+  {
+    title: "Quick Consultation",
+    body: "Before any clippers come out, we talk through what you want and what your pet needs, so expectations are clear from the start.",
+  },
+  {
+    title: "One-on-One Grooming",
+    body: "Your pet gets Donna's individual attention with minimal cage/kennel time — never rushed through like an assembly line.",
+  },
+  {
+    title: "Pickup or At-Your-Door Finish",
+    body: "Pick up a happy, freshly groomed pet in-store, or — with Pampered Puppies At Your Door — we finish right in your driveway.",
+  },
+] as const;
+
 export type NavItem = { label: string; href: string };
 
 export const PATHS = {
@@ -151,7 +202,57 @@ export const PATHS = {
   mobile: "/mobile-dog-cat-grooming-victorville-ca",
   reviews: "/reviews",
   faq: "/faq",
+  puppy: "/puppy-grooming-victorville-ca",
+  anxious: "/anxious-senior-dog-grooming-victorville-ca",
 } as const;
+
+// Mobile service-area pages. Pampered Puppies has ONE physical location
+// (Victorville — see `business.addressFull`); every other city here is reached
+// only through the mobile "At Your Door" service, and every page built from this
+// data must say so honestly (never implying a second physical location). City
+// list matches the verified `serviceAreas` above exactly — do not add cities.
+export const serviceAreaPages = [
+  {
+    city: "Hesperia",
+    slug: "/mobile-dog-cat-grooming-hesperia-ca",
+    intro:
+      "Hesperia sits right next to Victorville in the High Desert, and it's one of the areas Pampered Puppies' mobile grooming reaches most often.",
+    angle:
+      "For Hesperia pet parents juggling a busy schedule, skipping the drive into Victorville and having Donna come to you can be the easiest way to keep up with regular grooming.",
+  },
+  {
+    city: "Apple Valley",
+    slug: "/mobile-dog-cat-grooming-apple-valley-ca",
+    intro:
+      "Apple Valley is part of the High Desert community Pampered Puppies has served for years, both in the Victorville studio and through mobile visits.",
+    angle:
+      "Apple Valley's larger properties make in-driveway grooming especially convenient — no crate, no car ride, just Donna coming to your door.",
+  },
+  {
+    city: "Spring Valley Lake",
+    slug: "/mobile-dog-cat-grooming-spring-valley-lake-ca",
+    intro:
+      "Spring Valley Lake is a short drive from the Pampered Puppies studio on Bear Valley Rd, and a regular stop for the mobile grooming service.",
+    angle:
+      "Whether your dog or cat needs a quick bath or a full groom, Pampered Puppies At Your Door brings the same one-on-one care to Spring Valley Lake driveways.",
+  },
+  {
+    city: "Barstow",
+    slug: "/mobile-dog-cat-grooming-barstow-ca",
+    intro:
+      "Barstow pet parents don't have to make the drive to Victorville — Pampered Puppies At Your Door serves Barstow as part of its regular High Desert mobile route.",
+    angle:
+      "Mobile grooming means your pet skips the car ride and the waiting room entirely — Donna comes to Barstow and grooms right at your home.",
+  },
+  {
+    city: "Helendale",
+    slug: "/mobile-dog-cat-grooming-helendale-ca",
+    intro:
+      "Helendale is one of the smaller High Desert communities Pampered Puppies reaches through its mobile grooming service.",
+    angle:
+      "For Helendale residents further from town, in-driveway grooming with Pampered Puppies At Your Door skips the trip into Victorville altogether.",
+  },
+] as const;
 
 export const mainNav: NavItem[] = [
   { label: "Home", href: PATHS.home },
@@ -159,13 +260,29 @@ export const mainNav: NavItem[] = [
   { label: "Dog Grooming", href: PATHS.dog },
   { label: "Cat Grooming", href: PATHS.cat },
   { label: "Mobile Grooming", href: PATHS.mobile },
+  { label: "Puppy Grooming", href: PATHS.puppy },
+  { label: "Anxious & Senior Dogs", href: PATHS.anxious },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
 ];
 
+export const serviceNav: NavItem[] = [
+  { label: "Dog Grooming", href: PATHS.dog },
+  { label: "Cat Grooming", href: PATHS.cat },
+  { label: "Mobile Grooming", href: PATHS.mobile },
+  { label: "Puppy Grooming", href: PATHS.puppy },
+  { label: "Anxious & Senior Dogs", href: PATHS.anxious },
+];
+
+export const areaNavLinks: NavItem[] = serviceAreaPages.map((a) => ({
+  label: a.city,
+  href: a.slug,
+}));
+
 export const footerNav: NavItem[] = [
   ...mainNav,
   { label: "Employment", href: PATHS.employment },
+  ...areaNavLinks,
 ];

@@ -1,12 +1,29 @@
 import Link from "next/link";
-import { business, footerNav, hours, serviceAreas, serviceAreaGeneral, PATHS } from "@/lib/site-data";
+import {
+  business,
+  hours,
+  serviceAreaGeneral,
+  PATHS,
+  serviceNav,
+  areaNavLinks,
+} from "@/lib/site-data";
 import { PawIcon } from "./PawIcon";
+
+const companyLinks = [
+  { label: "Home", href: PATHS.home },
+  { label: "About", href: PATHS.about },
+  { label: "Gallery", href: PATHS.gallery },
+  { label: "Reviews", href: PATHS.reviews },
+  { label: "FAQ", href: PATHS.faq },
+  { label: "Contact", href: PATHS.contact },
+  { label: "Employment", href: PATHS.employment },
+];
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-cream-deep text-ink-soft">
-      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
+      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="lg:col-span-1">
           <div className="flex items-center gap-2 text-ink">
             <PawIcon className="h-6 w-6 text-terracotta" />
             <span className="font-display text-lg font-bold">{business.name}</span>
@@ -28,9 +45,36 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Site</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Services</h2>
           <ul className="mt-3 space-y-2 text-sm">
-            {footerNav.map((item) => (
+            {serviceNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-terracotta-dark">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Service Areas</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {areaNavLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-terracotta-dark">
+                  Mobile Grooming in {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-xs text-ink-soft/80">and {serviceAreaGeneral}.</p>
+        </div>
+
+        <div>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Company</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {companyLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-terracotta-dark">
                   {item.label}
@@ -67,16 +111,6 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Areas We Serve</h2>
-          <p className="mt-3 text-sm">
-            {serviceAreas.join(", ")}, and {serviceAreaGeneral}.
-          </p>
-          <Link href={PATHS.mobile} className="mt-3 inline-block text-sm font-semibold text-terracotta-dark hover:underline">
-            See mobile grooming areas →
-          </Link>
         </div>
       </div>
 

@@ -7,6 +7,9 @@ import { TestimonialCard } from "@/components/TestimonialCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { TruckIcon } from "@/components/icons";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { ServiceAreaSection } from "@/components/ServiceAreaSection";
+import { FaqBlock } from "@/components/FaqBlock";
 
 const pageUrl = `${SITE_URL}${PATHS.mobile}`;
 
@@ -21,6 +24,27 @@ const howItWorks = [
   "Call 760-881-3171 and let us know your pet's breed, size, and what you'd like done.",
   "We check availability for your area and schedule a driveway appointment.",
   "Donna arrives with everything needed to groom your pet right at your home.",
+];
+
+const mobileFaqs = [
+  {
+    question: "What areas does mobile grooming cover?",
+    answer: `Victorville, ${serviceAreas.slice(1).join(", ")}, and ${serviceAreaGeneral}. See each area's page below for details.`,
+  },
+  {
+    question: "How is mobile grooming priced?",
+    answer:
+      "Mobile pricing is confirmed with a quick call — it follows the same starting ranges as in-store grooming and may vary slightly with your pet's needs.",
+  },
+  {
+    question: "Do you groom cats too?",
+    answer: "Yes — mobile grooming is available for both dogs and cats.",
+  },
+  {
+    question: "What if my pet is nervous about grooming?",
+    answer:
+      "Let us know in advance. See our page on grooming for anxious, senior, and difficult dogs for how we handle it.",
+  },
 ];
 
 export default function MobileGroomingPage() {
@@ -68,22 +92,7 @@ export default function MobileGroomingPage() {
 
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-12">
-          <h2 className="font-display text-2xl font-bold text-ink">Areas We Currently Serve</h2>
-          <p className="mt-4 max-w-2xl text-ink-soft leading-relaxed">
-            We provide mobile grooming to {serviceAreas.join(", ")}, and{" "}
-            {serviceAreaGeneral}. Availability can vary by day and route, so
-            give us a call to confirm we can get to you.
-          </p>
-          <ul className="mt-6 flex flex-wrap gap-3">
-            {serviceAreas.map((city) => (
-              <li
-                key={city}
-                className="rounded-full border border-border bg-cream px-4 py-2 text-sm font-medium text-ink-soft"
-              >
-                {city}
-              </li>
-            ))}
-          </ul>
+          <ServiceAreaSection />
         </div>
       </section>
 
@@ -102,11 +111,21 @@ export default function MobileGroomingPage() {
       </section>
 
       <section className="bg-white border-y border-border">
-        <div className="mx-auto max-w-3xl px-4 py-12">
-          <TestimonialCard
-            quote="Donna is absolutely the best! She has been grooming my 2 dogs for quite some time now & she does a great job every time! I've also used her mobile grooming services, just AWESOME! I would highly recommend all their services they offer."
-            attribution="Google review"
-          />
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <WhyChooseUs />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-4 py-12">
+        <TestimonialCard
+          quote="Donna is absolutely the best! She has been grooming my 2 dogs for quite some time now & she does a great job every time! I've also used her mobile grooming services, just AWESOME! I would highly recommend all their services they offer."
+          attribution="Google review"
+        />
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <FaqBlock items={mobileFaqs} title="Mobile Grooming FAQ" />
         </div>
       </section>
 

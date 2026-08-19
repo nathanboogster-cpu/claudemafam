@@ -41,6 +41,7 @@ export function serviceSchema(opts: {
   pageUrl: string;
   name: string;
   description: string;
+  areaServed?: readonly string[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -49,7 +50,7 @@ export function serviceSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
-    areaServed: serviceAreas.map((city) => ({
+    areaServed: (opts.areaServed ?? serviceAreas).map((city) => ({
       "@type": "City",
       name: city,
     })),

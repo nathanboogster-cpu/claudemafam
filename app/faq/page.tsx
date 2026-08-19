@@ -93,6 +93,12 @@ export default function FaqPage() {
           <Link href={PATHS.mobile} className="font-semibold text-terracotta-dark hover:underline">
             Mobile Grooming
           </Link>
+          <Link href={PATHS.puppy} className="font-semibold text-terracotta-dark hover:underline">
+            Puppy Grooming
+          </Link>
+          <Link href={PATHS.anxious} className="font-semibold text-terracotta-dark hover:underline">
+            Anxious &amp; Senior Dogs
+          </Link>
           <Link href={PATHS.contact} className="font-semibold text-terracotta-dark hover:underline">
             Contact Us
           </Link>

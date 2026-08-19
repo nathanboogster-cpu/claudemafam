@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { PATHS, SITE_URL, catServices } from "@/lib/site-data";
+import Link from "next/link";
+import { PATHS, SITE_URL, catServices, serviceAreaPages } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { CheckIcon } from "@/components/icons";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { ProcessSteps } from "@/components/ProcessSteps";
+import { FaqBlock } from "@/components/FaqBlock";
 
 const pageUrl = `${SITE_URL}${PATHS.cat}`;
 
@@ -15,6 +19,24 @@ export const metadata: Metadata = {
     "Gentle cat grooming in Victorville, CA — full baths, deshedding, nail clipping, and moisturizing treatments. Pricing provided after a quick consultation.",
   alternates: { canonical: PATHS.cat },
 };
+
+const catFaqs = [
+  {
+    question: "How much does cat grooming cost?",
+    answer:
+      "Cat grooming pricing is provided after a quick consultation, since needs vary a lot by coat and temperament. Call us and we'll give you a clear price before any work begins.",
+  },
+  {
+    question: "Is my cat too anxious to be groomed?",
+    answer:
+      "Many cats do great with a patient, unhurried groomer. Let us know about any anxiety in advance so we can plan the visit around your cat's comfort.",
+  },
+  {
+    question: "Do you offer mobile cat grooming?",
+    answer:
+      'Yes — "Pampered Puppies At Your Door" grooms cats as well as dogs, right in your home.',
+  },
+];
 
 export default function CatGroomingPage() {
   return (
@@ -79,11 +101,50 @@ export default function CatGroomingPage() {
       </section>
 
       <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <ProcessSteps title="What to Expect at Your Cat's Groom" />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <WhyChooseUs />
+      </section>
+
+      <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-3xl px-4 py-12">
           <TestimonialCard
             quote="My cat loves to be groomed and he is very chill, so I am not sure why I had a hard time finding a regular groomer... Donna was able to brush him out and made him look and feel fantastic."
             attribution="Kristen L."
           />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <FaqBlock items={catFaqs} title="Cat Grooming FAQ" />
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <h2 className="font-display text-xl font-bold text-ink text-center">
+            More Ways We Can Help
+          </h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href={PATHS.dog} className="rounded-xl border border-border bg-cream p-4 text-sm font-semibold text-terracotta-dark hover:bg-cream-deep">
+              Dog Grooming →
+            </Link>
+            <Link href={PATHS.mobile} className="rounded-xl border border-border bg-cream p-4 text-sm font-semibold text-terracotta-dark hover:bg-cream-deep">
+              Mobile Grooming At Your Door →
+            </Link>
+            {serviceAreaPages.map((area) => (
+              <Link
+                key={area.slug}
+                href={area.slug}
+                className="rounded-xl border border-border bg-cream p-4 text-sm font-semibold text-terracotta-dark hover:bg-cream-deep"
+              >
+                Mobile Grooming in {area.city} →
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

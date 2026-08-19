@@ -4,7 +4,23 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { footerNav } from "@/lib/site-data";
+import { PATHS, serviceNav, areaNavLinks, type NavItem } from "@/lib/site-data";
+
+const coreLinks: NavItem[] = [
+  { label: "Home", href: PATHS.home },
+  { label: "About", href: PATHS.about },
+  { label: "Gallery", href: PATHS.gallery },
+  { label: "Reviews", href: PATHS.reviews },
+  { label: "FAQ", href: PATHS.faq },
+  { label: "Contact", href: PATHS.contact },
+  { label: "Employment", href: PATHS.employment },
+];
+
+const groups: { label: string; items: NavItem[] }[] = [
+  { label: "Menu", items: coreLinks },
+  { label: "Services", items: serviceNav },
+  { label: "Service Areas", items: areaNavLinks },
+];
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -32,22 +48,29 @@ export function MobileNav() {
       className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-cream"
     >
       <nav aria-label="Mobile" className="flex flex-col p-4">
-        {footerNav.map((item) => {
-          const active = pathname === item.href;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              aria-current={active ? "page" : undefined}
-              className={`min-h-[44px] flex items-center border-b border-border px-2 text-lg font-medium ${
-                active ? "text-terracotta-dark" : "text-ink"
-              }`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
+        {groups.map((group) => (
+          <div key={group.label} className="mb-2">
+            <p className="mt-3 px-2 text-xs font-semibold uppercase tracking-wide text-ink-soft/70">
+              {group.label}
+            </p>
+            {group.items.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`min-h-[44px] flex items-center border-b border-border px-2 text-lg font-medium ${
+                    active ? "text-terracotta-dark" : "text-ink"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        ))}
       </nav>
     </div>
   );

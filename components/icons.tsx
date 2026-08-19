@@ -49,3 +49,22 @@ export function CheckIcon({ className = "h-5 w-5" }: { className?: string }) {
     </svg>
   );
 }
+
+export function HeartIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M12 21s-7.5-4.6-10-9.3C.5 8.4 2.3 5 5.8 5c1.9 0 3.4 1 4.2 2.4C10.8 6 12.3 5 14.2 5 17.7 5 19.5 8.4 22 11.7 19.5 16.4 12 21 12 21z" />
+    </svg>
+  );
+}
+
+export function PuppyIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M5 11c0-1.7 1.3-3 3-3 .8 0 1.3.3 1.5.7.3-.4.9-.7 1.5-.7 1.7 0 3 1.3 3 3v2a4 4 0 0 1-4 4h-1a4 4 0 0 1-4-4z" />
+      <path d="M8.5 8 7 5.5M13.5 8l1.5-2.5" />
+      <circle cx="9.5" cy="10.5" r=".5" fill="currentColor" />
+      <circle cx="12.5" cy="10.5" r=".5" fill="currentColor" />
+    </svg>
+  );
+}

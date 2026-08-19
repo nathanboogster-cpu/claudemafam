@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PATHS, SITE_URL, dogServices, dogPricing } from "@/lib/site-data";
+import { PATHS, SITE_URL, dogServices, dogPricing, serviceAreaPages } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { CheckIcon } from "@/components/icons";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { ProcessSteps } from "@/components/ProcessSteps";
+import { FaqBlock } from "@/components/FaqBlock";
 
 const pageUrl = `${SITE_URL}${PATHS.dog}`;
 
@@ -16,6 +19,28 @@ export const metadata: Metadata = {
     "Full-service dog grooming in Victorville, CA — baths, haircuts, deshedding, nail trims & more. Starting at $55–65 small dogs, $65–85 large dogs. Call to book.",
   alternates: { canonical: PATHS.dog },
 };
+
+const dogFaqs = [
+  {
+    question: "How much does dog grooming cost?",
+    answer: `Dog grooming starts at ${dogPricing.small} for small dogs and ${dogPricing.large} for large dogs. ${dogPricing.note}`,
+  },
+  {
+    question: "Do you groom aggressive or anxious dogs?",
+    answer:
+      "Yes — with advance phone notice so we can prepare. See our dedicated page on grooming for anxious, senior, and difficult dogs for more.",
+  },
+  {
+    question: "What's included in a full groom?",
+    answer:
+      "A full groom typically includes a bath, haircut, deshedding as needed, nail trim, ear cleaning, and more — see the full service list above.",
+  },
+  {
+    question: "Can you come to me instead?",
+    answer:
+      'Yes — "Pampered Puppies At Your Door" brings the same grooming to your driveway across Victorville and the High Desert.',
+  },
+];
 
 export default function DogGroomingPage() {
   return (
@@ -91,11 +116,53 @@ export default function DogGroomingPage() {
       </section>
 
       <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <ProcessSteps title="What to Expect at Your Dog's Groom" />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <WhyChooseUs />
+      </section>
+
+      <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-3xl px-4 py-12">
           <TestimonialCard
             quote="Took both my boxer babies to Donna. They came home looking amazing. She was so gentle and patient with my boy who was hesitant and moody... Shop was clean and the rest of the staff was also very nice and Informative."
             attribution="Cora D."
           />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <FaqBlock items={dogFaqs} title="Dog Grooming FAQ" />
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <h2 className="font-display text-xl font-bold text-ink text-center">
+            More Ways We Can Help
+          </h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href={PATHS.puppy} className="rounded-xl border border-border bg-cream p-4 text-sm font-semibold text-terracotta-dark hover:bg-cream-deep">
+              Puppy Grooming →
+            </Link>
+            <Link href={PATHS.anxious} className="rounded-xl border border-border bg-cream p-4 text-sm font-semibold text-terracotta-dark hover:bg-cream-deep">
+              Anxious &amp; Senior Dog Grooming →
+            </Link>
+            <Link href={PATHS.mobile} className="rounded-xl border border-border bg-cream p-4 text-sm font-semibold text-terracotta-dark hover:bg-cream-deep">
+              Mobile Grooming At Your Door →
+            </Link>
+            {serviceAreaPages.map((area) => (
+              <Link
+                key={area.slug}
+                href={area.slug}
+                className="rounded-xl border border-border bg-cream p-4 text-sm font-semibold text-terracotta-dark hover:bg-cream-deep"
+              >
+                Mobile Grooming in {area.city} →
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

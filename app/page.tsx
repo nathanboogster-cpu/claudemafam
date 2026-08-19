@@ -6,8 +6,12 @@ import { TrustBar } from "@/components/TrustBar";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { ServiceCard } from "@/components/ServiceCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
-import { DogIcon, CatIcon, TruckIcon } from "@/components/icons";
+import { DogIcon, CatIcon, TruckIcon, PuppyIcon, HeartIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { ProcessSteps } from "@/components/ProcessSteps";
+import { ServiceAreaSection } from "@/components/ServiceAreaSection";
+import { FaqBlock } from "@/components/FaqBlock";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
@@ -17,6 +21,22 @@ export const metadata: Metadata = {
 };
 
 const homeTestimonials = testimonials.slice(0, 3);
+
+const homeFaqs = [
+  {
+    question: "Do you groom aggressive or anxious dogs?",
+    answer:
+      "Yes. Aggressive or anxious animals are welcome with advance phone notice so our staff can prepare.",
+  },
+  {
+    question: "How much does dog grooming cost?",
+    answer: "Starting at $55–65 for small dogs and $65–85 for large dogs — final pricing depends on breed, coat, and temperament.",
+  },
+  {
+    question: "Do you offer mobile grooming?",
+    answer: 'Yes — "Pampered Puppies At Your Door" brings grooming to your driveway across Victorville and the High Desert.',
+  },
+];
 
 export default function HomePage() {
   return (
@@ -52,9 +72,13 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-display text-2xl font-bold text-ink text-center sm:text-3xl">
-          Grooming Services
+          Our Services
         </h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+        <p className="mx-auto mt-3 max-w-2xl text-center text-ink-soft">
+          Full-service grooming for every dog and cat, plus specialty care for
+          puppies, seniors, and pets who need extra patience.
+        </p>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceCard
             title="Dog Grooming"
             description="Baths, haircuts, deshedding, nail trims, and more — starting at $55–65 for small dogs, $65–85 for large."
@@ -73,7 +97,29 @@ export default function HomePage() {
             href={PATHS.mobile}
             icon={<TruckIcon />}
           />
+          <ServiceCard
+            title="Puppy Grooming"
+            description="A patient, low-stress introduction to grooming for your puppy's first visits."
+            href={PATHS.puppy}
+            icon={<PuppyIcon />}
+          />
+          <ServiceCard
+            title="Anxious & Senior Dogs"
+            description="Advance-notice grooming for aggressive, anxious, senior, or difficult-to-handle dogs."
+            href={PATHS.anxious}
+            icon={<HeartIcon />}
+          />
         </div>
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <WhyChooseUs />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-14">
+        <ProcessSteps />
       </section>
 
       <section className="bg-white border-y border-border">
@@ -89,6 +135,21 @@ export default function HomePage() {
           <div className="mt-8 text-center">
             <Link href={PATHS.reviews} className="font-semibold text-terracotta-dark hover:underline">
               Read more reviews →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-14">
+        <ServiceAreaSection />
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <FaqBlock items={homeFaqs} title="Common Questions" />
+          <div className="mt-8 text-center">
+            <Link href={PATHS.faq} className="font-semibold text-terracotta-dark hover:underline">
+              See the full FAQ →
             </Link>
           </div>
         </div>
