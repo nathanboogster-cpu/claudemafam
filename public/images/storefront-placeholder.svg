@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#f3e9d8"/>
+  <g fill="#c1652f">
+    <ellipse cx="600" cy="360" rx="130" ry="105"/>
+    <ellipse cx="440" cy="230" rx="57" ry="73"/>
+    <ellipse cx="760" cy="230" rx="57" ry="73"/>
+    <ellipse cx="520" cy="140" rx="49" ry="65"/>
+    <ellipse cx="680" cy="140" rx="49" ry="65"/>
+  </g>
+  <text x="600" y="530" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="bold" fill="#322418">Pampered Puppies</text>
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#5a4636">Victorville, CA</text>
+</svg>

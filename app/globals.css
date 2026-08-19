@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #fbf6ee;
+  --color-cream-deep: #f3e9d8;
+  --color-ink: #322418;
+  --color-ink-soft: #5a4636;
+  --color-terracotta: #c1652f;
+  --color-terracotta-dark: #9c4f22;
+  --color-terracotta-light: #e8b088;
+  --color-sage: #5f7a5a;
+  --color-sage-dark: #45593f;
+  --color-gold: #e0a851;
+  --color-white: #ffffff;
+  --color-border: #e7d9c3;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-deep: var(--color-cream-deep);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-terracotta: var(--color-terracotta);
+  --color-terracotta-dark: var(--color-terracotta-dark);
+  --color-terracotta-light: var(--color-terracotta-light);
+  --color-sage: var(--color-sage);
+  --color-sage-dark: var(--color-sage-dark);
+  --color-gold: var(--color-gold);
+  --color-white: var(--color-white);
+  --color-border: var(--color-border);
+  --font-sans: "Optima", "Segoe UI", "Century Gothic", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Georgia", "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}
