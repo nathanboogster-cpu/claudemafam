@@ -86,7 +86,7 @@ export default function PuppyGroomingPage() {
             something to fear.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CallButton location="puppy_top" label="Book Now" />
+            <CallButton location="puppy_top" label="Call Now" />
             <BookButton location="puppy_top" />
           </div>
         </div>

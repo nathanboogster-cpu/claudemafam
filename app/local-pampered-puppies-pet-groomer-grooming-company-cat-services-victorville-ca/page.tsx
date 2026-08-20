@@ -70,7 +70,7 @@ export default function CatGroomingPage() {
             at home.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CallButton location="cat_top" label="Book Now" />
+            <CallButton location="cat_top" label="Call Now" />
             <BookButton location="cat_top" />
           </div>
         </div>

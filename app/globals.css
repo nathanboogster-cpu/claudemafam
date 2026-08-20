@@ -5,9 +5,11 @@
   --color-cream-deep: #f3e9d8;
   --color-ink: #322418;
   --color-ink-soft: #5a4636;
-  --color-terracotta: #c1652f;
-  --color-terracotta-dark: #9c4f22;
-  --color-terracotta-light: #e8b088;
+  /* Main brand color is plum/purple (values only — the `terracotta` name is
+     kept as-is across components to avoid a sitewide rename churn). */
+  --color-terracotta: #7a4494;
+  --color-terracotta-dark: #5c3170;
+  --color-terracotta-light: #d6bbe6;
   --color-sage: #5f7a5a;
   --color-sage-dark: #45593f;
   --color-gold: #e0a851;

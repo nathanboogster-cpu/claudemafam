@@ -14,6 +14,7 @@ import { ServiceAreaSection } from "@/components/ServiceAreaSection";
 import { FaqBlock } from "@/components/FaqBlock";
 import { Eyebrow } from "@/components/Eyebrow";
 import { StatBand } from "@/components/StatBand";
+import { GalleryPhotoCard } from "@/components/GalleryPhotoCard";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
@@ -128,6 +129,25 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <ProcessSteps />
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-14">
+        <div className="text-center">
+          <Eyebrow>Recent Work</Eyebrow>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+            A Look at Our Grooms
+          </h2>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <GalleryPhotoCard service="Full Groom" location="Victorville Studio" />
+          <GalleryPhotoCard service="Mobile Groom" location="Hesperia" />
+          <GalleryPhotoCard service="Cat Grooming" location="Victorville Studio" />
+        </div>
+        <div className="mt-8 text-center">
+          <Link href={PATHS.gallery} className="font-semibold text-terracotta-dark hover:underline">
+            See the full gallery →
+          </Link>
+        </div>
       </section>
 
       <section className="bg-white border-y border-border">

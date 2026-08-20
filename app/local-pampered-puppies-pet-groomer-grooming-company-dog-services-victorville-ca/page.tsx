@@ -75,7 +75,7 @@ export default function DogGroomingPage() {
             time.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CallButton location="dog_top" label="Book Now" />
+            <CallButton location="dog_top" label="Call Now" />
             <BookButton location="dog_top" />
           </div>
         </div>
