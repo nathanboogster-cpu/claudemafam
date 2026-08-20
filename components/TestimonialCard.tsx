@@ -1,3 +1,11 @@
+function initialsFor(attribution: string) {
+  const words = attribution.replace(/[^\w\s]/g, "").split(/\s+/).filter(Boolean);
+  return words
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase())
+    .join("");
+}
+
 export function TestimonialCard({
   quote,
   attribution,
@@ -13,7 +21,15 @@ export function TestimonialCard({
         </span>
         {quote}
       </blockquote>
-      <figcaption className="mt-4 text-sm font-semibold text-ink">— {attribution}</figcaption>
+      <figcaption className="mt-4 flex items-center gap-3">
+        <span
+          aria-hidden="true"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-terracotta-light/30 text-xs font-bold text-terracotta-dark"
+        >
+          {initialsFor(attribution)}
+        </span>
+        <span className="text-sm font-semibold text-ink">{attribution}</span>
+      </figcaption>
     </figure>
   );
 }

@@ -8,6 +8,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { CheckIcon } from "@/components/icons";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { Eyebrow } from "@/components/Eyebrow";
+import { StatBand } from "@/components/StatBand";
 
 export const metadata: Metadata = {
   title: "About Pampered Puppies | Victorville, CA Dog & Cat Groomer",
@@ -23,6 +25,8 @@ const philosophy = [
   "First-aid trained, including for seizures and heart attacks",
 ];
 
+const badges = ["35+ Years Experience", "First-Aid Trained", "BBB A+ Accredited"];
+
 export default function AboutPage() {
   return (
     <div>
@@ -36,7 +40,8 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 grid gap-10 md:grid-cols-2 md:items-center">
         <div>
-          <h1 className="font-display text-3xl font-bold text-ink sm:text-4xl">
+          <Eyebrow>About</Eyebrow>
+          <h1 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
             About Pampered Puppies
           </h1>
           <p className="mt-4 text-ink-soft leading-relaxed">
@@ -60,6 +65,17 @@ export default function AboutPage() {
             </Link>
             .
           </p>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {badges.map((b) => (
+              <li
+                key={b}
+                className="flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-ink-soft"
+              >
+                <CheckIcon className="h-3.5 w-3.5 text-sage-dark" />
+                {b}
+              </li>
+            ))}
+          </ul>
           <div className="mt-6 flex flex-wrap gap-3">
             <CallButton location="about_top" label="Book with Donna" />
             <BookButton location="about_top" />
@@ -68,9 +84,12 @@ export default function AboutPage() {
         <PhotoPlaceholder caption="Photo of Donna Nichols — real photo pending from client" aspect="portrait" />
       </section>
 
+      <StatBand />
+
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-12">
-          <h2 className="font-display text-2xl font-bold text-ink">Our Philosophy</h2>
+          <Eyebrow>Our Approach</Eyebrow>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink">Our Philosophy</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {philosophy.map((item) => (
               <li key={item} className="flex items-start gap-3 rounded-2xl border border-border bg-cream p-4">
@@ -83,9 +102,12 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-3xl px-4 py-12">
-        <h2 className="font-display text-2xl font-bold text-ink text-center">
-          In Donna&rsquo;s Words, From Her Clients
-        </h2>
+        <div className="text-center">
+          <Eyebrow>Reviews</Eyebrow>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink">
+            In Donna&rsquo;s Words, From Her Clients
+          </h2>
+        </div>
         <div className="mt-6">
           <TestimonialCard
             quote="This review is specifically for groomer Donna - She is simply is the best dog groomer, period... The grooming itself has always been superb, which speaks a lot given that he is a double-coated German Shepherd and Terrier mix, with two different texture fur and three different colored hairs. His nails are dark and other groomers have made accidents which leads to bleeding, but never had that concern with Donna."

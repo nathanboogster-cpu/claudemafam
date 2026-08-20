@@ -8,7 +8,9 @@ import { JsonLd, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { FaqBlock } from "@/components/FaqBlock";
-import { CheckIcon, TruckIcon } from "@/components/icons";
+import { Eyebrow } from "@/components/Eyebrow";
+import { StudioInfoCard } from "@/components/StudioInfoCard";
+import { CheckIcon, PinIcon, TruckIcon } from "@/components/icons";
 
 type Area = (typeof serviceAreaPages)[number];
 
@@ -76,7 +78,8 @@ export function AreaPageContent({ area }: { area: Area }) {
             <TruckIcon className="h-6 w-6" />
             <span className="text-sm font-semibold uppercase tracking-wide">Mobile Grooming</span>
           </div>
-          <h1 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">
+          <h1 className="mt-2 flex items-center gap-2 font-display text-3xl font-bold text-ink sm:text-4xl">
+            <PinIcon className="h-7 w-7 shrink-0 text-terracotta" />
             Mobile Dog &amp; Cat Grooming in {area.city}, CA
           </h1>
           <p className="mt-4 text-ink-soft leading-relaxed">{area.intro}</p>
@@ -94,7 +97,8 @@ export function AreaPageContent({ area }: { area: Area }) {
 
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-12">
-          <h2 className="font-display text-2xl font-bold text-ink">What&rsquo;s Included</h2>
+          <Eyebrow>What&rsquo;s Included</Eyebrow>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink">What&rsquo;s Included</h2>
           <ul className="mt-6 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
             {includedServices.map((s) => (
               <li key={s} className="flex items-start gap-2 text-sm text-ink-soft">
@@ -137,11 +141,13 @@ export function AreaPageContent({ area }: { area: Area }) {
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <FaqBlock items={faqs} title={`${area.city} Mobile Grooming FAQ`} />
+          <StudioInfoCard className="mt-8 max-w-2xl mx-auto" />
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <h2 className="font-display text-xl font-bold text-ink text-center">
+        <Eyebrow className="text-center block">Service Areas</Eyebrow>
+        <h2 className="mt-1 font-display text-xl font-bold text-ink text-center">
           Other Areas We Serve
         </h2>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -149,8 +155,9 @@ export function AreaPageContent({ area }: { area: Area }) {
             <Link
               key={a.slug}
               href={a.slug}
-              className="rounded-xl border border-border bg-cream p-4 text-center text-sm font-semibold text-terracotta-dark hover:bg-cream-deep"
+              className="flex items-center justify-center gap-1.5 rounded-xl border border-border bg-cream p-4 text-center text-sm font-semibold text-terracotta-dark hover:bg-cream-deep"
             >
+              <PinIcon className="h-4 w-4 shrink-0" />
               {a.city} →
             </Link>
           ))}

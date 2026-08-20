@@ -58,6 +58,15 @@ export function HeartIcon({ className = "h-6 w-6" }: { className?: string }) {
   );
 }
 
+export function PinIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z" />
+      <circle cx="12" cy="9" r="2.3" />
+    </svg>
+  );
+}
+
 export function PuppyIcon({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg {...base} className={className} aria-hidden="true">

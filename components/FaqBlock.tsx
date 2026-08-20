@@ -1,17 +1,24 @@
+import { Eyebrow } from "./Eyebrow";
+
 export function FaqBlock({
   items,
+  eyebrow = "FAQ",
   title = "Frequently Asked Questions",
   className = "",
 }: {
   items: { question: string; answer: string }[];
+  eyebrow?: string;
   title?: string;
   className?: string;
 }) {
   return (
     <section className={className}>
-      <h2 className="font-display text-2xl font-bold text-ink text-center sm:text-3xl">
-        {title}
-      </h2>
+      <div className="text-center">
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+          {title}
+        </h2>
+      </div>
       <div className="mx-auto mt-8 max-w-3xl space-y-3">
         {items.map((item) => (
           <details

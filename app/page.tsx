@@ -12,6 +12,8 @@ import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceAreaSection } from "@/components/ServiceAreaSection";
 import { FaqBlock } from "@/components/FaqBlock";
+import { Eyebrow } from "@/components/Eyebrow";
+import { StatBand } from "@/components/StatBand";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
@@ -45,7 +47,8 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-cream-deep to-cream">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:items-center md:py-20">
           <div>
-            <h1 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl md:text-5xl">
+            <Eyebrow>Victorville, CA · Dog &amp; Cat Grooming</Eyebrow>
+            <h1 className="mt-2 font-display text-3xl font-bold leading-tight text-ink sm:text-4xl md:text-5xl">
               Victorville&rsquo;s Trusted Dog &amp; Cat Groomer
             </h1>
             <p className="mt-4 text-lg text-ink-soft">
@@ -70,10 +73,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <StatBand />
+
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="font-display text-2xl font-bold text-ink text-center sm:text-3xl">
-          Our Services
-        </h2>
+        <div className="text-center">
+          <Eyebrow>Services</Eyebrow>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+            Our Services
+          </h2>
+        </div>
         <p className="mx-auto mt-3 max-w-2xl text-center text-ink-soft">
           Full-service grooming for every dog and cat, plus specialty care for
           puppies, seniors, and pets who need extra patience.
@@ -124,9 +132,12 @@ export default function HomePage() {
 
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 className="font-display text-2xl font-bold text-ink text-center sm:text-3xl">
-            What Pet Parents Say
-          </h2>
+          <div className="text-center">
+            <Eyebrow>Reviews</Eyebrow>
+            <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+              What Pet Parents Say
+            </h2>
+          </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {homeTestimonials.map((t) => (
               <TestimonialCard key={t.attribution} quote={t.quote} attribution={t.attribution} />

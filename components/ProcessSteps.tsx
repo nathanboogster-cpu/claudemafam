@@ -1,17 +1,23 @@
 import { processSteps } from "@/lib/site-data";
+import { Eyebrow } from "./Eyebrow";
 
 export function ProcessSteps({
+  eyebrow = "How It Works",
   title = "What to Expect",
   className = "",
 }: {
+  eyebrow?: string;
   title?: string;
   className?: string;
 }) {
   return (
     <section className={className}>
-      <h2 className="font-display text-2xl font-bold text-ink text-center sm:text-3xl">
-        {title}
-      </h2>
+      <div className="text-center">
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+          {title}
+        </h2>
+      </div>
       <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((step, i) => (
           <li key={step.title} className="rounded-2xl border border-border bg-cream-deep p-5">

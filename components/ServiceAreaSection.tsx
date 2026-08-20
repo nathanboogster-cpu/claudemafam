@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { PATHS, serviceAreaGeneral, serviceAreaPages, business } from "@/lib/site-data";
 import { ServiceAreaCard } from "./ServiceAreaCard";
+import { Eyebrow } from "./Eyebrow";
+import { StudioInfoCard } from "./StudioInfoCard";
 
 export function ServiceAreaSection({
   className = "",
@@ -9,9 +11,12 @@ export function ServiceAreaSection({
 }) {
   return (
     <section id="area" className={className}>
-      <h2 className="font-display text-2xl font-bold text-ink text-center sm:text-3xl">
-        Where We Groom
-      </h2>
+      <div className="text-center">
+        <Eyebrow>Service Areas</Eyebrow>
+        <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+          Where We Groom
+        </h2>
+      </div>
       <p className="mx-auto mt-3 max-w-2xl text-center text-ink-soft">
         In-store at our Victorville studio, or at your door with mobile
         grooming across {serviceAreaGeneral}.
@@ -37,6 +42,8 @@ export function ServiceAreaSection({
           <ServiceAreaCard key={area.city} city={area.city} href={area.slug} />
         ))}
       </div>
+
+      <StudioInfoCard className="mt-6 max-w-2xl mx-auto" />
 
       <p className="mt-6 text-center text-sm text-ink-soft">
         Don&rsquo;t see your area listed? Call {business.phoneDisplay} — we
