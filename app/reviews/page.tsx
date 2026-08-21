@@ -11,7 +11,7 @@ const pageUrl = `${SITE_URL}${PATHS.reviews}`;
 export const metadata: Metadata = {
   title: "Reviews | Pampered Puppies Dog & Cat Grooming, Victorville CA",
   description:
-    "Pampered Puppies is rated 4.3★ from 226 Google reviews. Read real client testimonials about Ellen Karikari's dog & cat grooming in Victorville, CA.",
+    "Pampered Puppies has hundreds of 5-star Google reviews. Read real client testimonials about Ellen Karikari's dog & cat grooming in Victorville, CA.",
   alternates: { canonical: PATHS.reviews },
 };
 
@@ -42,10 +42,10 @@ export default function ReviewsPage() {
               </svg>
             ))}
           </div>
-          <p className="font-display text-3xl font-bold text-ink">
-            {business.googleRating}<span className="text-lg">★</span> on Google
+          <p className="font-display text-2xl font-bold text-ink sm:text-3xl">
+            Hundreds of 5-Star Reviews on Google
           </p>
-          <p className="text-sm text-ink-soft">From {business.googleReviewCount} reviews</p>
+          <p className="text-sm text-ink-soft">From {business.googleReviewCount}+ reviews</p>
         </div>
         <div className="mt-4">
           <a

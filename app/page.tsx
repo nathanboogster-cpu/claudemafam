@@ -18,7 +18,7 @@ import { ProcessSteps } from "@/components/ProcessSteps";
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
   description:
-    "Pampered Puppies offers in-store and mobile dog & cat grooming in Victorville, CA. 4.3★ from 226 Google reviews, BBB A+ accredited. Call 760-881-3171 to book.",
+    "Pampered Puppies offers in-store and mobile dog & cat grooming in Victorville, CA. Hundreds of 5-star Google reviews, BBB A+ accredited. Call 760-881-3171 to book.",
   alternates: { canonical: PATHS.home },
 };
 

@@ -6,9 +6,9 @@ export function TrustBar({ className = "" }: { className?: string }) {
       <div className="flex items-center gap-2">
         <StarRow />
         <span className="text-sm font-semibold text-ink">
-          {business.googleRating}★ on Google
+          Hundreds of 5-Star Reviews on Google
         </span>
-        <span className="text-sm text-ink-soft">({business.googleReviewCount} reviews)</span>
+        <span className="text-sm text-ink-soft">({business.googleReviewCount}+ reviews)</span>
       </div>
       <div className="flex items-center gap-2">
         <BbbBadge />

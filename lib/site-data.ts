@@ -143,8 +143,8 @@ export const testimonials = [
 // grid used across major pages. Nothing here beyond what's in the source docs.
 export const trustPoints = [
   {
-    title: `${business.googleRating}★ on Google`,
-    body: `${business.googleReviewCount} Google reviews — more than most local competitors.`,
+    title: "Hundreds of 5-Star Reviews",
+    body: `${business.googleReviewCount}+ Google reviews — more than most local competitors.`,
   },
   {
     title: "BBB Accredited, A+ Rating",

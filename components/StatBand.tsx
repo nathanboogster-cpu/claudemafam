@@ -1,7 +1,7 @@
 import { business } from "@/lib/site-data";
 
 const stats = [
-  { value: `${business.googleRating}★`, label: "Google Rating" },
+  { value: "★★★★★", label: "Hundreds of 5-Star Reviews" },
   { value: `${business.googleReviewCount}+`, label: "Google Reviews" },
   { value: "35+ yrs", label: "Grooming Experience" },
   { value: "A+", label: "BBB Accredited" },
