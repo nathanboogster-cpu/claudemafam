@@ -106,7 +106,7 @@ export default function AboutPage() {
           </div>
           <PhotoPlaceholder
             caption="Inside the Pampered Puppies grooming studio in Victorville, CA"
-            aspect="video"
+            aspect="square"
             src="/images/studio-interior.jpg"
           />
         </div>

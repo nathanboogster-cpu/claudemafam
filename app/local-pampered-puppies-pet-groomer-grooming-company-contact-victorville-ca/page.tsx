@@ -4,6 +4,7 @@ import { CallButton } from "@/components/CTAButton";
 import { ContactForm } from "@/components/ContactForm";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 
 const pageUrl = `${SITE_URL}${PATHS.contact}`;
 
@@ -58,6 +59,12 @@ export default function ContactPage() {
               </ul>
               <CallButton location="contact_sidebar" label="Call Now" className="mt-5 w-full" />
             </div>
+
+            <PhotoPlaceholder
+              caption="The Pampered Puppies storefront at 15444 Bear Valley Rd, Victorville, CA"
+              aspect="portrait"
+              src="/images/storefront-night.jpg"
+            />
 
             <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
               <h2 className="font-display text-lg font-bold text-ink">

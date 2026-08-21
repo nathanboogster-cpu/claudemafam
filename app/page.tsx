@@ -130,7 +130,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-2 md:items-center">
           <PhotoPlaceholder
             caption="Inside the Pampered Puppies grooming studio in Victorville, CA"
-            aspect="video"
+            aspect="square"
             src="/images/studio-interior.jpg"
           />
           <div>

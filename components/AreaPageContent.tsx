@@ -90,8 +90,9 @@ export function AreaPageContent({ area }: { area: Area }) {
           </div>
         </div>
         <PhotoPlaceholder
-          caption={`Photo of a mobile grooming visit in ${area.city} — real photo pending from client`}
+          caption={`Inside the Pampered Puppies At Your Door mobile grooming unit, serving ${area.city} and the High Desert`}
           aspect="portrait"
+          src="/images/van-interior-full.jpg"
         />
       </section>
 

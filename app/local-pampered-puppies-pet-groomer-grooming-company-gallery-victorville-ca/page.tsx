@@ -32,6 +32,7 @@ const recentWork = [
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bernedoodle.jpg" },
   { service: "Full Groom", location: "Mobile Visit", src: "/images/gallery-pomeranian.jpg" },
   { service: "Mobile Groom", location: "Mobile Visit", src: "/images/gallery-german-shepherd.jpg" },
+  { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-studio-goldendoodle.jpg" },
   { service: "Puppy's First Groom", location: "Victorville Studio" },
 ] as const;
 
