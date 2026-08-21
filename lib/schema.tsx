@@ -11,6 +11,7 @@ export function localBusinessSchema(pageUrl: string) {
     "@id": `${SITE_URL}/#business`,
     name: business.name,
     image: `${SITE_URL}/images/storefront.jpg`,
+    logo: `${SITE_URL}/images/logo-full.png`,
     url: pageUrl,
     telephone: business.phoneDisplay,
     email: business.email,

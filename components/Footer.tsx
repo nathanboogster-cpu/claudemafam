@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   business,
@@ -7,7 +8,6 @@ import {
   serviceNav,
   areaNavLinks,
 } from "@/lib/site-data";
-import { PawIcon } from "./PawIcon";
 
 const companyLinks = [
   { label: "Home", href: PATHS.home },
@@ -25,7 +25,9 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2 text-ink">
-            <PawIcon className="h-6 w-6 text-terracotta" />
+            <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full">
+              <Image src="/images/logo-icon.png" alt="" fill className="object-cover" sizes="32px" />
+            </span>
             <span className="font-display text-lg font-bold">{business.name}</span>
           </div>
           <p className="mt-3 text-sm">

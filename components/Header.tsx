@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { business, PATHS, serviceNav, areaNavLinks } from "@/lib/site-data";
-import { PawIcon } from "./PawIcon";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { CallButton } from "./CTAButton";
@@ -11,7 +11,9 @@ export function Header() {
     <header className="sticky top-0 z-50 h-16 border-b border-border bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <Link href={PATHS.home} className="flex items-center gap-2 shrink-0 text-ink">
-          <PawIcon className="h-7 w-7 text-terracotta" />
+          <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full">
+            <Image src="/images/logo-icon.png" alt="" fill className="object-cover" sizes="36px" />
+          </span>
           <span className="font-display text-lg font-bold leading-tight sm:text-xl">
             {business.name}
           </span>
