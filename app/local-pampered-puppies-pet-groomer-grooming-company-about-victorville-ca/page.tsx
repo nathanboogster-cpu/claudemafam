@@ -81,23 +81,34 @@ export default function AboutPage() {
             <BookButton location="about_top" />
           </div>
         </div>
-        <PhotoPlaceholder caption="Photo of Donna Nichols — real photo pending from client" aspect="portrait" />
+        <PhotoPlaceholder
+          caption="The Pampered Puppies storefront at 15444 Bear Valley Rd, Victorville, CA"
+          aspect="portrait"
+          src="/images/storefront.jpg"
+        />
       </section>
 
       <StatBand />
 
       <section className="bg-white border-y border-border">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <Eyebrow>Our Approach</Eyebrow>
-          <h2 className="mt-1 font-display text-2xl font-bold text-ink">Our Philosophy</h2>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-            {philosophy.map((item) => (
-              <li key={item} className="flex items-start gap-3 rounded-2xl border border-border bg-cream p-4">
-                <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-sage-dark" />
-                <span className="text-ink-soft text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="mx-auto max-w-6xl px-4 py-12 grid gap-10 md:grid-cols-2 md:items-center">
+          <div>
+            <Eyebrow>Our Approach</Eyebrow>
+            <h2 className="mt-1 font-display text-2xl font-bold text-ink">Our Philosophy</h2>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              {philosophy.map((item) => (
+                <li key={item} className="flex items-start gap-3 rounded-2xl border border-border bg-cream p-4">
+                  <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-sage-dark" />
+                  <span className="text-ink-soft text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <PhotoPlaceholder
+            caption="Inside the Pampered Puppies grooming studio in Victorville, CA"
+            aspect="video"
+            src="/images/studio-interior.jpg"
+          />
         </div>
       </section>
 

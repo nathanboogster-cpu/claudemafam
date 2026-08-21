@@ -1,17 +1,18 @@
+import Image from "next/image";
 import { PawIcon } from "./PawIcon";
 
-// Placeholder for real photography. Ellen/Donna have not yet supplied photo files
-// (see Client Record §11), so this renders a correctly-sized, aspect-locked box
-// instead of stock imagery or a fabricated caption. When real photos arrive, swap
-// the <div> below for a Next.js <Image> with honest, descriptive alt text.
+// Renders a real photo when `src` is supplied; otherwise falls back to an
+// aspect-locked placeholder box instead of stock imagery or a fabricated caption.
 export function PhotoPlaceholder({
   caption,
   aspect = "square",
   className = "",
+  src,
 }: {
   caption: string;
   aspect?: "square" | "video" | "portrait" | "wide";
   className?: string;
+  src?: string;
 }) {
   const aspectClass = {
     square: "aspect-square",
@@ -19,6 +20,14 @@ export function PhotoPlaceholder({
     portrait: "aspect-[3/4]",
     wide: "aspect-[16/6]",
   }[aspect];
+
+  if (src) {
+    return (
+      <div className={`${aspectClass} ${className} relative overflow-hidden rounded-2xl border border-border`}>
+        <Image src={src} alt={caption} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+      </div>
+    );
+  }
 
   return (
     <div

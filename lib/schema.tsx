@@ -10,7 +10,7 @@ export function localBusinessSchema(pageUrl: string) {
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#business`,
     name: business.name,
-    image: `${SITE_URL}/images/storefront-placeholder.svg`,
+    image: `${SITE_URL}/images/storefront.jpg`,
     url: pageUrl,
     telephone: business.phoneDisplay,
     email: business.email,

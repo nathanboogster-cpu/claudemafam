@@ -68,8 +68,9 @@ export default function HomePage() {
             <TrustBar className="mt-8" />
           </div>
           <PhotoPlaceholder
-            caption="Photo of Donna grooming a dog in the Pampered Puppies studio — real photo pending from client"
+            caption="A freshly groomed client at the Pampered Puppies studio in Victorville, CA"
             aspect="portrait"
+            src="/images/gallery-bichon.jpg"
           />
         </div>
       </section>
@@ -139,9 +140,9 @@ export default function HomePage() {
           </h2>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <GalleryPhotoCard service="Full Groom" location="Victorville Studio" />
-          <GalleryPhotoCard service="Mobile Groom" location="Hesperia" />
-          <GalleryPhotoCard service="Cat Grooming" location="Victorville Studio" />
+          <GalleryPhotoCard service="Full Groom" location="Victorville Studio" src="/images/gallery-bichon.jpg" />
+          <GalleryPhotoCard service="Full Groom" location="Victorville Studio" src="/images/gallery-yorkie.jpg" />
+          <GalleryPhotoCard service="Full Groom" location="Victorville Studio" src="/images/gallery-bernedoodle.jpg" />
         </div>
         <div className="mt-8 text-center">
           <Link href={PATHS.gallery} className="font-semibold text-terracotta-dark hover:underline">

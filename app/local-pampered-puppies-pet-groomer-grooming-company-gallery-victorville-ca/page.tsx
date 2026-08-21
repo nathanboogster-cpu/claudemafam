@@ -17,20 +17,20 @@ export const metadata: Metadata = {
   alternates: { canonical: PATHS.gallery },
 };
 
-// Real client photos have not been supplied yet (see Client Record §11). Every
-// card below is a placeholder captioned with a verified service + verified
-// service area — swap each for a real photo with honest alt text once Ellen
-// supplies them. Nothing here claims a specific real job that hasn't happened.
+// Three cards below use real client photos supplied by Ellen. The rest are
+// placeholders captioned with a verified service + verified service area —
+// swap each for a real photo with honest alt text once more arrive. Nothing
+// here claims a specific real job that hasn't happened.
 const recentWork = [
-  { service: "Full Groom", location: "Victorville Studio" },
+  { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bichon.jpg" },
   { service: "Deshedding Treatment", location: "Victorville Studio" },
-  { service: "Mobile Groom", location: "Hesperia" },
+  { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-yorkie.jpg" },
   { service: "Cat Grooming", location: "Victorville Studio" },
   { service: "Bath & Brush", location: "Apple Valley · Mobile" },
-  { service: "Nail Trim & Ear Cleaning", location: "Victorville Studio" },
+  { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bernedoodle.jpg" },
   { service: "Puppy's First Groom", location: "Victorville Studio" },
   { service: "Mobile Groom", location: "Spring Valley Lake" },
-  { service: "Full Groom", location: "Victorville Studio" },
+  { service: "Nail Trim & Ear Cleaning", location: "Victorville Studio" },
 ] as const;
 
 const differenceChecklist = [
@@ -63,7 +63,7 @@ export default function GalleryPage() {
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {recentWork.map((item, i) => (
-            <GalleryPhotoCard key={i} service={item.service} location={item.location} />
+            <GalleryPhotoCard key={i} service={item.service} location={item.location} src={"src" in item ? item.src : undefined} />
           ))}
         </div>
       </section>

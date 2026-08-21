@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #fbf6ee;
-  --color-cream-deep: #f3e9d8;
-  --color-ink: #322418;
-  --color-ink-soft: #5a4636;
-  /* Main brand color is plum/purple (values only — the `terracotta` name is
-     kept as-is across components to avoid a sitewide rename churn). */
-  --color-terracotta: #7a4494;
-  --color-terracotta-dark: #5c3170;
-  --color-terracotta-light: #d6bbe6;
+  --color-cream: #f8f6fb;
+  --color-cream-deep: #ece6f5;
+  /* Deep plum-black and real storefront sign purple, sampled from Ellen's
+     actual signage/logo photos (see public/images/storefront.jpg) — this
+     replaces the earlier guessed purple with Pampered Puppies' real brand color. */
+  --color-ink: #241a35;
+  --color-ink-soft: #4a3f63;
+  --color-terracotta: #6a5fc0;
+  --color-terracotta-dark: #453a8a;
+  --color-terracotta-light: #cfc9f0;
   --color-sage: #5f7a5a;
   --color-sage-dark: #45593f;
-  --color-gold: #e0a851;
+  --color-gold: #d9a63c;
   --color-white: #ffffff;
-  --color-border: #e7d9c3;
+  --color-border: #ddd6ec;
 }
 
 @theme inline {
@@ -30,8 +31,11 @@
   --color-gold: var(--color-gold);
   --color-white: var(--color-white);
   --color-border: var(--color-border);
-  --font-sans: "Optima", "Segoe UI", "Century Gothic", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: "Georgia", "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+  /* Matches the SurePup reference site's type pairing: bold serif display,
+     clean sans body, tracked monospace for eyebrow/label text. */
+  --font-sans: var(--font-inter), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-playfair), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 html {

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#fbf6ee"/>
-  <g fill="#7a4494" transform="translate(6,6) scale(0.8125)">
+  <circle cx="32" cy="32" r="32" fill="#241a35"/>
+  <g fill="#d9a63c" transform="translate(6,6) scale(0.8125)">
     <ellipse cx="32" cy="42" rx="16" ry="13"/>
     <ellipse cx="12" cy="24" rx="7" ry="9"/>
     <ellipse cx="52" cy="24" rx="7" ry="9"/>
