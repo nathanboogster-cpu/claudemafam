@@ -13,7 +13,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { Eyebrow } from "@/components/Eyebrow";
 import { StatBand } from "@/components/StatBand";
 import { GalleryPhotoCard } from "@/components/GalleryPhotoCard";
-import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { ProcessSteps } from "@/components/ProcessSteps";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
@@ -184,21 +184,8 @@ export default function HomePage() {
       </section>
 
       <section className="bg-white border-y border-border">
-        <div className="mx-auto max-w-6xl px-4 py-14 text-center">
-          <Eyebrow>Results</Eyebrow>
-          <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
-            See the Pampered Puppies Difference
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-            A look at what a groom with Ellen looks like — patient, unhurried,
-            one pet at a time.
-          </p>
-          <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
-            ← Drag to compare →
-          </p>
-          <div className="mt-3">
-            <BeforeAfterSlider />
-          </div>
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <ProcessSteps />
         </div>
       </section>
 

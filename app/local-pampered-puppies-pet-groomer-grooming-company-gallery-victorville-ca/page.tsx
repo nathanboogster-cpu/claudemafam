@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { PATHS, SITE_URL } from "@/lib/site-data";
+import Link from "next/link";
+import { PATHS, SITE_URL, testimonials } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Eyebrow } from "@/components/Eyebrow";
 import { GalleryPhotoCard } from "@/components/GalleryPhotoCard";
-import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TestimonialCard } from "@/components/TestimonialCard";
+import { StatBand } from "@/components/StatBand";
 import { CheckIcon } from "@/components/icons";
 
 const pageUrl = `${SITE_URL}${PATHS.gallery}`;
@@ -71,15 +73,17 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      <StatBand />
+
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-14 text-center">
-          <Eyebrow>Results</Eyebrow>
+          <Eyebrow>Why Book With Us</Eyebrow>
           <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
-            See the Pampered Puppies Difference
+            Why Pet Parents Keep Coming Back
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-            A look at what a groom with Ellen looks like — patient, unhurried,
-            one pet at a time.
+            A look at what a groom with Ellen and the team looks like —
+            patient, unhurried, one pet at a time.
           </p>
 
           <ul className="mx-auto mt-6 flex max-w-xl flex-col items-start gap-2 text-left">
@@ -91,12 +95,20 @@ export default function GalleryPage() {
             ))}
           </ul>
 
-          <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
-            ← Drag to compare →
-          </p>
-          <div className="mt-3">
-            <BeforeAfterSlider />
+          <div className="mx-auto mt-10 grid max-w-3xl gap-6 text-left sm:grid-cols-2">
+            {testimonials
+              .filter((t) => t.attribution === "James D." || t.attribution === "Lisa S.")
+              .map((t) => (
+                <TestimonialCard key={t.attribution} quote={t.quote} attribution={t.attribution} />
+              ))}
           </div>
+
+          <Link
+            href={PATHS.reviews}
+            className="mt-6 inline-block text-sm font-semibold text-terracotta-dark hover:underline"
+          >
+            Read more reviews →
+          </Link>
         </div>
       </section>
 
