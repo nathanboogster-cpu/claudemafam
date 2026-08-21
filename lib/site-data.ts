@@ -54,11 +54,12 @@ export const hoursSchema = [
 
 export const serviceAreas = [
   "Victorville",
-  "Spring Valley Lake",
   "Hesperia",
   "Apple Valley",
-  "Barstow",
+  "Oro Grande",
+  "Adelanto",
   "Helendale",
+  "Barstow",
 ] as const;
 
 export const serviceAreaGeneral = "the greater High Desert / San Bernardino County area";
@@ -229,12 +230,20 @@ export const serviceAreaPages = [
       "Apple Valley's larger properties make in-driveway grooming especially convenient — no crate, no car ride, just Donna coming to your door.",
   },
   {
-    city: "Spring Valley Lake",
-    slug: "/mobile-dog-cat-grooming-spring-valley-lake-ca",
+    city: "Oro Grande",
+    slug: "/mobile-dog-cat-grooming-oro-grande-ca",
     intro:
-      "Spring Valley Lake is a short drive from the Pampered Puppies studio on Bear Valley Rd, and a regular stop for the mobile grooming service.",
+      "Oro Grande is one of the smaller High Desert communities north of Victorville that Pampered Puppies reaches through its mobile grooming service.",
     angle:
-      "Whether your dog or cat needs a quick bath or a full groom, Pampered Puppies At Your Door brings the same one-on-one care to Spring Valley Lake driveways.",
+      "For Oro Grande pet parents further from town, in-driveway grooming with Pampered Puppies At Your Door skips the drive into Victorville altogether.",
+  },
+  {
+    city: "Adelanto",
+    slug: "/mobile-dog-cat-grooming-adelanto-ca",
+    intro:
+      "Adelanto is part of the High Desert community Pampered Puppies' mobile grooming service reaches on its regular route out of Victorville.",
+    angle:
+      "Whether it's a quick bath or a full groom, Pampered Puppies At Your Door brings the same one-on-one, low-cage-time care to Adelanto driveways.",
   },
   {
     city: "Barstow",

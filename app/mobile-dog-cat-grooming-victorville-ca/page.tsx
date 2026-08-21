@@ -16,7 +16,7 @@ const pageUrl = `${SITE_URL}${PATHS.mobile}`;
 export const metadata: Metadata = {
   title: "Mobile Dog & Cat Grooming | Victorville & High Desert | Pampered Puppies",
   description:
-    "Pampered Puppies At Your Door — mobile dog & cat grooming in Victorville, Hesperia, Apple Valley, Spring Valley Lake, Barstow, Helendale & the High Desert. Call to check availability.",
+    "Pampered Puppies At Your Door — mobile dog & cat grooming in Victorville, Hesperia, Apple Valley, Oro Grande, Adelanto, Helendale, Barstow & the High Desert. Call to check availability.",
   alternates: { canonical: PATHS.mobile },
 };
 

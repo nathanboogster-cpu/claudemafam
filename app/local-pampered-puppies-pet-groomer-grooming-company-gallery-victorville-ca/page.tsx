@@ -29,7 +29,7 @@ const recentWork = [
   { service: "Bath & Brush", location: "Apple Valley · Mobile" },
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bernedoodle.jpg" },
   { service: "Puppy's First Groom", location: "Victorville Studio" },
-  { service: "Mobile Groom", location: "Spring Valley Lake" },
+  { service: "Mobile Groom", location: "Adelanto" },
   { service: "Nail Trim & Ear Cleaning", location: "Victorville Studio" },
 ] as const;
 
