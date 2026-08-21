@@ -15,12 +15,21 @@ export function TestimonialCard({
 }) {
   return (
     <figure className="flex h-full flex-col justify-between rounded-2xl border border-border bg-white p-6 shadow-sm">
-      <blockquote className="text-ink-soft text-sm leading-relaxed">
-        <span className="text-3xl leading-none text-terracotta-light" aria-hidden="true">
-          &ldquo;
-        </span>
-        {quote}
-      </blockquote>
+      <div>
+        <div className="flex text-gold" aria-hidden="true">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+              <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1 1 5.8L10 14.9l-5.21 2.62 1-5.8-4.21-4.1 5.82-.85z" />
+            </svg>
+          ))}
+        </div>
+        <blockquote className="mt-3 text-ink-soft text-sm leading-relaxed">
+          <span className="text-3xl leading-none text-terracotta-light" aria-hidden="true">
+            &ldquo;
+          </span>
+          {quote}
+        </blockquote>
+      </div>
       <figcaption className="mt-4 flex items-center gap-3">
         <span
           aria-hidden="true"
