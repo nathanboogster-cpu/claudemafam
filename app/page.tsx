@@ -6,15 +6,14 @@ import { TrustBar } from "@/components/TrustBar";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { ServiceCard } from "@/components/ServiceCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
-import { DogIcon, CatIcon, TruckIcon, PuppyIcon, HeartIcon } from "@/components/icons";
+import { DogIcon, CatIcon, TruckIcon, PuppyIcon, HeartIcon, CheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
-import { WhyChooseUs } from "@/components/WhyChooseUs";
-import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceAreaSection } from "@/components/ServiceAreaSection";
 import { FaqBlock } from "@/components/FaqBlock";
 import { Eyebrow } from "@/components/Eyebrow";
 import { StatBand } from "@/components/StatBand";
 import { GalleryPhotoCard } from "@/components/GalleryPhotoCard";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
@@ -91,31 +90,36 @@ export default function HomePage() {
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceCard
             title="Dog Grooming"
-            description="Baths, haircuts, deshedding, nail trims, and more — starting at $55–65 for small dogs, $65–85 for large."
+            description="Baths, haircuts, deshedding, nail trims, and more."
+            price="Starting at $55–65"
             href={PATHS.dog}
             icon={<DogIcon />}
           />
           <ServiceCard
             title="Cat Grooming"
-            description="Full baths, spot shampooing, deshedding, and moisturizing treatments, with pricing after a quick consultation."
+            description="Full baths, spot shampooing, deshedding, and moisturizing treatments."
+            price="Priced after a quick consultation"
             href={PATHS.cat}
             icon={<CatIcon />}
           />
           <ServiceCard
             title="Mobile Grooming"
-            description={'"Pampered Puppies At Your Door" — professional grooming in your own driveway across the High Desert.'}
+            description={'"Pampered Puppies At Your Door" — professional grooming in your own driveway.'}
+            price="Same rates as in-store"
             href={PATHS.mobile}
             icon={<TruckIcon />}
           />
           <ServiceCard
             title="Puppy Grooming"
             description="A patient, low-stress introduction to grooming for your puppy's first visits."
+            price="Starting at $55–65"
             href={PATHS.puppy}
             icon={<PuppyIcon />}
           />
           <ServiceCard
             title="Anxious & Senior Dogs"
             description="Advance-notice grooming for aggressive, anxious, senior, or difficult-to-handle dogs."
+            price="Priced with dog grooming"
             href={PATHS.anxious}
             icon={<HeartIcon />}
           />
@@ -123,13 +127,41 @@ export default function HomePage() {
       </section>
 
       <section className="bg-white border-y border-border">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <WhyChooseUs />
+        <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-2 md:items-center">
+          <PhotoPlaceholder
+            caption="Inside the Pampered Puppies grooming studio in Victorville, CA"
+            aspect="video"
+            src="/images/studio-interior.jpg"
+          />
+          <div>
+            <Eyebrow>Meet Your Groomer</Eyebrow>
+            <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+              Groomed by Donna, Not an Assembly Line
+            </h2>
+            <p className="mt-4 text-ink-soft leading-relaxed">
+              Donna Nichols owns and operates Pampered Puppies, bringing 35+
+              years of hands-on dog &amp; cat grooming experience to every
+              appointment — one-on-one attention, minimal cage time, and a
+              quick consultation before any clippers come out.
+            </p>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {["35+ Years Experience", "First-Aid Trained", "BBB A+ Accredited"].map((b) => (
+                <li
+                  key={b}
+                  className="flex items-center gap-1.5 rounded-full border border-border bg-cream px-3 py-1.5 text-xs font-semibold text-ink-soft"
+                >
+                  <CheckIcon className="h-3.5 w-3.5 text-sage-dark" />
+                  {b}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <Link href={PATHS.about} className="font-semibold text-terracotta-dark hover:underline">
+                More about Donna →
+              </Link>
+            </div>
+          </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-14">
-        <ProcessSteps />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14">
@@ -148,6 +180,25 @@ export default function HomePage() {
           <Link href={PATHS.gallery} className="font-semibold text-terracotta-dark hover:underline">
             See the full gallery →
           </Link>
+        </div>
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-14 text-center">
+          <Eyebrow>Results</Eyebrow>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+            See the Pampered Puppies Difference
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-ink-soft">
+            A look at what a groom with Donna looks like — patient, unhurried,
+            one pet at a time.
+          </p>
+          <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
+            ← Drag to compare →
+          </p>
+          <div className="mt-3">
+            <BeforeAfterSlider />
+          </div>
         </div>
       </section>
 

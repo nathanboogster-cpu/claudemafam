@@ -4,11 +4,13 @@ import type { ReactNode } from "react";
 export function ServiceCard({
   title,
   description,
+  price,
   href,
   icon,
 }: {
   title: string;
   description: string;
+  price?: string;
   href: string;
   icon: ReactNode;
 }) {
@@ -22,6 +24,7 @@ export function ServiceCard({
       </div>
       <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
       <p className="text-sm text-ink-soft">{description}</p>
+      {price && <p className="font-mono text-sm font-semibold text-sage-dark">{price}</p>}
       <span className="mt-1 text-sm font-semibold text-terracotta-dark group-hover:underline">
         Learn more →
       </span>
