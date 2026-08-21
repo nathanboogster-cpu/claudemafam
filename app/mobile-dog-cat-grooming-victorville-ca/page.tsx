@@ -101,7 +101,7 @@ export default function MobileGroomingPage() {
         <ol className="mt-6 grid gap-4 sm:grid-cols-3">
           {howItWorks.map((step, i) => (
             <li key={step} className="rounded-2xl border border-border bg-cream-deep p-5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-terracotta text-sm font-bold text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-sm font-bold text-ink">
                 {i + 1}
               </span>
               <p className="mt-3 text-sm text-ink-soft">{step}</p>

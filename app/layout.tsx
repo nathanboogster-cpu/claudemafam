@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <JsonLd data={localBusinessSchema(SITE_URL)} />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-terracotta focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-gold focus:px-4 focus:py-2 focus:text-ink"
         >
           Skip to content
         </a>

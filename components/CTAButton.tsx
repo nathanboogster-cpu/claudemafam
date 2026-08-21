@@ -8,7 +8,7 @@ type Variant = "primary" | "secondary" | "ghost";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-terracotta text-white hover:bg-terracotta-dark focus-visible:outline-terracotta-dark",
+    "bg-gold text-ink hover:bg-gold-dark focus-visible:outline-terracotta-dark",
   // Outline style — solid Call (primary) paired with an outline Book/secondary
   // action reads as a clear hierarchy without competing for attention.
   secondary:

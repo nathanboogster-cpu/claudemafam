@@ -8,12 +8,17 @@
      replaces the earlier guessed purple with Pampered Puppies' real brand color. */
   --color-ink: #241a35;
   --color-ink-soft: #4a3f63;
-  --color-terracotta: #6a5fc0;
-  --color-terracotta-dark: #453a8a;
-  --color-terracotta-light: #cfc9f0;
+  /* Deep plum + gold, taken directly from the new Pampered Puppies logo
+     (linked oval dog/cat emblem on plum, gold linework, white wordmark).
+     `terracotta` is now the plum family (links/borders/badges); gold is the
+     primary CTA/accent color, matching the logo's dominant color. */
+  --color-terracotta: #4a3570;
+  --color-terracotta-dark: #2c1f47;
+  --color-terracotta-light: #e6def2;
   --color-sage: #5f7a5a;
   --color-sage-dark: #45593f;
-  --color-gold: #d9a63c;
+  --color-gold: #e0ac2f;
+  --color-gold-dark: #b8841f;
   --color-white: #ffffff;
   --color-border: #ddd6ec;
 }
@@ -29,6 +34,7 @@
   --color-sage: var(--color-sage);
   --color-sage-dark: var(--color-sage-dark);
   --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
   --color-white: var(--color-white);
   --color-border: var(--color-border);
   /* Matches the SurePup reference site's type pairing: bold serif display,
