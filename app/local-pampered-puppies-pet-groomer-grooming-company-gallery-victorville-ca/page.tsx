@@ -54,7 +54,7 @@ export default function GalleryPage() {
         <Eyebrow>Recent Work</Eyebrow>
         <h1 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">Grooming Gallery</h1>
         <p className="mx-auto mt-4 max-w-2xl text-ink-soft">
-          A look at real dogs and cats groomed by Donna and the Pampered
+          A look at real dogs and cats groomed by Ellen and the Pampered
           Puppies team. This gallery is ready for photos — check back soon
           for updates.
         </p>
@@ -75,7 +75,7 @@ export default function GalleryPage() {
             See the Pampered Puppies Difference
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-            A look at what a groom with Donna looks like — patient, unhurried,
+            A look at what a groom with Ellen looks like — patient, unhurried,
             one pet at a time.
           </p>
 

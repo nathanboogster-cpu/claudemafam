@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Dog & cat grooming in Victorville, CA — in-store and mobile. 4.3★ from 226 Google reviews, BBB A+ accredited. Call to book with Donna.",
+    "Dog & cat grooming in Victorville, CA — in-store and mobile. 4.3★ from 226 Google reviews, BBB A+ accredited. Call to book with Ellen.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

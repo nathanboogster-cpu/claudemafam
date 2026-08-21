@@ -69,8 +69,8 @@ export default function DogGroomingPage() {
           <p className="mt-4 text-ink-soft leading-relaxed">
             Professional grooming isn&rsquo;t just about looking good — regular
             baths, deshedding, nail trims, and ear care keep your dog
-            comfortable and catch skin, coat, and ear issues early. Donna
-            Nichols brings 35+ years of hands-on experience to every dog that
+            comfortable and catch skin, coat, and ear issues early. Ellen
+            Karikari brings 35+ years of hands-on experience to every dog that
             comes through the door, working at their pace with minimal cage
             time.
           </p>

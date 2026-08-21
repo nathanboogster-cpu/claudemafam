@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const howItWorks = [
   "Call 760-881-3171 and let us know your pet's breed, size, and what you'd like done.",
   "We check availability for your area and schedule a driveway appointment.",
-  "Donna arrives with everything needed to groom your pet right at your home.",
+  "Ellen arrives with everything needed to groom your pet right at your home.",
 ];
 
 const mobileFaqs = [
@@ -77,8 +77,8 @@ export default function MobileGroomingPage() {
           </h1>
           <p className="mt-4 text-ink-soft leading-relaxed">
             No car ride, no waiting room, no other dogs to stress about —
-            just your pet, groomed in the comfort of your own driveway. Donna
-            Nichols brings 35+ years of hands-on grooming experience straight
+            just your pet, groomed in the comfort of your own driveway. Ellen
+            Karikari brings 35+ years of hands-on grooming experience straight
             to you, with the same one-on-one attention and low-cage-time
             approach as our in-store visits.
           </p>

@@ -80,7 +80,7 @@ export default function PuppyGroomingPage() {
           </h1>
           <p className="mt-4 text-ink-soft leading-relaxed">
             Your puppy&rsquo;s first grooming visits set the tone for years of
-            appointments to come. Donna Nichols brings 35+ years of hands-on
+            appointments to come. Ellen Karikari brings 35+ years of hands-on
             grooming experience and a patient, low-cage-time approach, so
             your puppy learns that grooming is calm and safe — not
             something to fear.

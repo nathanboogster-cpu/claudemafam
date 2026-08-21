@@ -63,7 +63,7 @@ export default function CatGroomingPage() {
             Cat Grooming in Victorville, CA
           </h1>
           <p className="mt-4 text-ink-soft leading-relaxed">
-            Cats need a groomer who moves at their pace. Donna Nichols brings
+            Cats need a groomer who moves at their pace. Ellen Karikari brings
             35+ years of hands-on grooming experience and a calm, patient
             touch to every cat, whether it&rsquo;s a full bath and trim or
             just a deshedding session to cut down on hairballs and shedding

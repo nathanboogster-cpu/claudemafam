@@ -101,7 +101,7 @@ export function Footer() {
             </li>
             <li>{business.addressFull}</li>
           </ul>
-          {/* Hours pending final confirmation from Donna/Ellen — see lib/site-data.ts */}
+          {/* Hours pending final confirmation from Ellen — see lib/site-data.ts */}
           <h2 className="mt-4 text-sm font-semibold uppercase tracking-wide text-ink">
             Hours <span className="font-normal normal-case text-xs text-ink-soft/70">(pending confirmation)</span>
           </h2>

@@ -57,7 +57,7 @@ export default function HomePage() {
               <Link href={PATHS.mobile} className="font-semibold text-terracotta-dark hover:underline">
                 Pampered Puppies At Your Door
               </Link>
-              . One-on-one attention from owner-groomer Donna Nichols, 35+ years
+              . One-on-one attention from owner-groomer Ellen Karikari, 35+ years
               of hands-on experience, minimal cage time.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -136,10 +136,10 @@ export default function HomePage() {
           <div>
             <Eyebrow>Meet Your Groomer</Eyebrow>
             <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
-              Groomed by Donna, Not an Assembly Line
+              Groomed by Ellen, Not an Assembly Line
             </h2>
             <p className="mt-4 text-ink-soft leading-relaxed">
-              Donna Nichols owns and operates Pampered Puppies, bringing 35+
+              Ellen Karikari owns and operates Pampered Puppies, bringing 35+
               years of hands-on dog &amp; cat grooming experience to every
               appointment — one-on-one attention, minimal cage time, and a
               quick consultation before any clippers come out.
@@ -157,7 +157,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6">
               <Link href={PATHS.about} className="font-semibold text-terracotta-dark hover:underline">
-                More about Donna →
+                More about Ellen →
               </Link>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function HomePage() {
             See the Pampered Puppies Difference
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-ink-soft">
-            A look at what a groom with Donna looks like — patient, unhurried,
+            A look at what a groom with Ellen looks like — patient, unhurried,
             one pet at a time.
           </p>
           <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
@@ -240,7 +240,7 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14 text-center">
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
-          Ready to book with Donna?
+          Ready to book with Ellen?
         </h2>
         <p className="mt-3 text-ink-soft">
           Aggressive or anxious pets welcome with advance notice — call us and

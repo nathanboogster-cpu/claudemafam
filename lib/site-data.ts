@@ -1,13 +1,13 @@
 // Central, single source of truth for every verified business fact used across the site.
 // Sourced from the Client Record, Website Build Brief, and Claude Code Final Handoff
-// for Pampered Puppies (Ellen / Donna Nichols). Do not add facts that aren't in those
+// for Pampered Puppies (owner: Ellen Karikari). Do not add facts that aren't in those
 // documents — see the handoff §2 "what must not appear" list.
 
 export const SITE_URL = "https://www.pamperedpuppies.net";
 
 export const business = {
   name: "Pampered Puppies",
-  ownerName: "Donna Nichols",
+  ownerName: "Ellen Karikari",
   ownerExperience: "35+ years of hands-on dog & cat grooming experience",
   firstAid: "First-aid trained, including for seizures and heart attacks",
   phoneDisplay: "760-881-3171",
@@ -152,7 +152,7 @@ export const trustPoints = [
   },
   {
     title: "35+ Years of Experience",
-    body: "Donna Nichols has 35+ years of hands-on dog & cat grooming experience.",
+    body: "Ellen Karikari has 35+ years of hands-on dog & cat grooming experience.",
   },
   {
     title: "First-Aid Trained",
@@ -182,7 +182,7 @@ export const processSteps = [
   },
   {
     title: "One-on-One Grooming",
-    body: "Your pet gets Donna's individual attention with minimal cage/kennel time — never rushed through like an assembly line.",
+    body: "Your pet gets Ellen's individual attention with minimal cage/kennel time — never rushed through like an assembly line.",
   },
   {
     title: "Pickup or At-Your-Door Finish",
@@ -219,7 +219,7 @@ export const serviceAreaPages = [
     intro:
       "Hesperia sits right next to Victorville in the High Desert, and it's one of the areas Pampered Puppies' mobile grooming reaches most often.",
     angle:
-      "For Hesperia pet parents juggling a busy schedule, skipping the drive into Victorville and having Donna come to you can be the easiest way to keep up with regular grooming.",
+      "For Hesperia pet parents juggling a busy schedule, skipping the drive into Victorville and having Ellen come to you can be the easiest way to keep up with regular grooming.",
   },
   {
     city: "Apple Valley",
@@ -227,7 +227,7 @@ export const serviceAreaPages = [
     intro:
       "Apple Valley is part of the High Desert community Pampered Puppies has served for years, both in the Victorville studio and through mobile visits.",
     angle:
-      "Apple Valley's larger properties make in-driveway grooming especially convenient — no crate, no car ride, just Donna coming to your door.",
+      "Apple Valley's larger properties make in-driveway grooming especially convenient — no crate, no car ride, just Ellen coming to your door.",
   },
   {
     city: "Oro Grande",
@@ -251,7 +251,7 @@ export const serviceAreaPages = [
     intro:
       "Barstow pet parents don't have to make the drive to Victorville — Pampered Puppies At Your Door serves Barstow as part of its regular High Desert mobile route.",
     angle:
-      "Mobile grooming means your pet skips the car ride and the waiting room entirely — Donna comes to Barstow and grooms right at your home.",
+      "Mobile grooming means your pet skips the car ride and the waiting room entirely — Ellen comes to Barstow and grooms right at your home.",
   },
   {
     city: "Helendale",

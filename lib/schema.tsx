@@ -23,7 +23,7 @@ export function localBusinessSchema(pageUrl: string) {
       postalCode: business.addressZip,
       addressCountry: "US",
     },
-    // Hours are a GBP-sourced placeholder pending Donna/Ellen's final confirmation
+    // Hours are a GBP-sourced placeholder pending Ellen's final confirmation
     // (three sources conflicted at build time — see lib/site-data.ts `hours`).
     openingHoursSpecification: hoursSchema.map((h) => ({
       "@type": "OpeningHoursSpecification",

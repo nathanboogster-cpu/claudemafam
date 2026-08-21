@@ -14,7 +14,7 @@ import { StatBand } from "@/components/StatBand";
 export const metadata: Metadata = {
   title: "About Pampered Puppies | Victorville, CA Dog & Cat Groomer",
   description:
-    "Meet Donna Nichols, owner-groomer at Pampered Puppies in Victorville, CA — 35+ years of hands-on grooming experience, first-aid trained, and a low-cage-time approach.",
+    "Meet Ellen Karikari, owner-groomer at Pampered Puppies in Victorville, CA — 35+ years of hands-on grooming experience, first-aid trained, and a low-cage-time approach.",
   alternates: { canonical: PATHS.about },
 };
 
@@ -45,9 +45,9 @@ export default function AboutPage() {
             About Pampered Puppies
           </h1>
           <p className="mt-4 text-ink-soft leading-relaxed">
-            Pampered Puppies is owned and operated by <strong>Donna Nichols</strong>,
+            Pampered Puppies is owned and operated by <strong>Ellen Karikari</strong>,
             who brings <strong>35+ years of hands-on dog and cat grooming
-            experience</strong> to every appointment. Donna grooms out of the
+            experience</strong> to every appointment. Ellen grooms out of the
             studio at 15444 Bear Valley Rd, Ste A, in Victorville, and also
             takes her tools on the road with{" "}
             <Link href={PATHS.mobile} className="font-semibold text-terracotta-dark hover:underline">
@@ -56,7 +56,7 @@ export default function AboutPage() {
             .
           </p>
           <p className="mt-4 text-ink-soft leading-relaxed">
-            Donna&rsquo;s approach is simple: know the animal in front of her,
+            Ellen&rsquo;s approach is simple: know the animal in front of her,
             work at their pace, and keep them out of a cage as much as
             possible. She&rsquo;s first-aid trained, including for seizures and
             heart attacks, and regularly works with{" "}
@@ -77,7 +77,7 @@ export default function AboutPage() {
             ))}
           </ul>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CallButton location="about_top" label="Book with Donna" />
+            <CallButton location="about_top" label="Book with Ellen" />
             <BookButton location="about_top" />
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
         <div className="text-center">
           <Eyebrow>Reviews</Eyebrow>
           <h2 className="mt-1 font-display text-2xl font-bold text-ink">
-            In Donna&rsquo;s Words, From Her Clients
+            What Clients Say
           </h2>
         </div>
         <div className="mt-6">
@@ -134,7 +134,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 text-center">
-        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Book with Donna</h2>
+        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Book with Ellen</h2>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <CallButton location="about_bottom" label="Call Now" />
           <BookButton location="about_bottom" />
