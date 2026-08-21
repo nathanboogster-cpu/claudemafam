@@ -19,23 +19,25 @@ export const metadata: Metadata = {
   alternates: { canonical: PATHS.gallery },
 };
 
-// Seven cards below use real client photos supplied by Ellen (studio shots and
-// mobile-visit shots from her Google Drive). The remaining two are placeholders
-// captioned with a verified service + verified service area — swap each for a
-// real photo once one arrives. Nothing here claims a specific real job that
-// hasn't happened, and mobile-visit photos are captioned generically since the
-// exact city of each shoot isn't confirmed.
+// Eight cards below use real client photos supplied by Ellen (studio shots and
+// mobile-visit shots from her Google Drive), captioned with a verified service
+// + verified service area — mobile-visit photos are captioned generically
+// since the exact city of each shoot isn't confirmed. The Cat Grooming and
+// Puppy's First Groom cards use stock photos (not actual Pampered Puppies
+// clients) since no real cat or puppy client photo exists yet — captioned
+// "Representative Photo" rather than a real location, and swapped for a real
+// photo once one arrives.
 const recentWork = [
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bichon.jpg" },
   { service: "Full Groom", location: "Mobile Visit", src: "/images/gallery-lab.jpg" },
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-yorkie.jpg" },
-  { service: "Cat Grooming", location: "Victorville Studio" },
+  { service: "Cat Grooming", location: "Representative Photo", src: "/images/gallery-cat-groom.jpg" },
   { service: "Bath & Brush", location: "Mobile Visit", src: "/images/gallery-goldendoodle.jpg" },
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bernedoodle.jpg" },
   { service: "Full Groom", location: "Mobile Visit", src: "/images/gallery-pomeranian.jpg" },
   { service: "Mobile Groom", location: "Mobile Visit", src: "/images/gallery-german-shepherd.jpg" },
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-studio-goldendoodle.jpg" },
-  { service: "Puppy's First Groom", location: "Victorville Studio" },
+  { service: "Puppy's First Groom", location: "Representative Photo", src: "/images/gallery-puppy-groom.jpg" },
 ] as const;
 
 const differenceChecklist = [
@@ -59,9 +61,9 @@ export default function GalleryPage() {
         <Eyebrow>Recent Work</Eyebrow>
         <h1 className="mt-1 font-display text-3xl font-bold text-ink sm:text-4xl">Grooming Gallery</h1>
         <p className="mx-auto mt-4 max-w-2xl text-ink-soft">
-          A look at real dogs and cats groomed by Ellen and the Pampered
-          Puppies team. This gallery is ready for photos — check back soon
-          for updates.
+          A look at real dogs groomed by Ellen and the Pampered Puppies team,
+          plus a couple of representative photos while we gather more cat and
+          puppy client shots.
         </p>
       </section>
 

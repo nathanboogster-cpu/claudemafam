@@ -74,7 +74,12 @@ export default function CatGroomingPage() {
             <BookButton location="cat_top" />
           </div>
         </div>
-        <PhotoPlaceholder caption="Photo of a freshly groomed cat — real photo pending from client" aspect="portrait" />
+        {/* Stock photo (not a Pampered Puppies client) — used until a real cat-client photo is available. */}
+        <PhotoPlaceholder
+          caption="Gentle, patient cat grooming"
+          aspect="portrait"
+          src="/images/cat-grooming-photo.jpg"
+        />
       </section>
 
       <section className="bg-white border-y border-border">

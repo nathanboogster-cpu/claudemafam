@@ -90,7 +90,12 @@ export default function PuppyGroomingPage() {
             <BookButton location="puppy_top" />
           </div>
         </div>
-        <PhotoPlaceholder caption="Photo of a puppy's first grooming visit — real photo pending from client" aspect="portrait" />
+        {/* Stock photo (not a Pampered Puppies client) — used until a real puppy-client photo is available. */}
+        <PhotoPlaceholder
+          caption="A gentle first grooming experience"
+          aspect="portrait"
+          src="/images/puppy-grooming-photo.jpg"
+        />
       </section>
 
       <section className="bg-white border-y border-border">
