@@ -17,20 +17,22 @@ export const metadata: Metadata = {
   alternates: { canonical: PATHS.gallery },
 };
 
-// Three cards below use real client photos supplied by Ellen. The rest are
-// placeholders captioned with a verified service + verified service area —
-// swap each for a real photo with honest alt text once more arrive. Nothing
-// here claims a specific real job that hasn't happened.
+// Seven cards below use real client photos supplied by Ellen (studio shots and
+// mobile-visit shots from her Google Drive). The remaining two are placeholders
+// captioned with a verified service + verified service area — swap each for a
+// real photo once one arrives. Nothing here claims a specific real job that
+// hasn't happened, and mobile-visit photos are captioned generically since the
+// exact city of each shoot isn't confirmed.
 const recentWork = [
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bichon.jpg" },
-  { service: "Deshedding Treatment", location: "Victorville Studio" },
+  { service: "Full Groom", location: "Mobile Visit", src: "/images/gallery-lab.jpg" },
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-yorkie.jpg" },
   { service: "Cat Grooming", location: "Victorville Studio" },
-  { service: "Bath & Brush", location: "Apple Valley · Mobile" },
+  { service: "Bath & Brush", location: "Mobile Visit", src: "/images/gallery-goldendoodle.jpg" },
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-bernedoodle.jpg" },
+  { service: "Full Groom", location: "Mobile Visit", src: "/images/gallery-pomeranian.jpg" },
+  { service: "Mobile Groom", location: "Mobile Visit", src: "/images/gallery-german-shepherd.jpg" },
   { service: "Puppy's First Groom", location: "Victorville Studio" },
-  { service: "Mobile Groom", location: "Adelanto" },
-  { service: "Nail Trim & Ear Cleaning", location: "Victorville Studio" },
 ] as const;
 
 const differenceChecklist = [

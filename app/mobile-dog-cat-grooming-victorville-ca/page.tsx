@@ -87,7 +87,11 @@ export default function MobileGroomingPage() {
             <BookButton location="mobile_top" />
           </div>
         </div>
-        <PhotoPlaceholder caption="Photo of the mobile grooming setup — real photo pending from client" aspect="portrait" />
+        <PhotoPlaceholder
+          caption="Grooming inside the Pampered Puppies At Your Door mobile unit"
+          aspect="portrait"
+          src="/images/mobile-van-interior.jpg"
+        />
       </section>
 
       <section className="bg-white border-y border-border">
