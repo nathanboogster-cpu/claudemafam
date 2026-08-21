@@ -95,7 +95,11 @@ export default function AnxiousSeniorDogGroomingPage() {
             <BookButton location="anxious_top" />
           </div>
         </div>
-        <PhotoPlaceholder caption="Photo of Ellen calmly grooming a nervous dog — real photo pending from client" aspect="portrait" />
+        <PhotoPlaceholder
+          caption="Gentle, hands-on support during a groom at the Pampered Puppies studio"
+          aspect="portrait"
+          src="/images/senior-dog-grooming.jpg"
+        />
       </section>
 
       <section className="bg-white border-y border-border">

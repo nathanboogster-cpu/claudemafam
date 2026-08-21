@@ -79,7 +79,11 @@ export default function DogGroomingPage() {
             <BookButton location="dog_top" />
           </div>
         </div>
-        <PhotoPlaceholder caption="Before/after photo of a freshly groomed dog — real photo pending from client" aspect="portrait" />
+        <PhotoPlaceholder
+          caption="A freshly groomed Golden Retriever at the Pampered Puppies studio"
+          aspect="portrait"
+          src="/images/gallery-golden-retriever.jpg"
+        />
       </section>
 
       <section className="bg-white border-y border-border">
