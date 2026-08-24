@@ -32,6 +32,8 @@ export const business = {
   },
   // Google review link used for "leave a review" CTAs on the Reviews page.
   googleReviewLink: "https://share.google/i7uzWVzW7akDJWenj",
+  // Online booking widget (DaySmart) — every "Book Now" CTA links here.
+  bookingUrl: "https://book.daysmart.com/booking/service?DSID=DC-2233532",
 } as const;
 
 // HOURS — NOT YET FINAL. Three sources conflict (Thryv site, GBP, Yelp). Per the

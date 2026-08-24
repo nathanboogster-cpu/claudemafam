@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { trackEvent } from "@/lib/track";
-import { business, PATHS } from "@/lib/site-data";
+import { business } from "@/lib/site-data";
 
 type Variant = "primary" | "secondary" | "ghost";
 
@@ -47,7 +46,7 @@ export function BookButton({
   variant = "secondary",
   label = "Book Now",
   location,
-  href = PATHS.contact,
+  href = business.bookingUrl,
   className = "",
 }: {
   variant?: Variant;
@@ -57,13 +56,15 @@ export function BookButton({
   className?: string;
 }) {
   return (
-    <Link
+    <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={() => trackEvent("book_click", { location })}
       className={`${baseClasses} ${variantClasses[variant]} ${className}`}
     >
       {label}
-    </Link>
+    </a>
   );
 }
 
