@@ -12,9 +12,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Separate standalone app with its own config/lint/build — see
-    // pet-spa-luxe/README or the project root notes.
-    "pet-spa-luxe/**",
   ]),
 ]);
 
