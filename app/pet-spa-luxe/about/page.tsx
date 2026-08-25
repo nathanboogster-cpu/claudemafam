@@ -5,7 +5,7 @@ import { CallButton, RequestButton } from "@/components/psl/CTAButton";
 import { PhotoPlaceholder } from "@/components/psl/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema } from "@/lib/psl/schema";
 import { CheckIcon } from "@/components/icons";
-import { business, differentiators, serviceFeatures, PATHS, SITE_URL } from "@/lib/psl/site-data";
+import { business, differentiators, serviceFeatures, photos, PATHS, SITE_URL } from "@/lib/psl/site-data";
 
 export const metadata: Metadata = {
   title: "About Pet Spa Luxe",
@@ -48,7 +48,7 @@ export default function AboutPage() {
             <RequestButton location="about" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption="Pet Spa Luxe team & van photos coming soon" aspect="portrait" className="w-full" />
+        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="portrait" className="w-full" />
       </section>
 
       <section className="bg-psl-cream-deep">
@@ -74,7 +74,7 @@ export default function AboutPage() {
         <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
           {serviceFeatures.map((f) => (
             <li key={f} className="flex items-center gap-2 text-sm text-psl-ink-soft">
-              <CheckIcon className="h-4 w-4 shrink-0 text-psl-sage-dark" />
+              <CheckIcon className="h-4 w-4 shrink-0 text-psl-pink-dark" />
               {f}
             </li>
           ))}

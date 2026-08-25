@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     question: "What are Pet Spa Luxe's hours?",
-    answer: "Hours are confirmed by phone — call to check current availability.",
+    answer: "Pet Spa Luxe is open every day, 7:00 AM – 9:00 PM.",
   },
   {
     question: "How is Pet Spa Luxe rated?",

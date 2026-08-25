@@ -22,20 +22,20 @@
   --color-white: #ffffff;
   --color-border: #ddd6ec;
 
-  /* Pet Spa Luxe (El Sobrante, CA — /pet-spa-luxe routes). Deliberately
-     distinct from Pampered Puppies' plum/gold: deep forest ink + warm brass
-     accent on a soft ivory ground. Placeholder brand palette until the
-     client's real logo/brand files are available — see build notes. */
-  --color-psl-cream: #faf8f3;
-  --color-psl-cream-deep: #f1ece0;
-  --color-psl-ink: #12261f;
-  --color-psl-ink-soft: #44584e;
-  --color-psl-sage: #7c9885;
-  --color-psl-sage-dark: #5c7666;
-  --color-psl-brass: #b3843c;
-  --color-psl-brass-dark: #8c6529;
+  /* Pet Spa Luxe (El Sobrante, CA — /pet-spa-luxe routes). Sampled directly
+     from the real Pet Spa Luxe logo (public/images/pet-spa-luxe/logo.webp):
+     soft blush-pink ground, warm metallic gold crest/type, deep warm-brown
+     ink for readable text on both. */
+  --color-psl-cream: #fdf6f4;
+  --color-psl-cream-deep: #f8e3ea;
+  --color-psl-ink: #2a1a14;
+  --color-psl-ink-soft: #5c473f;
+  --color-psl-pink: #f2b9ce;
+  --color-psl-pink-dark: #d97fa0;
+  --color-psl-brass: #c39a3e;
+  --color-psl-brass-dark: #9c7a2c;
   --color-psl-white: #ffffff;
-  --color-psl-border: #e4ddcd;
+  --color-psl-border: #f0d9e0;
 }
 
 @theme inline {
@@ -56,8 +56,8 @@
   --color-psl-cream-deep: var(--color-psl-cream-deep);
   --color-psl-ink: var(--color-psl-ink);
   --color-psl-ink-soft: var(--color-psl-ink-soft);
-  --color-psl-sage: var(--color-psl-sage);
-  --color-psl-sage-dark: var(--color-psl-sage-dark);
+  --color-psl-pink: var(--color-psl-pink);
+  --color-psl-pink-dark: var(--color-psl-pink-dark);
   --color-psl-brass: var(--color-psl-brass);
   --color-psl-brass-dark: var(--color-psl-brass-dark);
   --color-psl-white: var(--color-psl-white);

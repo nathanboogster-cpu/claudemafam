@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { business, hoursNote, PATHS, serviceNav, areaNav } from "@/lib/psl/site-data";
-import { PawIcon } from "@/components/PawIcon";
+import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/psl/site-data";
 
 const companyLinks = [
   { label: "Home", href: PATHS.home },
@@ -17,8 +17,8 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2 text-psl-ink">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-psl-ink text-psl-brass">
-              <PawIcon className="h-4 w-4" />
+            <span className="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full border border-psl-border bg-white">
+              <Image src={business.logoMark} alt="" fill className="object-cover" sizes="36px" />
             </span>
             <span className="font-psl-display text-lg font-bold">{business.name}</span>
           </div>
@@ -83,7 +83,14 @@ export function Footer() {
             <li>{business.addressFull} <span className="text-xs text-psl-ink-soft/70">(mobile service base — not a walk-in location)</span></li>
           </ul>
           <h2 className="mt-4 text-sm font-semibold uppercase tracking-wide text-psl-ink">Hours</h2>
-          <p className="mt-2 text-sm">{hoursNote}</p>
+          <ul className="mt-2 space-y-1 text-sm">
+            {hours.map((h) => (
+              <li key={h.day} className="flex justify-between gap-4">
+                <span>{h.day}</span>
+                <span className="whitespace-nowrap">{h.time}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

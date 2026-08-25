@@ -17,7 +17,7 @@ export function ServiceCard({
       href={href}
       className="group flex flex-col gap-3 rounded-2xl border border-psl-border bg-white p-6 shadow-sm transition-shadow hover:shadow-md font-psl-sans"
     >
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-psl-sage/15 text-psl-sage-dark">
+      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-psl-pink/15 text-psl-pink-dark">
         {icon}
       </div>
       <h3 className="font-psl-display text-lg font-bold text-psl-ink">{title}</h3>

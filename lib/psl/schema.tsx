@@ -1,4 +1,4 @@
-import { business, SITE_URL, PATHS } from "./site-data";
+import { business, hoursSchema, SITE_URL, PATHS } from "./site-data";
 
 export { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 
@@ -15,6 +15,8 @@ export function localBusinessSchema(pageUrl: string) {
     name: business.name,
     url: pageUrl,
     telephone: business.phoneDisplay,
+    image: `${SITE_URL}${business.logoFull}`,
+    logo: `${SITE_URL}${business.logoMark}`,
     address: {
       "@type": "PostalAddress",
       streetAddress: business.addressLine1,
@@ -25,6 +27,12 @@ export function localBusinessSchema(pageUrl: string) {
     },
     description:
       "Luxury mobile dog grooming brought directly to your home in El Sobrante and the surrounding Bay Area.",
+    openingHoursSpecification: hoursSchema.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: h.dayOfWeek,
+      opens: h.opens,
+      closes: h.closes,
+    })),
     sameAs: [business.yelpUrl],
   };
 }

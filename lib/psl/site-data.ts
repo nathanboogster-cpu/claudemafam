@@ -27,12 +27,62 @@ export const business = {
   // (4–8), so no exact count is shown anywhere on the site — see Yelp for
   // current reviews.
   yelpRating: "5.0",
+  // Square crest crop of the full logo (crown + shield + poodle), used for
+  // the header/footer badge and favicon.
+  logoMark: "/images/pet-spa-luxe/logo-mark.png",
+  // Full horizontal logo lockup (crest + "PET SPA LUXE" wordmark).
+  logoFull: "/images/pet-spa-luxe/logo.webp",
 } as const;
 
-// HOURS — NOT VERIFIED. No reliable public source confirms hours at build time.
-// Do not publish specific hours until confirmed directly from the client/GBP.
-export const hoursConfirmed = false;
-export const hoursNote = "Call for current availability — hours are confirmed by phone.";
+// HOURS — confirmed by the client: open 7:00 AM – 9:00 PM, every day.
+export const hoursConfirmed = true;
+export const hours = [
+  { day: "Monday", time: "7:00 AM – 9:00 PM" },
+  { day: "Tuesday", time: "7:00 AM – 9:00 PM" },
+  { day: "Wednesday", time: "7:00 AM – 9:00 PM" },
+  { day: "Thursday", time: "7:00 AM – 9:00 PM" },
+  { day: "Friday", time: "7:00 AM – 9:00 PM" },
+  { day: "Saturday", time: "7:00 AM – 9:00 PM" },
+  { day: "Sunday", time: "7:00 AM – 9:00 PM" },
+] as const;
+export const hoursNote = "Open every day, 7:00 AM – 9:00 PM.";
+
+// Schema.org openingHoursSpecification — all seven days share identical hours.
+export const hoursSchema = [
+  {
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "07:00",
+    closes: "21:00",
+  },
+] as const;
+
+// Real client/business photos, provided directly by the client.
+export const photos = {
+  poodleDoorway: {
+    src: "/images/pet-spa-luxe/poodle-doorway.jpg",
+    alt: "Freshly groomed poodle waiting at a client's front door after a Pet Spa Luxe mobile grooming visit",
+  },
+  bulldogBandana: {
+    src: "/images/pet-spa-luxe/bulldog-bandana.jpg",
+    alt: "Bulldog wearing a bandana after being groomed by Pet Spa Luxe",
+  },
+  vanInterior: {
+    src: "/images/pet-spa-luxe/mobile-van-interior.jpg",
+    alt: "Inside the Pet Spa Luxe mobile grooming van, with grooming table and cabinetry",
+  },
+  huskyGroomed: {
+    src: "/images/pet-spa-luxe/husky-groomed-van.jpg",
+    alt: "Husky standing on the grooming table inside the Pet Spa Luxe mobile van after a full groom",
+  },
+} as const;
 
 export const services = [
   {

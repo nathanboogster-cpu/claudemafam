@@ -13,6 +13,7 @@ import {
   serviceAreas,
   servicePath,
   areaPath,
+  photos,
   PATHS,
 } from "@/lib/psl/site-data";
 
@@ -63,7 +64,8 @@ export default function PetSpaLuxeHome() {
           </div>
 
           <PhotoPlaceholder
-            caption="Real Pet Spa Luxe grooming photos coming soon"
+            caption={photos.bulldogBandana.alt}
+            src={photos.bulldogBandana.src}
             aspect="portrait"
             className="w-full lg:aspect-square"
           />
@@ -99,7 +101,8 @@ export default function PetSpaLuxeHome() {
       <section className="bg-psl-cream-deep">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 lg:grid-cols-2">
           <PhotoPlaceholder
-            caption="Mobile grooming setup photos coming soon"
+            caption={photos.vanInterior.alt}
+            src={photos.vanInterior.src}
             aspect="video"
             className="w-full lg:order-2"
           />
@@ -111,7 +114,7 @@ export default function PetSpaLuxeHome() {
             <ul className="mt-6 space-y-4">
               {differentiators.map((d) => (
                 <li key={d.title} className="flex gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-psl-sage/20 text-psl-sage-dark">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-psl-pink/20 text-psl-pink-dark">
                     <CheckIcon className="h-4 w-4" />
                   </span>
                   <div>

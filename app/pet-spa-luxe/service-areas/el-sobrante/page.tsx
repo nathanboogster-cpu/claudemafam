@@ -7,7 +7,7 @@ import { FaqBlock } from "@/components/psl/FaqBlock";
 import { PhotoPlaceholder } from "@/components/psl/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/psl/schema";
 import { CheckIcon } from "@/components/icons";
-import { business, services, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/psl/site-data";
+import { business, services, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/psl/site-data";
 
 const url = `${SITE_URL}${areaPath("el-sobrante")}`;
 
@@ -71,7 +71,7 @@ export default function ElSobrantePage() {
             <RequestButton location="area_el_sobrante" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption="El Sobrante mobile visit photos coming soon" aspect="video" className="w-full" />
+        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="video" className="w-full" />
       </section>
 
       <section className="bg-psl-cream-deep">
@@ -87,7 +87,7 @@ export default function ElSobrantePage() {
               `Rated ${business.yelpRating} stars on Yelp`,
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-psl-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-psl-sage-dark" />
+                <CheckIcon className="h-4 w-4 shrink-0 text-psl-pink-dark" />
                 {f}
               </li>
             ))}

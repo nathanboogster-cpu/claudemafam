@@ -1,18 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 import { business, PATHS, serviceNav, areaNav } from "@/lib/psl/site-data";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { CallButton } from "./CTAButton";
 import { NavDropdown } from "./NavDropdown";
-import { PawIcon } from "@/components/PawIcon";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-psl-border bg-psl-cream/95 backdrop-blur supports-[backdrop-filter]:bg-psl-cream/80 font-psl-sans">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <Link href={PATHS.home} className="flex items-center gap-2 shrink-0 text-psl-ink">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-psl-ink text-psl-brass">
-            <PawIcon className="h-5 w-5" />
+          <span className="relative flex h-11 w-11 shrink-0 overflow-hidden rounded-full border border-psl-border bg-white">
+            <Image src={business.logoMark} alt="" fill className="object-cover" sizes="44px" />
           </span>
           <span className="font-psl-display text-lg font-bold leading-tight sm:text-xl">
             {business.name}

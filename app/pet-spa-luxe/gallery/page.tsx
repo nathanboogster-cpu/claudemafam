@@ -4,22 +4,20 @@ import { Breadcrumbs } from "@/components/psl/Breadcrumbs";
 import { PhotoPlaceholder } from "@/components/psl/PhotoPlaceholder";
 import { CallButton, RequestButton } from "@/components/psl/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/psl/schema";
-import { PATHS, SITE_URL } from "@/lib/psl/site-data";
+import { photos, PATHS, SITE_URL } from "@/lib/psl/site-data";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Photos of Pet Spa Luxe's mobile dog grooming — finished grooms, the mobile setup, and happy pets, coming soon.",
+    "Real photos of Pet Spa Luxe's mobile dog grooming — finished grooms, the mobile grooming van, and happy pets.",
   alternates: { canonical: PATHS.gallery },
 };
 
-const slots = [
-  "Finished groom photos coming soon",
-  "Mobile grooming setup photos coming soon",
-  "Before & after photos coming soon",
-  "Happy client photos coming soon",
-  "Breed-specific haircut photos coming soon",
-  "El Sobrante mobile visit photos coming soon",
+const galleryPhotos = [
+  photos.bulldogBandana,
+  photos.huskyGroomed,
+  photos.poodleDoorway,
+  photos.vanInterior,
 ];
 
 export default function GalleryPage() {
@@ -40,15 +38,14 @@ export default function GalleryPage() {
             Our Grooming Work
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-psl-ink-soft">
-            We&apos;re populating this gallery with real Pet Spa Luxe photos.
-            Reserved photo slots are shown below rather than stock imagery, so
-            everything you see here will be genuine Pet Spa Luxe work.
+            Real Pet Spa Luxe photos — finished grooms, happy pets, and a look
+            inside the mobile grooming van.
           </p>
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {slots.map((s) => (
-            <PhotoPlaceholder key={s} caption={s} aspect="square" />
+          {galleryPhotos.map((p) => (
+            <PhotoPlaceholder key={p.src} caption={p.alt} src={p.src} aspect="square" />
           ))}
         </div>
 
