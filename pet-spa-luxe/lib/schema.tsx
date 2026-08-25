@@ -76,7 +76,11 @@ export function serviceSchema(opts: {
   pageUrl: string;
   name: string;
   description: string;
+  // Verified flat price, e.g. "$110" — provided directly by the owner.
+  price?: string;
 }) {
+  const priceNumeric = opts.price?.replace(/[^0-9.]/g, "");
+
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -84,6 +88,14 @@ export function serviceSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
+    ...(priceNumeric && {
+      offers: {
+        "@type": "Offer",
+        price: priceNumeric,
+        priceCurrency: "USD",
+        url: opts.pageUrl,
+      },
+    }),
     areaServed: {
       "@type": "City",
       name: business.primaryLocation,
