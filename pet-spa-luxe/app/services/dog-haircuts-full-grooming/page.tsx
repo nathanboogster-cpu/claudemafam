@@ -6,6 +6,7 @@ import { CallButton, RequestButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
 import { business, servicePath, photos, fullGroomingPackage, PATHS, SITE_URL } from "@/lib/site-data";
 
@@ -13,11 +14,11 @@ const url = `${SITE_URL}${servicePath("dog-haircuts-full-grooming")}`;
 const description =
   "Full Dog Grooming — $110, all-inclusive. Warm bath, breed-specific haircut, nail trim, deshedding, and more, delivered at your home in El Sobrante, CA.";
 
-export const metadata: Metadata = {
-  title: "Full Dog Grooming — $110 All-Inclusive | Mobile Service",
+export const metadata: Metadata = pageMetadata({
+  title: "Full Dog Grooming — $110 All-Inclusive",
   description,
-  alternates: { canonical: servicePath("dog-haircuts-full-grooming") },
-};
+  path: servicePath("dog-haircuts-full-grooming"),
+});
 
 const faqs = [
   {
@@ -76,7 +77,7 @@ export default function FullGroomingPage() {
             Full Dog Grooming
           </h1>
           <div className="mt-4 flex items-center gap-3">
-            <span className="rounded-full bg-psl-brass px-4 py-1.5 text-lg font-bold text-white">
+            <span className="rounded-full bg-psl-brass-dark px-4 py-1.5 text-lg font-bold text-white">
               {fullGroomingPackage.price}
             </span>
             <span className="text-sm font-semibold uppercase tracking-wide text-psl-brass-dark">
@@ -92,7 +93,7 @@ export default function FullGroomingPage() {
             <RequestButton location="service_full_grooming" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="video" className="w-full" />
+        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="video" className="w-full" priority />
       </section>
 
       <section className="bg-psl-cream-deep">

@@ -45,7 +45,7 @@ export function MobileNav() {
       <nav aria-label="Mobile" className="flex flex-col p-4 font-psl-sans">
         {groups.map((group) => (
           <div key={group.label} className="mb-2">
-            <p className="mt-3 px-2 text-xs font-semibold uppercase tracking-wide text-psl-ink-soft/70">
+            <p className="mt-3 px-2 text-xs font-semibold uppercase tracking-wide text-psl-ink-soft">
               {group.label}
             </p>
             {group.items.map((item) => {

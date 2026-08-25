@@ -4,14 +4,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { serviceAreas, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Mobile Dog Grooming Service Areas",
   description:
     "Pet Spa Luxe is based in El Sobrante, CA and offers mobile dog grooming throughout the surrounding Bay Area. Call to confirm availability at your address.",
-  alternates: { canonical: PATHS.serviceAreas },
-};
+  path: PATHS.serviceAreas,
+});
 
 export default function ServiceAreasHub() {
   return (

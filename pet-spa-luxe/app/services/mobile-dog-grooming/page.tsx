@@ -7,6 +7,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { serviceSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
 import { business, serviceFeatures, servicePath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
@@ -14,11 +15,11 @@ const url = `${SITE_URL}${servicePath("mobile-dog-grooming")}`;
 const description =
   "Full-service mobile dog grooming brought directly to your home in El Sobrante, CA. Fully equipped mobile setup, cage-free, one-on-one attention.";
 
-export const metadata: Metadata = {
-  title: "Mobile Dog Grooming in El Sobrante, CA",
+export const metadata: Metadata = pageMetadata({
+  title: "Mobile Dog Grooming — We Come to You",
   description,
-  alternates: { canonical: servicePath("mobile-dog-grooming") },
-};
+  path: servicePath("mobile-dog-grooming"),
+});
 
 const faqs = [
   {
@@ -80,7 +81,7 @@ export default function MobileDogGroomingPage() {
             <RequestButton location="service_mobile_dog_grooming" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.vanInterior.alt} src={photos.vanInterior.src} aspect="video" className="w-full" />
+        <PhotoPlaceholder caption={photos.vanInterior.alt} src={photos.vanInterior.src} aspect="video" className="w-full" priority />
       </section>
 
       <section className="bg-psl-cream-deep">

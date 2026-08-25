@@ -5,6 +5,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { StatBand } from "@/components/StatBand";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { TruckIcon, ScissorsIcon, DropletIcon, NailIcon } from "@/components/icons";
 import { services, serviceFeatures, servicePath, PATHS, SITE_URL } from "@/lib/site-data";
 
@@ -15,12 +16,12 @@ const serviceIcons: Record<string, React.ReactNode> = {
   "nail-ear-care": <NailIcon className="h-6 w-6" />,
 };
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Mobile Dog Grooming Services in El Sobrante, CA",
   description:
     "Explore Pet Spa Luxe's mobile dog grooming services: full grooming, breed-specific haircuts, warm-water baths, deshedding, and nail & ear care — all at your door.",
-  alternates: { canonical: PATHS.services },
-};
+  path: PATHS.services,
+});
 
 export default function ServicesHub() {
   return (
@@ -46,7 +47,10 @@ export default function ServicesHub() {
 
         <StatBand className="mt-10" />
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <h2 className="mt-14 font-psl-display text-2xl font-bold text-psl-ink sm:text-3xl">
+          Choose a Service
+        </h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
             <ServiceCard
               key={s.slug}

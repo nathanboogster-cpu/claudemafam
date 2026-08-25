@@ -5,13 +5,14 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { StarIcon, ShieldCheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { business, differentiators, PATHS, SITE_URL } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Reviews",
   description: `Pet Spa Luxe is rated ${business.yelpRating} stars on Yelp. Read verified customer reviews of our mobile dog grooming in El Sobrante, CA.`,
-  alternates: { canonical: PATHS.reviews },
-};
+  path: PATHS.reviews,
+});
 
 export default function ReviewsPage() {
   return (
@@ -48,7 +49,7 @@ export default function ReviewsPage() {
             href={business.yelpUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-psl-brass px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-psl-brass-dark"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-psl-brass-dark px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-psl-brass-darker"
           >
             Read Verified Reviews on Yelp
           </a>

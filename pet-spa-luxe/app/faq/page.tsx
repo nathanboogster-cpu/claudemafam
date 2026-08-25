@@ -4,14 +4,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { business, fullGroomingPackage, PATHS, SITE_URL } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Frequently Asked Questions",
   description:
     "Answers to common questions about Pet Spa Luxe's mobile dog grooming: service areas, booking, what's included, and how mobile grooming works.",
-  alternates: { canonical: PATHS.faq },
-};
+  path: PATHS.faq,
+});
 
 const faqs = [
   {

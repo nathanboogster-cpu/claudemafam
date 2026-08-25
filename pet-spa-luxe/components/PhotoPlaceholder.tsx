@@ -8,11 +8,15 @@ export function PhotoPlaceholder({
   aspect = "square",
   className = "",
   src,
+  priority = false,
 }: {
   caption: string;
   aspect?: "square" | "video" | "portrait" | "wide";
   className?: string;
   src?: string;
+  // Set true for above-the-fold hero images so they're eagerly fetched
+  // and preloaded instead of lazy-loaded, improving LCP.
+  priority?: boolean;
 }) {
   const aspectClass = {
     square: "aspect-square",
@@ -24,7 +28,14 @@ export function PhotoPlaceholder({
   if (src) {
     return (
       <div className={`${aspectClass} ${className} relative overflow-hidden rounded-2xl border border-psl-border`}>
-        <Image src={src} alt={caption} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+        <Image
+          src={src}
+          alt={caption}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority={priority}
+        />
       </div>
     );
   }

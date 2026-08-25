@@ -6,17 +6,18 @@ import { CallButton, RequestButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
 import { business, services, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${areaPath("el-sobrante")}`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Mobile Dog Grooming in El Sobrante, CA",
   description:
     "Pet Spa Luxe is based in El Sobrante, CA, offering luxury mobile dog grooming right at your door — cage-free, one-on-one, rated 5.0 stars on Yelp.",
-  alternates: { canonical: areaPath("el-sobrante") },
-};
+  path: areaPath("el-sobrante"),
+});
 
 const faqs = [
   {
@@ -71,7 +72,7 @@ export default function ElSobrantePage() {
             <RequestButton location="area_el_sobrante" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="video" className="w-full" />
+        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="video" className="w-full" priority />
       </section>
 
       <section className="bg-psl-cream-deep">

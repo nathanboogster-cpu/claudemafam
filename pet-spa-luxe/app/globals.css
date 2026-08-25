@@ -10,8 +10,15 @@
   --color-psl-ink-soft: #5c473f;
   --color-psl-pink: #f2b9ce;
   --color-psl-pink-dark: #d97fa0;
+  /* Lighter gold — decorative use only (icons/text on dark backgrounds,
+     borders, small bullets). Never used as body text on light backgrounds
+     or as a button fill with white text — both fail WCAG AA contrast. */
   --color-psl-brass: #c39a3e;
-  --color-psl-brass-dark: #9c7a2c;
+  /* Darkened from the original brass to meet 4.5:1 contrast as text on
+     light backgrounds (cream/cream-deep/white) AND as a button fill under
+     white text — verified against the darkest of those backgrounds. */
+  --color-psl-brass-dark: #7a5a1c;
+  --color-psl-brass-darker: #5c4116;
   --color-psl-white: #ffffff;
   --color-psl-border: #f0d9e0;
 }
@@ -25,6 +32,7 @@
   --color-psl-pink-dark: var(--color-psl-pink-dark);
   --color-psl-brass: var(--color-psl-brass);
   --color-psl-brass-dark: var(--color-psl-brass-dark);
+  --color-psl-brass-darker: var(--color-psl-brass-darker);
   --color-psl-white: var(--color-psl-white);
   --color-psl-border: var(--color-psl-border);
   /* Editorial serif display, clean geometric sans. */
