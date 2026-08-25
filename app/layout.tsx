@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Playfair_Display, Inter, IBM_Plex_Mono, Cormorant_Garamond, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { StickyMobileCTA } from "@/components/StickyMobileCTA";
-import { JsonLd, localBusinessSchema } from "@/lib/schema";
-import { SITE_URL } from "@/lib/site-data";
 
+// Pampered Puppies type system (Victorville site, existing routes).
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["600", "700", "800"],
@@ -30,36 +26,40 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+// Pet Spa Luxe type system (separate business, /pet-spa-luxe routes).
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: {
-    default: "Pampered Puppies | Dog & Cat Grooming in Victorville, CA",
-    template: "%s",
-  },
-  description:
-    "Dog & cat grooming in Victorville, CA — in-store and mobile. Hundreds of 5-star Google reviews, BBB A+ accredited. Call to book with Ellen.",
+  metadataBase: new URL("https://www.pamperedpuppies.net"),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${playfair.variable} ${inter.variable} ${plexMono.variable}`}
+      className={`h-full antialiased ${playfair.variable} ${inter.variable} ${plexMono.variable} ${cormorant.variable} ${manrope.variable}`}
     >
       <body className="min-h-full flex flex-col">
-        <JsonLd data={localBusinessSchema(SITE_URL)} />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-gold focus:px-4 focus:py-2 focus:text-ink"
         >
           Skip to content
         </a>
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <StickyMobileCTA />
+        {children}
         <Analytics />
       </body>
     </html>

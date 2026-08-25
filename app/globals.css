@@ -21,6 +21,21 @@
   --color-gold-dark: #b8942f;
   --color-white: #ffffff;
   --color-border: #ddd6ec;
+
+  /* Pet Spa Luxe (El Sobrante, CA — /pet-spa-luxe routes). Deliberately
+     distinct from Pampered Puppies' plum/gold: deep forest ink + warm brass
+     accent on a soft ivory ground. Placeholder brand palette until the
+     client's real logo/brand files are available — see build notes. */
+  --color-psl-cream: #faf8f3;
+  --color-psl-cream-deep: #f1ece0;
+  --color-psl-ink: #12261f;
+  --color-psl-ink-soft: #44584e;
+  --color-psl-sage: #7c9885;
+  --color-psl-sage-dark: #5c7666;
+  --color-psl-brass: #b3843c;
+  --color-psl-brass-dark: #8c6529;
+  --color-psl-white: #ffffff;
+  --color-psl-border: #e4ddcd;
 }
 
 @theme inline {
@@ -37,11 +52,24 @@
   --color-gold-dark: var(--color-gold-dark);
   --color-white: var(--color-white);
   --color-border: var(--color-border);
+  --color-psl-cream: var(--color-psl-cream);
+  --color-psl-cream-deep: var(--color-psl-cream-deep);
+  --color-psl-ink: var(--color-psl-ink);
+  --color-psl-ink-soft: var(--color-psl-ink-soft);
+  --color-psl-sage: var(--color-psl-sage);
+  --color-psl-sage-dark: var(--color-psl-sage-dark);
+  --color-psl-brass: var(--color-psl-brass);
+  --color-psl-brass-dark: var(--color-psl-brass-dark);
+  --color-psl-white: var(--color-psl-white);
+  --color-psl-border: var(--color-psl-border);
   /* Matches the SurePup reference site's type pairing: bold serif display,
      clean sans body, tracked monospace for eyebrow/label text. */
   --font-sans: var(--font-inter), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: var(--font-playfair), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* Pet Spa Luxe type pairing: editorial serif display, clean geometric sans. */
+  --font-psl-sans: var(--font-manrope), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-psl-display: var(--font-cormorant), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
 }
 
 html {
@@ -56,6 +84,14 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+}
+
+.font-psl-display {
+  font-family: var(--font-psl-display);
+}
+
+.font-psl-sans {
+  font-family: var(--font-psl-sans);
 }
 
 /* Reserve space so the sticky mobile CTA bar never overlaps content */
