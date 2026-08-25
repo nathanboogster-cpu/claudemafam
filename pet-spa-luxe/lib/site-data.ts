@@ -94,14 +94,15 @@ export const services = [
     summary:
       "Full-service dog grooming brought directly to your home in a fully equipped mobile grooming setup.",
     isFlagship: true,
+    price: null as string | null,
   },
   {
     slug: "dog-haircuts-full-grooming",
-    name: "Dog Haircuts & Full Grooming",
-    shortName: "Haircuts & Full Grooming",
-    summary:
-      "Complete grooming with professional, breed-specific haircuts finished at your curb.",
+    name: "Full Dog Grooming",
+    shortName: "Full Dog Grooming",
+    summary: "All-inclusive full grooming package — bath, breed-specific haircut, and more.",
     isFlagship: false,
+    price: "$110" as string | null,
   },
   {
     slug: "bath-deshedding",
@@ -110,6 +111,7 @@ export const services = [
     summary:
       "Warm-water bathing with premium shampoos and conditioners, plus deshedding to clear loose coat.",
     isFlagship: false,
+    price: null as string | null,
   },
   {
     slug: "nail-ear-care",
@@ -117,10 +119,43 @@ export const services = [
     shortName: "Nail & Ear Care",
     summary: "Nail trimming, nail grinding, and ear cleaning as a full groom or a standalone visit.",
     isFlagship: false,
+    price: null as string | null,
   },
 ] as const;
 
 export type ServiceSlug = (typeof services)[number]["slug"];
+
+// Full Dog Grooming — $110 all-inclusive package, provided directly by the
+// owner. This is the complete, verified list of what's included; nothing
+// added beyond what she specified.
+export const fullGroomingPackage = {
+  name: "Full Dog Grooming",
+  price: "$110",
+  priceNote: "All-Inclusive",
+  includes: [
+    "Warm Bath",
+    "Full Haircut (style or breed-specific)",
+    "Nail Trim",
+    "Hair Brushing",
+    "Deshedding Treatment",
+    "Sanitary Trim",
+    "Professional Grade Shampoo",
+    "Hand Blow Dry",
+    "Eye Wash",
+    "Ear Cleaning",
+    "Paw Trimming",
+    "Teeth Brushing",
+    "Hug & Brush Magic Hydrobath",
+    "Paw & Nose Conditioning",
+    "Fancy Bow Ties or Cool Bandanas",
+  ],
+  // Included, but only performed when the client asks for them.
+  uponRequest: [
+    "Anal Gland Expression",
+    "Ear Hair Removal",
+    "Custom Perfume",
+  ],
+} as const;
 
 // Every discrete verified service feature/offering, used on the Services hub
 // and About page. Nothing here beyond the client-provided record.

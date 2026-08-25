@@ -91,6 +91,7 @@ export default function PetSpaLuxeHome() {
               title={s.shortName}
               description={s.summary}
               href={servicePath(s.slug)}
+              price={s.price}
               icon={<DogIcon className="h-6 w-6" />}
             />
           ))}

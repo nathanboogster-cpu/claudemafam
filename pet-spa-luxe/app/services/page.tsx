@@ -43,6 +43,7 @@ export default function ServicesHub() {
               title={s.name}
               description={s.summary}
               href={servicePath(s.slug)}
+              price={s.price}
               icon={<DogIcon className="h-6 w-6" />}
             />
           ))}

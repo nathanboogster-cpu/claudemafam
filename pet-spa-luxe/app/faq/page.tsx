@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
-import { business, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, fullGroomingPackage, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
@@ -37,6 +37,10 @@ const faqs = [
     question: "What services does Pet Spa Luxe offer?",
     answer:
       "Mobile dog grooming, warm-water baths, full grooming, breed-specific haircuts, deshedding, nail trimming, nail grinding, ear cleaning, and hand blow drying.",
+  },
+  {
+    question: "How much does Full Dog Grooming cost?",
+    answer: `Full Dog Grooming is ${fullGroomingPackage.price}, all-inclusive — bath, haircut, nail trim, deshedding, and more. See the Full Dog Grooming service page for the complete list of what's included.`,
   },
   {
     question: "Do you groom cats?",
