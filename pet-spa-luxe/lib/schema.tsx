@@ -1,4 +1,4 @@
-import { business, hoursSchema, SITE_URL, PATHS } from "./site-data";
+import { business, hoursSchema, SITE_URL } from "./site-data";
 
 export function JsonLd({ data }: { data: object }) {
   return (
