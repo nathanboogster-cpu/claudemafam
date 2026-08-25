@@ -72,7 +72,7 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <p className="mt-3 text-xs text-psl-ink-soft/80">
+          <p className="mt-3 text-xs text-psl-ink-soft">
             Plus the surrounding Bay Area by mobile visit — call to confirm your address.
           </p>
         </div>
@@ -98,7 +98,7 @@ export function Footer() {
                 {business.phoneDisplay}
               </a>
             </li>
-            <li>{business.addressFull} <span className="text-xs text-psl-ink-soft/70">(mobile service base — not a walk-in location)</span></li>
+            <li>{business.addressFull} <span className="text-xs text-psl-ink-soft">(mobile service base — not a walk-in location)</span></li>
           </ul>
           <h2 className="mt-4 text-sm font-semibold uppercase tracking-wide text-psl-ink">Hours</h2>
           <ul className="mt-2 space-y-1 text-sm">
@@ -112,7 +112,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-psl-border py-4 text-center text-xs text-psl-ink-soft/70">
+      <div className="border-t border-psl-border py-4 text-center text-xs text-psl-ink-soft">
         © {new Date().getFullYear()} {business.name}. All rights reserved.
       </div>
     </footer>

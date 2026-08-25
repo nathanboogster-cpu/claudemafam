@@ -6,6 +6,7 @@ import { CallButton, RequestButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
 import { business, servicePath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
@@ -13,11 +14,11 @@ const url = `${SITE_URL}${servicePath("bath-deshedding")}`;
 const description =
   "Warm-water dog bathing with premium shampoo and conditioner, plus deshedding treatments to clear loose coat — delivered at your home in El Sobrante, CA.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Warm Water Bath & Deshedding for Dogs",
   description,
-  alternates: { canonical: servicePath("bath-deshedding") },
-};
+  path: servicePath("bath-deshedding"),
+});
 
 const included = [
   "Warm-water bathing",
@@ -88,7 +89,7 @@ export default function BathDesheddingPage() {
             <RequestButton location="service_bath" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="video" className="w-full" />
+        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="video" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14">

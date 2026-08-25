@@ -86,6 +86,7 @@ export default function PetSpaLuxeHome() {
                 src={photos.bulldogBandana.src}
                 aspect="square"
                 className="w-full translate-y-4"
+                priority
               />
               <PhotoPlaceholder
                 caption={photos.huskyGroomed.alt}
@@ -224,7 +225,7 @@ export default function PetSpaLuxeHome() {
       {/* Reviews teaser */}
       <section className="bg-psl-ink text-white">
         <div className="mx-auto max-w-3xl px-4 py-16 text-center">
-          <Eyebrow className="text-psl-brass">Real Reviews</Eyebrow>
+          <Eyebrow tone="onDark">Real Reviews</Eyebrow>
           <h2 className="mt-1 font-psl-display text-3xl font-bold sm:text-4xl">
             Rated {business.yelpRating} Stars on Yelp
           </h2>

@@ -42,6 +42,14 @@ export const metadata: Metadata = {
     description:
       "Cage-free, one-on-one mobile dog grooming brought to your door in El Sobrante, CA and the Bay Area.",
     url: PATHS.home,
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Pet Spa Luxe" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pet Spa Luxe | Luxury Mobile Dog Grooming in El Sobrante, CA",
+    description:
+      "Cage-free, one-on-one mobile dog grooming brought to your door in El Sobrante, CA and the Bay Area.",
+    images: ["/images/og-image.jpg"],
   },
 };
 
@@ -49,10 +57,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`h-full antialiased ${cormorant.variable} ${manrope.variable}`}>
       <body className="min-h-full flex flex-col font-psl-sans">
-        <JsonLd data={localBusinessSchema(`${SITE_URL}${PATHS.home}`)} />
+        <JsonLd data={localBusinessSchema(SITE_URL)} />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-psl-brass focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-psl-brass-dark focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to content
         </a>

@@ -4,14 +4,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { photos, PATHS, SITE_URL } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Gallery",
   description:
     "Real photos of Pet Spa Luxe's mobile dog grooming — finished grooms, the mobile grooming van, and happy pets.",
-  alternates: { canonical: PATHS.gallery },
-};
+  path: PATHS.gallery,
+});
 
 const galleryPhotos = [
   photos.bulldogBandana,

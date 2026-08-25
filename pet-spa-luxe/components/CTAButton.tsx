@@ -7,7 +7,7 @@ type Variant = "primary" | "secondary" | "ghost";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-psl-brass text-white hover:bg-psl-brass-dark focus-visible:outline-psl-brass-dark",
+    "bg-psl-brass-dark text-white hover:bg-psl-brass-darker focus-visible:outline-psl-brass-dark",
   secondary:
     "bg-transparent text-psl-ink border-2 border-psl-ink hover:bg-psl-ink/5 focus-visible:outline-psl-ink",
   ghost:

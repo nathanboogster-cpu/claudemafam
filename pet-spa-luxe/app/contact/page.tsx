@@ -4,14 +4,15 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton } from "@/components/CTAButton";
 import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { business, hoursNote, PATHS, SITE_URL } from "@/lib/site-data";
 
-export const metadata: Metadata = {
-  title: "Contact Pet Spa Luxe",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Us",
   description:
     "Call Pet Spa Luxe at (650) 576-1194 to schedule mobile dog grooming in El Sobrante, CA and the surrounding Bay Area.",
-  alternates: { canonical: PATHS.contact },
-};
+  path: PATHS.contact,
+});
 
 export default function ContactPage() {
   return (
@@ -48,7 +49,7 @@ export default function ContactPage() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-psl-ink">Based In</p>
               <p className="mt-1 text-psl-ink-soft">{business.addressFull}</p>
-              <p className="mt-1 text-xs text-psl-ink-soft/70">
+              <p className="mt-1 text-xs text-psl-ink-soft">
                 Mobile service base — Pet Spa Luxe grooms at your location, not a walk-in storefront.
               </p>
             </div>

@@ -6,6 +6,7 @@ import { CallButton, RequestButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
 import { business, servicePath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
@@ -13,11 +14,11 @@ const url = `${SITE_URL}${servicePath("nail-ear-care")}`;
 const description =
   "Mobile nail trimming, nail grinding, and ear cleaning for dogs — as a standalone visit or added to a full groom, at your home in El Sobrante, CA.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Dog Nail Trimming, Grinding & Ear Cleaning",
   description,
-  alternates: { canonical: servicePath("nail-ear-care") },
-};
+  path: servicePath("nail-ear-care"),
+});
 
 const included = ["Nail trimming", "Nail grinding", "Ear cleaning", "One-on-one, cage-free handling"];
 
@@ -82,7 +83,7 @@ export default function NailEarCarePage() {
             <RequestButton location="service_nail_ear" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.bulldogBandana.alt} src={photos.bulldogBandana.src} aspect="video" className="w-full" />
+        <PhotoPlaceholder caption={photos.bulldogBandana.alt} src={photos.bulldogBandana.src} aspect="video" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14">

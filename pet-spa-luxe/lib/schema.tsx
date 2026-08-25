@@ -46,7 +46,7 @@ export function localBusinessSchema(pageUrl: string) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${SITE_URL}${PATHS.home}/#business`,
+    "@id": `${SITE_URL}/#business`,
     name: business.name,
     url: pageUrl,
     telephone: business.phoneDisplay,

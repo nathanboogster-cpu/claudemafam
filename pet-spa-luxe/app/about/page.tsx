@@ -5,15 +5,16 @@ import { CallButton, RequestButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
 import { business, differentiators, serviceFeatures, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
-export const metadata: Metadata = {
-  title: "About Pet Spa Luxe",
+export const metadata: Metadata = pageMetadata({
+  title: "About Us",
   description:
     "Pet Spa Luxe is a mobile dog grooming business based in El Sobrante, CA, offering cage-free, one-on-one grooming brought directly to your home.",
-  alternates: { canonical: PATHS.about },
-};
+  path: PATHS.about,
+});
 
 export default function AboutPage() {
   return (
@@ -49,7 +50,7 @@ export default function AboutPage() {
             <RequestButton location="about" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="portrait" className="w-full" />
+        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-4">

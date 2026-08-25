@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.join(__dirname),
   },
+  // Inlines critical above-the-fold CSS and defers the rest, reducing
+  // render-blocking CSS on first paint (LCP).
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default nextConfig;
