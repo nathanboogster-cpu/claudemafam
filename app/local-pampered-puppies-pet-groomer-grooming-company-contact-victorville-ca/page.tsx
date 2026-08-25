@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { business, hours, PATHS, SITE_URL } from "@/lib/site-data";
-import { CallButton } from "@/components/CTAButton";
-import { ContactForm } from "@/components/ContactForm";
+import { CallButton, BookButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
@@ -11,7 +10,7 @@ const pageUrl = `${SITE_URL}${PATHS.contact}`;
 export const metadata: Metadata = {
   title: "Contact & Book an Appointment | Pampered Puppies, Victorville CA",
   description:
-    "Call, email, or request an appointment with Pampered Puppies at 15444 Bear Valley Rd, Ste A, Victorville, CA. Phone 760-881-3171.",
+    "Call or book an appointment online with Pampered Puppies at 15444 Bear Valley Rd, Ste A, Victorville, CA. Phone 760-881-3171.",
   alternates: { canonical: PATHS.contact },
 };
 
@@ -31,8 +30,7 @@ export default function ContactPage() {
           Contact &amp; Book an Appointment
         </h1>
         <p className="mx-auto mt-3 max-w-2xl text-center text-ink-soft">
-          Call us, send an email, or fill out the form below and we&rsquo;ll get
-          back to you.
+          Call us, or book an appointment online in a few clicks.
         </p>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-5">
@@ -95,10 +93,15 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-              <h2 className="font-display text-lg font-bold text-ink">Request an Appointment</h2>
-              <div className="mt-4">
-                <ContactForm />
+            <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-white p-10 text-center shadow-sm">
+              <h2 className="font-display text-2xl font-bold text-ink">Book an Appointment</h2>
+              <p className="mx-auto mt-3 max-w-md text-ink-soft">
+                Schedule online in a few clicks, or call us directly and
+                we&rsquo;ll get you set up.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <BookButton location="contact_main" />
+                <CallButton location="contact_main" variant="secondary" />
               </div>
             </div>
           </div>
