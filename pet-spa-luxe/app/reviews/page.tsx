@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, RequestButton } from "@/components/CTAButton";
+import { StarIcon, ShieldCheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
-import { business, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, differentiators, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Reviews",
@@ -28,31 +30,57 @@ export default function ReviewsPage() {
           What Pet Owners Say
         </h1>
 
-        <div className="mt-8 flex justify-center text-psl-brass" aria-hidden="true">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-8 w-8">
-              <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1 1 5.8L10 14.9l-5.21 2.62 1-5.8-4.21-4.1 5.82-.85z" />
-            </svg>
-          ))}
+        {/* Trust seal card */}
+        <div className="mx-auto mt-10 max-w-md rounded-3xl border-2 border-psl-brass/30 bg-white p-8 shadow-lg">
+          <div className="relative mx-auto h-16 w-16 overflow-hidden rounded-full border border-psl-border">
+            <Image src={business.logoMark} alt="" fill className="object-cover" sizes="64px" />
+          </div>
+          <p className="mt-4 font-psl-display text-5xl font-bold text-psl-ink">{business.yelpRating}</p>
+          <div className="mt-2 flex justify-center text-psl-brass" aria-hidden="true">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <StarIcon key={i} className="h-6 w-6" />
+            ))}
+          </div>
+          <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-psl-ink-soft">
+            Out of 5 — Verified on Yelp
+          </p>
+          <a
+            href={business.yelpUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-psl-brass px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-psl-brass-dark"
+          >
+            Read Verified Reviews on Yelp
+          </a>
         </div>
-        <p className="mt-2 text-2xl font-bold text-psl-ink">{business.yelpRating} out of 5</p>
 
-        <p className="mx-auto mt-6 max-w-xl text-psl-ink-soft">
+        <p className="mx-auto mt-6 max-w-xl text-sm text-psl-ink-soft">
           We link directly to Pet Spa Luxe&apos;s real Yelp listing so you can
           read verified customer reviews yourselves, rather than us
           hand-picking quotes.
         </p>
 
-        <a
-          href={business.yelpUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center justify-center rounded-full bg-psl-brass px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-psl-brass-dark"
-        >
-          Read Reviews on Yelp
-        </a>
+        {/* Why pet owners trust us */}
+        <div className="mt-14 border-t border-psl-border pt-10 text-left">
+          <h2 className="text-center font-psl-display text-2xl font-bold text-psl-ink">
+            Why Pet Owners Trust Pet Spa Luxe
+          </h2>
+          <ul className="mx-auto mt-6 max-w-xl space-y-4">
+            {differentiators.map((d) => (
+              <li key={d.title} className="flex gap-3">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-psl-brass/15 text-psl-brass-dark">
+                  <ShieldCheckIcon className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="font-semibold text-psl-ink">{d.title}</p>
+                  <p className="text-sm text-psl-ink-soft">{d.body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <div className="mt-14 border-t border-psl-border pt-10">
+        <div className="mt-14 border-t border-psl-border pt-10 text-center">
           <h2 className="font-psl-display text-2xl font-bold text-psl-ink">
             Ready to Experience It Yourself?
           </h2>

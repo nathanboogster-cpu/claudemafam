@@ -2,10 +2,18 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ServiceCard } from "@/components/ServiceCard";
+import { StatBand } from "@/components/StatBand";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
-import { DogIcon } from "@/components/icons";
+import { TruckIcon, ScissorsIcon, DropletIcon, NailIcon } from "@/components/icons";
 import { services, serviceFeatures, servicePath, PATHS, SITE_URL } from "@/lib/site-data";
+
+const serviceIcons: Record<string, React.ReactNode> = {
+  "mobile-dog-grooming": <TruckIcon className="h-6 w-6" />,
+  "dog-haircuts-full-grooming": <ScissorsIcon className="h-6 w-6" />,
+  "bath-deshedding": <DropletIcon className="h-6 w-6" />,
+  "nail-ear-care": <NailIcon className="h-6 w-6" />,
+};
 
 export const metadata: Metadata = {
   title: "Mobile Dog Grooming Services in El Sobrante, CA",
@@ -36,6 +44,8 @@ export default function ServicesHub() {
           what&apos;s included.
         </p>
 
+        <StatBand className="mt-10" />
+
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
             <ServiceCard
@@ -44,7 +54,7 @@ export default function ServicesHub() {
               description={s.summary}
               href={servicePath(s.slug)}
               price={s.price}
-              icon={<DogIcon className="h-6 w-6" />}
+              icon={serviceIcons[s.slug]}
             />
           ))}
         </div>

@@ -77,3 +77,68 @@ export function PuppyIcon({ className = "h-6 w-6" }: { className?: string }) {
     </svg>
   );
 }
+
+export function ScissorsIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <circle cx="6" cy="6" r="2.5" />
+      <circle cx="6" cy="18" r="2.5" />
+      <path d="M8.5 8 20 19M20 5 8.5 16" />
+    </svg>
+  );
+}
+
+export function DropletIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />
+      <path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5" />
+    </svg>
+  );
+}
+
+export function NailIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M9 3c-1.5 2-2 4.5-1 7l1 2.5" />
+      <path d="M15 3c1.5 2 2 4.5 1 7l-1 2.5" />
+      <path d="M8 13c0-.6.5-1 1-1h6c.5 0 1 .4 1 1 0 3-2 7-4 8-2-1-4-5-4-8z" />
+    </svg>
+  );
+}
+
+export function StarIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1 1 5.8L10 14.9l-5.21 2.62 1-5.8-4.21-4.1 5.82-.85z" />
+    </svg>
+  );
+}
+
+export function ShieldCheckIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  );
+}
+
+export function CalendarCallIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M3 10h18M8 3v4M16 3v4" />
+      <path d="M9 15.2c0-1 1.3-1.8 3-1.8s3 .8 3 1.8-1.3 1.8-3 1.8-3-.8-3-1.8z" />
+    </svg>
+  );
+}
+
+export function SparkleIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6L12 2z" />
+      <path d="M19 15l.9 2.7L22.5 18.6l-2.6.9L19 22.2l-.9-2.7-2.6-.9 2.6-.9L19 15z" />
+    </svg>
+  );
+}

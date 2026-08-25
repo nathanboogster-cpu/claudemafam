@@ -193,6 +193,37 @@ export const differentiators = [
   },
 ] as const;
 
+// Punchy trust stats for the homepage/stat band — every number here is a
+// verified fact (Yelp rating, mobile service model, hours) already used
+// elsewhere on the site, not a new claim.
+export const trustStats = [
+  { value: "5.0★", label: "Yelp Rating" },
+  { value: "100%", label: "Mobile — We Come to You" },
+  { value: "1-on-1", label: "Cage-Free Grooming" },
+  { value: "7 Days", label: "7 AM – 9 PM" },
+] as const;
+
+// The verified mobile-grooming process, in the order a client experiences
+// it. Nothing here beyond what's already stated in the business record.
+export const processSteps = [
+  {
+    title: "Call or Request an Appointment",
+    body: "Reach us by phone and tell us about your dog — breed, size, and coat — so we know what to bring.",
+  },
+  {
+    title: "We Come to Your Door",
+    body: "Our fully equipped mobile grooming van arrives at your home — no drop-off, no car ride, no waiting room.",
+  },
+  {
+    title: "One-on-One, Cage-Free Groom",
+    body: "Your dog gets individual attention the whole appointment, never rushed and never caged.",
+  },
+  {
+    title: "Pick Up a Happy, Fresh Dog",
+    body: "Your dog is groomed, dried, and ready — right in your driveway.",
+  },
+] as const;
+
 // Only El Sobrante is a confirmed, verified location. Pet Spa Luxe markets
 // itself as a Bay Area mobile grooming business, but no additional specific
 // cities have been verified from a current, authoritative source — so no

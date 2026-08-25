@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton } from "@/components/CTAButton";
+import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { business, hoursNote, PATHS, SITE_URL } from "@/lib/site-data";
 
@@ -63,6 +64,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        <StatBand className="mt-10" />
       </section>
     </>
   );

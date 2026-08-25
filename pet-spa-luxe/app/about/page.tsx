@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { CheckIcon } from "@/components/icons";
 import { business, differentiators, serviceFeatures, photos, PATHS, SITE_URL } from "@/lib/site-data";
@@ -49,6 +50,10 @@ export default function AboutPage() {
           </div>
         </div>
         <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="portrait" className="w-full" />
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-4">
+        <StatBand />
       </section>
 
       <section className="bg-psl-cream-deep">

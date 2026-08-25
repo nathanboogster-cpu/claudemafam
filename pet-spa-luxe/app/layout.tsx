@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PromoBar } from "@/components/PromoBar";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { JsonLd, localBusinessSchema } from "@/lib/schema";
 import { SITE_URL, PATHS } from "@/lib/site-data";
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <PromoBar />
         <Header />
         <main id="main-content" className="flex-1">
           {children}
