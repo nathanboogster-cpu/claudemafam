@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  /* Sampled directly from the real Pet Spa Luxe logo (public/images/logo.webp):
+     soft blush-pink ground, warm metallic gold crest/type, deep warm-brown
+     ink for readable text on both. */
+  --color-psl-cream: #fdf6f4;
+  --color-psl-cream-deep: #f8e3ea;
+  --color-psl-ink: #2a1a14;
+  --color-psl-ink-soft: #5c473f;
+  --color-psl-pink: #f2b9ce;
+  --color-psl-pink-dark: #d97fa0;
+  --color-psl-brass: #c39a3e;
+  --color-psl-brass-dark: #9c7a2c;
+  --color-psl-white: #ffffff;
+  --color-psl-border: #f0d9e0;
+}
+
+@theme inline {
+  --color-psl-cream: var(--color-psl-cream);
+  --color-psl-cream-deep: var(--color-psl-cream-deep);
+  --color-psl-ink: var(--color-psl-ink);
+  --color-psl-ink-soft: var(--color-psl-ink-soft);
+  --color-psl-pink: var(--color-psl-pink);
+  --color-psl-pink-dark: var(--color-psl-pink-dark);
+  --color-psl-brass: var(--color-psl-brass);
+  --color-psl-brass-dark: var(--color-psl-brass-dark);
+  --color-psl-white: var(--color-psl-white);
+  --color-psl-border: var(--color-psl-border);
+  /* Editorial serif display, clean geometric sans. */
+  --font-psl-sans: var(--font-manrope), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-psl-display: var(--font-cormorant), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-psl-cream);
+  color: var(--color-psl-ink);
+  font-family: var(--font-psl-sans);
+}
+
+.font-psl-display {
+  font-family: var(--font-psl-display);
+}
+
+.font-psl-sans {
+  font-family: var(--font-psl-sans);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}
