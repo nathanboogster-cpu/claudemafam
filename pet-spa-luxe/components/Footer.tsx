@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
+import { StarIcon, TruckIcon, ShieldCheckIcon, CalendarCallIcon } from "@/components/icons";
+import { business, hours, trustStats, PATHS, serviceNav, areaNav } from "@/lib/site-data";
+
+const badgeIcons = [StarIcon, TruckIcon, ShieldCheckIcon, CalendarCallIcon];
 
 const companyLinks = [
   { label: "Home", href: PATHS.home },
@@ -14,6 +17,21 @@ const companyLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-psl-border bg-psl-cream-deep text-psl-ink-soft font-psl-sans">
+      <div className="border-b border-psl-border bg-white">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-5">
+          {trustStats.map((s, i) => {
+            const Icon = badgeIcons[i];
+            return (
+              <div key={s.label} className="flex items-center gap-2 text-psl-ink">
+                <Icon className="h-5 w-5 shrink-0 text-psl-brass-dark" />
+                <span className="text-sm font-semibold whitespace-nowrap">
+                  {s.value} <span className="font-normal text-psl-ink-soft">{s.label}</span>
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2 text-psl-ink">

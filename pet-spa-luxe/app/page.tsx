@@ -1,11 +1,20 @@
 import { Eyebrow } from "@/components/Eyebrow";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { TrustBar } from "@/components/TrustBar";
+import { StatBand } from "@/components/StatBand";
+import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
-import { DogIcon, TruckIcon, CheckIcon } from "@/components/icons";
+import {
+  TruckIcon,
+  ScissorsIcon,
+  DropletIcon,
+  NailIcon,
+  CheckIcon,
+  StarIcon,
+} from "@/components/icons";
 import {
   business,
   services,
@@ -16,6 +25,13 @@ import {
   photos,
   PATHS,
 } from "@/lib/site-data";
+
+const serviceIcons: Record<string, React.ReactNode> = {
+  "mobile-dog-grooming": <TruckIcon className="h-6 w-6" />,
+  "dog-haircuts-full-grooming": <ScissorsIcon className="h-6 w-6" />,
+  "bath-deshedding": <DropletIcon className="h-6 w-6" />,
+  "nail-ear-care": <NailIcon className="h-6 w-6" />,
+};
 
 const homeFaqs = [
   {
@@ -63,12 +79,60 @@ export default function PetSpaLuxeHome() {
             <TrustBar className="mt-8" />
           </div>
 
-          <PhotoPlaceholder
-            caption={photos.bulldogBandana.alt}
-            src={photos.bulldogBandana.src}
-            aspect="portrait"
-            className="w-full lg:aspect-square"
-          />
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-3">
+              <PhotoPlaceholder
+                caption={photos.bulldogBandana.alt}
+                src={photos.bulldogBandana.src}
+                aspect="square"
+                className="w-full translate-y-4"
+              />
+              <PhotoPlaceholder
+                caption={photos.huskyGroomed.alt}
+                src={photos.huskyGroomed.src}
+                aspect="square"
+                className="w-full"
+              />
+              <PhotoPlaceholder
+                caption={photos.poodleDoorway.alt}
+                src={photos.poodleDoorway.src}
+                aspect="square"
+                className="w-full"
+              />
+              <PhotoPlaceholder
+                caption={photos.vanInterior.alt}
+                src={photos.vanInterior.src}
+                aspect="square"
+                className="w-full translate-y-4"
+              />
+            </div>
+            <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-2xl border border-psl-border bg-white px-5 py-3 shadow-lg sm:left-auto sm:right-4 sm:translate-x-0">
+              <div className="flex text-psl-brass" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon key={i} className="h-4 w-4" />
+                ))}
+              </div>
+              <span className="text-sm font-bold text-psl-ink whitespace-nowrap">
+                {business.yelpRating} on Yelp
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto max-w-6xl px-4 pb-12 lg:pb-20">
+          <StatBand />
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="bg-psl-cream-deep">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="text-center">
+            <Eyebrow>How It Works</Eyebrow>
+            <h2 className="mt-1 font-psl-display text-3xl font-bold text-psl-ink sm:text-4xl">
+              From Call to Clean Dog, in Four Easy Steps
+            </h2>
+          </div>
+          <ProcessSteps className="mt-10" />
         </div>
       </section>
 
@@ -92,7 +156,7 @@ export default function PetSpaLuxeHome() {
               description={s.summary}
               href={servicePath(s.slug)}
               price={s.price}
-              icon={<DogIcon className="h-6 w-6" />}
+              icon={serviceIcons[s.slug]}
             />
           ))}
         </div>
