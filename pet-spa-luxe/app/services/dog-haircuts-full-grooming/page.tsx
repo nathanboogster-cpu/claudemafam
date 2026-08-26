@@ -20,10 +20,12 @@ export const metadata: Metadata = pageMetadata({
   path: servicePath("dog-haircuts-full-grooming"),
 });
 
+const totalIncluded = fullGroomingPackage.categories.reduce((n, c) => n + c.items.length, 0);
+
 const faqs = [
   {
     question: "How much does Full Dog Grooming cost?",
-    answer: `Full Dog Grooming is ${fullGroomingPackage.price}, all-inclusive — see the full list of what's included on this page.`,
+    answer: `Full Dog Grooming is ${fullGroomingPackage.price}, all-inclusive — that's ${totalIncluded} grooming services in one flat price, with no add-on fees. See the full package breakdown on this page.`,
   },
   {
     question: "Do you do breed-specific haircuts?",
@@ -72,21 +74,25 @@ export default function FullGroomingPage() {
 
       <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 lg:grid-cols-2">
         <div>
-          <Eyebrow>Full Grooming Package</Eyebrow>
+          <Eyebrow>The Full Dog Grooming Package</Eyebrow>
           <h1 className="mt-1 font-psl-display text-4xl font-bold text-psl-ink sm:text-5xl">
             Full Dog Grooming
           </h1>
-          <div className="mt-4 flex items-center gap-3">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <span className="rounded-full bg-psl-brass-dark px-4 py-1.5 text-lg font-bold text-white">
               {fullGroomingPackage.price}
             </span>
             <span className="text-sm font-semibold uppercase tracking-wide text-psl-brass-dark">
               {fullGroomingPackage.priceNote}
             </span>
+            <span className="text-sm text-psl-ink-soft">
+              · {totalIncluded} services in one visit
+            </span>
           </div>
           <p className="mt-4 text-lg text-psl-ink-soft">
-            One flat price, everything your dog needs — bathed, cut, and pampered at
-            your home, with one-on-one attention from start to finish.
+            One flat-price package, everything your dog needs bundled in — bathed,
+            cut, and pampered at your home, with one-on-one attention from start
+            to finish. No add-on fees, no upsells.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CallButton location="service_full_grooming" variant="primary" />
@@ -98,32 +104,73 @@ export default function FullGroomingPage() {
 
       <section className="bg-psl-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 className="font-psl-display text-2xl font-bold text-psl-ink sm:text-3xl">
-            What&apos;s Included — {fullGroomingPackage.price}
-          </h2>
-          <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-            {fullGroomingPackage.includes.map((f) => (
-              <li key={f} className="flex items-center gap-2 text-sm text-psl-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-psl-pink-dark" />
-                {f}
-              </li>
-            ))}
-          </ul>
+          <div className="text-center">
+            <Eyebrow>What&apos;s In the Package</Eyebrow>
+            <h2 className="mt-1 font-psl-display text-2xl font-bold text-psl-ink sm:text-3xl">
+              {totalIncluded} Services, One Flat Price
+            </h2>
+          </div>
 
-          <h3 className="mt-10 font-psl-display text-xl font-bold text-psl-ink">
-            Upon Request
-          </h3>
-          <p className="mt-1 text-sm text-psl-ink-soft">
-            Included at no extra charge — just ask when you book or when your groomer arrives.
+          <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-3xl border border-psl-border bg-white shadow-sm">
+            <div className="flex flex-col items-center gap-3 bg-psl-ink px-6 py-8 text-center text-white sm:flex-row sm:justify-between sm:text-left">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-psl-brass">
+                  {fullGroomingPackage.name} Package
+                </p>
+                <p className="mt-1 font-psl-display text-xl font-bold sm:text-2xl">
+                  Everything Below, Bundled In
+                </p>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="font-psl-display text-4xl font-bold text-psl-brass">
+                  {fullGroomingPackage.price}
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-wide text-white/70">
+                  {fullGroomingPackage.priceNote}
+                </span>
+              </div>
+            </div>
+
+            <div className="grid gap-8 p-6 sm:grid-cols-2 sm:p-10">
+              {fullGroomingPackage.categories.map((cat) => (
+                <div key={cat.title}>
+                  <h3 className="font-psl-display text-lg font-bold text-psl-ink">{cat.title}</h3>
+                  <ul className="mt-3 space-y-2">
+                    {cat.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-psl-ink-soft">
+                        <CheckIcon className="h-4 w-4 shrink-0 text-psl-pink-dark" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-psl-border bg-psl-cream-deep px-6 py-6 sm:px-10">
+              <p className="text-xs font-semibold uppercase tracking-wide text-psl-brass-dark">
+                Also Included, Upon Request
+              </p>
+              <p className="mt-1 text-sm text-psl-ink-soft">
+                No extra charge — just ask when you book or when your groomer arrives.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {fullGroomingPackage.uponRequest.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-psl-border bg-white px-3 py-1.5 text-xs font-medium text-psl-ink"
+                  >
+                    <CheckIcon className="h-3.5 w-3.5 shrink-0 text-psl-brass-dark" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-sm text-psl-ink-soft">
+            {totalIncluded} grooming services, one flat price — no add-on fees.
           </p>
-          <ul className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-            {fullGroomingPackage.uponRequest.map((f) => (
-              <li key={f} className="flex items-center gap-2 text-sm text-psl-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-psl-brass-dark" />
-                {f}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

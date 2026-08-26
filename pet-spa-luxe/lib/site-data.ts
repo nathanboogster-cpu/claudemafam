@@ -127,7 +127,7 @@ export const services = [
     slug: "dog-haircuts-full-grooming",
     name: "Full Dog Grooming",
     shortName: "Full Dog Grooming",
-    summary: "All-inclusive full grooming package — bath, breed-specific haircut, and more.",
+    summary: "All-inclusive package — 15 grooming services bundled into one flat price.",
     isFlagship: false,
     price: "$110" as string | null,
   },
@@ -159,22 +159,32 @@ export const fullGroomingPackage = {
   name: "Full Dog Grooming",
   price: "$110",
   priceNote: "All-Inclusive",
-  includes: [
-    "Warm Bath",
-    "Full Haircut (style or breed-specific)",
-    "Nail Trim",
-    "Hair Brushing",
-    "Deshedding Treatment",
-    "Sanitary Trim",
-    "Professional Grade Shampoo",
-    "Hand Blow Dry",
-    "Eye Wash",
-    "Ear Cleaning",
-    "Paw Trimming",
-    "Teeth Brushing",
-    "Hug & Brush Magic Hydrobath",
-    "Paw & Nose Conditioning",
-    "Fancy Bow Ties or Cool Bandanas",
+  // The complete, verified list of what's included, grouped into the
+  // categories a groomer would actually work through in one visit —
+  // nothing added beyond what the owner specified, just organized.
+  categories: [
+    {
+      title: "Bath & Coat Care",
+      items: [
+        "Warm Bath",
+        "Professional Grade Shampoo",
+        "Hug & Brush Magic Hydrobath",
+        "Deshedding Treatment",
+        "Hand Blow Dry",
+      ],
+    },
+    {
+      title: "Cut & Trim",
+      items: ["Full Haircut (style or breed-specific)", "Nail Trim", "Sanitary Trim", "Paw Trimming"],
+    },
+    {
+      title: "Wellness Touches",
+      items: ["Hair Brushing", "Eye Wash", "Ear Cleaning", "Teeth Brushing", "Paw & Nose Conditioning"],
+    },
+    {
+      title: "Finishing Touch",
+      items: ["Fancy Bow Ties or Cool Bandanas"],
+    },
   ],
   // Included, but only performed when the client asks for them.
   uponRequest: [
