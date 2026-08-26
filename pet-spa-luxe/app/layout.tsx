@@ -2,11 +2,6 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { PromoBar } from "@/components/PromoBar";
-import { StickyMobileCTA } from "@/components/StickyMobileCTA";
-import { JsonLd, localBusinessSchema } from "@/lib/schema";
 import { SITE_URL, PATHS } from "@/lib/site-data";
 
 const cormorant = Cormorant_Garamond({
@@ -57,20 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`h-full antialiased ${cormorant.variable} ${manrope.variable}`}>
       <body className="min-h-full flex flex-col font-psl-sans">
-        <JsonLd data={localBusinessSchema(SITE_URL)} />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-psl-brass-dark focus:px-4 focus:py-2 focus:text-white"
-        >
-          Skip to content
-        </a>
-        <PromoBar />
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <StickyMobileCTA />
+        {children}
         <Analytics />
       </body>
     </html>
