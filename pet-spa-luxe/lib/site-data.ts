@@ -84,6 +84,26 @@ export const photos = {
     src: "/images/husky-groomed-van.jpg",
     alt: "Husky standing on the grooming table inside the Pet Spa Luxe mobile van after a full groom",
   },
+  frenchieBandana: {
+    src: "/images/frenchie-bandana.jpg",
+    alt: "French bulldog wearing a paw-print bandana on the Pet Spa Luxe grooming table",
+  },
+  corgiGroomingTable: {
+    src: "/images/corgi-grooming-table.jpg",
+    alt: "Smiling corgi standing on the Pet Spa Luxe mobile grooming table",
+  },
+  corgiBathSuds: {
+    src: "/images/corgi-bath-suds.jpg",
+    alt: "Corgi mid-bath in the Pet Spa Luxe mobile grooming van's warm-water tub",
+  },
+  cavachonTreat: {
+    src: "/images/cavachon-treat.jpg",
+    alt: "Small groomed dog getting a treat from a Pet Spa Luxe groomer",
+  },
+  apricotPoodleGroomed: {
+    src: "/images/apricot-poodle-groomed.jpg",
+    alt: "Apricot toy poodle with a fresh groom standing on the Pet Spa Luxe grooming table",
+  },
 } as const;
 
 export const services = [

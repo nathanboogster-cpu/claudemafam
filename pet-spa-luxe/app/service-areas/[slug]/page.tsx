@@ -28,9 +28,19 @@ const dynamicAreas = serviceAreas.filter(
     a.slug !== "el-sobrante",
 );
 
-// Rotate the 4 real client photos across pages so no single photo becomes
+// Rotate the real client photos across pages so no single photo becomes
 // the sole hero for every city; still real photography, never stock.
-const heroPhotos = [photos.poodleDoorway, photos.bulldogBandana, photos.huskyGroomed, photos.vanInterior];
+const heroPhotos = [
+  photos.poodleDoorway,
+  photos.bulldogBandana,
+  photos.huskyGroomed,
+  photos.vanInterior,
+  photos.frenchieBandana,
+  photos.corgiGroomingTable,
+  photos.corgiBathSuds,
+  photos.cavachonTreat,
+  photos.apricotPoodleGroomed,
+];
 
 export function generateStaticParams() {
   return dynamicAreas.map((a) => ({ slug: a.slug }));

@@ -19,6 +19,11 @@ const galleryPhotos = [
   photos.huskyGroomed,
   photos.poodleDoorway,
   photos.vanInterior,
+  photos.frenchieBandana,
+  photos.corgiGroomingTable,
+  photos.corgiBathSuds,
+  photos.cavachonTreat,
+  photos.apricotPoodleGroomed,
 ];
 
 export default function GalleryPage() {
