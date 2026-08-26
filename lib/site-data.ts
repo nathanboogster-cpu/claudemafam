@@ -12,7 +12,7 @@ export const business = {
   firstAid: "First-aid trained, including for seizures and heart attacks",
   phoneDisplay: "760-881-3171",
   phoneHref: "tel:+17608813171",
-  email: "pamperedpuppies.dn@gmail.com",
+  email: "hello@pamperedpuppiespetgrooming.com",
   addressLine1: "15444 Bear Valley Rd, Ste A",
   addressCity: "Victorville",
   addressState: "CA",
@@ -100,6 +100,18 @@ export const dogPricing = {
   small: "$55–65",
   large: "$65–85",
   note: "Starting prices — final pricing depends on breed, coat condition, and temperament.",
+} as const;
+
+// PPG VIP Membership — annual paid membership, enrolled by phone/in-person
+// (no online signup flow exists yet).
+export const vipMembership = {
+  name: "PPG VIP Membership",
+  price: "$99/year",
+  discountPercent: "18%",
+  perks: [
+    "18% off every grooming service, every visit",
+    "Priority scheduling on appointments",
+  ],
 } as const;
 
 export const testimonials = [

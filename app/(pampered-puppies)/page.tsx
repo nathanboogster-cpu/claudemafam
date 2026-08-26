@@ -14,6 +14,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { StatBand } from "@/components/StatBand";
 import { GalleryPhotoCard } from "@/components/GalleryPhotoCard";
 import { ProcessSteps } from "@/components/ProcessSteps";
+import { VipMembership } from "@/components/VipMembership";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
@@ -125,6 +126,8 @@ export default function HomePage() {
           />
         </div>
       </section>
+
+      <VipMembership className="mx-auto max-w-6xl px-4 pb-14" />
 
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-2 md:items-center">
