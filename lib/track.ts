@@ -19,6 +19,15 @@ export function trackEvent(eventName: string, params: Record<string, string | nu
 
   track(eventName, params);
 
+  if (eventName === "call_click" || eventName === "book_click") {
+    fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: eventName, location: params.location }),
+      keepalive: true,
+    }).catch(() => {});
+  }
+
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: eventName, ...params });
 
