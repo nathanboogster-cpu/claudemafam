@@ -14,7 +14,7 @@ import { StatBand } from "@/components/StatBand";
 export const metadata: Metadata = {
   title: "About Pampered Puppies | Victorville, CA Dog & Cat Groomer",
   description:
-    "Meet Ellen Karikari, owner-groomer at Pampered Puppies in Victorville, CA — 35+ years of hands-on grooming experience, first-aid trained, and a low-cage-time approach.",
+    "Meet Ellen Flores Karikari, owner-groomer at Pampered Puppies in Victorville, CA — 35+ years of hands-on grooming experience, first-aid trained, and a low-cage-time approach.",
   alternates: { canonical: PATHS.about },
 };
 
@@ -25,7 +25,7 @@ const philosophy = [
   "First-aid trained, including for seizures and heart attacks",
 ];
 
-const badges = ["35+ Years Experience", "First-Aid Trained", "BBB A+ Accredited"];
+const badges = ["35+ Years Experience", "Insured & Licensed", "First-Aid Trained", "BBB A+ Accredited"];
 
 export default function AboutPage() {
   return (
@@ -45,11 +45,12 @@ export default function AboutPage() {
             About Pampered Puppies
           </h1>
           <p className="mt-4 text-ink-soft leading-relaxed">
-            Pampered Puppies is owned and operated by <strong>Ellen Karikari</strong>,
-            who brings <strong>35+ years of hands-on dog and cat grooming
-            experience</strong> to every appointment. Ellen grooms out of the
-            studio at 15444 Bear Valley Rd, Ste A, in Victorville, and also
-            takes her tools on the road with{" "}
+            Pampered Puppies is owned and operated by <strong>Ellen Flores
+            Karikari</strong>, who brings <strong>35+ years of hands-on dog
+            and cat grooming experience</strong> to every appointment
+            alongside her team of experienced pet groomers. Ellen grooms out
+            of the studio at 15444 Bear Valley Rd, Ste A, in Victorville, and
+            also takes her tools on the road with{" "}
             <Link href={PATHS.mobile} className="font-semibold text-terracotta-dark hover:underline">
               Pampered Puppies At Your Door
             </Link>

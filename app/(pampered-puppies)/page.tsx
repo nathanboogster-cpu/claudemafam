@@ -57,8 +57,8 @@ export default function HomePage() {
               <Link href={PATHS.mobile} className="font-semibold text-terracotta-dark hover:underline">
                 Pampered Puppies At Your Door
               </Link>
-              . One-on-one attention from owner-groomer Ellen Karikari, 35+ years
-              of hands-on experience, minimal cage time.
+              . One-on-one attention from owner-groomer Ellen Flores Karikari,
+              35+ years of hands-on experience, minimal cage time.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <CallButton location="hero" label={`Call Now — ${business.phoneDisplay}`} />
@@ -105,7 +105,7 @@ export default function HomePage() {
           <ServiceCard
             title="Mobile Grooming"
             description={'"Pampered Puppies At Your Door" — professional grooming in your own driveway.'}
-            price="Same rates as in-store"
+            price="In-store rate + $10–15"
             href={PATHS.mobile}
             icon={<TruckIcon />}
           />
@@ -134,18 +134,19 @@ export default function HomePage() {
             src="/images/studio-interior.jpg"
           />
           <div>
-            <Eyebrow>Meet Your Groomer</Eyebrow>
+            <Eyebrow>Meet Ellen &amp; The Team</Eyebrow>
             <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
-              Groomed by Ellen, Not an Assembly Line
+              Gentle Grooming. Never an Assembly Line.
             </h2>
             <p className="mt-4 text-ink-soft leading-relaxed">
-              Ellen Karikari owns and operates Pampered Puppies, bringing 35+
-              years of hands-on dog &amp; cat grooming experience to every
-              appointment — one-on-one attention, minimal cage time, and a
-              quick consultation before any clippers come out.
+              Ellen Flores Karikari owns and operates Pampered Puppies,
+              bringing 35+ years of hands-on dog &amp; cat grooming experience
+              together with her team of experienced pet groomers — one-on-one
+              attention, minimal cage time, and a quick consultation before
+              any clippers come out.
             </p>
             <ul className="mt-5 flex flex-wrap gap-2">
-              {["35+ Years Experience", "First-Aid Trained", "BBB A+ Accredited"].map((b) => (
+              {["35+ Years Experience", "Insured & Licensed", "First-Aid Trained", "BBB A+ Accredited"].map((b) => (
                 <li
                   key={b}
                   className="flex items-center gap-1.5 rounded-full border border-border bg-cream px-3 py-1.5 text-xs font-semibold text-ink-soft"
@@ -157,7 +158,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6">
               <Link href={PATHS.about} className="font-semibold text-terracotta-dark hover:underline">
-                More about Ellen →
+                More about Ellen &amp; the team →
               </Link>
             </div>
           </div>

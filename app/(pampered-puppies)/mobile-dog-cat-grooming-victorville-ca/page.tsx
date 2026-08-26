@@ -34,7 +34,7 @@ const mobileFaqs = [
   {
     question: "How is mobile grooming priced?",
     answer:
-      "Mobile pricing is confirmed with a quick call — it follows the same starting ranges as in-store grooming and may vary slightly with your pet's needs.",
+      "Mobile pricing follows the same starting ranges as in-store grooming, plus about $10–15 for gas and a convenience fee — confirmed with a quick call based on your pet's needs.",
   },
   {
     question: "Do you groom cats too?",

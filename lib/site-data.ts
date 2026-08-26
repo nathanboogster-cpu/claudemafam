@@ -1,13 +1,13 @@
 // Central, single source of truth for every verified business fact used across the site.
 // Sourced from the Client Record, Website Build Brief, and Claude Code Final Handoff
-// for Pampered Puppies (owner: Ellen Karikari). Do not add facts that aren't in those
-// documents — see the handoff §2 "what must not appear" list.
+// for Pampered Puppies (owner: Ellen Flores Karikari). Do not add facts that aren't in
+// those documents — see the handoff §2 "what must not appear" list.
 
 export const SITE_URL = "https://www.pamperedpuppies.net";
 
 export const business = {
   name: "Pampered Puppies",
-  ownerName: "Ellen Karikari",
+  ownerName: "Ellen Flores Karikari",
   ownerExperience: "35+ years of hands-on dog & cat grooming experience",
   firstAid: "First-aid trained, including for seizures and heart attacks",
   phoneDisplay: "760-881-3171",
@@ -153,8 +153,12 @@ export const trustPoints = [
     body: "Verified accreditation with the Better Business Bureau.",
   },
   {
+    title: "Insured & Licensed",
+    body: "Fully insured and licensed for your peace of mind.",
+  },
+  {
     title: "35+ Years of Experience",
-    body: "Ellen Karikari has 35+ years of hands-on dog & cat grooming experience.",
+    body: "Ellen Flores Karikari has 35+ years of hands-on dog & cat grooming experience.",
   },
   {
     title: "First-Aid Trained",

@@ -1,6 +1,6 @@
 # Pampered Puppies — Website
 
-Production site for Pampered Puppies (Ellen Karikari), a dog & cat grooming
+Production site for Pampered Puppies (Ellen Flores Karikari), a dog & cat grooming
 business in Victorville, CA. Built with Next.js (App Router), TypeScript, and
 Tailwind CSS.
 
