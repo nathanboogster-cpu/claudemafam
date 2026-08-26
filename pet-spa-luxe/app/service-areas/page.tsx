@@ -32,12 +32,13 @@ export default function ServiceAreasHub() {
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-psl-ink-soft">
           Pet Spa Luxe is based in El Sobrante, CA and grooms dogs by mobile
-          appointment throughout the surrounding Bay Area. We publish a
-          dedicated page only for confirmed service areas — if your city isn&apos;t
-          listed yet, call and we&apos;ll confirm whether we can reach you.
+          appointment across {serviceAreas.length} confirmed Bay Area cities.
+          We publish a dedicated page only for confirmed service areas — if
+          your city isn&apos;t listed yet, call and we&apos;ll confirm whether
+          we can reach you.
         </p>
 
-        <div className="mx-auto mt-10 grid max-w-md gap-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {serviceAreas.map((a) => (
             <ServiceAreaCard key={a.slug} city={a.city} href={areaPath(a.slug)} />
           ))}

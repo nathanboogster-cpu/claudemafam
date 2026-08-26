@@ -202,15 +202,15 @@ export default function PetSpaLuxeHome() {
         <div className="text-center">
           <Eyebrow>Service Areas</Eyebrow>
           <h2 className="mt-1 font-psl-display text-3xl font-bold text-psl-ink sm:text-4xl">
-            Based in El Sobrante, Serving the Bay Area
+            Based in El Sobrante, Serving {serviceAreas.length} Bay Area Cities
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-psl-ink-soft">
             Pet Spa Luxe is based in El Sobrante and grooms dogs by mobile
             appointment throughout the surrounding Bay Area.
           </p>
         </div>
-        <div className="mx-auto mt-8 grid max-w-md gap-4">
-          {serviceAreas.map((a) => (
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {serviceAreas.slice(0, 6).map((a) => (
             <ServiceAreaCard key={a.slug} city={a.city} href={areaPath(a.slug)} />
           ))}
         </div>
