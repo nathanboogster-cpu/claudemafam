@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://petssibleus.com/sitemap.xml
+Sitemap: https://www.petssibleus.com/sitemap.xml
