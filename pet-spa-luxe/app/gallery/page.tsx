@@ -14,16 +14,19 @@ export const metadata: Metadata = pageMetadata({
   path: PATHS.gallery,
 });
 
-const galleryPhotos = [
-  photos.bulldogBandana,
-  photos.huskyGroomed,
-  photos.poodleDoorway,
-  photos.vanInterior,
-  photos.frenchieBandana,
-  photos.corgiGroomingTable,
-  photos.corgiBathSuds,
-  photos.cavachonTreat,
-  photos.apricotPoodleGroomed,
+// poodleDoorway is a true 3:4 portrait photo; every other real photo is a
+// 1:1 square — each gets the aspect box that matches its actual shape so
+// nothing gets cropped.
+const galleryPhotos: { alt: string; src: string; aspect: "square" | "portrait" }[] = [
+  { ...photos.bulldogBandana, aspect: "square" },
+  { ...photos.huskyGroomed, aspect: "square" },
+  { ...photos.poodleDoorway, aspect: "portrait" },
+  { ...photos.vanInterior, aspect: "square" },
+  { ...photos.frenchieBandana, aspect: "square" },
+  { ...photos.corgiGroomingTable, aspect: "square" },
+  { ...photos.corgiBathSuds, aspect: "square" },
+  { ...photos.cavachonTreat, aspect: "square" },
+  { ...photos.apricotPoodleGroomed, aspect: "square" },
 ];
 
 export default function GalleryPage() {
@@ -51,7 +54,7 @@ export default function GalleryPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {galleryPhotos.map((p) => (
-            <PhotoPlaceholder key={p.src} caption={p.alt} src={p.src} aspect="square" />
+            <PhotoPlaceholder key={p.src} caption={p.alt} src={p.src} aspect={p.aspect} />
           ))}
         </div>
 

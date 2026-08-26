@@ -72,7 +72,7 @@ export default function ElSobrantePage() {
             <RequestButton location="area_el_sobrante" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="video" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-psl-cream-deep">

@@ -50,7 +50,7 @@ export default function AboutPage() {
             <RequestButton location="about" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.corgiGroomingTable.alt} src={photos.corgiGroomingTable.src} aspect="square" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-4">

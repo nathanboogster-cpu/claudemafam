@@ -89,7 +89,7 @@ export default function BathDesheddingPage() {
             <RequestButton location="service_bath" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.poodleDoorway.alt} src={photos.poodleDoorway.src} aspect="video" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.corgiBathSuds.alt} src={photos.corgiBathSuds.src} aspect="square" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14">

@@ -81,7 +81,7 @@ export default function MobileDogGroomingPage() {
             <RequestButton location="service_mobile_dog_grooming" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.vanInterior.alt} src={photos.vanInterior.src} aspect="video" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.cavachonTreat.alt} src={photos.cavachonTreat.src} aspect="square" className="w-full" priority />
       </section>
 
       <section className="bg-psl-cream-deep">

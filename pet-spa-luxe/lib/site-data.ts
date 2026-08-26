@@ -23,6 +23,13 @@ export const business = {
   get addressFull() {
     return `${this.addressLine1}, ${this.addressCity}, ${this.addressState} ${this.addressZip}`;
   },
+  // No-API-key Google Maps embed/link for the homepage map and Contact page.
+  get mapsEmbedUrl() {
+    return `https://www.google.com/maps?q=${encodeURIComponent(this.addressFull)}&output=embed`;
+  },
+  get mapsUrl() {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.addressFull)}`;
+  },
   primaryLocation: "El Sobrante, CA",
   yelpUrl: "https://www.yelp.com/biz/pet-spa-luxe-el-sobrante-2",
   // Verified: 5.0-star public rating. Review count conflicts across sources

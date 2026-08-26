@@ -83,7 +83,7 @@ export default function NailEarCarePage() {
             <RequestButton location="service_nail_ear" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.bulldogBandana.alt} src={photos.bulldogBandana.src} aspect="video" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.bulldogBandana.alt} src={photos.bulldogBandana.src} aspect="square" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14">

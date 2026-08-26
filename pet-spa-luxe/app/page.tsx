@@ -95,14 +95,14 @@ export default function PetSpaLuxeHome() {
                 className="w-full"
               />
               <PhotoPlaceholder
-                caption={photos.poodleDoorway.alt}
-                src={photos.poodleDoorway.src}
+                caption={photos.frenchieBandana.alt}
+                src={photos.frenchieBandana.src}
                 aspect="square"
                 className="w-full"
               />
               <PhotoPlaceholder
-                caption={photos.vanInterior.alt}
-                src={photos.vanInterior.src}
+                caption={photos.apricotPoodleGroomed.alt}
+                src={photos.apricotPoodleGroomed.src}
                 aspect="square"
                 className="w-full translate-y-4"
               />
@@ -169,7 +169,7 @@ export default function PetSpaLuxeHome() {
           <PhotoPlaceholder
             caption={photos.vanInterior.alt}
             src={photos.vanInterior.src}
-            aspect="video"
+            aspect="square"
             className="w-full lg:order-2"
           />
           <div className="lg:order-1">
@@ -219,6 +219,43 @@ export default function PetSpaLuxeHome() {
             Don&apos;t see your city listed? Call to confirm mobile grooming availability at your address.
           </p>
           <RequestButton location="service_areas_teaser" variant="ghost" label="See All Service Areas" href={PATHS.serviceAreas} />
+        </div>
+      </section>
+
+      {/* Location map */}
+      <section className="bg-psl-cream-deep">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="text-center">
+            <Eyebrow>Where We&apos;re Based</Eyebrow>
+            <h2 className="mt-1 font-psl-display text-3xl font-bold text-psl-ink sm:text-4xl">
+              {business.addressFull}
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-psl-ink-soft">
+              This is our mobile service base, not a walk-in location — Pet Spa
+              Luxe comes to you. Call to confirm we reach your address.
+            </p>
+          </div>
+          <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border border-psl-border shadow-sm">
+            <iframe
+              title={`Map showing ${business.name}'s location in ${business.addressCity}, ${business.addressState}`}
+              src={business.mapsEmbedUrl}
+              width="100%"
+              height="380"
+              style={{ border: 0, display: "block" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="mt-6 flex justify-center">
+            <a
+              href={business.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-psl-brass-dark hover:underline"
+            >
+              Get Directions →
+            </a>
+          </div>
         </div>
       </section>
 

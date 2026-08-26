@@ -93,7 +93,7 @@ export default function FullGroomingPage() {
             <RequestButton location="service_full_grooming" variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="video" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.huskyGroomed.alt} src={photos.huskyGroomed.src} aspect="square" className="w-full" priority />
       </section>
 
       <section className="bg-psl-cream-deep">

@@ -29,17 +29,20 @@ const dynamicAreas = serviceAreas.filter(
 );
 
 // Rotate the real client photos across pages so no single photo becomes
-// the sole hero for every city; still real photography, never stock.
-const heroPhotos = [
-  photos.poodleDoorway,
-  photos.bulldogBandana,
-  photos.huskyGroomed,
-  photos.vanInterior,
-  photos.frenchieBandana,
-  photos.corgiGroomingTable,
-  photos.corgiBathSuds,
-  photos.cavachonTreat,
-  photos.apricotPoodleGroomed,
+// the sole hero for every city; still real photography, never stock. The
+// van interior is reserved for pages specifically about the mobile setup —
+// area pages stay focused on the dogs. poodleDoorway is a true 3:4 portrait
+// shot; every other photo is a 1:1 square — each gets the aspect box that
+// matches its actual shape so nothing gets cropped.
+const heroPhotos: { alt: string; src: string; aspect: "square" | "portrait" }[] = [
+  { ...photos.poodleDoorway, aspect: "portrait" },
+  { ...photos.bulldogBandana, aspect: "square" },
+  { ...photos.huskyGroomed, aspect: "square" },
+  { ...photos.frenchieBandana, aspect: "square" },
+  { ...photos.corgiGroomingTable, aspect: "square" },
+  { ...photos.corgiBathSuds, aspect: "square" },
+  { ...photos.cavachonTreat, aspect: "square" },
+  { ...photos.apricotPoodleGroomed, aspect: "square" },
 ];
 
 export function generateStaticParams() {
@@ -112,7 +115,7 @@ export default async function ServiceAreaPage({
             <RequestButton location={`area_${area.slug}`} variant="secondary" />
           </div>
         </div>
-        <PhotoPlaceholder caption={heroPhoto.alt} src={heroPhoto.src} aspect="video" className="w-full" priority />
+        <PhotoPlaceholder caption={heroPhoto.alt} src={heroPhoto.src} aspect={heroPhoto.aspect} className="w-full" priority />
       </section>
 
       <section className="bg-psl-cream-deep">
