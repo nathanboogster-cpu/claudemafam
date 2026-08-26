@@ -3,7 +3,7 @@
 // for Pampered Puppies (owner: Ellen Flores Karikari). Do not add facts that aren't in
 // those documents — see the handoff §2 "what must not appear" list.
 
-export const SITE_URL = "https://www.pamperedpuppies.net";
+export const SITE_URL = "https://www.pamperedpuppiespetgrooming.com";
 
 export const business = {
   name: "Pampered Puppies",
