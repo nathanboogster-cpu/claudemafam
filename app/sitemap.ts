@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [PATHS.dog]: 0.9,
     [PATHS.cat]: 0.9,
     [PATHS.mobile]: 0.9,
+    [PATHS.membership]: 0.8,
     [PATHS.about]: 0.7,
     [PATHS.reviews]: 0.7,
     [PATHS.faq]: 0.7,

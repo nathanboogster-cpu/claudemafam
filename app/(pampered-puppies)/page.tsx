@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { business, testimonials, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, testimonials, vipMembership, PATHS, SITE_URL } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
 import { TrustBar } from "@/components/TrustBar";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { ServiceCard } from "@/components/ServiceCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
-import { DogIcon, CatIcon, TruckIcon, PuppyIcon, HeartIcon, CheckIcon } from "@/components/icons";
+import { DogIcon, CatIcon, TruckIcon, PuppyIcon, HeartIcon, StarIcon, CheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { ServiceAreaSection } from "@/components/ServiceAreaSection";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -14,7 +14,6 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { StatBand } from "@/components/StatBand";
 import { GalleryPhotoCard } from "@/components/GalleryPhotoCard";
 import { ProcessSteps } from "@/components/ProcessSteps";
-import { VipMembership } from "@/components/VipMembership";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Grooming in Victorville, CA | Pampered Puppies",
@@ -124,10 +123,16 @@ export default function HomePage() {
             href={PATHS.anxious}
             icon={<HeartIcon />}
           />
+          <ServiceCard
+            title={vipMembership.name}
+            description={`${vipMembership.discountPercent} off every service, every visit, plus priority scheduling.`}
+            price={vipMembership.price}
+            href={PATHS.membership}
+            icon={<StarIcon />}
+            badge="Best Value"
+          />
         </div>
       </section>
-
-      <VipMembership className="mx-auto max-w-6xl px-4 pb-14" />
 
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-2 md:items-center">

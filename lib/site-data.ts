@@ -106,6 +106,7 @@ export const dogPricing = {
 // (no online signup flow exists yet).
 export const vipMembership = {
   name: "PPG VIP Membership",
+  tagline: "Save on every visit, automatically.",
   price: "$99/year",
   discountPercent: "18%",
   perks: [
@@ -223,6 +224,7 @@ export const PATHS = {
   faq: "/faq",
   puppy: "/puppy-grooming-victorville-ca",
   anxious: "/anxious-senior-dog-grooming-victorville-ca",
+  membership: "/vip-membership",
 } as const;
 
 // Mobile service-area pages. Pampered Puppies has ONE physical location
