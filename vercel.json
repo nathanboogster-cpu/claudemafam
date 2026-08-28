@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/product", "destination": "/services/dog-grooming.html", "permanent": true },
+    { "source": "/product/:path*", "destination": "/services/dog-grooming.html", "permanent": true }
+  ]
+}
