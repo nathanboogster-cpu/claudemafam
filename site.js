@@ -6,7 +6,9 @@ document.addEventListener('click',event=>{
   const href=link.getAttribute('href');
   if(href.startsWith('tel:')){
     window.va&&window.va('event',{name:'call_click',data:{page:location.pathname}});
+    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'call_click',location:location.pathname}),keepalive:true}).catch(()=>{});
   }else if(href.includes('portal.groomer.io')){
     window.va&&window.va('event',{name:'booking_click',data:{page:location.pathname}});
+    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'booking_click',location:location.pathname}),keepalive:true}).catch(()=>{});
   }
 });

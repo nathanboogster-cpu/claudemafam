@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/analytics-report
 
 Sitemap: https://www.petssibleus.com/sitemap.xml

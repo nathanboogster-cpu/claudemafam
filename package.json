@@ -1,0 +1,8 @@
+{
+  "name": "petssible-site",
+  "private": true,
+  "description": "Static Petssible site plus serverless API functions (self-hosted click tracker).",
+  "dependencies": {
+    "@upstash/redis": "^1.34.3"
+  }
+}
