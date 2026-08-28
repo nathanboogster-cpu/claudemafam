@@ -1,16 +1,7 @@
 import { vipMembership } from "@/lib/site-data";
 import { CallButton, BookButton } from "./CTAButton";
 import { Eyebrow } from "./Eyebrow";
-import { CheckIcon } from "./icons";
-
-// Star icon reused from the 5-star rating rows elsewhere on the site.
-function StarIcon({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 20 20" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M10 1.5l2.6 5.27 5.82.85-4.21 4.1 1 5.8L10 14.9l-5.21 2.62 1-5.8-4.21-4.1 5.82-.85z" />
-    </svg>
-  );
-}
+import { CheckIcon, StarIcon } from "./icons";
 
 export function VipMembership({ className = "" }: { className?: string }) {
   return (

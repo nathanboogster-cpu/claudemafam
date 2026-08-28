@@ -3,7 +3,7 @@
 // for Pampered Puppies (owner: Ellen Flores Karikari). Do not add facts that aren't in
 // those documents — see the handoff §2 "what must not appear" list.
 
-export const SITE_URL = "https://www.pamperedpuppies.net";
+export const SITE_URL = "https://www.pamperedpuppiespetgrooming.com";
 
 export const business = {
   name: "Pampered Puppies",
@@ -106,6 +106,7 @@ export const dogPricing = {
 // (no online signup flow exists yet).
 export const vipMembership = {
   name: "PPG VIP Membership",
+  tagline: "Save on every visit, automatically.",
   price: "$99/year",
   discountPercent: "18%",
   perks: [
@@ -223,6 +224,7 @@ export const PATHS = {
   faq: "/faq",
   puppy: "/puppy-grooming-victorville-ca",
   anxious: "/anxious-senior-dog-grooming-victorville-ca",
+  membership: "/vip-membership",
 } as const;
 
 // Mobile service-area pages. Pampered Puppies has ONE physical location

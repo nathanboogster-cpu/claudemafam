@@ -7,18 +7,25 @@ export function ServiceCard({
   price,
   href,
   icon,
+  badge,
 }: {
   title: string;
   description: string;
   price?: string;
   href: string;
   icon: ReactNode;
+  badge?: string;
 }) {
   return (
     <Link
       href={href}
-      className="group flex flex-col gap-3 rounded-2xl border border-border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+      className="group relative flex flex-col gap-3 rounded-2xl border border-border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
     >
+      {badge && (
+        <span className="absolute -top-2.5 right-4 rounded-full bg-gold px-2.5 py-1 text-xs font-semibold text-ink shadow-sm">
+          {badge}
+        </span>
+      )}
       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-terracotta-light/30 text-terracotta-dark">
         {icon}
       </div>
