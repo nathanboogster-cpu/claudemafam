@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   alternates: { canonical: PATHS.gallery },
 };
 
-// Eight cards below use real client photos supplied by Ellen (studio shots and
-// mobile-visit shots from her Google Drive), captioned with a verified service
-// + verified service area — mobile-visit photos are captioned generically
-// since the exact city of each shoot isn't confirmed. The Cat Grooming and
-// Puppy's First Groom cards use stock photos (not actual Pampered Puppies
-// clients) since no real cat or puppy client photo exists yet — captioned
+// Most cards below use real client photos supplied by Ellen (studio shots and
+// mobile-visit shots), captioned with a verified service + verified service
+// area — mobile-visit photos are captioned generically since the exact city
+// of each shoot isn't confirmed. The first "Cat Grooming" card and the
+// "Puppy's First Groom" card still use stock photos (not actual Pampered
+// Puppies clients) since no real puppy client photo exists yet — captioned
 // "Representative Photo" rather than a real location, and swapped for a real
 // photo once one arrives.
 const recentWork = [
@@ -38,6 +38,9 @@ const recentWork = [
   { service: "Mobile Groom", location: "Mobile Visit", src: "/images/gallery-german-shepherd.jpg" },
   { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-studio-goldendoodle.jpg" },
   { service: "Puppy's First Groom", location: "Representative Photo", src: "/images/gallery-puppy-groom.jpg" },
+  { service: "Full Groom", location: "Victorville Studio", src: "/images/gallery-two-dogs-couch.jpg" },
+  { service: "Cat Grooming", location: "Mobile Visit", src: "/images/gallery-orange-tabby.jpg" },
+  { service: "Cat Grooming", location: "Mobile Visit", src: "/images/gallery-tuxedo-cat.jpg" },
 ] as const;
 
 const differenceChecklist = [
