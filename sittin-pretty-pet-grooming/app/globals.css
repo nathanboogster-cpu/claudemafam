@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  /* Warm, established local-business palette — no logo/brand assets were
+     supplied for this build, so this is a deliberately chosen palette
+     (not sampled from an asset): warm cream ground, deep forest green for
+     trust/CTA, warm gold as a decorative accent only. */
+  --color-sp-cream: #faf6ef;
+  --color-sp-cream-deep: #f1e6d1;
+  --color-sp-ink: #262019;
+  --color-sp-ink-soft: #5c5142;
+  /* Decorative use only (icon fills on dark backgrounds, borders, small
+     accents). Never used as body text on light backgrounds or as a button
+     fill with white text — fails WCAG AA contrast at this lightness. */
+  --color-sp-green: #6f8f6f;
+  /* Meets 4.5:1 contrast as text on light backgrounds (cream/cream-deep/
+     white) AND as a button fill under white text. */
+  --color-sp-green-dark: #33512f;
+  --color-sp-green-darker: #253b23;
+  /* Decorative accent (stars, small icons) — not used as text. */
+  --color-sp-gold: #c9982c;
+  --color-sp-white: #ffffff;
+  --color-sp-border: #e6dcc2;
+}
+
+@theme inline {
+  --color-sp-cream: var(--color-sp-cream);
+  --color-sp-cream-deep: var(--color-sp-cream-deep);
+  --color-sp-ink: var(--color-sp-ink);
+  --color-sp-ink-soft: var(--color-sp-ink-soft);
+  --color-sp-green: var(--color-sp-green);
+  --color-sp-green-dark: var(--color-sp-green-dark);
+  --color-sp-green-darker: var(--color-sp-green-darker);
+  --color-sp-gold: var(--color-sp-gold);
+  --color-sp-white: var(--color-sp-white);
+  --color-sp-border: var(--color-sp-border);
+  /* Editorial serif display, clean humanist sans. */
+  --font-sp-sans: var(--font-inter), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sp-display: var(--font-playfair), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sp-cream);
+  color: var(--color-sp-ink);
+  font-family: var(--font-sp-sans);
+}
+
+.font-sp-display {
+  font-family: var(--font-sp-display);
+}
+
+.font-sp-sans {
+  font-family: var(--font-sp-sans);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}
