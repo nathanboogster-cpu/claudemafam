@@ -7,7 +7,7 @@ import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
 import { DogIcon, CatIcon, ScissorsIcon, CheckIcon } from "@/components/icons";
-import { business, services, differentiators, serviceAreas, servicePath, areaPath, PATHS } from "@/lib/site-data";
+import { business, services, differentiators, serviceAreas, servicePath, areaPath, photos, PATHS } from "@/lib/site-data";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "dog-grooming": <DogIcon className="h-6 w-6" />,
@@ -60,8 +60,9 @@ export default function HomePage() {
           </div>
 
           <PhotoPlaceholder
-            caption="Freshly groomed dog at Sittin' Pretty Pet Grooming"
-            aspect="square"
+            caption={photos.blackLabSmiling.alt}
+            src={photos.blackLabSmiling.src}
+            aspect="portrait"
             className="w-full"
             priority
           />

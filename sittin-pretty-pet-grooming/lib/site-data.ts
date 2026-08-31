@@ -67,12 +67,16 @@ export const hoursSchema = [
   { dayOfWeek: ["Saturday"], opens: "08:00", closes: "14:00" },
 ] as const;
 
-// No real client/business photography has been supplied yet — every photo
-// slot on this site renders an honest, aspect-locked placeholder (see
-// components/PhotoPlaceholder.tsx) instead of stock imagery. Swap in real
-// Sittin' Pretty photos here as they become available; nothing else needs
-// to change.
-export const photos = {} as const;
+// Real client/salon photos, supplied directly by the client. Every other
+// photo slot on the site still renders an honest, aspect-locked placeholder
+// (see components/PhotoPlaceholder.tsx) until more real photos are
+// supplied — add them here as they come in; nothing else needs to change.
+export const photos = {
+  blackLabSmiling: {
+    src: "/images/gallery-black-lab-smiling.jpg",
+    alt: "Happy black Labrador retriever wearing a bandana after grooming at Sittin' Pretty Pet Grooming",
+  },
+} as const;
 
 export const services = [
   {

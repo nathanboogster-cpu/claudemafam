@@ -5,7 +5,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, SITE_URL } from "@/lib/site-data";
+import { photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "Gallery",
@@ -13,16 +13,16 @@ export const metadata: Metadata = pageMetadata({
   path: PATHS.gallery,
 });
 
-// No real client/salon photography has been supplied for this build yet.
-// Every slot below renders an honest placeholder instead of stock imagery
-// — swap in real Sittin' Pretty photos as they become available.
-const galleryPlaceholders = [
-  "Freshly groomed dog at Sittin' Pretty",
-  "Groomed cat at Sittin' Pretty",
-  "Sittin' Pretty grooming salon interior",
-  "Large-breed dog groomed at Sittin' Pretty",
-  "Small-breed dog groomed at Sittin' Pretty",
-  "Sittin' Pretty Pet Grooming storefront in Funkstown, MD",
+// One real client photo has been supplied so far — it leads the grid.
+// Every other slot renders an honest placeholder instead of stock imagery
+// until more real Sittin' Pretty photos come in.
+const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portrait" }[] = [
+  { caption: photos.blackLabSmiling.alt, src: photos.blackLabSmiling.src, aspect: "portrait" },
+  { caption: "Groomed cat at Sittin' Pretty", aspect: "square" },
+  { caption: "Sittin' Pretty grooming salon interior", aspect: "square" },
+  { caption: "Large-breed dog groomed at Sittin' Pretty", aspect: "square" },
+  { caption: "Small-breed dog groomed at Sittin' Pretty", aspect: "square" },
+  { caption: "Sittin' Pretty Pet Grooming storefront in Funkstown, MD", aspect: "square" },
 ];
 
 export default function GalleryPage() {
@@ -41,14 +41,14 @@ export default function GalleryPage() {
           <Eyebrow>Gallery</Eyebrow>
           <h1 className="mt-1 font-sp-display text-4xl font-bold text-sp-ink sm:text-5xl">Our Grooming Work</h1>
           <p className="mx-auto mt-4 max-w-xl text-sp-ink-soft">
-            Real photos from our Funkstown salon are on the way. Check back soon, or call us to hear
-            about recent grooming results directly.
+            More real photos from our Funkstown salon are on the way. Check back soon, or call us to
+            hear about recent grooming results directly.
           </p>
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {galleryPlaceholders.map((caption) => (
-            <PhotoPlaceholder key={caption} caption={caption} aspect="square" />
+          {galleryPhotos.map((p) => (
+            <PhotoPlaceholder key={p.caption} caption={p.caption} src={p.src} aspect={p.aspect} />
           ))}
         </div>
 
