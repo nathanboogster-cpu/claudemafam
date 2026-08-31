@@ -100,7 +100,12 @@ export default function HomePage() {
       {/* Why Sittin' Pretty */}
       <section className="bg-sp-cream-deep">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 lg:grid-cols-2">
-          <PhotoPlaceholder caption="Sittin' Pretty Pet Grooming salon" aspect="square" className="w-full lg:order-2" />
+          <PhotoPlaceholder
+            caption={photos.sheepdogBandana.alt}
+            src={photos.sheepdogBandana.src}
+            aspect="portrait"
+            className="w-full lg:order-2"
+          />
           <div className="lg:order-1">
             <Eyebrow>Why Sittin&apos; Pretty</Eyebrow>
             <h2 className="mt-1 font-sp-display text-3xl font-bold text-sp-ink sm:text-4xl">
@@ -132,13 +137,13 @@ export default function HomePage() {
           <Eyebrow>Our Work</Eyebrow>
           <h2 className="mt-1 font-sp-display text-3xl font-bold text-sp-ink sm:text-4xl">Real Grooming Results</h2>
           <p className="mx-auto mt-3 max-w-2xl text-sp-ink-soft">
-            Photos from our salon are on the way — visit our Gallery page for the latest additions.
+            A few recent grooms from our Funkstown salon — visit our Gallery page to see more.
           </p>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <PhotoPlaceholder caption="Groomed dog at Sittin' Pretty" aspect="square" />
-          <PhotoPlaceholder caption="Groomed cat at Sittin' Pretty" aspect="square" />
-          <PhotoPlaceholder caption="Sittin' Pretty grooming salon" aspect="square" />
+          <PhotoPlaceholder caption={photos.tricolorDogBandana.alt} src={photos.tricolorDogBandana.src} aspect="portrait" />
+          <PhotoPlaceholder caption={photos.tanChihuahua.alt} src={photos.tanChihuahua.src} aspect="portrait" />
+          <PhotoPlaceholder caption="Groomed cat at Sittin' Pretty" aspect="portrait" />
         </div>
         <div className="mt-8 flex justify-center">
           <SecondaryLinkButton location="home_gallery_teaser" variant="ghost" label="View Gallery" href={PATHS.gallery} />

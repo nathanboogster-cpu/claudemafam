@@ -7,7 +7,7 @@ import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, differentiators, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, differentiators, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
@@ -48,7 +48,7 @@ export default function AboutPage() {
             <SecondaryLinkButton location="about" variant="secondary" label="View Services" href={PATHS.services} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Sittin' Pretty Pet Grooming salon in Funkstown, MD" aspect="square" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.grayWhiteShihTzu.alt} src={photos.grayWhiteShihTzu.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-4">

@@ -8,7 +8,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, services, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, services, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${areaPath("funkstown-md")}`;
 
@@ -71,7 +71,7 @@ export default function FunkstownPage() {
             <SecondaryLinkButton location="area_funkstown" variant="secondary" label="Get Directions" href={business.mapsUrl} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Sittin' Pretty Pet Grooming salon exterior in Funkstown, MD" aspect="square" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.whiteFluffyPuppy.alt} src={photos.whiteFluffyPuppy.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-sp-cream-deep">

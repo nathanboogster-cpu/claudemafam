@@ -45,15 +45,14 @@ npm run lint    # eslint
 
 ## Known open items before launch
 
-- **No real photography yet.** Every photo slot (hero, Gallery, service
-  and location pages) renders `components/PhotoPlaceholder.tsx` — an
-  honest, aspect-locked placeholder, not stock imagery. Swap in real
-  Sittin' Pretty photos as they're supplied; nothing else needs to
-  change.
-- **No logo asset supplied.** The header/footer use a text wordmark plus
-  a generated paw icon; the favicon and Open Graph image are generated at
-  build time via `next/og` (`app/icon.tsx`, `app/opengraph-image.tsx`).
-  Replace both with the real logo once one is provided.
+- **Real logo and 9 real client photos are wired in** (see `public/images/`
+  and the `photos` object in `lib/site-data.ts`) — the header/footer logo,
+  favicon (`app/icon.png`), and Open Graph image (`app/opengraph-image.jpg`)
+  are all cropped from the real logo photo. A few slots (cat grooming,
+  salon interior, storefront) still render `components/PhotoPlaceholder.tsx`
+  — an honest, aspect-locked placeholder, not stock imagery — since no real
+  photo of those exists yet. Add more real photos to `lib/site-data.ts`'s
+  `photos` object as they're supplied; nothing else needs to change.
 - **No confirmed exact Google rating or review count.** Public estimates
   conflict and go stale, so no star rating or review count is hardcoded
   anywhere. The Reviews and Contact pages link to a live Google Maps

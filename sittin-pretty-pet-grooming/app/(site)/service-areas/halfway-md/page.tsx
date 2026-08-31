@@ -8,7 +8,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, services, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, services, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${areaPath("halfway-md")}`;
 
@@ -74,7 +74,7 @@ export default function HalfwayPage() {
             <SecondaryLinkButton location="area_halfway" variant="secondary" label="Get Directions" href={business.mapsUrl} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Cat groomed at Sittin' Pretty, serving the Halfway, MD area" aspect="square" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.seniorBlackDog.alt} src={photos.seniorBlackDog.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-sp-cream-deep">

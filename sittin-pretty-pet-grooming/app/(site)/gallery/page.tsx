@@ -13,15 +13,21 @@ export const metadata: Metadata = pageMetadata({
   path: PATHS.gallery,
 });
 
-// One real client photo has been supplied so far — it leads the grid.
-// Every other slot renders an honest placeholder instead of stock imagery
-// until more real Sittin' Pretty photos come in.
+// Real client photos supplied so far lead the grid. A cat photo, the salon
+// interior, and the storefront still render an honest placeholder instead
+// of stock imagery until real photos of those come in.
 const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portrait" }[] = [
   { caption: photos.blackLabSmiling.alt, src: photos.blackLabSmiling.src, aspect: "portrait" },
+  { caption: photos.tricolorDogBandana.alt, src: photos.tricolorDogBandana.src, aspect: "portrait" },
+  { caption: photos.tanChihuahua.alt, src: photos.tanChihuahua.src, aspect: "portrait" },
+  { caption: photos.sheepdogBandana.alt, src: photos.sheepdogBandana.src, aspect: "portrait" },
+  { caption: photos.tanTerrierMix.alt, src: photos.tanTerrierMix.src, aspect: "portrait" },
+  { caption: photos.grayWhiteShihTzu.alt, src: photos.grayWhiteShihTzu.src, aspect: "portrait" },
+  { caption: photos.seniorBlackDog.alt, src: photos.seniorBlackDog.src, aspect: "portrait" },
+  { caption: photos.creamFluffyDog.alt, src: photos.creamFluffyDog.src, aspect: "portrait" },
+  { caption: photos.whiteFluffyPuppy.alt, src: photos.whiteFluffyPuppy.src, aspect: "portrait" },
   { caption: "Groomed cat at Sittin' Pretty", aspect: "square" },
   { caption: "Sittin' Pretty grooming salon interior", aspect: "square" },
-  { caption: "Large-breed dog groomed at Sittin' Pretty", aspect: "square" },
-  { caption: "Small-breed dog groomed at Sittin' Pretty", aspect: "square" },
   { caption: "Sittin' Pretty Pet Grooming storefront in Funkstown, MD", aspect: "square" },
 ];
 
@@ -41,8 +47,8 @@ export default function GalleryPage() {
           <Eyebrow>Gallery</Eyebrow>
           <h1 className="mt-1 font-sp-display text-4xl font-bold text-sp-ink sm:text-5xl">Our Grooming Work</h1>
           <p className="mx-auto mt-4 max-w-xl text-sp-ink-soft">
-            More real photos from our Funkstown salon are on the way. Check back soon, or call us to
-            hear about recent grooming results directly.
+            Real dogs, freshly groomed at our Funkstown salon. More photos — including cats and the
+            salon itself — are on the way.
           </p>
         </div>
 

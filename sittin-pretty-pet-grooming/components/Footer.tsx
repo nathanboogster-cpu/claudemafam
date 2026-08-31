@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HeartIcon, DogIcon, CatIcon } from "@/components/icons";
-import { PawIcon } from "@/components/PawIcon";
 import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 
 const companyLinks = [
@@ -30,12 +30,7 @@ export function Footer() {
       </div>
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
-          <div className="flex items-center gap-2 text-sp-ink">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sp-green-dark text-sp-cream">
-              <PawIcon className="h-5 w-5" />
-            </span>
-            <span className="font-sp-display text-lg font-bold">{business.shortName}</span>
-          </div>
+          <Image src={business.logo} alt={business.name} width={790} height={600} className="h-14 w-auto" />
           <p className="mt-3 text-sm">
             Full-service dog & cat grooming in {business.primaryLocation}, serving pet owners throughout the{" "}
             {business.secondaryMarket} area.

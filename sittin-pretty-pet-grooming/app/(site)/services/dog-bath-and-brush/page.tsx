@@ -8,7 +8,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("dog-bath-and-brush")}`;
 const description =
@@ -73,7 +73,7 @@ export default function DogBathAndBrushPage() {
             <SecondaryLinkButton location="service_dog_bath" variant="secondary" label="Contact Us" href={PATHS.contact} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Dog bathing at Sittin' Pretty Pet Grooming" aspect="square" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.creamFluffyDog.alt} src={photos.creamFluffyDog.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-sp-cream-deep">

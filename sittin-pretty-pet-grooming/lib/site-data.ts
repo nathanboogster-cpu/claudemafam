@@ -46,6 +46,8 @@ export const business = {
   },
   primaryLocation: "Funkstown, MD",
   secondaryMarket: "Hagerstown, MD",
+  // Real logo, supplied by the client.
+  logo: "/images/logo.jpg",
 } as const;
 
 // HOURS — verified business hours. Monday and Sunday closed.
@@ -67,14 +69,46 @@ export const hoursSchema = [
   { dayOfWeek: ["Saturday"], opens: "08:00", closes: "14:00" },
 ] as const;
 
-// Real client/salon photos, supplied directly by the client. Every other
-// photo slot on the site still renders an honest, aspect-locked placeholder
-// (see components/PhotoPlaceholder.tsx) until more real photos are
-// supplied — add them here as they come in; nothing else needs to change.
+// Real client/salon photos, supplied directly by the client. A couple of
+// photo slots (salon interior, storefront) still render an honest,
+// aspect-locked placeholder (see components/PhotoPlaceholder.tsx) since no
+// real photo of those exists yet — add one here when it's supplied.
 export const photos = {
   blackLabSmiling: {
     src: "/images/gallery-black-lab-smiling.jpg",
     alt: "Happy black Labrador retriever wearing a bandana after grooming at Sittin' Pretty Pet Grooming",
+  },
+  tricolorDogBandana: {
+    src: "/images/gallery-tricolor-dog-bandana.jpg",
+    alt: "Tri-color dog wearing a paw-print bandana after grooming at Sittin' Pretty Pet Grooming",
+  },
+  tanChihuahua: {
+    src: "/images/gallery-tan-chihuahua.jpg",
+    alt: "Freshly groomed tan Chihuahua mix at Sittin' Pretty Pet Grooming",
+  },
+  sheepdogBandana: {
+    src: "/images/gallery-sheepdog-bandana.jpg",
+    alt: "Groomed sheepdog-mix wearing a bandana at Sittin' Pretty Pet Grooming",
+  },
+  tanTerrierMix: {
+    src: "/images/gallery-tan-terrier-mix.jpg",
+    alt: "Freshly groomed tan terrier mix at Sittin' Pretty Pet Grooming",
+  },
+  grayWhiteShihTzu: {
+    src: "/images/gallery-gray-white-shihtzu.jpg",
+    alt: "Groomed gray and white Shih Tzu at Sittin' Pretty Pet Grooming",
+  },
+  seniorBlackDog: {
+    src: "/images/gallery-senior-black-dog.jpg",
+    alt: "Senior dog with a graying muzzle wearing a bow after grooming at Sittin' Pretty Pet Grooming",
+  },
+  creamFluffyDog: {
+    src: "/images/gallery-cream-fluffy-dog.jpg",
+    alt: "Groomed cream-colored fluffy dog wearing a bandana at Sittin' Pretty Pet Grooming",
+  },
+  whiteFluffyPuppy: {
+    src: "/images/gallery-white-fluffy-puppy.jpg",
+    alt: "Small white fluffy dog freshly groomed at Sittin' Pretty Pet Grooming",
   },
 } as const;
 
