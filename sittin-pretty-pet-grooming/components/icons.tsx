@@ -102,6 +102,37 @@ export function HeartIcon({ className = "h-6 w-6" }: { className?: string }) {
   );
 }
 
+export function NailIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M9 3c-1.5 2-2 4.5-1 7l1 2.5" />
+      <path d="M15 3c1.5 2 2 4.5 1 7l-1 2.5" />
+      <path d="M8 13c0-.6.5-1 1-1h6c.5 0 1 .4 1 1 0 3-2 7-4 8-2-1-4-5-4-8z" />
+    </svg>
+  );
+}
+
+export function BrushIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M14 4 8 10" />
+      <path d="M17 7l-6 6-3 5 5-3 6-6z" />
+      <path d="M4 20l3.5-3.5" />
+    </svg>
+  );
+}
+
+export function PuppyIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M5 11c0-1.7 1.3-3 3-3 .8 0 1.3.3 1.5.7.3-.4.9-.7 1.5-.7 1.7 0 3 1.3 3 3v2a4 4 0 0 1-4 4h-1a4 4 0 0 1-4-4z" />
+      <path d="M8.5 8 7 5.5M13.5 8l1.5-2.5" />
+      <circle cx="9.5" cy="10.5" r=".5" fill="currentColor" />
+      <circle cx="12.5" cy="10.5" r=".5" fill="currentColor" />
+    </svg>
+  );
+}
+
 export function PhoneIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg {...base} className={className} aria-hidden="true">

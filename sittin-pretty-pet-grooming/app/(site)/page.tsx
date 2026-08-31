@@ -6,13 +6,16 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
-import { DogIcon, CatIcon, ScissorsIcon, CheckIcon } from "@/components/icons";
+import { DogIcon, CatIcon, ScissorsIcon, NailIcon, BrushIcon, PuppyIcon, CheckIcon } from "@/components/icons";
 import { business, services, differentiators, serviceAreas, servicePath, areaPath, photos, PATHS } from "@/lib/site-data";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "dog-grooming": <DogIcon className="h-6 w-6" />,
   "dog-bath-and-brush": <ScissorsIcon className="h-6 w-6" />,
   "cat-grooming": <CatIcon className="h-6 w-6" />,
+  "nail-trim-ear-cleaning": <NailIcon className="h-6 w-6" />,
+  "deshedding-treatment": <BrushIcon className="h-6 w-6" />,
+  "puppy-first-groom": <PuppyIcon className="h-6 w-6" />,
 };
 
 const homeFaqs = [

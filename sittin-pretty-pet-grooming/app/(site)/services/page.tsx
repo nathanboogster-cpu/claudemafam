@@ -6,13 +6,16 @@ import { StatBand } from "@/components/StatBand";
 import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { DogIcon, CatIcon, ScissorsIcon } from "@/components/icons";
+import { DogIcon, CatIcon, ScissorsIcon, NailIcon, BrushIcon, PuppyIcon } from "@/components/icons";
 import { services, servicePath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "dog-grooming": <DogIcon className="h-6 w-6" />,
   "dog-bath-and-brush": <ScissorsIcon className="h-6 w-6" />,
   "cat-grooming": <CatIcon className="h-6 w-6" />,
+  "nail-trim-ear-cleaning": <NailIcon className="h-6 w-6" />,
+  "deshedding-treatment": <BrushIcon className="h-6 w-6" />,
+  "puppy-first-groom": <PuppyIcon className="h-6 w-6" />,
 };
 
 export const metadata: Metadata = pageMetadata({

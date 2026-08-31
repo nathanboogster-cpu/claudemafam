@@ -32,7 +32,7 @@ export function NavDropdown({ label, items }: { label: string; items: NavItem[] 
           <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </summary>
-      <div className="absolute left-0 top-full z-50 mt-2 w-64 rounded-xl border border-sp-border bg-white p-2 shadow-lg">
+      <div className="absolute left-0 top-full z-50 mt-2 max-h-96 w-64 overflow-y-auto rounded-xl border border-sp-border bg-white p-2 shadow-lg">
         {items.map((item) => (
           <Link
             key={item.href}

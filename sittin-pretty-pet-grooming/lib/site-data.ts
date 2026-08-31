@@ -136,6 +136,27 @@ export const services = [
     summary: "Professional cat grooming for owners who'd rather leave it to an experienced groomer.",
     isFlagship: false,
   },
+  {
+    slug: "nail-trim-ear-cleaning",
+    name: "Nail Trim & Ear Cleaning",
+    shortName: "Nail & Ear Care",
+    summary: "Nail trimming and ear cleaning for dogs and cats — as part of a full groom or on its own.",
+    isFlagship: false,
+  },
+  {
+    slug: "deshedding-treatment",
+    name: "Deshedding Treatment",
+    shortName: "Deshedding",
+    summary: "A deeper deshedding treatment for heavy-coated dogs and cats to cut down on loose fur.",
+    isFlagship: false,
+  },
+  {
+    slug: "puppy-first-groom",
+    name: "Puppy's First Groom",
+    shortName: "Puppy's First Groom",
+    summary: "A gentle, low-stress introduction to the grooming table for puppies and kittens.",
+    isFlagship: false,
+  },
 ] as const;
 
 export type ServiceSlug = (typeof services)[number]["slug"];
@@ -173,12 +194,27 @@ export const trustStats = [
   { value: "5 Days", label: "Open Tue–Sat" },
 ] as const;
 
-export type AreaSlug = "funkstown-md" | "hagerstown-md" | "halfway-md";
+export type AreaSlug =
+  | "funkstown-md"
+  | "hagerstown-md"
+  | "halfway-md"
+  | "williamsport-md"
+  | "maugansville-md"
+  | "long-meadow-md"
+  | "robinwood-md"
+  | "beaver-creek-md"
+  | "downsville-md"
+  | "cavetown-md"
+  | "boonsboro-md";
 
-// Only legitimate, hand-written service-area pages — one per confirmed
-// area, each with a genuinely different angle (physical home base,
-// nearby larger search market, verified surrounding service area). No
-// city-name-swap template, and no pages beyond what's actually verified.
+// Funkstown, Hagerstown, and Halfway each keep their own hand-written page
+// (physical home base, nearby larger search market, verified surrounding
+// area). The rest are nearby Washington County communities within roughly
+// a 10–15 minute drive of the Funkstown salon — real, mapped places, each
+// rendered from lib/site-data.ts's `areaContent` below with its own angle,
+// not a city-name-swap template. No fabricated drive times are stated on
+// the pages themselves — only general, defensible geography (direction/
+// route relative to Funkstown and Hagerstown).
 export const serviceAreas: { city: string; state: string; slug: AreaSlug; description: string }[] = [
   {
     city: "Funkstown",
@@ -198,7 +234,311 @@ export const serviceAreas: { city: string; state: string; slug: AreaSlug; descri
     slug: "halfway-md",
     description: "A short drive from our Funkstown salon, on the west side of Hagerstown.",
   },
+  {
+    city: "Williamsport",
+    state: "MD",
+    slug: "williamsport-md",
+    description: "The historic C&O Canal town southwest of Funkstown, along the Potomac.",
+  },
+  {
+    city: "Maugansville",
+    state: "MD",
+    slug: "maugansville-md",
+    description: "Just north of Hagerstown, a short drive from our Funkstown salon.",
+  },
+  {
+    city: "Long Meadow",
+    state: "MD",
+    slug: "long-meadow-md",
+    description: "East of Hagerstown along Route 40, close to Funkstown.",
+  },
+  {
+    city: "Robinwood",
+    state: "MD",
+    slug: "robinwood-md",
+    description: "Near Meritus Medical Center, on the western edge of Hagerstown.",
+  },
+  {
+    city: "Beaver Creek",
+    state: "MD",
+    slug: "beaver-creek-md",
+    description: "East of Hagerstown along the historic National Pike.",
+  },
+  {
+    city: "Downsville",
+    state: "MD",
+    slug: "downsville-md",
+    description: "Southwest of Funkstown, near Williamsport and the Potomac.",
+  },
+  {
+    city: "Cavetown",
+    state: "MD",
+    slug: "cavetown-md",
+    description: "Northeast of Hagerstown, without the drive downtown.",
+  },
+  {
+    city: "Boonsboro",
+    state: "MD",
+    slug: "boonsboro-md",
+    description: "The historic South Mountain town southeast of Hagerstown.",
+  },
 ];
+
+// Primary areas keep their own hand-built static page (see
+// app/(site)/service-areas/{funkstown-md,hagerstown-md,halfway-md}) and
+// are never generated from this content — everything else renders through
+// app/(site)/service-areas/[slug]/page.tsx.
+export type PrimaryAreaSlug = "funkstown-md" | "hagerstown-md" | "halfway-md";
+export type SecondaryAreaSlug = Exclude<AreaSlug, PrimaryAreaSlug>;
+
+export const areaContent: Record<
+  SecondaryAreaSlug,
+  {
+    eyebrow: string;
+    metaTitle: string;
+    metaDescription: string;
+    h1: string;
+    intro: string;
+    whyChoose: string[];
+    faqs: { question: string; answer: string }[];
+  }
+> = {
+  "williamsport-md": {
+    eyebrow: "Serving Williamsport, MD",
+    metaTitle: "Dog & Cat Grooming Near Williamsport, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming is a short drive from Williamsport, MD, offering full-service dog and cat grooming from an established Funkstown salon.",
+    h1: "Dog & Cat Grooming Near Williamsport, MD",
+    intro:
+      "Williamsport pet owners don't have to drive all the way into Hagerstown for a personal, established groomer — Sittin' Pretty is just up the road in Funkstown, offering the same full-service dog and cat grooming we've provided the area for decades.",
+    whyChoose: [
+      "A short drive from Williamsport, without heading into downtown Hagerstown",
+      "An established local salon, not a national chain",
+      "Full-service dog grooming plus professional cat grooming",
+      "Personal, one-on-one attention for every appointment",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve Williamsport?",
+        answer:
+          "Yes — Williamsport is a short drive from our Funkstown salon, and we welcome pet owners from the area.",
+      },
+      {
+        question: "Is Sittin' Pretty closer than driving into Hagerstown?",
+        answer:
+          "Our Funkstown salon sits between Williamsport and downtown Hagerstown, so it's often a more convenient option than driving further into the city.",
+      },
+      {
+        question: "How do I schedule from Williamsport?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule your pet's grooming appointment.`,
+      },
+    ],
+  },
+  "maugansville-md": {
+    eyebrow: "Serving Maugansville, MD",
+    metaTitle: "Dog & Cat Grooming Near Maugansville, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming welcomes pet owners from Maugansville, MD to our established grooming salon in nearby Funkstown.",
+    h1: "Dog & Cat Grooming Near Maugansville, MD",
+    intro:
+      "Maugansville sits just north of Hagerstown, and Sittin' Pretty's Funkstown salon is a straightforward drive south — the same personal, full-service grooming we've offered the greater Hagerstown area for decades.",
+    whyChoose: [
+      "A straightforward drive south from Maugansville",
+      "Decades of experience grooming local dogs and cats",
+      "Personal, one-on-one attention instead of a rushed chain-salon visit",
+      "Comfortable with nervous, senior, and large-breed dogs",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve Maugansville?",
+        answer: "Yes — Maugansville pet owners are welcome at our Funkstown salon, a short drive south.",
+      },
+      {
+        question: "Do you groom cats as well as dogs for Maugansville customers?",
+        answer: "Yes, full-service dog grooming and professional cat grooming are both available.",
+      },
+      {
+        question: "How do I schedule from Maugansville?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule.`,
+      },
+    ],
+  },
+  "long-meadow-md": {
+    eyebrow: "Serving Long Meadow, MD",
+    metaTitle: "Dog & Cat Grooming Near Long Meadow, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming is close to Long Meadow, MD via Route 40, offering full-service dog and cat grooming from our Funkstown salon.",
+    h1: "Dog & Cat Grooming Near Long Meadow, MD",
+    intro:
+      "Long Meadow sits along the Route 40 corridor east of Hagerstown, close enough to Funkstown that Sittin' Pretty is a convenient, personal alternative to driving further into the city for grooming.",
+    whyChoose: [
+      "Close by via the Route 40 corridor",
+      "An established local salon, not a national chain",
+      "Full-service dog grooming plus cat grooming",
+      "Personal, one-on-one attention for every appointment",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve Long Meadow?",
+        answer: "Yes — Long Meadow is close to our Funkstown salon via Route 40.",
+      },
+      {
+        question: "Is there a more personal option than a big-box groomer near Long Meadow?",
+        answer:
+          "Yes — Sittin' Pretty offers the personal, one-on-one attention of a local salon rather than a rushed chain-store visit.",
+      },
+      {
+        question: "How do I schedule from Long Meadow?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule.`,
+      },
+    ],
+  },
+  "robinwood-md": {
+    eyebrow: "Serving Robinwood, MD",
+    metaTitle: "Dog & Cat Grooming Near Robinwood, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming is a short drive from the Robinwood area of Hagerstown, MD, offering full-service dog and cat grooming.",
+    h1: "Dog & Cat Grooming Near Robinwood, MD",
+    intro:
+      "Robinwood, on the western edge of Hagerstown near Meritus Medical Center, is a short drive from Sittin' Pretty's Funkstown salon — a personal alternative to a big-box grooming chain for pet owners on that side of town.",
+    whyChoose: [
+      "A short drive from the Robinwood area",
+      "Decades of experience grooming local dogs and cats",
+      "Personal, one-on-one attention for every appointment",
+      "Comfortable with nervous, senior, and large-breed dogs",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve the Robinwood area?",
+        answer: "Yes — Robinwood is a short drive from our Funkstown salon.",
+      },
+      {
+        question: "Do you groom large-breed dogs for Robinwood-area customers?",
+        answer: "Yes, we regularly groom large-breed dogs and are comfortable with nervous or senior pets too.",
+      },
+      {
+        question: "How do I schedule from Robinwood?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule.`,
+      },
+    ],
+  },
+  "beaver-creek-md": {
+    eyebrow: "Serving Beaver Creek, MD",
+    metaTitle: "Dog & Cat Grooming Near Beaver Creek, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming is a short drive from Beaver Creek, MD along the historic National Pike, offering full-service dog and cat grooming.",
+    h1: "Dog & Cat Grooming Near Beaver Creek, MD",
+    intro:
+      "Beaver Creek sits east of Hagerstown along the historic National Pike — close enough to Sittin' Pretty's Funkstown salon for a personal grooming option without a long drive into the city.",
+    whyChoose: [
+      "A short drive along the historic National Pike",
+      "An established local salon, not a national chain",
+      "Full-service dog grooming plus cat grooming",
+      "Personal, one-on-one attention for every appointment",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve Beaver Creek?",
+        answer: "Yes — Beaver Creek is a short drive from our Funkstown salon along the National Pike.",
+      },
+      {
+        question: "Do you groom cats for Beaver Creek customers?",
+        answer: "Yes, professional cat grooming is available alongside our dog grooming services.",
+      },
+      {
+        question: "How do I schedule from Beaver Creek?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule.`,
+      },
+    ],
+  },
+  "downsville-md": {
+    eyebrow: "Serving Downsville, MD",
+    metaTitle: "Dog & Cat Grooming Near Downsville, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming is a short drive from Downsville, MD, offering full-service dog and cat grooming from our established Funkstown salon.",
+    h1: "Dog & Cat Grooming Near Downsville, MD",
+    intro:
+      "Downsville sits southwest of Funkstown near the Potomac River, and Sittin' Pretty is the closer, more personal grooming option for the area compared to driving into downtown Hagerstown.",
+    whyChoose: [
+      "Closer than driving into downtown Hagerstown",
+      "Decades of experience grooming local dogs and cats",
+      "Personal, one-on-one attention instead of a rushed chain-salon visit",
+      "Full-service dog grooming plus professional cat grooming",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve Downsville?",
+        answer: "Yes — Downsville is a short drive from our Funkstown salon.",
+      },
+      {
+        question: "Is Sittin' Pretty closer than a Hagerstown groomer for Downsville residents?",
+        answer: "Often, yes — our Funkstown salon sits southwest of downtown Hagerstown, closer to Downsville.",
+      },
+      {
+        question: "How do I schedule from Downsville?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule.`,
+      },
+    ],
+  },
+  "cavetown-md": {
+    eyebrow: "Serving Cavetown, MD",
+    metaTitle: "Dog & Cat Grooming Near Cavetown, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming welcomes pet owners from Cavetown, MD to our established grooming salon in nearby Funkstown.",
+    h1: "Dog & Cat Grooming Near Cavetown, MD",
+    intro:
+      "Cavetown sits northeast of Hagerstown, and Sittin' Pretty's Funkstown salon offers Cavetown-area pet owners a personal grooming option without needing to drive all the way through downtown Hagerstown.",
+    whyChoose: [
+      "No need to drive through downtown Hagerstown",
+      "An established local salon, not a national chain",
+      "Full-service dog grooming plus cat grooming",
+      "Comfortable with nervous, senior, and large-breed dogs",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve Cavetown?",
+        answer: "Yes — Cavetown-area pet owners are welcome at our Funkstown salon.",
+      },
+      {
+        question: "Do you groom senior or nervous dogs for Cavetown customers?",
+        answer: "Yes, pet owners regularly mention how comfortable their nervous or senior dogs are with us.",
+      },
+      {
+        question: "How do I schedule from Cavetown?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule.`,
+      },
+    ],
+  },
+  "boonsboro-md": {
+    eyebrow: "Serving Boonsboro, MD",
+    metaTitle: "Dog & Cat Grooming Near Boonsboro, MD",
+    metaDescription:
+      "Sittin' Pretty Pet Grooming is a short drive from Boonsboro, MD, offering full-service dog and cat grooming from an established Funkstown salon.",
+    h1: "Dog & Cat Grooming Near Boonsboro, MD",
+    intro:
+      "Boonsboro, at the foot of South Mountain southeast of Hagerstown, is a short drive from Sittin' Pretty's Funkstown salon — a personal, established alternative to a big-box grooming chain.",
+    whyChoose: [
+      "A short drive from historic Boonsboro",
+      "Decades of experience grooming local dogs and cats",
+      "Personal, one-on-one attention for every appointment",
+      "Dog & cat grooming, all in one place",
+    ],
+    faqs: [
+      {
+        question: "Does Sittin' Pretty serve Boonsboro?",
+        answer: "Yes — Boonsboro is a short drive from our Funkstown salon.",
+      },
+      {
+        question: "Do you groom both dogs and cats for Boonsboro customers?",
+        answer: "Yes — full-service dog grooming and professional cat grooming are both available.",
+      },
+      {
+        question: "How do I schedule from Boonsboro?",
+        answer: `Call ${business.phoneDisplay} to check availability and schedule.`,
+      },
+    ],
+  },
+};
 
 export type NavItem = { label: string; href: string };
 
