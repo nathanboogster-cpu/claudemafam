@@ -91,7 +91,7 @@ export default function HagerstownPage() {
               "Comfortable with nervous, senior, and large-breed dogs",
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-sp-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-sp-green-dark" />
+                <CheckIcon className="h-4 w-4 shrink-0 text-sp-purple-dark" />
                 {f}
               </li>
             ))}
@@ -106,7 +106,7 @@ export default function HagerstownPage() {
             <Link
               key={s.slug}
               href={servicePath(s.slug)}
-              className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-green-dark"
+              className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-purple-dark"
             >
               {s.shortName}
             </Link>

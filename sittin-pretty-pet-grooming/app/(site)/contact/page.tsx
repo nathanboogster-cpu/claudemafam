@@ -35,8 +35,8 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-10 rounded-3xl border border-sp-border bg-sp-cream-deep p-8 sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-wide text-sp-green-dark">Call to Schedule</p>
-          <a href={business.phoneHref} className="mt-2 block font-sp-display text-4xl font-bold text-sp-ink hover:text-sp-green-dark">
+          <p className="text-sm font-semibold uppercase tracking-wide text-sp-purple-dark">Call to Schedule</p>
+          <a href={business.phoneHref} className="mt-2 block font-sp-display text-4xl font-bold text-sp-ink hover:text-sp-purple-dark">
             {business.phoneDisplay}
           </a>
           <CallButton location="contact_page" variant="primary" className="mt-6" />
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-sp-ink">Address</p>
               <p className="mt-1 text-sp-ink-soft">{business.addressFull}</p>
-              <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-sm text-sp-green-dark hover:underline">
+              <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-sm text-sp-purple-dark hover:underline">
                 Get Directions →
               </a>
             </div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             </div>
             <div className="sm:col-span-2">
               <p className="text-sm font-semibold uppercase tracking-wide text-sp-ink">Reviews</p>
-              <a href={business.googleSearchUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-sp-green-dark hover:underline">
+              <a href={business.googleSearchUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-sp-purple-dark hover:underline">
                 See Sittin&apos; Pretty on Google →
               </a>
             </div>

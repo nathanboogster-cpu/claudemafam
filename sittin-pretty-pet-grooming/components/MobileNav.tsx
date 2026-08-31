@@ -52,7 +52,7 @@ export function MobileNav() {
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={`min-h-[44px] flex items-center border-b border-sp-border px-2 text-lg font-medium ${
-                    active ? "text-sp-green-dark" : "text-sp-ink"
+                    active ? "text-sp-purple-dark" : "text-sp-ink"
                   }`}
                 >
                   {item.label}

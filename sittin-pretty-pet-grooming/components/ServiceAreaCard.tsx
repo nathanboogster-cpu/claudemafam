@@ -19,10 +19,10 @@ export function ServiceAreaCard({
     >
       <div className="flex items-center justify-between gap-2">
         <p className="flex items-center gap-1.5 font-sp-display text-lg font-bold text-sp-ink">
-          <PinIcon className="h-4 w-4 shrink-0 text-sp-gold" />
+          <PinIcon className="h-4 w-4 shrink-0 text-sp-purple" />
           {city}, {state}
         </p>
-        <span className="text-sp-green-dark transition-transform group-hover:translate-x-1" aria-hidden="true">
+        <span className="text-sp-purple-dark transition-transform group-hover:translate-x-1" aria-hidden="true">
           →
         </span>
       </div>

@@ -1,26 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm, established local-business palette — no logo/brand assets were
-     supplied for this build, so this is a deliberately chosen palette
-     (not sampled from an asset): warm cream ground, deep forest green for
-     trust/CTA, warm gold as a decorative accent only. */
-  --color-sp-cream: #faf6ef;
-  --color-sp-cream-deep: #f1e6d1;
-  --color-sp-ink: #262019;
-  --color-sp-ink-soft: #5c5142;
+  /* Palette sampled directly from the real Sittin' Pretty logo
+     (public/images/logo.jpg): the cursive wordmark's purple, on a warm
+     near-white ground. Purple values below are picked off the actual
+     logo pixels, then adjusted only in lightness (same hue/saturation)
+     to hit WCAG AA contrast for text and button-fill use. */
+  --color-sp-cream: #faf7fb;
+  --color-sp-cream-deep: #f1e3f2;
+  --color-sp-ink: #221a26;
+  --color-sp-ink-soft: #564959;
   /* Decorative use only (icon fills on dark backgrounds, borders, small
-     accents). Never used as body text on light backgrounds or as a button
-     fill with white text — fails WCAG AA contrast at this lightness. */
-  --color-sp-green: #6f8f6f;
-  /* Meets 4.5:1 contrast as text on light backgrounds (cream/cream-deep/
-     white) AND as a button fill under white text. */
-  --color-sp-green-dark: #33512f;
-  --color-sp-green-darker: #253b23;
-  /* Decorative accent (stars, small icons) — not used as text. */
-  --color-sp-gold: #c9982c;
+     accents) — also text-safe on the dark sp-ink background (6.1:1).
+     Never used as body text on light backgrounds or as a button fill
+     with white text on light backgrounds — too light for that. */
+  --color-sp-purple: #c782d9;
+  /* The logo's actual cursive-text purple. Meets 4.5:1 contrast as text
+     on light backgrounds (cream/cream-deep/white) AND as a button fill
+     under white text. */
+  --color-sp-purple-dark: #9130aa;
+  --color-sp-purple-darker: #78288c;
   --color-sp-white: #ffffff;
-  --color-sp-border: #e6dcc2;
+  --color-sp-border: #e4d5ea;
 }
 
 @theme inline {
@@ -28,10 +29,9 @@
   --color-sp-cream-deep: var(--color-sp-cream-deep);
   --color-sp-ink: var(--color-sp-ink);
   --color-sp-ink-soft: var(--color-sp-ink-soft);
-  --color-sp-green: var(--color-sp-green);
-  --color-sp-green-dark: var(--color-sp-green-dark);
-  --color-sp-green-darker: var(--color-sp-green-darker);
-  --color-sp-gold: var(--color-sp-gold);
+  --color-sp-purple: var(--color-sp-purple);
+  --color-sp-purple-dark: var(--color-sp-purple-dark);
+  --color-sp-purple-darker: var(--color-sp-purple-darker);
   --color-sp-white: var(--color-sp-white);
   --color-sp-border: var(--color-sp-border);
   /* Editorial serif display, clean humanist sans. */

@@ -15,30 +15,30 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-5 text-sm font-medium text-sp-ink-soft">
-          <Link href={PATHS.home} className="hover:text-sp-green-dark whitespace-nowrap">
+          <Link href={PATHS.home} className="hover:text-sp-purple-dark whitespace-nowrap">
             Home
           </Link>
-          <Link href={PATHS.about} className="hover:text-sp-green-dark whitespace-nowrap">
+          <Link href={PATHS.about} className="hover:text-sp-purple-dark whitespace-nowrap">
             About
           </Link>
           <NavDropdown label="Services" items={serviceNav} />
           <NavDropdown label="Service Areas" items={areaNav} />
-          <Link href={PATHS.gallery} className="hover:text-sp-green-dark whitespace-nowrap">
+          <Link href={PATHS.gallery} className="hover:text-sp-purple-dark whitespace-nowrap">
             Gallery
           </Link>
-          <Link href={PATHS.reviews} className="hover:text-sp-green-dark whitespace-nowrap">
+          <Link href={PATHS.reviews} className="hover:text-sp-purple-dark whitespace-nowrap">
             Reviews
           </Link>
-          <Link href={PATHS.faq} className="hover:text-sp-green-dark whitespace-nowrap">
+          <Link href={PATHS.faq} className="hover:text-sp-purple-dark whitespace-nowrap">
             FAQ
           </Link>
-          <Link href={PATHS.contact} className="hover:text-sp-green-dark whitespace-nowrap">
+          <Link href={PATHS.contact} className="hover:text-sp-purple-dark whitespace-nowrap">
             Contact
           </Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-3 shrink-0">
-          <a href={business.phoneHref} className="text-sm font-semibold text-sp-ink-soft hover:text-sp-green-dark whitespace-nowrap">
+          <a href={business.phoneHref} className="text-sm font-semibold text-sp-ink-soft hover:text-sp-purple-dark whitespace-nowrap">
             {business.phoneDisplay}
           </a>
           <CallButton location="header" variant="primary" className="px-4 py-2 text-sm" />

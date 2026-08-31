@@ -7,7 +7,7 @@ import { PhoneIcon } from "./icons";
 type Variant = "primary" | "secondary" | "ghost";
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-sp-green-dark text-white hover:bg-sp-green-darker focus-visible:outline-sp-green-dark",
+  primary: "bg-sp-purple-dark text-white hover:bg-sp-purple-darker focus-visible:outline-sp-purple-dark",
   secondary: "bg-transparent text-sp-ink border-2 border-sp-ink hover:bg-sp-ink/5 focus-visible:outline-sp-ink",
   ghost: "bg-white text-sp-ink border border-sp-border hover:bg-sp-cream-deep focus-visible:outline-sp-ink",
 };

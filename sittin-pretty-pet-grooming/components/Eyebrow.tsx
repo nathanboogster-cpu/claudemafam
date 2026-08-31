@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 
 const toneClasses = {
   // Default: dark green on light backgrounds (cream, cream-deep, white).
-  default: "text-sp-green-dark",
+  default: "text-sp-purple-dark",
   // For use on dark backgrounds (e.g. the sp-ink CTA sections).
-  onDark: "text-sp-gold",
+  onDark: "text-sp-purple",
 } as const;
 
 export function Eyebrow({

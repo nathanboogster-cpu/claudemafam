@@ -77,7 +77,7 @@ export default function AboutPage() {
           {["Full-service dog grooming", "Dog bathing & brushing", "Cat grooming", "Personalized, one-on-one attention"].map(
             (f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-sp-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-sp-green-dark" />
+                <CheckIcon className="h-4 w-4 shrink-0 text-sp-purple-dark" />
                 {f}
               </li>
             ),

@@ -114,7 +114,7 @@ export default function HomePage() {
             <ul className="mt-6 space-y-4">
               {differentiators.map((d) => (
                 <li key={d.title} className="flex gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sp-green/15 text-sp-green-dark">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sp-purple/15 text-sp-purple-dark">
                     <CheckIcon className="h-4 w-4" />
                   </span>
                   <div>
@@ -173,7 +173,7 @@ export default function HomePage() {
             />
           </div>
           <div className="mt-6 flex justify-center">
-            <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-sp-green-dark hover:underline">
+            <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-sp-purple-dark hover:underline">
               Get Directions →
             </a>
           </div>
@@ -211,7 +211,7 @@ export default function HomePage() {
             href={business.googleSearchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-sp-gold px-6 py-3 text-base font-semibold text-sp-gold transition-colors hover:bg-sp-gold hover:text-sp-ink"
+            className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-sp-purple px-6 py-3 text-base font-semibold text-sp-purple transition-colors hover:bg-sp-purple hover:text-sp-ink"
           >
             Read Reviews on Google
           </a>

@@ -88,7 +88,7 @@ export default function CatGroomingPage() {
               "Call ahead so we can plan around your cat's temperament",
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-sp-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-sp-green-dark" />
+                <CheckIcon className="h-4 w-4 shrink-0 text-sp-purple-dark" />
                 {f}
               </li>
             ))}
@@ -99,13 +99,13 @@ export default function CatGroomingPage() {
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-sp-display text-2xl font-bold text-sp-ink sm:text-3xl">Related Services & Areas</h2>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href={servicePath("dog-grooming")} className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-green-dark">
+          <Link href={servicePath("dog-grooming")} className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-purple-dark">
             Dog Grooming
           </Link>
-          <Link href={areaPath("hagerstown-md")} className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-green-dark">
+          <Link href={areaPath("hagerstown-md")} className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-purple-dark">
             Serving Hagerstown, MD
           </Link>
-          <Link href={areaPath("funkstown-md")} className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-green-dark">
+          <Link href={areaPath("funkstown-md")} className="rounded-full border border-sp-border bg-white px-4 py-2 text-sm font-medium text-sp-ink hover:border-sp-purple-dark">
             Serving Funkstown, MD
           </Link>
         </div>

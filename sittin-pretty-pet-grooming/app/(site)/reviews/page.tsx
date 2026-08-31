@@ -42,8 +42,8 @@ export default function ReviewsPage() {
         <Eyebrow>Reviews</Eyebrow>
         <h1 className="mt-1 font-sp-display text-4xl font-bold text-sp-ink sm:text-5xl">What Pet Owners Say</h1>
 
-        <div className="mx-auto mt-10 max-w-md rounded-3xl border-2 border-sp-gold/30 bg-white p-8 shadow-lg">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sp-green-dark text-sp-cream">
+        <div className="mx-auto mt-10 max-w-md rounded-3xl border-2 border-sp-purple/30 bg-white p-8 shadow-lg">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sp-purple-dark text-sp-cream">
             <HeartIcon className="h-8 w-8" />
           </div>
           <p className="mt-4 font-sp-display text-2xl font-bold text-sp-ink">A Longtime Local Favorite</p>
@@ -54,7 +54,7 @@ export default function ReviewsPage() {
             href={business.googleSearchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-sp-green-dark px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-sp-green-darker"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-sp-purple-dark px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-sp-purple-darker"
           >
             Read Current Reviews on Google
           </a>
@@ -72,7 +72,7 @@ export default function ReviewsPage() {
           <ul className="mx-auto mt-6 max-w-xl space-y-4">
             {reviewThemes.map((t) => (
               <li key={t.title} className="flex gap-3">
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sp-green/15 text-sp-green-dark">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sp-purple/15 text-sp-purple-dark">
                   <ShieldCheckIcon className="h-4 w-4" />
                 </span>
                 <div>

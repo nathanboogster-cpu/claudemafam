@@ -46,7 +46,7 @@ export function PhotoPlaceholder({
     <div
       role="img"
       aria-label={caption}
-      className={`${aspectClass} ${className} flex flex-col items-center justify-center gap-2 rounded-2xl border border-sp-border bg-gradient-to-br from-sp-cream-deep to-sp-green/10 text-sp-ink-soft p-4 text-center font-sp-sans`}
+      className={`${aspectClass} ${className} flex flex-col items-center justify-center gap-2 rounded-2xl border border-sp-border bg-gradient-to-br from-sp-cream-deep to-sp-purple/10 text-sp-ink-soft p-4 text-center font-sp-sans`}
     >
       <PawIcon className="h-8 w-8 opacity-50" />
       <span className="text-xs font-medium opacity-70">{caption}</span>

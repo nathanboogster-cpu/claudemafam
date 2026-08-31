@@ -18,12 +18,12 @@ export function Footer() {
       <div className="border-b border-sp-border bg-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-5">
           <div className="flex items-center gap-2 text-sp-ink">
-            <HeartIcon className="h-5 w-5 shrink-0 text-sp-green-dark" />
+            <HeartIcon className="h-5 w-5 shrink-0 text-sp-purple-dark" />
             <span className="text-sm font-semibold">Established Local Grooming Salon</span>
           </div>
           <div className="flex items-center gap-2 text-sp-ink">
-            <DogIcon className="h-5 w-5 shrink-0 text-sp-green-dark" />
-            <CatIcon className="h-5 w-5 shrink-0 text-sp-green-dark" />
+            <DogIcon className="h-5 w-5 shrink-0 text-sp-purple-dark" />
+            <CatIcon className="h-5 w-5 shrink-0 text-sp-purple-dark" />
             <span className="text-sm font-semibold">Dog & Cat Grooming</span>
           </div>
         </div>
@@ -42,7 +42,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {serviceNav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-sp-green-dark">
+                <Link href={item.href} className="hover:text-sp-purple-dark">
                   {item.label}
                 </Link>
               </li>
@@ -55,7 +55,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {areaNav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-sp-green-dark">
+                <Link href={item.href} className="hover:text-sp-purple-dark">
                   Pet Grooming in {item.label}
                 </Link>
               </li>
@@ -68,7 +68,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {companyLinks.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-sp-green-dark">
+                <Link href={item.href} className="hover:text-sp-purple-dark">
                   {item.label}
                 </Link>
               </li>
@@ -80,7 +80,7 @@ export function Footer() {
           <h2 className="text-sm font-semibold uppercase tracking-wide text-sp-ink">Contact</h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a href={business.phoneHref} className="hover:text-sp-green-dark">
+              <a href={business.phoneHref} className="hover:text-sp-purple-dark">
                 {business.phoneDisplay}
               </a>
             </li>
