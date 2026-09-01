@@ -32,8 +32,7 @@ const faqs = [
   },
   {
     question: "How long does a Full Groom take?",
-    answer:
-      "Approximate appointment duration ranges from 150+ minutes for small dogs up to 240+ minutes for large and extra-large dogs, depending on coat and condition.",
+    answer: `Approximate appointment duration ranges from ${fullGroom.pricing.small.duration} for small dogs up to ${fullGroom.pricing.large.duration} for large dogs, depending on coat and condition.`,
   },
   {
     question: "What's the difference between Full Groom and Bath & Tidy?",

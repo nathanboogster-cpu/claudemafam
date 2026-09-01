@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { BookButton, SecondaryLinkButton, CallButton } from "@/components/CTAButton";
 import { TrustBar } from "@/components/TrustBar";
@@ -8,7 +9,7 @@ import { ProcessSteps } from "@/components/ProcessSteps";
 import { PricingTable } from "@/components/PricingTable";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
-import { DogIcon, ScissorsIcon, DropletIcon, BrushIcon, NailIcon, CheckIcon } from "@/components/icons";
+import { DogIcon, ScissorsIcon, DropletIcon, BrushIcon, ShieldCheckIcon, HeartIcon, CheckIcon } from "@/components/icons";
 import {
   business,
   services,
@@ -30,7 +31,18 @@ const serviceIcons: Record<string, React.ReactNode> = {
   "bath-and-tidy": <DropletIcon className="h-6 w-6" />,
   deshedding: <BrushIcon className="h-6 w-6" />,
   dematting: <BrushIcon className="h-6 w-6" />,
-  "grooming-add-ons": <NailIcon className="h-6 w-6" />,
+  "flea-tick-treatment": <ShieldCheckIcon className="h-6 w-6" />,
+  "anal-gland-expression": <HeartIcon className="h-6 w-6" />,
+  "teeth-brushing": <BrushIcon className="h-6 w-6" />,
+};
+
+// Maps each addOns entry to its dedicated service page — De-Shedding's
+// standalone page uses a different slug than its addOns entry.
+const addOnLink: Record<string, string> = {
+  "flea-tick-treatment": servicePath("flea-tick-treatment"),
+  "anal-gland-expression": servicePath("anal-gland-expression"),
+  "deshedding-addon": servicePath("deshedding"),
+  "teeth-brushing": servicePath("teeth-brushing"),
 };
 
 const homeFaqs = [
@@ -205,22 +217,21 @@ export default function HomePage() {
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {addOns.map((a) => (
-              <div key={a.slug} className="rounded-2xl border border-bb-border bg-white p-5">
+              <Link
+                key={a.slug}
+                href={addOnLink[a.slug] ?? PATHS.services}
+                className="rounded-2xl border border-bb-border bg-white p-5 transition-shadow hover:shadow-md"
+              >
                 <p className="font-bb-display text-lg font-bold text-bb-ink">{a.name}</p>
                 <p className="mt-1 text-sm font-semibold text-bb-coral-dark">
                   {a.price} · {a.duration}
                 </p>
                 <p className="mt-2 text-sm text-bb-ink-soft">{a.summary}</p>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="mt-6 text-center">
-            <SecondaryLinkButton
-              location="home_addons"
-              variant="ghost"
-              label="See All Add-Ons"
-              href={servicePath("grooming-add-ons")}
-            />
+            <SecondaryLinkButton location="home_addons" variant="ghost" label="View All Services" href={PATHS.services} />
           </div>
         </div>
       </section>

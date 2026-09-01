@@ -104,7 +104,8 @@ export default function BathAndTidyPage() {
           {[
             { label: "Full Groom", href: servicePath("full-dog-grooming") },
             { label: "Deshedding", href: servicePath("deshedding") },
-            { label: "Grooming Add-Ons", href: servicePath("grooming-add-ons") },
+            { label: "Flea & Tick Treatment", href: servicePath("flea-tick-treatment") },
+            { label: "Teeth Brushing", href: servicePath("teeth-brushing") },
             { label: "Mobile Grooming in Compton", href: areaPath("compton-ca") },
             { label: "Mobile Grooming in Los Angeles", href: areaPath("los-angeles-ca") },
           ].map((l) => (

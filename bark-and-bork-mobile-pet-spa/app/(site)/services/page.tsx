@@ -7,7 +7,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { PricingTable } from "@/components/PricingTable";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { DogIcon, ScissorsIcon, DropletIcon, BrushIcon, NailIcon } from "@/components/icons";
+import { DogIcon, ScissorsIcon, DropletIcon, BrushIcon, ShieldCheckIcon, HeartIcon } from "@/components/icons";
 import { bathAndTidy, fullGroom, pricingNote, addOns, services, servicePath, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
@@ -23,7 +23,18 @@ const serviceIcons: Record<string, React.ReactNode> = {
   "bath-and-tidy": <DropletIcon className="h-6 w-6" />,
   deshedding: <BrushIcon className="h-6 w-6" />,
   dematting: <BrushIcon className="h-6 w-6" />,
-  "grooming-add-ons": <NailIcon className="h-6 w-6" />,
+  "flea-tick-treatment": <ShieldCheckIcon className="h-6 w-6" />,
+  "anal-gland-expression": <HeartIcon className="h-6 w-6" />,
+  "teeth-brushing": <BrushIcon className="h-6 w-6" />,
+};
+
+// Maps each addOns entry to its dedicated service page — De-Shedding's
+// standalone page uses a different slug than its addOns entry.
+const addOnLink: Record<string, string> = {
+  "flea-tick-treatment": servicePath("flea-tick-treatment"),
+  "anal-gland-expression": servicePath("anal-gland-expression"),
+  "deshedding-addon": servicePath("deshedding"),
+  "teeth-brushing": servicePath("teeth-brushing"),
 };
 
 export default function ServicesPage() {
@@ -96,13 +107,17 @@ export default function ServicesPage() {
         <h2 className="font-bb-display text-2xl font-bold text-bb-ink sm:text-3xl">Add-Ons</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {addOns.map((a) => (
-            <div key={a.slug} className="rounded-2xl border border-bb-border bg-white p-5">
+            <Link
+              key={a.slug}
+              href={addOnLink[a.slug] ?? PATHS.services}
+              className="rounded-2xl border border-bb-border bg-white p-5 hover:border-bb-coral-dark"
+            >
               <p className="font-bb-display text-lg font-bold text-bb-ink">{a.name}</p>
               <p className="mt-1 text-sm font-semibold text-bb-coral-dark">
                 {a.price} · {a.duration}
               </p>
               <p className="mt-2 text-sm text-bb-ink-soft">{a.summary}</p>
-            </div>
+            </Link>
           ))}
           <Link
             href={servicePath("dematting")}

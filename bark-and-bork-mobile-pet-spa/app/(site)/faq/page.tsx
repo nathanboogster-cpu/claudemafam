@@ -49,8 +49,7 @@ const faqs = [
   },
   {
     question: "How long does grooming take?",
-    answer:
-      "Bath & Tidy runs from about 90 minutes for small dogs up to 180 minutes for large and extra-large dogs. Full Groom runs from about 150 minutes for small dogs up to 240 minutes for large and extra-large dogs.",
+    answer: `Bath & Tidy runs from about ${bathAndTidy.pricing.small.duration} for small dogs up to ${bathAndTidy.pricing.large.duration} for large and extra-large dogs. Full Groom runs from about ${fullGroom.pricing.small.duration} for small dogs up to ${fullGroom.pricing.large.duration} for large dogs.`,
   },
   {
     question: "Do you offer deshedding?",
