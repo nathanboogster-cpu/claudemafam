@@ -43,6 +43,39 @@ export const business = {
   logoFull: "/images/logo.webp",
 } as const;
 
+// Real 5-star Google reviews, provided by the client via screenshots of the
+// business's Google Business Profile. Only reviews whose full original
+// English text was directly visible and legible are included here — two
+// other 5-star reviews on the profile (Roxana Alves, shown only as a
+// Google auto-translation into Portuguese with the English original
+// hidden; and one from "Reenie", whose review text itself wasn't visible
+// in the screenshots, only the owner's reply) are deliberately left out
+// rather than risk misquoting a real customer. No aggregate Google rating
+// or review count is stated anywhere, since only these individual reviews
+// were verified — see Yelp for the verified aggregate rating.
+export const googleReviews = [
+  {
+    author: "Danillo Torres",
+    rating: 5,
+    text: "Super convenient mobile grooming with great prices. My dog came out happy and smelling fantastic.",
+  },
+  {
+    author: "Magno Zappa",
+    rating: 5,
+    text: "Perfect service! Careful professionals, fast and efficient work.",
+  },
+  {
+    author: "Ana Solheiro",
+    rating: 5,
+    text: "I was impressed by the quality of the service and the punctuality!!! Very satisfied.",
+  },
+  {
+    author: "Ana Magalhaes",
+    rating: 5,
+    text: "Great service. The team is friendly and professional. Definitely reach out!",
+  },
+] as const;
+
 // HOURS — confirmed by the client: open 7:00 AM – 9:00 PM, every day.
 export const hoursConfirmed = true;
 export const hours = [

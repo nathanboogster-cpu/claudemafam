@@ -6,7 +6,7 @@ import { CallButton, RequestButton } from "@/components/CTAButton";
 import { StarIcon, ShieldCheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { business, differentiators, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, differentiators, googleReviews, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "Reviews",
@@ -57,9 +57,30 @@ export default function ReviewsPage() {
 
         <p className="mx-auto mt-6 max-w-xl text-sm text-psl-ink-soft">
           We link directly to Pet Spa Luxe&apos;s real Yelp listing so you can
-          read verified customer reviews yourselves, rather than us
-          hand-picking quotes.
+          read those reviews yourself. Below are real 5-star reviews from
+          Pet Spa Luxe&apos;s Google Business Profile, quoted exactly as
+          written.
         </p>
+
+        {/* Real Google reviews */}
+        <div className="mt-14 border-t border-psl-border pt-10 text-left">
+          <h2 className="text-center font-psl-display text-2xl font-bold text-psl-ink">
+            Real Reviews from Google
+          </h2>
+          <div className="mx-auto mt-6 grid max-w-2xl gap-4 sm:grid-cols-2">
+            {googleReviews.map((r) => (
+              <div key={r.author} className="rounded-2xl border border-psl-border bg-white p-5 shadow-sm">
+                <div className="flex text-psl-brass" aria-hidden="true">
+                  {Array.from({ length: r.rating }).map((_, i) => (
+                    <StarIcon key={i} className="h-4 w-4" />
+                  ))}
+                </div>
+                <p className="mt-3 text-sm text-psl-ink-soft">&ldquo;{r.text}&rdquo;</p>
+                <p className="mt-3 text-sm font-semibold text-psl-ink">{r.author}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Why pet owners trust us */}
         <div className="mt-14 border-t border-psl-border pt-10 text-left">
