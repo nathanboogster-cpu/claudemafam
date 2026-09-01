@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { BookButton, SecondaryLinkButton, CallButton } from "@/components/CTAButton";
 import { TrustBar } from "@/components/TrustBar";
+import { LovedByDogsBadge } from "@/components/LovedByDogsBadge";
 import { StatBand } from "@/components/StatBand";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
@@ -88,7 +89,8 @@ export default function HomePage() {
               <BookButton location="hero" variant="primary" label="Book Mobile Grooming" />
               <SecondaryLinkButton location="hero" variant="secondary" label="View Services" href={PATHS.services} />
             </div>
-            <TrustBar className="mt-8" />
+            <LovedByDogsBadge className="mt-6" />
+            <TrustBar className="mt-4" />
           </div>
 
           <PhotoPlaceholder
