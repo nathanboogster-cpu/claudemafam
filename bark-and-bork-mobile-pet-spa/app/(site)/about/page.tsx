@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { StatBand } from "@/components/StatBand";
+import { LovedByDogsBadge } from "@/components/LovedByDogsBadge";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -46,6 +47,7 @@ export default function AboutPage() {
             <BookButton location="about" variant="primary" />
             <SecondaryLinkButton location="about" variant="secondary" label="View Services" href={PATHS.services} />
           </div>
+          <LovedByDogsBadge className="mt-6" />
         </div>
         <PhotoPlaceholder
           caption="Bark and Bork groomer working with a dog at a mobile grooming appointment"
