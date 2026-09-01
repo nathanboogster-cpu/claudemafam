@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  /* No real logo/brand assets were supplied for this build, so this is an
+     original palette chosen for a premium-but-playful LA mobile pet-grooming
+     brand: warm ivory ground, a coral CTA color that reads as energetic
+     without tipping into "cartoon", and a deep teal secondary accent for
+     icons/trust marks. Swap these for logo-sampled values if real brand
+     assets are supplied later. Coral/teal "-dark" variants are the
+     text-safe, WCAG AA versions for body text and button fills; the base
+     coral/teal are decorative-only (icon fills, borders, small accents). */
+  --color-bb-cream: #fbf7f2;
+  --color-bb-cream-deep: #f3e6d6;
+  --color-bb-ink: #211c1a;
+  --color-bb-ink-soft: #5b534c;
+  /* Decorative use only — not for body text or button fills with white text. */
+  --color-bb-coral: #ff8a68;
+  /* Text-safe as body text on light backgrounds AND as a button fill under
+     white text (4.5:1+). */
+  --color-bb-coral-dark: #d8451f;
+  --color-bb-coral-darker: #b2371a;
+  --color-bb-teal: #4fb8ab;
+  --color-bb-teal-dark: #146b60;
+  --color-bb-white: #ffffff;
+  --color-bb-border: #ecdcc9;
+}
+
+@theme inline {
+  --color-bb-cream: var(--color-bb-cream);
+  --color-bb-cream-deep: var(--color-bb-cream-deep);
+  --color-bb-ink: var(--color-bb-ink);
+  --color-bb-ink-soft: var(--color-bb-ink-soft);
+  --color-bb-coral: var(--color-bb-coral);
+  --color-bb-coral-dark: var(--color-bb-coral-dark);
+  --color-bb-coral-darker: var(--color-bb-coral-darker);
+  --color-bb-teal: var(--color-bb-teal);
+  --color-bb-teal-dark: var(--color-bb-teal-dark);
+  --color-bb-white: var(--color-bb-white);
+  --color-bb-border: var(--color-bb-border);
+  /* Premium editorial serif display, clean humanist sans for UI/body. */
+  --font-bb-sans: var(--font-manrope), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-bb-display: var(--font-dm-serif), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bb-cream);
+  color: var(--color-bb-ink);
+  font-family: var(--font-bb-sans);
+}
+
+.font-bb-display {
+  font-family: var(--font-bb-display);
+}
+
+.font-bb-sans {
+  font-family: var(--font-bb-sans);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}
