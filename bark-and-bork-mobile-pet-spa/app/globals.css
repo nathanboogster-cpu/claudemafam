@@ -1,28 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  /* No real logo/brand assets were supplied for this build, so this is an
-     original palette chosen for a premium-but-playful LA mobile pet-grooming
-     brand: warm ivory ground, a coral CTA color that reads as energetic
-     without tipping into "cartoon", and a deep teal secondary accent for
-     icons/trust marks. Swap these for logo-sampled values if real brand
-     assets are supplied later. Coral/teal "-dark" variants are the
-     text-safe, WCAG AA versions for body text and button fills; the base
-     coral/teal are decorative-only (icon fills, borders, small accents). */
-  --color-bb-cream: #fbf7f2;
-  --color-bb-cream-deep: #f3e6d6;
-  --color-bb-ink: #211c1a;
-  --color-bb-ink-soft: #5b534c;
-  /* Decorative use only — not for body text or button fills with white text. */
-  --color-bb-coral: #ff8a68;
+  /* Palette sampled directly from the real Bark and Bork logo/brand assets
+     (business card + flyer): pastel pink ground, a vivid magenta CTA color,
+     and warm mocha-brown ink text — matching the "dog & cat in a bubble
+     bath" logo mark. Coral/pink "-dark" variants are the text-safe, WCAG AA
+     versions for body text and button fills; the base coral is
+     decorative-only (icon fills, borders, small accents). */
+  --color-bb-cream: #fff2f2;
+  --color-bb-cream-deep: #f5d6e0;
+  --color-bb-ink: #4a2a1f;
+  --color-bb-ink-soft: #7a5c4e;
+  /* Decorative use only — not for body text or button fills with white text.
+     Sampled from the "BARK & BORK" wordmark fill on the business card. */
+  --color-bb-coral: #f48eb8;
   /* Text-safe as body text on light backgrounds AND as a button fill under
-     white text (4.5:1+). */
-  --color-bb-coral-dark: #d8451f;
-  --color-bb-coral-darker: #b2371a;
+     white text (4.5:1+). Close to the logo's "Mobile Pet Spa" magenta
+     (#ea307f), darkened slightly to clear WCAG AA. */
+  --color-bb-coral-dark: #d1206b;
+  /* Sampled directly from the business card's phone-number text color. */
+  --color-bb-coral-darker: #7a004b;
   --color-bb-teal: #4fb8ab;
   --color-bb-teal-dark: #146b60;
   --color-bb-white: #ffffff;
-  --color-bb-border: #ecdcc9;
+  --color-bb-border: #f2d0dc;
 }
 
 @theme inline {

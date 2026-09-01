@@ -1,11 +1,15 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Code-generated Open Graph image — no real brand/hero photography was
-// supplied for this build, so this uses the same brand colors and copy as
-// the rest of the site rather than a placeholder stock photo.
+// Embeds the real Bark and Bork logo mark (cropped from the client's
+// business card) as a data URI so the OG image matches the actual brand,
+// not a generated placeholder.
+const logoBase64 = readFileSync(join(process.cwd(), "public/images/logo-mark.png")).toString("base64");
+
 export default function OpengraphImage() {
   return new ImageResponse(
     (
@@ -17,29 +21,19 @@ export default function OpengraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #fbf7f2 0%, #f3e6d6 100%)",
+          background: "linear-gradient(135deg, #fff2f2 0%, #f5d6e0 100%)",
           padding: 64,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 96,
-            height: 96,
-            borderRadius: "50%",
-            background: "#d8451f",
-            color: "#fff",
-            fontSize: 40,
-            fontWeight: 700,
-            marginBottom: 28,
-          }}
-        >
-          B&amp;B
-        </div>
-        <div style={{ display: "flex", fontSize: 72, fontWeight: 700, color: "#211c1a" }}>Bark &amp; Bork</div>
-        <div style={{ display: "flex", fontSize: 32, color: "#5b534c", marginTop: 16 }}>
+        <img
+          src={`data:image/png;base64,${logoBase64}`}
+          alt=""
+          width={140}
+          height={140}
+          style={{ borderRadius: "50%", marginBottom: 28 }}
+        />
+        <div style={{ display: "flex", fontSize: 72, fontWeight: 700, color: "#4a2a1f" }}>Bark &amp; Bork</div>
+        <div style={{ display: "flex", fontSize: 32, color: "#7a5c4e", marginTop: 16 }}>
           Mobile Dog Grooming • Compton &amp; Greater Los Angeles
         </div>
       </div>

@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { TruckIcon, DogIcon } from "@/components/icons";
-import { PawIcon } from "@/components/PawIcon";
 import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 
 const companyLinks = [
@@ -29,9 +29,13 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bb-coral-dark text-white">
-              <PawIcon className="h-5 w-5" />
-            </span>
+            <Image
+              src="/images/logo-mark.png"
+              alt=""
+              width={80}
+              height={80}
+              className="h-10 w-10 rounded-full object-cover"
+            />
             <span className="font-bb-display text-lg font-bold text-bb-ink">Bark &amp; Bork</span>
           </div>
           <p className="mt-3 text-sm">
