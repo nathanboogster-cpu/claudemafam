@@ -9,7 +9,7 @@ import { ProcessSteps } from "@/components/ProcessSteps";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, photos, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("mobile-dog-grooming")}`;
 const description =
@@ -87,7 +87,8 @@ export default function MobileDogGroomingPage() {
           </div>
         </div>
         <PhotoPlaceholder
-          caption="Bark and Bork mobile groomer working with a dog at a customer's home"
+          caption={photos.vanInteriorSkylight.alt}
+          src={photos.vanInteriorSkylight.src}
           aspect="portrait"
           className="w-full"
           priority

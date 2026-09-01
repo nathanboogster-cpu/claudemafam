@@ -5,7 +5,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, SITE_URL } from "@/lib/site-data";
+import { photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "Gallery",
@@ -13,16 +13,17 @@ export const metadata: Metadata = pageMetadata({
   path: PATHS.gallery,
 });
 
-// No real client/grooming photos have been supplied for this build. Every
-// slot below renders an honest, aspect-locked placeholder rather than stock
-// imagery presented as real Bark and Bork work — see
-// components/PhotoPlaceholder.tsx. Swap in real photos as they're supplied.
-const galleryPhotos: { caption: string; aspect: "square" | "portrait" }[] = [
+// Only one real client photo has been supplied and transferred into this
+// build so far (the van interior below). Every other slot renders an
+// honest, aspect-locked placeholder rather than stock imagery presented as
+// real Bark and Bork work — see components/PhotoPlaceholder.tsx. Swap in
+// more real photos as they're supplied.
+const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portrait" }[] = [
+  { caption: photos.vanInteriorSkylight.alt, src: photos.vanInteriorSkylight.src, aspect: "portrait" },
   { caption: "Small dog after a Bark and Bork Bath & Tidy", aspect: "portrait" },
   { caption: "Large dog after a Bark and Bork Full Groom", aspect: "portrait" },
   { caption: "Double-coated dog after a deshedding treatment", aspect: "portrait" },
   { caption: "Dog after a Bark and Bork dematting appointment", aspect: "portrait" },
-  { caption: "Bark and Bork mobile grooming appointment in progress", aspect: "square" },
   { caption: "Freshly groomed extra-large dog", aspect: "portrait" },
   { caption: "Puppy's first mobile grooming appointment", aspect: "portrait" },
   { caption: "Bark and Bork mobile grooming setup at a customer's home", aspect: "square" },
@@ -52,7 +53,7 @@ export default function GalleryPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {galleryPhotos.map((p) => (
-            <PhotoPlaceholder key={p.caption} caption={p.caption} aspect={p.aspect} />
+            <PhotoPlaceholder key={p.caption} caption={p.caption} src={p.src} aspect={p.aspect} />
           ))}
         </div>
 

@@ -31,6 +31,19 @@ export const business = {
   bookingHome: "https://barkandbork.glossgenius.com/",
 } as const;
 
+// Real Bark and Bork photos, supplied directly by the client. Only one real
+// photo has been supplied and successfully transferred into this build so
+// far — every other photo slot on the site renders an honest,
+// aspect-locked placeholder (components/PhotoPlaceholder.tsx) rather than
+// stock imagery. Add more entries here as real photos come in; nothing else
+// needs to change since every usage already checks for a `src`.
+export const photos = {
+  vanInteriorSkylight: {
+    src: "/images/van-interior-skylight.jpg",
+    alt: "Inside the Bark and Bork mobile grooming van, showing the stainless steel tub, grooming table, and overhead lighting",
+  },
+} as const;
+
 // HOURS — sourced from the current GlossGenius booking platform (the primary
 // source per the Verified Business Record). A separate public listing shows
 // 9 AM–9 PM; that is NOT used here since the booking platform is the

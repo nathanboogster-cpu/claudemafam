@@ -20,6 +20,7 @@ import {
   pricingNote,
   addOns,
   team,
+  photos,
   servicePath,
   areaPath,
   PATHS,
@@ -91,7 +92,8 @@ export default function HomePage() {
           </div>
 
           <PhotoPlaceholder
-            caption="Freshly groomed dog after a Bark and Bork mobile grooming appointment"
+            caption={photos.vanInteriorSkylight.alt}
+            src={photos.vanInteriorSkylight.src}
             aspect="portrait"
             className="w-full"
             priority
