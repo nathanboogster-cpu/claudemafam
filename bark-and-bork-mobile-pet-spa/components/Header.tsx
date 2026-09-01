@@ -1,19 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 import { business, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { BookButton } from "./CTAButton";
 import { NavDropdown } from "./NavDropdown";
-import { PawIcon } from "./PawIcon";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-bb-border bg-bb-cream/95 backdrop-blur supports-[backdrop-filter]:bg-bb-cream/80 font-bb-sans">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <Link href={PATHS.home} className="flex shrink-0 items-center gap-2" aria-label={business.name}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-bb-coral-dark text-white">
-            <PawIcon className="h-5 w-5" />
-          </span>
+          <Image
+            src="/images/logo-mark.png"
+            alt=""
+            width={80}
+            height={80}
+            className="h-10 w-10 rounded-full object-cover"
+            priority
+          />
           <span className="font-bb-display text-lg font-bold leading-none text-bb-ink sm:text-xl">
             Bark <span className="text-bb-coral-dark">&amp;</span> Bork
           </span>
