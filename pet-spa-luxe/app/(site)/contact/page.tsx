@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton } from "@/components/CTAButton";
+import { LeadForm } from "@/components/LeadForm";
 import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -31,8 +32,9 @@ export default function ContactPage() {
           Book Your Dog&apos;s Mobile Grooming Appointment
         </h1>
         <p className="mt-4 text-lg text-psl-ink-soft">
-          Pet Spa Luxe doesn&apos;t use an online booking system — the fastest
-          way to check availability and schedule is by phone.
+          Pet Spa Luxe doesn&apos;t use an online booking system — calling is
+          the fastest way to check availability, or send your info below and
+          we&apos;ll call you back.
         </p>
 
         <div className="mt-10 rounded-3xl border border-psl-border bg-psl-cream-deep p-8 sm:p-10">
@@ -63,6 +65,15 @@ export default function ContactPage() {
                 See Pet Spa Luxe on Yelp →
               </a>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-10 text-left">
+          <p className="text-center text-sm font-semibold uppercase tracking-wide text-psl-ink-soft">
+            Or Request a Callback
+          </p>
+          <div className="mt-4">
+            <LeadForm />
           </div>
         </div>
 
