@@ -4,6 +4,7 @@ import { TrustBar } from "@/components/TrustBar";
 import { StatBand } from "@/components/StatBand";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceCard } from "@/components/ServiceCard";
+import { SizePricingTable } from "@/components/SizePricingTable";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -161,6 +162,15 @@ export default function PetSpaLuxeHome() {
               icon={serviceIcons[s.slug]}
             />
           ))}
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-center font-psl-display text-xl font-bold text-psl-ink">
+            Pricing by Dog Size
+          </h3>
+          <div className="mx-auto mt-5 max-w-3xl">
+            <SizePricingTable />
+          </div>
         </div>
       </section>
 
