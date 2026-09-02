@@ -78,7 +78,7 @@ export async function POST(request: Request) {
   try {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: `${business.name} Website <onboarding@resend.dev>`,
+      from: `${business.name} Website <leads@petspaluxe.com>`,
       to: business.leadNotificationEmail,
       replyTo: email || undefined,
       subject: `New Lead: ${name}${service ? ` — ${service}` : ""}`,
