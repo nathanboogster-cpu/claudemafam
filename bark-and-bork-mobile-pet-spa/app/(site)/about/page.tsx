@@ -8,7 +8,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, differentiators, team, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, differentiators, team, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Bark and Bork Mobile Pet Spa",
@@ -50,7 +50,8 @@ export default function AboutPage() {
           <LovedByDogsBadge className="mt-6" />
         </div>
         <PhotoPlaceholder
-          caption="Bark and Bork groomer working with a dog at a mobile grooming appointment"
+          caption={photos.groomScissorFinishing.alt}
+          src={photos.groomScissorFinishing.src}
           aspect="portrait"
           className="w-full"
           priority

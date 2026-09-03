@@ -7,7 +7,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { business, addOns, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, addOns, photos, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const info = addOns.find((a) => a.slug === "anal-gland-expression")!;
 const url = `${SITE_URL}${servicePath("anal-gland-expression")}`;
@@ -75,7 +75,13 @@ export default function AnalGlandExpressionPage() {
             <SecondaryLinkButton location="service_anal_gland" variant="secondary" label="View All Services" href={PATHS.services} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Dog at a Bark and Bork mobile grooming appointment" aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder
+          caption="A Bark and Bork client dog at a mobile grooming appointment"
+          src={photos.groomChihuahuaBowtie.src}
+          aspect="portrait"
+          className="w-full"
+          priority
+        />
       </section>
 
       <section className="bg-bb-cream-deep">

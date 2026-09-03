@@ -55,6 +55,12 @@ export default function ContactPage() {
               <CallButton location="contact_page" variant="secondary" className="mt-3" />
             </div>
             <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-bb-ink">Email</p>
+              <a href={`mailto:${business.email}`} className="mt-1 inline-block text-bb-ink-soft hover:text-bb-coral-dark">
+                {business.email}
+              </a>
+            </div>
+            <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-bb-ink">Hours</p>
               <ul className="mt-1 space-y-0.5 text-bb-ink-soft">
                 {hours.map((h) => (

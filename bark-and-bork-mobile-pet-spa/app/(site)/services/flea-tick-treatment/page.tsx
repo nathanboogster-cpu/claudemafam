@@ -7,7 +7,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { business, addOns, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, addOns, photos, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const info = addOns.find((a) => a.slug === "flea-tick-treatment")!;
 const url = `${SITE_URL}${servicePath("flea-tick-treatment")}`;
@@ -75,7 +75,13 @@ export default function FleaTickTreatmentPage() {
             <SecondaryLinkButton location="service_flea_tick" variant="secondary" label="View All Services" href={PATHS.services} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Dog after a Bark and Bork flea & tick treatment" aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder
+          caption="A Bark and Bork client dog at a mobile grooming appointment"
+          src={photos.groomSchnauzerBowtie.src}
+          aspect="portrait"
+          className="w-full"
+          priority
+        />
       </section>
 
       <section className="bg-bb-cream-deep">

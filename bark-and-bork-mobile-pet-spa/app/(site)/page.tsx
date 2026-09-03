@@ -94,8 +94,8 @@ export default function HomePage() {
           </div>
 
           <PhotoPlaceholder
-            caption={photos.vanInteriorSkylight.alt}
-            src={photos.vanInteriorSkylight.src}
+            caption={photos.vanExteriorSide.alt}
+            src={photos.vanExteriorSide.src}
             aspect="portrait"
             className="w-full"
             priority
@@ -154,9 +154,9 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <PhotoPlaceholder caption="Groomed small dog after a Bark and Bork Bath & Tidy" aspect="portrait" />
-          <PhotoPlaceholder caption="Groomed large dog after a Bark and Bork Full Groom" aspect="portrait" />
-          <PhotoPlaceholder caption="Bark and Bork mobile grooming appointment in progress" aspect="portrait" />
+          <PhotoPlaceholder caption={photos.groomScissorFinishing.alt} src={photos.groomScissorFinishing.src} aspect="portrait" />
+          <PhotoPlaceholder caption={photos.groomGoldendoodleFullGroom.alt} src={photos.groomGoldendoodleFullGroom.src} aspect="portrait" />
+          <PhotoPlaceholder caption={photos.vanInteriorSkylight.alt} src={photos.vanInteriorSkylight.src} aspect="portrait" />
         </div>
         <div className="mt-8 flex justify-center">
           <SecondaryLinkButton location="home_gallery_teaser" variant="ghost" label="View Gallery" href={PATHS.gallery} />

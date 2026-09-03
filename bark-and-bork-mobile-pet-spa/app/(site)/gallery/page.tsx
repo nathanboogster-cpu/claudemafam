@@ -13,21 +13,26 @@ export const metadata: Metadata = pageMetadata({
   path: PATHS.gallery,
 });
 
-// Only one real client photo has been supplied and transferred into this
-// build so far (the van interior below). Every other slot renders an
-// honest, aspect-locked placeholder rather than stock imagery presented as
-// real Bark and Bork work — see components/PhotoPlaceholder.tsx. Swap in
-// more real photos as they're supplied.
+// Real Bark and Bork photos, supplied directly by the client — the van, the
+// grooming setup inside it, and real client dogs after their appointments.
+// See lib/site-data.ts's `photos` export for the source of truth; any
+// future slot without a supplied photo renders an honest, aspect-locked
+// placeholder instead of stock imagery — see components/PhotoPlaceholder.tsx.
 const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portrait" }[] = [
+  { caption: photos.groomScissorFinishing.alt, src: photos.groomScissorFinishing.src, aspect: "portrait" },
+  { caption: photos.vanExteriorSide.alt, src: photos.vanExteriorSide.src, aspect: "portrait" },
+  { caption: photos.groomGoldendoodleFullGroom.alt, src: photos.groomGoldendoodleFullGroom.src, aspect: "portrait" },
+  { caption: photos.groomFrenchBulldog.alt, src: photos.groomFrenchBulldog.src, aspect: "portrait" },
+  { caption: photos.groomYorkieSmile.alt, src: photos.groomYorkieSmile.src, aspect: "portrait" },
   { caption: photos.vanInteriorSkylight.alt, src: photos.vanInteriorSkylight.src, aspect: "portrait" },
-  { caption: "Small dog after a Bark and Bork Bath & Tidy", aspect: "portrait" },
-  { caption: "Large dog after a Bark and Bork Full Groom", aspect: "portrait" },
-  { caption: "Double-coated dog after a deshedding treatment", aspect: "portrait" },
-  { caption: "Dog after a Bark and Bork dematting appointment", aspect: "portrait" },
-  { caption: "Freshly groomed extra-large dog", aspect: "portrait" },
-  { caption: "Puppy's first mobile grooming appointment", aspect: "portrait" },
-  { caption: "Bark and Bork mobile grooming setup at a customer's home", aspect: "square" },
-  { caption: "Groomed dog ready for pickup after a mobile appointment", aspect: "portrait" },
+  { caption: photos.groomBichonHeld.alt, src: photos.groomBichonHeld.src, aspect: "portrait" },
+  { caption: photos.groomChihuahuaBowtie.alt, src: photos.groomChihuahuaBowtie.src, aspect: "portrait" },
+  { caption: photos.groomTerrierBandana.alt, src: photos.groomTerrierBandana.src, aspect: "portrait" },
+  { caption: photos.groomSchnauzerBowtie.alt, src: photos.groomSchnauzerBowtie.src, aspect: "portrait" },
+  { caption: photos.groomShihTzuBlackWhite.alt, src: photos.groomShihTzuBlackWhite.src, aspect: "portrait" },
+  { caption: photos.groomShihTzuPalmTree.alt, src: photos.groomShihTzuPalmTree.src, aspect: "portrait" },
+  { caption: photos.groomGoldendoodleVanSeat.alt, src: photos.groomGoldendoodleVanSeat.src, aspect: "portrait" },
+  { caption: photos.vanExteriorRear.alt, src: photos.vanExteriorRear.src, aspect: "portrait" },
 ];
 
 export default function GalleryPage() {
@@ -46,8 +51,8 @@ export default function GalleryPage() {
           <Eyebrow>Gallery</Eyebrow>
           <h1 className="mt-1 font-bb-display text-4xl font-bold text-bb-ink sm:text-5xl">Our Grooming Work</h1>
           <p className="mx-auto mt-4 max-w-xl text-bb-ink-soft">
-            Real photos from Bark and Bork mobile grooming appointments are on the way. Book an appointment and see
-            the results for your own dog.
+            Real photos from Bark and Bork mobile grooming appointments — the van, the setup, and real client dogs.
+            Book an appointment and see the results for your own dog.
           </p>
         </div>
 

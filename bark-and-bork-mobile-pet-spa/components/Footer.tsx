@@ -90,6 +90,11 @@ export function Footer() {
                 {business.phoneDisplay}
               </a>
             </li>
+            <li>
+              <a href={`mailto:${business.email}`} className="hover:text-bb-coral-dark">
+                {business.email}
+              </a>
+            </li>
             <li>Mobile — based in {business.homeBase}</li>
             <li>
               <a href={business.bookingUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bb-coral-dark">

@@ -9,7 +9,7 @@ import { PricingTable } from "@/components/PricingTable";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, bathAndTidy, pricingNote, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, bathAndTidy, photos, pricingNote, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("bath-and-tidy")}`;
 const description =
@@ -75,7 +75,13 @@ export default function BathAndTidyPage() {
             <SecondaryLinkButton location="service_bath_tidy" variant="secondary" label="Compare Full Groom" href={servicePath("full-dog-grooming")} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Dog after a Bark and Bork Bath & Tidy mobile appointment" aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder
+          caption="A Bark and Bork client dog after a mobile grooming appointment"
+          src={photos.groomYorkieSmile.src}
+          aspect="portrait"
+          className="w-full"
+          priority
+        />
       </section>
 
       <section className="bg-bb-cream-deep">
