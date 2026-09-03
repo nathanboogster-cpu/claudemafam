@@ -9,7 +9,7 @@ import { PricingTable } from "@/components/PricingTable";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, bathAndTidy, photos, pricingNote, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, bathAndTidy, photos, pricingNote, durationNote, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("bath-and-tidy")}`;
 const description =
@@ -89,6 +89,7 @@ export default function BathAndTidyPage() {
           <h2 className="font-bb-display text-2xl font-bold text-bb-ink sm:text-3xl">Bath &amp; Tidy Pricing by Size</h2>
           <PricingTable pricing={bathAndTidy.pricing} className="mt-6" />
           <p className="mt-4 text-sm text-bb-ink-soft">{pricingNote}</p>
+          <p className="mt-1 text-sm text-bb-ink-soft">{durationNote}</p>
         </div>
       </section>
 

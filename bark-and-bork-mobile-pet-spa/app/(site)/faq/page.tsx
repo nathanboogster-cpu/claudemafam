@@ -5,7 +5,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { business, cancellationPolicy, bathAndTidy, fullGroom, dematting, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, cancellationPolicy, bathAndTidy, fullGroom, durationNote, dematting, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "Frequently Asked Questions",
@@ -41,15 +41,15 @@ const faqs = [
   {
     question: "What size category is my dog?",
     answer:
-      "Small is 20 lbs or less, Medium is 45 lbs or less, Large is 70 lbs or less, and Extra Large is over 70 lbs.",
+      "Small is 20 lbs or less, Medium is 40 lbs or less, Large is 60 lbs or less, and Extra Large is over 60 lbs.",
   },
   {
-    question: "Do you groom dogs over 70 pounds?",
-    answer: `Yes — extra-large dogs (over 70 lbs) are welcome. Full Groom starts at ${fullGroom.pricing.xlarge.price} and Bath & Tidy starts at ${bathAndTidy.pricing.xlarge.price} for extra-large dogs.`,
+    question: "Do you groom dogs over 60 pounds?",
+    answer: `Yes — extra-large dogs (over 60 lbs) are welcome. Full Groom starts at ${fullGroom.pricing.xlarge.price} and Bath & Tidy starts at ${bathAndTidy.pricing.xlarge.price} for extra-large dogs.`,
   },
   {
     question: "How long does grooming take?",
-    answer: `Bath & Tidy runs from about ${bathAndTidy.pricing.small.duration} for small dogs up to ${bathAndTidy.pricing.large.duration} for large and extra-large dogs. Full Groom runs from about ${fullGroom.pricing.small.duration} for small dogs up to ${fullGroom.pricing.large.duration} for large dogs.`,
+    answer: `Bath & Tidy runs from about ${bathAndTidy.pricing.small.duration} for small dogs up to ${bathAndTidy.pricing.xlarge.duration} for extra-large dogs. Full Groom runs from about ${fullGroom.pricing.small.duration} for small dogs up to ${fullGroom.pricing.xlarge.duration} for extra-large dogs. ${durationNote}`,
   },
   {
     question: "Do you offer deshedding?",

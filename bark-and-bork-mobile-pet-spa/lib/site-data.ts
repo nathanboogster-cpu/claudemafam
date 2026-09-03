@@ -141,10 +141,10 @@ export const team = [
 
 // Dog size tiers used consistently across every pricing table on the site.
 export const sizeTiers = [
-  { key: "small", label: "Small", weight: "20 lbs or less" },
-  { key: "medium", label: "Medium", weight: "45 lbs or less" },
-  { key: "large", label: "Large", weight: "70 lbs or less" },
-  { key: "xlarge", label: "Extra Large", weight: "Over 70 lbs" },
+  { key: "small", label: "Small", weight: "0–20 lbs" },
+  { key: "medium", label: "Medium", weight: "20–40 lbs" },
+  { key: "large", label: "Large", weight: "40–60 lbs" },
+  { key: "xlarge", label: "Extra Large", weight: "60+ lbs" },
 ] as const;
 
 export type SizeKey = (typeof sizeTiers)[number]["key"];
@@ -164,15 +164,14 @@ export const bathAndTidy = {
   name: "Bath & Tidy",
   summary: "A thorough bath and maintenance grooming — no haircut.",
   includes: bathAndTidyIncludes,
-  // Durations sourced directly from the live GlossGenius booking platform
-  // (the authoritative source per the Verified Business Record) — these are
-  // the actual scheduled appointment lengths, not the brief's earlier
-  // estimates.
+  // Per the client: actual appointment length depends on the dog's size and
+  // temperament/behavior, with a 4-hour maximum per appointment. These
+  // ranges scale with size within that policy.
   pricing: {
-    small: { price: "$75+", duration: "3 hours" },
-    medium: { price: "$100+", duration: "3 hours 30 minutes" },
-    large: { price: "$115+", duration: "4 hours 30 minutes" },
-    xlarge: { price: "$135+", duration: "4 hours 30 minutes" },
+    small: { price: "$75+", duration: "1 – 2 hours" },
+    medium: { price: "$100+", duration: "1.5 – 2.5 hours" },
+    large: { price: "$115+", duration: "2 – 3 hours" },
+    xlarge: { price: "$135+", duration: "2.5 – 4 hours" },
   },
 } as const;
 
@@ -180,17 +179,21 @@ export const fullGroom = {
   name: "Full Groom",
   summary: "Everything in Bath & Tidy, plus a complete haircut.",
   includes: [...bathAndTidyIncludes, "Haircut"] as const,
-  // Durations sourced directly from the live GlossGenius booking platform.
+  // Per the client: actual appointment length depends on the dog's size and
+  // temperament/behavior, with a 4-hour maximum per appointment.
   pricing: {
-    small: { price: "$100+", duration: "4 hours" },
-    medium: { price: "$120+", duration: "4 hours 30 minutes" },
-    large: { price: "$135+", duration: "5 hours 30 minutes" },
-    xlarge: { price: "$160+", duration: "4 hours" },
+    small: { price: "$100+", duration: "1.5 – 2.5 hours" },
+    medium: { price: "$120+", duration: "2 – 3 hours" },
+    large: { price: "$135+", duration: "2.5 – 3.5 hours" },
+    xlarge: { price: "$160+", duration: "3 – 4 hours" },
   },
 } as const;
 
 export const pricingNote =
   "Starting prices may vary depending on coat condition, grooming requirements, pet size, matting, and other service needs where applicable.";
+
+export const durationNote =
+  "Appointment length depends on your dog's size and temperament — most appointments are completed within 4 hours.";
 
 export const addOns = [
   {
@@ -463,7 +466,7 @@ export const secondaryAreaContent: Record<
     whyChoose: [
       "Close to our Compton home base, so scheduling tends to be easier to fit in",
       "No car ride, no waiting room — grooming happens at your address",
-      "Full-size range from small breeds up to extra-large dogs over 70 lbs",
+      "Full-size range from small breeds up to extra-large dogs over 60 lbs",
       "Same transparent starting prices as every other stop on our route",
     ],
     faqs: [
@@ -510,7 +513,7 @@ export const secondaryAreaContent: Record<
       {
         question: "Do you groom large or extra-large dogs?",
         answer:
-          "Yes. We groom dogs of every size, from small dogs 20 lbs and under up to extra-large dogs over 70 lbs.",
+          "Yes. We groom dogs of every size, from small dogs 20 lbs and under up to extra-large dogs over 60 lbs.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Lynwood, CA",
@@ -630,7 +633,7 @@ export const secondaryAreaContent: Record<
       {
         question: "What size dogs do you groom?",
         answer:
-          "We groom dogs of every size — small (20 lbs or less), medium (45 lbs or less), large (70 lbs or less), and extra-large (over 70 lbs).",
+          "We groom dogs of every size — small (20 lbs or less), medium (40 lbs or less), large (60 lbs or less), and extra-large (over 60 lbs).",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Inglewood, CA",
@@ -689,7 +692,7 @@ export const secondaryAreaContent: Record<
       },
       {
         question: "Do you groom large or extra-large dogs?",
-        answer: "Yes. We groom dogs of every size, from small dogs 20 lbs and under up to extra-large dogs over 70 lbs.",
+        answer: "Yes. We groom dogs of every size, from small dogs 20 lbs and under up to extra-large dogs over 60 lbs.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Willowbrook, CA",
@@ -779,7 +782,7 @@ export const secondaryAreaContent: Record<
       {
         question: "What size dogs do you groom?",
         answer:
-          "We groom dogs of every size — small (20 lbs or less), medium (45 lbs or less), large (70 lbs or less), and extra-large (over 70 lbs).",
+          "We groom dogs of every size — small (20 lbs or less), medium (40 lbs or less), large (60 lbs or less), and extra-large (over 60 lbs).",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Hawthorne, CA",
@@ -832,7 +835,7 @@ export const differentiators = [
   },
   {
     title: "Every Size, Transparent Pricing",
-    body: "From small dogs to extra-large dogs over 70 lbs, starting prices are published up front for every size and service.",
+    body: "From small dogs to extra-large dogs over 60 lbs, starting prices are published up front for every size and service.",
   },
   {
     title: "Individual Appointment Experience",

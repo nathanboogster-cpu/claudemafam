@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "What size dogs do you groom in Compton?",
     answer:
-      "We groom dogs of every size — small (20 lbs or less), medium (45 lbs or less), large (70 lbs or less), and extra-large (over 70 lbs).",
+      "We groom dogs of every size — small (20 lbs or less), medium (40 lbs or less), large (60 lbs or less), and extra-large (over 60 lbs).",
   },
 ];
 

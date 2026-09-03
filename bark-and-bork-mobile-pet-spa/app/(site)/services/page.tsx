@@ -8,7 +8,7 @@ import { PricingTable } from "@/components/PricingTable";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { DogIcon, ScissorsIcon, DropletIcon, BrushIcon, ShieldCheckIcon, HeartIcon } from "@/components/icons";
-import { bathAndTidy, fullGroom, pricingNote, addOns, services, servicePath, PATHS, SITE_URL } from "@/lib/site-data";
+import { bathAndTidy, fullGroom, pricingNote, durationNote, addOns, services, servicePath, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "Mobile Dog Grooming Services & Pricing",
@@ -84,6 +84,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <p className="mt-4 text-sm text-bb-ink-soft">{pricingNote}</p>
+        <p className="mt-1 text-sm text-bb-ink-soft">{durationNote}</p>
       </section>
 
       <section className="bg-bb-cream-deep">

@@ -19,6 +19,7 @@ import {
   bathAndTidy,
   fullGroom,
   pricingNote,
+  durationNote,
   addOns,
   team,
   photos,
@@ -207,6 +208,7 @@ export default function HomePage() {
             <PricingTable pricing={fullGroom.pricing} className="mt-4" />
           </div>
         </div>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-bb-ink-soft">{durationNote}</p>
         <div className="mt-8 flex justify-center">
           <BookButton location="home_pricing" variant="primary" />
         </div>
