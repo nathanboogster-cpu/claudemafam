@@ -42,7 +42,7 @@ export const business = {
   // Full horizontal logo lockup (crest + "PET SPA LUXE" wordmark).
   logoFull: "/images/logo.webp",
   // Where new lead-form submissions get emailed (app/api/lead/route.ts).
-  leadNotificationEmail: "jpalvesca@gmail.com",
+  leadNotificationEmail: "petspaluxe@gmail.com",
 } as const;
 
 // Real 5-star Google reviews, provided by the client via screenshots of the
