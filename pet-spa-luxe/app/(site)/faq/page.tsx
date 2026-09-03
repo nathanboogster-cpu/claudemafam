@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     question: "How much does Full Dog Grooming cost?",
-    answer: `Full Dog Grooming is ${fullGroomingPackage.price}, all-inclusive — bath, haircut, nail trim, deshedding, and more. See the Full Dog Grooming service page for the complete list of what's included.`,
+    answer: `Full Dog Grooming is priced by dog size, starting at ${fullGroomingPackage.price.replace("From ", "")} — all-inclusive, with bath, haircut, nail trim, deshedding, and more. See the Full Dog Grooming service page for the full price table and complete list of what's included.`,
   },
   {
     question: "Do you groom cats?",

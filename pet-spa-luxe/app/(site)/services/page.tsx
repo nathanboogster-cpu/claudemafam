@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ServiceCard } from "@/components/ServiceCard";
+import { SizePricingTable } from "@/components/SizePricingTable";
 import { StatBand } from "@/components/StatBand";
 import { CallButton, RequestButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
@@ -61,6 +62,18 @@ export default function ServicesHub() {
               icon={serviceIcons[s.slug]}
             />
           ))}
+        </div>
+
+        <h2 className="mt-16 font-psl-display text-2xl font-bold text-psl-ink sm:text-3xl">
+          Pricing by Dog Size
+        </h2>
+        <p className="mt-2 max-w-2xl text-psl-ink-soft">
+          Essential Bath and Full Dog Grooming are priced by your dog&apos;s
+          weight — the price is set before your appointment, with no surprise
+          add-on fees.
+        </p>
+        <div className="mt-6">
+          <SizePricingTable />
         </div>
 
         <div className="mt-16 rounded-3xl border border-psl-border bg-psl-cream-deep p-8 sm:p-10">

@@ -78,8 +78,13 @@ export function serviceSchema(opts: {
   description: string;
   // Verified flat price, e.g. "$110" — provided directly by the owner.
   price?: string;
+  // Verified size-based price range, e.g. { min: "$110", max: "$180" } —
+  // use instead of `price` when the service is priced by dog size.
+  priceRange?: { min: string; max: string };
 }) {
   const priceNumeric = opts.price?.replace(/[^0-9.]/g, "");
+  const minNumeric = opts.priceRange?.min.replace(/[^0-9.]/g, "");
+  const maxNumeric = opts.priceRange?.max.replace(/[^0-9.]/g, "");
 
   return {
     "@context": "https://schema.org",
@@ -88,14 +93,25 @@ export function serviceSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
-    ...(priceNumeric && {
-      offers: {
-        "@type": "Offer",
-        price: priceNumeric,
-        priceCurrency: "USD",
-        url: opts.pageUrl,
-      },
-    }),
+    ...(minNumeric &&
+      maxNumeric && {
+        offers: {
+          "@type": "AggregateOffer",
+          lowPrice: minNumeric,
+          highPrice: maxNumeric,
+          priceCurrency: "USD",
+          url: opts.pageUrl,
+        },
+      }),
+    ...(!opts.priceRange &&
+      priceNumeric && {
+        offers: {
+          "@type": "Offer",
+          price: priceNumeric,
+          priceCurrency: "USD",
+          url: opts.pageUrl,
+        },
+      }),
     areaServed: {
       "@type": "City",
       name: business.primaryLocation,

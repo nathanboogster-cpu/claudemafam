@@ -8,34 +8,44 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, servicePath, photos, fullGroomingPackage, PATHS, SITE_URL } from "@/lib/site-data";
+import { SizePricingTable } from "@/components/SizePricingTable";
+import {
+  business,
+  servicePath,
+  photos,
+  fullGroomingPackage,
+  sizePricing,
+  PATHS,
+  SITE_URL,
+} from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("dog-haircuts-full-grooming")}`;
 const description =
-  "Full Dog Grooming — $110, all-inclusive. Warm bath, breed-specific haircut, nail trim, deshedding, and more, delivered at your home in El Sobrante, CA.";
+  "Full Dog Grooming — from $110, all-inclusive, priced by dog size. Warm bath, breed-specific haircut, nail trim, deshedding, and more, delivered at your home in El Sobrante, CA.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Full Dog Grooming — $110 All-Inclusive",
+  title: "Full Dog Grooming — From $110, All-Inclusive",
   description,
   path: servicePath("dog-haircuts-full-grooming"),
 });
 
 const totalIncluded = fullGroomingPackage.categories.reduce((n, c) => n + c.items.length, 0);
+const minPrice = sizePricing[0].fullGrooming;
+const maxPrice = sizePricing[sizePricing.length - 1].fullGrooming;
 
 const faqs = [
   {
     question: "How much does Full Dog Grooming cost?",
-    answer: `Full Dog Grooming is ${fullGroomingPackage.price}, all-inclusive — that's ${totalIncluded} grooming services in one flat price, with no add-on fees. See the full package breakdown on this page.`,
+    answer: `Full Dog Grooming is priced by dog size, from ${minPrice} for small dogs up to ${maxPrice} for extra-large dogs — see the full price table on this page. Every size gets the same ${totalIncluded} grooming services, all-inclusive, with no add-on fees.`,
   },
   {
     question: "Do you do breed-specific haircuts?",
-    answer:
-      "Yes — the Full Dog Grooming package includes a full haircut, styled or breed-specific, as part of the $110 price.",
+    answer: "Yes — the Full Dog Grooming package includes a full haircut, styled or breed-specific, at every size.",
   },
   {
-    question: "Are anal gland expression, ear hair removal, and custom perfume included in the $110?",
+    question: "Are anal gland expression, ear hair removal, and custom perfume included?",
     answer:
-      "Those three are performed upon request as part of the same appointment — just let your groomer know when scheduling or on arrival.",
+      "Those three are performed upon request as part of the same appointment, at no extra charge — just let your groomer know when scheduling or on arrival.",
   },
   {
     question: "How long does a full groom take?",
@@ -52,7 +62,7 @@ export default function FullGroomingPage() {
           pageUrl: url,
           name: fullGroomingPackage.name,
           description,
-          price: fullGroomingPackage.price,
+          priceRange: { min: minPrice, max: maxPrice },
         })}
       />
       <JsonLd
@@ -90,7 +100,7 @@ export default function FullGroomingPage() {
             </span>
           </div>
           <p className="mt-4 text-lg text-psl-ink-soft">
-            One flat-price package, everything your dog needs bundled in — bathed,
+            Priced by dog size, everything your dog needs bundled in — bathed,
             cut, and pampered at your home, with one-on-one attention from start
             to finish. No add-on fees, no upsells.
           </p>
@@ -107,7 +117,7 @@ export default function FullGroomingPage() {
           <div className="text-center">
             <Eyebrow>What&apos;s In the Package</Eyebrow>
             <h2 className="mt-1 font-psl-display text-2xl font-bold text-psl-ink sm:text-3xl">
-              {totalIncluded} Services, One Flat Price
+              {totalIncluded} Services, Priced by Dog Size
             </h2>
           </div>
 
@@ -168,8 +178,12 @@ export default function FullGroomingPage() {
             </div>
           </div>
 
+          <div className="mx-auto mt-8 max-w-4xl">
+            <SizePricingTable />
+          </div>
+
           <p className="mt-6 text-center text-sm text-psl-ink-soft">
-            {totalIncluded} grooming services, one flat price — no add-on fees.
+            {totalIncluded} grooming services at every size — no add-on fees.
           </p>
         </div>
       </section>
@@ -181,7 +195,7 @@ export default function FullGroomingPage() {
             Mobile Dog Grooming
           </Link>
           <Link href={servicePath("bath-deshedding")} className="rounded-full border border-psl-border bg-white px-4 py-2 text-sm font-medium text-psl-ink hover:border-psl-brass">
-            Warm Water Bath & Deshedding
+            Essential Bath
           </Link>
           <Link href={servicePath("nail-ear-care")} className="rounded-full border border-psl-border bg-white px-4 py-2 text-sm font-medium text-psl-ink hover:border-psl-brass">
             Nail Care & Ear Cleaning

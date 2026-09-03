@@ -41,7 +41,42 @@ export const business = {
   logoMark: "/images/logo-mark.png",
   // Full horizontal logo lockup (crest + "PET SPA LUXE" wordmark).
   logoFull: "/images/logo.webp",
+  // Where new lead-form submissions get emailed (app/api/lead/route.ts).
+  leadNotificationEmail: "jpalvesca@gmail.com",
 } as const;
+
+// Real 5-star Google reviews, provided by the client via screenshots of the
+// business's Google Business Profile. Only reviews whose full original
+// English text was directly visible and legible are included here — two
+// other 5-star reviews on the profile (Roxana Alves, shown only as a
+// Google auto-translation into Portuguese with the English original
+// hidden; and one from "Reenie", whose review text itself wasn't visible
+// in the screenshots, only the owner's reply) are deliberately left out
+// rather than risk misquoting a real customer. No aggregate Google rating
+// or review count is stated anywhere, since only these individual reviews
+// were verified — see Yelp for the verified aggregate rating.
+export const googleReviews = [
+  {
+    author: "Danillo Torres",
+    rating: 5,
+    text: "Super convenient mobile grooming with great prices. My dog came out happy and smelling fantastic.",
+  },
+  {
+    author: "Magno Zappa",
+    rating: 5,
+    text: "Perfect service! Careful professionals, fast and efficient work.",
+  },
+  {
+    author: "Ana Solheiro",
+    rating: 5,
+    text: "I was impressed by the quality of the service and the punctuality!!! Very satisfied.",
+  },
+  {
+    author: "Ana Magalhaes",
+    rating: 5,
+    text: "Great service. The team is friendly and professional. Definitely reach out!",
+  },
+] as const;
 
 // HOURS — confirmed by the client: open 7:00 AM – 9:00 PM, every day.
 export const hoursConfirmed = true;
@@ -127,18 +162,18 @@ export const services = [
     slug: "dog-haircuts-full-grooming",
     name: "Full Dog Grooming",
     shortName: "Full Dog Grooming",
-    summary: "All-inclusive package — 15 grooming services bundled into one flat price.",
+    summary: "All-inclusive package — priced by dog size, from $110.",
     isFlagship: false,
-    price: "$110" as string | null,
+    price: "From $110" as string | null,
   },
   {
     slug: "bath-deshedding",
-    name: "Warm Water Bath & Deshedding",
-    shortName: "Bath & Deshedding",
+    name: "Essential Bath",
+    shortName: "Essential Bath",
     summary:
-      "Warm-water bathing with premium shampoos and conditioners, plus deshedding to clear loose coat.",
+      "Warm-water bathing, nail trim, ear cleaning, and more — priced by dog size, from $80.",
     isFlagship: false,
-    price: null as string | null,
+    price: "From $80" as string | null,
   },
   {
     slug: "nail-ear-care",
@@ -152,30 +187,36 @@ export const services = [
 
 export type ServiceSlug = (typeof services)[number]["slug"];
 
-// Full Dog Grooming — $110 all-inclusive package, provided directly by the
-// owner. This is the complete, verified list of what's included; nothing
-// added beyond what she specified.
+// Pricing by dog size for Essential Bath and Full Dog Grooming — the
+// complete, verified price list provided directly by the owner. Nail &
+// Ear Care and Mobile Dog Grooming (the flagship, umbrella service) are
+// not priced by size; nothing here beyond what she specified.
+export const sizePricing = [
+  { size: "Small", weightRange: "0–15 lbs", essentialBath: "$80", fullGrooming: "$110" },
+  { size: "Medium", weightRange: "16–55 lbs", essentialBath: "$100", fullGrooming: "$130" },
+  { size: "Large", weightRange: "56–75 lbs", essentialBath: "$120", fullGrooming: "$160" },
+  { size: "X-Large", weightRange: "75+ lbs", essentialBath: "$140", fullGrooming: "$180" },
+] as const;
+
+// Full Dog Grooming — all-inclusive package, priced by dog size (see
+// sizePricing above; $110 is the Small starting price). Provided directly
+// by the owner. This is the complete, verified list of what's included;
+// nothing added beyond what she specified.
 export const fullGroomingPackage = {
   name: "Full Dog Grooming",
-  price: "$110",
-  priceNote: "All-Inclusive",
+  price: "From $110",
+  priceNote: "All-Inclusive, By Size",
   // The complete, verified list of what's included, grouped into the
   // categories a groomer would actually work through in one visit —
   // nothing added beyond what the owner specified, just organized.
   categories: [
     {
       title: "Bath & Coat Care",
-      items: [
-        "Warm Bath",
-        "Professional Grade Shampoo",
-        "Hug & Brush Magic Hydrobath",
-        "Deshedding Treatment",
-        "Hand Blow Dry",
-      ],
+      items: ["Warm Bath", "Professional Grade Shampoo", "Hydrobath", "Deshedding Treatment", "Hand Blow Dry"],
     },
     {
       title: "Cut & Trim",
-      items: ["Full Haircut (style or breed-specific)", "Nail Trim", "Sanitary Trim", "Paw Trimming"],
+      items: ["Full Haircut", "Nail Trim", "Sanitary Trim", "Paw Trimming"],
     },
     {
       title: "Wellness Touches",
@@ -183,15 +224,35 @@ export const fullGroomingPackage = {
     },
     {
       title: "Finishing Touch",
-      items: ["Fancy Bow Ties or Cool Bandanas"],
+      items: ["Bow Tie or Bandana"],
     },
   ],
   // Included, but only performed when the client asks for them.
-  uponRequest: [
-    "Anal Gland Expression",
-    "Ear Hair Removal",
-    "Custom Perfume",
+  uponRequest: ["Anal Gland Expression", "Ear Hair Removal", "Custom Perfume"],
+} as const;
+
+// Essential Bath — priced by dog size (see sizePricing above; $80 is the
+// Small starting price). Provided directly by the owner, same source and
+// format as fullGroomingPackage above.
+export const essentialBathPackage = {
+  name: "Essential Bath",
+  price: "From $80",
+  priceNote: "By Size",
+  categories: [
+    {
+      title: "Bath & Coat Care",
+      items: ["Warm Bath", "Professional Grade Shampoo", "Deshedding Treatment", "Hand Blow Dry"],
+    },
+    {
+      title: "Trim & Tidy",
+      items: ["Nail Trim", "Sanitary Trim", "Paw Trimming"],
+    },
+    {
+      title: "Wellness Touches",
+      items: ["Hair Brushing", "Eye Wash", "Ear Cleaning", "Teeth Brushing"],
+    },
   ],
+  uponRequest: ["Anal Gland Expression", "Ear Hair Removal"],
 } as const;
 
 // Every discrete verified service feature/offering, used on the Services hub
@@ -330,8 +391,8 @@ export const areaContent: Record<
         answer: "No. The mobile grooming van comes to your Sonoma property — your dog never leaves home.",
       },
       {
-        question: "Is the $110 Full Dog Grooming package available in Sonoma?",
-        answer: "Yes, the all-inclusive Full Dog Grooming package is available for Sonoma appointments — call to schedule.",
+        question: "Is Full Dog Grooming available in Sonoma?",
+        answer: "Yes — the all-inclusive Full Dog Grooming package, priced by dog size from $110, is available for Sonoma appointments. Call to schedule.",
       },
     ],
   },
@@ -346,7 +407,7 @@ export const areaContent: Record<
     whyChoose: [
       "Grooming happens at your Napa home — no drop-off, no waiting room",
       "One-on-one, cage-free attention for every dog",
-      "Full Dog Grooming package available at $110, all-inclusive",
+      "Full Dog Grooming package available, from $110, all-inclusive",
       "Rated 5.0 stars on Yelp",
     ],
     faqs: [
@@ -506,7 +567,7 @@ export const areaContent: Record<
       },
       {
         question: "What services are available in San Rafael?",
-        answer: "Mobile dog grooming, Full Dog Grooming ($110 all-inclusive), warm-water bath & deshedding, and nail & ear care are all available.",
+        answer: "Mobile dog grooming, Full Dog Grooming (from $110, all-inclusive), warm-water bath & deshedding, and nail & ear care are all available.",
       },
       {
         question: "How do I check availability in San Rafael?",
@@ -534,9 +595,9 @@ export const areaContent: Record<
         answer: "Yes — Pet Spa Luxe offers mobile dog grooming in Vallejo, CA. Call to confirm your address is reachable.",
       },
       {
-        question: "What's included in the $110 Full Dog Grooming package?",
+        question: "What's included in the Full Dog Grooming package?",
         answer:
-          "A warm bath, full haircut, nail trim, brushing, deshedding, sanitary trim, professional shampoo, hand blow dry, ear cleaning, paw trimming, teeth brushing, and more.",
+          "A warm bath, full haircut, nail trim, brushing, deshedding, sanitary trim, professional shampoo, hand blow dry, ear cleaning, paw trimming, teeth brushing, and more — priced by dog size, starting at $110.",
       },
       {
         question: "How do I schedule in Vallejo?",
@@ -580,17 +641,17 @@ export const areaContent: Record<
       "Pet Spa Luxe offers full-service mobile dog grooming in Concord, CA — from a $110 all-inclusive groom to standalone nail care. Rated 5.0 stars on Yelp.",
     h1: "Mobile Dog Grooming in Concord, CA",
     intro:
-      "Concord is one of the larger cities on the route, and Pet Spa Luxe brings the full range of services — mobile dog grooming, the $110 all-inclusive Full Dog Grooming package, warm-water bath & deshedding, and nail & ear care — directly to homes across the city.",
+      "Concord is one of the larger cities on the route, and Pet Spa Luxe brings the full range of services — mobile dog grooming, the all-inclusive Full Dog Grooming package (from $110), warm-water bath & deshedding, and nail & ear care — directly to homes across the city.",
     whyChoose: [
       "Full range of services available: grooming, bathing, deshedding, nail & ear care",
-      "$110 all-inclusive Full Dog Grooming package",
+      "All-inclusive Full Dog Grooming package, from $110",
       "Cage-free, one-on-one attention for every appointment",
       "Fully equipped mobile setup comes to your Concord home",
     ],
     faqs: [
       {
         question: "What services does Pet Spa Luxe offer in Concord?",
-        answer: "Mobile dog grooming, Full Dog Grooming ($110 all-inclusive), warm-water bath & deshedding, and nail & ear care are all available in Concord.",
+        answer: "Mobile dog grooming, Full Dog Grooming (all-inclusive, from $110), warm-water bath & deshedding, and nail & ear care are all available in Concord.",
       },
       {
         question: "Can I book a standalone bath in Concord?",
@@ -702,7 +763,7 @@ export const areaContent: Record<
       "Open all seven days, 7:00 AM – 9:00 PM, for family schedules",
       "Mobile setup comes to your San Ramon home",
       "Cage-free, one-on-one attention for every dog",
-      "Full Dog Grooming package, $110 all-inclusive",
+      "Full Dog Grooming package, all-inclusive, from $110",
     ],
     faqs: [
       {

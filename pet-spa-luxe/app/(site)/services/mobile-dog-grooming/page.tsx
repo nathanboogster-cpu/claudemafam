@@ -109,7 +109,7 @@ export default function MobileDogGroomingPage() {
             Dog Haircuts & Full Grooming
           </Link>
           <Link href={servicePath("bath-deshedding")} className="rounded-full border border-psl-border bg-white px-4 py-2 text-sm font-medium text-psl-ink hover:border-psl-brass">
-            Warm Water Bath & Deshedding
+            Essential Bath
           </Link>
           <Link href={servicePath("nail-ear-care")} className="rounded-full border border-psl-border bg-white px-4 py-2 text-sm font-medium text-psl-ink hover:border-psl-brass">
             Nail Care & Ear Cleaning
