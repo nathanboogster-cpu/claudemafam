@@ -40,14 +40,14 @@ export function CallButton({
   );
 }
 
-// No verified online booking system exists for Pet Spa Luxe, so "requesting an
-// appointment" routes to the Contact page (phone + the real process) rather than
-// a fabricated booking widget.
+// No verified online booking system exists for Pet Spa Luxe, so "Book
+// Appointment" routes to a lead form (phone + real process explained there)
+// rather than a fabricated instant-booking widget.
 export function RequestButton({
   variant = "secondary",
-  label = "Request an Appointment",
+  label = "Book Appointment",
   location,
-  href = PATHS.contact,
+  href = PATHS.bookAppointment,
   className = "",
 }: {
   variant?: Variant;

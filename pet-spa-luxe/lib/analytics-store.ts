@@ -28,7 +28,7 @@ type ClickType = (typeof CLICK_TYPES)[number];
 
 const CLICK_TYPE_LABELS: Record<ClickType, string> = {
   psl_call_click: "Call Now",
-  psl_request_click: "Request an Appointment",
+  psl_request_click: "Book Appointment",
 };
 
 function isClickType(value: string): value is ClickType {

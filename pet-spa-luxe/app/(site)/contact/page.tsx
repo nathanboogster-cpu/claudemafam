@@ -70,10 +70,10 @@ export default function ContactPage() {
 
         <div className="mt-10 text-left">
           <p className="text-center text-sm font-semibold uppercase tracking-wide text-psl-ink-soft">
-            Or Request a Callback
+            Or Book an Appointment Online
           </p>
           <div className="mt-4">
-            <LeadForm />
+            <LeadForm location="contact_page" />
           </div>
         </div>
 
