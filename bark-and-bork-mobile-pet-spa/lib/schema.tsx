@@ -63,6 +63,7 @@ export function localBusinessSchema(pageUrl: string) {
     name: business.name,
     url: pageUrl,
     telephone: business.phoneDisplay,
+    email: business.email,
     address: serviceAreaAddress(),
     description:
       "Mobile dog grooming based in Compton, CA, serving pet owners throughout the greater Los Angeles area. Grooming is performed at the customer's location — Bark and Bork is not a walk-in salon.",

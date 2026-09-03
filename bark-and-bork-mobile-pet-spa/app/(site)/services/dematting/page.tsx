@@ -7,7 +7,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { sizeTiers, business, dematting, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { sizeTiers, business, dematting, photos, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("dematting")}`;
 const description =
@@ -72,7 +72,13 @@ export default function DemattingPage() {
             <SecondaryLinkButton location="service_dematting" variant="secondary" label="View All Services" href={PATHS.services} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Dog after a Bark and Bork dematting treatment" aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder
+          caption="A Bark and Bork client dog after a mobile grooming appointment"
+          src={photos.groomShihTzuBlackWhite.src}
+          aspect="portrait"
+          className="w-full"
+          priority
+        />
       </section>
 
       <section className="bg-bb-cream-deep">

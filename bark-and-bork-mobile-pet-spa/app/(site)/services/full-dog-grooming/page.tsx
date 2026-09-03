@@ -9,7 +9,7 @@ import { PricingTable } from "@/components/PricingTable";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, fullGroom, pricingNote, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, fullGroom, photos, pricingNote, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("full-dog-grooming")}`;
 const description =
@@ -77,7 +77,13 @@ export default function FullDogGroomingPage() {
             <SecondaryLinkButton location="service_full_groom" variant="secondary" label="Compare Bath & Tidy" href={servicePath("bath-and-tidy")} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Dog after a Bark and Bork Full Groom mobile appointment" aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder
+          caption="A Bark and Bork client dog after a mobile grooming appointment"
+          src={photos.groomGoldendoodleFullGroom.src}
+          aspect="portrait"
+          className="w-full"
+          priority
+        />
       </section>
 
       <section className="bg-bb-cream-deep">

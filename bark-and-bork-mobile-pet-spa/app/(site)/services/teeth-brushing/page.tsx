@@ -7,7 +7,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { business, addOns, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, addOns, photos, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const info = addOns.find((a) => a.slug === "teeth-brushing")!;
 const url = `${SITE_URL}${servicePath("teeth-brushing")}`;
@@ -75,7 +75,13 @@ export default function TeethBrushingPage() {
             <SecondaryLinkButton location="service_teeth_brushing" variant="secondary" label="View All Services" href={PATHS.services} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Dog at a Bark and Bork mobile grooming appointment" aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder
+          caption="A Bark and Bork client dog at a mobile grooming appointment"
+          src={photos.groomTerrierBandana.src}
+          aspect="portrait"
+          className="w-full"
+          priority
+        />
       </section>
 
       <section className="bg-bb-cream-deep">

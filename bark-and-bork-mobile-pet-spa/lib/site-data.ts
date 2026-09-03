@@ -19,8 +19,15 @@ export const business = {
   name: "Bark and Bork Mobile Pet Spa",
   shortName: "Bark and Bork",
   tagline: "Mobile Dog Grooming Based in Compton, Serving Greater Los Angeles",
+  // Confirmed by two independent sources: the branded van wrap signage and
+  // the client's original Verified Business Record. A separately supplied
+  // business card shows a different number ((818) 447-6294) — client
+  // confirmed the van/business-record number is correct.
   phoneDisplay: "(323) 418-2753",
   phoneHref: "tel:+13234182753",
+  // Only one source for this (the business card); no other asset
+  // contradicts it, so kept as verified.
+  email: "Barkandbork@gmail.com",
   homeBase: "Compton, CA",
   primaryMarket: "Los Angeles",
   broadMarket: "Greater Los Angeles / Los Angeles County",
@@ -41,6 +48,58 @@ export const photos = {
   vanInteriorSkylight: {
     src: "/images/van-interior-skylight.jpg",
     alt: "Inside the Bark and Bork mobile grooming van, showing the stainless steel tub, grooming table, and overhead lighting",
+  },
+  vanExteriorSide: {
+    src: "/images/van-exterior-side.jpg",
+    alt: "The Bark and Bork mobile pet spa van, wrapped in pink with the dog-and-cat bathtub logo, parked outside in Los Angeles",
+  },
+  vanExteriorRear: {
+    src: "/images/van-exterior-rear-angle.jpg",
+    alt: "Rear three-quarter view of the Bark and Bork mobile grooming van showing the full brand wrap",
+  },
+  groomTerrierBandana: {
+    src: "/images/groom-terrier-bandana.jpg",
+    alt: "A terrier mix wearing a colorful bandana after grooming, sitting on the grooming table inside the Bark and Bork van",
+  },
+  groomFrenchBulldog: {
+    src: "/images/groom-french-bulldog.jpg",
+    alt: "A French Bulldog sitting calmly on the grooming table after a mobile grooming appointment",
+  },
+  groomYorkieSmile: {
+    src: "/images/groom-yorkie-smile.jpg",
+    alt: "A happy Yorkie mix with a fresh haircut and bow tie, smiling on the grooming table",
+  },
+  groomScissorFinishing: {
+    src: "/images/groom-scissor-finishing.jpg",
+    alt: "A Bark and Bork groomer hand-scissoring the finishing touches on a fluffy white dog's haircut",
+  },
+  groomChihuahuaBowtie: {
+    src: "/images/groom-chihuahua-bowtie.jpg",
+    alt: "A long-haired Chihuahua mix wearing a bow tie after grooming, sitting on the grooming table",
+  },
+  groomBichonHeld: {
+    src: "/images/groom-bichon-held.jpg",
+    alt: "A groomer gently holding a freshly groomed Bichon Frise on the grooming table",
+  },
+  groomSchnauzerBowtie: {
+    src: "/images/groom-schnauzer-bowtie.jpg",
+    alt: "A Schnauzer mix with a neat trim and bow tie after a Bark and Bork grooming appointment",
+  },
+  groomShihTzuBlackWhite: {
+    src: "/images/groom-shihtzu-blackwhite.jpg",
+    alt: "A black and white Shih Tzu freshly groomed, sitting on the grooming table",
+  },
+  groomShihTzuPalmTree: {
+    src: "/images/groom-shihtzu-palmtree.jpg",
+    alt: "A Shih Tzu mix wearing a palm-tree print bandana after grooming",
+  },
+  groomGoldendoodleVanSeat: {
+    src: "/images/groom-goldendoodle-van-seat.jpg",
+    alt: "A happy, freshly groomed Goldendoodle standing on the front seat of the Bark and Bork van",
+  },
+  groomGoldendoodleFullGroom: {
+    src: "/images/groom-goldendoodle-full-groom.jpg",
+    alt: "A large Goldendoodle with a full groom finish, sitting on the grooming table",
   },
 } as const;
 
