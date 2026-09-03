@@ -13,6 +13,7 @@ const coreLinks: NavItem[] = [
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
+  { label: "Book Appointment", href: PATHS.bookAppointment },
 ];
 
 const groups: { label: string; items: NavItem[] }[] = [

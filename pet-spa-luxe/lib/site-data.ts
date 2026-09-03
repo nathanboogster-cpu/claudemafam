@@ -305,7 +305,7 @@ export const trustStats = [
 // it. Nothing here beyond what's already stated in the business record.
 export const processSteps = [
   {
-    title: "Call or Request an Appointment",
+    title: "Call or Book an Appointment",
     body: "Reach us by phone and tell us about your dog — breed, size, and coat — so we know what to bring.",
   },
   {
@@ -793,6 +793,7 @@ export const PATHS = {
   reviews: "/reviews",
   faq: "/faq",
   contact: "/contact",
+  bookAppointment: "/book-appointment",
 } as const;
 
 export const servicePath = (slug: ServiceSlug) => `${PATHS.services}/${slug}`;
@@ -817,6 +818,7 @@ export const mainNav: NavItem[] = [
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
+  { label: "Book Appointment", href: PATHS.bookAppointment },
 ];
 
 export const footerNav: NavItem[] = [

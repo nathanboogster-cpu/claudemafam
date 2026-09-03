@@ -41,7 +41,7 @@ export function StickyMobileCTA() {
       <RequestButton
         location="psl_sticky_mobile_bar"
         variant="secondary"
-        label="Request Appointment"
+        label="Book Now"
         className="flex-1"
       />
     </div>

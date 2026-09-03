@@ -10,7 +10,7 @@ const inputClasses =
   "w-full rounded-lg border border-psl-border bg-white px-3 py-2.5 text-sm text-psl-ink placeholder:text-psl-ink-soft/60 focus:border-psl-brass focus:outline-none focus:ring-1 focus:ring-psl-brass";
 const labelClasses = "block text-sm font-semibold text-psl-ink";
 
-export function LeadForm() {
+export function LeadForm({ location = "contact_page" }: { location?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -46,7 +46,7 @@ export function LeadForm() {
         return;
       }
 
-      trackEvent("psl_lead_form_submit", { location: "contact_page" });
+      trackEvent("psl_lead_form_submit", { location });
       setStatus("success");
       form.reset();
     } catch {
@@ -157,7 +157,7 @@ export function LeadForm() {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-psl-brass-dark px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-psl-brass-darker disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending…" : "Request a Callback"}
+        {status === "submitting" ? "Sending…" : "Book Appointment"}
       </button>
       <p className="text-center text-xs text-psl-ink-soft">
         This isn&apos;t instant booking — we&apos;ll call you back to confirm availability.
