@@ -23,3 +23,8 @@ Rating: 4.8/5 from 141 Google reviews
 - [Upper Valley](https://petssibleus.com/service-areas/upper-valley.html)
 - [Canutillo](https://petssibleus.com/service-areas/canutillo.html)
 - [Sunland Park](https://petssibleus.com/service-areas/sunland-park.html)
+
+## More
+- [Frequently Asked Questions](https://petssibleus.com/faq.html)
+- [Reviews](https://petssibleus.com/reviews.html)
+- [Blog](https://petssibleus.com/blog/)
