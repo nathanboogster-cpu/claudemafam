@@ -1,0 +1,14 @@
+{
+  "name": "petssible-gsc-tools",
+  "private": true,
+  "description": "Local-only CLI for querying the Google Search Console API for SEO analysis. Not deployed to Vercel; not part of the production site.",
+  "type": "commonjs",
+  "scripts": {
+    "auth": "node auth.js",
+    "sites": "node list-sites.js",
+    "query": "node query.js"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}

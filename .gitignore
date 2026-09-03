@@ -1,2 +1,10 @@
 .vercel
 node_modules
+
+# Google Search Console local CLI (tools/search-console) — credentials are
+# stored outside the repo by default (~/.config/petssible-gsc), but these
+# patterns are defense in depth in case that default is ever overridden.
+client_secret.json
+client_secret*.json
+token.json
+.credentials/
