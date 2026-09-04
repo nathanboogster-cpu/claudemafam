@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Do you serve pet owners outside Eatontown?",
     answer:
-      "Yes. While our salon is physically located in Eatontown, we welcome pet owners from throughout Monmouth County.",
+      "Yes. While our salon is physically located in Eatontown, we welcome pet owners from any town within about a 20-minute drive, including Tinton Falls, Oceanport, West Long Branch, Long Branch, Shrewsbury, Red Bank, Little Silver, and Monmouth Beach.",
   },
   {
     question: "Do you groom dogs?",

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HeartIcon, DogIcon } from "@/components/icons";
 import { PawIcon } from "@/components/PawIcon";
-import { business, hours, PATHS, serviceNav } from "@/lib/site-data";
+import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 
 const companyLinks = [
   { label: "Home", href: PATHS.home },
@@ -27,7 +27,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2">
             <PawIcon className="h-7 w-7 shrink-0 text-fh-amber-dark" />
@@ -45,6 +45,19 @@ export function Footer() {
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-fh-amber-dark">
                   {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-fh-ink">Service Areas</h2>
+          <ul className="mt-3 space-y-2 text-sm">
+            {areaNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-fh-amber-dark">
+                  Dog Grooming in {item.label}
                 </Link>
               </li>
             ))}

@@ -65,6 +65,10 @@ export default function ServicesHub() {
             <SecondaryLinkButton location="services_hub" variant="secondary" label="Contact Us" href={PATHS.contact} />
           </div>
         </div>
+
+        <div className="mt-10 flex justify-center">
+          <SecondaryLinkButton location="services_hub" variant="ghost" label="See Our Service Areas" href={PATHS.serviceAreas} />
+        </div>
       </section>
     </>
   );

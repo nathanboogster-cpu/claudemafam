@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, PATHS, serviceNav } from "@/lib/site-data";
+import { business, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 import { PawIcon } from "./PawIcon";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
@@ -25,6 +25,7 @@ export function Header() {
             About
           </Link>
           <NavDropdown label="Services" items={serviceNav} />
+          <NavDropdown label="Service Areas" items={areaNav} />
           <Link href={PATHS.gallery} className="hover:text-fh-amber-dark whitespace-nowrap">
             Gallery
           </Link>

@@ -8,7 +8,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, servicePath, photos, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("dog-bathing")}`;
 const description =
@@ -96,10 +96,16 @@ export default function DogBathingPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services</h2>
+        <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services & Areas</h2>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link href={servicePath("dog-grooming")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
             Full Dog Grooming
+          </Link>
+          <Link href={areaPath("shrewsbury-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+            Serving Shrewsbury, NJ
+          </Link>
+          <Link href={areaPath("oceanport-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+            Serving Oceanport, NJ
           </Link>
         </div>
       </section>

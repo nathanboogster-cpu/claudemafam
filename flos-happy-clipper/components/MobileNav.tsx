@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PATHS, serviceNav, type NavItem } from "@/lib/site-data";
+import { PATHS, serviceNav, areaNav, type NavItem } from "@/lib/site-data";
 
 const coreLinks: NavItem[] = [
   { label: "Home", href: PATHS.home },
@@ -18,6 +18,7 @@ const coreLinks: NavItem[] = [
 const groups: { label: string; items: NavItem[] }[] = [
   { label: "Menu", items: coreLinks },
   { label: "Services", items: serviceNav },
+  { label: "Service Areas", items: areaNav },
 ];
 
 export function MobileNav() {

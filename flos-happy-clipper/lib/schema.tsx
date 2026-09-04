@@ -1,4 +1,8 @@
-import { business, hoursSchema, SITE_URL } from "./site-data";
+import { business, hoursSchema, serviceAreas, SITE_URL } from "./site-data";
+
+function servedCities() {
+  return serviceAreas.map((a) => ({ "@type": "City", name: `${a.city}, ${a.state}` }));
+}
 
 export function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
@@ -63,10 +67,7 @@ export function localBusinessSchema(pageUrl: string) {
       opens: h.opens,
       closes: h.closes,
     })),
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Monmouth County, New Jersey",
-    },
+    areaServed: [{ "@type": "AdministrativeArea", name: "Monmouth County, New Jersey" }, ...servedCities()],
   };
 }
 
@@ -78,10 +79,7 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Monmouth County, New Jersey",
-    },
+    areaServed: [{ "@type": "AdministrativeArea", name: "Monmouth County, New Jersey" }, ...servedCities()],
     provider: {
       "@type": "PetGroomer",
       name: business.name,

@@ -77,6 +77,14 @@ npm run lint    # eslint
   template) once confirmed as a current service.
 - **No parking guidance.** Public sources mention a lot but this wasn't
   verified, so the Contact page doesn't make a specific parking claim.
+- **Service area radius is owner-confirmed, but individual towns are our
+  own selection.** The owner confirmed Flo's Happy Clipper serves any town
+  within about a 20-minute drive of the Eatontown salon. The 8 towns in
+  `serviceAreas`/`areaContent` in `lib/site-data.ts` (Tinton Falls,
+  Oceanport, West Long Branch, Long Branch, Shrewsbury, Red Bank, Little
+  Silver, Monmouth Beach) are real, nearby Monmouth County towns chosen to
+  match that radius, not an owner-provided list — add, remove, or reorder
+  towns there if the actual customer base differs.
 - **No online booking system.** All CTAs route to the phone number
   (`tel:+17325448186`) rather than a fabricated booking widget.
 - **Conversion tracking is a stub.** Call button clicks push to
