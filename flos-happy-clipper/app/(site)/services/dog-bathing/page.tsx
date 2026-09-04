@@ -1,0 +1,120 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Eyebrow } from "@/components/Eyebrow";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
+import { FaqBlock } from "@/components/FaqBlock";
+import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
+import { CheckIcon } from "@/components/icons";
+import { business, servicePath, photos, PATHS, SITE_URL } from "@/lib/site-data";
+
+const url = `${SITE_URL}${servicePath("dog-bathing")}`;
+const description =
+  "Dog bathing in Eatontown, NJ — a thorough wash and brush-out for dogs who need a refresh between full grooms, at Flo's Happy Clipper on Main St.";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Dog Bathing in Eatontown, NJ",
+  description,
+  path: servicePath("dog-bathing"),
+});
+
+const faqs = [
+  {
+    question: "What's the difference between dog bathing and a full groom?",
+    answer:
+      "A bathing appointment is a thorough wash and brush-out without a haircut — a good option between full grooms, or for dogs who don't need a trim right now.",
+  },
+  {
+    question: "Can I book just a bath, without a full groom?",
+    answer: "Yes — dog bathing is available as its own appointment, separate from a full haircut.",
+  },
+  {
+    question: "How often should my dog get a bath and brush?",
+    answer:
+      "It depends on your dog's coat and lifestyle. Call " + business.phoneDisplay + " and we can recommend a schedule for your dog specifically.",
+  },
+];
+
+export default function DogBathingPage() {
+  return (
+    <>
+      <JsonLd data={serviceSchema({ pageUrl: url, name: "Dog Bathing", description })} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: `${SITE_URL}${PATHS.home}` },
+          { name: "Services", url: `${SITE_URL}${PATHS.services}` },
+          { name: "Dog Bathing", url },
+        ])}
+      />
+      <JsonLd data={faqSchema(faqs)} />
+
+      <Breadcrumbs
+        items={[
+          { name: "Home", href: PATHS.home },
+          { name: "Services", href: PATHS.services },
+          { name: "Dog Bathing", href: servicePath("dog-bathing") },
+        ]}
+      />
+
+      <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 lg:grid-cols-2">
+        <div>
+          <Eyebrow>Bathing Service</Eyebrow>
+          <h1 className="mt-1 font-fh-display text-4xl font-bold text-fh-ink sm:text-5xl">
+            Dog Bathing in Eatontown, NJ
+          </h1>
+          <p className="mt-4 text-lg text-fh-ink-soft">
+            A thorough wash and brush-out for dogs who need a refresh between full grooms — or for owners
+            who just want a professional bath without a haircut.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <CallButton location="service_dog_bath" variant="primary" />
+            <SecondaryLinkButton location="service_dog_bath" variant="secondary" label="Contact Us" href={PATHS.contact} />
+          </div>
+        </div>
+        <PhotoPlaceholder caption={photos.bathAndBrush.caption} aspect="portrait" className="w-full" priority />
+      </section>
+
+      <section className="bg-fh-cream-deep">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">What to Expect</h2>
+          <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+            {[
+              "A thorough wash and rinse",
+              "A full brush-out to clear loose coat",
+              "No haircut included — just bathing and brushing",
+              "A quicker, lower-cost option between full grooms",
+            ].map((f) => (
+              <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
+                <CheckIcon className="h-4 w-4 shrink-0 text-fh-amber-dark" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-14">
+        <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services</h2>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link href={servicePath("dog-grooming")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+            Full Dog Grooming
+          </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <FaqBlock items={faqs} />
+      </section>
+
+      <section className="bg-fh-ink text-white">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
+          <h2 className="font-fh-display text-3xl font-bold">Book a Dog Bath</h2>
+          <p className="text-white/80">Call {business.phoneDisplay} to schedule.</p>
+          <CallButton location="service_dog_bath_cta" variant="primary" className="mt-2" />
+        </div>
+      </section>
+    </>
+  );
+}
