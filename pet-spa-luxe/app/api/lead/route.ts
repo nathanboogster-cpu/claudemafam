@@ -40,7 +40,8 @@ export async function POST(request: Request) {
   const email = clean(body.email, 200);
   const service = clean(body.service, 200);
   const city = clean(body.city, 200);
-  const dogInfo = clean(body.dogInfo, 300);
+  const breed = clean(body.breed, 200);
+  const weight = clean(body.weight, 100);
   const message = clean(body.message, MAX_FIELD_LENGTH);
 
   if (!name || !phone) {
@@ -59,7 +60,8 @@ export async function POST(request: Request) {
     ["Email", email || "(not provided)"],
     ["Service interested in", service || "(not specified)"],
     ["City", city || "(not specified)"],
-    ["Dog info", dogInfo || "(not provided)"],
+    ["Dog's breed", breed || "(not provided)"],
+    ["Dog's weight", weight || "(not provided)"],
   ];
 
   const html = `

@@ -27,7 +27,8 @@ export function LeadForm({ location = "contact_page" }: { location?: string }) {
       email: data.get("email"),
       service: data.get("service"),
       city: data.get("city"),
-      dogInfo: data.get("dogInfo"),
+      breed: data.get("breed"),
+      weight: data.get("weight"),
       message: data.get("message"),
       company: data.get("company"), // honeypot
     };
@@ -126,17 +127,31 @@ export function LeadForm({ location = "contact_page" }: { location?: string }) {
         </div>
       </div>
 
-      <div>
-        <label htmlFor="dogInfo" className={labelClasses}>
-          About your dog
-        </label>
-        <input
-          id="dogInfo"
-          name="dogInfo"
-          type="text"
-          placeholder="Breed, size, and any coat notes"
-          className={`mt-1.5 ${inputClasses}`}
-        />
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="breed" className={labelClasses}>
+            Dog&apos;s Breed
+          </label>
+          <input
+            id="breed"
+            name="breed"
+            type="text"
+            placeholder="e.g. Golden Retriever"
+            className={`mt-1.5 ${inputClasses}`}
+          />
+        </div>
+        <div>
+          <label htmlFor="weight" className={labelClasses}>
+            Dog&apos;s Weight
+          </label>
+          <input
+            id="weight"
+            name="weight"
+            type="text"
+            placeholder="e.g. 45 lbs"
+            className={`mt-1.5 ${inputClasses}`}
+          />
+        </div>
       </div>
 
       <div>
