@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  /* No real Flo's Happy Clipper brand assets were reachable for this build
+     (Facebook/site fetches were blocked), so this is an original warm,
+     Main-Street-salon palette rather than a sampled logo — distinct from
+     every other Tongfluence client's palette. Amber/rust on a warm cream
+     ground, deep brown ink for text. The "-dark"/"-darker" values are the
+     WCAG AA text-safe variants for body copy and button fills; the base
+     amber is decorative only (icon fills, borders, small accents). */
+  --color-fh-cream: #fbf6ee;
+  --color-fh-cream-deep: #f1e0bc;
+  --color-fh-ink: #2a2118;
+  --color-fh-ink-soft: #6b5c47;
+  --color-fh-amber: #e8ab5c;
+  --color-fh-amber-dark: #92400e;
+  --color-fh-amber-darker: #6b2f0a;
+  --color-fh-white: #ffffff;
+  --color-fh-border: #e8d9b8;
+}
+
+@theme inline {
+  --color-fh-cream: var(--color-fh-cream);
+  --color-fh-cream-deep: var(--color-fh-cream-deep);
+  --color-fh-ink: var(--color-fh-ink);
+  --color-fh-ink-soft: var(--color-fh-ink-soft);
+  --color-fh-amber: var(--color-fh-amber);
+  --color-fh-amber-dark: var(--color-fh-amber-dark);
+  --color-fh-amber-darker: var(--color-fh-amber-darker);
+  --color-fh-white: var(--color-fh-white);
+  --color-fh-border: var(--color-fh-border);
+  /* Warm serif display, rounded friendly sans. */
+  --font-fh-sans: var(--font-nunito), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-fh-display: var(--font-fraunces), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-fh-cream);
+  color: var(--color-fh-ink);
+  font-family: var(--font-fh-sans);
+}
+
+.font-fh-display {
+  font-family: var(--font-fh-display);
+}
+
+.font-fh-sans {
+  font-family: var(--font-fh-sans);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}
