@@ -70,11 +70,10 @@ npm run lint    # eslint
   a groomer named Lauren (and occasionally a "Tom"/"Bob"), but current
   team membership wasn't verifiable for this build, so no staff bios are
   published. Add only once confirmed as current employees.
-- **Cat grooming is not currently published** — some older third-party
-  directories reference cats/kittens as a specialty, but this wasn't
-  independently confirmed for this build. Add a `/services/cat-grooming`
-  page (see the removed `sittin-pretty-pet-grooming` sibling app for a
-  template) once confirmed as a current service.
+- **Dog grooming only — confirmed.** The owner confirmed Flo's Happy
+  Clipper is purely a dog grooming business, despite some older
+  third-party directories referencing cats/kittens as a specialty. No cat
+  grooming content or `/services/cat-grooming` page should be added.
 - **No parking guidance.** Public sources mention a lot but this wasn't
   verified, so the Contact page doesn't make a specific parking claim.
 - **Service area radius is owner-confirmed, but individual towns are our

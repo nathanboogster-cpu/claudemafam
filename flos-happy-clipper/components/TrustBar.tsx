@@ -1,4 +1,4 @@
-import { DogIcon, CatIcon, HeartIcon } from "@/components/icons";
+import { DogIcon, HeartIcon } from "@/components/icons";
 
 // Only verified, safe-to-state facts — no fabricated star rating or review
 // count (public sources conflict and go stale). See the Reviews page for
@@ -12,8 +12,7 @@ export function TrustBar({ className = "" }: { className?: string }) {
       </div>
       <div className="flex items-center gap-2">
         <DogIcon className="h-5 w-5 text-fh-amber-dark" />
-        <CatIcon className="h-5 w-5 text-fh-amber-dark" />
-        <span className="text-sm font-semibold text-fh-ink">Dog & Cat Grooming</span>
+        <span className="text-sm font-semibold text-fh-ink">Dog Grooming Specialists</span>
       </div>
     </div>
   );

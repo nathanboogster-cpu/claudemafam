@@ -41,7 +41,7 @@ export default function HomePage() {
       <section className="bg-fh-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 lg:grid-cols-2 lg:py-20">
           <div>
-            <Eyebrow>Eatontown, NJ • Professional Pet Grooming</Eyebrow>
+            <Eyebrow>Eatontown, NJ • Professional Dog Grooming</Eyebrow>
             <h1 className="mt-3 font-fh-display text-4xl font-bold leading-[1.05] text-fh-ink sm:text-5xl lg:text-6xl">
               Trusted Dog Grooming in Eatontown, NJ
             </h1>

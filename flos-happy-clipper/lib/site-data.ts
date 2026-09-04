@@ -13,7 +13,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flos-happy-
 export const business = {
   name: "Flo's Happy Clipper",
   shortName: "Flo's Happy Clipper",
-  tagline: "Pet Grooming in Eatontown, NJ",
+  tagline: "Dog Grooming in Eatontown, NJ",
   phoneDisplay: "(732) 544-8186",
   phoneHref: "tel:+17325448186",
   addressLine1: "20 Main St",

@@ -19,7 +19,7 @@ const nunito = Nunito({
   display: "swap",
 });
 
-const defaultTitle = "Pet Grooming in Eatontown, NJ | Flo's Happy Clipper";
+const defaultTitle = "Dog Grooming in Eatontown, NJ | Flo's Happy Clipper";
 const defaultDescription =
   "Established local dog grooming salon on Main St in Eatontown, NJ, serving Monmouth County. Call (732) 544-8186 to schedule.";
 
