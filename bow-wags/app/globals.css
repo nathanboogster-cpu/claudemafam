@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  /* Bow Wags brand palette — warm, playful "Wagsville" energy (marigold/orange)
+     paired with a clean, trustworthy teal for the daycare/boarding safety
+     messaging, on a soft warm-cream ground. No real logo file was available
+     to sample from directly, so these are a deliberate playful-but-professional
+     pet-care palette built for the brand described in the business record. */
+  --color-bw-cream: #fef8ee;
+  --color-bw-cream-deep: #fbe8c8;
+  --color-bw-ink: #2b2118;
+  --color-bw-ink-soft: #5c5044;
+  /* Lighter marigold — decorative use only (icons/bullets/accents on light
+     backgrounds). Never used as body text or a button fill under white text —
+     both fail WCAG AA contrast. */
+  --color-bw-orange: #f4991a;
+  /* Darkened from the brand marigold to meet 4.5:1 contrast as text on light
+     backgrounds AND as a button fill under white text. */
+  --color-bw-orange-dark: #a85c07;
+  --color-bw-orange-darker: #7c4306;
+  /* Clean/safe/supervised trust accent — teal reads clinical-clean without
+     going cold or corporate. */
+  --color-bw-teal: #1f7a6c;
+  --color-bw-teal-dark: #145c50;
+  --color-bw-white: #ffffff;
+  --color-bw-border: #f0dcb0;
+}
+
+@theme inline {
+  --color-bw-cream: var(--color-bw-cream);
+  --color-bw-cream-deep: var(--color-bw-cream-deep);
+  --color-bw-ink: var(--color-bw-ink);
+  --color-bw-ink-soft: var(--color-bw-ink-soft);
+  --color-bw-orange: var(--color-bw-orange);
+  --color-bw-orange-dark: var(--color-bw-orange-dark);
+  --color-bw-orange-darker: var(--color-bw-orange-darker);
+  --color-bw-teal: var(--color-bw-teal);
+  --color-bw-teal-dark: var(--color-bw-teal-dark);
+  --color-bw-white: var(--color-bw-white);
+  --color-bw-border: var(--color-bw-border);
+  /* Rounded, friendly display face for a dog-centric brand; clean geometric
+     sans for body copy and UI. */
+  --font-bw-sans: var(--font-manrope), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-bw-display: var(--font-baloo), "Segoe UI Rounded", ui-rounded, "Nunito", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bw-cream);
+  color: var(--color-bw-ink);
+  font-family: var(--font-bw-sans);
+}
+
+.font-bw-display {
+  font-family: var(--font-bw-display);
+}
+
+.font-bw-sans {
+  font-family: var(--font-bw-sans);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}
