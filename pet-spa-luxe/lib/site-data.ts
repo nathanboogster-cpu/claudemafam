@@ -199,9 +199,9 @@ export const sizePricing = [
 ] as const;
 
 // Full Dog Grooming — all-inclusive package, priced by dog size (see
-// sizePricing above; $110 is the Small starting price). Provided directly
-// by the owner. This is the complete, verified list of what's included;
-// nothing added beyond what she specified.
+// sizePricing above; $110 is the Small starting price). Cross-checked
+// against the owner's verified Yelp listing, which matches these prices
+// exactly per size and uses this exact item wording.
 export const fullGroomingPackage = {
   name: "Full Dog Grooming",
   price: "From $110",
@@ -212,11 +212,17 @@ export const fullGroomingPackage = {
   categories: [
     {
       title: "Bath & Coat Care",
-      items: ["Warm Bath", "Professional Grade Shampoo", "Hydrobath", "Deshedding Treatment", "Hand Blow Dry"],
+      items: [
+        "Warm Bath",
+        "Professional Grade Shampoo",
+        "Hug & Brush Magic Hydrobath",
+        "Deshedding Treatment",
+        "Hand Blow Dry",
+      ],
     },
     {
       title: "Cut & Trim",
-      items: ["Full Haircut", "Nail Trim", "Sanitary Trim", "Paw Trimming"],
+      items: ["Full Haircut (Style or Breed-Specific)", "Nail Trim", "Sanitary Trim", "Paw Trimming"],
     },
     {
       title: "Wellness Touches",
@@ -224,7 +230,7 @@ export const fullGroomingPackage = {
     },
     {
       title: "Finishing Touch",
-      items: ["Bow Tie or Bandana"],
+      items: ["Fancy Bow Ties or Cool Bandanas"],
     },
   ],
   // Included, but only performed when the client asks for them.
