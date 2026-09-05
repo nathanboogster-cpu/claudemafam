@@ -5,6 +5,7 @@ import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { StatBand } from "@/components/StatBand";
 import { LovedByDogsBadge } from "@/components/LovedByDogsBadge";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { TeamAvatar } from "@/components/TeamAvatar";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
@@ -82,10 +83,10 @@ export default function AboutPage() {
           Book your appointment with any of our bookable grooming professionals through our online scheduling
           system.
         </p>
-        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+        <div className="mx-auto mt-8 grid max-w-md gap-6 sm:grid-cols-2">
           {team.map((member) => (
             <div key={member.name} className="rounded-2xl border border-bb-border bg-white p-6 text-center">
-              <PhotoPlaceholder caption={`${member.name}, Bark and Bork grooming team`} aspect="square" className="mx-auto max-w-[160px]" />
+              <TeamAvatar name={member.name} className="mx-auto h-24 w-24" />
               <p className="mt-4 font-bb-display text-lg font-bold text-bb-ink">{member.name}</p>
             </div>
           ))}

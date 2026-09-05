@@ -135,7 +135,6 @@ export const cancellationPolicy =
 // experience levels, or bios are stated beyond what's verified here.
 export const team = [
   { name: "Jennifer Cruz" },
-  { name: "Nathaniel Tong" },
   { name: "Sergio Polanco" },
 ] as const;
 
