@@ -17,6 +17,7 @@ const eslintConfig = defineConfig([
     "pet-spa-luxe/**",
     "bark-and-bork-mobile-pet-spa/**",
     "sittin-pretty-pet-grooming/**",
+    "flos-happy-clipper/**",
   ]),
 ]);
 
