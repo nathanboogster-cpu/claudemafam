@@ -21,6 +21,8 @@ export const metadata: Metadata = pageMetadata({
 const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portrait" }[] = [
   { caption: photos.groomScissorFinishing.alt, src: photos.groomScissorFinishing.src, aspect: "portrait" },
   { caption: photos.vanExteriorSide.alt, src: photos.vanExteriorSide.src, aspect: "portrait" },
+  { caption: photos.vanExteriorFront.alt, src: photos.vanExteriorFront.src, aspect: "portrait" },
+  { caption: photos.vanExteriorStreet.alt, src: photos.vanExteriorStreet.src, aspect: "portrait" },
   { caption: photos.groomGoldendoodleFullGroom.alt, src: photos.groomGoldendoodleFullGroom.src, aspect: "portrait" },
   { caption: photos.groomFrenchBulldog.alt, src: photos.groomFrenchBulldog.src, aspect: "portrait" },
   { caption: photos.groomYorkieSmile.alt, src: photos.groomYorkieSmile.src, aspect: "portrait" },

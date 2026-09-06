@@ -57,6 +57,14 @@ export const photos = {
     src: "/images/van-exterior-rear-angle.jpg",
     alt: "Rear three-quarter view of the Bark and Bork mobile grooming van showing the full brand wrap",
   },
+  vanExteriorFront: {
+    src: "/images/van-exterior-front.jpg",
+    alt: "Front three-quarter view of the Bark and Bork mobile grooming van parked on a residential Los Angeles street",
+  },
+  vanExteriorStreet: {
+    src: "/images/van-exterior-street.jpg",
+    alt: "The Bark and Bork mobile pet spa van parked on a shaded Los Angeles street, showing the full side brand wrap",
+  },
   groomTerrierBandana: {
     src: "/images/groom-terrier-bandana.jpg",
     alt: "A terrier mix wearing a colorful bandana after grooming, sitting on the grooming table inside the Bark and Bork van",
