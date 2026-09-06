@@ -9,6 +9,7 @@ import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { PricingTable } from "@/components/PricingTable";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { TeamAvatar } from "@/components/TeamAvatar";
 import { FaqBlock } from "@/components/FaqBlock";
 import { DogIcon, ScissorsIcon, DropletIcon, BrushIcon, ShieldCheckIcon, HeartIcon, CheckIcon } from "@/components/icons";
 import {
@@ -270,10 +271,10 @@ export default function HomePage() {
               Book your appointment with any of our bookable Bark and Bork grooming professionals.
             </p>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          <div className="mx-auto mt-10 grid max-w-md gap-6 sm:grid-cols-2">
             {team.map((member) => (
               <div key={member.name} className="rounded-2xl border border-bb-border bg-white p-6 text-center">
-                <PhotoPlaceholder caption={`${member.name}, Bark and Bork grooming team`} aspect="square" className="mx-auto max-w-[160px]" />
+                <TeamAvatar name={member.name} className="mx-auto h-24 w-24" />
                 <p className="mt-4 font-bb-display text-lg font-bold text-bb-ink">{member.name}</p>
               </div>
             ))}

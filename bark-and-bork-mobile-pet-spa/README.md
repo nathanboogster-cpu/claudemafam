@@ -64,8 +64,9 @@ npm run lint    # eslint
   intentionally not used).
 - **Cancellation policy**: a 50% fee applies to no-shows and cancellations
   made within 24 hours of the scheduled appointment.
-- **Team**: Jennifer Cruz, Nathaniel Tong, Sergio Polanco — listed by name
-  only, no invented titles or bios.
+- **Team**: Jennifer Cruz, Sergio Polanco — listed by name only, no invented
+  titles or bios. No photos supplied, so each is shown as an initials avatar
+  rather than a stock headshot.
 - **No physical storefront**: Compton is the home base for a mobile route,
   never presented as a walk-in location. No street address is used anywhere,
   including in structured data.
