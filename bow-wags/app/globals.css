@@ -3,9 +3,12 @@
 :root {
   /* Bow Wags brand palette — warm, playful "Wagsville" energy (marigold/orange)
      paired with a clean, trustworthy teal for the daycare/boarding safety
-     messaging, on a soft warm-cream ground. No real logo file was available
-     to sample from directly, so these are a deliberate playful-but-professional
-     pet-care palette built for the brand described in the business record. */
+     messaging, on a soft warm-cream ground. The client's real logo (a red
+     bone-and-paw mark) is reproduced faithfully in BowWagsLogo.tsx using the
+     --color-bw-red tokens below; that red is deliberately kept to the logo
+     mark and small accents rather than driving the site's own palette, so
+     the overall site reads soft and cute rather than the logo's bold
+     red/black on its own. */
   --color-bw-cream: #fef8ee;
   --color-bw-cream-deep: #fbe8c8;
   --color-bw-ink: #2b2118;
@@ -22,6 +25,15 @@
      going cold or corporate. */
   --color-bw-teal: #1f7a6c;
   --color-bw-teal-dark: #145c50;
+  /* A softened "baby red" — lighter and friendlier than the logo's true fire-
+     engine red, so the mark reads cute rather than bold/masculine. Used only
+     for the logo badge and small brand accents (never as a large section
+     background or primary button fill). -dark is a deeper, text-safe shade
+     for red text on light backgrounds. Verified ≥3:1 (large/bold text
+     minimum) with white and ≥6:1 with black on --color-bw-red; -dark is
+     ≥4.5:1 with white on light backgrounds like --color-bw-cream. */
+  --color-bw-red: #e8635e;
+  --color-bw-red-dark: #c2433f;
   --color-bw-white: #ffffff;
   --color-bw-border: #f0dcb0;
 }
@@ -36,6 +48,8 @@
   --color-bw-orange-darker: var(--color-bw-orange-darker);
   --color-bw-teal: var(--color-bw-teal);
   --color-bw-teal-dark: var(--color-bw-teal-dark);
+  --color-bw-red: var(--color-bw-red);
+  --color-bw-red-dark: var(--color-bw-red-dark);
   --color-bw-white: var(--color-bw-white);
   --color-bw-border: var(--color-bw-border);
   /* Rounded, friendly display face for a dog-centric brand; clean geometric

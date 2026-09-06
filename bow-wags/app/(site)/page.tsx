@@ -7,6 +7,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
 import { DaycarePricingTable } from "@/components/DaycarePricingTable";
 import { BoardingPricingTable } from "@/components/BoardingPricingTable";
+import { BowWagsLogo } from "@/components/BowWagsLogo";
 import { CheckIcon, StarIcon, SyringeIcon, ClipboardIcon, HouseIcon, ScissorsIcon } from "@/components/icons";
 import {
   business,
@@ -106,18 +107,23 @@ export default function HomePage() {
 
       {/* Welcome to Wagsville */}
       <section className="bg-bw-teal text-white">
-        <div className="mx-auto max-w-4xl px-4 py-14 text-center">
-          <Eyebrow tone="onDark">Welcome To</Eyebrow>
-          <h2 className="mt-1 font-bw-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-            &ldquo;WAGSVILLE&rdquo;
-          </h2>
-          <p className="mt-1 text-sm font-semibold uppercase tracking-[0.3em] text-white/80">Population: Canine</p>
-          <p className="mx-auto mt-5 max-w-xl text-white/90">
-            That&apos;s the nickname the Bow Wags team gave their own facility — a
-            playful way of saying every dog who comes through the door gets treated
-            like a resident, not a visitor. Underneath the fun name is a real,
-            fully supervised daycare, boarding, and grooming operation in Marietta, GA.
-          </p>
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 py-14 sm:grid-cols-[auto_1fr] sm:text-left text-center">
+          <div className="mx-auto w-40 shrink-0 rounded-3xl bg-white p-3 shadow-lg sm:mx-0 sm:w-48">
+            <BowWagsLogo className="w-full" />
+          </div>
+          <div>
+            <Eyebrow tone="onDark">Welcome To</Eyebrow>
+            <h2 className="mt-1 font-bw-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+              &ldquo;WAGSVILLE&rdquo;
+            </h2>
+            <p className="mt-1 text-sm font-semibold uppercase tracking-[0.3em] text-white/80">Population: Canine</p>
+            <p className="mx-auto mt-5 max-w-xl text-white/90 sm:mx-0">
+              That&apos;s the nickname the Bow Wags team gave their own facility — a
+              playful way of saying every dog who comes through the door gets treated
+              like a resident, not a visitor. Underneath the fun name is a real,
+              fully supervised daycare, boarding, and grooming operation in Marietta, GA.
+            </p>
+          </div>
         </div>
       </section>
 
