@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { business, hours, trustPillars, PATHS, mainNav } from "@/lib/site-data";
 import { ShieldCheckIcon, TreesIcon, HouseIcon, ScissorsIcon } from "./icons";
-import { BowWagsMark } from "./BowWagsLogo";
 
 const badgeIcons = [ShieldCheckIcon, TreesIcon, HouseIcon, ScissorsIcon];
 
@@ -25,7 +25,7 @@ export function Footer() {
             const Icon = badgeIcons[i];
             return (
               <div key={s.label} className="flex items-center gap-2 text-bw-ink">
-                <Icon className="h-5 w-5 shrink-0 text-bw-orange-dark" />
+                <Icon className="h-5 w-5 shrink-0 text-bw-red-dark" />
                 <span className="text-sm font-semibold whitespace-nowrap">
                   {s.value} <span className="font-normal text-bw-ink-soft">{s.label}</span>
                 </span>
@@ -36,15 +36,12 @@ export function Footer() {
       </div>
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2 text-bw-ink">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-bw-border bg-bw-red p-1.5">
-              <BowWagsMark className="h-full w-full" />
-            </span>
-            <span className="font-bw-display text-lg font-bold">{business.name}</span>
-          </div>
+          <span className="relative block h-9 w-[86px] overflow-hidden rounded-lg border border-bw-border">
+            <Image src="/images/logo-mark.jpg" alt="Bow Wags" fill className="object-cover" sizes="86px" />
+          </span>
           <p className="mt-3 text-sm">Dog daycare, boarding &amp; grooming in {business.primaryLocation} — {business.regionLabel}.</p>
           <div className="mt-4 flex gap-3 text-sm">
-            <a href={business.yelpUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bw-orange-dark">
+            <a href={business.yelpUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bw-red-dark">
               Yelp
             </a>
           </div>
@@ -55,13 +52,13 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {mainNav.slice(0, 3).map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-bw-orange-dark">
+                <Link href={item.href} className="hover:text-bw-red-dark">
                   Dog {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href={PATHS.rates} className="hover:text-bw-orange-dark">
+              <Link href={PATHS.rates} className="hover:text-bw-red-dark">
                 Rates
               </Link>
             </li>
@@ -73,7 +70,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {companyLinks.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-bw-orange-dark">
+                <Link href={item.href} className="hover:text-bw-red-dark">
                   {item.label}
                 </Link>
               </li>
@@ -85,12 +82,12 @@ export function Footer() {
           <h2 className="text-sm font-semibold uppercase tracking-wide text-bw-ink">Contact</h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a href={business.phoneHref} className="hover:text-bw-orange-dark">
+              <a href={business.phoneHref} className="hover:text-bw-red-dark">
                 {business.phoneDisplay}
               </a>
             </li>
             <li>
-              <a href={`mailto:${business.email}`} className="hover:text-bw-orange-dark">
+              <a href={`mailto:${business.email}`} className="hover:text-bw-red-dark">
                 {business.email}
               </a>
             </li>

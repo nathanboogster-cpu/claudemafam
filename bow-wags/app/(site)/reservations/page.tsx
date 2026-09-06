@@ -57,8 +57,8 @@ export default function ReservationsPage() {
         </p>
 
         <div className="mt-10 rounded-3xl border border-bw-border bg-bw-cream-deep p-8 sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-wide text-bw-orange-dark">Call to Reserve</p>
-          <a href={business.phoneHref} className="mt-2 block font-bw-display text-4xl font-bold text-bw-ink hover:text-bw-orange-dark">
+          <p className="text-sm font-semibold uppercase tracking-wide text-bw-red-dark">Call to Reserve</p>
+          <a href={business.phoneHref} className="mt-2 block font-bw-display text-4xl font-bold text-bw-ink hover:text-bw-red-dark">
             {business.phoneDisplay}
           </a>
           <p className="mt-1 text-sm text-bw-ink-soft">Also known as {business.phoneDisplayWags}</p>
@@ -92,7 +92,7 @@ export default function ReservationsPage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {steps.map((step, i) => (
               <div key={step.title} className="rounded-2xl border border-bw-border bg-white p-6">
-                <span className="font-bw-display text-3xl font-bold text-bw-orange-dark">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-bw-display text-3xl font-bold text-bw-red-dark">{String(i + 1).padStart(2, "0")}</span>
                 <p className="mt-2 font-semibold text-bw-ink">{step.title}</p>
                 <p className="mt-1 text-sm text-bw-ink-soft">{step.body}</p>
               </div>

@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
 const toneClasses = {
-  // Default: dark marigold on light backgrounds (cream, cream-deep, white).
-  default: "text-bw-orange-dark",
+  // Default: dark red on light backgrounds (cream, cream-deep, white).
+  default: "text-bw-red-dark",
   // For use on dark backgrounds (e.g. the bw-ink CTA sections).
-  onDark: "text-bw-orange",
+  onDark: "text-bw-red",
 } as const;
 
 export function Eyebrow({

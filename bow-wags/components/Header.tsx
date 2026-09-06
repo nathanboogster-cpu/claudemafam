@@ -1,24 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 import { business, PATHS, mainNav } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { CallButton, ReserveButton } from "./CTAButton";
-import { BowWagsMark } from "./BowWagsLogo";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-bw-border bg-bw-cream/95 backdrop-blur supports-[backdrop-filter]:bg-bw-cream/80 font-bw-sans">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-        <Link href={PATHS.home} className="flex items-center gap-2 shrink-0 text-bw-ink">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-bw-border bg-bw-red p-2">
-            <BowWagsMark className="h-full w-full" />
+        <Link href={PATHS.home} className="flex items-center shrink-0 text-bw-ink">
+          <span className="relative h-10 w-[96px] shrink-0 overflow-hidden rounded-lg border border-bw-border">
+            <Image src="/images/logo-mark.jpg" alt="Bow Wags" fill className="object-cover" sizes="96px" priority />
           </span>
-          <span className="font-bw-display text-lg font-bold leading-tight sm:text-xl">{business.name}</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-5 text-sm font-medium text-bw-ink-soft">
           {mainNav.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-bw-orange-dark whitespace-nowrap">
+            <Link key={item.href} href={item.href} className="hover:text-bw-red-dark whitespace-nowrap">
               {item.label}
             </Link>
           ))}
@@ -27,7 +26,7 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3 shrink-0">
           <a
             href={business.phoneHref}
-            className="text-sm font-semibold text-bw-ink-soft hover:text-bw-orange-dark whitespace-nowrap"
+            className="text-sm font-semibold text-bw-ink-soft hover:text-bw-red-dark whitespace-nowrap"
           >
             {business.phoneDisplay}
           </a>

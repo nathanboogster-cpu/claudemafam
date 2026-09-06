@@ -24,7 +24,7 @@ export function FaqBlock({
           <details key={item.question} className="group rounded-2xl border border-bw-border bg-white p-5 shadow-sm">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-bw-ink">
               {item.question}
-              <span className="shrink-0 text-bw-orange-dark transition-transform group-open:rotate-45" aria-hidden="true">
+              <span className="shrink-0 text-bw-red-dark transition-transform group-open:rotate-45" aria-hidden="true">
                 +
               </span>
             </summary>

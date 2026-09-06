@@ -9,7 +9,7 @@ export function StatBand({ className = "" }: { className?: string }) {
     >
       {trustPillars.map((s) => (
         <div key={s.label} className="flex flex-col items-center justify-center gap-1 px-4 py-6 text-center">
-          <span className="font-bw-display text-xl font-bold text-bw-orange-dark sm:text-2xl">{s.value}</span>
+          <span className="font-bw-display text-xl font-bold text-bw-red-dark sm:text-2xl">{s.value}</span>
           <span className="text-xs font-semibold uppercase tracking-wide text-bw-ink-soft">{s.label}</span>
         </div>
       ))}

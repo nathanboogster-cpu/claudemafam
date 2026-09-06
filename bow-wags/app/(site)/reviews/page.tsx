@@ -34,7 +34,7 @@ export default function ReviewsPage() {
         <div className="grid gap-6 sm:grid-cols-2">
           {reviews.map((r) => (
             <blockquote key={r.text} className="rounded-2xl border border-bw-border bg-white p-6">
-              <div className="flex text-bw-orange" aria-hidden="true">
+              <div className="flex text-bw-red" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <StarIcon key={i} className="h-4 w-4" />
                 ))}

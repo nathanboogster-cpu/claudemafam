@@ -1,39 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Bow Wags brand palette — warm, playful "Wagsville" energy (marigold/orange)
-     paired with a clean, trustworthy teal for the daycare/boarding safety
-     messaging, on a soft warm-cream ground. The client's real logo (a red
-     bone-and-paw mark) is reproduced faithfully in BowWagsLogo.tsx using the
-     --color-bw-red tokens below; that red is deliberately kept to the logo
-     mark and small accents rather than driving the site's own palette, so
-     the overall site reads soft and cute rather than the logo's bold
-     red/black on its own. */
+  /* Bow Wags brand palette, built around a softened "baby red" — lighter and
+     friendlier than the logo's true fire-engine red — so the site reads cute
+     and warm rather than bold/masculine while still clearly matching the
+     real logo (see public/images/logo.jpg, public/images/logo-mark.jpg).
+     Paired with a clean, trustworthy teal for the daycare/boarding safety
+     messaging, on a soft warm-cream ground. */
   --color-bw-cream: #fef8ee;
   --color-bw-cream-deep: #fbe8c8;
   --color-bw-ink: #2b2118;
   --color-bw-ink-soft: #5c5044;
-  /* Lighter marigold — decorative use only (icons/bullets/accents on light
-     backgrounds). Never used as body text or a button fill under white text —
-     both fail WCAG AA contrast. */
-  --color-bw-orange: #f4991a;
-  /* Darkened from the brand marigold to meet 4.5:1 contrast as text on light
-     backgrounds AND as a button fill under white text. */
-  --color-bw-orange-dark: #a85c07;
-  --color-bw-orange-darker: #7c4306;
   /* Clean/safe/supervised trust accent — teal reads clinical-clean without
      going cold or corporate. */
   --color-bw-teal: #1f7a6c;
   --color-bw-teal-dark: #145c50;
-  /* A softened "baby red" — lighter and friendlier than the logo's true fire-
-     engine red, so the mark reads cute rather than bold/masculine. Used only
-     for the logo badge and small brand accents (never as a large section
-     background or primary button fill). -dark is a deeper, text-safe shade
-     for red text on light backgrounds. Verified ≥3:1 (large/bold text
-     minimum) with white and ≥6:1 with black on --color-bw-red; -dark is
-     ≥4.5:1 with white on light backgrounds like --color-bw-cream. */
+  /* Primary brand accent. Base is decorative-only (icons/bullets/accents) —
+     never body text or a button fill under white text. -dark is a deeper,
+     text-safe shade (≥4.5:1 on light backgrounds like --color-bw-cream,
+     ≥5:1 as a button fill under white text). -darker is for hover states. */
   --color-bw-red: #e8635e;
   --color-bw-red-dark: #c2433f;
+  --color-bw-red-darker: #9c332f;
   --color-bw-white: #ffffff;
   --color-bw-border: #f0dcb0;
 }
@@ -43,13 +31,11 @@
   --color-bw-cream-deep: var(--color-bw-cream-deep);
   --color-bw-ink: var(--color-bw-ink);
   --color-bw-ink-soft: var(--color-bw-ink-soft);
-  --color-bw-orange: var(--color-bw-orange);
-  --color-bw-orange-dark: var(--color-bw-orange-dark);
-  --color-bw-orange-darker: var(--color-bw-orange-darker);
   --color-bw-teal: var(--color-bw-teal);
   --color-bw-teal-dark: var(--color-bw-teal-dark);
   --color-bw-red: var(--color-bw-red);
   --color-bw-red-dark: var(--color-bw-red-dark);
+  --color-bw-red-darker: var(--color-bw-red-darker);
   --color-bw-white: var(--color-bw-white);
   --color-bw-border: var(--color-bw-border);
   /* Rounded, friendly display face for a dog-centric brand; clean geometric

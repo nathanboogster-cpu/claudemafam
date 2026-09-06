@@ -59,11 +59,14 @@ npm run lint    # eslint
 
 ## Known open items before launch
 
-- **No real logo file, favicon, or OG share image.** `lib/metadata.ts` and
-  `app/layout.tsx` reference `/images/og-image.jpg`, which does not exist yet
-  (same reachability issue as the photos below) — add a real logo-based
-  favicon and a 1200×630 OG image before launch so social shares and the
-  browser tab render correctly instead of falling back to Next.js defaults.
+- **Real logo is in place** (`public/images/logo.jpg` full lockup,
+  `public/images/logo-mark.jpg` cropped bone+paw mark for the header/footer
+  badges, `app/icon.png` favicon), all extracted from the client-provided
+  logo image. **No OG share image yet** — `lib/metadata.ts` and
+  `app/layout.tsx` still reference `/images/og-image.jpg`, which doesn't
+  exist; add a real 1200×630 OG image (can be based on the logo) before
+  launch so social shares render correctly instead of falling back to
+  Next.js defaults.
 - **Real photography is not yet available.** The live bowwags.com site and
   its photo hosts (Yelp, Facebook, Instagram, BringFido) were not reachable
   from this build environment (network egress to those domains was

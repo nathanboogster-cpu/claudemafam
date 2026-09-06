@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Eyebrow } from "@/components/Eyebrow";
 import { CallButton, ReserveButton } from "@/components/CTAButton";
 import { TrustBar } from "@/components/TrustBar";
@@ -7,7 +8,6 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
 import { DaycarePricingTable } from "@/components/DaycarePricingTable";
 import { BoardingPricingTable } from "@/components/BoardingPricingTable";
-import { BowWagsLogo } from "@/components/BowWagsLogo";
 import { CheckIcon, StarIcon, SyringeIcon, ClipboardIcon, HouseIcon, ScissorsIcon } from "@/components/icons";
 import {
   business,
@@ -91,7 +91,7 @@ export default function HomePage() {
               />
             </div>
             <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-2xl border border-bw-border bg-white px-5 py-3 shadow-lg sm:left-auto sm:right-4 sm:translate-x-0">
-              <div className="flex text-bw-orange" aria-hidden="true">
+              <div className="flex text-bw-red" aria-hidden="true">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <StarIcon key={i} className="h-4 w-4" />
                 ))}
@@ -108,8 +108,8 @@ export default function HomePage() {
       {/* Welcome to Wagsville */}
       <section className="bg-bw-teal text-white">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 py-14 sm:grid-cols-[auto_1fr] sm:text-left text-center">
-          <div className="mx-auto w-40 shrink-0 rounded-3xl bg-white p-3 shadow-lg sm:mx-0 sm:w-48">
-            <BowWagsLogo className="w-full" />
+          <div className="relative mx-auto aspect-square w-40 shrink-0 overflow-hidden rounded-3xl bg-white p-3 shadow-lg sm:mx-0 sm:w-48">
+            <Image src="/images/logo.jpg" alt="Bow Wags — Boarding, Doggy Daycare, Grooming" fill className="rounded-2xl object-cover" sizes="192px" />
           </div>
           <div>
             <Eyebrow tone="onDark">Welcome To</Eyebrow>
@@ -277,7 +277,7 @@ export default function HomePage() {
           <div className="mx-auto mt-8 grid gap-4 text-left sm:grid-cols-2">
             {reviews.slice(0, 4).map((r) => (
               <blockquote key={r.text} className="rounded-2xl border border-white/15 bg-white/5 p-6">
-                <div className="flex text-bw-orange" aria-hidden="true">
+                <div className="flex text-bw-red" aria-hidden="true">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <StarIcon key={i} className="h-4 w-4" />
                   ))}
@@ -291,7 +291,7 @@ export default function HomePage() {
             href={business.yelpUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center justify-center rounded-full border-2 border-bw-orange px-6 py-3 text-base font-semibold text-bw-orange transition-colors hover:bg-bw-orange hover:text-bw-ink"
+            className="mt-8 inline-flex items-center justify-center rounded-full border-2 border-bw-red px-6 py-3 text-base font-semibold text-bw-red transition-colors hover:bg-bw-red hover:text-bw-ink"
           >
             Read More Reviews on Yelp
           </a>
@@ -306,7 +306,7 @@ export default function HomePage() {
         </div>
         <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-bw-border bg-white p-6">
-            <ClipboardIcon className="h-8 w-8 text-bw-orange-dark" />
+            <ClipboardIcon className="h-8 w-8 text-bw-red-dark" />
             <p className="mt-3 font-semibold text-bw-ink">Temperament Test</p>
             <p className="mt-1 text-sm text-bw-ink-soft">
               A 4-hour temperament test ($30) is required before a dog&apos;s first
@@ -314,7 +314,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-bw-border bg-white p-6">
-            <SyringeIcon className="h-8 w-8 text-bw-orange-dark" />
+            <SyringeIcon className="h-8 w-8 text-bw-red-dark" />
             <p className="mt-3 font-semibold text-bw-ink">Vaccinations</p>
             <p className="mt-1 text-sm text-bw-ink-soft">
               Current {vaccinationRequirements.join(", ")} vaccinations are required
@@ -354,7 +354,7 @@ export default function HomePage() {
               href={business.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold text-bw-orange-dark hover:underline"
+              className="text-sm font-semibold text-bw-red-dark hover:underline"
             >
               Get Directions →
             </a>
@@ -368,7 +368,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-bw-orange-dark text-white">
+      <section className="bg-bw-red-dark text-white">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-16 text-center">
           <h2 className="font-bw-display text-3xl font-bold sm:text-4xl">Ready for Your Dog&apos;s Next Adventure?</h2>
           <p className="max-w-xl text-white/90">

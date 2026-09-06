@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ReserveButton, CallButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
-import { BowWagsLogo } from "@/components/BowWagsLogo";
 import { CheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -52,7 +52,9 @@ export default function AboutPage() {
 
       <section className="bg-bw-cream-deep">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center">
-          <BowWagsLogo className="w-40 rounded-3xl shadow-lg sm:w-48" />
+          <div className="relative aspect-square w-40 overflow-hidden rounded-3xl shadow-lg sm:w-48">
+            <Image src="/images/logo.jpg" alt="Bow Wags — Boarding, Doggy Daycare, Grooming" fill className="object-cover" sizes="192px" />
+          </div>
           <div>
             <Eyebrow>Welcome to Wagsville</Eyebrow>
             <h2 className="mt-1 font-bw-display text-3xl font-bold text-bw-ink sm:text-4xl">Population: Canine</h2>
@@ -99,7 +101,7 @@ export default function AboutPage() {
                 Grooming at Bow Wags since {groomer.since}, guided by one rule:
                 &ldquo;{groomer.philosophy}&rdquo; — {groomer.philosophyExplained.toLowerCase()}
               </p>
-              <a href={PATHS.dogGrooming} className="mt-3 inline-block text-sm font-semibold text-bw-orange-dark hover:underline">
+              <a href={PATHS.dogGrooming} className="mt-3 inline-block text-sm font-semibold text-bw-red-dark hover:underline">
                 Meet Cynthia and see grooming services →
               </a>
             </div>

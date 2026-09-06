@@ -70,7 +70,7 @@ export default function DogGroomingPage() {
             </p>
             <div className="mt-6 rounded-2xl border border-bw-border bg-bw-cream-deep/60 p-4">
               <p className="text-sm font-semibold uppercase tracking-wide text-bw-ink-soft">Call for Grooming Rates &amp; Appointments</p>
-              <a href={business.phoneHref} className="mt-1 block font-bw-display text-3xl font-bold text-bw-ink hover:text-bw-orange-dark">
+              <a href={business.phoneHref} className="mt-1 block font-bw-display text-3xl font-bold text-bw-ink hover:text-bw-red-dark">
                 {business.phoneDisplay}
               </a>
             </div>
