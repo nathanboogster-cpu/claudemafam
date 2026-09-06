@@ -3,15 +3,15 @@ import { business, PATHS, mainNav } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { CallButton, ReserveButton } from "./CTAButton";
-import { PawIcon } from "./PawIcon";
+import { BowWagsMark } from "./BowWagsLogo";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-bw-border bg-bw-cream/95 backdrop-blur supports-[backdrop-filter]:bg-bw-cream/80 font-bw-sans">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <Link href={PATHS.home} className="flex items-center gap-2 shrink-0 text-bw-ink">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-bw-border bg-bw-orange text-white">
-            <PawIcon className="h-6 w-6" />
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-bw-border bg-bw-red p-2">
+            <BowWagsMark className="h-full w-full" />
           </span>
           <span className="font-bw-display text-lg font-bold leading-tight sm:text-xl">{business.name}</span>
         </Link>

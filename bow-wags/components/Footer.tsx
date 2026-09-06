@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { business, hours, trustPillars, PATHS, mainNav } from "@/lib/site-data";
 import { ShieldCheckIcon, TreesIcon, HouseIcon, ScissorsIcon } from "./icons";
-import { PawIcon } from "./PawIcon";
+import { BowWagsMark } from "./BowWagsLogo";
 
 const badgeIcons = [ShieldCheckIcon, TreesIcon, HouseIcon, ScissorsIcon];
 
@@ -37,8 +37,8 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 text-bw-ink">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-bw-border bg-bw-orange text-white">
-              <PawIcon className="h-5 w-5" />
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-bw-border bg-bw-red p-1.5">
+              <BowWagsMark className="h-full w-full" />
             </span>
             <span className="font-bw-display text-lg font-bold">{business.name}</span>
           </div>

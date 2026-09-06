@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ReserveButton, CallButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { BowWagsLogo } from "@/components/BowWagsLogo";
 import { CheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -50,12 +51,13 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-bw-cream-deep">
-        <div className="mx-auto max-w-4xl px-4 py-16">
-          <div className="text-center">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-4 py-16 text-center">
+          <BowWagsLogo className="w-40 rounded-3xl shadow-lg sm:w-48" />
+          <div>
             <Eyebrow>Welcome to Wagsville</Eyebrow>
             <h2 className="mt-1 font-bw-display text-3xl font-bold text-bw-ink sm:text-4xl">Population: Canine</h2>
           </div>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-bw-ink-soft">
+          <p className="mx-auto max-w-2xl text-bw-ink-soft">
             Every dog who visits Bow Wags — for a daycare day, a boarding stay, or a
             grooming appointment — gets treated like a resident of their own small
             town. It&apos;s a fun way of describing a simple standard: dogs are
