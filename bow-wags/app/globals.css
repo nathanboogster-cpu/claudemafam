@@ -25,13 +25,15 @@
      going cold or corporate. */
   --color-bw-teal: #1f7a6c;
   --color-bw-teal-dark: #145c50;
-  /* The logo's red, sampled from the client-provided mark. Used only for the
-     logo badge and small brand accents (never as a large section background
-     or primary button fill) so the site stays cute/soft rather than
-     red-and-black heavy. Verified ≥4.5:1 with white text and ≥3:1 (large/bold
-     text minimum) with black text. */
-  --color-bw-red: #e4231f;
-  --color-bw-red-dark: #b81715;
+  /* A softened "baby red" — lighter and friendlier than the logo's true fire-
+     engine red, so the mark reads cute rather than bold/masculine. Used only
+     for the logo badge and small brand accents (never as a large section
+     background or primary button fill). -dark is a deeper, text-safe shade
+     for red text on light backgrounds. Verified ≥3:1 (large/bold text
+     minimum) with white and ≥6:1 with black on --color-bw-red; -dark is
+     ≥4.5:1 with white on light backgrounds like --color-bw-cream. */
+  --color-bw-red: #e8635e;
+  --color-bw-red-dark: #c2433f;
   --color-bw-white: #ffffff;
   --color-bw-border: #f0dcb0;
 }

@@ -59,7 +59,7 @@ export function BowWagsMark({ className = "h-6 w-6" }: { className?: string }) {
 export function BowWagsLogo({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 400 460" className={className} role="img" aria-label="Bow Wags — Boarding, Doggy Daycare, Grooming">
-      <rect x={0} y={0} width={400} height={460} rx={36} fill="#E4231F" />
+      <rect x={0} y={0} width={400} height={460} rx={36} style={{ fill: "var(--color-bw-red)" }} />
 
       <g transform="translate(0,60)">
         <BoneShape outline fill="#000" />
