@@ -41,12 +41,10 @@ export const business = {
     )}`;
   },
   primaryLocation: "Eatontown, NJ",
-  // Client-supplied logo: a circular badge with a poodle, ribbon banners,
-  // and the wordmark. Hand-recreated as an SVG (see public/images/logo.svg)
-  // since the source image only reached this build as inline chat content,
-  // never as a file on disk — swap in the original file at the same path
-  // for pixel-perfect fidelity if it becomes available.
-  logo: "/images/logo.svg",
+  // Real client-supplied logo (a circular badge with a poodle, ribbon
+  // banners, and the wordmark), pulled from the client's Google Drive
+  // folder and cropped tight — see public/images/logo.jpg.
+  logo: "/images/logo.jpg",
 } as const;
 
 // HOURS — verified business hours. Monday and Sunday closed.

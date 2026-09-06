@@ -54,15 +54,12 @@ npm run lint    # eslint
   `components/PhotoPlaceholder.tsx` — an honest, aspect-locked placeholder
   — since no photo of those exists yet. Add one to `lib/site-data.ts`'s
   `photos` object the moment it's supplied; nothing else needs to change.
-- **Logo is a hand-recreated SVG, not the original file.** The client
-  supplied their actual logo (a circular badge: sky-blue ring, pink
-  center, navy poodle/wordmark, green leaf accents) as inline chat
-  content, which never reached this build as a file on disk — see
-  `public/images/logo.svg` (used everywhere via `business.logo` in
-  `lib/site-data.ts`, plus a simplified `app/icon.svg` favicon). It's a
-  close visual match, not a pixel-perfect copy. Replace both files with
-  the real exported logo asset if/when it's supplied, keeping the same
-  paths so no other code needs to change. The site's whole color palette
+- **Real logo is wired in.** The client's actual logo (a circular badge:
+  sky-blue ring, pink center, navy poodle/wordmark, green leaf accents)
+  was pulled from their Google Drive folder — see `public/images/logo.jpg`
+  (used everywhere via `business.logo` in `lib/site-data.ts`) and
+  `app/icon.jpg` (a tighter square crop of the same badge for the browser
+  favicon). The site's whole color palette
   (`app/globals.css`, `fh-pink`/`fh-blue`/`fh-ink` tokens) and display
   font (Baloo 2) were chosen to match this logo.
 - **No confirmed exact Google rating, review count, or verbatim review

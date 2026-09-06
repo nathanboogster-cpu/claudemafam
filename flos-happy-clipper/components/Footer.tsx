@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HeartIcon, DogIcon } from "@/components/icons";
 import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
@@ -29,8 +30,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2">
-            {/* eslint-disable-next-line @next/next/no-img-element -- static local SVG, no next/image benefit */}
-            <img src={business.logo} alt={business.name} className="h-14 w-14 shrink-0" />
+            <Image src={business.logo} alt={business.name} width={742} height={648} className="h-14 w-auto shrink-0" />
             <span className="font-fh-display text-lg font-bold text-fh-ink">Flo&apos;s Happy Clipper</span>
           </div>
           <p className="mt-3 text-sm">
