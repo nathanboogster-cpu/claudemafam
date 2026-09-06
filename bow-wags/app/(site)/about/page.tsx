@@ -46,7 +46,13 @@ export default function AboutPage() {
               <CallButton location="about_hero" variant="secondary" />
             </div>
           </div>
-          <PhotoPlaceholder caption="The Bow Wags facility in Marietta, GA" aspect="square" className="w-full" priority />
+          <PhotoPlaceholder
+            caption="A dog relaxing inside the Bow Wags facility in Marietta, GA"
+            src="/images/dog-lobby-husky.jpg"
+            aspect="square"
+            className="w-full"
+            priority
+          />
         </div>
       </section>
 

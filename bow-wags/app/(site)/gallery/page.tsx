@@ -17,15 +17,15 @@ const galleryItems = [
   { caption: "Dogs playing in a small/toy dog playroom" },
   { caption: "Dogs playing in a medium dog playroom" },
   { caption: "Large dog playroom at Bow Wags" },
-  { caption: "Secure outdoor playground" },
-  { caption: "Private wooden boarding suite" },
+  { caption: "Dog enjoying the secure outdoor playground", src: "/images/outdoor-play-springer.jpg" },
+  { caption: "Dogs resting in a private wooden boarding suite", src: "/images/boarding-dogs-resting.jpg" },
   { caption: "Boarding suites divided by picket-style fencing" },
   { caption: "Dog getting a bath in the grooming salon" },
-  { caption: "Freshly groomed dog after a full haircut" },
+  { caption: "Freshly groomed dog after a full haircut", src: "/images/groomed-dog-bandana.jpg" },
   { caption: "Cynthia grooming a dog at Bow Wags" },
   { caption: "Bow Wags facility exterior" },
-  { caption: "A happy boarding guest" },
-  { caption: "A happy daycare regular" },
+  { caption: "A happy boarding guest", src: "/images/happy-dog-lobby-aussie.jpg" },
+  { caption: "A happy daycare regular", src: "/images/dog-lobby-husky.jpg" },
 ];
 
 export default function GalleryPage() {
@@ -43,16 +43,17 @@ export default function GalleryPage() {
         <Eyebrow>Gallery</Eyebrow>
         <h1 className="mt-1 font-bw-display text-4xl font-bold text-bw-ink sm:text-5xl">See Bow Wags</h1>
         <p className="mt-4 text-lg text-bw-ink-soft">
-          A look at the daycare playrooms, boarding suites, and grooming results at
-          our Marietta, GA facility. Real photos are being added as they&apos;re provided —
-          follow Bow Wags on Facebook and Instagram for the latest updates in the meantime.
+          A look at real dogs, boarding suites, and grooming results at our
+          Marietta, GA facility. More photos are being added as they&apos;re
+          provided — follow Bow Wags on Facebook and Instagram for the latest
+          updates in the meantime.
         </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {galleryItems.map((item) => (
-            <PhotoPlaceholder key={item.caption} caption={item.caption} aspect="square" />
+            <PhotoPlaceholder key={item.caption} caption={item.caption} src={item.src} aspect="square" />
           ))}
         </div>
       </section>

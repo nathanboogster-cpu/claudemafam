@@ -78,7 +78,13 @@ export default function DogGroomingPage() {
               <CallButton location="grooming_hero" variant="primary" label="Call to Book Grooming" />
             </div>
           </div>
-          <PhotoPlaceholder caption="Freshly groomed dog at Bow Wags" aspect="square" className="w-full" priority />
+          <PhotoPlaceholder
+            caption="Freshly groomed dog at Bow Wags"
+            src="/images/groomed-dog-bandana.jpg"
+            aspect="square"
+            className="w-full"
+            priority
+          />
         </div>
       </section>
 
