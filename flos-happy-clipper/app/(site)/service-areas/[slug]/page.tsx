@@ -28,17 +28,17 @@ const dynamicAreas = serviceAreas.filter(
   (a): a is (typeof serviceAreas)[number] & { slug: SecondaryAreaSlug } => !PRIMARY_SLUGS.has(a.slug),
 );
 
-// Rotate photo placeholders across pages so no single caption becomes the
+// Rotate real client photos across pages so no single photo becomes the
 // sole hero for every town.
 const heroPhotos = [
-  photos.largeBreedGroom,
-  photos.doubleCoatedGroom,
-  photos.smallBreedGroom,
-  photos.poodleGroom,
-  photos.bathAndBrush,
-  photos.salonInterior,
-  photos.salonStorefront,
-  photos.largeBreedGroom,
+  photos.toyPoodleApricot,
+  photos.chowChowFluffy,
+  photos.cockapooTan,
+  photos.tanDogSmiling,
+  photos.terrierMixGroom,
+  photos.bichonPoodleMix,
+  photos.shihTzuGroomed,
+  photos.maltipooPuppy,
 ];
 
 export function generateStaticParams() {
@@ -109,7 +109,7 @@ export default async function ServiceAreaPage({
             <SecondaryLinkButton location={`area_${area.slug}`} variant="secondary" label="Get Directions" href={business.mapsUrl} />
           </div>
         </div>
-        <PhotoPlaceholder caption={heroPhoto.caption} aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder caption={heroPhoto.alt} src={heroPhoto.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-fh-cream-deep">

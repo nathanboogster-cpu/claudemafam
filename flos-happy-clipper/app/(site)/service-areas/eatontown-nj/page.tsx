@@ -69,7 +69,7 @@ export default function EatontownPage() {
             <SecondaryLinkButton location="area_eatontown" variant="secondary" label="Get Directions" href={business.mapsUrl} />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.salonStorefront.caption} aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.puppyVisit.alt} src={photos.puppyVisit.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-fh-cream-deep">

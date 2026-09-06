@@ -86,7 +86,7 @@ export default function DogGroomingPage() {
             <SecondaryLinkButton location="service_dog_grooming" variant="secondary" label="Contact Us" href={PATHS.contact} />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.doubleCoatedGroom.caption} aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.chowChowFluffy.alt} src={photos.chowChowFluffy.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-fh-cream-deep">

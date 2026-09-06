@@ -73,7 +73,7 @@ export default function DogBathingPage() {
             <SecondaryLinkButton location="service_dog_bath" variant="secondary" label="Contact Us" href={PATHS.contact} />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.bathAndBrush.caption} aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.chowChowBath.alt} src={photos.chowChowBath.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="bg-fh-cream-deep">
