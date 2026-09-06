@@ -56,7 +56,7 @@ export default function HomePage() {
             <TrustBar className="mt-8" />
           </div>
 
-          <PhotoPlaceholder caption={photos.largeBreedGroom.caption} aspect="portrait" className="w-full" priority />
+          <PhotoPlaceholder caption={photos.redPoodleGroupFloor.alt} src={photos.redPoodleGroupFloor.src} aspect="portrait" className="w-full" priority />
         </div>
         <div className="mx-auto max-w-6xl px-4 pb-12 lg:pb-20">
           <StatBand />
@@ -91,7 +91,7 @@ export default function HomePage() {
       {/* Why Flo's Happy Clipper */}
       <section className="bg-fh-cream-deep">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 lg:grid-cols-2">
-          <PhotoPlaceholder caption={photos.doubleCoatedGroom.caption} aspect="portrait" className="w-full lg:order-2" />
+          <PhotoPlaceholder caption={photos.chowChowFluffy.alt} src={photos.chowChowFluffy.src} aspect="portrait" className="w-full lg:order-2" />
           <div className="lg:order-1">
             <Eyebrow>Why Flo&apos;s Happy Clipper</Eyebrow>
             <h2 className="mt-1 font-fh-display text-3xl font-bold text-fh-ink sm:text-4xl">
@@ -127,9 +127,9 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <PhotoPlaceholder caption={photos.smallBreedGroom.caption} aspect="portrait" />
-          <PhotoPlaceholder caption={photos.poodleGroom.caption} aspect="portrait" />
-          <PhotoPlaceholder caption={photos.bathAndBrush.caption} aspect="portrait" />
+          <PhotoPlaceholder caption={photos.shihTzuGroomed.alt} src={photos.shihTzuGroomed.src} aspect="portrait" />
+          <PhotoPlaceholder caption={photos.standardPoodleContinental.alt} src={photos.standardPoodleContinental.src} aspect="portrait" />
+          <PhotoPlaceholder caption={photos.chowChowBath.alt} src={photos.chowChowBath.src} aspect="portrait" />
         </div>
         <div className="mt-8 flex justify-center">
           <SecondaryLinkButton location="home_gallery_teaser" variant="ghost" label="View Gallery" href={PATHS.gallery} />

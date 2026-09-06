@@ -67,19 +67,64 @@ export const hoursSchema = [
   { dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "09:00", closes: "17:00" },
 ] as const;
 
-// No real Flo's Happy Clipper photography has been supplied for this build
-// (Facebook/owner assets were not reachable). Every photo slot below
-// renders an honest, aspect-locked placeholder (see
-// components/PhotoPlaceholder.tsx) instead of stock imagery presented as
-// real work — swap in real photos here the moment they're supplied.
-export const photos = {
-  largeBreedGroom: { caption: "Freshly groomed large-breed dog at Flo's Happy Clipper" },
-  doubleCoatedGroom: { caption: "Groomed double-coated dog at Flo's Happy Clipper" },
-  smallBreedGroom: { caption: "Freshly groomed small-breed dog at Flo's Happy Clipper" },
-  poodleGroom: { caption: "Poodle trim at Flo's Happy Clipper" },
-  bathAndBrush: { caption: "Dog getting bathed and brushed at Flo's Happy Clipper" },
-  salonStorefront: { caption: "Flo's Happy Clipper storefront on Main St, Eatontown, NJ" },
-  salonInterior: { caption: "Inside the Flo's Happy Clipper grooming salon" },
+// Real client photos, supplied via the client's Google Drive folder. Every
+// entry with a `src` is a real photo from Flo's Happy Clipper's own salon —
+// never stock imagery. A couple of slots (storefront, wide interior) have
+// no real photo yet and render an honest, aspect-locked placeholder (see
+// components/PhotoPlaceholder.tsx) instead.
+type Photo = { src?: string; alt: string };
+
+export const photos: Record<string, Photo> = {
+  redPoodleGroupFloor: {
+    src: "/images/gallery-red-poodle-group.jpg",
+    alt: "Freshly groomed red poodle at Flo's Happy Clipper, with a dachshund and a Pomeranian resting in beds behind it",
+  },
+  standardPoodleContinental: {
+    src: "/images/gallery-standard-poodle-park.jpg",
+    alt: "Standard poodle in a continental trim, groomed at Flo's Happy Clipper, out on a walk",
+  },
+  toyPoodleApricot: {
+    src: "/images/gallery-toy-poodle-apricot.jpg",
+    alt: "Freshly groomed apricot toy poodle sitting on the grooming table at Flo's Happy Clipper",
+  },
+  chowChowFluffy: {
+    src: "/images/gallery-chow-chow-fluffy.jpg",
+    alt: "Freshly groomed double-coated Chow Chow at Flo's Happy Clipper",
+  },
+  chowChowBath: {
+    src: "/images/gallery-chow-chow-bath.jpg",
+    alt: "Chow Chow being bathed in the tub at Flo's Happy Clipper",
+  },
+  cockapooTan: {
+    src: "/images/gallery-cockapoo-tan.jpg",
+    alt: "Freshly groomed tan cockapoo sitting on the grooming table at Flo's Happy Clipper",
+  },
+  tanDogSmiling: {
+    src: "/images/gallery-tan-dog-smiling.jpg",
+    alt: "Freshly groomed tan dog smiling on the grooming table at Flo's Happy Clipper",
+  },
+  terrierMixGroom: {
+    src: "/images/gallery-terrier-mix-groom.jpg",
+    alt: "Freshly groomed terrier mix on the grooming table at Flo's Happy Clipper",
+  },
+  maltipooPuppy: {
+    src: "/images/gallery-maltipoo-puppy.jpg",
+    alt: "A maltipoo puppy held by a groomer at Flo's Happy Clipper",
+  },
+  bichonPoodleMix: {
+    src: "/images/gallery-bichon-poodle-mix.jpg",
+    alt: "Freshly groomed white bichon-poodle mix at Flo's Happy Clipper",
+  },
+  shihTzuGroomed: {
+    src: "/images/gallery-shih-tzu-groomed.jpg",
+    alt: "Freshly groomed Shih Tzu at Flo's Happy Clipper",
+  },
+  puppyVisit: {
+    src: "/images/gallery-puppy-tile-floor.jpg",
+    alt: "A young dog visiting Flo's Happy Clipper",
+  },
+  salonStorefront: { alt: "Flo's Happy Clipper storefront on Main St, Eatontown, NJ" },
+  salonInterior: { alt: "Inside the Flo's Happy Clipper grooming salon" },
 } as const;
 
 export const services = [

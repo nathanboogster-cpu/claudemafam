@@ -53,7 +53,7 @@ export default function AboutPage() {
             <SecondaryLinkButton location="about" variant="secondary" label="View Services" href={PATHS.services} />
           </div>
         </div>
-        <PhotoPlaceholder caption={photos.salonStorefront.caption} aspect="portrait" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.bichonPoodleMix.alt} src={photos.bichonPoodleMix.src} aspect="portrait" className="w-full" priority />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-4">

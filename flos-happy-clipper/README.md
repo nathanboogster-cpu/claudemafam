@@ -47,11 +47,13 @@ npm run lint    # eslint
 
 ## Known open items before launch
 
-- **No real photos supplied.** Facebook and the business's own website
-  could not be reached during this build (network egress was blocked), so
-  every photo slot renders `components/PhotoPlaceholder.tsx` — an honest,
-  aspect-locked placeholder. Swap in real photos via the `photos` object
-  in `lib/site-data.ts`.
+- **12 real client photos are wired in**, pulled from the client's Google
+  Drive folder (see the `photos` object in `lib/site-data.ts` and
+  `public/images/gallery-*.jpg`) — real dogs groomed at the salon, not
+  stock imagery. Two slots (storefront, a wide interior shot) still render
+  `components/PhotoPlaceholder.tsx` — an honest, aspect-locked placeholder
+  — since no photo of those exists yet. Add one to `lib/site-data.ts`'s
+  `photos` object the moment it's supplied; nothing else needs to change.
 - **Logo is a hand-recreated SVG, not the original file.** The client
   supplied their actual logo (a circular badge: sky-blue ring, pink
   center, navy poodle/wordmark, green leaf accents) as inline chat
