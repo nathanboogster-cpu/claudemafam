@@ -23,7 +23,7 @@ export function TrustBar({ className = "" }: { className?: string }) {
         href={business.yelpUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm font-semibold text-bw-orange-dark hover:underline"
+        className="text-sm font-semibold text-bw-red-dark hover:underline"
       >
         Read Reviews →
       </a>

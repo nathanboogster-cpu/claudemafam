@@ -57,13 +57,13 @@ export default function RequirementsPage() {
       <section className="mx-auto max-w-4xl px-4 pb-16">
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="rounded-2xl border border-bw-border bg-white p-8">
-            <ClipboardIcon className="h-9 w-9 text-bw-orange-dark" />
+            <ClipboardIcon className="h-9 w-9 text-bw-red-dark" />
             <h2 className="mt-3 font-bw-display text-xl font-bold text-bw-ink">{temperamentTest.name}</h2>
-            <p className="mt-1 font-bw-display text-2xl font-bold text-bw-orange-dark">{temperamentTest.price}</p>
+            <p className="mt-1 font-bw-display text-2xl font-bold text-bw-red-dark">{temperamentTest.price}</p>
             <p className="mt-2 text-sm text-bw-ink-soft">{temperamentTest.description}</p>
           </div>
           <div className="rounded-2xl border border-bw-border bg-white p-8">
-            <SyringeIcon className="h-9 w-9 text-bw-orange-dark" />
+            <SyringeIcon className="h-9 w-9 text-bw-red-dark" />
             <h2 className="mt-3 font-bw-display text-xl font-bold text-bw-ink">Vaccinations</h2>
             <ul className="mt-3 space-y-1 text-sm text-bw-ink-soft">
               {vaccinationRequirements.map((v) => (

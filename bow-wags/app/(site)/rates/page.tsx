@@ -72,7 +72,7 @@ export default function RatesPage() {
         <p>
           All rates on this page are current published rates provided by Bow Wags
           and may change without notice. Call {business.phoneDisplay} or visit the{" "}
-          <a href={PATHS.faq} className="font-semibold text-bw-orange-dark hover:underline">
+          <a href={PATHS.faq} className="font-semibold text-bw-red-dark hover:underline">
             FAQ
           </a>{" "}
           for the latest information.

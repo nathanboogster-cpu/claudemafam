@@ -149,7 +149,7 @@ export default function DogBoardingPage() {
       <section className="bg-bw-cream-deep">
         <div className="mx-auto max-w-4xl px-4 py-16">
           <div className="rounded-3xl border border-bw-border bg-white p-8 text-center sm:p-10">
-            <SyringeIcon className="mx-auto h-8 w-8 text-bw-orange-dark" />
+            <SyringeIcon className="mx-auto h-8 w-8 text-bw-red-dark" />
             <h2 className="mt-3 font-bw-display text-2xl font-bold text-bw-ink">Before Your Dog&apos;s First Stay</h2>
             <p className="mt-3 text-bw-ink-soft">
               A 4-hour temperament test ({temperamentTest.price}) and current{" "}

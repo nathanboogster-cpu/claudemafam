@@ -36,15 +36,15 @@ export default function ContactPage() {
         <div className="mt-10 rounded-3xl border border-bw-border bg-bw-cream-deep p-8 text-left sm:p-10">
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-bw-orange-dark">Call</p>
-              <a href={business.phoneHref} className="mt-1 block font-bw-display text-3xl font-bold text-bw-ink hover:text-bw-orange-dark">
+              <p className="text-sm font-semibold uppercase tracking-wide text-bw-red-dark">Call</p>
+              <a href={business.phoneHref} className="mt-1 block font-bw-display text-3xl font-bold text-bw-ink hover:text-bw-red-dark">
                 {business.phoneDisplay}
               </a>
               <p className="mt-1 text-sm text-bw-ink-soft">Also known as {business.phoneDisplayWags}</p>
             </div>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-bw-orange-dark">Email</p>
-              <a href={`mailto:${business.email}`} className="mt-1 block text-lg font-semibold text-bw-ink hover:text-bw-orange-dark">
+              <p className="text-sm font-semibold uppercase tracking-wide text-bw-red-dark">Email</p>
+              <a href={`mailto:${business.email}`} className="mt-1 block text-lg font-semibold text-bw-ink hover:text-bw-red-dark">
                 {business.email}
               </a>
             </div>
@@ -55,7 +55,7 @@ export default function ContactPage() {
                 href={business.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-block text-sm font-semibold text-bw-orange-dark hover:underline"
+                className="mt-1 inline-block text-sm font-semibold text-bw-red-dark hover:underline"
               >
                 Get Directions →
               </a>

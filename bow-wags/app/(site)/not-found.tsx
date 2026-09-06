@@ -5,11 +5,11 @@ import { PATHS } from "@/lib/site-data";
 export default function NotFound() {
   return (
     <section className="mx-auto max-w-2xl px-4 py-20 text-center">
-      <p className="font-bw-display text-6xl font-bold text-bw-orange-dark">404</p>
+      <p className="font-bw-display text-6xl font-bold text-bw-red-dark">404</p>
       <h1 className="mt-4 font-bw-display text-3xl font-bold text-bw-ink">Looks like this page ran off to play</h1>
       <p className="mt-3 text-bw-ink-soft">
         We couldn&apos;t find that page. Head back to the{" "}
-        <Link href={PATHS.home} className="font-semibold text-bw-orange-dark hover:underline">
+        <Link href={PATHS.home} className="font-semibold text-bw-red-dark hover:underline">
           homepage
         </Link>{" "}
         or check out daycare, boarding, and grooming.
