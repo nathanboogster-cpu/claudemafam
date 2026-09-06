@@ -38,7 +38,7 @@ export function MobileNav() {
   }
 
   const menu = (
-    <div id="fh-mobile-menu" className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-fh-cream">
+    <div id="fh-mobile-menu" className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto bg-fh-cream">
       <nav aria-label="Mobile" className="flex flex-col p-4 font-fh-sans">
         {groups.map((group) => (
           <div key={group.label} className="mb-2">
@@ -52,7 +52,7 @@ export function MobileNav() {
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={`min-h-[44px] flex items-center border-b border-fh-border px-2 text-lg font-medium ${
-                    active ? "text-fh-amber-dark" : "text-fh-ink"
+                    active ? "text-fh-pink-dark" : "text-fh-ink"
                   }`}
                 >
                   {item.label}

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { HeartIcon, DogIcon } from "@/components/icons";
-import { PawIcon } from "@/components/PawIcon";
 import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 
 const companyLinks = [
@@ -18,11 +17,11 @@ export function Footer() {
       <div className="border-b border-fh-border bg-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-5">
           <div className="flex items-center gap-2 text-fh-ink">
-            <HeartIcon className="h-5 w-5 shrink-0 text-fh-amber-dark" />
+            <HeartIcon className="h-5 w-5 shrink-0 text-fh-pink-dark" />
             <span className="text-sm font-semibold">Established Local Grooming Salon</span>
           </div>
           <div className="flex items-center gap-2 text-fh-ink">
-            <DogIcon className="h-5 w-5 shrink-0 text-fh-amber-dark" />
+            <DogIcon className="h-5 w-5 shrink-0 text-fh-pink-dark" />
             <span className="text-sm font-semibold">Dog Grooming</span>
           </div>
         </div>
@@ -30,7 +29,8 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2">
-            <PawIcon className="h-7 w-7 shrink-0 text-fh-amber-dark" />
+            {/* eslint-disable-next-line @next/next/no-img-element -- static local SVG, no next/image benefit */}
+            <img src={business.logo} alt={business.name} className="h-14 w-14 shrink-0" />
             <span className="font-fh-display text-lg font-bold text-fh-ink">Flo&apos;s Happy Clipper</span>
           </div>
           <p className="mt-3 text-sm">
@@ -43,7 +43,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {serviceNav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-fh-amber-dark">
+                <Link href={item.href} className="hover:text-fh-pink-dark">
                   {item.label}
                 </Link>
               </li>
@@ -56,7 +56,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {areaNav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-fh-amber-dark">
+                <Link href={item.href} className="hover:text-fh-pink-dark">
                   Dog Grooming in {item.label}
                 </Link>
               </li>
@@ -69,7 +69,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {companyLinks.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-fh-amber-dark">
+                <Link href={item.href} className="hover:text-fh-pink-dark">
                   {item.label}
                 </Link>
               </li>
@@ -81,7 +81,7 @@ export function Footer() {
           <h2 className="text-sm font-semibold uppercase tracking-wide text-fh-ink">Contact</h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a href={business.phoneHref} className="hover:text-fh-amber-dark">
+              <a href={business.phoneHref} className="hover:text-fh-pink-dark">
                 {business.phoneDisplay}
               </a>
             </li>

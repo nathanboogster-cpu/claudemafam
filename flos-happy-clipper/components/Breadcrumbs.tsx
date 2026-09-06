@@ -12,7 +12,7 @@ export function Breadcrumbs({ items }: { items: { name: string; href: string }[]
                 {item.name}
               </span>
             ) : (
-              <Link href={item.href} className="hover:text-fh-amber-dark">
+              <Link href={item.href} className="hover:text-fh-pink-dark">
                 {item.name}
               </Link>
             )}

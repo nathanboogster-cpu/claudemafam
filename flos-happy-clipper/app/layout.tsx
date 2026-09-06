@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito } from "next/font/google";
+import { Baloo_2, Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE_URL, PATHS, business } from "@/lib/site-data";
 
-const fraunces = Fraunces({
+const baloo = Baloo_2({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-baloo",
   display: "swap",
 });
 
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`h-full antialiased ${fraunces.variable} ${nunito.variable}`}>
+    <html lang="en" className={`h-full antialiased ${baloo.variable} ${nunito.variable}`}>
       <body className="min-h-full flex flex-col font-fh-sans">
         {children}
         <Analytics />

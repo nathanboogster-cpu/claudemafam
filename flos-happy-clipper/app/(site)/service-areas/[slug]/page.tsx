@@ -120,7 +120,7 @@ export default async function ServiceAreaPage({
           <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
             {content.whyChoose.map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-fh-amber-dark" />
+                <CheckIcon className="h-4 w-4 shrink-0 text-fh-pink-dark" />
                 {f}
               </li>
             ))}
@@ -135,7 +135,7 @@ export default async function ServiceAreaPage({
             <Link
               key={s.slug}
               href={servicePath(s.slug)}
-              className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark"
+              className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark"
             >
               {s.shortName}
             </Link>

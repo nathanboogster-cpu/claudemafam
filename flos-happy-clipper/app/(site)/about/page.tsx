@@ -43,7 +43,7 @@ export default function AboutPage() {
             Our Main St location puts us right in the heart of Eatontown, which makes us a convenient,
             personal alternative to big-box grooming chains for pet owners throughout Eatontown and any
             surrounding town within about a{" "}
-            <Link href={PATHS.serviceAreas} className="font-semibold text-fh-amber-dark hover:underline">
+            <Link href={PATHS.serviceAreas} className="font-semibold text-fh-pink-dark hover:underline">
               20-minute drive
             </Link>
             .
@@ -93,7 +93,7 @@ export default function AboutPage() {
             "Personalized, one-on-one attention",
           ].map((f) => (
             <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
-              <CheckIcon className="h-4 w-4 shrink-0 text-fh-amber-dark" />
+              <CheckIcon className="h-4 w-4 shrink-0 text-fh-pink-dark" />
               {f}
             </li>
           ))}

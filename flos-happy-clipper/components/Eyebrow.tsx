@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 
 const toneClasses = {
   // Default: dark green on light backgrounds (cream, cream-deep, white).
-  default: "text-fh-amber-dark",
+  default: "text-fh-pink-dark",
   // For use on dark backgrounds (e.g. the fh-ink CTA sections).
-  onDark: "text-fh-amber",
+  onDark: "text-fh-pink",
 } as const;
 
 export function Eyebrow({

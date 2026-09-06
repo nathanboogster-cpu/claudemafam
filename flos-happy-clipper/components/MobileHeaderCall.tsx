@@ -10,7 +10,7 @@ export function MobileHeaderCall() {
       href={business.phoneHref}
       aria-label={`Call ${business.name} at ${business.phoneDisplay}`}
       onClick={() => trackEvent("fh_call_click", { location: "header_mobile" })}
-      className="flex h-11 w-11 items-center justify-center rounded-full bg-fh-amber-dark text-white"
+      className="flex h-11 w-11 items-center justify-center rounded-full bg-fh-pink-dark text-white"
     >
       <PhoneIcon className="h-5 w-5" />
     </a>

@@ -87,7 +87,7 @@ export default function DogBathingPage() {
               "A quicker, lower-cost option between full grooms",
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-fh-amber-dark" />
+                <CheckIcon className="h-4 w-4 shrink-0 text-fh-pink-dark" />
                 {f}
               </li>
             ))}
@@ -98,13 +98,13 @@ export default function DogBathingPage() {
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services & Areas</h2>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href={servicePath("dog-grooming")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+          <Link href={servicePath("dog-grooming")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
             Full Dog Grooming
           </Link>
-          <Link href={areaPath("shrewsbury-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+          <Link href={areaPath("shrewsbury-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
             Serving Shrewsbury, NJ
           </Link>
-          <Link href={areaPath("oceanport-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+          <Link href={areaPath("oceanport-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
             Serving Oceanport, NJ
           </Link>
         </div>
