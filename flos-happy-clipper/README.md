@@ -47,13 +47,22 @@ npm run lint    # eslint
 
 ## Known open items before launch
 
-- **No real photos or logo supplied.** Facebook and the business's own
-  website could not be reached during this build (network egress was
-  blocked), so every photo slot renders `components/PhotoPlaceholder.tsx`
-  — an honest, aspect-locked placeholder — and the header/footer render a
-  text wordmark instead of a logo image. Swap in real photos via the
-  `photos` object in `lib/site-data.ts`, and add a real logo image once
-  supplied.
+- **No real photos supplied.** Facebook and the business's own website
+  could not be reached during this build (network egress was blocked), so
+  every photo slot renders `components/PhotoPlaceholder.tsx` — an honest,
+  aspect-locked placeholder. Swap in real photos via the `photos` object
+  in `lib/site-data.ts`.
+- **Logo is a hand-recreated SVG, not the original file.** The client
+  supplied their actual logo (a circular badge: sky-blue ring, pink
+  center, navy poodle/wordmark, green leaf accents) as inline chat
+  content, which never reached this build as a file on disk — see
+  `public/images/logo.svg` (used everywhere via `business.logo` in
+  `lib/site-data.ts`, plus a simplified `app/icon.svg` favicon). It's a
+  close visual match, not a pixel-perfect copy. Replace both files with
+  the real exported logo asset if/when it's supplied, keeping the same
+  paths so no other code needs to change. The site's whole color palette
+  (`app/globals.css`, `fh-pink`/`fh-blue`/`fh-ink` tokens) and display
+  font (Baloo 2) were chosen to match this logo.
 - **No confirmed exact Google rating, review count, or verbatim review
   quotes.** Public estimates conflict across platforms (Yelp, Scrubby,
   etc.) and go stale, so no star rating, review count, or quoted review
@@ -70,13 +79,20 @@ npm run lint    # eslint
   a groomer named Lauren (and occasionally a "Tom"/"Bob"), but current
   team membership wasn't verifiable for this build, so no staff bios are
   published. Add only once confirmed as current employees.
-- **Cat grooming is not currently published** — some older third-party
-  directories reference cats/kittens as a specialty, but this wasn't
-  independently confirmed for this build. Add a `/services/cat-grooming`
-  page (see the removed `sittin-pretty-pet-grooming` sibling app for a
-  template) once confirmed as a current service.
+- **Dog grooming only — confirmed.** The owner confirmed Flo's Happy
+  Clipper is purely a dog grooming business, despite some older
+  third-party directories referencing cats/kittens as a specialty. No cat
+  grooming content or `/services/cat-grooming` page should be added.
 - **No parking guidance.** Public sources mention a lot but this wasn't
   verified, so the Contact page doesn't make a specific parking claim.
+- **Service area radius is owner-confirmed, but individual towns are our
+  own selection.** The owner confirmed Flo's Happy Clipper serves any town
+  within about a 20-minute drive of the Eatontown salon. The 8 towns in
+  `serviceAreas`/`areaContent` in `lib/site-data.ts` (Tinton Falls,
+  Oceanport, West Long Branch, Long Branch, Shrewsbury, Red Bank, Little
+  Silver, Monmouth Beach) are real, nearby Monmouth County towns chosen to
+  match that radius, not an owner-provided list — add, remove, or reorder
+  towns there if the actual customer base differs.
 - **No online booking system.** All CTAs route to the phone number
   (`tel:+17325448186`) rather than a fabricated booking widget.
 - **Conversion tracking is a stub.** Call button clicks push to

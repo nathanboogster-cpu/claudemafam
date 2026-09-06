@@ -5,8 +5,9 @@ import { StatBand } from "@/components/StatBand";
 import { ServiceCard } from "@/components/ServiceCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
+import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { DogIcon, ScissorsIcon, CheckIcon } from "@/components/icons";
-import { business, services, differentiators, servicePath, photos, PATHS } from "@/lib/site-data";
+import { business, services, differentiators, servicePath, serviceAreas, areaPath, photos, PATHS } from "@/lib/site-data";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "dog-grooming": <DogIcon className="h-6 w-6" />,
@@ -40,7 +41,7 @@ export default function HomePage() {
       <section className="bg-fh-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 lg:grid-cols-2 lg:py-20">
           <div>
-            <Eyebrow>Eatontown, NJ • Professional Pet Grooming</Eyebrow>
+            <Eyebrow>Eatontown, NJ • Professional Dog Grooming</Eyebrow>
             <h1 className="mt-3 font-fh-display text-4xl font-bold leading-[1.05] text-fh-ink sm:text-5xl lg:text-6xl">
               Trusted Dog Grooming in Eatontown, NJ
             </h1>
@@ -99,7 +100,7 @@ export default function HomePage() {
             <ul className="mt-6 space-y-4">
               {differentiators.map((d) => (
                 <li key={d.title} className="flex gap-3">
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-fh-amber/15 text-fh-amber-dark">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-fh-pink/15 text-fh-pink-dark">
                     <CheckIcon className="h-4 w-4" />
                   </span>
                   <div>
@@ -157,10 +158,31 @@ export default function HomePage() {
             />
           </div>
           <div className="mt-6 flex justify-center">
-            <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-fh-amber-dark hover:underline">
+            <a href={business.mapsUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-fh-pink-dark hover:underline">
               Get Directions →
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Service areas teaser */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="text-center">
+          <Eyebrow>Service Area</Eyebrow>
+          <h2 className="mt-1 font-fh-display text-3xl font-bold text-fh-ink sm:text-4xl">
+            Serving Eatontown & Nearby Monmouth County
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-fh-ink-soft">
+            We welcome pet owners from anywhere within about a 20-minute drive of our Main St salon.
+          </p>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {serviceAreas.slice(0, 6).map((a) => (
+            <ServiceAreaCard key={a.slug} city={a.city} state={a.state} description={a.description} href={areaPath(a.slug)} />
+          ))}
+        </div>
+        <div className="mt-8 flex justify-center">
+          <SecondaryLinkButton location="home_service_areas_teaser" variant="ghost" label="View All Service Areas" href={PATHS.serviceAreas} />
         </div>
       </section>
 
@@ -179,7 +201,7 @@ export default function HomePage() {
             href={business.googleSearchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-fh-amber px-6 py-3 text-base font-semibold text-fh-amber transition-colors hover:bg-fh-amber hover:text-fh-ink"
+            className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-fh-pink px-6 py-3 text-base font-semibold text-fh-pink transition-colors hover:bg-fh-pink hover:text-fh-ink"
           >
             Read Reviews on Google
           </a>

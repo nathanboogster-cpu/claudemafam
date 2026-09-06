@@ -26,7 +26,7 @@ export function NavDropdown({ label, items }: { label: string; items: NavItem[] 
 
   return (
     <details ref={ref} className="relative">
-      <summary className="flex cursor-pointer list-none items-center gap-1 whitespace-nowrap hover:text-fh-amber-dark [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center gap-1 whitespace-nowrap hover:text-fh-pink-dark [&::-webkit-details-marker]:hidden">
         {label}
         <svg viewBox="0 0 12 8" className="h-2.5 w-2.5 fill-current" aria-hidden="true">
           <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
@@ -37,7 +37,7 @@ export function NavDropdown({ label, items }: { label: string; items: NavItem[] 
           <Link
             key={item.href}
             href={item.href}
-            className="block rounded-lg px-3 py-2 text-sm text-fh-ink-soft hover:bg-fh-cream-deep hover:text-fh-amber-dark"
+            className="block rounded-lg px-3 py-2 text-sm text-fh-ink-soft hover:bg-fh-cream-deep hover:text-fh-pink-dark"
           >
             {item.label}
           </Link>

@@ -8,7 +8,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, servicePath, photos, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("dog-grooming")}`;
 const description =
@@ -101,7 +101,7 @@ export default function DogGroomingPage() {
               "Comfortable handling for nervous, large-breed, and double-coated dogs",
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-fh-amber-dark" />
+                <CheckIcon className="h-4 w-4 shrink-0 text-fh-pink-dark" />
                 {f}
               </li>
             ))}
@@ -110,13 +110,19 @@ export default function DogGroomingPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services</h2>
+        <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services & Areas</h2>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href={servicePath("dog-bathing")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+          <Link href={servicePath("dog-bathing")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
             Dog Bathing
           </Link>
-          <Link href={PATHS.gallery} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-amber-dark">
+          <Link href={PATHS.gallery} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
             See Our Work
+          </Link>
+          <Link href={areaPath("tinton-falls-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+            Dog Grooming Near Tinton Falls
+          </Link>
+          <Link href={areaPath("red-bank-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+            Dog Grooming Near Red Bank
           </Link>
         </div>
       </section>

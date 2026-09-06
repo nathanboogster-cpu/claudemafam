@@ -19,18 +19,6 @@ export function DogIcon({ className = "h-6 w-6" }: { className?: string }) {
   );
 }
 
-export function CatIcon({ className = "h-6 w-6" }: { className?: string }) {
-  return (
-    <svg {...base} className={className} aria-hidden="true">
-      <path d="M6 9 4 4l4 2.5h8L20 4l-2 5" />
-      <path d="M6 9a2 2 0 0 0-2 2v3a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6v-3a2 2 0 0 0-2-2z" />
-      <circle cx="10" cy="13" r=".6" fill="currentColor" />
-      <circle cx="14" cy="13" r=".6" fill="currentColor" />
-      <path d="M9 16h6" />
-    </svg>
-  );
-}
-
 export function DropletIcon({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg {...base} className={className} aria-hidden="true">

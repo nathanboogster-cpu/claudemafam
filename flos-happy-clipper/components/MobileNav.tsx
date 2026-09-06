@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PATHS, serviceNav, type NavItem } from "@/lib/site-data";
+import { PATHS, serviceNav, areaNav, type NavItem } from "@/lib/site-data";
 
 const coreLinks: NavItem[] = [
   { label: "Home", href: PATHS.home },
@@ -18,6 +18,7 @@ const coreLinks: NavItem[] = [
 const groups: { label: string; items: NavItem[] }[] = [
   { label: "Menu", items: coreLinks },
   { label: "Services", items: serviceNav },
+  { label: "Service Areas", items: areaNav },
 ];
 
 export function MobileNav() {
@@ -37,7 +38,7 @@ export function MobileNav() {
   }
 
   const menu = (
-    <div id="fh-mobile-menu" className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-fh-cream">
+    <div id="fh-mobile-menu" className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto bg-fh-cream">
       <nav aria-label="Mobile" className="flex flex-col p-4 font-fh-sans">
         {groups.map((group) => (
           <div key={group.label} className="mb-2">
@@ -51,7 +52,7 @@ export function MobileNav() {
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={`min-h-[44px] flex items-center border-b border-fh-border px-2 text-lg font-medium ${
-                    active ? "text-fh-amber-dark" : "text-fh-ink"
+                    active ? "text-fh-pink-dark" : "text-fh-ink"
                   }`}
                 >
                   {item.label}

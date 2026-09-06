@@ -10,7 +10,7 @@ export function StatBand({ className = "" }: { className?: string }) {
     >
       {trustStats.map((s) => (
         <div key={s.label} className="flex flex-col items-center justify-center gap-1 px-4 py-6 text-center">
-          <span className="font-fh-display text-2xl font-bold text-fh-amber-dark sm:text-3xl">{s.value}</span>
+          <span className="font-fh-display text-2xl font-bold text-fh-pink-dark sm:text-3xl">{s.value}</span>
           <span className="text-xs font-semibold uppercase tracking-wide text-fh-ink-soft">{s.label}</span>
         </div>
       ))}

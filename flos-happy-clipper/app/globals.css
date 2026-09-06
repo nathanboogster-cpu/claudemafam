@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* No real Flo's Happy Clipper brand assets were reachable for this build
-     (Facebook/site fetches were blocked), so this is an original warm,
-     Main-Street-salon palette rather than a sampled logo — distinct from
-     every other Tongfluence client's palette. Amber/rust on a warm cream
-     ground, deep brown ink for text. The "-dark"/"-darker" values are the
-     WCAG AA text-safe variants for body copy and button fills; the base
-     amber is decorative only (icon fills, borders, small accents). */
-  --color-fh-cream: #fbf6ee;
-  --color-fh-cream-deep: #f1e0bc;
-  --color-fh-ink: #2a2118;
-  --color-fh-ink-soft: #6b5c47;
-  --color-fh-amber: #e8ab5c;
-  --color-fh-amber-dark: #92400e;
-  --color-fh-amber-darker: #6b2f0a;
+  /* Palette sampled from the real Flo's Happy Clipper logo (a circular
+     badge: sky-blue ring, pink center, navy poodle outline/wordmark, cream
+     ground, green leaf accents — see public/images/logo.svg). "-dark"/
+     "-darker" are the WCAG AA text-safe variants for body copy and button
+     fills; the base pink/blue are decorative only (icon fills, borders,
+     small accents, never body text or a button fill under white text). */
+  --color-fh-cream: #fdf5ea;
+  --color-fh-cream-deep: #fbe4ec;
+  --color-fh-ink: #22305c;
+  --color-fh-ink-soft: #52608a;
+  --color-fh-pink: #f3b8ce;
+  --color-fh-pink-dark: #b23a63;
+  --color-fh-pink-darker: #8a2c4d;
+  --color-fh-blue: #9ed3ea;
+  --color-fh-blue-dark: #2c6f8e;
   --color-fh-white: #ffffff;
-  --color-fh-border: #e8d9b8;
+  --color-fh-border: #f6d9e2;
 }
 
 @theme inline {
@@ -24,14 +25,16 @@
   --color-fh-cream-deep: var(--color-fh-cream-deep);
   --color-fh-ink: var(--color-fh-ink);
   --color-fh-ink-soft: var(--color-fh-ink-soft);
-  --color-fh-amber: var(--color-fh-amber);
-  --color-fh-amber-dark: var(--color-fh-amber-dark);
-  --color-fh-amber-darker: var(--color-fh-amber-darker);
+  --color-fh-pink: var(--color-fh-pink);
+  --color-fh-pink-dark: var(--color-fh-pink-dark);
+  --color-fh-pink-darker: var(--color-fh-pink-darker);
+  --color-fh-blue: var(--color-fh-blue);
+  --color-fh-blue-dark: var(--color-fh-blue-dark);
   --color-fh-white: var(--color-fh-white);
   --color-fh-border: var(--color-fh-border);
-  /* Warm serif display, rounded friendly sans. */
+  /* Playful rounded display (matches the logo's wordmark), friendly rounded sans. */
   --font-fh-sans: var(--font-nunito), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-fh-display: var(--font-fraunces), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+  --font-fh-display: var(--font-baloo), "Segoe UI", ui-rounded, system-ui, sans-serif;
 }
 
 html {

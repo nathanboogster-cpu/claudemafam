@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
@@ -40,8 +41,12 @@ export default function AboutPage() {
           </p>
           <p className="mt-4 text-fh-ink-soft">
             Our Main St location puts us right in the heart of Eatontown, which makes us a convenient,
-            personal alternative to big-box grooming chains for pet owners throughout Eatontown and the
-            surrounding Monmouth County communities.
+            personal alternative to big-box grooming chains for pet owners throughout Eatontown and any
+            surrounding town within about a{" "}
+            <Link href={PATHS.serviceAreas} className="font-semibold text-fh-pink-dark hover:underline">
+              20-minute drive
+            </Link>
+            .
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CallButton location="about" variant="primary" />
@@ -88,7 +93,7 @@ export default function AboutPage() {
             "Personalized, one-on-one attention",
           ].map((f) => (
             <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
-              <CheckIcon className="h-4 w-4 shrink-0 text-fh-amber-dark" />
+              <CheckIcon className="h-4 w-4 shrink-0 text-fh-pink-dark" />
               {f}
             </li>
           ))}
