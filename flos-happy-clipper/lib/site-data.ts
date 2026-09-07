@@ -125,6 +125,10 @@ export const photos: Record<string, Photo> = {
   salonInterior: { alt: "Inside the Flo's Happy Clipper grooming salon" },
 } as const;
 
+// `isFlagship` marks the two full appointment types (shown on the homepage
+// and grouped first on the services hub); the add-on services below are
+// real line items from the business's own Google Business Profile service
+// list — quick services bookable on their own or added to a bath or groom.
 export const services = [
   {
     slug: "dog-grooming",
@@ -138,6 +142,34 @@ export const services = [
     name: "Dog Bathing",
     shortName: "Dog Bathing",
     summary: "A thorough bath and brush-out for dogs who need a refresh between full grooms.",
+    isFlagship: true,
+  },
+  {
+    slug: "dog-nail-trimming",
+    name: "Dog Nail Trimming",
+    shortName: "Nail Trimming",
+    summary: "A quick, careful nail trim — on its own or added to a bath or full groom.",
+    isFlagship: false,
+  },
+  {
+    slug: "dog-ear-cleaning",
+    name: "Dog Ear Cleaning",
+    shortName: "Ear Cleaning",
+    summary: "Gentle ear cleaning to help prevent buildup and irritation.",
+    isFlagship: false,
+  },
+  {
+    slug: "dog-flea-tick-treatment",
+    name: "Dog Flea & Tick Treatment",
+    shortName: "Flea & Tick Treatment",
+    summary: "A flea and tick treatment to help keep your dog comfortable and pest-free.",
+    isFlagship: false,
+  },
+  {
+    slug: "dog-anal-gland-expression",
+    name: "Dog Anal Gland Expression",
+    shortName: "Gland Expression",
+    summary: "A quick, discreet anal gland expression, on its own or added to a bath or groom.",
     isFlagship: false,
   },
 ] as const;

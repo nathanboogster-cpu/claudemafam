@@ -121,6 +121,16 @@ export function PuppyIcon({ className = "h-6 w-6" }: { className?: string }) {
   );
 }
 
+export function BugIcon({ className = "h-6 w-6" }: { className?: string }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <ellipse cx="12" cy="13" rx="4.5" ry="6" />
+      <path d="M12 7V4M9.5 5 8 3M14.5 5 16 3" />
+      <path d="M7.5 10 4 9M7.5 13H4M7.5 16 4 17M16.5 10 20 9M16.5 13h3.5M16.5 16 20 17" />
+    </svg>
+  );
+}
+
 export function PhoneIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg {...base} className={className} aria-hidden="true">

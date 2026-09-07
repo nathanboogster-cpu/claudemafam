@@ -82,6 +82,26 @@ npm run lint    # eslint
   Clipper is purely a dog grooming business, despite some older
   third-party directories referencing cats/kittens as a specialty. No cat
   grooming content or `/services/cat-grooming` page should be added.
+- **Doodles, poodles, and small/medium dogs — the current marketing
+  focus, per the owner.** The owner no longer wants to promote large-breed
+  grooming (it's physically harder on her and lower-margin) and asked to
+  emphasize doodles, poodles, and small/medium dogs instead. All
+  "comfortable with large-breed & double-coated dogs" claims were removed
+  site-wide in favor of doodle/poodle specialty language. This is a
+  marketing emphasis shift, not a stated refusal — the site doesn't say
+  large dogs aren't accepted, since that wasn't explicitly confirmed.
+- **Full service list added from the owner's own Google Business Profile
+  services.** Beyond the two full appointments (Dog Grooming, Dog Bathing),
+  `services` in `lib/site-data.ts` now includes four add-on services the
+  owner already lists on her Google Business Profile: Dog Nail Trimming,
+  Dog Ear Cleaning, Dog Flea & Tick Treatment, and Dog Anal Gland
+  Expression — each with its own page under `/services/<slug>`, shown in
+  the "Add-On Services" section of the services hub. Adding an entry to
+  that array automatically updates the sitemap, nav, footer links, and hub
+  grid — but each service still needs its own `app/(site)/services/<slug>/page.tsx`
+  file (copy an existing one as a template) or its detail page will 404.
+  `isFlagship: true` controls which services also appear as cards on the
+  homepage.
 - **No parking guidance.** Public sources mention a lot but this wasn't
   verified, so the Contact page doesn't make a specific parking claim.
 - **Service area radius is owner-confirmed, but individual towns are our
