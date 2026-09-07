@@ -12,6 +12,7 @@ import {
   business,
   daycarePlayrooms,
   daycareOutdoor,
+  daycarePricing,
   vaccinationRequirements,
   temperamentTest,
   PATHS,
@@ -54,6 +55,7 @@ export default function DogDaycarePage() {
           name: "Dog Daycare",
           description:
             "Size-appropriate indoor playrooms and secure outdoor play areas, fully supervised, for dogs in Marietta, GA and West Cobb.",
+          priceRange: { min: daycarePricing.halfDay.price, max: daycarePricing.fullDay.price },
         })}
       />
       <JsonLd

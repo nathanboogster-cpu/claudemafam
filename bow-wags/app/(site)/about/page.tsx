@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { business, differentiators, groomer, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About Bow Wags",
+  title: "About Us",
   description:
     "Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA — clean, safe, fully supervised care known to some regulars as \"Wagsville.\"",
   path: PATHS.about,
