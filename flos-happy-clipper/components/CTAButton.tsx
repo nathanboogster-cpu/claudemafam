@@ -7,13 +7,16 @@ import { PhoneIcon } from "./icons";
 type Variant = "primary" | "secondary" | "ghost";
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-fh-pink-dark text-white hover:bg-fh-pink-darker focus-visible:outline-fh-pink-dark",
-  secondary: "bg-transparent text-fh-ink border-2 border-fh-ink hover:bg-fh-ink/5 focus-visible:outline-fh-ink",
-  ghost: "bg-white text-fh-ink border border-fh-border hover:bg-fh-cream-deep focus-visible:outline-fh-ink",
+  primary:
+    "bg-gradient-to-b from-fh-pink-dark to-fh-pink-darker text-white shadow-md shadow-fh-pink-dark/25 hover:shadow-lg hover:shadow-fh-pink-dark/35 hover:-translate-y-0.5 focus-visible:outline-fh-pink-dark",
+  secondary:
+    "bg-transparent text-fh-ink border-2 border-fh-ink hover:bg-fh-ink hover:text-white hover:-translate-y-0.5 focus-visible:outline-fh-ink",
+  ghost:
+    "bg-white text-fh-ink border border-fh-border shadow-sm hover:border-fh-pink-dark/40 hover:bg-fh-cream-deep hover:-translate-y-0.5 focus-visible:outline-fh-ink",
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold shadow-sm transition-colors min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 font-fh-sans";
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-all duration-200 min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 font-fh-sans";
 
 export function CallButton({
   variant = "primary",

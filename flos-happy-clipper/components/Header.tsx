@@ -8,7 +8,7 @@ import { NavDropdown } from "./NavDropdown";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 h-20 border-b border-fh-border bg-fh-cream/95 backdrop-blur supports-[backdrop-filter]:bg-fh-cream/80 font-fh-sans">
+    <header className="sticky top-0 z-50 h-20 border-b border-fh-border bg-fh-cream/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-fh-cream/80 font-fh-sans">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4">
         <Link href={PATHS.home} className="flex shrink-0 items-center gap-2" aria-label={business.name}>
           <Image src={business.logo} alt={business.name} width={742} height={648} className="h-14 w-auto sm:h-16" priority />

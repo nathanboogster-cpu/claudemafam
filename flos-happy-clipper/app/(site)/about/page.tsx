@@ -28,7 +28,9 @@ export default function AboutPage() {
       />
       <Breadcrumbs items={[{ name: "Home", href: PATHS.home }, { name: "About", href: PATHS.about }]} />
 
-      <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 lg:grid-cols-2">
+      <section className="relative overflow-hidden">
+        <div className="fh-blob -left-24 top-0 h-64 w-64 bg-fh-pink/20" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 lg:grid-cols-2">
         <div>
           <Eyebrow>About Flo&apos;s Happy Clipper</Eyebrow>
           <h1 className="mt-1 font-fh-display text-4xl font-bold text-fh-ink sm:text-5xl">
@@ -54,20 +56,24 @@ export default function AboutPage() {
           </div>
         </div>
         <PhotoPlaceholder caption={photos.bichonPoodleMix.alt} src={photos.bichonPoodleMix.src} aspect="portrait" className="w-full" priority />
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-4">
         <StatBand />
       </section>
 
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">
             What Makes Flo&apos;s Happy Clipper Different
           </h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             {differentiators.map((d) => (
-              <div key={d.title} className="rounded-2xl border border-fh-border bg-white p-6">
+              <div
+                key={d.title}
+                className="rounded-2xl border border-fh-border bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+              >
                 <p className="font-semibold text-fh-ink">{d.title}</p>
                 <p className="mt-1 text-sm text-fh-ink-soft">{d.body}</p>
               </div>
@@ -100,8 +106,9 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section className="bg-fh-ink text-white">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
+      <section className="relative overflow-hidden bg-fh-ink text-white">
+        <div className="fh-blob -right-20 top-0 h-64 w-64 bg-fh-pink/20" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
           <h2 className="font-fh-display text-3xl font-bold">Ready to Meet Flo&apos;s Happy Clipper?</h2>
           <p className="text-white/80">Call {business.phoneDisplay} to schedule your dog&apos;s grooming appointment.</p>
           <CallButton location="about_cta" variant="primary" className="mt-2" />

@@ -3,7 +3,7 @@
 :root {
   /* Palette sampled from the real Flo's Happy Clipper logo (a circular
      badge: sky-blue ring, pink center, navy poodle outline/wordmark, cream
-     ground, green leaf accents — see public/images/logo.svg). "-dark"/
+     ground, green leaf accents — see public/images/logo.jpg). "-dark"/
      "-darker" are the WCAG AA text-safe variants for body copy and button
      fills; the base pink/blue are decorative only (icon fills, borders,
      small accents, never body text or a button fill under white text). */
@@ -60,4 +60,46 @@ body {
   body {
     padding-bottom: 4.25rem;
   }
+}
+
+/* Soft decorative color blobs — dropped behind hero/CTA content for depth.
+   Pure CSS, no images, no layout impact (absolutely positioned + blurred). */
+.fh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A gentle one-shot rise-and-fade for above-the-fold content. Runs once on
+   load, never loops, and is skipped entirely for reduced-motion users. */
+@media (prefers-reduced-motion: no-preference) {
+  .fh-rise {
+    animation: fh-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .fh-rise-delay-1 {
+    animation-delay: 0.08s;
+  }
+  .fh-rise-delay-2 {
+    animation-delay: 0.16s;
+  }
+}
+
+@keyframes fh-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle paw-print pattern for section backgrounds — a repeating inline SVG
+   data URI, very low opacity, purely decorative texture. */
+.fh-paw-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='%2322305c' fill-opacity='0.035'%3E%3Cellipse cx='32' cy='40' rx='9' ry='7'/%3E%3Cellipse cx='22' cy='28' rx='4' ry='5'/%3E%3Cellipse cx='42' cy='28' rx='4' ry='5'/%3E%3Cellipse cx='27' cy='20' rx='3.4' ry='4.4'/%3E%3Cellipse cx='37' cy='20' rx='3.4' ry='4.4'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
 }

@@ -34,7 +34,7 @@ export default function ContactPage() {
           is by phone.
         </p>
 
-        <div className="mt-10 rounded-3xl border border-fh-border bg-fh-cream-deep p-8 sm:p-10">
+        <div className="fh-paw-pattern mt-10 rounded-3xl border border-fh-border bg-fh-cream-deep p-8 sm:p-10 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-wide text-fh-pink-dark">Call to Schedule</p>
           <a href={business.phoneHref} className="mt-2 block font-fh-display text-4xl font-bold text-fh-ink hover:text-fh-pink-dark">
             {business.phoneDisplay}

@@ -42,19 +42,20 @@ export default function ReviewsPage() {
         <Eyebrow>Reviews</Eyebrow>
         <h1 className="mt-1 font-fh-display text-4xl font-bold text-fh-ink sm:text-5xl">What Pet Owners Say</h1>
 
-        <div className="mx-auto mt-10 max-w-md rounded-3xl border-2 border-fh-pink/30 bg-white p-8 shadow-lg">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-fh-pink-dark text-fh-cream">
+        <div className="relative mx-auto mt-10 max-w-md overflow-hidden rounded-3xl border-2 border-fh-pink/30 bg-white p-8 shadow-lg">
+          <div className="fh-blob -right-10 -top-10 h-32 w-32 bg-fh-pink/20" aria-hidden="true" />
+          <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-fh-pink-dark to-fh-pink-darker text-fh-cream shadow-md">
             <HeartIcon className="h-8 w-8" />
           </div>
-          <p className="mt-4 font-fh-display text-2xl font-bold text-fh-ink">A Longtime Local Favorite</p>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-fh-ink-soft">
+          <p className="relative mt-4 font-fh-display text-2xl font-bold text-fh-ink">A Longtime Local Favorite</p>
+          <p className="relative mt-2 text-sm font-semibold uppercase tracking-wide text-fh-ink-soft">
             Read What Eatontown Pet Owners Say
           </p>
           <a
             href={business.googleSearchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-fh-pink-dark px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-fh-pink-darker"
+            className="relative mt-6 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-b from-fh-pink-dark to-fh-pink-darker px-6 py-3 text-base font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
           >
             Read Current Reviews on Google
           </a>

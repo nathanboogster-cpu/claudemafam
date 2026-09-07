@@ -29,12 +29,14 @@ export function PhotoPlaceholder({
 
   if (src) {
     return (
-      <div className={`${aspectClass} ${className} relative overflow-hidden rounded-2xl border border-fh-border`}>
+      <div
+        className={`${aspectClass} ${className} group relative overflow-hidden rounded-2xl border border-fh-border shadow-sm ring-1 ring-black/5 transition-shadow duration-300 hover:shadow-lg`}
+      >
         <Image
           src={src}
           alt={caption}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={priority}
         />

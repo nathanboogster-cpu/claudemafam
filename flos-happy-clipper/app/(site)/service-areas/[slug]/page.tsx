@@ -112,7 +112,7 @@ export default async function ServiceAreaPage({
         <PhotoPlaceholder caption={heroPhoto.alt} src={heroPhoto.src} aspect="portrait" className="w-full" priority />
       </section>
 
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">
             Why {area.city} Pet Owners Choose Flo&apos;s Happy Clipper
@@ -135,7 +135,7 @@ export default async function ServiceAreaPage({
             <Link
               key={s.slug}
               href={servicePath(s.slug)}
-              className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark"
+              className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark"
             >
               {s.shortName}
             </Link>
@@ -147,8 +147,9 @@ export default async function ServiceAreaPage({
         <FaqBlock items={content.faqs} />
       </section>
 
-      <section className="bg-fh-ink text-white">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
+      <section className="relative overflow-hidden bg-fh-ink text-white">
+        <div className="fh-blob -left-16 top-0 h-56 w-56 bg-fh-pink/20" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
           <h2 className="font-fh-display text-3xl font-bold">Book Grooming From {area.city}</h2>
           <p className="text-white/80">Call {business.phoneDisplay} to schedule.</p>
           <CallButton location={`area_${area.slug}_cta`} variant="primary" className="mt-2" />
