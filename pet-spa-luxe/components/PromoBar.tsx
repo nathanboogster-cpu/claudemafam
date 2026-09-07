@@ -2,7 +2,7 @@ import Link from "next/link";
 import { fullGroomingPackage, servicePath, business } from "@/lib/site-data";
 import { SparkleIcon } from "@/components/icons";
 
-// Slim, site-wide banner reinforcing the verified $110 flat-rate package on
+// Slim, site-wide banner reinforcing the verified, size-based pricing on
 // every page — pricing transparency is a strong, honest conversion lever.
 export function PromoBar() {
   return (
@@ -13,7 +13,7 @@ export function PromoBar() {
       >
         <SparkleIcon className="h-4 w-4 shrink-0 text-psl-brass" />
         <span>
-          <strong className="text-psl-brass">{fullGroomingPackage.name}</strong> — {fullGroomingPackage.price}, all-inclusive
+          <strong className="text-psl-brass">{fullGroomingPackage.name}</strong> — {fullGroomingPackage.price}, all-inclusive, priced by size
         </span>
         <span className="hidden text-white/60 sm:inline">·</span>
         <span className="underline decoration-psl-brass/60 underline-offset-2">See what&apos;s included</span>

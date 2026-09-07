@@ -4,6 +4,7 @@ import { TrustBar } from "@/components/TrustBar";
 import { StatBand } from "@/components/StatBand";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { ServiceCard } from "@/components/ServiceCard";
+import { SizePricingTable } from "@/components/SizePricingTable";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -23,6 +24,7 @@ import {
   servicePath,
   areaPath,
   photos,
+  googleReviews,
   PATHS,
 } from "@/lib/site-data";
 
@@ -161,6 +163,15 @@ export default function PetSpaLuxeHome() {
             />
           ))}
         </div>
+
+        <div className="mt-12">
+          <h3 className="text-center font-psl-display text-xl font-bold text-psl-ink">
+            Pricing by Dog Size
+          </h3>
+          <div className="mx-auto mt-5 max-w-3xl">
+            <SizePricingTable />
+          </div>
+        </div>
       </section>
 
       {/* Mobile value proposition */}
@@ -267,9 +278,20 @@ export default function PetSpaLuxeHome() {
             Rated {business.yelpRating} Stars on Yelp
           </h2>
           <p className="mt-4 text-white/80">
-            Read verified Pet Spa Luxe reviews directly on Yelp — we link straight
-            to the source rather than picking quotes for you.
+            A real 5-star review from Pet Spa Luxe&apos;s Google Business
+            Profile — read more reviews directly on Yelp below.
           </p>
+          <blockquote className="mx-auto mt-8 max-w-lg rounded-2xl border border-white/15 bg-white/5 p-6 text-left">
+            <div className="flex text-psl-brass" aria-hidden="true">
+              {Array.from({ length: googleReviews[0].rating }).map((_, i) => (
+                <StarIcon key={i} className="h-4 w-4" />
+              ))}
+            </div>
+            <p className="mt-3 text-white/90">&ldquo;{googleReviews[0].text}&rdquo;</p>
+            <footer className="mt-3 text-sm font-semibold text-white/70">
+              {googleReviews[0].author}, Google review
+            </footer>
+          </blockquote>
           <a
             href={business.yelpUrl}
             target="_blank"

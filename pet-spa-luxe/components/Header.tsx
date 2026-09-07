@@ -3,7 +3,7 @@ import Link from "next/link";
 import { business, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
-import { CallButton } from "./CTAButton";
+import { CallButton, RequestButton } from "./CTAButton";
 import { NavDropdown } from "./NavDropdown";
 
 export function Header() {
@@ -46,6 +46,7 @@ export function Header() {
           <a href={business.phoneHref} className="text-sm font-semibold text-psl-ink-soft hover:text-psl-brass-dark whitespace-nowrap">
             {business.phoneDisplay}
           </a>
+          <RequestButton location="header" variant="secondary" className="px-4 py-2 text-sm" />
           <CallButton location="header" variant="primary" className="px-4 py-2 text-sm" />
         </div>
 

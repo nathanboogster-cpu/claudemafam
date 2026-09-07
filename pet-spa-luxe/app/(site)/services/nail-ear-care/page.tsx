@@ -96,7 +96,7 @@ export default function NailEarCarePage() {
             Dog Haircuts & Full Grooming
           </Link>
           <Link href={servicePath("bath-deshedding")} className="rounded-full border border-psl-border bg-white px-4 py-2 text-sm font-medium text-psl-ink hover:border-psl-brass">
-            Warm Water Bath & Deshedding
+            Essential Bath
           </Link>
         </div>
       </section>

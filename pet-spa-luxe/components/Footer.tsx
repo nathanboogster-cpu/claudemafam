@@ -12,6 +12,7 @@ const companyLinks = [
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
+  { label: "Book Appointment", href: PATHS.bookAppointment },
 ];
 
 export function Footer() {
