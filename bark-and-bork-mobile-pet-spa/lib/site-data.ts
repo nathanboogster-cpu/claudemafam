@@ -31,6 +31,10 @@ export const business = {
   homeBase: "Compton, CA",
   primaryMarket: "Los Angeles",
   broadMarket: "Greater Los Angeles / Los Angeles County",
+  // Handle "Barkandbork" confirmed independently on both the van wrap and
+  // the business card. Used for schema.org sameAs and the footer link.
+  instagramHandle: "Barkandbork",
+  instagramUrl: "https://www.instagram.com/barkandbork/",
   // Existing GlossGenius online booking platform — the primary conversion
   // destination for every "Book Now" CTA on this site. Never replaced with a
   // fabricated internal booking form.

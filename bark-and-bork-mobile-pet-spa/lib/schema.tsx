@@ -1,4 +1,4 @@
-import { business, hoursSchema, cancellationPolicy, SITE_URL } from "./site-data";
+import { business, hoursSchema, cancellationPolicy, serviceAreas, bathAndTidy, fullGroom, SITE_URL } from "./site-data";
 
 export function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
@@ -47,10 +47,12 @@ function serviceAreaAddress() {
   };
 }
 
+// Sourced from the real serviceAreas list (lib/site-data.ts) so structured
+// data can never drift out of sync with the actual city pages the site
+// publishes.
 function areaServedList() {
   return [
-    { "@type": "City", name: "Compton, CA" },
-    { "@type": "City", name: "Los Angeles, CA" },
+    ...serviceAreas.map((a) => ({ "@type": "City", name: `${a.city}, ${a.state}` })),
     { "@type": "AdministrativeArea", name: "Los Angeles County, CA" },
   ];
 }
@@ -74,6 +76,12 @@ export function localBusinessSchema(pageUrl: string) {
       closes: h.closes,
     })),
     areaServed: areaServedList(),
+    // Derived from the real Bath & Tidy (small) through Full Groom
+    // (extra-large) starting prices — never a fabricated tier.
+    priceRange: `${bathAndTidy.pricing.small.price.replace("+", "")} - ${fullGroom.pricing.xlarge.price}`,
+    image: `${SITE_URL}/images/van-exterior-side.jpg`,
+    // Confirmed independently on both the van wrap and the business card.
+    sameAs: [business.instagramUrl],
     // Google's documented pattern for service-area businesses: no fixed
     // storefront, so hasMap/an exact geo point is intentionally omitted.
   };
