@@ -6,18 +6,25 @@ import { StatBand } from "@/components/StatBand";
 import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { DogIcon, ScissorsIcon } from "@/components/icons";
+import { DogIcon, ScissorsIcon, NailIcon, DropletIcon, BugIcon, ShieldCheckIcon } from "@/components/icons";
 import { services, servicePath, PATHS, SITE_URL } from "@/lib/site-data";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "dog-grooming": <DogIcon className="h-6 w-6" />,
   "dog-bathing": <ScissorsIcon className="h-6 w-6" />,
+  "dog-nail-trimming": <NailIcon className="h-6 w-6" />,
+  "dog-ear-cleaning": <DropletIcon className="h-6 w-6" />,
+  "dog-flea-tick-treatment": <BugIcon className="h-6 w-6" />,
+  "dog-anal-gland-expression": <ShieldCheckIcon className="h-6 w-6" />,
 };
+
+const fullAppointments = services.filter((s) => s.isFlagship);
+const addOnServices = services.filter((s) => !s.isFlagship);
 
 export const metadata: Metadata = pageMetadata({
   title: "Dog Grooming Services in Eatontown, NJ",
   description:
-    "Explore Flo's Happy Clipper's dog grooming services: full-service grooming and standalone bathing — all at our Main St salon in Eatontown, NJ.",
+    "Explore Flo's Happy Clipper's dog grooming services: full grooms, bathing, nail trimming, ear cleaning, flea & tick treatment, and anal gland expression — all at our Main St salon in Eatontown, NJ.",
   path: PATHS.services,
 });
 
@@ -42,9 +49,25 @@ export default function ServicesHub() {
 
         <StatBand className="mt-10" />
 
-        <h2 className="mt-14 font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Choose a Service</h2>
+        <h2 className="mt-14 font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Full Grooming Appointments</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          {services.map((s) => (
+          {fullAppointments.map((s) => (
+            <ServiceCard
+              key={s.slug}
+              title={s.name}
+              description={s.summary}
+              href={servicePath(s.slug)}
+              icon={serviceIcons[s.slug]}
+            />
+          ))}
+        </div>
+
+        <h2 className="mt-14 font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Add-On Services</h2>
+        <p className="mt-2 max-w-2xl text-fh-ink-soft">
+          Available on their own as a quick appointment, or added to any bath or full groom.
+        </p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {addOnServices.map((s) => (
             <ServiceCard
               key={s.slug}
               title={s.name}

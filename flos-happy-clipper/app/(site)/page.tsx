@@ -89,15 +89,20 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {services.map((s) => (
-            <ServiceCard
-              key={s.slug}
-              title={s.shortName}
-              description={s.summary}
-              href={servicePath(s.slug)}
-              icon={serviceIcons[s.slug]}
-            />
-          ))}
+          {services
+            .filter((s) => s.isFlagship)
+            .map((s) => (
+              <ServiceCard
+                key={s.slug}
+                title={s.shortName}
+                description={s.summary}
+                href={servicePath(s.slug)}
+                icon={serviceIcons[s.slug]}
+              />
+            ))}
+        </div>
+        <div className="mt-8 flex justify-center">
+          <SecondaryLinkButton location="home_services_teaser" variant="ghost" label="See All Services" href={PATHS.services} />
         </div>
       </section>
 
