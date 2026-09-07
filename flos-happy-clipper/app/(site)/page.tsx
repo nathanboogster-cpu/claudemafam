@@ -28,9 +28,9 @@ const homeFaqs = [
     answer: "We're open Tuesday through Saturday, 9:00 AM to 5:00 PM. Closed Sunday and Monday.",
   },
   {
-    question: "Do you groom large or double-coated dogs?",
+    question: "Do you groom doodles and poodles?",
     answer:
-      "Yes — pet owners regularly bring large-breed and double-coated dogs to Flo's Happy Clipper, including German Shepherds and Portuguese Water Dogs.",
+      "Yes — doodles and poodles are some of our favorite dogs to groom, and we're experienced with a wide range of specialty poodle and doodle trims.",
   },
 ];
 
@@ -209,8 +209,8 @@ export default function HomePage() {
             A Longtime Favorite for Eatontown Pet Owners
           </h2>
           <p className="mt-4 text-white/80">
-            Pet owners in and around Eatontown regularly mention patient handling, comfortable results for
-            large and double-coated breeds, and long-term relationships with the same trusted groomer.
+            Pet owners in and around Eatontown regularly mention patient handling, beautiful doodle and
+            poodle trims, and long-term relationships with the same trusted groomer.
           </p>
           <a
             href={business.googleSearchUrl}

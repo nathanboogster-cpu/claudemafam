@@ -29,9 +29,9 @@ const faqs = [
       " and we can talk through exactly what your dog needs based on breed, coat, and age.",
   },
   {
-    question: "Do you groom large or double-coated dogs?",
+    question: "Do you groom doodles and poodles?",
     answer:
-      "Yes. Local pet owners regularly bring in large-breed and double-coated dogs — including German Shepherds and Portuguese Water Dogs — and mention how comfortable they are with the results.",
+      "Yes. Doodles and poodles are some of our specialties, and pet owners regularly mention how pleased they are with the trim.",
   },
   {
     question: "Can you groom nervous or first-time dogs?",
@@ -98,7 +98,8 @@ export default function DogGroomingPage() {
               "A haircut or trim suited to your dog's breed and coat",
               "Nail trim and ear cleaning",
               "Personal, one-on-one attention — not a rushed assembly line",
-              "Comfortable handling for nervous, large-breed, and double-coated dogs",
+              "Comfortable handling for nervous and first-time dogs",
+              "Skilled with doodle & poodle trims",
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
                 <CheckIcon className="h-4 w-4 shrink-0 text-fh-pink-dark" />

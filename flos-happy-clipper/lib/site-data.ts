@@ -146,10 +146,9 @@ export type ServiceSlug = (typeof services)[number]["slug"];
 
 // Verified, safe-to-state differentiators — sourced from the business's
 // long operating history and the recurring themes in its public customer
-// feedback (patient handling, personalized service, comfort with large and
-// double-coated dogs, repeat customers). Nothing here is a specific
-// itemized service claim, ownership claim, or founding date beyond what's
-// confirmed.
+// feedback (patient handling, personalized service, skill with doodle and
+// poodle coats, repeat customers). Nothing here is a specific itemized
+// service claim, ownership claim, or founding date beyond what's confirmed.
 export const differentiators = [
   {
     title: "A Long-Established Eatontown Grooming Salon",
@@ -160,8 +159,8 @@ export const differentiators = [
     body: "A local grooming salon run out of Eatontown, with the personal attention that comes with it.",
   },
   {
-    title: "Comfortable With Large & Double-Coated Breeds",
-    body: "Local pet owners regularly mention how well their large-breed and double-coated dogs — German Shepherds, Portuguese Water Dogs, and more — are handled here.",
+    title: "A Favorite for Doodles & Poodles",
+    body: "Doodles and poodles are some of our specialties — pet owners regularly mention how pleased they are with the trim, from teddy-bear cuts to full poodle clips.",
   },
   {
     title: "Patient With Nervous & First-Time Dogs",
@@ -175,7 +174,7 @@ export const trustStats = [
   { value: "Established", label: "Local Salon" },
   { value: "Eatontown", label: "Main St Location" },
   { value: "Dog Grooming", label: "Our Specialty" },
-  { value: "6 Days", label: "Open Tue–Sat" },
+  { value: "5 Days", label: "Open Tue–Sat" },
 ] as const;
 
 export type NavItem = { label: string; href: string };
@@ -303,7 +302,7 @@ export const areaContent: Record<
       "Right on the Tinton Falls border — one of the shortest drives around",
       "A long-established local salon, not a national chain",
       "Personal, one-on-one attention for every dog",
-      "Comfortable with large and double-coated breeds",
+      "Skilled with doodle & poodle trims",
     ],
     faqs: [
       {
@@ -331,7 +330,7 @@ export const areaContent: Record<
     whyChoose: [
       "Just east of Eatontown, near the Shrewsbury River",
       "An established local salon with years of grooming experience",
-      "Comfortable with large and double-coated breeds",
+      "Skilled with doodle & poodle trims",
       "Personal, one-on-one attention — not a rushed chain-salon visit",
     ],
     faqs: [
@@ -340,8 +339,8 @@ export const areaContent: Record<
         answer: "Yes — Oceanport is just east of our Eatontown salon, and we welcome pet owners from the area.",
       },
       {
-        question: "Do you groom large-breed dogs for Oceanport customers?",
-        answer: "Yes, we regularly groom large-breed and double-coated dogs, including German Shepherds and Portuguese Water Dogs.",
+        question: "Do you groom doodles and poodles for Oceanport customers?",
+        answer: "Yes — doodles and poodles are some of our favorite dogs to groom, and we're experienced with a range of specialty trims.",
       },
       {
         question: "How do I schedule from Oceanport?",
@@ -389,7 +388,7 @@ export const areaContent: Record<
     whyChoose: [
       "A short drive inland from the Long Branch waterfront",
       "An established local salon with years of grooming experience",
-      "Comfortable with large and double-coated breeds",
+      "A favorite stop for small & medium dogs",
       "Experienced with poodles and other specialty coats",
     ],
     faqs: [
@@ -419,7 +418,7 @@ export const areaContent: Record<
       "A short drive south via Route 35",
       "A long-established local salon, not a national chain",
       "Personal, one-on-one attention for every dog",
-      "Comfortable with large and double-coated breeds",
+      "Skilled with doodle & poodle trims",
     ],
     faqs: [
       {
@@ -448,7 +447,7 @@ export const areaContent: Record<
       "A short drive south of downtown Red Bank",
       "An established local salon with years of grooming experience",
       "Personal, one-on-one attention instead of a rushed chain-salon visit",
-      "Comfortable with large and double-coated breeds",
+      "Skilled with doodle & poodle trims",
     ],
     faqs: [
       {
@@ -456,8 +455,8 @@ export const areaContent: Record<
         answer: "Yes — Red Bank pet owners are welcome at our Eatontown salon, a short drive south of downtown.",
       },
       {
-        question: "Do you groom large-breed dogs for Red Bank customers?",
-        answer: "Yes, we regularly groom large-breed and double-coated dogs, including German Shepherds and Portuguese Water Dogs.",
+        question: "Do you groom doodles and poodles for Red Bank customers?",
+        answer: "Yes — doodles and poodles are some of our favorite dogs to groom, and we're experienced with a range of specialty trims.",
       },
       {
         question: "How do I schedule from Red Bank?",
@@ -505,7 +504,7 @@ export const areaContent: Record<
     whyChoose: [
       "A short drive inland from the Monmouth Beach oceanfront",
       "An established local salon with years of grooming experience",
-      "Comfortable with large and double-coated breeds",
+      "A favorite stop for small & medium dogs",
       "Experienced with poodles and other specialty coats",
     ],
     faqs: [
