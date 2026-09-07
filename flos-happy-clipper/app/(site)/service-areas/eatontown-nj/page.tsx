@@ -81,7 +81,7 @@ export default function EatontownPage() {
             {[
               "A local salon, right on Main St, for years",
               "Personal, one-on-one attention for every dog",
-              "Comfortable with large and double-coated breeds",
+              "Skilled with doodle & poodle trims",
               "An alternative to driving further out for a big-box chain groomer",
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">

@@ -20,9 +20,9 @@ export const metadata: Metadata = pageMetadata({
 // recurring public customer feedback, not invented quotes with names
 // attached (see AGENTS.md for the source constraints on this build).
 const reviewThemes = [
-  { title: "Great With Large & Double-Coated Breeds", body: "Owners of large-breed and double-coated dogs — including German Shepherds and Portuguese Water Dogs — regularly mention how well their dogs are handled and how they look afterward." },
+  { title: "A Favorite for Small & Toy Breeds", body: "Owners of small and toy breeds regularly mention how comfortable their dogs are and how great they look afterward." },
   { title: "Patient With Nervous & First-Time Dogs", body: "Pet owners often mention how comfortable their nervous or first-time dogs are during and after grooming." },
-  { title: "Skilled With Specialty Coats", body: "Customers bringing in poodles and other specialty-coat breeds mention being pleased with the trim." },
+  { title: "Skilled With Doodle & Poodle Trims", body: "Customers bringing in doodles, poodles, and other specialty-coat breeds mention being pleased with the trim." },
   { title: "Repeat Customers, Year After Year", body: "Many customers have used Flo's Happy Clipper for years, returning to the same familiar, trusted groomer." },
   { title: "Reasonable Pricing", body: "Pricing is frequently mentioned as fair and reasonable compared to other local options." },
 ];

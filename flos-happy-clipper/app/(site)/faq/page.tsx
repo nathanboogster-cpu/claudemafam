@@ -42,9 +42,9 @@ const faqs = [
     answer: "Tuesday through Saturday, 9:00 AM–5:00 PM. Closed Sunday and Monday.",
   },
   {
-    question: "Do you groom large dog breeds?",
+    question: "Do you groom small and medium dogs?",
     answer:
-      "Yes — we regularly groom large-breed and double-coated dogs, and pet owners often mention how comfortable their dogs are with our groomers.",
+      "Yes — small and medium dogs, including lots of doodles and poodles, make up most of what we groom day to day.",
   },
   {
     question: "Do you groom nervous or first-time dogs?",
