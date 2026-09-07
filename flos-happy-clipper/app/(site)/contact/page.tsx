@@ -8,9 +8,10 @@ import { pageMetadata } from "@/lib/metadata";
 import { business, hours, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact Us",
+  title: "Contact Flo's Happy Clipper | Dog Grooming in Eatontown, NJ",
   description: `Call Flo's Happy Clipper at ${business.phoneDisplay} to schedule dog grooming at our Main St salon in Eatontown, NJ.`,
   path: PATHS.contact,
+  titleTemplate: false,
 });
 
 export default function ContactPage() {
