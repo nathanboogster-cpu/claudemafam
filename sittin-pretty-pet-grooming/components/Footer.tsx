@@ -85,6 +85,16 @@ export function Footer() {
               </a>
             </li>
             <li>{business.addressFull}</li>
+            <li>
+              <a
+                href={business.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="hover:text-sp-purple-dark"
+              >
+                Find us on Facebook
+              </a>
+            </li>
           </ul>
           <h2 className="mt-4 text-sm font-semibold uppercase tracking-wide text-sp-ink">Hours</h2>
           <ul className="mt-2 space-y-1 text-sm">

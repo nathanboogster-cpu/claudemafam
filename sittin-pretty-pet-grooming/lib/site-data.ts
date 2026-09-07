@@ -48,6 +48,9 @@ export const business = {
   secondaryMarket: "Hagerstown, MD",
   // Real logo, supplied by the client.
   logo: "/images/logo.jpg",
+  // Verified public business Facebook page — used for the footer social
+  // link and as a schema.org sameAs entity-verification signal.
+  facebookUrl: "https://www.facebook.com/SittinPrettyPetGroom/",
 } as const;
 
 // HOURS — verified business hours. Monday and Sunday closed.

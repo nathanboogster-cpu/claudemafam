@@ -6,6 +6,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
+import { JsonLd, faqSchema } from "@/lib/schema";
 import { DogIcon, CatIcon, ScissorsIcon, NailIcon, BrushIcon, PuppyIcon, CheckIcon } from "@/components/icons";
 import { business, services, differentiators, serviceAreas, servicePath, areaPath, photos, PATHS } from "@/lib/site-data";
 
@@ -42,6 +43,7 @@ const homeFaqs = [
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={faqSchema(homeFaqs)} />
       {/* Hero */}
       <section className="bg-sp-cream">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 lg:grid-cols-2 lg:py-20">

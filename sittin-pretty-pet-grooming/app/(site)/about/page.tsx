@@ -7,7 +7,7 @@ import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, differentiators, photos, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, differentiators, services, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Us",
@@ -74,14 +74,16 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-sp-display text-2xl font-bold text-sp-ink sm:text-3xl">Our Services</h2>
         <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-          {["Full-service dog grooming", "Dog bathing & brushing", "Cat grooming", "Personalized, one-on-one attention"].map(
-            (f) => (
-              <li key={f} className="flex items-center gap-2 text-sm text-sp-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-sp-purple-dark" />
-                {f}
-              </li>
-            ),
-          )}
+          {services.map((s) => (
+            <li key={s.slug} className="flex items-center gap-2 text-sm text-sp-ink-soft">
+              <CheckIcon className="h-4 w-4 shrink-0 text-sp-purple-dark" />
+              {s.name}
+            </li>
+          ))}
+          <li className="flex items-center gap-2 text-sm text-sp-ink-soft">
+            <CheckIcon className="h-4 w-4 shrink-0 text-sp-purple-dark" />
+            Personalized, one-on-one attention
+          </li>
         </ul>
       </section>
 

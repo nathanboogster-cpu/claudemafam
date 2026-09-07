@@ -1,4 +1,11 @@
-import { business, hoursSchema, SITE_URL } from "./site-data";
+import { business, hoursSchema, serviceAreas, SITE_URL } from "./site-data";
+
+// Every town with its own service-area page — kept as real Schema.org
+// City entries so structured data matches the pages actually on the site.
+const areaServedSchema = serviceAreas.map((a) => ({
+  "@type": "City" as const,
+  name: `${a.city}, ${a.state}`,
+}));
 
 export function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
@@ -55,6 +62,8 @@ export function localBusinessSchema(pageUrl: string) {
     url: pageUrl,
     telephone: business.phoneDisplay,
     address: addressSchema(),
+    image: `${SITE_URL}${business.logo}`,
+    logo: `${SITE_URL}${business.logo}`,
     description:
       "Full-service dog and cat grooming salon in Funkstown, MD, serving pet owners throughout the Hagerstown and Halfway area.",
     openingHoursSpecification: hoursSchema.map((h) => ({
@@ -63,11 +72,8 @@ export function localBusinessSchema(pageUrl: string) {
       opens: h.opens,
       closes: h.closes,
     })),
-    areaServed: [
-      { "@type": "City", name: "Funkstown, MD" },
-      { "@type": "City", name: "Hagerstown, MD" },
-      { "@type": "City", name: "Halfway, MD" },
-    ],
+    areaServed: areaServedSchema,
+    sameAs: [business.facebookUrl],
   };
 }
 
@@ -79,11 +85,7 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
-    areaServed: [
-      { "@type": "City", name: "Funkstown, MD" },
-      { "@type": "City", name: "Hagerstown, MD" },
-      { "@type": "City", name: "Halfway, MD" },
-    ],
+    areaServed: areaServedSchema,
     provider: {
       "@type": "PetGroomer",
       name: business.name,
