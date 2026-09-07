@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HeartIcon, DogIcon } from "@/components/icons";
 import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
@@ -13,7 +14,18 @@ const companyLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-fh-border bg-fh-cream-deep text-fh-ink-soft font-fh-sans">
+    <footer className="relative bg-fh-cream-deep text-fh-ink-soft font-fh-sans">
+      <svg
+        viewBox="0 0 1440 40"
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-10 left-0 h-10 w-full text-white"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0 20C240 40 480 0 720 20C960 40 1200 0 1440 20V40H0V20Z"
+          fill="currentColor"
+        />
+      </svg>
       <div className="border-b border-fh-border bg-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-5">
           <div className="flex items-center gap-2 text-fh-ink">
@@ -26,11 +38,10 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="fh-paw-pattern mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
           <div className="flex items-center gap-2">
-            {/* eslint-disable-next-line @next/next/no-img-element -- static local SVG, no next/image benefit */}
-            <img src={business.logo} alt={business.name} className="h-14 w-14 shrink-0" />
+            <Image src={business.logo} alt={business.name} width={742} height={648} className="h-14 w-auto shrink-0" />
             <span className="font-fh-display text-lg font-bold text-fh-ink">Flo&apos;s Happy Clipper</span>
           </div>
           <p className="mt-3 text-sm">

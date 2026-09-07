@@ -6,7 +6,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
 import { ServiceAreaCard } from "@/components/ServiceAreaCard";
-import { DogIcon, ScissorsIcon, CheckIcon } from "@/components/icons";
+import { DogIcon, ScissorsIcon, CheckIcon, HeartIcon } from "@/components/icons";
 import { business, services, differentiators, servicePath, serviceAreas, areaPath, photos, PATHS } from "@/lib/site-data";
 
 const serviceIcons: Record<string, React.ReactNode> = {
@@ -38,27 +38,40 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-fh-cream">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 lg:grid-cols-2 lg:py-20">
+      <section className="relative overflow-hidden bg-fh-cream">
+        <div className="fh-blob -left-24 -top-24 h-72 w-72 bg-fh-pink/25" aria-hidden="true" />
+        <div className="fh-blob -right-32 top-10 h-80 w-80 bg-fh-blue/25" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 lg:grid-cols-2 lg:py-20">
           <div>
-            <Eyebrow>Eatontown, NJ • Professional Dog Grooming</Eyebrow>
-            <h1 className="mt-3 font-fh-display text-4xl font-bold leading-[1.05] text-fh-ink sm:text-5xl lg:text-6xl">
+            <Eyebrow className="fh-rise">Eatontown, NJ • Professional Dog Grooming</Eyebrow>
+            <h1 className="fh-rise fh-rise-delay-1 mt-4 font-fh-display text-4xl font-bold leading-[1.05] text-fh-ink sm:text-5xl lg:text-6xl">
               Trusted Dog Grooming in Eatontown, NJ
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-fh-ink-soft">
+            <p className="fh-rise fh-rise-delay-1 mt-5 max-w-xl text-lg text-fh-ink-soft">
               Flo&apos;s Happy Clipper is a long-established grooming salon on Main St in Eatontown, offering
               personal, experienced dog grooming for pet owners throughout Monmouth County.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="fh-rise fh-rise-delay-2 mt-8 flex flex-wrap gap-3">
               <CallButton location="hero" variant="primary" />
               <SecondaryLinkButton location="hero" variant="secondary" label="View Grooming Services" href={PATHS.services} />
             </div>
-            <TrustBar className="mt-8" />
+            <TrustBar className="fh-rise fh-rise-delay-2 mt-8" />
           </div>
 
-          <PhotoPlaceholder caption={photos.redPoodleGroupFloor.alt} src={photos.redPoodleGroupFloor.src} aspect="portrait" className="w-full" priority />
+          <div className="fh-rise fh-rise-delay-1 relative">
+            <PhotoPlaceholder caption={photos.redPoodleGroupFloor.alt} src={photos.redPoodleGroupFloor.src} aspect="portrait" className="w-full" priority />
+            <div className="absolute -bottom-5 -left-5 hidden items-center gap-2 rounded-2xl border border-fh-border bg-white px-4 py-3 shadow-lg sm:flex">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-fh-pink/15 text-fh-pink-dark">
+                <HeartIcon className="h-5 w-5" />
+              </span>
+              <div className="leading-tight">
+                <p className="font-fh-display text-sm font-bold text-fh-ink">Local &amp; Trusted</p>
+                <p className="text-xs text-fh-ink-soft">Serving Monmouth County</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="mx-auto max-w-6xl px-4 pb-12 lg:pb-20">
+        <div className="relative mx-auto max-w-6xl px-4 pb-12 lg:pb-20">
           <StatBand />
         </div>
       </section>
@@ -89,7 +102,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Flo's Happy Clipper */}
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 lg:grid-cols-2">
           <PhotoPlaceholder caption={photos.chowChowFluffy.alt} src={photos.chowChowFluffy.src} aspect="portrait" className="w-full lg:order-2" />
           <div className="lg:order-1">
@@ -137,7 +150,7 @@ export default function HomePage() {
       </section>
 
       {/* Location map */}
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <div className="text-center">
             <Eyebrow>Our Location</Eyebrow>
@@ -187,8 +200,10 @@ export default function HomePage() {
       </section>
 
       {/* Reviews teaser */}
-      <section className="bg-fh-ink text-white">
-        <div className="mx-auto max-w-3xl px-4 py-16 text-center">
+      <section className="relative overflow-hidden bg-fh-ink text-white">
+        <div className="fh-blob -left-20 top-1/2 h-72 w-72 -translate-y-1/2 bg-fh-pink/20" aria-hidden="true" />
+        <div className="fh-blob -right-24 top-0 h-72 w-72 bg-fh-blue/20" aria-hidden="true" />
+        <div className="relative mx-auto max-w-3xl px-4 py-16 text-center">
           <Eyebrow tone="onDark">Local Reputation</Eyebrow>
           <h2 className="mt-1 font-fh-display text-3xl font-bold sm:text-4xl">
             A Longtime Favorite for Eatontown Pet Owners
@@ -201,7 +216,7 @@ export default function HomePage() {
             href={business.googleSearchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-fh-pink px-6 py-3 text-base font-semibold text-fh-pink transition-colors hover:bg-fh-pink hover:text-fh-ink"
+            className="mt-6 inline-flex items-center justify-center rounded-full border-2 border-fh-pink px-6 py-3 text-base font-semibold text-fh-pink transition-all duration-200 hover:-translate-y-0.5 hover:bg-fh-pink hover:text-fh-ink"
           >
             Read Reviews on Google
           </a>
@@ -214,7 +229,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-16 text-center">
           <h2 className="font-fh-display text-3xl font-bold text-fh-ink sm:text-4xl">Ready to Schedule Your Dog&apos;s Groom?</h2>
           <p className="max-w-xl text-fh-ink-soft">

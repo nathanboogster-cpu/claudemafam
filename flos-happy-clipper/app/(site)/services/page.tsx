@@ -55,7 +55,7 @@ export default function ServicesHub() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-3xl border border-fh-border bg-fh-cream-deep p-8 sm:p-10 text-center">
+        <div className="fh-paw-pattern mt-16 rounded-3xl border border-fh-border bg-fh-cream-deep p-8 sm:p-10 text-center">
           <h2 className="font-fh-display text-2xl font-bold text-fh-ink">Not Sure Which Service Is Right?</h2>
           <p className="mx-auto mt-3 max-w-xl text-fh-ink-soft">
             Call us and we&apos;ll help you figure out the right groom for your dog&apos;s breed, coat, and age.

@@ -41,7 +41,7 @@ export default function ServiceAreasHub() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-fh-border bg-fh-cream-deep p-8 text-center sm:p-10">
+        <div className="fh-paw-pattern mt-10 rounded-3xl border border-fh-border bg-fh-cream-deep p-8 text-center sm:p-10">
           <h2 className="font-fh-display text-2xl font-bold text-fh-ink">Not Sure If We Serve Your Area?</h2>
           <p className="mx-auto mt-3 max-w-xl text-fh-ink-soft">
             Call Flo&apos;s Happy Clipper directly and we&apos;ll let you know whether your area is a fit for an appointment.

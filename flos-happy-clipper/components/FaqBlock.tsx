@@ -21,10 +21,16 @@ export function FaqBlock({
       ) : null}
       <div className="mx-auto mt-8 max-w-3xl space-y-3">
         {items.map((item) => (
-          <details key={item.question} className="group rounded-2xl border border-fh-border bg-white p-5 shadow-sm">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-fh-ink">
+          <details
+            key={item.question}
+            className="group rounded-2xl border border-fh-border bg-white p-5 shadow-sm transition-colors duration-200 open:border-fh-pink-dark/30 open:bg-fh-pink/5"
+          >
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold text-fh-ink marker:content-none">
               {item.question}
-              <span className="shrink-0 text-fh-pink-dark transition-transform group-open:rotate-45" aria-hidden="true">
+              <span
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-fh-pink/15 text-fh-pink-dark transition-transform duration-200 group-open:rotate-45"
+                aria-hidden="true"
+              >
                 +
               </span>
             </summary>

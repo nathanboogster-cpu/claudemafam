@@ -76,7 +76,7 @@ export default function DogBathingPage() {
         <PhotoPlaceholder caption={photos.chowChowBath.alt} src={photos.chowChowBath.src} aspect="portrait" className="w-full" priority />
       </section>
 
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">What to Expect</h2>
           <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
@@ -98,13 +98,13 @@ export default function DogBathingPage() {
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services & Areas</h2>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href={servicePath("dog-grooming")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+          <Link href={servicePath("dog-grooming")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark">
             Full Dog Grooming
           </Link>
-          <Link href={areaPath("shrewsbury-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+          <Link href={areaPath("shrewsbury-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark">
             Serving Shrewsbury, NJ
           </Link>
-          <Link href={areaPath("oceanport-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+          <Link href={areaPath("oceanport-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark">
             Serving Oceanport, NJ
           </Link>
         </div>
@@ -114,8 +114,9 @@ export default function DogBathingPage() {
         <FaqBlock items={faqs} />
       </section>
 
-      <section className="bg-fh-ink text-white">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
+      <section className="relative overflow-hidden bg-fh-ink text-white">
+        <div className="fh-blob -right-16 top-0 h-56 w-56 bg-fh-pink/20" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
           <h2 className="font-fh-display text-3xl font-bold">Book a Dog Bath</h2>
           <p className="text-white/80">Call {business.phoneDisplay} to schedule.</p>
           <CallButton location="service_dog_bath_cta" variant="primary" className="mt-2" />

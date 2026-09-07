@@ -89,7 +89,7 @@ export default function DogGroomingPage() {
         <PhotoPlaceholder caption={photos.chowChowFluffy.alt} src={photos.chowChowFluffy.src} aspect="portrait" className="w-full" priority />
       </section>
 
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">What to Expect</h2>
           <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
@@ -112,16 +112,16 @@ export default function DogGroomingPage() {
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Related Services & Areas</h2>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href={servicePath("dog-bathing")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+          <Link href={servicePath("dog-bathing")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark">
             Dog Bathing
           </Link>
-          <Link href={PATHS.gallery} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+          <Link href={PATHS.gallery} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark">
             See Our Work
           </Link>
-          <Link href={areaPath("tinton-falls-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+          <Link href={areaPath("tinton-falls-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark">
             Dog Grooming Near Tinton Falls
           </Link>
-          <Link href={areaPath("red-bank-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark">
+          <Link href={areaPath("red-bank-nj")} className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark">
             Dog Grooming Near Red Bank
           </Link>
         </div>
@@ -131,8 +131,9 @@ export default function DogGroomingPage() {
         <FaqBlock items={faqs} />
       </section>
 
-      <section className="bg-fh-ink text-white">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
+      <section className="relative overflow-hidden bg-fh-ink text-white">
+        <div className="fh-blob -left-16 top-0 h-56 w-56 bg-fh-blue/20" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
           <h2 className="font-fh-display text-3xl font-bold">Book Your Dog&apos;s Groom</h2>
           <p className="text-white/80">Call {business.phoneDisplay} to schedule.</p>
           <CallButton location="service_dog_grooming_cta" variant="primary" className="mt-2" />

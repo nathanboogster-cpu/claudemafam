@@ -72,7 +72,7 @@ export default function EatontownPage() {
         <PhotoPlaceholder caption={photos.puppyVisit.alt} src={photos.puppyVisit.src} aspect="portrait" className="w-full" priority />
       </section>
 
-      <section className="bg-fh-cream-deep">
+      <section className="fh-paw-pattern bg-fh-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">
             Why Eatontown Pet Owners Choose Flo&apos;s Happy Clipper
@@ -100,7 +100,7 @@ export default function EatontownPage() {
             <Link
               key={s.slug}
               href={servicePath(s.slug)}
-              className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink hover:border-fh-pink-dark"
+              className="rounded-full border border-fh-border bg-white px-4 py-2 text-sm font-medium text-fh-ink shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-fh-pink-dark hover:text-fh-pink-dark"
             >
               {s.shortName}
             </Link>
@@ -112,8 +112,9 @@ export default function EatontownPage() {
         <FaqBlock items={faqs} />
       </section>
 
-      <section className="bg-fh-ink text-white">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
+      <section className="relative overflow-hidden bg-fh-ink text-white">
+        <div className="fh-blob -right-16 top-0 h-56 w-56 bg-fh-blue/20" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">
           <h2 className="font-fh-display text-3xl font-bold">Visit Our Eatontown Salon</h2>
           <p className="text-white/80">{business.addressFull} · Call {business.phoneDisplay} to schedule.</p>
           <CallButton location="area_eatontown_cta" variant="primary" className="mt-2" />
