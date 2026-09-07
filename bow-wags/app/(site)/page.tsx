@@ -77,15 +77,27 @@ export default function HomePage() {
           <div className="relative">
             <div className="grid grid-cols-2 gap-3">
               <PhotoPlaceholder
-                caption="Dogs playing in a Bow Wags indoor playroom"
+                caption="Happy dog inside the Bow Wags facility"
+                src="/images/happy-dog-lobby-aussie.jpg"
                 aspect="square"
                 className="w-full translate-y-4"
                 priority
               />
-              <PhotoPlaceholder caption="Bow Wags outdoor play area" aspect="square" className="w-full" />
-              <PhotoPlaceholder caption="Private boarding suite at Bow Wags" aspect="square" className="w-full" />
+              <PhotoPlaceholder
+                caption="Dog enjoying outdoor play at Bow Wags"
+                src="/images/outdoor-play-springer.jpg"
+                aspect="square"
+                className="w-full"
+              />
+              <PhotoPlaceholder
+                caption="Dogs resting in a boarding suite at Bow Wags"
+                src="/images/boarding-dogs-resting.jpg"
+                aspect="square"
+                className="w-full"
+              />
               <PhotoPlaceholder
                 caption="Freshly groomed dog at Bow Wags"
+                src="/images/groomed-dog-bandana.jpg"
                 aspect="square"
                 className="w-full translate-y-4"
               />
@@ -155,7 +167,12 @@ export default function HomePage() {
       {/* Why dog owners choose Bow Wags */}
       <section className="bg-bw-cream-deep">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 lg:grid-cols-2">
-          <PhotoPlaceholder caption="Dogs enjoying supervised play at Bow Wags" aspect="square" className="w-full lg:order-2" />
+          <PhotoPlaceholder
+            caption="A dog relaxing inside the Bow Wags facility"
+            src="/images/dog-lobby-husky.jpg"
+            aspect="square"
+            className="w-full lg:order-2"
+          />
           <div className="lg:order-1">
             <Eyebrow>Why Dog Owners Choose Bow Wags</Eyebrow>
             <h2 className="mt-1 font-bw-display text-3xl font-bold text-bw-ink sm:text-4xl">
@@ -264,7 +281,12 @@ export default function HomePage() {
               <ReserveButton location="home_grooming" variant="ghost" label="Grooming Details" href={PATHS.dogGrooming} />
             </div>
           </div>
-          <PhotoPlaceholder caption="Cynthia grooming a dog at Bow Wags" aspect="square" className="w-full" />
+          <PhotoPlaceholder
+            caption="A freshly groomed dog at Bow Wags"
+            src="/images/groomed-dog-bandana.jpg"
+            aspect="square"
+            className="w-full"
+          />
         </div>
       </section>
 

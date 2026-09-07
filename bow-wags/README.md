@@ -67,13 +67,16 @@ npm run lint    # eslint
   exist; add a real 1200×630 OG image (can be based on the logo) before
   launch so social shares render correctly instead of falling back to
   Next.js defaults.
-- **Real photography is not yet available.** The live bowwags.com site and
-  its photo hosts (Yelp, Facebook, Instagram, BringFido) were not reachable
-  from this build environment (network egress to those domains was
-  blocked), so every image on this site is an honest, labeled
-  `PhotoPlaceholder` rather than a real Bow Wags photo. Replace these with
-  real facility/dog photos before launch — see `components/PhotoPlaceholder.tsx`
-  and add entries to `lib/site-data.ts`'s `photos` object.
+- **Real photography is partially in place.** Five client-provided photos
+  (`public/images/dog-lobby-husky.jpg`, `groomed-dog-bandana.jpg`,
+  `boarding-dogs-resting.jpg`, `happy-dog-lobby-aussie.jpg`,
+  `outdoor-play-springer.jpg`) are wired into the homepage hero/why-choose
+  sections, the dog-daycare/dog-boarding/dog-grooming/about page heroes, and
+  five of the twelve gallery slots via `PhotoPlaceholder`'s `src` prop.
+  Remaining slots (daycare playroom close-ups, boarding suite fencing detail,
+  bath-in-progress, facility exterior, and both Cynthia portraits) are still
+  honest, labeled `PhotoPlaceholder`s — swap in real photos as they're
+  provided by adding a `src` prop (see `components/PhotoPlaceholder.tsx`).
 - **Online reservation system not carried over.** The verified business
   record states Bow Wags has an existing online reservation system, but its
   actual URL/destination could not be confirmed (same network restriction

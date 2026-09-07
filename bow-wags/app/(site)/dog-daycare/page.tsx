@@ -83,7 +83,13 @@ export default function DogDaycarePage() {
               <CallButton location="daycare_hero" variant="secondary" label="Schedule Temperament Test" />
             </div>
           </div>
-          <PhotoPlaceholder caption="Dogs playing in a Bow Wags size-appropriate playroom" aspect="square" className="w-full" priority />
+          <PhotoPlaceholder
+            caption="A happy dog inside the Bow Wags daycare facility"
+            src="/images/happy-dog-lobby-aussie.jpg"
+            aspect="square"
+            className="w-full"
+            priority
+          />
         </div>
       </section>
 

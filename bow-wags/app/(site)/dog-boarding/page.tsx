@@ -84,7 +84,13 @@ export default function DogBoardingPage() {
               <CallButton location="boarding_hero" variant="secondary" label="Schedule Temperament Test" />
             </div>
           </div>
-          <PhotoPlaceholder caption="Private wooden boarding suite at Bow Wags" aspect="square" className="w-full" priority />
+          <PhotoPlaceholder
+            caption="Dogs resting in a private boarding suite at Bow Wags"
+            src="/images/boarding-dogs-resting.jpg"
+            aspect="square"
+            className="w-full"
+            priority
+          />
         </div>
       </section>
 
