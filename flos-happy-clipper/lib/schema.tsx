@@ -50,6 +50,11 @@ function addressSchema() {
   };
 }
 
+// Schema.org/Google's structured-data guidelines recommend E.164 for
+// `telephone` (phoneHref is already "tel:+17325448186") rather than the
+// display-formatted "(732) 544-8186" used in visible page copy.
+const telephoneSchema = business.phoneHref.replace("tel:", "");
+
 export function localBusinessSchema(pageUrl: string) {
   return {
     "@context": "https://schema.org",
@@ -57,8 +62,10 @@ export function localBusinessSchema(pageUrl: string) {
     "@id": `${SITE_URL}/#business`,
     name: business.name,
     url: pageUrl,
-    telephone: business.phoneDisplay,
+    telephone: telephoneSchema,
+    image: `${SITE_URL}${business.logo}`,
     address: addressSchema(),
+    hasMap: business.mapsUrl,
     description:
       "Established dog grooming salon on Main St in Eatontown, NJ, serving pet owners throughout Monmouth County.",
     openingHoursSpecification: hoursSchema.map((h) => ({
@@ -80,10 +87,16 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     description: opts.description,
     url: opts.pageUrl,
     areaServed: [{ "@type": "AdministrativeArea", name: "Monmouth County, New Jersey" }, ...servedCities()],
+    // Carries the same @id as localBusinessSchema (emitted on every page
+    // via the site layout) so Google resolves this as the same business
+    // entity rather than a distinct one per service page — plus enough
+    // inline fields that the reference is still a complete, valid object
+    // on its own for parsers that don't merge JSON-LD blocks by @id.
     provider: {
       "@type": "PetGroomer",
+      "@id": `${SITE_URL}/#business`,
       name: business.name,
-      telephone: business.phoneDisplay,
+      telephone: telephoneSchema,
       address: addressSchema(),
     },
   };

@@ -118,3 +118,27 @@ npm run lint    # eslint
   `window.dataLayer` and a Vercel Analytics custom event (see
   `lib/track.ts`) — ready to feed a real analytics tool once one is
   chosen.
+- **On-page/technical SEO is complete for what code can control:** every
+  page has a unique title/description/canonical and no two pages target
+  the identical title anymore (the homepage, `/services/dog-grooming`, and
+  `/service-areas/eatontown-nj` used to render byte-identical titles —
+  fixed). `app/opengraph-image.tsx` gives every shared link a real branded
+  preview card (previously referenced in a comment but never built).
+  `lib/schema.tsx`'s LocalBusiness/PetGroomer schema now includes `image`,
+  `hasMap`, and an E.164 `telephone`, and every `Service` schema's
+  `provider` shares the same `@id` as the sitewide business entity. Apple
+  touch icon and a web manifest were also added.
+- **What code can't do — still needs the owner/agency, off-page:**
+  1. Verify/claim the Google Business Profile listing if not already done,
+     and make sure its "Website" field points to the real production
+     domain once one is live (not the `.vercel.app` fallback).
+  2. Submit `/sitemap.xml` in Google Search Console once the real domain
+     is verified there, so new/changed pages get crawled faster.
+  3. Once real social/citation profiles exist (Facebook, Instagram, Yelp,
+     the GBP profile permalink), add them as `sameAs` in
+     `localBusinessSchema()` in `lib/schema.tsx` — none are added yet since
+     none were confirmed during this build.
+  4. Encourage/collect real Google reviews — see the "No confirmed exact
+     Google rating" item above for why none are hardcoded; more reviews is
+     the single biggest lever left for local-pack ranking that this
+     codebase genuinely cannot influence on its own.

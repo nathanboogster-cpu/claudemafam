@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Baloo_2, Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -42,6 +42,10 @@ export const metadata: Metadata = {
     title: defaultTitle,
     description: defaultDescription,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#fdf5ea",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
