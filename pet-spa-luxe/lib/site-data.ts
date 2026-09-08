@@ -4,9 +4,10 @@
 // the "Not yet verified" section below for everything still outstanding.
 
 // This is its own standalone Vercel project/domain (separate from Pampered
-// Puppies). Set NEXT_PUBLIC_SITE_URL once a custom domain is attached; until
-// then this falls back to the default Vercel-assigned project URL.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pet-spa-luxe.vercel.app";
+// Puppies), live at the client's real domain. NEXT_PUBLIC_SITE_URL can still
+// override this (e.g. for a preview deploy), but the real domain is the
+// default now rather than depending on that env var being set correctly.
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://petspaluxe.com";
 
 export const business = {
   name: "Pet Spa Luxe",
