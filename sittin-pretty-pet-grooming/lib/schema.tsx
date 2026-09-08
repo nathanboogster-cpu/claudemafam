@@ -65,7 +65,7 @@ export function localBusinessSchema(pageUrl: string) {
     image: `${SITE_URL}${business.logo}`,
     logo: `${SITE_URL}${business.logo}`,
     description:
-      "Full-service dog and cat grooming salon in Funkstown, MD, serving pet owners throughout the Hagerstown and Halfway area.",
+      "Full-service, cage-free dog and cat grooming salon in Funkstown, MD with over 40 years of grooming experience, trusted by local veterinarians and serving pet owners throughout the Hagerstown and Halfway area.",
     openingHoursSpecification: hoursSchema.map((h) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: h.dayOfWeek,

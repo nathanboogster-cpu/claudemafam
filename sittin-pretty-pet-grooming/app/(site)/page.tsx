@@ -7,7 +7,7 @@ import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { FaqBlock } from "@/components/FaqBlock";
 import { JsonLd, faqSchema } from "@/lib/schema";
-import { DogIcon, CatIcon, ScissorsIcon, NailIcon, BrushIcon, PuppyIcon, CheckIcon } from "@/components/icons";
+import { DogIcon, CatIcon, ScissorsIcon, NailIcon, BrushIcon, PuppyIcon, CheckIcon, ShieldCheckIcon } from "@/components/icons";
 import { business, services, differentiators, serviceAreas, servicePath, areaPath, photos, PATHS } from "@/lib/site-data";
 
 const serviceIcons: Record<string, React.ReactNode> = {
@@ -99,6 +99,22 @@ export default function HomePage() {
               icon={serviceIcons[s.slug]}
             />
           ))}
+        </div>
+      </section>
+
+      {/* Cage-free callout */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="flex flex-col items-center gap-5 rounded-3xl border-2 border-sp-purple/30 bg-white p-8 text-center shadow-sm sm:flex-row sm:text-left">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-sp-purple-dark text-sp-cream">
+            <ShieldCheckIcon className="h-7 w-7" />
+          </div>
+          <div className="flex-1">
+            <p className="font-sp-display text-xl font-bold text-sp-ink sm:text-2xl">A Cage-Free Grooming Experience</p>
+            <p className="mt-1 text-sm text-sp-ink-soft">
+              Pets aren&apos;t kenneled between steps — a calmer, more comfortable visit from start to finish.
+            </p>
+          </div>
+          <SecondaryLinkButton location="home_cage_free" variant="secondary" label="Learn More" href={PATHS.cageFree} />
         </div>
       </section>
 

@@ -50,19 +50,31 @@ export default function ReviewsPage() {
           <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-sp-ink-soft">
             Highly Rated by Local Pet Owners
           </p>
-          <a
-            href={business.googleSearchUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-sp-purple-dark px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-sp-purple-darker"
-          >
-            Read Current Reviews on Google
-          </a>
+          <div className="mt-6 flex flex-col gap-3">
+            <a
+              href={business.googleSearchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-full bg-sp-purple-dark px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-sp-purple-darker"
+            >
+              Read Reviews on Google
+            </a>
+            <a
+              href={business.googleSearchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-full border-2 border-sp-purple-dark px-6 py-3 text-base font-semibold text-sp-purple-dark shadow-sm transition-colors hover:bg-sp-purple/10"
+            >
+              Leave Us a Review on Google
+            </a>
+          </div>
         </div>
 
         <p className="mx-auto mt-6 max-w-xl text-sm text-sp-ink-soft">
-          Google review counts and ratings change over time, so we link directly to our live Google
-          listing rather than displaying a number here that could go out of date.
+          Both buttons open our live Google Business listing, where you can read current reviews or tap
+          &quot;Write a review&quot; to leave your own. Google review counts and ratings change over time, so
+          we link directly to our live listing rather than displaying a number here that could go out of
+          date.
         </p>
 
         <div className="mt-14 border-t border-sp-border pt-10 text-left">

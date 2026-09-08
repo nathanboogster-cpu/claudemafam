@@ -31,17 +31,19 @@ export default function AboutPage() {
         <div>
           <Eyebrow>About Sittin&apos; Pretty</Eyebrow>
           <h1 className="mt-1 font-sp-display text-4xl font-bold text-sp-ink sm:text-5xl">
-            A Local Grooming Shop Pet Owners Have Trusted for Decades
+            A Local Grooming Shop Pet Owners Have Trusted for 40+ Years
           </h1>
           <p className="mt-4 text-lg text-sp-ink-soft">
             Sittin&apos; Pretty Pet Grooming is a full-service pet grooming salon based at{" "}
             {business.addressFull}. We&apos;ve been grooming dogs and cats for the local community for
-            decades — not a national chain, and not a new arrival.
+            over 40 years — not a national chain, and not a new arrival.
           </p>
           <p className="mt-4 text-sp-ink-soft">
             Our Funkstown location sits just a few minutes from downtown Hagerstown, which makes us a
             convenient, personal alternative to the big-box grooming chains for pet owners throughout
-            Hagerstown, Halfway, and the surrounding Washington County area.
+            Hagerstown, Halfway, and the surrounding Washington County area. Local veterinary clinics
+            have referred pet owners to us for decades, and we&apos;re one of the few local groomers
+            trusted specifically for cat grooming.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CallButton location="about" variant="primary" />

@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [PATHS.services]: 0.9,
     [PATHS.contact]: 0.9,
     [PATHS.serviceAreas]: 0.8,
+    [PATHS.cageFree]: 0.8,
     [PATHS.about]: 0.7,
     [PATHS.reviews]: 0.7,
     [PATHS.faq]: 0.7,

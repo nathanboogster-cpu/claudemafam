@@ -72,46 +72,48 @@ export const hoursSchema = [
   { dayOfWeek: ["Saturday"], opens: "08:00", closes: "14:00" },
 ] as const;
 
-// Real client/salon photos, supplied directly by the client. A couple of
-// photo slots (salon interior, storefront) still render an honest,
-// aspect-locked placeholder (see components/PhotoPlaceholder.tsx) since no
-// real photo of those exists yet — add one here when it's supplied.
+// Real client/salon photos, supplied directly by the client. Swapped in
+// September 2026 for a newer batch the owner supplied specifically because
+// they show the detail and style of the grooming work more clearly than
+// the original set. A couple of photo slots (salon interior, storefront)
+// still render an honest, aspect-locked placeholder (see
+// components/PhotoPlaceholder.tsx) since no real photo of those exists yet.
 export const photos = {
   blackLabSmiling: {
-    src: "/images/gallery-black-lab-smiling.jpg",
-    alt: "Happy black Labrador retriever wearing a bandana after grooming at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-black-white-fluffy-dog.jpg",
+    alt: "Happy large black and white fluffy dog wearing a bandana after grooming at Sittin' Pretty Pet Grooming",
   },
   tricolorDogBandana: {
-    src: "/images/gallery-tricolor-dog-bandana.jpg",
-    alt: "Tri-color dog wearing a paw-print bandana after grooming at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-husky-blue-eyes-bandana.jpg",
+    alt: "Groomed husky mix with blue eyes wearing a bandana at Sittin' Pretty Pet Grooming",
   },
   tanChihuahua: {
-    src: "/images/gallery-tan-chihuahua.jpg",
-    alt: "Freshly groomed tan Chihuahua mix at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-tan-pomeranian-mix.jpg",
+    alt: "Freshly groomed tan Pomeranian mix with a rounded teddy-bear cut at Sittin' Pretty Pet Grooming",
   },
   sheepdogBandana: {
-    src: "/images/gallery-sheepdog-bandana.jpg",
-    alt: "Groomed sheepdog-mix wearing a bandana at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-malamute-mix-bandana.jpg",
+    alt: "Groomed Alaskan Malamute mix wearing a bandana at Sittin' Pretty Pet Grooming",
   },
   tanTerrierMix: {
-    src: "/images/gallery-tan-terrier-mix.jpg",
-    alt: "Freshly groomed tan terrier mix at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-golden-poodle-mix-bow.jpg",
+    alt: "Freshly groomed golden Poodle mix wearing a bow at Sittin' Pretty Pet Grooming",
   },
   grayWhiteShihTzu: {
-    src: "/images/gallery-gray-white-shihtzu.jpg",
-    alt: "Groomed gray and white Shih Tzu at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-white-shihtzu-smiling.jpg",
+    alt: "Happy freshly groomed white Shih Tzu mix at Sittin' Pretty Pet Grooming",
   },
   seniorBlackDog: {
-    src: "/images/gallery-senior-black-dog.jpg",
-    alt: "Senior dog with a graying muzzle wearing a bow after grooming at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-brown-akita-mix-bandana.jpg",
+    alt: "Groomed brown Akita mix wearing a bandana at Sittin' Pretty Pet Grooming",
   },
   creamFluffyDog: {
-    src: "/images/gallery-cream-fluffy-dog.jpg",
-    alt: "Groomed cream-colored fluffy dog wearing a bandana at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-white-maltese-mix-bows.jpg",
+    alt: "Groomed white Maltese mix wearing bows at Sittin' Pretty Pet Grooming",
   },
   whiteFluffyPuppy: {
-    src: "/images/gallery-white-fluffy-puppy.jpg",
-    alt: "Small white fluffy dog freshly groomed at Sittin' Pretty Pet Grooming",
+    src: "/images/gallery-golden-retriever-bandana.jpg",
+    alt: "Freshly groomed Golden Retriever wearing a bandana at Sittin' Pretty Pet Grooming",
   },
 } as const;
 
@@ -164,15 +166,28 @@ export const services = [
 
 export type ServiceSlug = (typeof services)[number]["slug"];
 
-// Verified, safe-to-state differentiators — sourced from the business's
-// long operating history and the recurring themes in its public customer
+// Verified, safe-to-state differentiators — sourced directly from the
+// business owner (experience, veterinarian trust, cat specialization,
+// cage-free environment) plus the recurring themes in public customer
 // feedback (friendly staff, personalized service, comfort with nervous/
 // senior/large dogs, repeat customers). Nothing here is a specific
 // itemized service claim beyond what's confirmed.
 export const differentiators = [
   {
-    title: "An Established Local Grooming Salon",
-    body: "Sittin' Pretty has been grooming pets in the Funkstown area for decades — not a national chain, not a new startup.",
+    title: "40+ Years of Grooming Experience",
+    body: "Sittin' Pretty has been grooming pets in the Funkstown area for over 40 years — not a national chain, not a new startup.",
+  },
+  {
+    title: "Trusted by Local Veterinarians for Decades",
+    body: "Area veterinary clinics have referred pet owners to Sittin' Pretty for decades — a level of trust that isn't built overnight.",
+  },
+  {
+    title: "One of the Few Dedicated Cat Groomers in the Area",
+    body: "Cats need a different touch than dogs. Sittin' Pretty is one of the few local groomers pet owners trust specifically for cat grooming.",
+  },
+  {
+    title: "A Cage-Free Grooming Experience",
+    body: "Pets aren't kenneled between steps — a calmer, more comfortable visit from start to finish.",
   },
   {
     title: "Personal, One-on-One Attention",
@@ -191,9 +206,9 @@ export const differentiators = [
 // Punchy, verified trust stats for the homepage/stat band — every value is
 // a confirmed fact already used elsewhere on the site, not a new claim.
 export const trustStats = [
-  { value: "Decades", label: "Serving Local Pets" },
+  { value: "40+ Years", label: "Grooming Experience" },
+  { value: "Cage-Free", label: "Grooming Environment" },
   { value: "Dog & Cat", label: "Grooming" },
-  { value: "Funkstown", label: "Local Salon" },
   { value: "5 Days", label: "Open Tue–Sat" },
 ] as const;
 
@@ -550,6 +565,7 @@ export const PATHS = {
   about: "/about",
   services: "/services",
   serviceAreas: "/service-areas",
+  cageFree: "/cage-free",
   gallery: "/gallery",
   reviews: "/reviews",
   faq: "/faq",
@@ -574,6 +590,7 @@ export const mainNav: NavItem[] = [
   { label: "About", href: PATHS.about },
   { label: "Services", href: PATHS.services },
   { label: "Service Areas", href: PATHS.serviceAreas },
+  { label: "Cage-Free Grooming", href: PATHS.cageFree },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
