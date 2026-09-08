@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { BeforeAfterSection } from "@/components/BeforeAfter";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -62,6 +63,15 @@ export default function GalleryPage() {
           {galleryPhotos.map((p) => (
             <PhotoPlaceholder key={p.caption} caption={p.caption} src={p.src} aspect={p.aspect} />
           ))}
+        </div>
+
+        <div className="mt-16 border-t border-bb-border pt-12 text-center">
+          <Eyebrow>Real Transformations</Eyebrow>
+          <h2 className="mt-1 font-bb-display text-3xl font-bold text-bb-ink sm:text-4xl">Before &amp; After</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-bb-ink-soft">
+            A real Bark and Bork client, before and after a mobile grooming appointment.
+          </p>
+          <BeforeAfterSection className="mt-10" />
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-4 text-center">
