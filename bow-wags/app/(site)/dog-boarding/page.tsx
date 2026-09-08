@@ -55,6 +55,7 @@ export default function DogBoardingPage() {
           name: "Dog Boarding",
           description:
             "Private indoor wooden boarding suites with daycare included, for dogs in Marietta, GA and West Cobb.",
+          priceRange: { min: boardingPricing.tiers[2].price, max: boardingPricing.tiers[0].price },
         })}
       />
       <JsonLd

@@ -8,10 +8,11 @@ import { pageMetadata } from "@/lib/metadata";
 import { business, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Reviews",
+  title: "Flo's Happy Clipper Reviews | Dog Grooming, Eatontown NJ",
   description:
     "See what pet owners say about Flo's Happy Clipper in Eatontown, NJ. Read current reviews directly on Google.",
   path: PATHS.reviews,
+  titleTemplate: false,
 });
 
 // Public review counts/ratings for Flo's Happy Clipper conflict across

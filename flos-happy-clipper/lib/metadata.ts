@@ -23,7 +23,11 @@ export function pageMetadata({
   const fullTitle = titleTemplate === false ? title : `${title} | Flo's Happy Clipper`;
 
   return {
-    title,
+    // A plain string title still gets the root layout's "%s | Flo's Happy
+    // Clipper" template applied to it by Next.js, so bypassing the
+    // template requires the `{ absolute }` form — a bare string here would
+    // silently double up the business name for titleTemplate: false pages.
+    title: titleTemplate === false ? { absolute: fullTitle } : title,
     description,
     alternates: { canonical: path },
     openGraph: {

@@ -15,7 +15,7 @@ const description =
   "Full-service dog grooming in Eatontown, NJ — bath, brush-out, breed-appropriate haircut, nail trim, and ear cleaning from a long-established local groomer.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Dog Grooming in Eatontown, NJ",
+  title: "Full-Service Dog Grooming in Eatontown, NJ",
   description,
   path: servicePath("dog-grooming"),
 });
@@ -74,7 +74,7 @@ export default function DogGroomingPage() {
         <div>
           <Eyebrow>Flagship Service</Eyebrow>
           <h1 className="mt-1 font-fh-display text-4xl font-bold text-fh-ink sm:text-5xl">
-            Dog Grooming in Eatontown, NJ
+            Full-Service Dog Grooming in Eatontown, NJ
           </h1>
           <p className="mt-4 text-lg text-fh-ink-soft">
             Full-service dog grooming at our Main St salon — a thorough bath, brush-out, breed-appropriate

@@ -66,6 +66,8 @@ export function localBusinessSchema(pageUrl: string) {
     url: pageUrl,
     telephone: business.phoneDisplay,
     email: business.email,
+    image: `${SITE_URL}/images/logo.jpg`,
+    logo: `${SITE_URL}/images/logo-mark.jpg`,
     address: postalAddress,
     description:
       "Dog daycare, boarding, and full-service grooming in Marietta, GA, serving West Cobb and Cobb County — clean, safe, and fully supervised.",
@@ -88,7 +90,14 @@ export function serviceSchema(opts: {
   pageUrl: string;
   name: string;
   description: string;
+  // Verified current published price range, e.g. { min: "$26", max: "$39" } —
+  // sourced directly from lib/site-data.ts. Omit when a service (grooming)
+  // has no published fixed pricing rather than fabricating one.
+  priceRange?: { min: string; max: string };
 }) {
+  const minNumeric = opts.priceRange?.min.replace(/[^0-9.]/g, "");
+  const maxNumeric = opts.priceRange?.max.replace(/[^0-9.]/g, "");
+
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -106,5 +115,19 @@ export function serviceSchema(opts: {
       telephone: business.phoneDisplay,
       address: postalAddress,
     },
+    ...(minNumeric && maxNumeric
+      ? {
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "USD",
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              minPrice: minNumeric,
+              maxPrice: maxNumeric,
+              priceCurrency: "USD",
+            },
+          },
+        }
+      : {}),
   };
 }

@@ -8,9 +8,10 @@ import { pageMetadata } from "@/lib/metadata";
 import { photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Gallery",
+  title: "Dog Grooming Gallery | Flo's Happy Clipper, Eatontown NJ",
   description: "Real photos of dog grooming results from Flo's Happy Clipper in Eatontown, NJ.",
   path: PATHS.gallery,
+  titleTemplate: false,
 });
 
 // Real client photos lead the grid (see the `photos` object in

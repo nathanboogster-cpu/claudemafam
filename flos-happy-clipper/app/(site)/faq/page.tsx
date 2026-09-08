@@ -8,10 +8,11 @@ import { pageMetadata } from "@/lib/metadata";
 import { business, PATHS, SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Frequently Asked Questions",
+  title: "Dog Grooming FAQ | Flo's Happy Clipper, Eatontown NJ",
   description:
-    "Answers to common questions about Flo's Happy Clipper: location, scheduling, hours, and what dogs we groom.",
+    "Answers to common questions about Flo's Happy Clipper: location, scheduling, hours, and what dogs we groom in Eatontown, NJ.",
   path: PATHS.faq,
+  titleTemplate: false,
 });
 
 // Only questions we can answer from verified business information — see

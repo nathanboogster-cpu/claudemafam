@@ -13,7 +13,7 @@ import { business, services, servicePath, areaPath, photos, PATHS, SITE_URL } fr
 const url = `${SITE_URL}${areaPath("eatontown-nj")}`;
 
 export const metadata: Metadata = pageMetadata({
-  title: "Dog Grooming in Eatontown, NJ",
+  title: "Dog Grooming Salon in Eatontown, NJ",
   description:
     "Flo's Happy Clipper is based right on Main St in Eatontown, NJ, offering full-service dog grooming from a long-established local salon.",
   path: areaPath("eatontown-nj"),
@@ -58,7 +58,7 @@ export default function EatontownPage() {
         <div>
           <Eyebrow>Our Home Salon</Eyebrow>
           <h1 className="mt-1 font-fh-display text-4xl font-bold text-fh-ink sm:text-5xl">
-            Dog Grooming in Eatontown, NJ
+            Our Eatontown, NJ Dog Grooming Salon
           </h1>
           <p className="mt-4 text-lg text-fh-ink-soft">
             Eatontown is home — our grooming salon has been located at {business.addressFull} for years,
