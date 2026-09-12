@@ -168,6 +168,51 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "nail-trimming-vs-grinding-for-dogs",
+    title: "Nail Trimming vs. Nail Grinding: Which Is Better for Your Dog?",
+    description:
+      "Clippers and grinders both get nails short — but they solve the problem differently, and one is often the safer choice for dogs with dark nails. Here's how to tell which your dog needs.",
+    publishedDate: "2026-09-12",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "Nail length isn't just a cosmetic thing. Nails that are allowed to get too long push back into the nail bed every time a dog's foot hits the ground, which changes how they stand and walk — over time that can put extra strain on the toes and joints. Keeping nails short is one of the simplest things that has an outsized effect on comfort, and it's usually the maintenance item owners put off longest.",
+        ],
+      },
+      {
+        heading: "Two different tools, two different jobs",
+        paragraphs: [
+          "A nail trim uses clippers to cut the nail to length in one motion. It's fast, and for most dogs it's all that's needed — but on dogs with dark or black nails, the quick (the blood vessel and nerve running through the nail) is hard to see, which makes it easy to cut too far back if you're not experienced.",
+          "A nail grind uses a rotating sanding tool to wear the nail down gradually instead of cutting it in one pass. It takes a little longer, but it lets a groomer get closer to the quick safely since they can stop the moment the nail starts to look pink, and it leaves a smooth, rounded edge instead of a flat-cut one that can snag on carpet or furniture.",
+        ],
+      },
+      {
+        heading: "Which one your dog actually needs",
+        bullets: [
+          "Dark or black nails, where the quick isn't visible — grinding is usually the safer option",
+          "A dog who's had a nail cut too short before and is now nervous about clippers — the sound of a grinder is different, and some dogs tolerate it better once they're used to it",
+          "Very thick or overgrown nails — grinding can round them off without a single big cut",
+          "Light-colored nails where the quick is easy to see, and a calm dog — a quick clipper trim is usually plenty",
+        ],
+        paragraphs: [],
+      },
+      {
+        heading: "Nails are only half of it",
+        paragraphs: [
+          "Nail care and ear care tend to get bundled together for a practical reason — both are quick to check, both are easy to overlook between full grooms, and both are things a lot of owners aren't fully equipped to do safely at home. Ears are worth a look at the same time as nails: redness, a noticeable odor, or a dog shaking its head or scratching at one ear more than usual are all worth having a groomer or vet take a look at.",
+          "That's exactly why Pet Spa Luxe offers Nail Care & Ear Cleaning as its own standalone visit, with both nail trimming and nail grinding available depending on what your dog needs, rather than only bundling it into a full groom.",
+        ],
+      },
+      {
+        heading: "Don't wait for the next full groom",
+        paragraphs: [
+          "Nails grow faster than most people expect, and a dog that gets a full groom every 4–6 weeks can still end up with nails that are too long in between visits, especially indoor or less active dogs who don't wear them down naturally on pavement. A standalone Nail & Ear Care visit is a fast, low-cost way to stay on top of it without waiting for the next full appointment.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
