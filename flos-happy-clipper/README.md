@@ -39,8 +39,13 @@ npm run lint    # eslint
 - `lib/site-data.ts` — single source of truth for every verified business
   fact (phone, address, hours, services, nav). Update facts here, not in
   individual pages.
+- `lib/blog-data.ts` — every blog post's content, as structured blocks
+  (`{ type: "p" | "h2" | "list" }`) rather than one `.tsx` file per post —
+  `app/(site)/blog/[slug]/page.tsx` renders whatever's in the array. Add a
+  new post by adding one entry here; the blog index, sitemap, and
+  `generateStaticParams` all pick it up automatically.
 - `lib/schema.tsx` — JSON-LD builders (PetGroomer, Service, BreadcrumbList,
-  FAQPage).
+  FAQPage, BlogPosting).
 - `components/` — shared layout (header, footer, sticky mobile CTA bar,
   nav) and content components.
 - `app/` — one folder per route, inside the `(site)` route group.
@@ -114,6 +119,14 @@ npm run lint    # eslint
   towns there if the actual customer base differs.
 - **No online booking system.** All CTAs route to the phone number
   (`tel:+17325448186`) rather than a fabricated booking widget.
+- **Blog is general pet-care advice, not business-specific claims.** The 6
+  starter posts in `lib/blog-data.ts` cover evergreen grooming topics tied
+  to the site's services (doodle/poodle coat care, nail trimming, ear
+  cleaning, flea & tick season, anal gland expression, first-groom nerves)
+  — nothing in them claims a specific fact about Flo's Happy Clipper beyond
+  what's already verified elsewhere on the site. Add new posts the same
+  way; keep medical-adjacent topics (ears, glands, fleas/ticks) pointing
+  to a vet for anything beyond routine grooming, as the existing posts do.
 - **Conversion tracking is a stub.** Call button clicks push to
   `window.dataLayer` and a Vercel Analytics custom event (see
   `lib/track.ts`) — ready to feed a real analytics tool once one is

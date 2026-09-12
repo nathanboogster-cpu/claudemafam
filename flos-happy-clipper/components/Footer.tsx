@@ -6,6 +6,7 @@ import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 const companyLinks = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
+  { label: "Blog", href: PATHS.blog },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },

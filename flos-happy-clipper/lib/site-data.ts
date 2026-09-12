@@ -216,6 +216,7 @@ export const PATHS = {
   about: "/about",
   services: "/services",
   serviceAreas: "/service-areas",
+  blog: "/blog",
   gallery: "/gallery",
   reviews: "/reviews",
   faq: "/faq",
@@ -223,6 +224,7 @@ export const PATHS = {
 } as const;
 
 export const servicePath = (slug: ServiceSlug) => `${PATHS.services}/${slug}`;
+export const blogPostPath = (slug: string) => `${PATHS.blog}/${slug}`;
 
 export const serviceNav: NavItem[] = services.map((s) => ({
   label: s.shortName,
@@ -568,6 +570,7 @@ export const mainNav: NavItem[] = [
   { label: "About", href: PATHS.about },
   { label: "Services", href: PATHS.services },
   { label: "Service Areas", href: PATHS.serviceAreas },
+  { label: "Blog", href: PATHS.blog },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },

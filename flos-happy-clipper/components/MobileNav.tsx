@@ -9,6 +9,7 @@ import { PATHS, serviceNav, areaNav, type NavItem } from "@/lib/site-data";
 const coreLinks: NavItem[] = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
+  { label: "Blog", href: PATHS.blog },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
