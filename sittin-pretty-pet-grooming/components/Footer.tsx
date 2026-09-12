@@ -7,6 +7,7 @@ const companyLinks = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
   { label: "Cage-Free Grooming", href: PATHS.cageFree },
+  { label: "Blog", href: PATHS.blog },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
