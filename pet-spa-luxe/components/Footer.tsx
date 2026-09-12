@@ -10,6 +10,7 @@ const companyLinks = [
   { label: "About", href: PATHS.about },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
+  { label: "Blog", href: PATHS.blog },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
   { label: "Book Appointment", href: PATHS.bookAppointment },

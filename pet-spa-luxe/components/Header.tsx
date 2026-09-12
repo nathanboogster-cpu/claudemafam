@@ -34,6 +34,9 @@ export function Header() {
           <Link href={PATHS.reviews} className="hover:text-psl-brass-dark whitespace-nowrap">
             Reviews
           </Link>
+          <Link href={PATHS.blog} className="hover:text-psl-brass-dark whitespace-nowrap">
+            Blog
+          </Link>
           <Link href={PATHS.faq} className="hover:text-psl-brass-dark whitespace-nowrap">
             FAQ
           </Link>
