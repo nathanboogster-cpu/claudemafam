@@ -225,6 +225,7 @@ export const PATHS = {
   puppy: "/puppy-grooming-victorville-ca",
   anxious: "/anxious-senior-dog-grooming-victorville-ca",
   membership: "/vip-membership",
+  blog: "/blog",
 } as const;
 
 // Mobile service-area pages. Pampered Puppies has ONE physical location
