@@ -23,6 +23,12 @@ export function Header() {
           </Link>
           <NavDropdown label="Services" items={serviceNav} />
           <NavDropdown label="Service Areas" items={areaNav} />
+          <Link href={PATHS.cageFree} className="hover:text-sp-purple-dark whitespace-nowrap">
+            Cage-Free
+          </Link>
+          <Link href={PATHS.blog} className="hover:text-sp-purple-dark whitespace-nowrap">
+            Blog
+          </Link>
           <Link href={PATHS.gallery} className="hover:text-sp-purple-dark whitespace-nowrap">
             Gallery
           </Link>

@@ -77,6 +77,39 @@ export function localBusinessSchema(pageUrl: string) {
   };
 }
 
+export function blogPostingSchema(opts: {
+  pageUrl: string;
+  headline: string;
+  description: string;
+  imageUrl: string;
+  datePublished: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.headline,
+    description: opts.description,
+    image: opts.imageUrl,
+    datePublished: opts.datePublished,
+    dateModified: opts.datePublished,
+    url: opts.pageUrl,
+    mainEntityOfPage: opts.pageUrl,
+    author: {
+      "@type": "Organization",
+      name: business.name,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: business.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}${business.logo}`,
+      },
+    },
+  };
+}
+
 export function serviceSchema(opts: { pageUrl: string; name: string; description: string }) {
   return {
     "@context": "https://schema.org",
