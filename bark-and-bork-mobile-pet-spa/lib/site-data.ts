@@ -115,6 +115,24 @@ export const photos = {
   },
 } as const;
 
+// Real before/after transformation pairs, supplied directly by the client.
+// Captions stay service-neutral (no specific package name asserted) since
+// no per-photo service data was supplied — see the anti-fabrication note
+// at the top of this file.
+export const transformations = [
+  {
+    dogLabel: "Bichon Frise",
+    before: {
+      src: "/images/transformation-bichon-before.jpg",
+      alt: "A Bichon Frise's matted, ungroomed coat before a Bark and Bork mobile grooming appointment",
+    },
+    after: {
+      src: "/images/transformation-bichon-after.jpg",
+      alt: "The same Bichon Frise with a fresh, fluffy trim and a Halloween bandana after a Bark and Bork mobile grooming appointment",
+    },
+  },
+] as const;
+
 // HOURS — sourced from the current GlossGenius booking platform (the primary
 // source per the Verified Business Record). A separate public listing shows
 // 9 AM–9 PM; that is NOT used here since the booking platform is the

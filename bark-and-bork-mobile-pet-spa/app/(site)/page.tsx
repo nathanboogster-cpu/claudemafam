@@ -9,6 +9,7 @@ import { ServiceAreaCard } from "@/components/ServiceAreaCard";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { PricingTable } from "@/components/PricingTable";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { BeforeAfterSection } from "@/components/BeforeAfter";
 import { TeamAvatar } from "@/components/TeamAvatar";
 import { FaqBlock } from "@/components/FaqBlock";
 import { DogIcon, ScissorsIcon, DropletIcon, BrushIcon, ShieldCheckIcon, HeartIcon, CheckIcon } from "@/components/icons";
@@ -162,6 +163,20 @@ export default function HomePage() {
         </div>
         <div className="mt-8 flex justify-center">
           <SecondaryLinkButton location="home_gallery_teaser" variant="ghost" label="View Gallery" href={PATHS.gallery} />
+        </div>
+      </section>
+
+      {/* Before & after transformation */}
+      <section className="bg-bb-cream-deep">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="text-center">
+            <Eyebrow>Real Transformations</Eyebrow>
+            <h2 className="mt-1 font-bb-display text-3xl font-bold text-bb-ink sm:text-4xl">Before &amp; After</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-bb-ink-soft">
+              A real Bark and Bork client, before and after a mobile grooming appointment.
+            </p>
+          </div>
+          <BeforeAfterSection className="mt-10" />
         </div>
       </section>
 
