@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { PATHS, SITE_URL, services, servicePath, serviceAreas, areaPath } from "@/lib/site-data";
+import { PATHS, SITE_URL, services, servicePath, serviceAreas, areaPath, blogPostPath } from "@/lib/site-data";
+import { blogPosts } from "@/lib/blog-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [PATHS.about]: 0.7,
     [PATHS.reviews]: 0.7,
     [PATHS.faq]: 0.7,
+    [PATHS.blog]: 0.7,
     [PATHS.gallery]: 0.6,
   };
 
@@ -36,5 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: a.slug === "eatontown-nj" ? 0.85 : 0.75,
   }));
 
-  return [...corePages, ...servicePages, ...areaPages];
+  const blogPages = blogPosts.map((p) => ({
+    url: `${SITE_URL}${blogPostPath(p.slug)}`,
+    lastModified: new Date(p.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...corePages, ...servicePages, ...areaPages, ...blogPages];
 }
