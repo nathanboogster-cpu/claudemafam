@@ -566,6 +566,7 @@ export const PATHS = {
   services: "/services",
   serviceAreas: "/service-areas",
   cageFree: "/cage-free",
+  blog: "/blog",
   gallery: "/gallery",
   reviews: "/reviews",
   faq: "/faq",
@@ -574,6 +575,7 @@ export const PATHS = {
 
 export const servicePath = (slug: ServiceSlug) => `${PATHS.services}/${slug}`;
 export const areaPath = (slug: AreaSlug) => `${PATHS.serviceAreas}/${slug}`;
+export const blogPostPath = (slug: string) => `${PATHS.blog}/${slug}`;
 
 export const serviceNav: NavItem[] = services.map((s) => ({
   label: s.shortName,
@@ -591,6 +593,7 @@ export const mainNav: NavItem[] = [
   { label: "Services", href: PATHS.services },
   { label: "Service Areas", href: PATHS.serviceAreas },
   { label: "Cage-Free Grooming", href: PATHS.cageFree },
+  { label: "Blog", href: PATHS.blog },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
