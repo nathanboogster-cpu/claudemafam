@@ -34,6 +34,9 @@ export function Header() {
           <Link href={PATHS.gallery} className="hover:text-terracotta-dark whitespace-nowrap">
             Gallery
           </Link>
+          <Link href={PATHS.blog} className="hover:text-terracotta-dark whitespace-nowrap">
+            Blog
+          </Link>
           <Link href={PATHS.reviews} className="hover:text-terracotta-dark whitespace-nowrap">
             Reviews
           </Link>
