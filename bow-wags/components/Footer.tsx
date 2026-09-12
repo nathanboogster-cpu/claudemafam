@@ -50,6 +50,11 @@ export function Footer() {
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wide text-bw-ink">Services</h2>
           <ul className="mt-3 space-y-2 text-sm">
+            <li>
+              <Link href={PATHS.services} className="font-semibold hover:text-bw-red-dark">
+                All Services
+              </Link>
+            </li>
             {mainNav.slice(0, 3).map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-bw-red-dark">
@@ -60,6 +65,11 @@ export function Footer() {
             <li>
               <Link href={PATHS.rates} className="hover:text-bw-red-dark">
                 Rates
+              </Link>
+            </li>
+            <li>
+              <Link href={PATHS.serviceAreas} className="hover:text-bw-red-dark">
+                Service Areas
               </Link>
             </li>
           </ul>

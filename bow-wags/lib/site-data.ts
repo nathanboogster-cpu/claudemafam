@@ -134,6 +134,49 @@ export const services = [
 
 export const servicePath = (slug: ServiceSlug) => `/${slug}`;
 
+// Towns within roughly a 15-minute drive of the Marietta facility
+// (1691 Powder Springs Rd SW) — Powder Springs, Smyrna, and Austell are
+// already named as served areas elsewhere on this site; Kennesaw and
+// Mableton are added here as the other nearby Cobb County towns within
+// that same drive-time radius. No area outside this real, local radius
+// is claimed.
+export type ServiceAreaSlug = "powder-springs-ga" | "smyrna-ga" | "austell-ga" | "kennesaw-ga" | "mableton-ga";
+
+export const serviceAreas: { slug: ServiceAreaSlug; city: string; state: string; description: string }[] = [
+  {
+    slug: "powder-springs-ga",
+    city: "Powder Springs",
+    state: "GA",
+    description: "Dog daycare, boarding, and grooming a short drive down Powder Springs Rd.",
+  },
+  {
+    slug: "smyrna-ga",
+    city: "Smyrna",
+    state: "GA",
+    description: "Clean, safe, fully supervised care about a 15-minute drive from Smyrna.",
+  },
+  {
+    slug: "austell-ga",
+    city: "Austell",
+    state: "GA",
+    description: "Daycare, boarding, and grooming convenient to Austell dog owners.",
+  },
+  {
+    slug: "kennesaw-ga",
+    city: "Kennesaw",
+    state: "GA",
+    description: "Private boarding suites and full-service grooming near Kennesaw.",
+  },
+  {
+    slug: "mableton-ga",
+    city: "Mableton",
+    state: "GA",
+    description: "Size-appropriate daycare playrooms and grooming close to Mableton.",
+  },
+];
+
+export const areaPath = (slug: ServiceAreaSlug) => `/service-areas/${slug}`;
+
 // DAYCARE — current published rates, per the verified business record.
 // Marked "current" throughout the UI since these are subject to change.
 export const temperamentTest = {
@@ -292,6 +335,8 @@ export const PATHS = {
   dogDaycare: "/dog-daycare",
   dogBoarding: "/dog-boarding",
   dogGrooming: "/dog-grooming",
+  services: "/services",
+  serviceAreas: "/service-areas",
   rates: "/rates",
   reservations: "/reservations",
   requirements: "/requirements",
@@ -319,3 +364,59 @@ export const footerNav: NavItem[] = [
   { label: "Reservations", href: PATHS.reservations },
   { label: "Requirements", href: PATHS.requirements },
 ];
+
+// Per-area page content. Every claim here is either a fact already stated
+// elsewhere on the site (services, requirements, differentiators) or a
+// generic, honest drive-time framing — no fabricated city-specific details
+// (no invented landmarks, neighborhoods, or "voted best" claims).
+export const areaContent: Record<
+  ServiceAreaSlug,
+  {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    h1: string;
+    intro: string;
+    whyChoose: string[];
+    faqs: { question: string; answer: string }[];
+  }
+> = Object.fromEntries(
+  serviceAreas.map((a) => [
+    a.slug,
+    {
+      metaTitle: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
+      metaDescription: `Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA, about a 15-minute drive from ${a.city} — clean, safe, fully supervised care. Call ${business.phoneDisplay}.`,
+      eyebrow: `${a.city}, GA`,
+      h1: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
+      intro: `Bow Wags is located at ${business.addressFull} — about a 15-minute drive from ${a.city} — offering size-appropriate daycare playrooms, private wooden boarding suites (no cages), and full-service grooming for all breeds.`,
+      whyChoose: [
+        "Clean, safe, fully supervised daycare and boarding",
+        "Private wooden boarding suites — not traditional cages",
+        "Boarding includes about 12 hours of daycare each day",
+        `Full-service grooming from a groomer at Bow Wags since ${groomer.since}`,
+      ],
+      faqs: [
+        {
+          question: `Does Bow Wags serve dog owners in ${a.city}?`,
+          answer: `Yes — Bow Wags is in Marietta, GA, about a 15-minute drive from ${a.city}, and welcomes dog owners from ${a.city} for daycare, boarding, and grooming.`,
+        },
+        {
+          question: `Does my dog need anything before their first visit from ${a.city}?`,
+          answer: `Yes — every dog needs a 4-hour temperament test (${temperamentTest.price}) before their first daycare or boarding visit, plus current Rabies, Distemper, and Bordetella vaccinations. Call ${business.phoneDisplay} to schedule.`,
+        },
+        {
+          question: `How do I book from ${a.city}?`,
+          answer: `Call ${business.phoneDisplay} to reserve daycare or boarding, schedule a temperament test, or book a grooming appointment.`,
+        },
+      ],
+    },
+  ]),
+) as Record<ServiceAreaSlug, {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  h1: string;
+  intro: string;
+  whyChoose: string[];
+  faqs: { question: string; answer: string }[];
+}>;

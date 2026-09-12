@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ReserveButton, CallButton } from "@/components/CTAButton";
@@ -173,6 +174,22 @@ export default function DogDaycarePage() {
             <CallButton location="daycare_requirements" variant="primary" label="Call to Schedule" />
             <ReserveButton location="daycare_requirements" variant="ghost" label="Full Requirements" href={PATHS.requirements} />
           </div>
+        </div>
+      </section>
+
+      {/* Related services & areas */}
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="font-bw-display text-2xl font-bold text-bw-ink sm:text-3xl">Related Services &amp; Areas</h2>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link href={PATHS.dogBoarding} className="rounded-full border border-bw-border bg-white px-4 py-2 text-sm font-medium text-bw-ink shadow-sm transition-colors hover:border-bw-red-dark hover:text-bw-red-dark">
+            Dog Boarding
+          </Link>
+          <Link href={PATHS.dogGrooming} className="rounded-full border border-bw-border bg-white px-4 py-2 text-sm font-medium text-bw-ink shadow-sm transition-colors hover:border-bw-red-dark hover:text-bw-red-dark">
+            Dog Grooming
+          </Link>
+          <Link href={PATHS.serviceAreas} className="rounded-full border border-bw-border bg-white px-4 py-2 text-sm font-medium text-bw-ink shadow-sm transition-colors hover:border-bw-red-dark hover:text-bw-red-dark">
+            See Service Areas
+          </Link>
         </div>
       </section>
 
