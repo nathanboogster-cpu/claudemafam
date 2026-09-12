@@ -106,6 +106,21 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
   };
 }
 
+export function blogPostingSchema(opts: { pageUrl: string; title: string; description: string; datePublished: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.title,
+    description: opts.description,
+    url: opts.pageUrl,
+    datePublished: opts.datePublished,
+    dateModified: opts.datePublished,
+    author: { "@type": "Organization", name: business.name },
+    publisher: { "@type": "Organization", name: business.name },
+    mainEntityOfPage: opts.pageUrl,
+  };
+}
+
 // Referenced by the Contact/FAQ pages when quoting the policy verbatim in
 // structured data isn't needed — kept here so the policy text has one
 // canonical source shared with lib/site-data.ts's export.

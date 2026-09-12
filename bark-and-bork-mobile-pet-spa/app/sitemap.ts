@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { PATHS, SITE_URL, services, serviceAreas, servicePath, areaPath } from "@/lib/site-data";
+import { blogPosts, blogPostPath } from "@/lib/blog-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [PATHS.about]: 0.7,
     [PATHS.faq]: 0.7,
     [PATHS.gallery]: 0.6,
+    [PATHS.blog]: 0.6,
   };
 
   const corePages = Object.values(PATHS).map((path) => ({
@@ -35,5 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: a.isPrimary ? 0.85 : 0.75,
   }));
 
-  return [...corePages, ...servicePages, ...areaPages];
+  const blogPages = blogPosts.map((post) => ({
+    url: `${SITE_URL}${blogPostPath(post.slug)}`,
+    lastModified: new Date(`${post.publishedAt}T00:00:00`),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
+  return [...corePages, ...servicePages, ...areaPages, ...blogPages];
 }
