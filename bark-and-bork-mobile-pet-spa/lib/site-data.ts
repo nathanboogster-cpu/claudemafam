@@ -828,6 +828,7 @@ export const PATHS = {
   services: "/services",
   serviceAreas: "/service-areas",
   gallery: "/gallery",
+  blog: "/blog",
   faq: "/faq",
   contact: "/contact",
 } as const;
@@ -846,6 +847,7 @@ export const mainNav: NavItem[] = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
   { label: "Gallery", href: PATHS.gallery },
+  { label: "Blog", href: PATHS.blog },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
 ];
