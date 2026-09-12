@@ -344,7 +344,10 @@ export const PATHS = {
   reviews: "/reviews",
   faq: "/faq",
   contact: "/contact",
+  blog: "/blog",
 } as const;
+
+export const blogPostPath = (slug: string) => `/blog/${slug}`;
 
 export const mainNav: NavItem[] = [
   { label: "Daycare", href: PATHS.dogDaycare },
