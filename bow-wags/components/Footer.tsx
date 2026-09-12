@@ -8,6 +8,7 @@ const badgeIcons = [ShieldCheckIcon, TreesIcon, HouseIcon, ScissorsIcon];
 const companyLinks = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
+  { label: "Blog", href: PATHS.blog },
   { label: "Gallery", href: PATHS.gallery },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
