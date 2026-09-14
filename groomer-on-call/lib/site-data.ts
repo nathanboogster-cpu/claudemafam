@@ -15,10 +15,30 @@
 // its own domain. It must never import from, or be merged with, any of them.
 // ---------------------------------------------------------------------------
 
-// Set NEXT_PUBLIC_SITE_URL once a custom domain is attached to the
-// `groomer-on-call` Vercel project; until then this falls back to the
-// project's default Vercel-assigned URL.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://groomer-on-call.vercel.app";
+// The site's own origin, used for canonicals, OG URLs, the sitemap and every
+// schema @id. Resolved in this order:
+//
+//   1. NEXT_PUBLIC_SITE_URL — an explicit override, if one is ever set.
+//   2. The Vercel project's production domain. Vercel sets
+//      VERCEL_PROJECT_PRODUCTION_URL on every deployment (previews included),
+//      and it becomes the custom domain automatically once one is attached —
+//      so canonicals follow the real domain with no config change. The
+//      NEXT_PUBLIC_ copy is preferred so this stays correct even if SITE_URL
+//      is ever read from a client component; the bare name is the fallback.
+//   3. localhost, for a local `next build` outside Vercel.
+//
+// This deliberately does NOT hardcode a *.vercel.app host. An earlier version
+// did, guessing "groomer-on-call.vercel.app" — which is not the hostname
+// Vercel actually assigned, so every canonical, OG URL and sitemap entry on
+// the deployed site pointed at a URL that 404s.
+function vercelProductionOrigin() {
+  const host =
+    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  return host ? `https://${host}` : undefined;
+}
+
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? vercelProductionOrigin() ?? "http://localhost:3000";
 
 export const business = {
   // [BRIEF]
