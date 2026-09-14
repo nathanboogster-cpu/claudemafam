@@ -159,6 +159,24 @@ export const photos = {
     src: "/images/gallery-white-fluffy-puppy.jpg",
     alt: "Small white fluffy dog wearing a yellow bandana at Sittin' Pretty Pet Grooming",
   },
+  // Real cat photos, supplied by the client. catGrooming is the only one
+  // actually shot on the grooming table at the salon (matching bow, blue
+  // table mat, and the same purple walls visible throughout this file) —
+  // it fills every "cat grooming" placeholder site-wide. The other two are
+  // real cats too, just photographed at home, so they're used only as
+  // extra gallery variety, not as stand-ins for an in-salon groom.
+  catGrooming: {
+    src: "/images/gallery-cat-tabby-bow-table.jpg",
+    alt: "Gray tabby cat wearing a bow on the grooming table at Sittin' Pretty Pet Grooming",
+  },
+  catBlackBlanket: {
+    src: "/images/gallery-cat-black-blanket.jpg",
+    alt: "Black cat cared for by Sittin' Pretty Pet Grooming",
+  },
+  catGrayTabbiesWindow: {
+    src: "/images/gallery-cat-gray-tabbies-window.jpg",
+    alt: "Two gray tabby cats cared for by Sittin' Pretty Pet Grooming",
+  },
 } as const;
 
 export const services = [

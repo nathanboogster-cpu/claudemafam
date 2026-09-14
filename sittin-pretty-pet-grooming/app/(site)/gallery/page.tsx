@@ -13,9 +13,9 @@ export const metadata: Metadata = pageMetadata({
   path: PATHS.gallery,
 });
 
-// Real client photos supplied so far lead the grid. A cat photo, the salon
-// interior, and the storefront still render an honest placeholder instead
-// of stock imagery until real photos of those come in.
+// Real client photos supplied so far lead the grid. The salon interior and
+// storefront still render an honest placeholder instead of stock imagery
+// until real photos of those come in.
 const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portrait" }[] = [
   { caption: photos.blackLabSmiling.alt, src: photos.blackLabSmiling.src, aspect: "portrait" },
   { caption: photos.tricolorDogBandana.alt, src: photos.tricolorDogBandana.src, aspect: "portrait" },
@@ -36,7 +36,9 @@ const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portra
   { caption: photos.seniorBlackDogRedBow.alt, src: photos.seniorBlackDogRedBow.src, aspect: "portrait" },
   { caption: photos.creamMalteseBlueBandana.alt, src: photos.creamMalteseBlueBandana.src, aspect: "portrait" },
   { caption: photos.whiteFluffyYellowBandana.alt, src: photos.whiteFluffyYellowBandana.src, aspect: "portrait" },
-  { caption: "Groomed cat at Sittin' Pretty", aspect: "square" },
+  { caption: photos.catGrooming.alt, src: photos.catGrooming.src, aspect: "square" },
+  { caption: photos.catBlackBlanket.alt, src: photos.catBlackBlanket.src, aspect: "square" },
+  { caption: photos.catGrayTabbiesWindow.alt, src: photos.catGrayTabbiesWindow.src, aspect: "square" },
   { caption: "Sittin' Pretty grooming salon interior", aspect: "square" },
   { caption: "Sittin' Pretty Pet Grooming storefront in Funkstown, MD", aspect: "square" },
 ];
@@ -57,8 +59,7 @@ export default function GalleryPage() {
           <Eyebrow>Gallery</Eyebrow>
           <h1 className="mt-1 font-sp-display text-4xl font-bold text-sp-ink sm:text-5xl">Our Grooming Work</h1>
           <p className="mx-auto mt-4 max-w-xl text-sp-ink-soft">
-            Real dogs, freshly groomed at our Funkstown salon. More photos — including cats and the
-            salon itself — are on the way.
+            Real dogs and cats from our Funkstown salon. A photo of the salon itself is on the way.
           </p>
         </div>
 

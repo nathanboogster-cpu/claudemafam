@@ -8,7 +8,7 @@ import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { CheckIcon } from "@/components/icons";
-import { business, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, servicePath, areaPath, photos, PATHS, SITE_URL } from "@/lib/site-data";
 
 const url = `${SITE_URL}${servicePath("cat-grooming")}`;
 const description =
@@ -74,7 +74,7 @@ export default function CatGroomingPage() {
             <SecondaryLinkButton location="service_cat_grooming" variant="secondary" label="Contact Us" href={PATHS.contact} />
           </div>
         </div>
-        <PhotoPlaceholder caption="Cat grooming at Sittin' Pretty Pet Grooming" aspect="square" className="w-full" priority />
+        <PhotoPlaceholder caption={photos.catGrooming.alt} src={photos.catGrooming.src} aspect="square" className="w-full" priority />
       </section>
 
       <section className="bg-sp-cream-deep">
