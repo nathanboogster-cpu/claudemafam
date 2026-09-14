@@ -45,7 +45,7 @@ const faqs = [
   {
     question: "Do you groom small and medium dogs?",
     answer:
-      "Yes — small and medium dogs, including lots of doodles and poodles, make up most of what we groom day to day.",
+      "Yes — small and medium dogs, including lots of doodles, poodles, and purebred breeds needing a breed-standard cut, make up most of what we groom day to day.",
   },
   {
     question: "Do you groom nervous or first-time dogs?",
