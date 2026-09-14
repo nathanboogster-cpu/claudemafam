@@ -26,6 +26,7 @@ const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portra
   { caption: photos.seniorBlackDog.alt, src: photos.seniorBlackDog.src, aspect: "portrait" },
   { caption: photos.creamFluffyDog.alt, src: photos.creamFluffyDog.src, aspect: "portrait" },
   { caption: photos.whiteFluffyPuppy.alt, src: photos.whiteFluffyPuppy.src, aspect: "portrait" },
+  { caption: photos.corgiClipperDetail.alt, src: photos.corgiClipperDetail.src, aspect: "portrait" },
   { caption: "Groomed cat at Sittin' Pretty", aspect: "square" },
   { caption: "Sittin' Pretty grooming salon interior", aspect: "square" },
   { caption: "Sittin' Pretty Pet Grooming storefront in Funkstown, MD", aspect: "square" },

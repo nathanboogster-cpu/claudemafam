@@ -115,6 +115,10 @@ export const photos = {
     src: "/images/gallery-golden-retriever-bandana.jpg",
     alt: "Freshly groomed Golden Retriever wearing a bandana at Sittin' Pretty Pet Grooming",
   },
+  corgiClipperDetail: {
+    src: "/images/gallery-corgi-clipper-detail.jpg",
+    alt: "Close-up of careful clipper work on a corgi's coat at Sittin' Pretty Pet Grooming",
+  },
 } as const;
 
 export const services = [
