@@ -202,6 +202,43 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["deshedding-treatment", "dog-bath-and-brush"],
   },
+  {
+    slug: "why-regular-nail-trims-and-ear-cleanings-matter",
+    title: "Why Regular Nail Trims and Ear Cleanings Matter",
+    metaDescription:
+      "Overgrown nails and neglected ears are easy to overlook between full grooms. Why regular nail trims and ear cleanings matter, and how to keep up with them.",
+    excerpt:
+      "Nail and ear care are easy to overlook between full grooms — here's why they're worth keeping up with on their own.",
+    eyebrow: "Nail & Ear Care",
+    publishedAt: "2026-09-14",
+    heroPhotoKey: "corgiClipperDetail",
+    body: [
+      {
+        type: "p",
+        text: "Nail trims and ear cleaning are two of the easiest things to let slide between full grooms — a pet still looks fine day to day, so it's tempting to push them off. But both matter more than they might seem, and neither requires waiting for a full haircut to address.",
+      },
+      { type: "h2", text: "Why Nail Length Matters" },
+      {
+        type: "list",
+        items: [
+          "Overgrown nails can change how a dog or cat walks, putting uneven pressure on their paws and joints over time.",
+          "Long nails are more likely to catch on carpet or furniture and tear, which is painful and can lead to bleeding.",
+          "In severe cases, nails left too long can curl and grow into the paw pad.",
+        ],
+      },
+      { type: "h2", text: "Why Ears Need Attention Too" },
+      {
+        type: "p",
+        text: "Ears trap moisture, wax, and debris, especially in floppy-eared breeds with less airflow. Left unaddressed, buildup can lead to odor or irritation. A regular cleaning schedule makes it easier to catch a problem early, before it becomes uncomfortable for your pet.",
+      },
+      { type: "h2", text: "It Doesn't Require a Full Groom" },
+      {
+        type: "p",
+        text: "Nail trims and ear cleaning are available as a quick, standalone visit at our Funkstown salon — you don't need to book a full groom just to keep up with them between appointments. A cage-free approach also means a fast in-and-out visit doesn't turn into a long, stressful wait for a pet who's just there for a few minutes of work.",
+      },
+    ],
+    relatedServiceSlugs: ["nail-trim-ear-cleaning", "dog-grooming"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
