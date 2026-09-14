@@ -213,6 +213,50 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "what-to-expect-first-mobile-grooming-appointment",
+    title: "What to Expect at Your First Mobile Grooming Appointment",
+    description:
+      "Booking a mobile groomer for the first time? Here's exactly what happens from the call to drop-off, so there are no surprises on appointment day.",
+    publishedDate: "2026-09-14",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "If you've only ever used a walk-in salon, a mobile appointment can feel like an unknown — there's no lobby to sit in, no drop-off desk, no sense of the routine. In practice it's a lot simpler than a salon visit, but it helps to know what actually happens before the van shows up.",
+        ],
+      },
+      {
+        heading: "Before the appointment",
+        paragraphs: [
+          "Booking starts with a phone call rather than an online form. Have your dog's breed, size, and coat condition ready — whether they're due for a full haircut or just a bath, and any mats, sensitive areas, or handling quirks worth mentioning — so the groomer knows exactly what to bring.",
+        ],
+        bullets: [
+          "Have a spot near your home clear enough for the van to park and set up",
+          "Keep your dog inside or on a leash until the groomer arrives and is ready",
+          "Mention anything that affects handling — anxiety, mobility issues, sensitive ears or paws — on the call, not as a surprise on-site",
+        ],
+      },
+      {
+        heading: "What actually happens",
+        paragraphs: [
+          "The van arrives at your home and the groom happens right there — no car ride, no drop-off, no time spent waiting in a lobby. Your dog gets one-on-one attention for the entire appointment, in a cage-free setup, with nothing rushed to make room for another dog on the schedule. A warm-water bath with premium shampoo and conditioner is part of every groom, along with whatever else the appointment calls for — deshedding, a haircut, nail trim, ear cleaning — all in that single visit.",
+        ],
+      },
+      {
+        heading: "When it's done",
+        paragraphs: [
+          "Your dog comes back groomed, dried, and ready — handed off right in your driveway. There's no pickup window to plan around and no second trip; the whole thing starts and ends at your door.",
+        ],
+      },
+      {
+        heading: "First time is a good time to ask questions",
+        paragraphs: [
+          "If it's your dog's first professional groom, or first time with a mobile groomer specifically, say so on the booking call — a groomer working with a new dog for the first time will usually take a little extra time to let them settle in before starting. Pet Spa Luxe is available seven days a week, 7 AM to 9 PM, so there's flexibility in picking a time that works for a first visit without rushing.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
