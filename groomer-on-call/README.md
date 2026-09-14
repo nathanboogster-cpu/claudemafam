@@ -235,9 +235,17 @@ Each of these is a one-place change, listed with where it goes.
    mobile. Nothing is invented there today.
 8. **Confirm whether a booking URL exists.** If it does, decide whether "Book
    now" should displace "Call to book" as the primary CTA.
-9. **Attach the custom domain** and set `NEXT_PUBLIC_SITE_URL` in the Vercel
-   project, so canonicals, OG URLs, sitemap and schema all point at the real
-   domain instead of the `.vercel.app` fallback.
+9. **Attach the custom domain.** Nothing else is needed: canonicals, OG URLs,
+   the sitemap and every schema `@id` follow the Vercel project's production
+   domain automatically, via `VERCEL_PROJECT_PRODUCTION_URL` — see `SITE_URL`
+   in `lib/site-data.ts`. Once the domain is the project's production domain,
+   the whole site points at it on the next deploy.
+   `NEXT_PUBLIC_SITE_URL` exists only as an override for the unusual case of
+   wanting an origin *other* than the production domain. If you ever set it,
+   use the full origin with **no trailing slash** (URLs are built as
+   `${SITE_URL}${path}`, so a trailing slash yields `//about`), and redeploy —
+   `NEXT_PUBLIC_*` is inlined at build time, so setting it alone changes
+   nothing until the project rebuilds.
 10. **Verify Google Business Profile alignment** once 1–3 are settled: category,
     service list, service areas and the "mobile" positioning should match this
     site exactly.
