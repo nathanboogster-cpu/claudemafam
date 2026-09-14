@@ -6,7 +6,17 @@
 // app/(site)/blog/[slug]/page.tsx can render every post the same way —
 // mirrors the areaContent pattern used for service-area pages.
 
-import { business, temperamentTest, vaccinationRequirements, boardingFeatures, boardingPricing, type ServiceSlug } from "./site-data";
+import {
+  business,
+  temperamentTest,
+  vaccinationRequirements,
+  boardingFeatures,
+  boardingPricing,
+  groomer,
+  groomingServices,
+  groomingEquipment,
+  type ServiceSlug,
+} from "./site-data";
 
 export type BlogBlock = { type: "p"; text: string } | { type: "h2"; text: string } | { type: "list"; items: string[] };
 
@@ -100,6 +110,47 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedServiceSlugs: ["dog-boarding", "dog-daycare"],
+  },
+  {
+    slug: "whats-included-in-a-full-service-groom",
+    title: "What's Included in a Full-Service Groom at Bow Wags",
+    metaDescription:
+      "A look at what a full-service dog groom at Bow Wags actually includes, the comfort-focused equipment used, and the groomer behind every appointment.",
+    excerpt:
+      "From bathing to nail grinding, here's everything included in a full-service groom at Bow Wags — and the groomer behind every appointment.",
+    eyebrow: "Dog Grooming",
+    publishedAt: "2026-09-14",
+    heroImage: { src: "/images/groomed-dog-bandana.jpg", alt: "Freshly groomed dog at Bow Wags" },
+    body: [
+      {
+        type: "p",
+        text: "\"Full-service grooming\" can mean different things at different places. At Bow Wags, it means a complete appointment — not just a quick bath — handled by one groomer from start to finish, for all breeds.",
+      },
+      { type: "h2", text: "What's Included" },
+      {
+        type: "list",
+        items: [...groomingServices],
+      },
+      { type: "h2", text: "Equipment That Puts Your Dog First" },
+      {
+        type: "list",
+        items: [...groomingEquipment],
+      },
+      { type: "h2", text: "Meet Your Groomer" },
+      {
+        type: "p",
+        text: `${groomer.name} has groomed at Bow Wags since ${groomer.since}, with a background that goes back further still — she ${groomer.background[0].toLowerCase()} and ${groomer.background[1].toLowerCase()} before becoming a full groomer. Her guiding rule is simple: "${groomer.philosophy}." ${groomer.philosophyExplained}`,
+      },
+      {
+        type: "list",
+        items: [...groomer.certifications],
+      },
+      {
+        type: "p",
+        text: `Unlike daycare and boarding, grooming doesn't require a temperament test — appointments are simply booked by phone. Because pricing depends on breed, size, and coat condition, Bow Wags doesn't publish fixed grooming prices online. Call ${business.phoneDisplay} for current rates and to book an appointment.`,
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming"],
   },
 ];
 
