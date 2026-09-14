@@ -19,6 +19,7 @@ const eslintConfig = defineConfig([
     "sittin-pretty-pet-grooming/**",
     "flos-happy-clipper/**",
     "bow-wags/**",
+    "groomer-on-call/**",
   ]),
 ]);
 
