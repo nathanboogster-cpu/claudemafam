@@ -119,6 +119,46 @@ export const photos = {
     src: "/images/gallery-corgi-clipper-detail.jpg",
     alt: "Close-up of careful clipper work on a corgi's coat at Sittin' Pretty Pet Grooming",
   },
+  // A second, earlier batch of real client photos — supplied before the
+  // "newer" batch above, superseded there for the hero/service usages but
+  // still genuine photography, so kept in circulation as extra gallery
+  // variety instead of going unused.
+  blackLabPinkBandana: {
+    src: "/images/gallery-black-lab-smiling.jpg",
+    alt: "Happy black Labrador retriever wearing a pink bandana after grooming at Sittin' Pretty Pet Grooming",
+  },
+  triColorLonghairBandana: {
+    src: "/images/gallery-tricolor-dog-bandana.jpg",
+    alt: "Tri-color long-haired dog wearing a pink bandana after grooming at Sittin' Pretty Pet Grooming",
+  },
+  tanPugMixBowtie: {
+    src: "/images/gallery-tan-chihuahua.jpg",
+    alt: "Freshly groomed tan Chihuahua mix wearing a plaid bowtie at Sittin' Pretty Pet Grooming",
+  },
+  oldEnglishSheepdogBlue: {
+    src: "/images/gallery-sheepdog-bandana.jpg",
+    alt: "Groomed Old English Sheepdog-type dog wearing a blue bandana at Sittin' Pretty Pet Grooming",
+  },
+  tanShorthairPinkLeash: {
+    src: "/images/gallery-tan-terrier-mix.jpg",
+    alt: "Freshly groomed tan short-haired dog at Sittin' Pretty Pet Grooming",
+  },
+  grayWhiteShihTzuBlackCollar: {
+    src: "/images/gallery-gray-white-shihtzu.jpg",
+    alt: "Groomed gray and white Shih Tzu at Sittin' Pretty Pet Grooming",
+  },
+  seniorBlackDogRedBow: {
+    src: "/images/gallery-senior-black-dog.jpg",
+    alt: "Senior dog with a graying muzzle wearing a red bandana after grooming at Sittin' Pretty Pet Grooming",
+  },
+  creamMalteseBlueBandana: {
+    src: "/images/gallery-cream-fluffy-dog.jpg",
+    alt: "Groomed cream-colored fluffy dog wearing a blue bandana at Sittin' Pretty Pet Grooming",
+  },
+  whiteFluffyYellowBandana: {
+    src: "/images/gallery-white-fluffy-puppy.jpg",
+    alt: "Small white fluffy dog wearing a yellow bandana at Sittin' Pretty Pet Grooming",
+  },
 } as const;
 
 export const services = [
