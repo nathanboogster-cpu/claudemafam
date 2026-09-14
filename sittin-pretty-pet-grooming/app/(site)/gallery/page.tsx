@@ -13,10 +13,10 @@ export const metadata: Metadata = pageMetadata({
   path: PATHS.gallery,
 });
 
-// Real client photos supplied so far lead the grid. The salon interior and
-// storefront still render an honest placeholder instead of stock imagery
-// until real photos of those come in.
-const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portrait" }[] = [
+// Every entry here is a real client photo — no stock imagery, no
+// placeholders. Add a new entry (with a real src) if/when a salon
+// interior or storefront photo comes in.
+const galleryPhotos: { caption: string; src: string; aspect: "square" | "portrait" }[] = [
   { caption: photos.blackLabSmiling.alt, src: photos.blackLabSmiling.src, aspect: "portrait" },
   { caption: photos.tricolorDogBandana.alt, src: photos.tricolorDogBandana.src, aspect: "portrait" },
   { caption: photos.tanChihuahua.alt, src: photos.tanChihuahua.src, aspect: "portrait" },
@@ -39,8 +39,6 @@ const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portra
   { caption: photos.catGrooming.alt, src: photos.catGrooming.src, aspect: "square" },
   { caption: photos.catBlackBlanket.alt, src: photos.catBlackBlanket.src, aspect: "square" },
   { caption: photos.catGrayTabbiesWindow.alt, src: photos.catGrayTabbiesWindow.src, aspect: "square" },
-  { caption: "Sittin' Pretty grooming salon interior", aspect: "square" },
-  { caption: "Sittin' Pretty Pet Grooming storefront in Funkstown, MD", aspect: "square" },
 ];
 
 export default function GalleryPage() {
@@ -59,7 +57,7 @@ export default function GalleryPage() {
           <Eyebrow>Gallery</Eyebrow>
           <h1 className="mt-1 font-sp-display text-4xl font-bold text-sp-ink sm:text-5xl">Our Grooming Work</h1>
           <p className="mx-auto mt-4 max-w-xl text-sp-ink-soft">
-            Real dogs and cats from our Funkstown salon. A photo of the salon itself is on the way.
+            Real dogs and cats, freshly groomed at our Funkstown salon.
           </p>
         </div>
 
