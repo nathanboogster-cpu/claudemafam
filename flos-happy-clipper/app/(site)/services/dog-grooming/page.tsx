@@ -29,9 +29,9 @@ const faqs = [
       " and we can talk through exactly what your dog needs based on breed, coat, and age.",
   },
   {
-    question: "Do you groom doodles and poodles?",
+    question: "Do you groom doodles, poodles, and purebred dogs?",
     answer:
-      "Yes. Doodles and poodles are some of our specialties, and pet owners regularly mention how pleased they are with the trim.",
+      "Yes. Precise, breed-standard cuts for purebred dogs are a particular specialty, along with doodle and poodle trims — pet owners regularly mention how pleased they are with the results.",
   },
   {
     question: "Can you groom nervous or first-time dogs?",
@@ -39,9 +39,9 @@ const faqs = [
       "Yes — many of our regular customers specifically mention how comfortable their nervous or first-time dogs are with our grooming. Call ahead to let us know about any special handling your dog needs.",
   },
   {
-    question: "Do you groom poodles or other specialty coats?",
+    question: "Do you groom poodles, purebred dogs, or other specialty coats?",
     answer:
-      "Yes, we have experience with poodles and other dogs that need specialty trims. Call us to discuss what you're looking for.",
+      "Yes, we have experience with poodles, breed-standard purebred cuts, and other dogs that need specialty trims. Call us to discuss what you're looking for.",
   },
   {
     question: "How do I schedule a dog grooming appointment?",
@@ -99,7 +99,7 @@ export default function DogGroomingPage() {
               "Nail trim and ear cleaning",
               "Personal, one-on-one attention — not a rushed assembly line",
               "Comfortable handling for nervous and first-time dogs",
-              "Skilled with doodle & poodle trims",
+              "Skilled with doodle, poodle & purebred breed cuts",
             ].map((f) => (
               <li key={f} className="flex items-center gap-2 text-sm text-fh-ink-soft">
                 <CheckIcon className="h-4 w-4 shrink-0 text-fh-pink-dark" />
