@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { PATHS, SITE_URL, serviceAreas, areaPath, blogPostPath } from "@/lib/site-data";
+import { PATHS, SITE_URL, serviceAreas, areaPath, blogPostPath, groomingServiceDetails, groomingServicePath } from "@/lib/site-data";
 import { blogPosts } from "@/lib/blog-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -44,5 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticEntries, ...areaEntries, ...blogEntries];
+  const groomingServiceEntries = groomingServiceDetails.map((g) => ({
+    url: `${SITE_URL}${groomingServicePath(g.slug)}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...areaEntries, ...blogEntries, ...groomingServiceEntries];
 }

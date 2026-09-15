@@ -288,19 +288,154 @@ export const groomer = {
 
 // Standard inclusions of a full-service groom — the general, well-established
 // components of the trade (not unique claims specific to Bow Wags beyond
-// "we offer full-service grooming," which is already verified).
-export const groomingServices = [
-  "Bath and blow-dry",
-  "Brush-out and de-matting",
-  "Breed-specific and custom haircuts",
-  "Nail trimming and grinding",
-  "Ear cleaning",
-  "Teeth brushing",
-  "Anal gland expression",
-  "Sanitary trim",
-  "Paw pad trim",
-  "Deshedding treatment",
-] as const;
+// "we offer full-service grooming," which is already verified). Each gets its
+// own detail page at /dog-grooming/[slug]; content below is generic,
+// professional-grooming knowledge, not fabricated Bow Wags-specific claims.
+export type GroomingServiceSlug =
+  | "bath-and-blow-dry"
+  | "brush-out-and-de-matting"
+  | "breed-specific-and-custom-haircuts"
+  | "nail-trimming-and-grinding"
+  | "ear-cleaning"
+  | "teeth-brushing"
+  | "anal-gland-expression"
+  | "sanitary-trim"
+  | "paw-pad-trim"
+  | "deshedding-treatment";
+
+export const groomingServiceDetails: {
+  slug: GroomingServiceSlug;
+  name: string;
+  shortDescription: string;
+  detail: string;
+  whyItMatters: string[];
+}[] = [
+  {
+    slug: "bath-and-blow-dry",
+    name: "Bath & Blow-Dry",
+    shortDescription: "A full bath with shampoo suited to your dog's coat and skin, followed by a complete blow-dry.",
+    detail:
+      "Every groom starts with a thorough bath using shampoo and conditioner chosen for your dog's coat type and skin condition. After rinsing, Bow Wags dries each dog completely using cool-air and force-air drying technology, plus handheld drying for the face and head — a full blow-dry is safer and more thorough than air-drying alone, which can leave a dog's undercoat damp and prone to matting or skin irritation.",
+    whyItMatters: [
+      "A complete blow-dry prevents damp undercoat from matting or developing hot spots",
+      "Shampoo matched to your dog's coat and skin helps avoid dryness or irritation",
+      "A thoroughly dried coat makes the rest of the groom — brushing, trimming — easier and more comfortable",
+    ],
+  },
+  {
+    slug: "brush-out-and-de-matting",
+    name: "Brush-Out & De-Matting",
+    shortDescription: "Careful brushing to remove loose fur and work through tangles or mats before and after the bath.",
+    detail:
+      "Before bathing, Bow Wags brushes out loose fur and works through any tangles or mats — bathing over mats can actually tighten them, so this step happens first. Matted fur is worked out gently and gradually rather than rushed, since mats pull on skin and can be uncomfortable for a dog when handled carelessly.",
+    whyItMatters: [
+      "Removing mats before bathing prevents them from tightening further",
+      "Loose undercoat is worked out to reduce shedding and improve air circulation to the skin",
+      "Gentle, gradual de-matting keeps the process comfortable rather than rushed or painful",
+    ],
+  },
+  {
+    slug: "breed-specific-and-custom-haircuts",
+    name: "Breed-Specific & Custom Haircuts",
+    shortDescription: "A haircut styled to breed standard or to whatever length and shape you and your dog are most comfortable with.",
+    detail:
+      "Whether you want a traditional breed-standard trim or a custom length and style, haircuts are handled by one groomer from start to finish. Cynthia enjoys working with a range of coat types — from silhouette cuts on sporting breeds to the shorter, low-maintenance trims many mixed-breed and Malti-Poo owners prefer.",
+    whyItMatters: [
+      "One groomer handles the full haircut, for consistency from start to finish",
+      "Styles range from breed-standard trims to custom, low-maintenance cuts",
+      "Coat length and style can be discussed and adjusted based on the season and your dog's lifestyle",
+    ],
+  },
+  {
+    slug: "nail-trimming-and-grinding",
+    name: "Nail Trimming & Grinding",
+    shortDescription: "Nails trimmed to a safe length and smoothed with a grinder to prevent snagging or splitting.",
+    detail:
+      "Overgrown nails can affect a dog's gait and comfort, so nails are trimmed to a safe length as part of every groom. A grinder is then used to smooth the edges, which helps prevent the snagging, splitting, or sharp edges that clipping alone can leave behind.",
+    whyItMatters: [
+      "Regularly trimmed nails help maintain a comfortable, natural gait",
+      "Grinding smooths edges that clipping alone can leave sharp",
+      "Shorter nails reduce the risk of snagging, splitting, or accidental scratches",
+    ],
+  },
+  {
+    slug: "ear-cleaning",
+    name: "Ear Cleaning",
+    shortDescription: "Gentle cleaning of the outer ear to remove wax and debris and check for signs of irritation.",
+    detail:
+      "Ears are gently cleaned to remove wax and debris from the outer ear canal. This is also a chance to visually check for redness, odor, or other signs of irritation worth mentioning to your vet — grooming isn't a substitute for veterinary care, but a clean, well-checked ear is part of a thorough groom.",
+    whyItMatters: [
+      "Regular cleaning helps prevent wax and debris buildup in the outer ear",
+      "Gives groomers a chance to visually flag anything unusual worth a vet's attention",
+      "Especially helpful for floppy-eared breeds prone to trapped moisture",
+    ],
+  },
+  {
+    slug: "teeth-brushing",
+    name: "Teeth Brushing",
+    shortDescription: "Teeth brushed with a dog-safe toothpaste to help reduce plaque and tartar buildup.",
+    detail:
+      "Teeth are brushed using a dog-safe toothpaste as part of every full-service groom, helping to reduce plaque and tartar buildup between regular brushing at home and dental checkups with your veterinarian.",
+    whyItMatters: [
+      "Regular brushing helps slow plaque and tartar buildup",
+      "Supports fresher breath and overall oral hygiene",
+      "Complements — not replaces — your dog's veterinary dental care",
+    ],
+  },
+  {
+    slug: "anal-gland-expression",
+    name: "Anal Gland Expression",
+    shortDescription:
+      "Expressing the anal glands to relieve the pressure and discomfort many dogs experience when these glands don't empty on their own.",
+    detail:
+      "Some dogs don't naturally express their anal glands during normal bowel movements, which can lead to discomfort, scooting, or irritation. As part of a full-service groom, Bow Wags expresses the anal glands to relieve that pressure — a routine, quick part of the appointment for dogs who need it.",
+    whyItMatters: [
+      "Relieves pressure and discomfort for dogs whose glands don't empty naturally",
+      "Can help reduce scooting, licking, or irritation in that area",
+      "A routine, quick step included in every full-service groom",
+    ],
+  },
+  {
+    slug: "sanitary-trim",
+    name: "Sanitary Trim",
+    shortDescription: "Trimming fur around hygiene-sensitive areas to help keep your dog clean and comfortable.",
+    detail:
+      "A sanitary trim keeps fur around the hindquarters and other hygiene-sensitive areas neatly trimmed, which helps reduce matting, keeps your dog cleaner between baths, and improves overall comfort — especially for longer-coated breeds.",
+    whyItMatters: [
+      "Reduces matting and buildup in hygiene-sensitive areas",
+      "Helps keep your dog cleaner between grooming appointments",
+      "Especially useful for longer-coated breeds",
+    ],
+  },
+  {
+    slug: "paw-pad-trim",
+    name: "Paw Pad Trim",
+    shortDescription: "Trimming excess fur between the paw pads to improve traction and cut down on trapped mud and debris.",
+    detail:
+      "Fur that grows between the paw pads is trimmed back, which improves a dog's traction on hard floors and reduces the mud, debris, and matting that can build up between the pads — especially helpful for dogs that spend a lot of time outdoors.",
+    whyItMatters: [
+      "Improves traction on hardwood or tile floors",
+      "Reduces mud, debris, and ice buildup between the pads",
+      "Helps prevent matting in a hard-to-reach area",
+    ],
+  },
+  {
+    slug: "deshedding-treatment",
+    name: "Deshedding Treatment",
+    shortDescription: "A deeper coat treatment aimed at reducing loose undercoat shedding, especially for double-coated breeds.",
+    detail:
+      "Deshedding goes beyond a standard brush-out to work through the undercoat more thoroughly, removing loose fur before it ends up around your home. It's especially useful for double-coated breeds during seasonal shedding, and pairs with Bow Wags' cool-air and force-air drying to fully loosen and remove dead undercoat.",
+    whyItMatters: [
+      "Removes loose undercoat more thoroughly than a standard brush-out",
+      "Especially helpful for double-coated breeds during seasonal shedding",
+      "Can mean less shedding at home between grooming appointments",
+    ],
+  },
+];
+
+export const groomingServices = groomingServiceDetails.map((g) => g.name);
+
+export const groomingServicePath = (slug: GroomingServiceSlug) => `/dog-grooming/${slug}`;
 
 export const groomingEquipment = [
   "Cool-air and force-air drying technology to limit hot-air exposure",
