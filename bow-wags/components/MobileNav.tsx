@@ -4,9 +4,25 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { mainNav, PATHS } from "@/lib/site-data";
+import { PATHS, serviceNav, areaNav, type NavItem } from "@/lib/site-data";
 
-const links = [{ label: "Home", href: PATHS.home }, ...mainNav, { label: "Reservations", href: PATHS.reservations }];
+const coreLinks: NavItem[] = [
+  { label: "Home", href: PATHS.home },
+  { label: "Rates", href: PATHS.rates },
+  { label: "Gallery", href: PATHS.gallery },
+  { label: "About", href: PATHS.about },
+  { label: "Blog", href: PATHS.blog },
+  { label: "Reviews", href: PATHS.reviews },
+  { label: "FAQ", href: PATHS.faq },
+  { label: "Contact", href: PATHS.contact },
+  { label: "Reservations", href: PATHS.reservations },
+];
+
+const groups: { label: string; items: NavItem[] }[] = [
+  { label: "Menu", items: coreLinks },
+  { label: "Services", items: serviceNav },
+  { label: "Service Areas", items: areaNav },
+];
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -27,22 +43,27 @@ export function MobileNav() {
   const menu = (
     <div id="bw-mobile-menu" className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-bw-cream">
       <nav aria-label="Mobile" className="flex flex-col p-4 font-bw-sans">
-        {links.map((item) => {
-          const active = pathname === item.href;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              aria-current={active ? "page" : undefined}
-              className={`min-h-[44px] flex items-center border-b border-bw-border px-2 text-lg font-medium ${
-                active ? "text-bw-red-dark" : "text-bw-ink"
-              }`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
+        {groups.map((group) => (
+          <div key={group.label} className="mb-2">
+            <p className="mt-3 px-2 text-xs font-semibold uppercase tracking-wide text-bw-ink-soft">{group.label}</p>
+            {group.items.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`min-h-[44px] flex items-center border-b border-bw-border px-2 text-lg font-medium ${
+                    active ? "text-bw-red-dark" : "text-bw-ink"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        ))}
       </nav>
     </div>
   );

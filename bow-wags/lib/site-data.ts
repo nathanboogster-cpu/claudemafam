@@ -177,6 +177,16 @@ export const serviceAreas: { slug: ServiceAreaSlug; city: string; state: string;
 
 export const areaPath = (slug: ServiceAreaSlug) => `/service-areas/${slug}`;
 
+export const serviceNav: NavItem[] = services.map((s) => ({
+  label: s.shortName,
+  href: servicePath(s.slug),
+}));
+
+export const areaNav: NavItem[] = serviceAreas.map((a) => ({
+  label: `${a.city}, ${a.state}`,
+  href: areaPath(a.slug),
+}));
+
 // DAYCARE — current published rates, per the verified business record.
 // Marked "current" throughout the UI since these are subject to change.
 export const temperamentTest = {
