@@ -10,7 +10,7 @@ import { serviceAreas, areaPath, business, PATHS, SITE_URL } from "@/lib/site-da
 export const metadata: Metadata = pageMetadata({
   title: "Service Areas",
   description:
-    "Bow Wags is based in Marietta, GA and welcomes dog owners from Powder Springs, Smyrna, Austell, Kennesaw, and Mableton for daycare, boarding, and grooming.",
+    "Bow Wags is based in Marietta, GA and welcomes dog owners from Powder Springs, Smyrna, Austell, Kennesaw, Mableton, Vinings, Acworth, Hiram, and Lithia Springs for daycare, boarding, and grooming.",
   path: PATHS.serviceAreas,
 });
 
@@ -32,7 +32,7 @@ export default function ServiceAreasHub() {
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-bw-ink-soft">
           Bow Wags is at {business.addressFull}, and welcomes dog owners from anywhere within about a
-          15-minute drive across West Cobb and the surrounding towns.
+          15–20 minute drive across West Cobb and the surrounding towns.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

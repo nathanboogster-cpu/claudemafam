@@ -134,44 +134,87 @@ export const services = [
 
 export const servicePath = (slug: ServiceSlug) => `/${slug}`;
 
-// Towns within roughly a 15-minute drive of the Marietta facility
-// (1691 Powder Springs Rd SW) — Powder Springs, Smyrna, and Austell are
-// already named as served areas elsewhere on this site; Kennesaw and
-// Mableton are added here as the other nearby Cobb County towns within
-// that same drive-time radius. No area outside this real, local radius
-// is claimed.
-export type ServiceAreaSlug = "powder-springs-ga" | "smyrna-ga" | "austell-ga" | "kennesaw-ga" | "mableton-ga";
+// Towns within roughly a 15–20 minute drive of the Marietta facility
+// (1691 Powder Springs Rd SW), per real driving-time lookups (not
+// straight-line distance). Powder Springs, Smyrna, Austell, Kennesaw, and
+// Mableton are the closer set (~15 min or less); Vinings, Acworth, Hiram,
+// and Lithia Springs are the wider set (~18–27 min depending on route/
+// traffic) — each area's driveTimeNote below reflects which group it's in.
+// No area outside this real, local radius is claimed.
+export type ServiceAreaSlug =
+  | "powder-springs-ga"
+  | "smyrna-ga"
+  | "austell-ga"
+  | "kennesaw-ga"
+  | "mableton-ga"
+  | "vinings-ga"
+  | "acworth-ga"
+  | "hiram-ga"
+  | "lithia-springs-ga";
 
-export const serviceAreas: { slug: ServiceAreaSlug; city: string; state: string; description: string }[] = [
+export const serviceAreas: { slug: ServiceAreaSlug; city: string; state: string; description: string; driveTimeNote: string }[] = [
   {
     slug: "powder-springs-ga",
     city: "Powder Springs",
     state: "GA",
     description: "Dog daycare, boarding, and grooming a short drive down Powder Springs Rd.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "smyrna-ga",
     city: "Smyrna",
     state: "GA",
     description: "Clean, safe, fully supervised care about a 15-minute drive from Smyrna.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "austell-ga",
     city: "Austell",
     state: "GA",
     description: "Daycare, boarding, and grooming convenient to Austell dog owners.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "kennesaw-ga",
     city: "Kennesaw",
     state: "GA",
     description: "Private boarding suites and full-service grooming near Kennesaw.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "mableton-ga",
     city: "Mableton",
     state: "GA",
     description: "Size-appropriate daycare playrooms and grooming close to Mableton.",
+    driveTimeNote: "about a 15-minute drive",
+  },
+  {
+    slug: "vinings-ga",
+    city: "Vinings",
+    state: "GA",
+    description: "Daycare, boarding, and grooming about a 20-minute drive from Vinings.",
+    driveTimeNote: "about a 20-minute drive",
+  },
+  {
+    slug: "acworth-ga",
+    city: "Acworth",
+    state: "GA",
+    description: "Private boarding suites and full-service grooming for Acworth dog owners.",
+    driveTimeNote: "about a 20-minute drive",
+  },
+  {
+    slug: "hiram-ga",
+    city: "Hiram",
+    state: "GA",
+    description: "Clean, safe, fully supervised daycare and boarding for Hiram dog owners.",
+    driveTimeNote: "about a 20-minute drive",
+  },
+  {
+    slug: "lithia-springs-ga",
+    city: "Lithia Springs",
+    state: "GA",
+    description: "Size-appropriate daycare playrooms and grooming for Lithia Springs dog owners.",
+    driveTimeNote: "about a 20-minute drive",
   },
 ];
 
@@ -403,10 +446,10 @@ export const areaContent: Record<
     a.slug,
     {
       metaTitle: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
-      metaDescription: `Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA, about a 15-minute drive from ${a.city} — clean, safe, fully supervised care. Call ${business.phoneDisplay}.`,
+      metaDescription: `Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA, ${a.driveTimeNote} from ${a.city} — clean, safe, fully supervised care. Call ${business.phoneDisplay}.`,
       eyebrow: `${a.city}, GA`,
       h1: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
-      intro: `Bow Wags is located at ${business.addressFull} — about a 15-minute drive from ${a.city} — offering size-appropriate daycare playrooms, private wooden boarding suites (no cages), and full-service grooming for all breeds.`,
+      intro: `Bow Wags is located at ${business.addressFull} — ${a.driveTimeNote} from ${a.city} — offering size-appropriate daycare playrooms, private wooden boarding suites (no cages), and full-service grooming for all breeds.`,
       whyChoose: [
         "Clean, safe, fully supervised daycare and boarding",
         "Private wooden boarding suites — not traditional cages",
@@ -416,7 +459,7 @@ export const areaContent: Record<
       faqs: [
         {
           question: `Does Bow Wags serve dog owners in ${a.city}?`,
-          answer: `Yes — Bow Wags is in Marietta, GA, about a 15-minute drive from ${a.city}, and welcomes dog owners from ${a.city} for daycare, boarding, and grooming.`,
+          answer: `Yes — Bow Wags is in Marietta, GA, ${a.driveTimeNote} from ${a.city}, and welcomes dog owners from ${a.city} for daycare, boarding, and grooming.`,
         },
         {
           question: `Does my dog need anything before their first visit from ${a.city}?`,
