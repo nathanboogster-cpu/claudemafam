@@ -243,15 +243,20 @@ export const groomer = {
   certifications: ["Pet CPR and First Aid Certified", "Completed Skin and Coat 101 and advanced skin/coat coursework"],
 } as const;
 
+// Standard inclusions of a full-service groom — the general, well-established
+// components of the trade (not unique claims specific to Bow Wags beyond
+// "we offer full-service grooming," which is already verified).
 export const groomingServices = [
-  "Bathing",
-  "Full grooming",
-  "Haircuts",
-  "Nail grinding",
+  "Bath and blow-dry",
+  "Brush-out and de-matting",
+  "Breed-specific and custom haircuts",
+  "Nail trimming and grinding",
   "Ear cleaning",
-  "Teeth cleaning",
-  "Deshedding",
-  "Coat maintenance",
+  "Teeth brushing",
+  "Anal gland expression",
+  "Sanitary trim",
+  "Paw pad trim",
+  "Deshedding treatment",
 ] as const;
 
 export const groomingEquipment = [
