@@ -8,7 +8,16 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { CheckIcon } from "@/components/icons";
 import { JsonLd, breadcrumbSchema, serviceSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import { business, groomer, groomingServices, groomingEquipment, PATHS, SITE_URL } from "@/lib/site-data";
+import {
+  business,
+  groomer,
+  groomingServices,
+  groomingServiceDetails,
+  groomingServicePath,
+  groomingEquipment,
+  PATHS,
+  SITE_URL,
+} from "@/lib/site-data";
 
 export const metadata: Metadata = pageMetadata({
   title: "Dog Grooming in Marietta, GA",
@@ -97,10 +106,18 @@ export default function DogGroomingPage() {
             <h2 className="mt-1 font-bw-display text-3xl font-bold text-bw-ink sm:text-4xl">What&apos;s Offered</h2>
           </div>
           <ul className="mx-auto mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
-            {groomingServices.map((s) => (
-              <li key={s} className="flex items-center gap-2 rounded-xl border border-bw-border bg-white p-4 text-sm text-bw-ink-soft">
-                <CheckIcon className="h-4 w-4 shrink-0 text-bw-teal-dark" />
-                {s}
+            {groomingServiceDetails.map((g) => (
+              <li key={g.slug}>
+                <Link
+                  href={groomingServicePath(g.slug)}
+                  className="group flex items-center justify-between gap-2 rounded-xl border border-bw-border bg-white p-4 text-sm text-bw-ink-soft shadow-sm transition-colors hover:border-bw-red-dark"
+                >
+                  <span className="flex items-center gap-2">
+                    <CheckIcon className="h-4 w-4 shrink-0 text-bw-teal-dark" />
+                    {g.name}
+                  </span>
+                  <span className="shrink-0 text-bw-red-dark opacity-0 transition-opacity group-hover:opacity-100">→</span>
+                </Link>
               </li>
             ))}
           </ul>
