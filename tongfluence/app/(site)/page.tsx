@@ -7,6 +7,7 @@ import { JsonLd, faqSchema, serviceSchema } from "@/lib/schema";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 import { ProofStrip } from "@/components/ProofStrip";
+import { ExplainerVideo } from "@/components/ExplainerVideo";
 import { PricingCard } from "@/components/PricingCard";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -174,14 +175,32 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 2. IMMEDIATE PROOF — before any argument is made.                */}
+      {/* 2. THE WALKTHROUGH — answers "what do you actually do" before    */}
+      {/* the page starts arguing, which is the first thing a groomer      */}
+      {/* wants to know and the thing text is worst at conveying.          */}
+      {/* ---------------------------------------------------------------- */}
+      <Section width="narrow" className="pb-16" labelledBy="walkthrough">
+        <SectionHeading
+          eyebrow="Watch"
+          id="walkthrough"
+          title="Exactly what we do, start to finish"
+          intro="A walkthrough of what actually happens when a grooming business works with us. If you would rather read it, the same process is written out further down this page."
+          align="center"
+        />
+        <div className="mt-8">
+          <ExplainerVideo location="home_hero" />
+        </div>
+      </Section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* 3. IMMEDIATE PROOF — before any argument is made.                */}
       {/* ---------------------------------------------------------------- */}
       <Section className="pb-16">
         <ProofStrip />
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 3. PROBLEM / OPPORTUNITY                                          */}
+      {/* 4. PROBLEM / OPPORTUNITY                                          */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="problem">
         <SectionHeading
@@ -227,7 +246,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 4. THE SYSTEM                                                     */}
+      {/* 5. THE SYSTEM                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="system">
         <SectionHeading
@@ -262,7 +281,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 5. WHY GROOMERS SPECIFICALLY                                      */}
+      {/* 6. WHY GROOMERS SPECIFICALLY                                      */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="specialised">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
@@ -319,7 +338,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 6. HOW IT WORKS                                                   */}
+      {/* 7. HOW IT WORKS                                                   */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="how">
         <SectionHeading eyebrow="How it works" id="how" title="What the first month actually looks like." />
@@ -344,7 +363,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 7. CASE STUDIES                                                   */}
+      {/* 8. CASE STUDIES                                                   */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="work">
         <SectionHeading
@@ -366,7 +385,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 8. THE OFFER                                                      */}
+      {/* 9. THE OFFER                                                      */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="pricing-heading" id="pricing">
         <SectionHeading
@@ -379,7 +398,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 9. OBJECTIONS                                                     */}
+      {/* 10. OBJECTIONS                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="objections">
         <SectionHeading
@@ -398,14 +417,14 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 10. FAQ                                                           */}
+      {/* 11. FAQ                                                           */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14">
         <FaqBlock items={faqs} />
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 11. FINAL CTA                                                     */}
+      {/* 12. FINAL CTA                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14">
         <CtaBand location="home_footer" />

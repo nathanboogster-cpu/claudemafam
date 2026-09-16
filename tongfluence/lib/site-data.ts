@@ -121,6 +121,33 @@ export const offer = {
 } as const;
 
 // ---------------------------------------------------------------------------
+// THE EXPLAINER VIDEO
+//
+// Hosted on Wistia. Only the media ID lives here — every URL is derived from
+// it, so swapping the video is a one-line change.
+//
+// NOTE: no VideoObject structured data is emitted for this. Google's
+// VideoObject requires a name, description, thumbnail and upload date, and
+// inventing an upload date to satisfy it would break the same rule the rest of
+// this site is built on. Supply the video's real title, description, upload
+// date and duration and it becomes worth adding — see README.
+// ---------------------------------------------------------------------------
+export const explainerVideo = {
+  wistiaMediaId: "9stn7byinq",
+  // 16:9. Used to reserve the space before the player defines, so the embed
+  // cannot shift the page.
+  aspectRatio: 16 / 9,
+  get swatchUrl() {
+    return `https://fast.wistia.com/embed/medias/${this.wistiaMediaId}/swatch`;
+  },
+  // Plain link for the no-JavaScript case, where the web component never
+  // upgrades and the visitor would otherwise be left staring at a blur.
+  get fallbackUrl() {
+    return `https://fast.wistia.net/embed/iframe/${this.wistiaMediaId}`;
+  },
+} as const;
+
+// ---------------------------------------------------------------------------
 // ROUTES — every indexable URL on this site. Object.values() feeds the
 // sitemap, so anything added here must be a real, canonical, 200 page.
 // ---------------------------------------------------------------------------

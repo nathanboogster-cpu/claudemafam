@@ -144,14 +144,23 @@ and documented where they bite:
    change. The current PNGs were cut from a JPEG, so their edges carry
    whatever the JPEG had.
 
-7. **Real screenshots.** Every proof asset here is currently text: page
+7. **Video metadata, if you want the video indexed.** The homepage
+   explainer is a Wistia embed (`explainerVideo` in `lib/site-data.ts` —
+   only the media ID is stored, every URL derives from it). No
+   `VideoObject` structured data is emitted for it, because Google requires
+   a name, description, thumbnail *and* upload date, and inventing an
+   upload date would break the same rule the rest of this site is built on.
+   Supply the video's real title, description, upload date and duration and
+   it is worth adding — it is the one thing that could put the video itself
+   into search results.
+8. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business
    Profile screenshots, and before/after website captures, would make the
    case studies substantially stronger. Add them alongside the numbers,
    not instead of them.
-8. **Connect Google Search Console** on launch, submit `/sitemap.xml`, and
+9. **Connect Google Search Console** on launch, submit `/sitemap.xml`, and
    verify indexing. Then leave it roughly 28 days before reading anything
    into the data. `SEO-PLAN.md` documents the loop after that.
-9. **Legal review.** `/privacy` and `/terms` describe what the site and
+10. **Legal review.** `/privacy` and `/terms` describe what the site and
    the service actually do, and they match the FAQ. They have not been
    reviewed by a lawyer.

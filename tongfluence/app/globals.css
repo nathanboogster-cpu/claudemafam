@@ -128,6 +128,27 @@ body {
   }
 }
 
+/* The explainer video's container. Before <wistia-player> upgrades, the
+   element has no size of its own, so the wrapper holds the 16:9 box and shows
+   the video's poster frame — blurred, as Wistia's own embed does — which keeps
+   the embed from ever shifting the page. Once the component is defined it
+   fills the box and the poster is irrelevant. */
+.tf-video {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.tf-video > wistia-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tf-video > wistia-player:not(:defined) {
+  filter: blur(5px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

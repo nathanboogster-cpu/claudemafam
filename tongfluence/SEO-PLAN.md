@@ -111,8 +111,13 @@ a given page.
 - `/api/` disallowed in robots.txt; nothing else is blocked.
 - 404s return a real 404 status with useful links out — no soft 404s.
 - All pages are statically prerendered except the lead POST handler.
-- ~7.6 KB gzipped CSS, self-hosted preloaded fonts, no images shipped in
-  the page payload, no third-party scripts beyond Vercel Analytics.
+- ~7.6 KB gzipped CSS, self-hosted preloaded fonts, logo artwork served
+  through next/image at 56 KB for the whole set.
+- Third-party scripts: Vercel Analytics, plus Wistia on the homepage only.
+  The Wistia player loads with next/script `lazyOnload`, so it is fetched
+  after the page is interactive rather than competing with it, and its
+  container reserves a locked 16:9 box showing the video's own poster —
+  measured CLS from the embed is 0 at both 390px and 1280px.
 
 ## The post-launch loop
 
