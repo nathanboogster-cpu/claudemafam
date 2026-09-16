@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, resourcePath } from "@/lib/site-data";
+import { PATHS, resourcePath, headlineResult } from "@/lib/site-data";
 import { clientBuilds, caseStudyBuilds, buildStats } from "@/lib/client-builds";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -58,11 +58,12 @@ export default function CaseStudiesPage() {
         <AnswerBlock label="About the numbers on this page">
           <p>
             We publish <strong>what was built</strong> — page counts, structure, and the decisions behind
-            them — because that is verifiable by opening the sites. We do not publish rankings, traffic, call
-            volume or review growth, because we have not exported and checked a dataset we would stand behind.
-            When we have one, it will appear with its metric, its time period and its source. A bare
-            &ldquo;+300%&rdquo; is not evidence, and an industry full of them is why this section reads the
-            way it does.
+            them — because that is verifiable by opening the sites.{" "}
+            {headlineResult
+              ? "Where we do publish a performance figure, it carries its metric, sample, period, source and method with it."
+              : "We do not publish rankings, traffic, call volume or review growth, because we have not exported and checked a dataset we would stand behind. When we have one, it will appear with its metric, its time period and its source."}{" "}
+            A bare &ldquo;+300%&rdquo; is not evidence, and an industry full of them is why this section
+            reads the way it does.
           </p>
         </AnswerBlock>
       </Section>

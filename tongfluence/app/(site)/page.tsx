@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, offer, faqs, audienceTypes, objections, business } from "@/lib/site-data";
+import { PATHS, offer, faqs, audienceTypes, objections, business, explainerVideo } from "@/lib/site-data";
 import { caseStudyBuilds, buildStats } from "@/lib/client-builds";
-import { JsonLd, faqSchema, serviceSchema } from "@/lib/schema";
+import { JsonLd, faqSchema, serviceSchema, videoSchema } from "@/lib/schema";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 import { ProofStrip } from "@/components/ProofStrip";
+import { ProvenClaim } from "@/components/ProvenClaim";
 import { ExplainerVideo } from "@/components/ExplainerVideo";
 import { PricingCard } from "@/components/PricingCard";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
@@ -84,6 +85,17 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqSchema(faqs)} />
+      <JsonLd
+        data={videoSchema({
+          name: explainerVideo.title,
+          description: explainerVideo.description,
+          thumbnailUrl: explainerVideo.swatchUrl,
+          uploadDate: explainerVideo.uploadDate,
+          duration: explainerVideo.durationIso,
+          embedUrl: explainerVideo.embedUrl,
+          pagePath: PATHS.home,
+        })}
+      />
       <JsonLd
         data={serviceSchema({
           name: "Dog groomer marketing and SEO",
@@ -181,7 +193,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="pb-16" labelledBy="walkthrough">
         <SectionHeading
-          eyebrow="Watch"
+          eyebrow={`Watch · ${explainerVideo.durationLabel}`}
           id="walkthrough"
           title="Exactly what we do, start to finish"
           intro="A walkthrough of what actually happens when a grooming business works with us. If you would rather read it, the same process is written out further down this page."
@@ -190,6 +202,7 @@ export default function HomePage() {
         <div className="mt-8">
           <ExplainerVideo location="home_hero" />
         </div>
+        <ProvenClaim />
       </Section>
 
       {/* ---------------------------------------------------------------- */}

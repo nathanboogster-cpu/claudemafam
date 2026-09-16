@@ -144,15 +144,24 @@ and documented where they bite:
    change. The current PNGs were cut from a JPEG, so their edges carry
    whatever the JPEG had.
 
-7. **Video metadata, if you want the video indexed.** The homepage
-   explainer is a Wistia embed (`explainerVideo` in `lib/site-data.ts` —
-   only the media ID is stored, every URL derives from it). No
-   `VideoObject` structured data is emitted for it, because Google requires
-   a name, description, thumbnail *and* upload date, and inventing an
-   upload date would break the same rule the rest of this site is built on.
-   Supply the video's real title, description, upload date and duration and
-   it is worth adding — it is the one thing that could put the video itself
-   into search results.
+7. **The evidence behind "2-3X".** The homepage explainer is titled *How
+   We Get 2-3X More Dog Grooming Appointments*, and that title is published
+   in the page's `VideoObject` structured data. It is the only performance
+   claim anywhere on this site, and it currently has nothing behind it.
+
+   `headlineResult` in `lib/site-data.ts` is the slot for that evidence. It
+   needs five things, all required: the **metric** (exactly what was
+   counted), the **sample** (which businesses, how many), the **period**
+   (the before and after windows), the **source** (where the number came
+   from), and the **method** (how it was calculated and what it excludes).
+
+   While it is `null`, the claim appears only as the video's own title and
+   `/about` and `/case-studies` keep their "we publish nothing unmeasured"
+   wording — which is true. Fill it in and the claim renders beneath the
+   video with its evidence, and both of those pages soften their wording
+   automatically. The site cannot end up asserting one thing and doing
+   another, whichever state it is in.
+
 8. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business
    Profile screenshots, and before/after website captures, would make the

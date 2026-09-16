@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, business, offer, founder, resourcePath } from "@/lib/site-data";
+import { PATHS, business, offer, founder, resourcePath, headlineResult } from "@/lib/site-data";
 import { buildStats } from "@/lib/client-builds";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -196,7 +196,9 @@ export default function AboutPage() {
                 items={[
                   {
                     title: "No results we haven't measured",
-                    body: "There is not a single traffic, ranking or call-volume figure anywhere on this site, because we have not exported and verified a dataset we would stand behind. The case studies say so explicitly rather than quietly leaving the section out.",
+                    body: headlineResult
+                      ? "Every performance figure on this site is published with the metric, the sample, the period, the source and the method beside it. If we cannot show you those five things, the number does not go up."
+                      : "There is not a single traffic, ranking or call-volume figure anywhere on this site, because we have not exported and verified a dataset we would stand behind. The case studies say so explicitly rather than quietly leaving the section out.",
                   },
                   {
                     title: "No client logos or testimonials we don't have permission for",
