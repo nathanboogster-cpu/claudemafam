@@ -138,7 +138,7 @@ export default function GbpPage() {
               href="https://support.google.com/business/answer/3038177"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-tf-green-dark underline underline-offset-4"
+              className="font-medium text-tf-brown-dark underline underline-offset-4"
             >
               documentation on choosing a category
             </a>{" "}
@@ -195,7 +195,7 @@ export default function GbpPage() {
             description a real sentence rather than a keyword. Then make sure your website has a page for each
             one, so the profile and the site are telling the same story. That alignment between the two is
             most of what we mean by{" "}
-            <Link href={PATHS.seo} className="font-medium text-tf-green-dark underline underline-offset-4">
+            <Link href={PATHS.seo} className="font-medium text-tf-brown-dark underline underline-offset-4">
               grooming SEO
             </Link>
             .
@@ -229,7 +229,7 @@ export default function GbpPage() {
             what{" "}
             <Link
               href={PATHS.websiteDesign}
-              className="font-medium text-tf-green-dark underline underline-offset-4"
+              className="font-medium text-tf-brown-dark underline underline-offset-4"
             >
               the area pages on a grooming site
             </Link>{" "}
@@ -262,7 +262,7 @@ export default function GbpPage() {
             ["Duplicate listings", "Old profiles from a previous address or previous owner, still live, splitting your reviews."],
           ].map(([item, detail], i) => (
             <li key={item} className="flex gap-4 rounded-2xl border border-tf-border bg-white p-4">
-              <span className="font-tf-mono text-xs font-semibold text-tf-clay">
+              <span className="font-tf-mono text-xs font-semibold text-tf-brown">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>
@@ -287,7 +287,7 @@ export default function GbpPage() {
               page:{" "}
               <Link
                 href={PATHS.reviews}
-                className="font-medium text-tf-green-dark underline underline-offset-4"
+                className="font-medium text-tf-brown-dark underline underline-offset-4"
               >
                 review management for dog groomers
               </Link>

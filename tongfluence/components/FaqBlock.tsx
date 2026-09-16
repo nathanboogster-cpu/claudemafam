@@ -26,7 +26,7 @@ export function FaqBlock({
               <span>{item.question}</span>
               <span
                 aria-hidden="true"
-                className="mt-0.5 shrink-0 text-xl leading-none text-tf-green-dark transition-transform group-open:rotate-45"
+                className="mt-0.5 shrink-0 text-xl leading-none text-tf-brown-dark transition-transform group-open:rotate-45"
               >
                 +
               </span>

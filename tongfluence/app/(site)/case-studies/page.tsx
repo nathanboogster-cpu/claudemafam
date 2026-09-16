@@ -119,7 +119,7 @@ export default function CaseStudiesPage() {
           The page-by-page comparison of all {buildStats.siteCount}, including what they have in common, is in{" "}
           <Link
             href={resourcePath("dog-grooming-website-examples")}
-            className="font-medium text-tf-green-dark underline underline-offset-4"
+            className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
             dog grooming website examples
           </Link>

@@ -40,7 +40,7 @@ export function NavDropdown({ label, items }: { label: string; items: NavItem[] 
         onKeyDown={(e) => {
           if (e.key === "Escape") setOpen(false);
         }}
-        className="inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap px-1 text-sm font-medium text-tf-ink-soft hover:text-tf-green-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark"
+        className="inline-flex min-h-[44px] items-center gap-1 whitespace-nowrap px-1 text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
       >
         {label}
         <ChevronDownIcon className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
@@ -55,7 +55,7 @@ export function NavDropdown({ label, items }: { label: string; items: NavItem[] 
               <Link
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-xl px-3 py-2.5 hover:bg-tf-paper-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark"
+                className="block rounded-xl px-3 py-2.5 hover:bg-tf-paper-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
               >
                 <span className="block text-sm font-semibold text-tf-ink">{item.label}</span>
                 {item.description ? (

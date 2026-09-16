@@ -41,7 +41,7 @@ export function PricingCard({ location, className = "" }: { location: string; cl
     >
       <div className="grid gap-0 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
         <div className="border-b border-tf-border bg-tf-ink p-8 text-white md:border-b-0 md:border-r">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-on-dark">Everything, one price</p>
+          <p className="tf-caps text-xs text-tf-bronze-light">Everything, one price</p>
           <p className="mt-4 flex items-baseline gap-1.5">
             <span className="font-tf-display text-5xl font-bold tracking-tight">{offer.priceDisplay}</span>
             <span className="text-lg text-white/70">/{offer.billingPeriod}</span>
@@ -66,13 +66,13 @@ export function PricingCard({ location, className = "" }: { location: string; cl
           <ul className="mt-5 space-y-5">
             {offer.inclusions.map((item) => (
               <li key={item.number} className="flex gap-3">
-                <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-green-dark" />
+                <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-brown-dark" />
                 <div>
                   <p className="font-semibold text-tf-ink">{item.title}</p>
                   <p className="mt-1 text-sm leading-relaxed text-tf-ink-soft">{item.summary}</p>
                   <Link
                     href={item.href}
-                    className="mt-1.5 inline-block text-sm font-medium text-tf-green-dark underline underline-offset-4 hover:text-tf-green-darker"
+                    className="mt-1.5 inline-block text-sm font-medium text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
                   >
                     {item.linkLabel}
                   </Link>

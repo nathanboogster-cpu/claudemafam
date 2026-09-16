@@ -53,9 +53,12 @@ npm run lint    # eslint
 
 ## Structure
 
+- `app/globals.css` — the design system, derived from the brand logo: a
+  warm near-black and a chocolate brown on warm off-white, with the
+  contrast ratio of every text-bearing pair recorded in the comments.
 - `lib/site-data.ts` — single source of truth for every fact published on
-  this site: the offer, the inclusions, the FAQ, the objections, the nav.
-  Change facts here, never in a page.
+  this site: the offer, the inclusions, the FAQ, the objections, the nav,
+  and the brand tagline and logo path. Change facts here, never in a page.
 - `lib/client-builds.ts` — the first-party dataset behind every proof
   claim: page composition of the seven real grooming builds, with a note
   on how each number was derived so any reader can re-verify it.
@@ -119,14 +122,23 @@ and documented where they bite:
 5. **Form backend.** Set `RESEND_API_KEY` and `LEAD_NOTIFICATION_EMAIL`
    before launch. Until then the form reports a clear error; it never
    pretends to have sent.
-6. **Real screenshots.** Every proof asset here is currently text: page
+6. **The real logo file.** `components/Logo.tsx` renders the supplied
+   artwork as soon as `business.logo` in `lib/site-data.ts` points at a
+   file in `public/` and `logoWidth`/`logoHeight` are set. Until then it
+   falls back to a drawn small-size mark (an ink badge with the TF split
+   across the brand's two colours, plus the paw) next to the live-text
+   two-tone wordmark. The fallback is deliberately a reduction, not a
+   reproduction — the full lockup's arc, bars and swoosh collide at header
+   size. Drop `logo.png` in and set those three fields; nothing else
+   changes.
+7. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business
    Profile screenshots, and before/after website captures, would make the
    case studies substantially stronger. Add them alongside the numbers,
    not instead of them.
-7. **Connect Google Search Console** on launch, submit `/sitemap.xml`, and
+8. **Connect Google Search Console** on launch, submit `/sitemap.xml`, and
    verify indexing. Then leave it roughly 28 days before reading anything
    into the data. `SEO-PLAN.md` documents the loop after that.
-8. **Legal review.** `/privacy` and `/terms` describe what the site and
+9. **Legal review.** `/privacy` and `/terms` describe what the site and
    the service actually do, and they match the FAQ. They have not been
    reviewed by a lawyer.

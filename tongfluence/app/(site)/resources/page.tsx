@@ -69,17 +69,17 @@ export default function ResourcesPage() {
             <li key={r.slug}>
               <Link
                 href={resourcePath(r.slug)}
-                className="group block rounded-3xl border border-tf-border bg-white p-6 transition-colors hover:border-tf-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark sm:p-7"
+                className="group block rounded-3xl border border-tf-border bg-white p-6 transition-colors hover:border-tf-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark sm:p-7"
               >
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-tf-ink-soft">
-                  <span className="rounded-full bg-tf-green-wash px-2.5 py-1 font-semibold text-tf-green-darker">
+                  <span className="rounded-full bg-tf-brown-wash px-2.5 py-1 font-semibold text-tf-brown-darker">
                     {r.kind}
                   </span>
                   <span>{r.readingTime}</span>
                 </div>
                 <h3 className="mt-3 font-tf-display text-xl font-bold text-tf-ink sm:text-2xl">{r.title}</h3>
                 <p className="mt-2 text-base leading-relaxed text-tf-ink-soft">{r.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-tf-green-dark">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-tf-brown-dark">
                   Read it
                   <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
@@ -105,7 +105,7 @@ export default function ResourcesPage() {
                   Exactly the same search intent as{" "}
                   <Link
                     href={PATHS.leadGeneration}
-                    className="font-medium text-tf-green-dark underline underline-offset-4"
+                    className="font-medium text-tf-brown-dark underline underline-offset-4"
                   >
                     our lead generation page
                   </Link>
@@ -133,7 +133,7 @@ export default function ResourcesPage() {
                   conceptually on{" "}
                   <Link
                     href={PATHS.gbp}
-                    className="font-medium text-tf-green-dark underline underline-offset-4"
+                    className="font-medium text-tf-brown-dark underline underline-offset-4"
                   >
                     the Google Business Profile page
                   </Link>

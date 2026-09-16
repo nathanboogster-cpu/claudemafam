@@ -196,7 +196,7 @@ export default function DogGroomerSeoPage() {
             those sites. The counts, build by build, are in{" "}
             <Link
               href={resourcePath("dog-grooming-website-examples")}
-              className="font-medium text-tf-green-dark underline underline-offset-4"
+              className="font-medium text-tf-brown-dark underline underline-offset-4"
             >
               our breakdown of the grooming websites we have built
             </Link>
@@ -334,7 +334,7 @@ export default function DogGroomerSeoPage() {
               exactly what changed. The clearest example of the geography problem is{" "}
               <Link
                 href={caseStudyPath("sittin-pretty-pet-grooming")}
-                className="font-medium text-tf-green-dark underline underline-offset-4"
+                className="font-medium text-tf-brown-dark underline underline-offset-4"
               >
                 a salon in a small town whose customers all search for the bigger town next door
               </Link>

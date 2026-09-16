@@ -3,10 +3,10 @@ import { ImageResponse } from "next/og";
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
-// The favicon, generated from the same mark the header uses — a search
-// result's two lines crossed by a grooming comb. Generated rather than
-// shipped as a binary so it stays in sync with the brand colours in
-// app/globals.css and costs nothing to change.
+// Favicon built from the logo's two-colour split: a warm near-black ground
+// with the "T" in white and the "F" in the brand brown, echoing the way the
+// wordmark divides. Generated rather than shipped as a binary so it stays in
+// sync with the palette in app/globals.css.
 export default function Icon() {
   return new ImageResponse(
     (
@@ -15,23 +15,17 @@ export default function Icon() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 6,
-          background: "#10684a",
+          background: "#1f1b18",
           borderRadius: 14,
+          fontSize: 34,
+          fontWeight: 800,
+          letterSpacing: "-0.04em",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ width: 34, height: 6, borderRadius: 3, background: "#faf9f6" }} />
-          <div style={{ width: 24, height: 6, borderRadius: 3, background: "#faf9f6" }} />
-        </div>
-        <div style={{ display: "flex", gap: 5, marginTop: 4 }}>
-          {[0, 1, 2, 3].map((i) => (
-            <div key={i} style={{ width: 4, height: 11, borderRadius: 2, background: "#a7d8c5" }} />
-          ))}
-        </div>
+        <span style={{ color: "#f6f3ee" }}>T</span>
+        <span style={{ color: "#c69863" }}>F</span>
       </div>
     ),
     size,

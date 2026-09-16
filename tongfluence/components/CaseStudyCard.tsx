@@ -11,15 +11,15 @@ export function CaseStudyCard({ build, location }: { build: ClientBuild; locatio
     <Link
       href={caseStudyPath(build.slug)}
       onClick={() => trackEvent(EVENTS.caseStudyView, { location, client: build.slug })}
-      className="group flex h-full flex-col rounded-3xl border border-tf-border bg-white p-6 transition-colors hover:border-tf-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark"
+      className="group flex h-full flex-col rounded-3xl border border-tf-border bg-white p-6 transition-colors hover:border-tf-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
     >
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-medium text-tf-ink-soft">
         <span className="inline-flex items-center gap-1.5">
-          <MapPinIcon className="h-4 w-4 text-tf-green-dark" />
+          <MapPinIcon className="h-4 w-4 text-tf-brown-dark" />
           {build.market}
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <ScissorsIcon className="h-4 w-4 text-tf-green-dark" />
+          <ScissorsIcon className="h-4 w-4 text-tf-brown-dark" />
           {build.businessType}
         </span>
       </div>
@@ -42,7 +42,7 @@ export function CaseStudyCard({ build, location }: { build: ClientBuild; locatio
         </div>
       </dl>
 
-      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-tf-green-dark">
+      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-tf-brown-dark">
         Read the build
         <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </span>

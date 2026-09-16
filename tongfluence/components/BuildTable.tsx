@@ -42,7 +42,7 @@ export function BuildTable({ caption }: { caption?: string }) {
               <tr key={b.slug} className="border-b border-tf-border last:border-0">
                 <th scope="row" className="px-4 py-3 font-medium text-tf-ink">
                   {b.hasCaseStudy ? (
-                    <Link href={caseStudyPath(b.slug)} className="text-tf-green-dark underline underline-offset-4 hover:text-tf-green-darker">
+                    <Link href={caseStudyPath(b.slug)} className="text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker">
                       {b.name}
                     </Link>
                   ) : (

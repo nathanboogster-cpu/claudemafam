@@ -57,6 +57,18 @@ export const business = {
   // Where lead-form submissions are emailed (app/api/lead/route.ts). Set via
   // env so a real inbox never has to be committed to the repo.
   leadNotificationEmail: process.env.LEAD_NOTIFICATION_EMAIL ?? "",
+  // Brand tagline, exactly as it appears on the logo lockup. Used as brand
+  // furniture in the footer and the share image — deliberately not as page
+  // copy, since the site's body writing is specific to grooming rather than
+  // general growth language.
+  tagline: "Grow your business. Dominate your market.",
+  // Real logo artwork. Drop the supplied file at public/images/logo.png and
+  // set this path; the header and footer switch to it automatically and the
+  // drawn fallback mark stops rendering. Left empty until the file is in the
+  // repo rather than pointing at an image that 404s.
+  logo: "",
+  logoWidth: 0,
+  logoHeight: 0,
   // A public address visitors can write to if the form fails. Empty until a
   // real inbox is confirmed — the booking page and the form's error message
   // both check for it rather than telling people to "email us directly" with

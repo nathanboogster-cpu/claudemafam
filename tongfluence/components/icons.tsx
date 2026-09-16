@@ -118,26 +118,57 @@ export function ChevronDownIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-// The Tongfluence mark: a search-result underline crossed by a grooming comb.
-// Drawn rather than shipped as an image so it is crisp at every size, costs
-// one request fewer, and can inherit currentColor in the footer.
-export function TongfluenceMark({ className = "h-8 w-8" }: IconProps) {
+// The Tongfluence mark — the small-size variant of the brand logo.
+//
+// The full logo lockup (TF monogram inside an arc, paw print, rising bars and
+// a swoosh) carries far too much detail to survive at 36px in a header: the
+// strokes collide and it renders as a dark smudge. This is the reduction that
+// keeps what identifies the brand at a glance — the ink badge, the TF split
+// across the brand's two colours, and the paw — and drops the rest.
+//
+// The real logo artwork is used instead wherever `business.logo` in
+// lib/site-data.ts points at a file (see components/Logo.tsx); this is the
+// fallback until that file is in the repo, and what the favicon is built from.
+export function TongfluenceMark({ className = "h-9 w-9" }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill="currentColor" />
+    <svg className={className} viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <rect width="40" height="40" rx="10" fill="var(--color-tf-ink)" />
+      {/* TF monogram, split across the two brand colours as the wordmark is */}
+      <path d="M7.5 12.5h11v3.4h-3.6v12.1h-3.8V15.9H7.5v-3.4z" fill="var(--color-tf-paper)" />
       <path
-        d="M9 12.5h14M9 16.5h10"
-        stroke="var(--color-tf-paper)"
-        strokeWidth="2.2"
-        strokeLinecap="round"
+        d="M19.8 12.5h8.9v3.4h-5.1v2.9h4.6v3.3h-4.6v5.9h-3.8V12.5z"
+        fill="var(--color-tf-bronze-light)"
       />
-      <path
-        d="M11 20.5v3M14.5 20.5v3M18 20.5v3M21.5 20.5v3"
-        stroke="var(--color-tf-paper)"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        opacity="0.75"
-      />
+      {/* Paw, upper right — the one figurative element small enough to survive */}
+      <g fill="var(--color-tf-bronze-light)" opacity="0.9">
+        <circle cx="30.4" cy="8.6" r="1.5" />
+        <circle cx="34.3" cy="7.6" r="1.3" />
+        <circle cx="36.6" cy="10.4" r="1.1" />
+        <path d="M32.3 12c1.8 0 3.2 1.1 3.2 2.3s-1.4 1.6-3.2 1.6-3.2-.4-3.2-1.6 1.4-2.3 3.2-2.3z" />
+      </g>
+    </svg>
+  );
+}
+
+// The two-tone wordmark: "TONG" in the ink half, "FLUENCE" in brown, as the
+// logo sets it. Rendered as live text rather than an image so it scales,
+// stays selectable, and is read correctly by screen readers.
+export function Wordmark({ className = "text-lg" }: IconProps) {
+  return (
+    <span className={`font-tf-display font-extrabold tracking-tight ${className}`}>
+      <span className="text-tf-ink">TONG</span>
+      <span className="text-tf-brown-dark">FLUENCE</span>
+    </span>
+  );
+}
+
+export function PawIcon({ className = base }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <ellipse cx="6.2" cy="6.4" rx="1.9" ry="2.4" />
+      <ellipse cx="11" cy="5.2" rx="1.8" ry="2.3" />
+      <ellipse cx="15.2" cy="7.8" rx="1.6" ry="2.1" />
+      <path d="M10.2 10.2c3 0 5.2 2 5.2 4.2s-2.2 3.1-5.2 3.1S5 16.6 5 14.4s2.2-4.2 5.2-4.2z" />
     </svg>
   );
 }

@@ -14,7 +14,7 @@ export function ProofStrip() {
         </h2>
         <Link
           href={PATHS.caseStudies}
-          className="text-sm font-semibold text-tf-green-dark underline underline-offset-4 hover:text-tf-green-darker"
+          className="text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
         >
           See the builds
         </Link>
@@ -22,10 +22,10 @@ export function ProofStrip() {
 
       <ul className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
         {clientBuilds.map((b) => (
-          <li key={b.slug} className="border-l-2 border-tf-green/40 pl-3">
+          <li key={b.slug} className="border-l-2 border-tf-brown/40 pl-3">
             <p className="text-sm font-semibold text-tf-ink">
               {b.hasCaseStudy ? (
-                <Link href={caseStudyPath(b.slug)} className="hover:text-tf-green-dark">
+                <Link href={caseStudyPath(b.slug)} className="hover:text-tf-brown-dark">
                   {b.name}
                 </Link>
               ) : (

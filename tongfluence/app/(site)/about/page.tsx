@@ -89,7 +89,7 @@ export default function AboutPage() {
             knowledge only accumulates if you stay in one place. We publish what we can of it, like{" "}
             <Link
               href={resourcePath("dog-grooming-website-examples")}
-              className="font-medium text-tf-green-dark underline underline-offset-4"
+              className="font-medium text-tf-brown-dark underline underline-offset-4"
             >
               the page-by-page breakdown of every site we have built
             </Link>
@@ -243,7 +243,7 @@ export default function AboutPage() {
               b: "Grooming businesses see delighted customers in person every day and almost none of them have a habit of asking. It is the largest piece of free leverage in the industry.",
             },
           ].map((x) => (
-            <div key={x.t} className="border-l-2 border-tf-clay/40 pl-5">
+            <div key={x.t} className="border-l-2 border-tf-brown/40 pl-5">
               <dt className="font-tf-display text-lg font-bold text-tf-ink">{x.t}</dt>
               <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{x.b}</dd>
             </div>

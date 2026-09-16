@@ -22,11 +22,11 @@ export function RelatedLinks({
           <li key={item.href}>
             <Link
               href={item.href}
-              className="group flex h-full flex-col rounded-2xl border border-tf-border bg-tf-paper p-4 transition-colors hover:border-tf-green hover:bg-tf-green-wash focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark"
+              className="group flex h-full flex-col rounded-2xl border border-tf-border bg-tf-paper p-4 transition-colors hover:border-tf-brown hover:bg-tf-brown-wash focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
             >
               <span className="flex items-center gap-2 font-semibold text-tf-ink">
                 {item.label}
-                <ArrowRightIcon className="h-4 w-4 shrink-0 text-tf-green-dark transition-transform group-hover:translate-x-0.5" />
+                <ArrowRightIcon className="h-4 w-4 shrink-0 text-tf-brown-dark transition-transform group-hover:translate-x-0.5" />
               </span>
               <span className="mt-1 text-sm leading-relaxed text-tf-ink-soft">{item.description}</span>
             </Link>
