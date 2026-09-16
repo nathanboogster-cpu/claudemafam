@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  /* Tongfluence palette. The brief calls for "specialized, credible, modern,
+     results-driven" and explicitly rules out the dark agency-bro aesthetic and
+     neon SaaS gradients — so this is a light, editorial system: warm paper
+     ground, near-black ink, one confident green as the growth/action colour,
+     and a clay accent used sparingly for numbering and emphasis. */
+  --color-tf-paper: #faf9f6;
+  --color-tf-paper-deep: #f2efe8;
+  --color-tf-white: #ffffff;
+  --color-tf-ink: #15181c;
+  /* Body/secondary text. 7.0:1 on --color-tf-paper, so it clears AAA for
+     normal text and never needs a size exception. */
+  --color-tf-ink-soft: #4b535d;
+  /* Primary action colour. -green is decorative only (icons, rules, accents);
+     -green-dark is text/fill-safe (≥4.5:1 as text on paper, ≥5:1 as a button
+     fill under white text); -green-darker is the hover state. */
+  --color-tf-green: #1f8a63;
+  --color-tf-green-dark: #10684a;
+  --color-tf-green-darker: #0a4d37;
+  --color-tf-green-wash: #eaf5f0;
+  /* The on-dark counterpart: --color-tf-green is only 4.13:1 against
+     --color-tf-ink, so anything set in green on a dark panel uses this
+     instead (5.9:1 on ink). */
+  --color-tf-green-on-dark: #2ea87a;
+  /* Clay accent — section numbering, data callouts, chart bars. Text-safe. */
+  --color-tf-clay: #a8482a;
+  --color-tf-clay-wash: #fbf0eb;
+  --color-tf-border: #e4e0d7;
+  --color-tf-border-strong: #cfc9bc;
+}
+
+@theme inline {
+  --color-tf-paper: var(--color-tf-paper);
+  --color-tf-paper-deep: var(--color-tf-paper-deep);
+  --color-tf-white: var(--color-tf-white);
+  --color-tf-ink: var(--color-tf-ink);
+  --color-tf-ink-soft: var(--color-tf-ink-soft);
+  --color-tf-green: var(--color-tf-green);
+  --color-tf-green-dark: var(--color-tf-green-dark);
+  --color-tf-green-darker: var(--color-tf-green-darker);
+  --color-tf-green-wash: var(--color-tf-green-wash);
+  --color-tf-green-on-dark: var(--color-tf-green-on-dark);
+  --color-tf-clay: var(--color-tf-clay);
+  --color-tf-clay-wash: var(--color-tf-clay-wash);
+  --color-tf-border: var(--color-tf-border);
+  --color-tf-border-strong: var(--color-tf-border-strong);
+  --font-tf-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-tf-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-tf-mono: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-tf-paper);
+  color: var(--color-tf-ink);
+  font-family: var(--font-tf-sans);
+}
+
+.font-tf-display {
+  font-family: var(--font-tf-display);
+  letter-spacing: -0.02em;
+}
+
+.font-tf-mono {
+  font-family: var(--font-tf-mono);
+}
+
+/* Long-form editorial body copy used on the guide and resource pages. */
+.tf-prose p {
+  margin-top: 1rem;
+  line-height: 1.75;
+  color: var(--color-tf-ink-soft);
+}
+
+.tf-prose p:first-child {
+  margin-top: 0;
+}
+
+.tf-prose strong {
+  color: var(--color-tf-ink);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps page content. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.5rem;
+  }
+}
