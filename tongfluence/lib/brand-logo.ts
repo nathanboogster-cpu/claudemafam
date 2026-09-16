@@ -4,13 +4,21 @@ import path from "node:path";
 // ---------------------------------------------------------------------------
 // REAL LOGO DETECTION
 //
-// The brand logo is used the moment the artwork exists in the repo — no code
-// change, no flag to flip. Drop the file at:
+// The brand logo artwork lives in public/images/, cut out of the supplied
+// file so it sits on any background. Three variants, because the supplied
+// lockup is stacked (mark above wordmark) and renders the wordmark about 5px
+// tall in a 64px header bar:
 //
-//     tongfluence/public/images/logo.(png|jpg|jpeg|svg)
+//   logo-horizontal.png  mark and wordmark side by side — the header
+//   logo-lockup.png      the stacked lockup as supplied — the footer
+//   logo-mark.png        the emblem alone — square contexts
 //
-// and the header and footer switch from the drawn fallback to it on the next
-// build. Nothing else has to happen.
+// Any of these can be replaced in place with better artwork (a vector export
+// would be ideal) and the site picks the new file up with no code change:
+// dimensions are read from the file itself, so next/image always gets the
+// true intrinsic size and there is no layout shift. If a file is missing or
+// unreadable this returns null and components/Logo.tsx falls back to the
+// drawn mark rather than rendering a broken image.
 //
 // Dimensions are read out of the file itself so next/image always gets the
 // real intrinsic size and never causes layout shift. This runs at build time
@@ -21,7 +29,15 @@ import path from "node:path";
 
 export type BrandLogo = { src: string; width: number; height: number };
 
-const CANDIDATES = ["logo.png", "logo.jpg", "logo.jpeg", "logo.svg"];
+export type LogoVariant = "horizontal" | "lockup" | "mark";
+
+// Each variant falls back to a plain `logo.*` if the specific crop is absent,
+// so dropping in a single replacement file still works.
+const CANDIDATES: Record<LogoVariant, string[]> = {
+  horizontal: ["logo-horizontal.svg", "logo-horizontal.png", "logo.svg", "logo.png", "logo.jpg"],
+  lockup: ["logo-lockup.svg", "logo-lockup.png", "logo.svg", "logo.png", "logo.jpg"],
+  mark: ["logo-mark.svg", "logo-mark.png", "logo.svg", "logo.png", "logo.jpg"],
+};
 
 function pngSize(buf: Buffer): { width: number; height: number } | null {
   // PNG signature, then an IHDR chunk whose width/height are big-endian
@@ -80,10 +96,12 @@ function read(file: string): BrandLogo | null {
   }
 }
 
-let cached: BrandLogo | null | undefined;
+const cache = new Map<LogoVariant, BrandLogo | null>();
 
-export function getBrandLogo(): BrandLogo | null {
-  if (cached !== undefined) return cached;
-  cached = CANDIDATES.map(read).find((found) => found !== null) ?? null;
-  return cached;
+export function getBrandLogo(variant: LogoVariant = "horizontal"): BrandLogo | null {
+  const hit = cache.get(variant);
+  if (hit !== undefined) return hit;
+  const found = CANDIDATES[variant].map(read).find((f) => f !== null) ?? null;
+  cache.set(variant, found);
+  return found;
 }

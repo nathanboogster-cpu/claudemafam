@@ -3,27 +3,25 @@ import { business } from "@/lib/site-data";
 import { getBrandLogo } from "@/lib/brand-logo";
 import { TongfluenceMark, BrandLockup, Wordmark } from "./icons";
 
-// The brand lockup.
+// The brand lockup, rendered from the real logo artwork in public/images/.
 //
-// The real artwork is used automatically as soon as it exists at
-// public/images/logo.(png|jpg|svg) — see lib/brand-logo.ts. No flag to set
-// and no code change: drop the file in and the next build picks it up, at its
-// true intrinsic size so there is no layout shift.
+// Two variants, because the supplied logo is a stacked lockup that does not
+// work in a 64px header bar — scaled to fit, its wordmark lands at about five
+// pixels tall. "compact" therefore uses the horizontal arrangement of the same
+// artwork; "full" uses the stacked lockup as supplied, where there is room.
 //
-// Until then this composes the drawn mark with the two-tone wordmark. The
-// wordmark is live text rather than an outline, so it stays crisp at any
-// size, is selectable, and is read correctly as the brand name.
+// If the artwork is ever missing, this falls back to the drawn reproduction in
+// components/icons.tsx rather than rendering a broken image. See
+// lib/brand-logo.ts.
 export function Logo({
   variant = "compact",
   className = "",
 }: {
-  // "compact" — mark plus wordmark, for the header and footer.
-  // "full" — the complete lockup with swoosh and rising bars, for places
-  // with room to show it.
   variant?: "compact" | "full";
   className?: string;
 }) {
-  const logo = getBrandLogo();
+  const logo = getBrandLogo(variant === "full" ? "lockup" : "horizontal");
+  const sizeClass = variant === "full" ? "h-24 w-auto" : "h-10 w-auto sm:h-11";
 
   if (logo) {
     return (
@@ -32,8 +30,11 @@ export function Logo({
         alt={business.name}
         width={logo.width}
         height={logo.height}
-        className={variant === "full" ? `h-20 w-auto ${className}` : `h-10 w-auto ${className}`}
+        className={`${sizeClass} ${className}`}
+        // The header logo is above the fold on every page, so it is the one
+        // image worth prioritising; the footer's is always below it.
         priority={variant === "compact"}
+        sizes={variant === "full" ? "160px" : "240px"}
       />
     );
   }

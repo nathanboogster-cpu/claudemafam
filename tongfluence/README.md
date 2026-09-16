@@ -122,19 +122,27 @@ and documented where they bite:
 5. **Form backend.** Set `RESEND_API_KEY` and `LEAD_NOTIFICATION_EMAIL`
    before launch. Until then the form reports a clear error; it never
    pretends to have sent.
-6. **The real logo file.** Drop the artwork at
-   `tongfluence/public/images/logo.png` (`.jpg` and `.svg` also work) and
-   commit it. That is the whole task — `lib/brand-logo.ts` detects the file
-   at build time and reads its real dimensions out of the file header, so
-   `next/image` gets the correct intrinsic size and there is no layout
-   shift. No code change, no flag to set.
+6. **A vector logo, when there is one.** The site uses the real logo
+   artwork, cut out of the supplied raster file and cropped into the
+   variants the web needs — see `public/images/`:
 
-   Until that file exists, `components/Logo.tsx` renders a vector
-   reproduction drawn from the supplied artwork: the brown arc, the
-   two-tone TF monogram, the paw, and — in the full footer lockup — the
-   swoosh and rising bars. It comes in two sizes on purpose, because the
-   logo does not survive uniform scaling: at header size the arc, bars and
-   swoosh collide into a smudge, so the compact variant drops them.
+   | File | Used for |
+   | --- | --- |
+   | `logo-horizontal.png` | Header. Mark and wordmark side by side. |
+   | `logo-lockup.png` | Footer. The stacked lockup as supplied. |
+   | `logo-mark.png` | The emblem alone, for square contexts. |
+   | `logo-favicon.png` | Tab icon. A tighter crop onto the TF. |
+
+   The horizontal variant exists because the supplied lockup is stacked, and
+   scaled to fit a 64px header bar its wordmark lands about five pixels
+   tall. The favicon is a tighter crop for the same reason: the arc, swoosh
+   and bars are the first things to disappear at 16px.
+
+   If a vector export (`.svg`) ever exists it is worth dropping in —
+   `lib/brand-logo.ts` prefers `logo-*.svg` over the PNG automatically and
+   reads dimensions from the file, so replacing artwork needs no code
+   change. The current PNGs were cut from a JPEG, so their edges carry
+   whatever the JPEG had.
 
 7. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business
