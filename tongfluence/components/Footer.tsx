@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="mt-20 border-t border-tf-border bg-tf-paper-deep text-tf-ink-soft">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo size="footer" />
+          <Logo variant="full" />
           {/* The brand tagline as it appears on the logo lockup. It lives here
               as brand furniture rather than in page copy, which is written
               specifically for groomers rather than in general growth language. */}

@@ -62,13 +62,9 @@ export const business = {
   // copy, since the site's body writing is specific to grooming rather than
   // general growth language.
   tagline: "Grow your business. Dominate your market.",
-  // Real logo artwork. Drop the supplied file at public/images/logo.png and
-  // set this path; the header and footer switch to it automatically and the
-  // drawn fallback mark stops rendering. Left empty until the file is in the
-  // repo rather than pointing at an image that 404s.
-  logo: "",
-  logoWidth: 0,
-  logoHeight: 0,
+  // NOTE: the logo is not configured here. lib/brand-logo.ts detects the real
+  // artwork at public/images/logo.(png|jpg|svg) at build time and reads its
+  // dimensions from the file, so adding the logo needs no code change at all.
   // A public address visitors can write to if the form fails. Empty until a
   // real inbox is confirmed — the booking page and the form's error message
   // both check for it rather than telling people to "email us directly" with

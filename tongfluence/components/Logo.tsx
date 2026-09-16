@@ -1,43 +1,56 @@
 import Image from "next/image";
 import { business } from "@/lib/site-data";
-import { TongfluenceMark, Wordmark } from "./icons";
+import { getBrandLogo } from "@/lib/brand-logo";
+import { TongfluenceMark, BrandLockup, Wordmark } from "./icons";
 
-// The brand lockup. Uses the real logo artwork when `business.logo` points at
-// a file that exists in public/, and otherwise renders the drawn mark next to
-// the two-tone wordmark — which matches the logo's construction closely
-// enough to stand in, and never 404s.
+// The brand lockup.
 //
-// Both paths produce the same accessible name, so swapping one for the other
-// changes nothing for a screen reader.
+// The real artwork is used automatically as soon as it exists at
+// public/images/logo.(png|jpg|svg) — see lib/brand-logo.ts. No flag to set
+// and no code change: drop the file in and the next build picks it up, at its
+// true intrinsic size so there is no layout shift.
+//
+// Until then this composes the drawn mark with the two-tone wordmark. The
+// wordmark is live text rather than an outline, so it stays crisp at any
+// size, is selectable, and is read correctly as the brand name.
 export function Logo({
-  size = "header",
+  variant = "compact",
   className = "",
 }: {
-  size?: "header" | "footer";
+  // "compact" — mark plus wordmark, for the header and footer.
+  // "full" — the complete lockup with swoosh and rising bars, for places
+  // with room to show it.
+  variant?: "compact" | "full";
   className?: string;
 }) {
-  const wordmarkSize = size === "header" ? "text-lg sm:text-xl" : "text-lg";
-  const markSize = size === "header" ? "h-9 w-9" : "h-8 w-8";
+  const logo = getBrandLogo();
 
-  if (business.logo && business.logoWidth && business.logoHeight) {
+  if (logo) {
     return (
       <Image
-        src={business.logo}
+        src={logo.src}
         alt={business.name}
-        width={business.logoWidth}
-        height={business.logoHeight}
-        className={`h-9 w-auto ${className}`}
-        priority={size === "header"}
+        width={logo.width}
+        height={logo.height}
+        className={variant === "full" ? `h-20 w-auto ${className}` : `h-10 w-auto ${className}`}
+        priority={variant === "compact"}
       />
+    );
+  }
+
+  if (variant === "full") {
+    return (
+      <span className={`flex flex-col items-start gap-3 ${className}`}>
+        <BrandLockup className="h-20 w-20" />
+        <Wordmark className="text-xl" />
+      </span>
     );
   }
 
   return (
     <span className={`flex items-center gap-2.5 ${className}`}>
-      <TongfluenceMark className={markSize} />
-      {/* The wordmark is live text, so it is already the accessible name —
-          no sr-only duplicate, which would read the brand twice. */}
-      <Wordmark className={wordmarkSize} />
+      <TongfluenceMark className="h-10 w-10 shrink-0" />
+      <Wordmark className="text-lg sm:text-xl" />
     </span>
   );
 }

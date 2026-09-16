@@ -122,15 +122,20 @@ and documented where they bite:
 5. **Form backend.** Set `RESEND_API_KEY` and `LEAD_NOTIFICATION_EMAIL`
    before launch. Until then the form reports a clear error; it never
    pretends to have sent.
-6. **The real logo file.** `components/Logo.tsx` renders the supplied
-   artwork as soon as `business.logo` in `lib/site-data.ts` points at a
-   file in `public/` and `logoWidth`/`logoHeight` are set. Until then it
-   falls back to a drawn small-size mark (an ink badge with the TF split
-   across the brand's two colours, plus the paw) next to the live-text
-   two-tone wordmark. The fallback is deliberately a reduction, not a
-   reproduction — the full lockup's arc, bars and swoosh collide at header
-   size. Drop `logo.png` in and set those three fields; nothing else
-   changes.
+6. **The real logo file.** Drop the artwork at
+   `tongfluence/public/images/logo.png` (`.jpg` and `.svg` also work) and
+   commit it. That is the whole task — `lib/brand-logo.ts` detects the file
+   at build time and reads its real dimensions out of the file header, so
+   `next/image` gets the correct intrinsic size and there is no layout
+   shift. No code change, no flag to set.
+
+   Until that file exists, `components/Logo.tsx` renders a vector
+   reproduction drawn from the supplied artwork: the brown arc, the
+   two-tone TF monogram, the paw, and — in the full footer lockup — the
+   swoosh and rising bars. It comes in two sizes on purpose, because the
+   logo does not survive uniform scaling: at header size the arc, bars and
+   swoosh collide into a smudge, so the compact variant drops them.
+
 7. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business
    Profile screenshots, and before/after website captures, would make the

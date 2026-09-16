@@ -118,34 +118,85 @@ export function ChevronDownIcon({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
-// The Tongfluence mark — the small-size variant of the brand logo.
+// ---------------------------------------------------------------------------
+// BRAND ARTWORK
 //
-// The full logo lockup (TF monogram inside an arc, paw print, rising bars and
-// a swoosh) carries far too much detail to survive at 36px in a header: the
-// strokes collide and it renders as a dark smudge. This is the reduction that
-// keeps what identifies the brand at a glance — the ink badge, the TF split
-// across the brand's two colours, and the paw — and drops the rest.
+// These are vector reproductions of the Tongfluence logo, drawn from the
+// supplied artwork: the brown arc, the two-tone TF monogram, the paw print,
+// the rising bars and the swoosh beneath.
 //
-// The real logo artwork is used instead wherever `business.logo` in
-// lib/site-data.ts points at a file (see components/Logo.tsx); this is the
-// fallback until that file is in the repo, and what the favicon is built from.
-export function TongfluenceMark({ className = "h-9 w-9" }: IconProps) {
+// They are a stand-in, not the asset. As soon as the real artwork exists at
+// public/images/logo.(png|jpg|svg), lib/brand-logo.ts detects it and
+// components/Logo.tsx uses it instead — none of this renders.
+//
+// Two sizes exist because the logo does not survive being scaled down
+// uniformly — at header size the arc, bars and swoosh collide into a smudge.
+// TongfluenceMark is the compact variant (arc, monogram, paw); BrandLockup is
+// the full one, used where there is room for it.
+// ---------------------------------------------------------------------------
+
+// Compact variant — arc, TF monogram, paw. Used in the header.
+export function TongfluenceMark({ className = "h-10 w-10" }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <rect width="40" height="40" rx="10" fill="var(--color-tf-ink)" />
-      {/* TF monogram, split across the two brand colours as the wordmark is */}
-      <path d="M7.5 12.5h11v3.4h-3.6v12.1h-3.8V15.9H7.5v-3.4z" fill="var(--color-tf-paper)" />
+    <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      {/* Brown arc, open to the lower right, as in the logo */}
       <path
-        d="M19.8 12.5h8.9v3.4h-5.1v2.9h4.6v3.3h-4.6v5.9h-3.8V12.5z"
-        fill="var(--color-tf-bronze-light)"
+        d="M38 13.5A17.5 17.5 0 1 0 41.2 25"
+        stroke="var(--color-tf-brown)"
+        strokeWidth="3.2"
+        strokeLinecap="round"
       />
-      {/* Paw, upper right — the one figurative element small enough to survive */}
-      <g fill="var(--color-tf-bronze-light)" opacity="0.9">
-        <circle cx="30.4" cy="8.6" r="1.5" />
-        <circle cx="34.3" cy="7.6" r="1.3" />
-        <circle cx="36.6" cy="10.4" r="1.1" />
-        <path d="M32.3 12c1.8 0 3.2 1.1 3.2 2.3s-1.4 1.6-3.2 1.6-3.2-.4-3.2-1.6 1.4-2.3 3.2-2.3z" />
+      {/* TF monogram, split across the two brand colours */}
+      <path d="M11.5 15.5h13.2v4.1h-4.4v14.9h-4.4V19.6h-4.4v-4.1z" fill="var(--color-tf-ink)" />
+      <path
+        d="M25.6 15.5h10.6v4.1h-6.2v3.5h5.5v4h-5.5v7.4h-4.4V15.5z"
+        fill="var(--color-tf-brown-dark)"
+      />
+      {/* Paw, upper right */}
+      <g fill="var(--color-tf-brown-dark)">
+        <ellipse cx="35.6" cy="8.6" rx="1.8" ry="2.3" />
+        <ellipse cx="40.1" cy="7.6" rx="1.6" ry="2.1" />
+        <ellipse cx="43.4" cy="10.6" rx="1.4" ry="1.8" />
+        <path d="M37.7 12.6c2.2 0 3.9 1.3 3.9 2.7s-1.7 2-3.9 2-3.9-.6-3.9-2 1.7-2.7 3.9-2.7z" />
       </g>
+    </svg>
+  );
+}
+
+// Full lockup — the complete mark with the swoosh and the rising bars,
+// for places with room to show it: the footer, and the booking page.
+export function BrandLockup({ className = "h-16 w-16" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 96 96" fill="none" aria-hidden="true">
+      <path
+        d="M74 24A34 34 0 1 0 81 48"
+        stroke="var(--color-tf-brown)"
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+      {/* Swoosh sweeping up through the monogram */}
+      <path
+        d="M12 74C33 80 57 72 80 44"
+        stroke="var(--color-tf-ink)"
+        strokeWidth="4.6"
+        strokeLinecap="round"
+      />
+      <path d="M22 28h27v8.6h-9v31.6h-9V36.6h-9V28z" fill="var(--color-tf-ink)" />
+      <path d="M51 28h22v8.6H60v7.2h11.4v8.4H60v16h-9V28z" fill="var(--color-tf-brown-dark)" />
+      <g fill="var(--color-tf-brown-dark)">
+        <ellipse cx="70.8" cy="15" rx="3.4" ry="4.3" />
+        <ellipse cx="79.6" cy="13" rx="3" ry="3.9" />
+        <ellipse cx="86.6" cy="19" rx="2.6" ry="3.4" />
+        <path d="M74.7 23.2c4.3 0 7.6 2.5 7.6 5.3s-3.3 3.8-7.6 3.8-7.6-1-7.6-3.8 3.3-5.3 7.6-5.3z" />
+      </g>
+      {/* Rising bars, lower right */}
+      <g fill="var(--color-tf-brown)">
+        <rect x="66" y="80" width="6.4" height="8" rx="1.4" />
+        <rect x="76" y="74" width="6.4" height="14" rx="1.4" />
+        <rect x="86" y="67" width="6.4" height="21" rx="1.4" />
+      </g>
+      {/* Baseline rule the logo sits on */}
+      <path d="M8 88h48" stroke="var(--color-tf-brown)" strokeWidth="2.4" strokeLinecap="round" />
     </svg>
   );
 }
