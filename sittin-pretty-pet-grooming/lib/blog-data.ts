@@ -239,6 +239,43 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["nail-trim-ear-cleaning", "dog-grooming"],
   },
+  {
+    slug: "grooming-tips-for-senior-dogs-and-cats",
+    title: "Grooming Tips for Senior Dogs and Cats",
+    metaDescription:
+      "Grooming needs change as pets get older. What tends to change for senior dogs and cats, and how a groomer can adjust a visit to fit.",
+    excerpt:
+      "Senior pets often need a gentler, more patient approach to grooming. Here's what tends to change and what to ask about.",
+    eyebrow: "Senior Pets",
+    publishedAt: "2026-09-17",
+    heroPhotoKey: "seniorBlackDogRedBow",
+    body: [
+      {
+        type: "p",
+        text: "As pets get older, grooming often needs a gentler, more patient approach than it did when they were younger. Skin can become thinner and more sensitive, joints get stiffer, and a pet who used to stand happily through a long groom may need more frequent breaks or a shorter session altogether.",
+      },
+      { type: "h2", text: "What Tends to Change" },
+      {
+        type: "list",
+        items: [
+          "Skin and coat: senior pets' skin can become drier or thinner, so a gentler touch and less aggressive brushing matters more.",
+          "Joints and mobility: standing for a long grooming session can be harder on stiff hips or knees, so shorter, more frequent visits sometimes work better than one long one.",
+          "Nail growth: senior pets are often less active, which can mean nails wear down less naturally on their own and need more frequent trims.",
+          "Patience and stress tolerance: a senior pet who handled grooming easily for years may need extra reassurance or a slower pace as they age.",
+        ],
+      },
+      { type: "h2", text: "A Calmer Way to Groom" },
+      {
+        type: "p",
+        text: "A cage-free approach can make a real difference for senior pets specifically — less time confined and waiting means less physical strain on stiff joints and less stress overall. Mentioning your pet's age and any mobility changes when you schedule helps your groomer plan a visit that fits where they're at now, not where they were a few years ago.",
+      },
+      {
+        type: "p",
+        text: "At our Funkstown salon, we're comfortable working at whatever pace an older pet needs — the goal is a comfortable, low-stress visit, not rushing through a checklist.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "nail-trim-ear-cleaning"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
