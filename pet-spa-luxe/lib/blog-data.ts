@@ -257,6 +257,49 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "senior-dog-grooming-tips",
+    title: "Grooming Senior Dogs: What Changes, and Why It's Worth Doing Differently",
+    description:
+      "An older dog's skin, joints, and patience for a long appointment are all different from a younger dog's. Here's what to expect, and why a calmer format matters more with age.",
+    publishedDate: "2026-09-17",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "Grooming doesn't stop mattering as a dog gets older — if anything, it matters more, since an aging dog is less able to compensate for overgrown nails or a matted coat than a younger one. But the way a groom should be handled does change, and it's worth knowing what's different before booking.",
+        ],
+      },
+      {
+        heading: "What changes with age",
+        paragraphs: [
+          "Older dogs tend to have thinner, more sensitive skin that's more easily irritated by rough handling or harsh products, and coats can thin or change texture. Joint stiffness and arthritis are common too, which makes standing still for a long stretch — especially on a slippery table — more physically taxing than it used to be. Hearing or vision that isn't what it used to be can also make a dog more easily startled by being touched or approached from an angle they didn't see coming.",
+        ],
+      },
+      {
+        heading: "Why a calmer format matters more here",
+        paragraphs: [
+          "A long wait in an unfamiliar space with other dogs is harder on an older dog's patience and joints than a younger one's. One-on-one, cage-free attention for the whole appointment — with no car ride and no time spent waiting for a groomer to finish with another dog first — cuts down on exactly the parts of a grooming visit that tend to be hardest on a senior dog: standing around, waiting, and unfamiliar noise and movement from other animals nearby.",
+        ],
+      },
+      {
+        heading: "Worth mentioning when you book",
+        bullets: [
+          "Any joint, hip, or mobility issues that affect how long your dog can comfortably stand",
+          "Hearing or vision changes, so the groomer can approach in a way that won't startle your dog",
+          "Skin sensitivities or known reactions to specific products",
+          "Any medications that affect temperature regulation or skin sensitivity",
+        ],
+        paragraphs: [],
+      },
+      {
+        heading: "Don't stretch out the schedule",
+        paragraphs: [
+          "It's tempting to assume an older, calmer dog needs grooming less often, but the opposite is usually closer to true — less active senior dogs wear their nails down less on their own, and thinner skin is more vulnerable when a coat is allowed to mat. The frequency shouldn't necessarily change; what should change is making sure the groomer knows what to expect before the appointment starts. Mentioning your dog's age and any health notes on the booking call is enough to make sure that happens.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
