@@ -134,48 +134,101 @@ export const services = [
 
 export const servicePath = (slug: ServiceSlug) => `/${slug}`;
 
-// Towns within roughly a 15-minute drive of the Marietta facility
-// (1691 Powder Springs Rd SW) — Powder Springs, Smyrna, and Austell are
-// already named as served areas elsewhere on this site; Kennesaw and
-// Mableton are added here as the other nearby Cobb County towns within
-// that same drive-time radius. No area outside this real, local radius
-// is claimed.
-export type ServiceAreaSlug = "powder-springs-ga" | "smyrna-ga" | "austell-ga" | "kennesaw-ga" | "mableton-ga";
+// Towns within roughly a 15–20 minute drive of the Marietta facility
+// (1691 Powder Springs Rd SW), per real driving-time lookups (not
+// straight-line distance). Powder Springs, Smyrna, Austell, Kennesaw, and
+// Mableton are the closer set (~15 min or less); Vinings, Acworth, Hiram,
+// and Lithia Springs are the wider set (~18–27 min depending on route/
+// traffic) — each area's driveTimeNote below reflects which group it's in.
+// No area outside this real, local radius is claimed.
+export type ServiceAreaSlug =
+  | "powder-springs-ga"
+  | "smyrna-ga"
+  | "austell-ga"
+  | "kennesaw-ga"
+  | "mableton-ga"
+  | "vinings-ga"
+  | "acworth-ga"
+  | "hiram-ga"
+  | "lithia-springs-ga";
 
-export const serviceAreas: { slug: ServiceAreaSlug; city: string; state: string; description: string }[] = [
+export const serviceAreas: { slug: ServiceAreaSlug; city: string; state: string; description: string; driveTimeNote: string }[] = [
   {
     slug: "powder-springs-ga",
     city: "Powder Springs",
     state: "GA",
     description: "Dog daycare, boarding, and grooming a short drive down Powder Springs Rd.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "smyrna-ga",
     city: "Smyrna",
     state: "GA",
     description: "Clean, safe, fully supervised care about a 15-minute drive from Smyrna.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "austell-ga",
     city: "Austell",
     state: "GA",
     description: "Daycare, boarding, and grooming convenient to Austell dog owners.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "kennesaw-ga",
     city: "Kennesaw",
     state: "GA",
     description: "Private boarding suites and full-service grooming near Kennesaw.",
+    driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "mableton-ga",
     city: "Mableton",
     state: "GA",
     description: "Size-appropriate daycare playrooms and grooming close to Mableton.",
+    driveTimeNote: "about a 15-minute drive",
+  },
+  {
+    slug: "vinings-ga",
+    city: "Vinings",
+    state: "GA",
+    description: "Daycare, boarding, and grooming about a 20-minute drive from Vinings.",
+    driveTimeNote: "about a 20-minute drive",
+  },
+  {
+    slug: "acworth-ga",
+    city: "Acworth",
+    state: "GA",
+    description: "Private boarding suites and full-service grooming for Acworth dog owners.",
+    driveTimeNote: "about a 20-minute drive",
+  },
+  {
+    slug: "hiram-ga",
+    city: "Hiram",
+    state: "GA",
+    description: "Clean, safe, fully supervised daycare and boarding for Hiram dog owners.",
+    driveTimeNote: "about a 20-minute drive",
+  },
+  {
+    slug: "lithia-springs-ga",
+    city: "Lithia Springs",
+    state: "GA",
+    description: "Size-appropriate daycare playrooms and grooming for Lithia Springs dog owners.",
+    driveTimeNote: "about a 20-minute drive",
   },
 ];
 
 export const areaPath = (slug: ServiceAreaSlug) => `/service-areas/${slug}`;
+
+export const serviceNav: NavItem[] = services.map((s) => ({
+  label: s.shortName,
+  href: servicePath(s.slug),
+}));
+
+export const areaNav: NavItem[] = serviceAreas.map((a) => ({
+  label: `${a.city}, ${a.state}`,
+  href: areaPath(a.slug),
+}));
 
 // DAYCARE — current published rates, per the verified business record.
 // Marked "current" throughout the UI since these are subject to change.
@@ -233,16 +286,156 @@ export const groomer = {
   certifications: ["Pet CPR and First Aid Certified", "Completed Skin and Coat 101 and advanced skin/coat coursework"],
 } as const;
 
-export const groomingServices = [
-  "Bathing",
-  "Full grooming",
-  "Haircuts",
-  "Nail grinding",
-  "Ear cleaning",
-  "Teeth cleaning",
-  "Deshedding",
-  "Coat maintenance",
-] as const;
+// Standard inclusions of a full-service groom — the general, well-established
+// components of the trade (not unique claims specific to Bow Wags beyond
+// "we offer full-service grooming," which is already verified). Each gets its
+// own detail page at /dog-grooming/[slug]; content below is generic,
+// professional-grooming knowledge, not fabricated Bow Wags-specific claims.
+export type GroomingServiceSlug =
+  | "bath-and-blow-dry"
+  | "brush-out-and-de-matting"
+  | "breed-specific-and-custom-haircuts"
+  | "nail-trimming-and-grinding"
+  | "ear-cleaning"
+  | "teeth-brushing"
+  | "anal-gland-expression"
+  | "sanitary-trim"
+  | "paw-pad-trim"
+  | "deshedding-treatment";
+
+export const groomingServiceDetails: {
+  slug: GroomingServiceSlug;
+  name: string;
+  shortDescription: string;
+  detail: string;
+  whyItMatters: string[];
+}[] = [
+  {
+    slug: "bath-and-blow-dry",
+    name: "Bath & Blow-Dry",
+    shortDescription: "A full bath with shampoo suited to your dog's coat and skin, followed by a complete blow-dry.",
+    detail:
+      "Every groom starts with a thorough bath using shampoo and conditioner chosen for your dog's coat type and skin condition. After rinsing, Bow Wags dries each dog completely using cool-air and force-air drying technology, plus handheld drying for the face and head — a full blow-dry is safer and more thorough than air-drying alone, which can leave a dog's undercoat damp and prone to matting or skin irritation.",
+    whyItMatters: [
+      "A complete blow-dry prevents damp undercoat from matting or developing hot spots",
+      "Shampoo matched to your dog's coat and skin helps avoid dryness or irritation",
+      "A thoroughly dried coat makes the rest of the groom — brushing, trimming — easier and more comfortable",
+    ],
+  },
+  {
+    slug: "brush-out-and-de-matting",
+    name: "Brush-Out & De-Matting",
+    shortDescription: "Careful brushing to remove loose fur and work through tangles or mats before and after the bath.",
+    detail:
+      "Before bathing, Bow Wags brushes out loose fur and works through any tangles or mats — bathing over mats can actually tighten them, so this step happens first. Matted fur is worked out gently and gradually rather than rushed, since mats pull on skin and can be uncomfortable for a dog when handled carelessly.",
+    whyItMatters: [
+      "Removing mats before bathing prevents them from tightening further",
+      "Loose undercoat is worked out to reduce shedding and improve air circulation to the skin",
+      "Gentle, gradual de-matting keeps the process comfortable rather than rushed or painful",
+    ],
+  },
+  {
+    slug: "breed-specific-and-custom-haircuts",
+    name: "Breed-Specific & Custom Haircuts",
+    shortDescription: "A haircut styled to breed standard or to whatever length and shape you and your dog are most comfortable with.",
+    detail:
+      "Whether you want a traditional breed-standard trim or a custom length and style, haircuts are handled by one groomer from start to finish. Cynthia enjoys working with a range of coat types — from silhouette cuts on sporting breeds to the shorter, low-maintenance trims many mixed-breed and Malti-Poo owners prefer.",
+    whyItMatters: [
+      "One groomer handles the full haircut, for consistency from start to finish",
+      "Styles range from breed-standard trims to custom, low-maintenance cuts",
+      "Coat length and style can be discussed and adjusted based on the season and your dog's lifestyle",
+    ],
+  },
+  {
+    slug: "nail-trimming-and-grinding",
+    name: "Nail Trimming & Grinding",
+    shortDescription: "Nails trimmed to a safe length and smoothed with a grinder to prevent snagging or splitting.",
+    detail:
+      "Overgrown nails can affect a dog's gait and comfort, so nails are trimmed to a safe length as part of every groom. A grinder is then used to smooth the edges, which helps prevent the snagging, splitting, or sharp edges that clipping alone can leave behind.",
+    whyItMatters: [
+      "Regularly trimmed nails help maintain a comfortable, natural gait",
+      "Grinding smooths edges that clipping alone can leave sharp",
+      "Shorter nails reduce the risk of snagging, splitting, or accidental scratches",
+    ],
+  },
+  {
+    slug: "ear-cleaning",
+    name: "Ear Cleaning",
+    shortDescription: "Gentle cleaning of the outer ear to remove wax and debris and check for signs of irritation.",
+    detail:
+      "Ears are gently cleaned to remove wax and debris from the outer ear canal. This is also a chance to visually check for redness, odor, or other signs of irritation worth mentioning to your vet — grooming isn't a substitute for veterinary care, but a clean, well-checked ear is part of a thorough groom.",
+    whyItMatters: [
+      "Regular cleaning helps prevent wax and debris buildup in the outer ear",
+      "Gives groomers a chance to visually flag anything unusual worth a vet's attention",
+      "Especially helpful for floppy-eared breeds prone to trapped moisture",
+    ],
+  },
+  {
+    slug: "teeth-brushing",
+    name: "Teeth Brushing",
+    shortDescription: "Teeth brushed with a dog-safe toothpaste to help reduce plaque and tartar buildup.",
+    detail:
+      "Teeth are brushed using a dog-safe toothpaste as part of every full-service groom, helping to reduce plaque and tartar buildup between regular brushing at home and dental checkups with your veterinarian.",
+    whyItMatters: [
+      "Regular brushing helps slow plaque and tartar buildup",
+      "Supports fresher breath and overall oral hygiene",
+      "Complements — not replaces — your dog's veterinary dental care",
+    ],
+  },
+  {
+    slug: "anal-gland-expression",
+    name: "Anal Gland Expression",
+    shortDescription:
+      "Expressing the anal glands to relieve the pressure and discomfort many dogs experience when these glands don't empty on their own.",
+    detail:
+      "Some dogs don't naturally express their anal glands during normal bowel movements, which can lead to discomfort, scooting, or irritation. As part of a full-service groom, Bow Wags expresses the anal glands to relieve that pressure — a routine, quick part of the appointment for dogs who need it.",
+    whyItMatters: [
+      "Relieves pressure and discomfort for dogs whose glands don't empty naturally",
+      "Can help reduce scooting, licking, or irritation in that area",
+      "A routine, quick step included in every full-service groom",
+    ],
+  },
+  {
+    slug: "sanitary-trim",
+    name: "Sanitary Trim",
+    shortDescription: "Trimming fur around hygiene-sensitive areas to help keep your dog clean and comfortable.",
+    detail:
+      "A sanitary trim keeps fur around the hindquarters and other hygiene-sensitive areas neatly trimmed, which helps reduce matting, keeps your dog cleaner between baths, and improves overall comfort — especially for longer-coated breeds.",
+    whyItMatters: [
+      "Reduces matting and buildup in hygiene-sensitive areas",
+      "Helps keep your dog cleaner between grooming appointments",
+      "Especially useful for longer-coated breeds",
+    ],
+  },
+  {
+    slug: "paw-pad-trim",
+    name: "Paw Pad Trim",
+    shortDescription: "Trimming excess fur between the paw pads to improve traction and cut down on trapped mud and debris.",
+    detail:
+      "Fur that grows between the paw pads is trimmed back, which improves a dog's traction on hard floors and reduces the mud, debris, and matting that can build up between the pads — especially helpful for dogs that spend a lot of time outdoors.",
+    whyItMatters: [
+      "Improves traction on hardwood or tile floors",
+      "Reduces mud, debris, and ice buildup between the pads",
+      "Helps prevent matting in a hard-to-reach area",
+    ],
+  },
+  {
+    slug: "deshedding-treatment",
+    name: "Deshedding Treatment",
+    shortDescription: "A deeper coat treatment aimed at reducing loose undercoat shedding, especially for double-coated breeds.",
+    detail:
+      "Deshedding goes beyond a standard brush-out to work through the undercoat more thoroughly, removing loose fur before it ends up around your home. It's especially useful for double-coated breeds during seasonal shedding, and pairs with Bow Wags' cool-air and force-air drying to fully loosen and remove dead undercoat.",
+    whyItMatters: [
+      "Removes loose undercoat more thoroughly than a standard brush-out",
+      "Especially helpful for double-coated breeds during seasonal shedding",
+      "Can mean less shedding at home between grooming appointments",
+    ],
+  },
+];
+
+export const groomingServices = groomingServiceDetails.map((g) => g.name);
+
+export const groomingServicePath = (slug: GroomingServiceSlug) => `/dog-grooming/${slug}`;
 
 export const groomingEquipment = [
   "Cool-air and force-air drying technology to limit hot-air exposure",
@@ -388,10 +581,10 @@ export const areaContent: Record<
     a.slug,
     {
       metaTitle: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
-      metaDescription: `Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA, about a 15-minute drive from ${a.city} — clean, safe, fully supervised care. Call ${business.phoneDisplay}.`,
+      metaDescription: `Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA, ${a.driveTimeNote} from ${a.city} — clean, safe, fully supervised care. Call ${business.phoneDisplay}.`,
       eyebrow: `${a.city}, GA`,
       h1: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
-      intro: `Bow Wags is located at ${business.addressFull} — about a 15-minute drive from ${a.city} — offering size-appropriate daycare playrooms, private wooden boarding suites (no cages), and full-service grooming for all breeds.`,
+      intro: `Bow Wags is located at ${business.addressFull} — ${a.driveTimeNote} from ${a.city} — offering size-appropriate daycare playrooms, private wooden boarding suites (no cages), and full-service grooming for all breeds.`,
       whyChoose: [
         "Clean, safe, fully supervised daycare and boarding",
         "Private wooden boarding suites — not traditional cages",
@@ -401,7 +594,7 @@ export const areaContent: Record<
       faqs: [
         {
           question: `Does Bow Wags serve dog owners in ${a.city}?`,
-          answer: `Yes — Bow Wags is in Marietta, GA, about a 15-minute drive from ${a.city}, and welcomes dog owners from ${a.city} for daycare, boarding, and grooming.`,
+          answer: `Yes — Bow Wags is in Marietta, GA, ${a.driveTimeNote} from ${a.city}, and welcomes dog owners from ${a.city} for daycare, boarding, and grooming.`,
         },
         {
           question: `Does my dog need anything before their first visit from ${a.city}?`,

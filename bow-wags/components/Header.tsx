@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { business, PATHS, mainNav } from "@/lib/site-data";
+import { business, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { CallButton, ReserveButton } from "./CTAButton";
+import { NavDropdown } from "./NavDropdown";
 
 export function Header() {
   return (
@@ -16,11 +17,23 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-5 text-sm font-medium text-bw-ink-soft">
-          {mainNav.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-bw-red-dark whitespace-nowrap">
-              {item.label}
-            </Link>
-          ))}
+          <NavDropdown label="Services" items={serviceNav} />
+          <NavDropdown label="Service Areas" items={areaNav} />
+          <Link href={PATHS.rates} className="hover:text-bw-red-dark whitespace-nowrap">
+            Rates
+          </Link>
+          <Link href={PATHS.gallery} className="hover:text-bw-red-dark whitespace-nowrap">
+            Gallery
+          </Link>
+          <Link href={PATHS.about} className="hover:text-bw-red-dark whitespace-nowrap">
+            About
+          </Link>
+          <Link href={PATHS.faq} className="hover:text-bw-red-dark whitespace-nowrap">
+            FAQ
+          </Link>
+          <Link href={PATHS.contact} className="hover:text-bw-red-dark whitespace-nowrap">
+            Contact
+          </Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-3 shrink-0">

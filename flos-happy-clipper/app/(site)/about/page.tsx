@@ -85,14 +85,15 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-fh-display text-2xl font-bold text-fh-ink sm:text-3xl">Our Approach to Grooming</h2>
         <p className="mt-4 max-w-3xl text-fh-ink-soft">
-          Every dog gets individual, unhurried attention — not a rushed assembly line. Doodles and poodles
-          are some of our specialties, and pet owners regularly mention how pleased they are with the trim.
-          We&apos;re just as comfortable with nervous dogs and first-time grooming visits.
+          Every dog gets individual, unhurried attention — not a rushed assembly line. Small breeds and
+          purebred dogs needing a precise, breed-standard cut are a particular specialty, alongside doodle
+          and poodle trims. We&apos;re just as comfortable with nervous dogs and first-time grooming visits.
         </p>
         <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
             "Full-service dog grooming",
             "Dog bathing & brushing",
+            "Small dog & purebred breed-cut specialist",
             "Skilled with doodle & poodle trims",
             "Patient with nervous & first-time dogs",
             "Personalized, one-on-one attention",

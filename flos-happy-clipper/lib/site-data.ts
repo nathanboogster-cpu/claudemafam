@@ -177,10 +177,13 @@ export const services = [
 export type ServiceSlug = (typeof services)[number]["slug"];
 
 // Verified, safe-to-state differentiators — sourced from the business's
-// long operating history and the recurring themes in its public customer
-// feedback (patient handling, personalized service, skill with doodle and
-// poodle coats, repeat customers). Nothing here is a specific itemized
-// service claim, ownership claim, or founding date beyond what's confirmed.
+// long operating history, the owner's own confirmed specialty (small
+// breeds, purebred/breed-standard cuts, doodles and poodles — she's since
+// clarified large-breed grooming is no longer something she wants to
+// promote), and the recurring themes in its public customer feedback
+// (patient handling, personalized service, repeat customers). Nothing
+// here is a specific itemized service claim, ownership claim, or founding
+// date beyond what's confirmed.
 export const differentiators = [
   {
     title: "A Long-Established Eatontown Grooming Salon",
@@ -191,8 +194,8 @@ export const differentiators = [
     body: "A local grooming salon run out of Eatontown, with the personal attention that comes with it.",
   },
   {
-    title: "A Favorite for Doodles & Poodles",
-    body: "Doodles and poodles are some of our specialties — pet owners regularly mention how pleased they are with the trim, from teddy-bear cuts to full poodle clips.",
+    title: "A Trusted Small Dog & Purebred Specialist",
+    body: "Precise, breed-standard cuts for purebred dogs are a particular strength — along with doodle and poodle specialty trims and a soft spot for small breeds like mini poodles, Shih Tzus, and Yorkies.",
   },
   {
     title: "Patient With Nervous & First-Time Dogs",
@@ -336,7 +339,7 @@ export const areaContent: Record<
       "Right on the Tinton Falls border — one of the shortest drives around",
       "A long-established local salon, not a national chain",
       "Personal, one-on-one attention for every dog",
-      "Skilled with doodle & poodle trims",
+      "Skilled with doodle, poodle & purebred breed cuts",
     ],
     faqs: [
       {
@@ -364,7 +367,7 @@ export const areaContent: Record<
     whyChoose: [
       "Just east of Eatontown, near the Shrewsbury River",
       "An established local salon with years of grooming experience",
-      "Skilled with doodle & poodle trims",
+      "Skilled with doodle, poodle & purebred breed cuts",
       "Personal, one-on-one attention — not a rushed chain-salon visit",
     ],
     faqs: [
@@ -374,7 +377,7 @@ export const areaContent: Record<
       },
       {
         question: "Do you groom doodles and poodles for Oceanport customers?",
-        answer: "Yes — doodles and poodles are some of our favorite dogs to groom, and we're experienced with a range of specialty trims.",
+        answer: "Yes — doodles, poodles, and purebred dogs needing a breed-standard cut are some of our favorite dogs to groom, and we're experienced with a range of specialty trims.",
       },
       {
         question: "How do I schedule from Oceanport?",
@@ -423,7 +426,7 @@ export const areaContent: Record<
       "A short drive inland from the Long Branch waterfront",
       "An established local salon with years of grooming experience",
       "A favorite stop for small & medium dogs",
-      "Experienced with poodles and other specialty coats",
+      "Experienced with poodles, purebred cuts, and other specialty coats",
     ],
     faqs: [
       {
@@ -432,7 +435,7 @@ export const areaContent: Record<
       },
       {
         question: "Do you groom poodles for Long Branch customers?",
-        answer: "Yes, we have experience with poodles and other dogs that need specialty trims.",
+        answer: "Yes, we have experience with poodles, purebred breed-standard cuts, and other dogs that need specialty trims.",
       },
       {
         question: "How do I schedule from Long Branch?",
@@ -452,7 +455,7 @@ export const areaContent: Record<
       "A short drive south via Route 35",
       "A long-established local salon, not a national chain",
       "Personal, one-on-one attention for every dog",
-      "Skilled with doodle & poodle trims",
+      "Skilled with doodle, poodle & purebred breed cuts",
     ],
     faqs: [
       {
@@ -481,7 +484,7 @@ export const areaContent: Record<
       "A short drive south of downtown Red Bank",
       "An established local salon with years of grooming experience",
       "Personal, one-on-one attention instead of a rushed chain-salon visit",
-      "Skilled with doodle & poodle trims",
+      "Skilled with doodle, poodle & purebred breed cuts",
     ],
     faqs: [
       {
@@ -490,7 +493,7 @@ export const areaContent: Record<
       },
       {
         question: "Do you groom doodles and poodles for Red Bank customers?",
-        answer: "Yes — doodles and poodles are some of our favorite dogs to groom, and we're experienced with a range of specialty trims.",
+        answer: "Yes — doodles, poodles, and purebred dogs needing a breed-standard cut are some of our favorite dogs to groom, and we're experienced with a range of specialty trims.",
       },
       {
         question: "How do I schedule from Red Bank?",
@@ -539,7 +542,7 @@ export const areaContent: Record<
       "A short drive inland from the Monmouth Beach oceanfront",
       "An established local salon with years of grooming experience",
       "A favorite stop for small & medium dogs",
-      "Experienced with poodles and other specialty coats",
+      "Experienced with poodles, purebred cuts, and other specialty coats",
     ],
     faqs: [
       {
@@ -548,7 +551,7 @@ export const areaContent: Record<
       },
       {
         question: "Do you groom poodles for Monmouth Beach customers?",
-        answer: "Yes, we have experience with poodles and other dogs that need specialty trims.",
+        answer: "Yes, we have experience with poodles, purebred breed-standard cuts, and other dogs that need specialty trims.",
       },
       {
         question: "How do I schedule from Monmouth Beach?",

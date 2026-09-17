@@ -14,18 +14,19 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const galleryItems = [
-  { caption: "Dogs playing in a small/toy dog playroom" },
-  { caption: "Dogs playing in a medium dog playroom" },
-  { caption: "Large dog playroom at Bow Wags" },
+  { caption: "Dogs playing together indoors at Bow Wags", src: "/images/indoor-playroom-group-1.jpg" },
+  { caption: "A lively play session indoors", src: "/images/indoor-playroom-group-2.jpg" },
   { caption: "Dog enjoying the secure outdoor playground", src: "/images/outdoor-play-springer.jpg" },
+  { caption: "A dog taking a break in the play yard", src: "/images/dog-outdoor-bench-play.jpg" },
+  { caption: "A dog out enjoying playtime outside", src: "/images/dog-outdoor-playground-2.jpg" },
   { caption: "Dogs resting in a private wooden boarding suite", src: "/images/boarding-dogs-resting.jpg" },
-  { caption: "Boarding suites divided by picket-style fencing" },
-  { caption: "Dog getting a bath in the grooming salon" },
+  { caption: "A relaxed dog resting indoors", src: "/images/goldendoodle-resting-indoors.jpg" },
+  { caption: "A dog relaxing on a covered patio", src: "/images/happy-dog-covered-patio.jpg" },
   { caption: "Freshly groomed dog after a full haircut", src: "/images/groomed-dog-bandana.jpg" },
-  { caption: "Cynthia grooming a dog at Bow Wags" },
-  { caption: "Bow Wags facility exterior" },
   { caption: "A happy boarding guest", src: "/images/happy-dog-lobby-aussie.jpg" },
   { caption: "A happy daycare regular", src: "/images/dog-lobby-husky.jpg" },
+  { caption: "A puppy visiting Bow Wags", src: "/images/german-shepherd-puppy-outdoor.jpg" },
+  { caption: "Another happy Bow Wags regular", src: "/images/boston-terrier-portrait.jpg" },
 ];
 
 export default function GalleryPage() {

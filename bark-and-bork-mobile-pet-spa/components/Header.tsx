@@ -4,6 +4,7 @@ import { business, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { MobileHeaderCall } from "./MobileHeaderCall";
 import { BookButton } from "./CTAButton";
+import { TrackedLink } from "./TrackedLink";
 import { NavDropdown } from "./NavDropdown";
 
 export function Header() {
@@ -48,9 +49,14 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3 shrink-0">
-          <a href={business.phoneHref} className="text-sm font-semibold text-bb-ink-soft hover:text-bb-coral-dark whitespace-nowrap">
+          <TrackedLink
+            href={business.phoneHref}
+            event="bb_call_click"
+            params={{ location: "header_desktop_text" }}
+            className="text-sm font-semibold text-bb-ink-soft hover:text-bb-coral-dark whitespace-nowrap"
+          >
             {business.phoneDisplay}
-          </a>
+          </TrackedLink>
           <BookButton location="header" variant="primary" className="px-4 py-2 text-sm" />
         </div>
 

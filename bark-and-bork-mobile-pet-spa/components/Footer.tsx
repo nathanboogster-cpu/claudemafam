@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TruckIcon, DogIcon } from "@/components/icons";
+import { TrackedLink } from "@/components/TrackedLink";
 import { business, hours, PATHS, serviceNav, areaNav } from "@/lib/site-data";
 
 const companyLinks = [
@@ -87,9 +88,14 @@ export function Footer() {
           <h2 className="text-sm font-semibold uppercase tracking-wide text-bb-ink">Contact</h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <a href={business.phoneHref} className="hover:text-bb-coral-dark">
+              <TrackedLink
+                href={business.phoneHref}
+                event="bb_call_click"
+                params={{ location: "footer" }}
+                className="hover:text-bb-coral-dark"
+              >
                 {business.phoneDisplay}
-              </a>
+              </TrackedLink>
             </li>
             <li>
               <a href={`mailto:${business.email}`} className="hover:text-bb-coral-dark">
@@ -103,9 +109,16 @@ export function Footer() {
             </li>
             <li>Mobile — based in {business.homeBase}</li>
             <li>
-              <a href={business.bookingUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bb-coral-dark">
+              <TrackedLink
+                href={business.bookingUrl}
+                event="bb_book_click"
+                params={{ location: "footer" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-bb-coral-dark"
+              >
                 Book Online →
-              </a>
+              </TrackedLink>
             </li>
           </ul>
           <h2 className="mt-4 text-sm font-semibold uppercase tracking-wide text-bb-ink">Hours</h2>

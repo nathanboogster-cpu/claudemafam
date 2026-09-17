@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
 const reviewThemes = [
   { title: "A Favorite for Small & Toy Breeds", body: "Owners of small and toy breeds regularly mention how comfortable their dogs are and how great they look afterward." },
   { title: "Patient With Nervous & First-Time Dogs", body: "Pet owners often mention how comfortable their nervous or first-time dogs are during and after grooming." },
-  { title: "Skilled With Doodle & Poodle Trims", body: "Customers bringing in doodles, poodles, and other specialty-coat breeds mention being pleased with the trim." },
+  { title: "Precise Purebred & Specialty Coat Cuts", body: "Customers bringing in purebred dogs, doodles, poodles, and other specialty-coat breeds mention being pleased with the trim." },
   { title: "Repeat Customers, Year After Year", body: "Many customers have used Flo's Happy Clipper for years, returning to the same familiar, trusted groomer." },
   { title: "Reasonable Pricing", body: "Pricing is frequently mentioned as fair and reasonable compared to other local options." },
 ];
