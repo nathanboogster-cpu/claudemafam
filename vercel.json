@@ -1,6 +1,25 @@
 {
   "redirects": [
+    { "source": "/product/boarding", "destination": "/services/overnight-stays.html", "permanent": true },
     { "source": "/product", "destination": "/services/dog-grooming.html", "permanent": true },
-    { "source": "/product/:path*", "destination": "/services/dog-grooming.html", "permanent": true }
+    { "source": "/product/:path*", "destination": "/services/dog-grooming.html", "permanent": true },
+    { "source": "/tag/:path*", "destination": "/blog/", "permanent": true },
+
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/services", "destination": "/services/", "permanent": true },
+    { "source": "/services/index.html", "destination": "/services/", "permanent": true },
+    { "source": "/service-areas", "destination": "/service-areas/", "permanent": true },
+    { "source": "/service-areas/index.html", "destination": "/service-areas/", "permanent": true },
+    { "source": "/blog", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true },
+
+    { "source": "/how-to-travel-with-cats", "destination": "/services/cat-grooming.html", "permanent": true },
+    { "source": "/tips-for-moving-to-a-new-home-with-a-cat", "destination": "/services/cat-grooming.html", "permanent": true },
+    { "source": "/indoor-games-with-pets", "destination": "/services/dog-daycare.html", "permanent": true },
+    { "source": "/tick-removal-and-prevention-tips", "destination": "/services/dog-grooming.html", "permanent": true },
+    { "source": "/bone-broth-goat-milk-and-your-pets-nutrition", "destination": "/blog/", "permanent": true },
+    { "source": "/cool-pet-tips-for-the-dog-days-of-summer", "destination": "/blog/", "permanent": true },
+    { "source": "/holiday-food-dangers-for-dogs", "destination": "/blog/", "permanent": true },
+    { "source": "/is-the-swimming-pool-safe-for-your-pets", "destination": "/blog/", "permanent": true }
   ]
 }
