@@ -300,6 +300,48 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "home-coat-care-between-grooming-appointments",
+    title: "What You Can Do Between Grooming Appointments",
+    description:
+      "A few minutes of home care between professional grooms keeps a coat from backsliding — and makes the next appointment faster and easier. Here's what actually helps.",
+    publishedDate: "2026-09-21",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "Professional grooming handles the deep work — the bath, the deshedding, the parts that are hard or risky to do yourself. But a little bit of home care in between appointments makes a real difference, especially for dogs with longer or double coats, and it makes the next professional groom go faster too.",
+        ],
+      },
+      {
+        heading: "Brushing at home",
+        paragraphs: [
+          "Brush in the direction the coat grows, and focus on the spots where mats actually start — behind the ears, under the collar, and in the armpits, since those are the areas that rub and tangle first. How often depends on the coat: a short, smooth coat barely needs it between visits, while a longer or double coat benefits from a quick brush-through every few days, more often during a seasonal shed.",
+        ],
+      },
+      {
+        heading: "Nails between visits",
+        paragraphs: [
+          "If you can hear nails clicking on hard flooring, they're overdue no matter how recently the last full groom was — this is especially common for less active or indoor dogs who don't wear nails down naturally. A standalone nail trim between full grooms is a fast way to stay on top of it without waiting for the next scheduled appointment.",
+        ],
+      },
+      {
+        heading: "What's better left to a professional",
+        bullets: [
+          "Bathing with anything other than a dog-formulated shampoo — human shampoo is a different pH and can dry out or irritate a dog's skin",
+          "Trying to brush or cut out a mat that's already tight against the skin — this can hurt the dog, and a professional shave-down is usually the safer fix once a mat has set in",
+          "Ear cleaning beyond wiping the visible outer ear — going deeper without the right tools risks doing more harm than good",
+        ],
+        paragraphs: [],
+      },
+      {
+        heading: "Home care complements the professional groom, not replaces it",
+        paragraphs: [
+          "None of this is a substitute for a full appointment — deshedding the undercoat, a safe nail trim close to the quick, a proper haircut all still need a groomer's tools and experience. What home care does is stretch out how good the coat looks between visits and make each Essential Bath or Full Dog Grooming appointment a little faster, since the groomer isn't starting from a fully matted or overgrown state every time.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
