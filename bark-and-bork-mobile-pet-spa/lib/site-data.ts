@@ -10,10 +10,13 @@
 
 // Own standalone Vercel project/domain (a sibling to the other unrelated
 // client apps in this monorepo — see README.md for the isolation notes).
-// Set NEXT_PUBLIC_SITE_URL once a custom domain is attached; until then this
-// falls back to the default Vercel-assigned project URL.
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bark-and-bork-mobile-pet-spa.vercel.app";
+// Canonical host is www — confirmed via Google Search Console data (Sept
+// 2026 GSC audit): Google indexed and ranked www.barkandbork.com, never the
+// bare apex, so the site's canonical/OG/sitemap URLs match what Google
+// already chose rather than fighting it. The live value comes from the
+// NEXT_PUBLIC_SITE_URL env var in Vercel — this fallback only applies if
+// that var is ever unset.
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.barkandbork.com";
 
 export const business = {
   name: "Bark and Bork Mobile Pet Spa",
