@@ -276,6 +276,39 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "nail-trim-ear-cleaning"],
   },
+  {
+    slug: "how-to-choose-a-groomer-for-your-dog-or-cat",
+    title: "How to Choose a Groomer for Your Dog or Cat",
+    metaDescription:
+      "Not all groomers are the same. A few things worth asking about before booking a groomer for your dog or cat, from experience to how nervous pets are handled.",
+    excerpt: "Not all groomers are the same. Here are a few things worth asking about before you book.",
+    eyebrow: "Choosing a Groomer",
+    publishedAt: "2026-09-21",
+    heroPhotoKey: "catGrooming",
+    body: [
+      {
+        type: "p",
+        text: "Not every groomer is the same, and picking the right one can make a real difference in how your pet experiences every visit after the first one. A few things are worth asking about before you book, especially if it's your first time trying somewhere new.",
+      },
+      { type: "h2", text: "Questions Worth Asking" },
+      {
+        type: "list",
+        items: [
+          "How much experience do they have with your pet's breed or coat type? A groomer who's worked with a wide range of coats for years will generally handle tricky mats, thick undercoats, or unusual cuts more confidently than someone newer to the trade.",
+          "Do they groom cats as well as dogs? Not every groomer takes cat clients — it's worth confirming upfront rather than assuming, if you have a cat.",
+          "Is the facility cage-free, or does your pet wait in a kennel between steps? For a nervous or anxious pet, this can make a noticeable difference in how the visit goes.",
+          "Are they comfortable with senior, large-breed, or nervous pets specifically? Some groomers are more patient and experienced with pets that need extra care or a slower pace.",
+          "Is it a personal, one-on-one experience, or a high-volume operation where your pet is one of many at once?",
+        ],
+      },
+      { type: "h2", text: "Why It's Worth Asking Upfront" },
+      {
+        type: "p",
+        text: "A groomer's answers to these questions tell you a lot about what kind of visit to expect — not just the haircut itself, but how comfortable your pet will be getting there. At our Funkstown salon, we've been grooming dogs and cats for the greater Hagerstown area for over 40 years, take a cage-free approach, and are comfortable with nervous, senior, and large-breed pets — but the questions above are worth asking anywhere you're considering, not just here.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "cat-grooming"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
