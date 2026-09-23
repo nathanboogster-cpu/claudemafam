@@ -75,9 +75,9 @@ export const hoursSchema = [
 // Real client/salon photos, supplied directly by the client. Swapped in
 // September 2026 for a newer batch the owner supplied specifically because
 // they show the detail and style of the grooming work more clearly than
-// the original set. A couple of photo slots (salon interior, storefront)
-// still render an honest, aspect-locked placeholder (see
-// components/PhotoPlaceholder.tsx) since no real photo of those exists yet.
+// the original set. Every slot on the site now uses a real photo from this
+// list; no salon interior or storefront photo exists yet, so those slots
+// were removed rather than left as placeholders.
 export const photos = {
   blackLabSmiling: {
     src: "/images/gallery-black-white-fluffy-dog.jpg",

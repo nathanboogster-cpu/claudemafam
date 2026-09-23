@@ -63,7 +63,13 @@ export default function GalleryPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {galleryPhotos.map((p) => (
-            <PhotoPlaceholder key={p.caption} caption={p.caption} src={p.src} aspect={p.aspect} />
+            <PhotoPlaceholder
+              key={p.caption}
+              caption={p.caption}
+              src={p.src}
+              aspect={p.aspect}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
           ))}
         </div>
 

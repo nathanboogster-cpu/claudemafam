@@ -62,6 +62,7 @@ export function localBusinessSchema(pageUrl: string) {
     url: pageUrl,
     telephone: business.phoneDisplay,
     address: addressSchema(),
+    hasMap: business.mapsUrl,
     image: `${SITE_URL}${business.logo}`,
     logo: `${SITE_URL}${business.logo}`,
     description:
