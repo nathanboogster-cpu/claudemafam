@@ -14,7 +14,9 @@ export function PhotoPlaceholder({
   sizes = "(max-width: 768px) 100vw, 50vw",
 }: {
   caption: string;
-  aspect?: "square" | "video" | "portrait" | "wide";
+  // "article" is the blog hero: 4:3 on phones (a 16:6 strip that narrow
+  // crops most of the photo away), widening to 16:6 from sm up.
+  aspect?: "square" | "video" | "portrait" | "wide" | "article";
   className?: string;
   src?: string;
   // Set true for above-the-fold hero images so they're eagerly fetched
@@ -29,6 +31,7 @@ export function PhotoPlaceholder({
     video: "aspect-video",
     portrait: "aspect-[3/4]",
     wide: "aspect-[16/6]",
+    article: "aspect-[4/3] sm:aspect-[16/6]",
   }[aspect];
 
   if (src) {

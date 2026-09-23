@@ -30,8 +30,10 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
-        <div className="lg:col-span-1">
+      {/* Five columns only from xl: at lg the Contact column is too narrow for
+          the non-wrapping hours rows, which pushed the page wider than the viewport. */}
+      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div>
           <Image src={business.logo} alt={business.name} width={790} height={600} className="h-14 w-auto" />
           <p className="mt-3 text-sm">
             Full-service dog & cat grooming in {business.primaryLocation}, serving pet owners throughout the{" "}

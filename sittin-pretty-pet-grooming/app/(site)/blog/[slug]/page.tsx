@@ -97,7 +97,7 @@ export default async function BlogPostPage({
         <PhotoPlaceholder
           caption={heroPhoto.alt}
           src={heroPhoto.src}
-          aspect="wide"
+          aspect="article"
           className="mt-6 w-full"
           sizes="(max-width: 800px) 100vw, 768px"
           priority
