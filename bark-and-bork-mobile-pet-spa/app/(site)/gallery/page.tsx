@@ -36,6 +36,11 @@ const galleryPhotos: { caption: string; src?: string; aspect: "square" | "portra
   { caption: photos.groomShihTzuPalmTree.alt, src: photos.groomShihTzuPalmTree.src, aspect: "portrait" },
   { caption: photos.groomGoldendoodleVanSeat.alt, src: photos.groomGoldendoodleVanSeat.src, aspect: "portrait" },
   { caption: photos.vanExteriorRear.alt, src: photos.vanExteriorRear.src, aspect: "portrait" },
+  { caption: photos.groomPitbullMixHalloweenAlert.alt, src: photos.groomPitbullMixHalloweenAlert.src, aspect: "portrait" },
+  { caption: photos.groomPitbullMixHalloweenSmile.alt, src: photos.groomPitbullMixHalloweenSmile.src, aspect: "portrait" },
+  { caption: photos.groomTerrierMixHalloweenBandana.alt, src: photos.groomTerrierMixHalloweenBandana.src, aspect: "portrait" },
+  { caption: photos.groomPuppyBrindleTrickOrTreat.alt, src: photos.groomPuppyBrindleTrickOrTreat.src, aspect: "portrait" },
+  { caption: photos.groomPoodleMixTrickOrTreat.alt, src: photos.groomPoodleMixTrickOrTreat.src, aspect: "portrait" },
 ];
 
 export default function GalleryPage() {

@@ -116,6 +116,26 @@ export const photos = {
     src: "/images/groom-goldendoodle-full-groom.jpg",
     alt: "A large Goldendoodle with a full groom finish, sitting on the grooming table",
   },
+  groomPitbullMixHalloweenAlert: {
+    src: "/images/groom-pitbull-mix-halloween-alert.jpg",
+    alt: "A tan and white pit bull mix wearing an orange Halloween bandana, sitting attentively on the grooming table inside the Bark and Bork van",
+  },
+  groomPitbullMixHalloweenSmile: {
+    src: "/images/groom-pitbull-mix-halloween-smile.jpg",
+    alt: "A tan and white pit bull mix smiling with tongue out after grooming, wearing an orange Halloween bandana",
+  },
+  groomTerrierMixHalloweenBandana: {
+    src: "/images/groom-terrier-mix-halloween-bandana.jpg",
+    alt: "A white terrier mix wearing a purple Halloween bandana with pumpkins and spiderwebs after a Bark and Bork grooming appointment",
+  },
+  groomPuppyBrindleTrickOrTreat: {
+    src: "/images/groom-puppy-brindle-trickortreat.jpg",
+    alt: "A gray brindle puppy wearing an orange 'Trick or Treat' bandana, sitting on the grooming table after grooming",
+  },
+  groomPoodleMixTrickOrTreat: {
+    src: "/images/groom-poodle-mix-trickortreat.jpg",
+    alt: "A fluffy white poodle mix wearing a yellow 'Trick or Treat' bandana, lying on the grooming table after grooming",
+  },
 } as const;
 
 // Real before/after transformation pairs, supplied directly by the client.
