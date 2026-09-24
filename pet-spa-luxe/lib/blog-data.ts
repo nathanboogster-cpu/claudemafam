@@ -342,6 +342,45 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "puppy-first-grooming-guide",
+    title: "When Should You Start Grooming a Puppy?",
+    description:
+      "A puppy's first grooming experience shapes how they feel about every visit after it. Here's general guidance on timing, and why the goal early on is comfort, not a perfect haircut.",
+    publishedDate: "2026-09-24",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "A puppy's first grooming visit isn't really about the haircut — it's about teaching them that being handled, bathed, and trimmed is nothing to be worried about. Get that part right early, and every appointment for the rest of that dog's life tends to be easier.",
+        ],
+      },
+      {
+        heading: "When to start",
+        paragraphs: [
+          "As a general rule of thumb, many groomers introduce puppies to professional grooming somewhere around 10-12 weeks old, once they're far enough along on their vaccination schedule — but the exact timing should come from your vet, since that depends on the individual puppy and vaccine schedule. The point isn't to rush a full groom; it's to start the exposure early, while a puppy is naturally more adaptable to new experiences than they will be as an adult.",
+        ],
+      },
+      {
+        heading: "What a first visit should focus on",
+        paragraphs: [
+          "A first appointment doesn't need to be a full haircut. The priority is getting a puppy comfortable with being touched on their paws, ears, and face, hearing clippers or a dryer running nearby, and standing on a grooming table — all the sensations that come with grooming, introduced gently. A lighter service like a bath is often a better starting point than jumping straight into a full groom, especially for a coat that isn't overgrown yet.",
+        ],
+      },
+      {
+        heading: "Why a calm format matters even more here",
+        paragraphs: [
+          "A stressful first experience can color how a dog feels about grooming for years. One-on-one, cage-free attention with no other unfamiliar dogs around and no long wait removes a lot of what could make a puppy's first visit overwhelming — there's nothing competing for the groomer's attention, and nothing unfamiliar happening nearby to react to.",
+        ],
+      },
+      {
+        heading: "Mention it's a first visit when you book",
+        paragraphs: [
+          "Letting the groomer know ahead of time that it's a puppy's first appointment means they can plan for a slower, gentler pace rather than treating it like a routine groom. It's a small thing to mention on the booking call, and it makes a real difference in how the visit goes.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
