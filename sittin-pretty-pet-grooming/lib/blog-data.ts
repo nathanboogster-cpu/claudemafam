@@ -309,6 +309,60 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "cat-grooming"],
   },
+  {
+    slug: "brushing-at-home-between-grooms-preventing-mats",
+    title: "Brushing at Home Between Grooms: How to Keep Mats From Forming",
+    metaDescription:
+      "What happens between professional grooms makes the biggest difference in whether a coat mats. A simple at-home brushing routine for dogs and cats, and what to do if a mat has already formed.",
+    excerpt:
+      "Regular professional grooming is only half of it — what happens at home in between decides whether a coat stays comfortable or mats. Here's a routine that works.",
+    eyebrow: "At-Home Care",
+    publishedAt: "2026-09-24",
+    heroPhotoKey: "oldEnglishSheepdogBlue",
+    body: [
+      {
+        type: "p",
+        text: "Even on a regular professional grooming schedule, what happens at home between visits is what decides whether a coat stays soft and comfortable or slowly works itself into mats. Fall makes this a little harder around Washington County: damp mornings, wet leaves on walks, and the return of sweaters and harnesses all add moisture and friction — the two things mats love most.",
+      },
+      { type: "h2", text: "Where Mats Start" },
+      {
+        type: "p",
+        text: "Mats almost never start on the broad, easy-to-reach parts of the back. They form where hair rubs against hair, skin, or gear — and those are exactly the spots that get skipped during a quick brush:",
+      },
+      {
+        type: "list",
+        items: [
+          "Behind and under the ears, where hair is fine and gets rubbed by scratching.",
+          "The armpits and the inside of the back legs, where the legs move against the body constantly.",
+          "Under the collar or along the harness line — friction plus trapped moisture after a walk.",
+          "The belly and chest, especially on long-haired cats and low-to-the-ground dogs that pick up damp from grass and leaves.",
+          "Feathering on the legs and tail, where burrs and leaf bits tangle in and pull hair together.",
+        ],
+      },
+      { type: "h2", text: "A Simple Routine That Actually Works" },
+      {
+        type: "list",
+        items: [
+          "Brush a few times a week for most coats, and daily for long, silky, or curly coats (Doodles, Shih Tzus, Maltese, long-haired cats). A few minutes often beats one long session once a week.",
+          "Use two tools, not one: a slicker brush to work through the coat, then a metal comb to check your work. If the comb won't glide through to the skin, the brush hasn't reached it yet — that's where mats are quietly forming.",
+          "Work in sections, brushing outward from the skin in layers rather than just skimming the top of the coat. Surface brushing looks tidy but leaves the undercoat to tangle.",
+          "Always brush before a bath, never after. Water tightens an existing tangle into a solid mat that's much harder to remove.",
+          "Dry your pet fully after rain, a muddy walk, or a bath, paying attention to armpits and belly. Damp hair left to air-dry felts together.",
+          "Check the harness and sweater areas after every walk — a quick pass with the comb catches friction tangles while they're still loose.",
+        ],
+      },
+      { type: "h2", text: "If a Mat Has Already Formed" },
+      {
+        type: "p",
+        text: "Small, loose tangles can often be worked out from the edges with a comb and a little patience — start at the outside of the tangle and work inward, holding the hair at the base so you're not pulling on the skin. Two things to avoid: don't cut a mat out with scissors, and don't bathe a matted pet. A tight mat pulls the skin up into it, which makes scissor cuts to the skin surprisingly common, and water only makes the mat tighter.",
+      },
+      {
+        type: "p",
+        text: "A mat that's tight against the skin, or one that's spread across a larger area, is safer to have clipped out professionally with the right tools. It's not a failure on your part — it happens to attentive owners all the time, especially with fast-growing coats. If you're not sure whether what you're feeling is still brushable, call our Funkstown salon and ask. After more than 40 years of grooming dogs and cats for the Hagerstown area, it's a question we're glad to answer before a small tangle turns into a full shave-down.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "dog-bath-and-brush", "cat-grooming"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
