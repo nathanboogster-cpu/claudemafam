@@ -10,7 +10,7 @@ import { business, serviceAreas, areaPath, PATHS, SITE_URL } from "@/lib/site-da
 export const metadata: Metadata = pageMetadata({
   title: "Mobile Dog Grooming Service Areas",
   description:
-    "Bark and Bork Mobile Pet Spa is based in Compton, CA and grooms dogs throughout greater Los Angeles, including South Gate, Lynwood, Carson, Gardena, Long Beach & Inglewood.",
+    "Bark and Bork is a mobile dog groomer based in Compton, CA, serving 13 nearby LA County communities from Long Beach to Inglewood. Find your city.",
   path: PATHS.serviceAreas,
 });
 
@@ -35,6 +35,19 @@ export default function ServiceAreasHub() {
           Bark and Bork is home-based in {business.homeBase} and grooms dogs throughout {business.broadMarket}.
           We don&apos;t have a walk-in salon — every appointment happens at your own home.
         </p>
+        <div className="mt-6 max-w-3xl space-y-4 text-bb-ink-soft">
+          <p>
+            One van can only cover so much of Los Angeles, so we stay within reach of our Compton base. That covers
+            the cities bordering Compton, the Gateway Cities to the northeast, the South Bay to the west, and Long
+            Beach to the south. Staying close means your appointment time is spent grooming instead of sitting in
+            traffic.
+          </p>
+          <p>
+            Each city page below covers a different part of mobile grooming, such as what happens on appointment
+            day, choosing between packages, heavy shedders, matted coats, big dogs, add-ons, and first-time nerves.
+            It&apos;s worth reading a few even if you live somewhere else on the list.
+          </p>
+        </div>
 
         <h2 className="mt-12 font-bb-display text-2xl font-bold text-bb-ink">Primary Service Area</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
