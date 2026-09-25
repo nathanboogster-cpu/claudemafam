@@ -162,9 +162,9 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <PhotoPlaceholder caption={photos.tricolorDogBandana.alt} src={photos.tricolorDogBandana.src} aspect="portrait" />
-          <PhotoPlaceholder caption={photos.tanChihuahua.alt} src={photos.tanChihuahua.src} aspect="portrait" />
-          <PhotoPlaceholder caption={photos.catGrooming.alt} src={photos.catGrooming.src} aspect="portrait" />
+          <PhotoPlaceholder caption={photos.tricolorDogBandana.alt} src={photos.tricolorDogBandana.src} aspect="portrait" sizes="(max-width: 640px) 100vw, 33vw" />
+          <PhotoPlaceholder caption={photos.tanChihuahua.alt} src={photos.tanChihuahua.src} aspect="portrait" sizes="(max-width: 640px) 100vw, 33vw" />
+          <PhotoPlaceholder caption={photos.catGrooming.alt} src={photos.catGrooming.src} aspect="portrait" sizes="(max-width: 640px) 100vw, 33vw" />
         </div>
         <div className="mt-8 flex justify-center">
           <SecondaryLinkButton location="home_gallery_teaser" variant="ghost" label="View Gallery" href={PATHS.gallery} />

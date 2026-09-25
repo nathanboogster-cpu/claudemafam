@@ -26,6 +26,8 @@ export async function generateMetadata({
     title: post.title,
     description: post.metaDescription,
     path: blogPostPath(post.slug),
+    image: photos[post.heroPhotoKey].src,
+    publishedTime: post.publishedAt,
   });
 }
 
@@ -92,7 +94,14 @@ export default async function BlogPostPage({
           {formatBlogDate(post.publishedAt)}
         </time>
 
-        <PhotoPlaceholder caption={heroPhoto.alt} src={heroPhoto.src} aspect="wide" className="mt-6 w-full" priority />
+        <PhotoPlaceholder
+          caption={heroPhoto.alt}
+          src={heroPhoto.src}
+          aspect="article"
+          className="mt-6 w-full"
+          sizes="(max-width: 800px) 100vw, 768px"
+          priority
+        />
 
         <div className="mt-8">
           {post.body.map((block, i) => (

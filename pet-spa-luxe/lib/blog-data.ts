@@ -257,6 +257,130 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "senior-dog-grooming-tips",
+    title: "Grooming Senior Dogs: What Changes, and Why It's Worth Doing Differently",
+    description:
+      "An older dog's skin, joints, and patience for a long appointment are all different from a younger dog's. Here's what to expect, and why a calmer format matters more with age.",
+    publishedDate: "2026-09-17",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "Grooming doesn't stop mattering as a dog gets older — if anything, it matters more, since an aging dog is less able to compensate for overgrown nails or a matted coat than a younger one. But the way a groom should be handled does change, and it's worth knowing what's different before booking.",
+        ],
+      },
+      {
+        heading: "What changes with age",
+        paragraphs: [
+          "Older dogs tend to have thinner, more sensitive skin that's more easily irritated by rough handling or harsh products, and coats can thin or change texture. Joint stiffness and arthritis are common too, which makes standing still for a long stretch — especially on a slippery table — more physically taxing than it used to be. Hearing or vision that isn't what it used to be can also make a dog more easily startled by being touched or approached from an angle they didn't see coming.",
+        ],
+      },
+      {
+        heading: "Why a calmer format matters more here",
+        paragraphs: [
+          "A long wait in an unfamiliar space with other dogs is harder on an older dog's patience and joints than a younger one's. One-on-one, cage-free attention for the whole appointment — with no car ride and no time spent waiting for a groomer to finish with another dog first — cuts down on exactly the parts of a grooming visit that tend to be hardest on a senior dog: standing around, waiting, and unfamiliar noise and movement from other animals nearby.",
+        ],
+      },
+      {
+        heading: "Worth mentioning when you book",
+        bullets: [
+          "Any joint, hip, or mobility issues that affect how long your dog can comfortably stand",
+          "Hearing or vision changes, so the groomer can approach in a way that won't startle your dog",
+          "Skin sensitivities or known reactions to specific products",
+          "Any medications that affect temperature regulation or skin sensitivity",
+        ],
+        paragraphs: [],
+      },
+      {
+        heading: "Don't stretch out the schedule",
+        paragraphs: [
+          "It's tempting to assume an older, calmer dog needs grooming less often, but the opposite is usually closer to true — less active senior dogs wear their nails down less on their own, and thinner skin is more vulnerable when a coat is allowed to mat. The frequency shouldn't necessarily change; what should change is making sure the groomer knows what to expect before the appointment starts. Mentioning your dog's age and any health notes on the booking call is enough to make sure that happens.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "home-coat-care-between-grooming-appointments",
+    title: "What You Can Do Between Grooming Appointments",
+    description:
+      "A few minutes of home care between professional grooms keeps a coat from backsliding — and makes the next appointment faster and easier. Here's what actually helps.",
+    publishedDate: "2026-09-21",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "Professional grooming handles the deep work — the bath, the deshedding, the parts that are hard or risky to do yourself. But a little bit of home care in between appointments makes a real difference, especially for dogs with longer or double coats, and it makes the next professional groom go faster too.",
+        ],
+      },
+      {
+        heading: "Brushing at home",
+        paragraphs: [
+          "Brush in the direction the coat grows, and focus on the spots where mats actually start — behind the ears, under the collar, and in the armpits, since those are the areas that rub and tangle first. How often depends on the coat: a short, smooth coat barely needs it between visits, while a longer or double coat benefits from a quick brush-through every few days, more often during a seasonal shed.",
+        ],
+      },
+      {
+        heading: "Nails between visits",
+        paragraphs: [
+          "If you can hear nails clicking on hard flooring, they're overdue no matter how recently the last full groom was — this is especially common for less active or indoor dogs who don't wear nails down naturally. A standalone nail trim between full grooms is a fast way to stay on top of it without waiting for the next scheduled appointment.",
+        ],
+      },
+      {
+        heading: "What's better left to a professional",
+        bullets: [
+          "Bathing with anything other than a dog-formulated shampoo — human shampoo is a different pH and can dry out or irritate a dog's skin",
+          "Trying to brush or cut out a mat that's already tight against the skin — this can hurt the dog, and a professional shave-down is usually the safer fix once a mat has set in",
+          "Ear cleaning beyond wiping the visible outer ear — going deeper without the right tools risks doing more harm than good",
+        ],
+        paragraphs: [],
+      },
+      {
+        heading: "Home care complements the professional groom, not replaces it",
+        paragraphs: [
+          "None of this is a substitute for a full appointment — deshedding the undercoat, a safe nail trim close to the quick, a proper haircut all still need a groomer's tools and experience. What home care does is stretch out how good the coat looks between visits and make each Essential Bath or Full Dog Grooming appointment a little faster, since the groomer isn't starting from a fully matted or overgrown state every time.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "puppy-first-grooming-guide",
+    title: "When Should You Start Grooming a Puppy?",
+    description:
+      "A puppy's first grooming experience shapes how they feel about every visit after it. Here's general guidance on timing, and why the goal early on is comfort, not a perfect haircut.",
+    publishedDate: "2026-09-24",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "A puppy's first grooming visit isn't really about the haircut — it's about teaching them that being handled, bathed, and trimmed is nothing to be worried about. Get that part right early, and every appointment for the rest of that dog's life tends to be easier.",
+        ],
+      },
+      {
+        heading: "When to start",
+        paragraphs: [
+          "As a general rule of thumb, many groomers introduce puppies to professional grooming somewhere around 10-12 weeks old, once they're far enough along on their vaccination schedule — but the exact timing should come from your vet, since that depends on the individual puppy and vaccine schedule. The point isn't to rush a full groom; it's to start the exposure early, while a puppy is naturally more adaptable to new experiences than they will be as an adult.",
+        ],
+      },
+      {
+        heading: "What a first visit should focus on",
+        paragraphs: [
+          "A first appointment doesn't need to be a full haircut. The priority is getting a puppy comfortable with being touched on their paws, ears, and face, hearing clippers or a dryer running nearby, and standing on a grooming table — all the sensations that come with grooming, introduced gently. A lighter service like a bath is often a better starting point than jumping straight into a full groom, especially for a coat that isn't overgrown yet.",
+        ],
+      },
+      {
+        heading: "Why a calm format matters even more here",
+        paragraphs: [
+          "A stressful first experience can color how a dog feels about grooming for years. One-on-one, cage-free attention with no other unfamiliar dogs around and no long wait removes a lot of what could make a puppy's first visit overwhelming — there's nothing competing for the groomer's attention, and nothing unfamiliar happening nearby to react to.",
+        ],
+      },
+      {
+        heading: "Mention it's a first visit when you book",
+        paragraphs: [
+          "Letting the groomer know ahead of time that it's a puppy's first appointment means they can plan for a slower, gentler pace rather than treating it like a routine groom. It's a small thing to mention on the booking call, and it makes a real difference in how the visit goes.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

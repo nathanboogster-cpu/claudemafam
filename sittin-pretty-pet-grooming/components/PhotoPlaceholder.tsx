@@ -3,28 +3,35 @@ import { PawIcon } from "@/components/PawIcon";
 
 // Renders a real photo when `src` is supplied; otherwise an honest,
 // aspect-locked placeholder — never stock imagery presented as real
-// Sittin' Pretty photography. No real photos have been supplied for this
-// build yet, so every usage currently renders the placeholder branch.
+// Sittin' Pretty photography. Every current usage passes a real client
+// photo; the placeholder branch stays for any future slot without one.
 export function PhotoPlaceholder({
   caption,
   aspect = "square",
   className = "",
   src,
   priority = false,
+  sizes = "(max-width: 768px) 100vw, 50vw",
 }: {
   caption: string;
-  aspect?: "square" | "video" | "portrait" | "wide";
+  // "article" is the blog hero: 4:3 on phones (a 16:6 strip that narrow
+  // crops most of the photo away), widening to 16:6 from sm up.
+  aspect?: "square" | "video" | "portrait" | "wide" | "article";
   className?: string;
   src?: string;
   // Set true for above-the-fold hero images so they're eagerly fetched
   // and preloaded instead of lazy-loaded, improving LCP.
   priority?: boolean;
+  // Match to the slot's real layout width (the default suits a two-column
+  // hero); a three-column grid should pass 33vw so it doesn't over-fetch.
+  sizes?: string;
 }) {
   const aspectClass = {
     square: "aspect-square",
     video: "aspect-video",
     portrait: "aspect-[3/4]",
     wide: "aspect-[16/6]",
+    article: "aspect-[4/3] sm:aspect-[16/6]",
   }[aspect];
 
   if (src) {
@@ -35,7 +42,7 @@ export function PhotoPlaceholder({
           alt={caption}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes={sizes}
           priority={priority}
         />
       </div>

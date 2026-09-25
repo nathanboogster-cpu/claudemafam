@@ -14,7 +14,9 @@ export function Header() {
           <Image src={business.logo} alt={business.name} width={790} height={600} className="h-12 w-auto sm:h-14" priority />
         </Link>
 
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-5 text-sm font-medium text-sp-ink-soft">
+        {/* Full nav needs ~1150px; below xl the hamburger takes over so
+            1024–1279px laptops don't get a clipped button and sideways scroll. */}
+        <nav aria-label="Primary" className="hidden xl:flex items-center gap-5 text-sm font-medium text-sp-ink-soft">
           <Link href={PATHS.home} className="hover:text-sp-purple-dark whitespace-nowrap">
             Home
           </Link>
@@ -43,14 +45,14 @@ export function Header() {
           </Link>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3 shrink-0">
+        <div className="hidden xl:flex items-center gap-3 shrink-0">
           <a href={business.phoneHref} className="text-sm font-semibold text-sp-ink-soft hover:text-sp-purple-dark whitespace-nowrap">
             {business.phoneDisplay}
           </a>
           <CallButton location="header" variant="primary" className="px-4 py-2 text-sm" />
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <MobileHeaderCall />
           <MobileNav />
         </div>

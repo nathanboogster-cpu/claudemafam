@@ -4,12 +4,13 @@
 // data. Do not add facts beyond what's listed there — see the "Not yet
 // verified" notes throughout for everything still outstanding before launch.
 
-// Own standalone Vercel project/domain (a sibling to the other unrelated
-// apps in this monorepo). Set NEXT_PUBLIC_SITE_URL once a custom domain is
-// attached; until then this falls back to the default Vercel-assigned
-// project URL.
+// Own standalone Vercel project (a sibling to the other unrelated apps in
+// this monorepo), served on the business's own domain. Every absolute URL
+// on the site (canonicals, sitemap, schema, OG tags) derives from this, so
+// the www host here must match the primary domain set in Vercel.
+// NEXT_PUBLIC_SITE_URL only exists to override it for a preview/staging build.
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://sittin-pretty-pet-grooming.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sittinprettypetgrooming.com";
 
 export const business = {
   name: "Sittin' Pretty Pet Grooming",
@@ -75,9 +76,9 @@ export const hoursSchema = [
 // Real client/salon photos, supplied directly by the client. Swapped in
 // September 2026 for a newer batch the owner supplied specifically because
 // they show the detail and style of the grooming work more clearly than
-// the original set. A couple of photo slots (salon interior, storefront)
-// still render an honest, aspect-locked placeholder (see
-// components/PhotoPlaceholder.tsx) since no real photo of those exists yet.
+// the original set. Every slot on the site now uses a real photo from this
+// list; no salon interior or storefront photo exists yet, so those slots
+// were removed rather than left as placeholders.
 export const photos = {
   blackLabSmiling: {
     src: "/images/gallery-black-white-fluffy-dog.jpg",

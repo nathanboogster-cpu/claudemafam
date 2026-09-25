@@ -239,6 +239,130 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["nail-trim-ear-cleaning", "dog-grooming"],
   },
+  {
+    slug: "grooming-tips-for-senior-dogs-and-cats",
+    title: "Grooming Tips for Senior Dogs and Cats",
+    metaDescription:
+      "Grooming needs change as pets get older. What tends to change for senior dogs and cats, and how a groomer can adjust a visit to fit.",
+    excerpt:
+      "Senior pets often need a gentler, more patient approach to grooming. Here's what tends to change and what to ask about.",
+    eyebrow: "Senior Pets",
+    publishedAt: "2026-09-17",
+    heroPhotoKey: "seniorBlackDogRedBow",
+    body: [
+      {
+        type: "p",
+        text: "As pets get older, grooming often needs a gentler, more patient approach than it did when they were younger. Skin can become thinner and more sensitive, joints get stiffer, and a pet who used to stand happily through a long groom may need more frequent breaks or a shorter session altogether.",
+      },
+      { type: "h2", text: "What Tends to Change" },
+      {
+        type: "list",
+        items: [
+          "Skin and coat: senior pets' skin can become drier or thinner, so a gentler touch and less aggressive brushing matters more.",
+          "Joints and mobility: standing for a long grooming session can be harder on stiff hips or knees, so shorter, more frequent visits sometimes work better than one long one.",
+          "Nail growth: senior pets are often less active, which can mean nails wear down less naturally on their own and need more frequent trims.",
+          "Patience and stress tolerance: a senior pet who handled grooming easily for years may need extra reassurance or a slower pace as they age.",
+        ],
+      },
+      { type: "h2", text: "A Calmer Way to Groom" },
+      {
+        type: "p",
+        text: "A cage-free approach can make a real difference for senior pets specifically — less time confined and waiting means less physical strain on stiff joints and less stress overall. Mentioning your pet's age and any mobility changes when you schedule helps your groomer plan a visit that fits where they're at now, not where they were a few years ago.",
+      },
+      {
+        type: "p",
+        text: "At our Funkstown salon, we're comfortable working at whatever pace an older pet needs — the goal is a comfortable, low-stress visit, not rushing through a checklist.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "nail-trim-ear-cleaning"],
+  },
+  {
+    slug: "how-to-choose-a-groomer-for-your-dog-or-cat",
+    title: "How to Choose a Groomer for Your Dog or Cat",
+    metaDescription:
+      "Not all groomers are the same. A few things worth asking about before booking a groomer for your dog or cat, from experience to how nervous pets are handled.",
+    excerpt: "Not all groomers are the same. Here are a few things worth asking about before you book.",
+    eyebrow: "Choosing a Groomer",
+    publishedAt: "2026-09-21",
+    heroPhotoKey: "catGrooming",
+    body: [
+      {
+        type: "p",
+        text: "Not every groomer is the same, and picking the right one can make a real difference in how your pet experiences every visit after the first one. A few things are worth asking about before you book, especially if it's your first time trying somewhere new.",
+      },
+      { type: "h2", text: "Questions Worth Asking" },
+      {
+        type: "list",
+        items: [
+          "How much experience do they have with your pet's breed or coat type? A groomer who's worked with a wide range of coats for years will generally handle tricky mats, thick undercoats, or unusual cuts more confidently than someone newer to the trade.",
+          "Do they groom cats as well as dogs? Not every groomer takes cat clients — it's worth confirming upfront rather than assuming, if you have a cat.",
+          "Is the facility cage-free, or does your pet wait in a kennel between steps? For a nervous or anxious pet, this can make a noticeable difference in how the visit goes.",
+          "Are they comfortable with senior, large-breed, or nervous pets specifically? Some groomers are more patient and experienced with pets that need extra care or a slower pace.",
+          "Is it a personal, one-on-one experience, or a high-volume operation where your pet is one of many at once?",
+        ],
+      },
+      { type: "h2", text: "Why It's Worth Asking Upfront" },
+      {
+        type: "p",
+        text: "A groomer's answers to these questions tell you a lot about what kind of visit to expect — not just the haircut itself, but how comfortable your pet will be getting there. At our Funkstown salon, we've been grooming dogs and cats for the greater Hagerstown area for over 40 years, take a cage-free approach, and are comfortable with nervous, senior, and large-breed pets — but the questions above are worth asking anywhere you're considering, not just here.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "cat-grooming"],
+  },
+  {
+    slug: "brushing-at-home-between-grooms-preventing-mats",
+    title: "Brushing at Home Between Grooms: How to Keep Mats From Forming",
+    metaDescription:
+      "What happens between professional grooms makes the biggest difference in whether a coat mats. A simple at-home brushing routine for dogs and cats, and what to do if a mat has already formed.",
+    excerpt:
+      "Regular professional grooming is only half of it — what happens at home in between decides whether a coat stays comfortable or mats. Here's a routine that works.",
+    eyebrow: "At-Home Care",
+    publishedAt: "2026-09-24",
+    heroPhotoKey: "oldEnglishSheepdogBlue",
+    body: [
+      {
+        type: "p",
+        text: "Even on a regular professional grooming schedule, what happens at home between visits is what decides whether a coat stays soft and comfortable or slowly works itself into mats. Fall makes this a little harder around Washington County: damp mornings, wet leaves on walks, and the return of sweaters and harnesses all add moisture and friction — the two things mats love most.",
+      },
+      { type: "h2", text: "Where Mats Start" },
+      {
+        type: "p",
+        text: "Mats almost never start on the broad, easy-to-reach parts of the back. They form where hair rubs against hair, skin, or gear — and those are exactly the spots that get skipped during a quick brush:",
+      },
+      {
+        type: "list",
+        items: [
+          "Behind and under the ears, where hair is fine and gets rubbed by scratching.",
+          "The armpits and the inside of the back legs, where the legs move against the body constantly.",
+          "Under the collar or along the harness line — friction plus trapped moisture after a walk.",
+          "The belly and chest, especially on long-haired cats and low-to-the-ground dogs that pick up damp from grass and leaves.",
+          "Feathering on the legs and tail, where burrs and leaf bits tangle in and pull hair together.",
+        ],
+      },
+      { type: "h2", text: "A Simple Routine That Actually Works" },
+      {
+        type: "list",
+        items: [
+          "Brush a few times a week for most coats, and daily for long, silky, or curly coats (Doodles, Shih Tzus, Maltese, long-haired cats). A few minutes often beats one long session once a week.",
+          "Use two tools, not one: a slicker brush to work through the coat, then a metal comb to check your work. If the comb won't glide through to the skin, the brush hasn't reached it yet — that's where mats are quietly forming.",
+          "Work in sections, brushing outward from the skin in layers rather than just skimming the top of the coat. Surface brushing looks tidy but leaves the undercoat to tangle.",
+          "Always brush before a bath, never after. Water tightens an existing tangle into a solid mat that's much harder to remove.",
+          "Dry your pet fully after rain, a muddy walk, or a bath, paying attention to armpits and belly. Damp hair left to air-dry felts together.",
+          "Check the harness and sweater areas after every walk — a quick pass with the comb catches friction tangles while they're still loose.",
+        ],
+      },
+      { type: "h2", text: "If a Mat Has Already Formed" },
+      {
+        type: "p",
+        text: "Small, loose tangles can often be worked out from the edges with a comb and a little patience — start at the outside of the tangle and work inward, holding the hair at the base so you're not pulling on the skin. Two things to avoid: don't cut a mat out with scissors, and don't bathe a matted pet. A tight mat pulls the skin up into it, which makes scissor cuts to the skin surprisingly common, and water only makes the mat tighter.",
+      },
+      {
+        type: "p",
+        text: "A mat that's tight against the skin, or one that's spread across a larger area, is safer to have clipped out professionally with the right tools. It's not a failure on your part — it happens to attentive owners all the time, especially with fast-growing coats. If you're not sure whether what you're feeling is still brushable, call our Funkstown salon and ask. After more than 40 years of grooming dogs and cats for the Hagerstown area, it's a question we're glad to answer before a small tangle turns into a full shave-down.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "dog-bath-and-brush", "cat-grooming"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BookButton, CallButton } from "@/components/CTAButton";
+import { TrackedLink } from "@/components/TrackedLink";
 import { StatBand } from "@/components/StatBand";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -36,22 +37,29 @@ export default function ContactPage() {
 
         <div className="mt-10 rounded-3xl border border-bb-border bg-bb-cream-deep p-8 sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-wide text-bb-coral-dark">Book Online</p>
-          <a
+          <TrackedLink
             href={business.bookingUrl}
+            event="bb_book_click"
+            params={{ location: "contact_page_heading" }}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 block font-bb-display text-2xl font-bold text-bb-ink hover:text-bb-coral-dark sm:text-3xl"
           >
             barkandbork.glossgenius.com
-          </a>
+          </TrackedLink>
           <BookButton location="contact_page" variant="primary" className="mt-6" />
 
           <div className="mt-8 grid gap-6 border-t border-bb-border pt-8 text-left sm:grid-cols-2">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-bb-ink">Call or Text</p>
-              <a href={business.phoneHref} className="mt-1 inline-block text-bb-ink-soft hover:text-bb-coral-dark">
+              <TrackedLink
+                href={business.phoneHref}
+                event="bb_call_click"
+                params={{ location: "contact_page_text" }}
+                className="mt-1 inline-block text-bb-ink-soft hover:text-bb-coral-dark"
+              >
                 {business.phoneDisplay}
-              </a>
+              </TrackedLink>
               <CallButton location="contact_page" variant="secondary" className="mt-3" />
             </div>
             <div>

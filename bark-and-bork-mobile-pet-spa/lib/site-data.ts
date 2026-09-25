@@ -10,10 +10,13 @@
 
 // Own standalone Vercel project/domain (a sibling to the other unrelated
 // client apps in this monorepo — see README.md for the isolation notes).
-// Set NEXT_PUBLIC_SITE_URL once a custom domain is attached; until then this
-// falls back to the default Vercel-assigned project URL.
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bark-and-bork-mobile-pet-spa.vercel.app";
+// Canonical host is www — confirmed via Google Search Console data (Sept
+// 2026 GSC audit): Google indexed and ranked www.barkandbork.com, never the
+// bare apex, so the site's canonical/OG/sitemap URLs match what Google
+// already chose rather than fighting it. The live value comes from the
+// NEXT_PUBLIC_SITE_URL env var in Vercel — this fallback only applies if
+// that var is ever unset.
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.barkandbork.com";
 
 export const business = {
   name: "Bark and Bork Mobile Pet Spa",
@@ -112,6 +115,26 @@ export const photos = {
   groomGoldendoodleFullGroom: {
     src: "/images/groom-goldendoodle-full-groom.jpg",
     alt: "A large Goldendoodle with a full groom finish, sitting on the grooming table",
+  },
+  groomPitbullMixHalloweenAlert: {
+    src: "/images/groom-pitbull-mix-halloween-alert.jpg",
+    alt: "A tan and white pit bull mix wearing an orange Halloween bandana, sitting attentively on the grooming table inside the Bark and Bork van",
+  },
+  groomPitbullMixHalloweenSmile: {
+    src: "/images/groom-pitbull-mix-halloween-smile.jpg",
+    alt: "A tan and white pit bull mix smiling with tongue out after grooming, wearing an orange Halloween bandana",
+  },
+  groomTerrierMixHalloweenBandana: {
+    src: "/images/groom-terrier-mix-halloween-bandana.jpg",
+    alt: "A white terrier mix wearing a purple Halloween bandana with pumpkins and spiderwebs after a Bark and Bork grooming appointment",
+  },
+  groomPuppyBrindleTrickOrTreat: {
+    src: "/images/groom-puppy-brindle-trickortreat.jpg",
+    alt: "A gray brindle puppy wearing an orange 'Trick or Treat' bandana, sitting on the grooming table after grooming",
+  },
+  groomPoodleMixTrickOrTreat: {
+    src: "/images/groom-poodle-mix-trickortreat.jpg",
+    alt: "A fluffy white poodle mix wearing a yellow 'Trick or Treat' bandana, lying on the grooming table after grooming",
   },
 } as const;
 

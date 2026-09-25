@@ -4,6 +4,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -120,6 +121,8 @@ export default function DogGroomingPage() {
           </Link>
         </div>
       </section>
+
+      <RelatedArticles serviceSlug="dog-grooming" />
 
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <FaqBlock items={faqs} />
