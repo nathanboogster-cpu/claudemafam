@@ -87,7 +87,14 @@ export function localBusinessSchema(pageUrl: string) {
   };
 }
 
-export function serviceSchema(opts: { pageUrl: string; name: string; description: string; priceRange?: string }) {
+export function serviceSchema(opts: {
+  pageUrl: string;
+  name: string;
+  description: string;
+  priceRange?: string;
+  // Narrow areaServed to one city on that city's page; defaults to all areas.
+  city?: string;
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -95,10 +102,11 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
-    areaServed: areaServedList(),
+    areaServed: opts.city ? { "@type": "City", name: opts.city } : areaServedList(),
     ...(opts.priceRange ? { offers: { "@type": "Offer", priceCurrency: "USD", price: opts.priceRange } } : {}),
     provider: {
       "@type": "PetGroomer",
+      "@id": `${SITE_URL}/#business`,
       name: business.name,
       telephone: business.phoneDisplay,
       address: serviceAreaAddress(),
