@@ -52,6 +52,12 @@ export function SectionHeading({
       {eyebrow ? (
         <p className="tf-caps text-xs text-tf-brown-dark">{eyebrow}</p>
       ) : null}
+      {/* The logo's hairline rule, drawn in beneath the eyebrow as the section
+          reveals (see .tf-rule in globals.css). Decorative only. */}
+      <span
+        aria-hidden="true"
+        className={`tf-rule mt-2 block h-px w-10 bg-tf-brown/50 ${align === "center" ? "mx-auto" : ""}`}
+      />
       <Heading
         id={id}
         className={`font-tf-display font-bold text-tf-ink ${

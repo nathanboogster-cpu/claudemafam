@@ -13,11 +13,11 @@ const variantClasses: Record<Variant, string> = {
   secondary:
     "bg-white text-tf-ink border border-tf-border-strong hover:bg-tf-paper-deep focus-visible:outline-tf-ink",
   quiet:
-    "bg-transparent text-tf-brown-dark hover:text-tf-brown-darker underline underline-offset-4 decoration-tf-brown/40 hover:decoration-tf-brown-darker focus-visible:outline-tf-brown-dark px-0 py-0 shadow-none",
+    "!shadow-none bg-transparent text-tf-brown-dark hover:text-tf-brown-darker underline underline-offset-4 decoration-tf-brown/40 hover:decoration-tf-brown-darker focus-visible:outline-tf-brown-dark px-0 py-0 hover:!translate-y-0",
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "tf-cta inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
 // The one dominant conversion action across the whole site. Wording is kept
 // deliberately consistent ("Book a call") rather than varied per section, so

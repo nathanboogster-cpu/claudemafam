@@ -149,7 +149,86 @@ body {
   filter: blur(5px);
 }
 
+/* ---------------------------------------------------------------------------
+   MOTION
+   Restrained and purposeful: content reveals as it enters the viewport, cards
+   lift a touch on hover, the primary button has a little weight. Everything is
+   additive on top of a page that is already complete and correctly laid out —
+   nothing moves layout, nothing blocks paint, and the reduced-motion block at
+   the bottom of this file switches all of it off.
+   --------------------------------------------------------------------------- */
+.tf-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.tf-reveal.is-shown {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Without JavaScript the observer never fires; a <noscript> style in
+   app/layout.tsx forces .tf-reveal visible so nothing stays hidden. */
+
+.tf-lift {
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 220ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 220ms ease;
+}
+
+.tf-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -18px rgba(31, 27, 24, 0.45);
+}
+
+.tf-cta {
+  transition:
+    transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+  box-shadow: 0 1px 2px rgba(31, 27, 24, 0.18);
+}
+
+.tf-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px -12px rgba(107, 69, 38, 0.65);
+}
+
+.tf-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(31, 27, 24, 0.18);
+}
+
+/* A hairline that draws itself in under a section heading as it reveals. */
+.tf-reveal .tf-rule {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1) 150ms;
+}
+
+.tf-reveal.is-shown .tf-rule {
+  transform: scaleX(1);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .tf-reveal,
+  .tf-reveal .tf-rule {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .tf-lift:hover,
+  .tf-cta:hover {
+    transform: none;
+  }
+
   html {
     scroll-behavior: auto;
   }

@@ -11,6 +11,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Checklist } from "@/components/Checklist";
+import { GbpCallsProof } from "@/components/GbpCallsProof";
 
 // SEARCH INTENT
 //   Primary query:    google business profile for dog groomers
@@ -295,6 +296,18 @@ export default function GbpPage() {
             </>
           }
         />
+      </Section>
+
+      <Section width="narrow" className="py-12" labelledBy="gbp-measured">
+        <SectionHeading
+          eyebrow="Measured"
+          id="gbp-measured"
+          title="What the profile work did to one client's call volume"
+          intro="Google reports calls placed from the profile itself. Here is that report for one client, the month before we touched the profile and the month after — screenshots included, so you can check the reading."
+        />
+        <div className="mt-8">
+          <GbpCallsProof location="gbp_measured" />
+        </div>
       </Section>
 
       <Section width="narrow" className="py-12" labelledBy="gbp-offer">

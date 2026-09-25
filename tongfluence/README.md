@@ -144,23 +144,27 @@ and documented where they bite:
    change. The current PNGs were cut from a JPEG, so their edges carry
    whatever the JPEG had.
 
-7. **The evidence behind "2-3X".** The homepage explainer is titled *How
-   We Get 2-3X More Dog Grooming Appointments*, and that title is published
-   in the page's `VideoObject` structured data. It is the only performance
-   claim anywhere on this site, and it currently has nothing behind it.
+7. **The measured result, and the "2-3X" title.** The homepage explainer
+   is titled *How We Get 2-3X More Dog Grooming Appointments*. The site now
+   carries one measured figure, published the way every number here must be:
+   `gbpCallsProof` and `headlineResult` in `lib/site-data.ts` — calls placed
+   from one client's Google Business Profile, 24 in February 2026 against 77
+   in March (3.2× raw, 2.9× per day), with the two Google reports the
+   numbers were read from at `public/images/proof/`. It renders on the
+   homepage, the GBP page, lead generation and the case-studies hub, and
+   its caption says it is a single business. `/about` and `/case-studies`
+   softened their "nothing unmeasured" wording automatically when it was
+   filled in.
 
-   `headlineResult` in `lib/site-data.ts` is the slot for that evidence. It
-   needs five things, all required: the **metric** (exactly what was
-   counted), the **sample** (which businesses, how many), the **period**
-   (the before and after windows), the **source** (where the number came
-   from), and the **method** (how it was calculated and what it excludes).
+   The client is **Carlos**, named with his agreement. He predates the builds
+   in `lib/client-builds.ts`, which is why he is not in that table.
 
-   While it is `null`, the claim appears only as the video's own title and
-   `/about` and `/case-studies` keep their "we publish nothing unmeasured"
-   wording — which is true. Fill it in and the claim renders beneath the
-   video with its evidence, and both of those pages soften their wording
-   automatically. The site cannot end up asserting one thing and doing
-   another, whichever state it is in.
+   Carlos also had around 23 appointments added to his calendar in MoeGo in
+   the same month (`gbpCallsProof.appointments`). It renders beneath the
+   calls figure, labelled approximate with MoeGo as its source, because it
+   is a count from the booking software rather than an export. A MoeGo
+   screenshot beside it would put it on the same footing as the calls,
+   where the reader can check the reading — worth adding when there is one.
 
 8. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business

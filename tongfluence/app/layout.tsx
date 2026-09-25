@@ -54,6 +54,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             schema on the page can just reference them by @id. */}
         <JsonLd data={organizationSchema()} />
         <JsonLd data={webSiteSchema()} />
+        {/* Scroll reveals are driven by JavaScript. Without it the observer
+            never fires, so this makes sure nothing stays hidden. */}
+        <noscript>
+          <style>{`.tf-reveal{opacity:1;transform:none}`}</style>
+        </noscript>
         {children}
         <Analytics />
       </body>

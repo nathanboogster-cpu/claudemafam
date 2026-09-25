@@ -198,7 +198,7 @@ export function LeadForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-tf-brown-dark px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-tf-brown-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark disabled:opacity-70 sm:w-auto"
+        className="tf-cta mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-tf-brown-dark px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-tf-brown-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark disabled:opacity-70 sm:w-auto"
       >
         {status === "sending" ? "Sending…" : "Request a call"}
       </button>

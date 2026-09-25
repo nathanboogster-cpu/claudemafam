@@ -11,6 +11,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { ComparisonTable } from "@/components/ComparisonTable";
+import { GbpCallsProof } from "@/components/GbpCallsProof";
 
 // SEARCH INTENT
 //   Primary query:    dog grooming lead generation
@@ -258,6 +259,18 @@ export default function LeadGenerationPage() {
           </Link>
           .
         </p>
+      </Section>
+
+      <Section width="narrow" className="py-12" labelledBy="leads-measured">
+        <SectionHeading
+          eyebrow="Measured"
+          id="leads-measured"
+          title="What “more calls” looks like when it is real"
+          intro="The third row of the table above — calls — is the first number that is really about the business. This is that number for one client, before and after, straight from Google."
+        />
+        <div className="mt-8">
+          <GbpCallsProof location="leads_measured" />
+        </div>
       </Section>
 
       <Section width="narrow" className="py-12" labelledBy="leads-offer">

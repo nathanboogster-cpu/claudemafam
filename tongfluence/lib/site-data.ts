@@ -206,7 +206,68 @@ export type HeadlineResult = {
   method: string;
 };
 
-export const headlineResult: HeadlineResult | null = null;
+// ---------------------------------------------------------------------------
+// GOOGLE BUSINESS PROFILE CALLS — FEBRUARY vs MARCH 2026
+//
+// The first measured result on this site. Two screenshots of Google Business
+// Profile's own "Calls made from your Business Profile" report for one client:
+// the month before the profile work and the month after. Numbers are read
+// straight off the screenshots, which are published beside them
+// (public/images/proof/), so a reader can check the reading.
+//
+// Sample size is one business. The site says so wherever the figure appears —
+// a real number from one client, shown with its evidence, is worth more than a
+// rounded claim from none, and it is honest only if the "one" is visible.
+//
+// `clientName` is empty until the client has agreed to be named; the figure is
+// published as "one client" until then.
+// ---------------------------------------------------------------------------
+export const gbpCallsProof = {
+  metric: "Calls made from your Business Profile",
+  source: "Google Business Profile → Performance → Calls",
+  // Carlos has agreed to be named. He is a Tongfluence client from before the
+  // builds catalogued in lib/client-builds.ts, which is why he is not in that
+  // table — the table counts websites built in this repo, and his was not.
+  clientName: "Carlos",
+  // Appointments actually booked, as reported from his booking software. This
+  // is the number the video title is about, so it matters more than calls —
+  // and it is held to the same standard. `period` is required before it
+  // renders: "around 23" over an unstated window is not a publishable figure,
+  // it is a recollection. Fill in the window it covers and it appears.
+  appointments: {
+    count: 23,
+    approximate: true,
+    source: "MoeGo (the client's booking and scheduling software)",
+    // The same window as the calls figure.
+    period: "in March 2026",
+  },
+  before: { label: "February 2026", calls: 24, days: 28, image: "/images/proof/gbp-calls-february-2026.jpg" },
+  after: { label: "March 2026", calls: 77, days: 31, image: "/images/proof/gbp-calls-march-2026.jpg" },
+  get multiple() {
+    return this.after.calls / this.before.calls;
+  },
+  // February is three days shorter than March, so the per-day rate is the
+  // fairer comparison and is shown alongside the raw totals.
+  get perDayBefore() {
+    return this.before.calls / this.before.days;
+  },
+  get perDayAfter() {
+    return this.after.calls / this.after.days;
+  },
+  get perDayMultiple() {
+    return this.perDayAfter / this.perDayBefore;
+  },
+} as const;
+
+export const headlineResult: HeadlineResult | null = {
+  claim: "3× more calls from Google, in one month",
+  metric: "Calls placed from the Google Business Profile — the tap-to-call button on the listing itself.",
+  sample: "Carlos, one Tongfluence client. This is a single business, not an average across clients.",
+  period: "February 2026 (24 calls, 28 days) against March 2026 (77 calls, 31 days).",
+  source: "Google Business Profile's own Performance report. The two screenshots are published beside the figure.",
+  method:
+    "Raw monthly totals as Google reports them: 77 ÷ 24 = 3.2×. Because February is three days shorter, the per-day rate is also shown: 0.86 → 2.48 calls a day, 2.9×. Calls are counted by Google, not by us, and nothing is excluded. In the same month, around 23 appointments were added to his calendar in MoeGo — an approximate count from the booking software, shown separately and labelled as such.",
+};
 
 // ---------------------------------------------------------------------------
 // ROUTES — every indexable URL on this site. Object.values() feeds the
