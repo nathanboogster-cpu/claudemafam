@@ -225,7 +225,21 @@ export type HeadlineResult = {
 export const gbpCallsProof = {
   metric: "Calls made from your Business Profile",
   source: "Google Business Profile → Performance → Calls",
-  clientName: "",
+  // Carlos has agreed to be named. He is a Tongfluence client from before the
+  // builds catalogued in lib/client-builds.ts, which is why he is not in that
+  // table — the table counts websites built in this repo, and his was not.
+  clientName: "Carlos",
+  // Appointments actually booked, as reported from his booking software. This
+  // is the number the video title is about, so it matters more than calls —
+  // and it is held to the same standard. `period` is required before it
+  // renders: "around 23" over an unstated window is not a publishable figure,
+  // it is a recollection. Fill in the window it covers and it appears.
+  appointments: {
+    count: 23,
+    approximate: true,
+    source: "MoeGo (the client's booking and scheduling software)",
+    period: "",
+  },
   before: { label: "February 2026", calls: 24, days: 28, image: "/images/proof/gbp-calls-february-2026.jpg" },
   after: { label: "March 2026", calls: 77, days: 31, image: "/images/proof/gbp-calls-march-2026.jpg" },
   get multiple() {
@@ -247,7 +261,7 @@ export const gbpCallsProof = {
 export const headlineResult: HeadlineResult | null = {
   claim: "3× more calls from Google, in one month",
   metric: "Calls placed from the Google Business Profile — the tap-to-call button on the listing itself.",
-  sample: "One Tongfluence client. This is a single business, not an average across clients.",
+  sample: "Carlos, one Tongfluence client. This is a single business, not an average across clients.",
   period: "February 2026 (24 calls, 28 days) against March 2026 (77 calls, 31 days).",
   source: "Google Business Profile's own Performance report. The two screenshots are published beside the figure.",
   method:

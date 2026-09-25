@@ -156,12 +156,16 @@ and documented where they bite:
    softened their "nothing unmeasured" wording automatically when it was
    filled in.
 
-   Two things still to settle. **Which client** — `clientName` is empty
-   until they agree to be named; it publishes as "one Tongfluence client"
-   until then. And the video title says *appointments* while this figure is
-   *calls*: a real, adjacent number, not the same one. Either rename the
-   video to match what is measured, or add the appointments data when it
-   exists — the site does not stretch calls into appointments.
+   The client is **Carlos**, named with his agreement. He predates the builds
+   in `lib/client-builds.ts`, which is why he is not in that table.
+
+   **One field to fill: `gbpCallsProof.appointments.period`.** Carlos had
+   around 23 appointments added to his calendar in MoeGo. That is the number
+   the video title is about, and it is wired to render beneath the calls
+   figure — but not until the window it covers is stated, because "~23 over
+   an unstated period" is a recollection, not a figure. Set the period (for
+   example "in March 2026") and it appears, labelled approximate. A MoeGo
+   screenshot beside it would make it as solid as the calls figure.
 
 8. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business

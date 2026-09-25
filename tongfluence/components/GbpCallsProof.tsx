@@ -14,7 +14,8 @@ import { Reveal } from "./Reveal";
 // business.
 export function GbpCallsProof({ location }: { location: string }) {
   const p = gbpCallsProof;
-  const who = p.clientName ? p.clientName : "one Tongfluence client";
+  const who = p.clientName ? `${p.clientName}, a Tongfluence client` : "one Tongfluence client";
+  const appts = p.appointments.period ? p.appointments : null;
 
   return (
     <figure className="m-0" data-location={location}>
@@ -68,6 +69,21 @@ export function GbpCallsProof({ location }: { location: string }) {
           </Reveal>
         ))}
       </div>
+
+      {appts ? (
+        <Reveal className="mt-6 rounded-3xl border border-tf-border bg-white p-6" delay={60}>
+          <p className="tf-caps text-[0.65rem] text-tf-ink-soft">And in the calendar</p>
+          <p className="mt-3 font-sans text-5xl font-semibold leading-none text-tf-ink">
+            {appts.approximate ? "~" : ""}
+            <CountUp value={appts.count} />
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">
+            appointments booked, {appts.period}. Counted in {appts.source}
+            {appts.approximate ? " — an approximate count, not an export" : ""}. Calls are what Google
+            measures; this is what ended up in the diary.
+          </p>
+        </Reveal>
+      ) : null}
 
       <figcaption className="mt-5 text-sm leading-relaxed text-tf-ink-soft">
         <span className="font-semibold text-tf-ink">What this is:</span> {p.metric.toLowerCase()}, for {who},
