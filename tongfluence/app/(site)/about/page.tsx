@@ -125,7 +125,7 @@ export default function AboutPage() {
               b: "We are not going to fill your inbox with a dashboard you don't read. You'll know what we changed, why, and what we're watching next.",
             },
           ].map((x) => (
-            <div key={x.t} className="rounded-2xl border border-tf-border bg-white p-5">
+            <div key={x.t} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <h3 className="text-sm font-semibold text-tf-ink">{x.t}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
             </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
           intro="These are not marketing positioning. They are constraints that cost us things — shorter pages, fewer testimonials, no impressive percentages on the case studies — and they are the reason you can trust what is on this site."
         />
         <div className="mt-7 space-y-5">
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">On your website</h3>
             <div className="mt-4">
               <Checklist
@@ -169,7 +169,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">On reviews</h3>
             <div className="mt-4">
               <Checklist
@@ -188,7 +188,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">On this website</h3>
             <div className="mt-4">
               <Checklist
@@ -197,7 +197,7 @@ export default function AboutPage() {
                   {
                     title: "No results we haven't measured",
                     body: headlineResult
-                      ? "Every performance figure on this site is published with the metric, the sample, the period, the source and the method beside it. If we cannot show you those five things, the number does not go up."
+                      ? "The one performance figure on this site is shown with the Google reports it came from. A number we cannot show the source for does not go up."
                       : "There is not a single traffic, ranking or call-volume figure anywhere on this site, because we have not exported and verified a dataset we would stand behind. The case studies say so explicitly rather than quietly leaving the section out.",
                   },
                   {
@@ -278,7 +278,7 @@ export default function AboutPage() {
             },
             {
               href: PATHS.marketing,
-              label: "Dog groomer marketing",
+              label: "The whole picture",
               description: "What the work consists of, and in what order it's worth doing.",
             },
             {

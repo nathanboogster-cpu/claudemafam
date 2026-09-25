@@ -88,7 +88,7 @@ export default function TermsPage() {
       <Breadcrumbs items={breadcrumbs.map((b) => ({ name: b.name, href: b.href }))} />
 
       <Section width="prose" className="pt-6 pb-16">
-        <h1 className="font-tf-display text-3xl font-extrabold text-tf-ink sm:text-4xl">Terms of Service</h1>
+        <h1 className="font-tf-display text-3xl font-bold text-tf-ink sm:text-4xl">Terms of Service</h1>
         <p className="mt-4 text-base leading-relaxed text-tf-ink-soft">
           The arrangement in plain language. These terms say the same thing as the answers on{" "}
           <Link href={PATHS.book} className="font-medium text-tf-brown-dark underline underline-offset-4">

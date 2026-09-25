@@ -32,6 +32,7 @@ export function Section({
 export function SectionHeading({
   eyebrow,
   title,
+  accent,
   intro,
   id,
   align = "left",
@@ -39,6 +40,8 @@ export function SectionHeading({
 }: {
   eyebrow?: string;
   title: string;
+  /** Words set in the tan accent after the title, as on tongfluence.com. */
+  accent?: string;
   intro?: React.ReactNode;
   id?: string;
   align?: "left" | "center";
@@ -49,25 +52,41 @@ export function SectionHeading({
 
   return (
     <div className={alignment}>
-      {eyebrow ? (
-        <p className="tf-caps text-xs text-tf-brown-dark">{eyebrow}</p>
-      ) : null}
-      {/* The logo's hairline rule, drawn in beneath the eyebrow as the section
-          reveals (see .tf-rule in globals.css). Decorative only. */}
-      <span
-        aria-hidden="true"
-        className={`tf-rule mt-2 block h-px w-10 bg-tf-brown/50 ${align === "center" ? "mx-auto" : ""}`}
-      />
+      {eyebrow ? <Eyebrow align={align}>{eyebrow}</Eyebrow> : null}
       <Heading
         id={id}
-        className={`font-tf-display font-bold text-tf-ink ${
-          level === 2 ? "mt-2 text-2xl sm:text-3xl" : "mt-2 text-xl sm:text-2xl"
+        className={`font-tf-display font-bold leading-[1.15] tracking-[-0.015em] text-tf-ink ${
+          level === 2 ? "mt-3 text-[1.75rem] sm:text-4xl" : "mt-3 text-xl sm:text-2xl"
         }`}
       >
         {title}
+        {accent ? <span className="tf-accent"> {accent}</span> : null}
       </Heading>
-      {intro ? <div className="mt-3 text-base leading-relaxed text-tf-ink-soft">{intro}</div> : null}
+      {intro ? <div className="mt-4 text-base leading-relaxed text-tf-ink-soft">{intro}</div> : null}
     </div>
+  );
+}
+
+// "— WHAT CLIENTS SAY": a short rule, then the label in tracked caps. The rule
+// draws itself in as the section reveals (see .tf-rule in globals.css).
+export function Eyebrow({
+  children,
+  align = "left",
+  className = "",
+}: {
+  children: React.ReactNode;
+  align?: "left" | "center";
+  className?: string;
+}) {
+  return (
+    <p
+      className={`tf-caps flex items-center gap-3 text-xs text-tf-brown ${
+        align === "center" ? "justify-center" : ""
+      } ${className}`}
+    >
+      <span aria-hidden="true" className="tf-rule block h-px w-5 shrink-0 bg-current" />
+      {children}
+    </p>
   );
 }
 
@@ -76,10 +95,18 @@ export function SectionHeading({
 // Placed high on every commercial and resource page so the key fact can be
 // extracted — by a reader skimming, or by a search/AI system quoting — without
 // needing the rest of the page around it.
-export function AnswerBlock({ children, label = "Short answer" }: { children: React.ReactNode; label?: string }) {
+export function AnswerBlock({
+  children,
+  label = "Short answer",
+  className = "",
+}: {
+  children: React.ReactNode;
+  label?: string;
+  className?: string;
+}) {
   return (
-    <div className="rounded-2xl border border-tf-border bg-tf-brown-wash p-5 sm:p-6">
-      <p className="tf-caps text-xs text-tf-brown-darker">{label}</p>
+    <div className={`rounded-xl border border-tf-border bg-tf-card p-5 sm:p-6 ${className}`}>
+      <Eyebrow>{label}</Eyebrow>
       <div className="mt-2 text-base leading-relaxed text-tf-ink sm:text-lg">{children}</div>
     </div>
   );

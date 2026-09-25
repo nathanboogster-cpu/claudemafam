@@ -14,10 +14,10 @@
 //   see lib/client-builds.ts for the per-build numbers and how each was
 //   derived, so any future reader can re-verify them.
 //
-//   NOT PUBLISHED ANYWHERE ON THIS SITE: search rankings, traffic, call
-//   volume, lead counts, revenue, review-count growth, or any other
-//   performance metric. None of that has been measured and exported yet, so
-//   none of it is asserted. See README "Open items before launch".
+//   PERFORMANCE FIGURES: exactly one is published — one client's calls from
+//   Google, February vs March 2026 (gbpCallsProof below), shown with the two
+//   Google reports it was read from. Nothing else about rankings, traffic,
+//   leads or revenue is asserted anywhere. See README "Open items".
 // ---------------------------------------------------------------------------
 
 // The site's own origin, used for canonicals, OG URLs, the sitemap and every
@@ -184,8 +184,8 @@ export const explainerVideo = {
 //   * the claim appears only as the video's own title, nowhere in page copy;
 //   * /about and /case-studies keep their "we publish nothing unmeasured"
 //     wording, which is true.
-// The moment it is filled in, the claim renders beneath the video with its
-// evidence, and both of those pages soften their wording automatically — so
+// The moment it is filled in, the claim becomes the heading of the homepage's
+// "Measured" section, and both of those pages soften their wording — so
 // the site can never end up asserting one thing and doing another.
 //
 // TO FILL IN, every field is required. If one of them cannot be answered
@@ -298,17 +298,17 @@ export type NavItem = { label: string; href: string; description?: string };
 // the header dropdown, the footer, and the "what we do" grid on the homepage.
 export const serviceNav: NavItem[] = [
   {
-    label: "Dog Groomer Marketing",
+    label: "Marketing overview",
     href: PATHS.marketing,
     description: "The whole picture: how grooming businesses get found and booked.",
   },
   {
-    label: "Dog Groomer SEO",
+    label: "SEO",
     href: PATHS.seo,
     description: "Ranking a grooming business in local and organic search.",
   },
   {
-    label: "Grooming Website Design",
+    label: "Website design",
     href: PATHS.websiteDesign,
     description: "What a grooming website needs to rank and convert.",
   },
@@ -318,12 +318,12 @@ export const serviceNav: NavItem[] = [
     description: "Categories, services, photos and reviews for the map pack.",
   },
   {
-    label: "Review Management",
+    label: "Reviews",
     href: PATHS.reviews,
     description: "Earning a steady flow of real Google reviews.",
   },
   {
-    label: "Lead Generation",
+    label: "Lead generation",
     href: PATHS.leadGeneration,
     description: "Turning searches into booked appointments.",
   },
@@ -342,7 +342,7 @@ export const proofNav: NavItem[] = [
 export const audienceTypes = [
   {
     title: "Grooming salons",
-    body: "A shop customers drive to. Your Google Business Profile and your service pages have to agree on what you do and where you are.",
+    body: "A shop customers drive to. Your Google profile and your service pages have to agree on what you do and where you are.",
   },
   {
     title: "Mobile groomers",
@@ -376,7 +376,7 @@ export const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "$297 per month. That covers the website, the Google Business Profile work, the review system and the ongoing optimization. There is no setup fee and no separate build fee.",
+      "$297 per month. That covers the website, the profile work, the review system and the ongoing optimization. There is no setup fee and no separate build fee.",
   },
   {
     question: "Is there a contract?",
@@ -386,7 +386,7 @@ export const faqs = [
   {
     question: "What happens if I cancel?",
     answer:
-      "Billing stops and the ongoing work stops. Your Google Business Profile is yours and stays yours — it is your profile, we only work inside it. Your domain is yours. Tell us where you want the website content and we will hand over what we have so you can take it elsewhere.",
+      "Billing stops and the ongoing work stops. Your Google profile is yours and stays yours; we only work inside it. Your domain is yours. Tell us where you want the website content and we will hand over what we have so you can take it elsewhere.",
   },
   {
     question: "Do I own my website?",
@@ -406,12 +406,12 @@ export const faqs = [
   {
     question: "How long does SEO take?",
     answer:
-      "Google Business Profile changes can move within weeks. Website and organic search changes take longer — a first useful read on Search Console data is usually around 28 days after launch, and a fair judgement of direction takes a few months. Anyone promising page one in 30 days is guessing.",
+      "Profile changes can move within weeks. Website and organic search changes take longer — a first useful read on Search Console data is usually around 28 days after launch, and a fair judgement of direction takes a few months. Anyone promising page one in 30 days is guessing.",
   },
   {
     question: "What exactly do you do every month?",
     answer:
-      "Read your Search Console and Google Business Profile data, pick the change most likely to win you appointments, make it, and measure it. In practice that is things like rewriting a page that is getting impressions but no clicks, adding a service page for a query you are already appearing for, adding a service area, refreshing profile photos, or chasing reviews. One evidence-based improvement at a time, not a blog post because it is Tuesday.",
+      "Read your Search Console and profile data, pick the change most likely to win you appointments, make it, and measure it. In practice that is things like rewriting a page that is getting impressions but no clicks, adding a service page for a query you are already appearing for, adding a service area, refreshing profile photos, or chasing reviews. One evidence-based improvement at a time, not a blog post because it is Tuesday.",
   },
   {
     question: "Does this work for mobile grooming?",
@@ -421,7 +421,7 @@ export const faqs = [
   {
     question: "Do you run ads too?",
     answer:
-      "No. Tongfluence is the organic side only — website, Google Business Profile, reviews and search. Plenty of groomers run ads as well; they answer a different question, and we do not charge you for something we are not doing.",
+      "No. Tongfluence is the organic side only — website, Google profile, reviews and search. Plenty of groomers run ads as well; they answer a different question, and we do not charge you for something we are not doing.",
   },
   {
     question: "How does the review system work?",
@@ -448,7 +448,7 @@ export const objections = [
   {
     question: "Do I need to run ads as well?",
     answer:
-      "Ads and organic answer different questions. Ads buy you traffic today and stop the day you stop paying. Google Business Profile and search build an asset that keeps working. If you need appointments this week, ads are faster. If you want a channel that compounds, this is the one. Many groomers end up doing both.",
+      "Ads and organic answer different questions. Ads buy you traffic today and stop the day you stop paying. Your profile and your website build an asset that keeps working. If you need appointments this week, ads are faster. If you want a channel that compounds, this is the one. Many groomers end up doing both.",
   },
   {
     question: "I'm already busy. Why would I bother?",
@@ -458,7 +458,7 @@ export const objections = [
   {
     question: "How much of my time does this take?",
     answer:
-      "Roughly an onboarding call, a list of your services and prices, access to your Google Business Profile, and photos when you have them. After that the monthly work does not need you unless something about the business changes.",
+      "Roughly an onboarding call, a list of your services and prices, access to your Google profile, and photos when you have them. After that the monthly work does not need you unless something about the business changes.",
   },
 ];
 

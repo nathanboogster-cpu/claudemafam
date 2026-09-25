@@ -12,7 +12,7 @@ export function ComparisonTable({
   rows: { label: string; cells: React.ReactNode[] }[];
 }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-tf-border bg-white">
+    <div className="overflow-x-auto rounded-xl border border-tf-border bg-white">
       <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
         <caption className="sr-only">{caption}</caption>
         <thead>

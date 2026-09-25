@@ -9,7 +9,7 @@ import { caseStudyPath } from "@/lib/site-data";
 export function BuildTable({ caption }: { caption?: string }) {
   return (
     <figure className="m-0">
-      <div className="overflow-x-auto rounded-2xl border border-tf-border bg-white">
+      <div className="overflow-x-auto rounded-xl border border-tf-border bg-white">
         <table className="w-full min-w-[42rem] border-collapse text-left text-sm">
           <caption className="sr-only">
             {caption ??
@@ -51,12 +51,12 @@ export function BuildTable({ caption }: { caption?: string }) {
                   <span className="mt-0.5 block text-xs font-normal text-tf-ink-soft">{b.market}</span>
                 </th>
                 <td className="px-4 py-3 text-tf-ink-soft">{b.businessType}</td>
-                <td className="px-4 py-3 text-right font-tf-mono text-tf-ink-soft">
+                <td className="px-4 py-3 text-right font-tf-display text-tf-ink-soft">
                   {b.pages.services || "—"}
                 </td>
-                <td className="px-4 py-3 text-right font-tf-mono text-tf-ink-soft">{b.pages.areas || "—"}</td>
-                <td className="px-4 py-3 text-right font-tf-mono text-tf-ink-soft">{b.pages.articles}</td>
-                <td className="px-4 py-3 text-right font-tf-mono font-semibold text-tf-ink">{b.pages.total}</td>
+                <td className="px-4 py-3 text-right font-tf-display text-tf-ink-soft">{b.pages.areas || "—"}</td>
+                <td className="px-4 py-3 text-right font-tf-display text-tf-ink-soft">{b.pages.articles}</td>
+                <td className="px-4 py-3 text-right font-tf-display font-semibold text-tf-ink">{b.pages.total}</td>
               </tr>
             ))}
             <tr className="bg-tf-paper-deep">
@@ -64,16 +64,16 @@ export function BuildTable({ caption }: { caption?: string }) {
                 Total
               </th>
               <td className="px-4 py-3 text-tf-ink-soft">{buildStats.siteCount} builds</td>
-              <td className="px-4 py-3 text-right font-tf-mono font-semibold text-tf-ink">
+              <td className="px-4 py-3 text-right font-tf-display font-semibold text-tf-ink">
                 {buildStats.totalServicePages}
               </td>
-              <td className="px-4 py-3 text-right font-tf-mono font-semibold text-tf-ink">
+              <td className="px-4 py-3 text-right font-tf-display font-semibold text-tf-ink">
                 {buildStats.totalAreaPages}
               </td>
-              <td className="px-4 py-3 text-right font-tf-mono font-semibold text-tf-ink">
+              <td className="px-4 py-3 text-right font-tf-display font-semibold text-tf-ink">
                 {buildStats.totalArticles}
               </td>
-              <td className="px-4 py-3 text-right font-tf-mono font-semibold text-tf-ink">
+              <td className="px-4 py-3 text-right font-tf-display font-semibold text-tf-ink">
                 {buildStats.totalPages}
               </td>
             </tr>

@@ -169,8 +169,8 @@ export default function ReviewManagementPage() {
               b: "Short and specific for the good ones. Calm and factual for the critical ones. Future customers read replies, and how you handle a complaint in public is one of the most persuasive things on your profile.",
             },
           ].map((x) => (
-            <div key={x.n} className="grid gap-3 rounded-2xl border border-tf-border bg-white p-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
-              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{x.n}</p>
+            <div key={x.n} className="grid gap-3 rounded-xl border border-tf-border bg-tf-card p-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
+              <p className="font-tf-display text-xl font-bold leading-none text-tf-brown">{x.n}</p>
               <div>
                 <h3 className="font-tf-display text-lg font-bold text-tf-ink">{x.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
@@ -193,7 +193,7 @@ export default function ReviewManagementPage() {
           title="Three shortcuts that put your profile at risk"
           intro="These get sold as review management. They are the reason some businesses lose their reviews, or their listing."
         />
-        <div className="mt-7 rounded-2xl border border-tf-warn/30 bg-tf-warn-wash p-6">
+        <div className="mt-7 rounded-xl border border-tf-warn/30 bg-tf-warn-wash p-6">
           <Checklist
             tone="dont"
             items={[
@@ -236,7 +236,7 @@ export default function ReviewManagementPage() {
       </Section>
 
       <Section width="narrow" className="py-12">
-        <FaqBlock items={faqItems} eyebrow="Reviews FAQ" title="Common questions" headingId="reviews-faq" />
+        <FaqBlock items={faqItems} eyebrow="FAQ" title="Common questions" headingId="reviews-faq" />
       </Section>
 
       <Section className="py-12">
@@ -244,17 +244,17 @@ export default function ReviewManagementPage() {
           items={[
             {
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "Your Google Business Profile",
               description: "Where your reviews live, and the rest of what that profile needs.",
             },
             {
               href: PATHS.leadGeneration,
-              label: "Dog grooming lead generation",
+              label: "Turning searches into calls",
               description: "How reviews fit into the path from a search to a booked appointment.",
             },
             {
               href: PATHS.marketing,
-              label: "Dog groomer marketing",
+              label: "The whole picture",
               description: "The whole picture, and where reviews sit in the order of work.",
             },
             {

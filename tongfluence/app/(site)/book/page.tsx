@@ -49,7 +49,7 @@ export default function BookPage() {
             <p className="tf-caps text-xs text-tf-brown-dark">
               Book a call
             </p>
-            <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl">
+            <h1 className="mt-3 font-tf-display text-3xl font-bold leading-[1.12] text-tf-ink sm:text-4xl">
               Fifteen minutes on your Google presence.
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-tf-ink-soft">
@@ -87,7 +87,7 @@ export default function BookPage() {
               .
             </p>
 
-            <div className="mt-8 rounded-2xl border border-tf-border bg-tf-paper-deep p-5">
+            <div className="mt-8 rounded-xl border border-tf-border bg-tf-paper-deep p-5">
               <p className="text-sm leading-relaxed text-tf-ink">
                 <span className="font-semibold">{offer.priceLine}</span> — {offer.commitment} We currently work
                 with {buildStats.siteCount} grooming businesses across {buildStats.stateCount} states.

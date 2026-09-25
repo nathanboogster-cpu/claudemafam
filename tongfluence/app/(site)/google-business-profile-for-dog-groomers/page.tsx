@@ -148,7 +148,7 @@ export default function GbpPage() {
           <p>The rules that do hold, whatever the list says:</p>
         </div>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">Do</h3>
             <div className="mt-4">
               <Checklist
@@ -160,7 +160,7 @@ export default function GbpPage() {
               />
             </div>
           </div>
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">Don&rsquo;t</h3>
             <div className="mt-4">
               <Checklist
@@ -262,8 +262,8 @@ export default function GbpPage() {
             ["Website link", "Pointing at the right page, not a dead link from a site you replaced two years ago."],
             ["Duplicate listings", "Old profiles from a previous address or previous owner, still live, splitting your reviews."],
           ].map(([item, detail], i) => (
-            <li key={item} className="flex gap-4 rounded-2xl border border-tf-border bg-white p-4">
-              <span className="font-tf-mono text-xs font-semibold text-tf-brown">
+            <li key={item} className="flex gap-4 rounded-xl border border-tf-border bg-tf-card p-4">
+              <span className="font-tf-display text-base font-bold leading-none text-tf-brown">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>
@@ -290,7 +290,7 @@ export default function GbpPage() {
                 href={PATHS.reviews}
                 className="font-medium text-tf-brown-dark underline underline-offset-4"
               >
-                review management for dog groomers
+                the reviews page
               </Link>
               .
             </>
@@ -302,8 +302,9 @@ export default function GbpPage() {
         <SectionHeading
           eyebrow="Measured"
           id="gbp-measured"
-          title="What the profile work did to one client's call volume"
-          intro="Google reports calls placed from the profile itself. Here is that report for one client, the month before we touched the profile and the month after — screenshots included, so you can check the reading."
+          title="What the profile work did"
+          accent="to one client's calls"
+          intro="The month before we started on the profile, and the month after."
         />
         <div className="mt-8">
           <GbpCallsProof location="gbp_measured" />
@@ -323,7 +324,7 @@ export default function GbpPage() {
       <Section width="narrow" className="py-12">
         <FaqBlock
           items={faqItems}
-          eyebrow="Google Business Profile FAQ"
+          eyebrow="FAQ"
           title="Common questions"
           headingId="gbp-faq"
         />
@@ -334,12 +335,12 @@ export default function GbpPage() {
           items={[
             {
               href: PATHS.reviews,
-              label: "Review management for dog groomers",
+              label: "Getting more reviews",
               description: "Keeping the profile earning fresh reviews, without breaking Google's rules.",
             },
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "How the profile and the website rank in two different systems.",
             },
             {

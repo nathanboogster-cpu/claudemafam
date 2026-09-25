@@ -71,7 +71,7 @@ export default function PrivacyPage() {
       <Breadcrumbs items={breadcrumbs.map((b) => ({ name: b.name, href: b.href }))} />
 
       <Section width="prose" className="pt-6 pb-16">
-        <h1 className="font-tf-display text-3xl font-extrabold text-tf-ink sm:text-4xl">Privacy Policy</h1>
+        <h1 className="font-tf-display text-3xl font-bold text-tf-ink sm:text-4xl">Privacy Policy</h1>
         <p className="mt-4 text-base leading-relaxed text-tf-ink-soft">
           This page describes exactly what the {business.name} website does with information. It is short
           because the site does very little.

@@ -70,13 +70,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <p className="tf-caps text-xs text-tf-brown-dark">
               Case study · {study.businessType}
             </p>
-            <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.14] text-tf-ink sm:text-4xl">
+            <h1 className="mt-3 font-tf-display text-3xl font-bold leading-[1.14] text-tf-ink sm:text-4xl">
               {study.h1}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-tf-ink-soft">{study.dek}</p>
           </div>
 
-          <dl className="mt-10 grid gap-x-8 gap-y-5 rounded-3xl border border-tf-border bg-white p-6 sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-10 grid gap-x-8 gap-y-5 rounded-2xl border border-tf-border bg-tf-card p-6 sm:grid-cols-2 lg:grid-cols-3">
             {study.atAGlance.map((row) => (
               <div key={row.label}>
                 <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">{row.label}</dt>
@@ -106,7 +106,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           />
           <div className="mt-7 grid gap-4 sm:grid-cols-2">
             {study.diagnosis.map((d) => (
-              <div key={d.title} className="rounded-2xl border border-tf-border bg-white p-5">
+              <div key={d.title} className="rounded-xl border border-tf-border bg-tf-card p-5">
                 <h3 className="text-sm font-semibold text-tf-ink">{d.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{d.body}</p>
               </div>
@@ -136,7 +136,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 {section.items?.length ? (
                   <ul className="mt-4 space-y-4">
                     {section.items.map((item) => (
-                      <li key={item.title} className="flex gap-3 rounded-2xl border border-tf-border bg-white p-5">
+                      <li key={item.title} className="flex gap-3 rounded-xl border border-tf-border bg-tf-card p-5">
                         <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-brown-dark" />
                         <div>
                           <p className="font-semibold text-tf-ink">{item.title}</p>
@@ -172,7 +172,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           {study.results.measured.length ? (
             <>
               <h3 className="mt-9 font-tf-display text-lg font-bold text-tf-ink">Measured</h3>
-              <div className="mt-4 overflow-x-auto rounded-2xl border border-tf-border bg-white">
+              <div className="mt-4 overflow-x-auto rounded-xl border border-tf-border bg-tf-card">
                 <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
                   <caption className="sr-only">
                     Measured search performance for {study.clientName}, with source and time period
@@ -192,8 +192,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                         <th scope="row" className="px-4 py-3 font-medium text-tf-ink">{m.metric}</th>
                         <td className="px-4 py-3 text-tf-ink-soft">{m.period}</td>
                         <td className="px-4 py-3 text-tf-ink-soft">{m.source}</td>
-                        <td className="px-4 py-3 font-tf-mono text-tf-ink">{m.value}</td>
-                        <td className="px-4 py-3 font-tf-mono text-tf-ink">{m.change}</td>
+                        <td className="px-4 py-3 font-tf-display text-tf-ink">{m.value}</td>
+                        <td className="px-4 py-3 font-tf-display text-tf-ink">{m.change}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -229,19 +229,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           items={[
             {
               href: PATHS.websiteDesign,
-              label: "Dog grooming website design",
+              label: "What the website needs",
               description: `The page structure used here — ${build?.pages.services ?? 0} service pages and ${
                 build?.pages.areas ?? 0
               } area pages.`,
             },
             {
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "Your Google Business Profile",
               description: "The profile side of this build, in detail.",
             },
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "Why these sites are structured this way, and what happens after launch.",
             },
             {

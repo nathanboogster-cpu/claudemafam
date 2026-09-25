@@ -184,8 +184,8 @@ export default function WebsiteDesignPage() {
               b: "Server-rendered pages, compressed and correctly sized images, almost no JavaScript, unique titles and descriptions, correct canonicals, LocalBusiness and Service structured data, an accurate sitemap. Nothing exotic — just none of it missing.",
             },
           ].map((x) => (
-            <div key={x.n} className="grid gap-3 rounded-2xl border border-tf-border bg-white p-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
-              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{x.n}</p>
+            <div key={x.n} className="grid gap-3 rounded-xl border border-tf-border bg-tf-card p-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
+              <p className="font-tf-display text-xl font-bold leading-none text-tf-brown">{x.n}</p>
               <div>
                 <h3 className="font-tf-display text-lg font-bold text-tf-ink">{x.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
@@ -216,7 +216,7 @@ export default function WebsiteDesignPage() {
             href={resourcePath("dog-grooming-website-examples")}
             className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
-            dog grooming website examples
+            the side-by-side comparison
           </Link>
           .
         </p>
@@ -230,7 +230,7 @@ export default function WebsiteDesignPage() {
           title="Salon sites and mobile sites are built differently"
         />
         <div className="mt-7 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">A salon site</h3>
             <div className="mt-4">
               <Checklist
@@ -242,7 +242,7 @@ export default function WebsiteDesignPage() {
               />
             </div>
           </div>
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">A mobile site</h3>
             <div className="mt-4">
               <Checklist
@@ -280,7 +280,7 @@ export default function WebsiteDesignPage() {
       <Section width="narrow" className="py-12">
         <FaqBlock
           items={faqItems}
-          eyebrow="Grooming website FAQ"
+          eyebrow="FAQ"
           title="Common questions"
           headingId="website-faq"
         />
@@ -291,22 +291,22 @@ export default function WebsiteDesignPage() {
           items={[
             {
               href: resourcePath("dog-grooming-website-examples"),
-              label: "Dog grooming website examples",
+              label: "The sites we've built, compared",
               description: "Every site we've built, what it had to solve, and what's inside it.",
             },
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "How the structure above turns into rankings, and what happens after launch.",
             },
             {
               href: PATHS.leadGeneration,
-              label: "Dog grooming lead generation",
+              label: "Turning searches into calls",
               description: "The conversion half: what makes a visitor actually pick up the phone.",
             },
             {
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "Your Google Business Profile",
               description: "Where most of your first-time visitors will see you before the website.",
             },
           ]}

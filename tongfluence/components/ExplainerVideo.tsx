@@ -59,7 +59,7 @@ export function ExplainerVideo({ location }: { location: string }) {
   return (
     <>
       <div
-        className="tf-video overflow-hidden rounded-3xl border border-tf-border bg-tf-paper-deep shadow-sm"
+        className="tf-video overflow-hidden rounded-2xl border border-tf-border bg-tf-paper-deep shadow-sm"
         style={{
           aspectRatio: String(explainerVideo.aspectRatio),
           backgroundImage: `url('${explainerVideo.swatchUrl}')`,

@@ -214,7 +214,7 @@ export default function HowToRankPage() {
             <p className="tf-caps text-xs text-tf-brown-dark">
               Guide · {resource.readingTime}
             </p>
-            <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 font-tf-display text-3xl font-bold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
               {resource.h1}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-tf-ink-soft">
@@ -239,7 +239,7 @@ export default function HowToRankPage() {
         </Section>
 
         <Section width="narrow" className="pb-10">
-          <nav aria-labelledby="contents" className="rounded-2xl border border-tf-border bg-white p-5">
+          <nav aria-labelledby="contents" className="rounded-xl border border-tf-border bg-tf-card p-5">
             <h2 id="contents" className="text-sm font-semibold uppercase tracking-wide text-tf-ink">
               The nine steps
             </h2>
@@ -250,7 +250,7 @@ export default function HowToRankPage() {
                     href={`#step-${s.n}`}
                     className="text-tf-ink-soft underline underline-offset-4 hover:text-tf-brown-dark"
                   >
-                    <span className="font-tf-mono text-xs text-tf-brown">{s.n}</span> {s.title}
+                    <span className="font-tf-display text-xs text-tf-brown">{s.n}</span> {s.title}
                   </a>
                 </li>
               ))}
@@ -262,7 +262,7 @@ export default function HowToRankPage() {
           <div className="space-y-12">
             {steps.map((s) => (
               <section key={s.n} id={`step-${s.n}`} aria-labelledby={`step-${s.n}-heading`} className="scroll-mt-24">
-                <p className="font-tf-mono text-sm font-semibold text-tf-brown">
+                <p className="font-tf-display text-xl font-bold leading-none text-tf-brown">
                   {s.n} · {s.time}
                 </p>
                 <h2
@@ -276,7 +276,7 @@ export default function HowToRankPage() {
                     <p key={p.slice(0, 40)}>{p}</p>
                   ))}
                 </div>
-                <div className="mt-5 rounded-2xl border border-tf-border bg-white p-5">
+                <div className="mt-5 rounded-xl border border-tf-border bg-tf-card p-5">
                   <p className="tf-caps text-xs text-tf-ink-soft">Done when</p>
                   <div className="mt-3">
                     <Checklist items={s.checklist} />
@@ -319,22 +319,22 @@ export default function HowToRankPage() {
           items={[
             {
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "Your Google Business Profile",
               description: "Steps one to three, in much more detail.",
             },
             {
               href: PATHS.websiteDesign,
-              label: "Dog grooming website design",
+              label: "What the website needs",
               description: "Steps four to six: what the pages should actually contain.",
             },
             {
               href: PATHS.reviews,
-              label: "Review management for dog groomers",
+              label: "Getting more reviews",
               description: "Step seven, including the three shortcuts that get profiles penalised.",
             },
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "Steps eight and nine, and the mechanics behind the whole list.",
             },
           ]}

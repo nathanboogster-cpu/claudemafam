@@ -61,7 +61,7 @@ export default function CaseStudiesPage() {
             We publish <strong>what was built</strong> — page counts, structure, and the decisions behind
             them — because that is verifiable by opening the sites.{" "}
             {headlineResult
-              ? "Where we do publish a performance figure, it carries its metric, sample, period, source and method with it."
+              ? "The one performance figure here is shown with the Google reports it was read from."
               : "We do not publish rankings, traffic, call volume or review growth, because we have not exported and checked a dataset we would stand behind. When we have one, it will appear with its metric, its time period and its source."}{" "}
             A bare &ldquo;+300%&rdquo; is not evidence, and an industry full of them is why this section
             reads the way it does.
@@ -73,8 +73,9 @@ export default function CaseStudiesPage() {
         <SectionHeading
           eyebrow="Measured"
           id="measured"
-          title="The one performance figure we can show you"
-          intro="Everything else on this page is what was built. This is what one build did to the number that matters most — calls from Google — with the report it was read from."
+          title="The one performance figure"
+          accent="we can show you"
+          intro="Everything else on this page is what we built. This is what the work did to one client's calls from Google."
         />
         <div className="mt-8">
           <GbpCallsProof location="case_studies_measured" />
@@ -118,7 +119,7 @@ export default function CaseStudiesPage() {
         />
         <ul className="mt-7 space-y-3">
           {withoutWriteups.map((b) => (
-            <li key={b.slug} className="rounded-2xl border border-tf-border bg-white p-5">
+            <li key={b.slug} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-tf-display text-base font-bold text-tf-ink">{b.name}</h3>
                 <p className="text-xs text-tf-ink-soft">
@@ -135,7 +136,7 @@ export default function CaseStudiesPage() {
             href={resourcePath("dog-grooming-website-examples")}
             className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
-            dog grooming website examples
+            the side-by-side comparison
           </Link>
           .
         </p>
@@ -147,22 +148,22 @@ export default function CaseStudiesPage() {
           items={[
             {
               href: PATHS.websiteDesign,
-              label: "Dog grooming website design",
+              label: "What the website needs",
               description: "The page structure every one of these builds uses, and why.",
             },
             {
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "Your Google Business Profile",
               description: "The profile work that runs alongside each build.",
             },
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "How these sites are meant to rank, and what happens after launch.",
             },
             {
               href: PATHS.reviews,
-              label: "Review management for dog groomers",
+              label: "Getting more reviews",
               description: "The review system handed over with every build.",
             },
           ]}

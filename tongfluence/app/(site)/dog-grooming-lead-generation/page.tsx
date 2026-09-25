@@ -127,7 +127,7 @@ export default function LeadGenerationPage() {
             {
               step: "Appearing",
               what: "Google shows a map pack and organic results.",
-              leak: "You aren't in either. Fixable — this is the profile and the site structure, covered on dog groomer SEO.",
+              leak: "You aren't in either. Fixable — this is the profile and the site structure, covered on the SEO page.",
             },
             {
               step: "The glance",
@@ -150,9 +150,9 @@ export default function LeadGenerationPage() {
               leak: "The number isn't a link, the call goes to voicemail mid-groom, or nobody calls back. This is the most expensive leak in the whole funnel and the least discussed.",
             },
           ].map((s, i) => (
-            <li key={s.step} className="rounded-2xl border border-tf-border bg-white p-5">
+            <li key={s.step} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <div className="flex items-baseline gap-3">
-                <span className="font-tf-mono text-xs font-semibold text-tf-brown">
+                <span className="font-tf-display text-base font-bold leading-none text-tf-brown">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-tf-display text-base font-bold text-tf-ink">{s.step}</h3>
@@ -238,7 +238,7 @@ export default function LeadGenerationPage() {
             ["Google Business Profile insights", "Google reports calls, website clicks and direction requests that came from the profile itself, separately from everything else."],
             ["Website event tracking", "Calls, booking clicks and form submissions tracked as events, with the landing page and traffic source attached — so organic search, referrals, social and paid stay distinguishable."],
           ].map(([t, b]) => (
-            <li key={t} className="rounded-2xl border border-tf-border bg-white p-5">
+            <li key={t} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <p className="text-sm font-semibold text-tf-ink">{t}</p>
               <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{b}</p>
             </li>
@@ -248,14 +248,14 @@ export default function LeadGenerationPage() {
           The third one is set up as part of every build, and it is why the monthly conversation can be about
           appointments rather than about impressions. The ranking work that feeds it is on{" "}
           <Link href={PATHS.seo} className="font-medium text-tf-brown-dark underline underline-offset-4">
-            dog groomer SEO
+            the SEO page
           </Link>
           ; the page-level conversion work is on{" "}
           <Link
             href={PATHS.websiteDesign}
             className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
-            grooming website design
+            the website page
           </Link>
           .
         </p>
@@ -265,8 +265,9 @@ export default function LeadGenerationPage() {
         <SectionHeading
           eyebrow="Measured"
           id="leads-measured"
-          title="What “more calls” looks like when it is real"
-          intro="The third row of the table above — calls — is the first number that is really about the business. This is that number for one client, before and after, straight from Google."
+          title="What more calls"
+          accent="looks like when it is real"
+          intro="Calls are the first number in that table that is really about the business. Here it is for one client, before and after."
         />
         <div className="mt-8">
           <GbpCallsProof location="leads_measured" />
@@ -284,7 +285,7 @@ export default function LeadGenerationPage() {
       </Section>
 
       <Section width="narrow" className="py-12">
-        <FaqBlock items={faqItems} eyebrow="Lead generation FAQ" title="Common questions" headingId="leads-faq" />
+        <FaqBlock items={faqItems} eyebrow="FAQ" title="Common questions" headingId="leads-faq" />
       </Section>
 
       <Section className="py-12">
@@ -292,22 +293,22 @@ export default function LeadGenerationPage() {
           items={[
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "Getting found in the first place — the top half of the path above.",
             },
             {
               href: PATHS.websiteDesign,
-              label: "Dog grooming website design",
+              label: "What the website needs",
               description: "The pages that answer what someone actually searched for.",
             },
             {
               href: PATHS.reviews,
-              label: "Review management for dog groomers",
+              label: "Getting more reviews",
               description: "The glance step: what makes someone trust you enough to call.",
             },
             {
               href: PATHS.marketing,
-              label: "Dog groomer marketing",
+              label: "The whole picture",
               description: "How search compares with social and paid for a grooming business.",
             },
           ]}

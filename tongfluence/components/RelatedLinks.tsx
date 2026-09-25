@@ -13,7 +13,7 @@ export function RelatedLinks({
   items: { href: string; label: string; description: string }[];
 }) {
   return (
-    <nav aria-labelledby="related-links" className="rounded-3xl border border-tf-border bg-white p-6 sm:p-8">
+    <nav aria-labelledby="related-links" className="rounded-2xl border border-tf-border bg-tf-card p-6 sm:p-8">
       <h2 id="related-links" className="font-tf-display text-xl font-bold text-tf-ink">
         {title}
       </h2>
@@ -22,7 +22,7 @@ export function RelatedLinks({
           <li key={item.href}>
             <Link
               href={item.href}
-              className="tf-lift group flex h-full flex-col rounded-2xl border border-tf-border bg-tf-paper p-4 hover:border-tf-brown hover:bg-tf-brown-wash focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
+              className="tf-lift group flex h-full flex-col rounded-xl border border-tf-border bg-tf-paper p-4 hover:border-tf-brown hover:bg-tf-brown-wash focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
             >
               <span className="flex items-center gap-2 font-semibold text-tf-ink">
                 {item.label}

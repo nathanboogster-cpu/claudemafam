@@ -151,8 +151,9 @@ and documented where they bite:
    from one client's Google Business Profile, 24 in February 2026 against 77
    in March (3.2× raw, 2.9× per day), with the two Google reports the
    numbers were read from at `public/images/proof/`. It renders on the
-   homepage, the GBP page, lead generation and the case-studies hub, and
-   its caption says it is a single business. `/about` and `/case-studies`
+   homepage, the GBP page, lead generation and the case-studies hub. Each
+   fact is stated once: three figures, the two reports, one line of
+   sourcing, and the arithmetic behind a "How this was counted" disclosure. `/about` and `/case-studies`
    softened their "nothing unmeasured" wording automatically when it was
    filled in.
 
@@ -160,9 +161,10 @@ and documented where they bite:
    in `lib/client-builds.ts`, which is why he is not in that table.
 
    Carlos also had around 23 appointments added to his calendar in MoeGo in
-   the same month (`gbpCallsProof.appointments`). It renders beneath the
-   calls figure, labelled approximate with MoeGo as its source, because it
-   is a count from the booking software rather than an export. A MoeGo
+   the same month (`gbpCallsProof.appointments`). It sits beside the
+   calls figures as a third tile, labelled approximate with MoeGo as its
+   source, because it is a count from the booking software rather than an
+   export. A MoeGo
    screenshot beside it would put it on the same footing as the calls,
    where the reader can check the reading — worth adding when there is one.
 

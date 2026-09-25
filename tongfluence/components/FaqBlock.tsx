@@ -21,7 +21,7 @@ export function FaqBlock({
       <SectionHeading eyebrow={eyebrow} title={title} intro={intro} id={headingId} />
       <div className="mt-8 space-y-3">
         {items.map((item) => (
-          <details key={item.question} className="group rounded-2xl border border-tf-border bg-white p-5">
+          <details key={item.question} className="group rounded-xl border border-tf-border bg-tf-card p-5">
             <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-tf-ink">
               <span>{item.question}</span>
               <span

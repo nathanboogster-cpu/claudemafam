@@ -205,7 +205,7 @@ export default function DogGroomerSeoPage() {
         </div>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">A service page earns its place when</h3>
             <div className="mt-4">
               <Checklist
@@ -217,7 +217,7 @@ export default function DogGroomerSeoPage() {
               />
             </div>
           </div>
-          <div className="rounded-2xl border border-tf-border bg-white p-6">
+          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
             <h3 className="font-tf-display text-base font-bold text-tf-ink">An area page earns its place when</h3>
             <div className="mt-4">
               <Checklist
@@ -267,7 +267,7 @@ export default function DogGroomerSeoPage() {
               b: "One per page, matching what the page is about. This is also the single fastest thing to change when a page gets impressions but no clicks.",
             },
           ].map((x) => (
-            <div key={x.t} className="rounded-2xl border border-tf-border bg-white p-5">
+            <div key={x.t} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <h3 className="text-sm font-semibold text-tf-ink">{x.t}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
             </div>
@@ -298,7 +298,7 @@ export default function DogGroomerSeoPage() {
             queue. We read it monthly and pick the change most likely to produce appointments:
           </p>
         </div>
-        <div className="mt-6 overflow-hidden rounded-2xl border border-tf-border bg-white">
+        <div className="mt-6 overflow-hidden rounded-xl border border-tf-border bg-tf-card">
           <ul className="divide-y divide-tf-border text-sm">
             {[
               ["Lots of impressions, almost no clicks", "The page ranks but the title and description aren't winning the click. Rewrite them to match the search."],
@@ -346,7 +346,7 @@ export default function DogGroomerSeoPage() {
       </Section>
 
       <Section width="narrow" className="py-12">
-        <FaqBlock items={faqItems} eyebrow="Dog groomer SEO FAQ" title="Common questions" headingId="seo-faq" />
+        <FaqBlock items={faqItems} eyebrow="FAQ" title="Common questions" headingId="seo-faq" />
       </Section>
 
       <Section className="py-12">
@@ -359,12 +359,12 @@ export default function DogGroomerSeoPage() {
             },
             {
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "Your Google Business Profile",
               description: "The map-pack half of this page, in detail.",
             },
             {
               href: PATHS.websiteDesign,
-              label: "Dog grooming website design",
+              label: "What the website needs",
               description: "The organic half: what pages a grooming site needs and how they connect.",
             },
             {

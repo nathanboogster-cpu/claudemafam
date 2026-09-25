@@ -69,7 +69,7 @@ export default function ResourcesPage() {
             <li key={r.slug}>
               <Link
                 href={resourcePath(r.slug)}
-                className="group block rounded-3xl border border-tf-border bg-white p-6 transition-colors hover:border-tf-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark sm:p-7"
+                className="group block rounded-2xl border border-tf-border bg-tf-card p-6 transition-colors hover:border-tf-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark sm:p-7"
               >
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-tf-ink-soft">
                   <span className="rounded-full bg-tf-brown-wash px-2.5 py-1 font-semibold text-tf-brown-darker">
@@ -142,7 +142,7 @@ export default function ResourcesPage() {
               ),
             },
           ].map((x) => (
-            <div key={x.t} className="rounded-2xl border border-tf-border bg-white p-5">
+            <div key={x.t} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <dt className="font-semibold text-tf-ink">{x.t}</dt>
               <dd className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{x.b}</dd>
             </div>

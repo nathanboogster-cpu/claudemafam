@@ -37,7 +37,7 @@ export function PricingCard({ location, className = "" }: { location: string; cl
   return (
     <div
       ref={ref}
-      className={`overflow-hidden rounded-3xl border border-tf-border-strong bg-white ${className}`}
+      className={`overflow-hidden rounded-2xl border border-tf-border-strong bg-tf-card ${className}`}
     >
       <div className="grid gap-0 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
         <div className="border-b border-tf-border bg-tf-ink p-8 text-white md:border-b-0 md:border-r">
