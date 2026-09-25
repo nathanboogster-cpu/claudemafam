@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { clientBuilds, buildStats } from "@/lib/client-builds";
-import { PATHS, caseStudyPath } from "@/lib/site-data";
+import { PATHS, caseStudyPath, headlineResult } from "@/lib/site-data";
 
 // Early proof. Real grooming businesses, real markets, real page counts —
 // no logos we don't have permission to use, no invented client totals, and
-// no performance numbers we haven't measured.
+// no performance numbers without their evidence beside them.
 export function ProofStrip() {
   return (
     <div className="rounded-3xl border border-tf-border bg-white p-6 sm:p-8">
@@ -41,9 +41,10 @@ export function ProofStrip() {
 
       <p className="mt-6 border-t border-tf-border pt-4 text-xs leading-relaxed text-tf-ink-soft">
         These are the grooming businesses whose websites Tongfluence has built. Page counts come from each
-        site&rsquo;s own sitemap. We don&rsquo;t publish traffic, ranking or call-volume figures here, because
-        we haven&rsquo;t measured and exported them yet — and made-up numbers are the reason most agency
-        &ldquo;results&rdquo; pages are worthless.
+        site&rsquo;s own sitemap.{" "}
+        {headlineResult
+          ? "Where a performance figure appears on this site, it is shown with its metric, sample, period and source, and the screenshot it was read from."
+          : "We don't publish traffic, ranking or call-volume figures here, because we haven't measured and exported them yet — and made-up numbers are the reason most agency “results” pages are worthless."}
       </p>
     </div>
   );

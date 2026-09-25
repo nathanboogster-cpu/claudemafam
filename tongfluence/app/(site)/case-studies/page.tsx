@@ -11,6 +11,7 @@ import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { BuildTable } from "@/components/BuildTable";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { GbpCallsProof } from "@/components/GbpCallsProof";
 
 // SEARCH INTENT
 //   Primary query:    dog grooming marketing case studies / dog groomer SEO
@@ -66,6 +67,18 @@ export default function CaseStudiesPage() {
             reads the way it does.
           </p>
         </AnswerBlock>
+      </Section>
+
+      <Section width="narrow" className="py-12" labelledBy="measured">
+        <SectionHeading
+          eyebrow="Measured"
+          id="measured"
+          title="The one performance figure we can show you"
+          intro="Everything else on this page is what was built. This is what one build did to the number that matters most — calls from Google — with the report it was read from."
+        />
+        <div className="mt-8">
+          <GbpCallsProof location="case_studies_measured" />
+        </div>
       </Section>
 
       <Section className="py-12" labelledBy="full-writeups">

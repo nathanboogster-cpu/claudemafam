@@ -8,6 +8,8 @@ import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 import { ProofStrip } from "@/components/ProofStrip";
 import { ProvenClaim } from "@/components/ProvenClaim";
+import { GbpCallsProof } from "@/components/GbpCallsProof";
+import { Reveal } from "@/components/Reveal";
 import { ExplainerVideo } from "@/components/ExplainerVideo";
 import { PricingCard } from "@/components/PricingCard";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
@@ -192,17 +194,22 @@ export default function HomePage() {
       {/* wants to know and the thing text is worst at conveying.          */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="pb-16" labelledBy="walkthrough">
-        <SectionHeading
-          eyebrow={`Watch · ${explainerVideo.durationLabel}`}
-          id="walkthrough"
-          title="Exactly what we do, start to finish"
-          intro="A walkthrough of what actually happens when a grooming business works with us. If you would rather read it, the same process is written out further down this page."
-          align="center"
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow={`Watch · ${explainerVideo.durationLabel}`}
+            id="walkthrough"
+            title="Exactly what we do, start to finish"
+            intro="A walkthrough of what actually happens when a grooming business works with us. If you would rather read it, the same process is written out further down this page."
+            align="center"
+          />
+        </Reveal>
         <div className="mt-8">
           <ExplainerVideo location="home_hero" />
         </div>
         <ProvenClaim />
+        <div className="mt-8">
+          <GbpCallsProof location="home_walkthrough" />
+        </div>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
@@ -216,18 +223,20 @@ export default function HomePage() {
       {/* 4. PROBLEM / OPPORTUNITY                                          */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="problem">
-        <SectionHeading
-          eyebrow="The problem"
-          id="problem"
-          title="Most grooming businesses are invisible at the exact moment someone decides."
-          intro={
-            <>
-              Grooming is a local, high-repeat, word-of-mouth business — which is exactly why so many groomers
-              never build anything on Google. It works until the referrals slow down, a competitor opens
-              nearby, or a chain starts paying for the top of the map.
-            </>
-          }
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="The problem"
+            id="problem"
+            title="Most grooming businesses are invisible at the exact moment someone decides."
+            intro={
+              <>
+                Grooming is a local, high-repeat, word-of-mouth business — which is exactly why so many groomers
+                never build anything on Google. It works until the referrals slow down, a competitor opens
+                nearby, or a chain starts paying for the top of the map.
+              </>
+            }
+          />
+        </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {[
             {
@@ -262,17 +271,19 @@ export default function HomePage() {
       {/* 5. THE SYSTEM                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="system">
-        <SectionHeading
-          eyebrow="The Tongfluence system"
-          id="system"
-          title="Four parts, built to reinforce each other."
-          intro="They are sold together because they work together. An optimized profile sends people to a website that has a page about the exact thing they searched for; that page gets them to call; the appointment produces a review; the review makes the profile rank better. Break one link and the others do less."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="The Tongfluence system"
+            id="system"
+            title="Four parts, built to reinforce each other."
+            intro="They are sold together because they work together. An optimized profile sends people to a website that has a page about the exact thing they searched for; that page gets them to call; the appointment produces a review; the review makes the profile rank better. Break one link and the others do less."
+          />
+        </Reveal>
         <ol className="mt-10 grid gap-5 md:grid-cols-2">
           {offer.inclusions.map((item, i) => {
             const Icon = systemIcons[i];
             return (
-              <li key={item.number} className="rounded-3xl border border-tf-border bg-white p-6">
+              <Reveal as="li" key={item.number} delay={i * 80} className="tf-lift rounded-3xl border border-tf-border bg-white p-6">
                 <div className="flex items-center gap-3">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-tf-brown-wash text-tf-brown-dark">
                     <Icon />
@@ -287,7 +298,7 @@ export default function HomePage() {
                 >
                   {item.linkLabel}
                 </Link>
-              </li>
+              </Reveal>
             );
           })}
         </ol>
@@ -299,97 +310,103 @@ export default function HomePage() {
       <Section className="py-14" labelledBy="specialised">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
           <div>
-            <SectionHeading
-              eyebrow="Why only groomers"
-              id="specialised"
-              title="A general agency starts from zero. We start from the twentieth grooming website."
-              intro={
-                <>
-                  Specialising is not a positioning trick — it is the reason the work is fast enough to cost
-                  ${offer.priceNumeric} a month. The page structure, the profile checklist and the review flow
-                  already exist because we have built them {buildStats.siteCount} times for grooming
-                  businesses. You are not paying for someone&rsquo;s learning curve.
-                </>
-              }
-            />
+            <Reveal>
+              <SectionHeading
+                eyebrow="Why only groomers"
+                id="specialised"
+                title="A general agency starts from zero. We start from the twentieth grooming website."
+                intro={
+                  <>
+                    Specialising is not a positioning trick — it is the reason the work is fast enough to cost
+                    ${offer.priceNumeric} a month. The page structure, the profile checklist and the review flow
+                    already exist because we have built them {buildStats.siteCount} times for grooming
+                    businesses. You are not paying for someone&rsquo;s learning curve.
+                  </>
+                }
+              />
+            </Reveal>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {audienceTypes.map((a) => (
-                <div key={a.title} className="rounded-2xl border border-tf-border bg-white p-4">
-                  <h3 className="text-sm font-semibold text-tf-ink">{a.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{a.body}</p>
-                </div>
-              ))}
+                {audienceTypes.map((a) => (
+                  <div key={a.title} className="rounded-2xl border border-tf-border bg-white p-4">
+                    <h3 className="text-sm font-semibold text-tf-ink">{a.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{a.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-tf-border bg-white p-6 sm:p-7">
+              <h3 className="font-tf-display text-lg font-bold text-tf-ink">
+                The difference, concretely
+              </h3>
+              <ul className="mt-5 space-y-5">
+                {specialisation.map((row) => (
+                  <li key={row.generic} className="grid gap-2 border-b border-tf-border pb-5 last:border-0 last:pb-0">
+                    <p className="flex items-start gap-2.5 text-sm text-tf-ink-soft">
+                      <CrossIcon className="mt-0.5 h-4 w-4 shrink-0 text-tf-ink-soft" />
+                      <span>
+                        <span className="font-medium text-tf-ink-soft">A general agency: </span>
+                        {row.generic}
+                      </span>
+                    </p>
+                    <p className="flex items-start gap-2.5 text-sm text-tf-ink">
+                      <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-tf-brown-dark" />
+                      <span>
+                        <span className="font-semibold">Tongfluence: </span>
+                        {row.specific}
+                      </span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-
-          <div className="rounded-3xl border border-tf-border bg-white p-6 sm:p-7">
-            <h3 className="font-tf-display text-lg font-bold text-tf-ink">
-              The difference, concretely
-            </h3>
-            <ul className="mt-5 space-y-5">
-              {specialisation.map((row) => (
-                <li key={row.generic} className="grid gap-2 border-b border-tf-border pb-5 last:border-0 last:pb-0">
-                  <p className="flex items-start gap-2.5 text-sm text-tf-ink-soft">
-                    <CrossIcon className="mt-0.5 h-4 w-4 shrink-0 text-tf-ink-soft" />
-                    <span>
-                      <span className="font-medium text-tf-ink-soft">A general agency: </span>
-                      {row.generic}
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2.5 text-sm text-tf-ink">
-                    <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-tf-brown-dark" />
-                    <span>
-                      <span className="font-semibold">Tongfluence: </span>
-                      {row.specific}
-                    </span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
       {/* 7. HOW IT WORKS                                                   */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="how">
-        <SectionHeading eyebrow="How it works" id="how" title="What the first month actually looks like." />
-        <ol className="mt-8 space-y-4">
-          {howItWorks.map((s) => (
-            <li key={s.step} className="grid gap-2 rounded-2xl border border-tf-border bg-white p-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-6">
-              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{s.step}</p>
-              <div>
-                <h3 className="font-semibold text-tf-ink">{s.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{s.body}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <AnswerBlock label="How long until it works">
-          <p>
-            Google Business Profile changes can show up within a few weeks. Website and organic search take
-            longer: about 28 days after launch before Search Console holds enough data to read, and a few
-            months before the direction is clear. Anyone promising page one in 30 days is guessing.
-          </p>
-        </AnswerBlock>
+        <Reveal>
+          <SectionHeading eyebrow="How it works" id="how" title="What the first month actually looks like." />
+        </Reveal>
+          <ol className="mt-8 space-y-4">
+            {howItWorks.map((s) => (
+              <li key={s.step} className="grid gap-2 rounded-2xl border border-tf-border bg-white p-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-6">
+                <p className="font-tf-mono text-sm font-semibold text-tf-brown">{s.step}</p>
+                <div>
+                  <h3 className="font-semibold text-tf-ink">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{s.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <AnswerBlock label="How long until it works">
+            <p>
+              Google Business Profile changes can show up within a few weeks. Website and organic search take
+              longer: about 28 days after launch before Search Console holds enough data to read, and a few
+              months before the direction is clear. Anyone promising page one in 30 days is guessing.
+            </p>
+          </AnswerBlock>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
       {/* 8. CASE STUDIES                                                   */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="work">
-        <SectionHeading
-          eyebrow="The work"
-          id="work"
-          title="Real grooming builds, broken down."
-          intro="Each of these is a full write-up: what the business had, what was structurally wrong, exactly what we built, and what we are still waiting to be able to measure."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="The work"
+            id="work"
+            title="Real grooming builds, broken down."
+            intro="Each of these is a full write-up: what the business had, what was structurally wrong, exactly what we built, and what we are still waiting to be able to measure."
+          />
+        </Reveal>
         <ul className="mt-8 grid gap-5 md:grid-cols-3">
-          {caseStudyBuilds.map((b) => (
-            <li key={b.slug}>
+          {caseStudyBuilds.map((b, i) => (
+            <Reveal as="li" key={b.slug} delay={i * 90}>
               <CaseStudyCard build={b} location="home_case_studies" />
-            </li>
+            </Reveal>
           ))}
         </ul>
         <div className="mt-8">
@@ -401,12 +418,14 @@ export default function HomePage() {
       {/* 9. THE OFFER                                                      */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="pricing-heading" id="pricing">
-        <SectionHeading
-          eyebrow="Pricing"
-          id="pricing-heading"
-          title={`Everything above, ${offer.priceLine}.`}
-          intro="One price, one invoice, no tiers. You are not upsold a “growth plan” in month three."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Pricing"
+            id="pricing-heading"
+            title={`Everything above, ${offer.priceLine}.`}
+            intro="One price, one invoice, no tiers. You are not upsold a “growth plan” in month three."
+          />
+        </Reveal>
         <PricingCard location="home" className="mt-8" />
       </Section>
 
@@ -414,11 +433,13 @@ export default function HomePage() {
       {/* 10. OBJECTIONS                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="objections">
-        <SectionHeading
-          eyebrow="Straight answers"
-          id="objections"
-          title="The things groomers actually push back on."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Straight answers"
+            id="objections"
+            title="The things groomers actually push back on."
+          />
+        </Reveal>
         <dl className="mt-8 space-y-6">
           {objections.map((o) => (
             <div key={o.question} className="border-l-2 border-tf-brown/40 pl-5">

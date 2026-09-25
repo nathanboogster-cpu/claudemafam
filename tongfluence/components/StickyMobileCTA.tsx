@@ -21,7 +21,7 @@ export function StickyMobileCTA() {
         <Link
           href={PATHS.book}
           onClick={() => trackEvent(EVENTS.bookCallClick, { location: "sticky_mobile_bar" })}
-          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-full bg-tf-brown-dark px-6 text-sm font-semibold text-white hover:bg-tf-brown-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
+          className="tf-cta inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-full bg-tf-brown-dark px-6 text-sm font-semibold text-white hover:bg-tf-brown-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
         >
           Book a call
         </Link>

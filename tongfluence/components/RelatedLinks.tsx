@@ -22,7 +22,7 @@ export function RelatedLinks({
           <li key={item.href}>
             <Link
               href={item.href}
-              className="group flex h-full flex-col rounded-2xl border border-tf-border bg-tf-paper p-4 transition-colors hover:border-tf-brown hover:bg-tf-brown-wash focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
+              className="tf-lift group flex h-full flex-col rounded-2xl border border-tf-border bg-tf-paper p-4 hover:border-tf-brown hover:bg-tf-brown-wash focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
             >
               <span className="flex items-center gap-2 font-semibold text-tf-ink">
                 {item.label}

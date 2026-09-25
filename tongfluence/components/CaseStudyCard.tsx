@@ -11,7 +11,7 @@ export function CaseStudyCard({ build, location }: { build: ClientBuild; locatio
     <Link
       href={caseStudyPath(build.slug)}
       onClick={() => trackEvent(EVENTS.caseStudyView, { location, client: build.slug })}
-      className="group flex h-full flex-col rounded-3xl border border-tf-border bg-white p-6 transition-colors hover:border-tf-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
+      className="tf-lift group flex h-full flex-col rounded-3xl border border-tf-border bg-white p-6 hover:border-tf-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
     >
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-medium text-tf-ink-soft">
         <span className="inline-flex items-center gap-1.5">
