@@ -159,13 +159,12 @@ and documented where they bite:
    The client is **Carlos**, named with his agreement. He predates the builds
    in `lib/client-builds.ts`, which is why he is not in that table.
 
-   **One field to fill: `gbpCallsProof.appointments.period`.** Carlos had
-   around 23 appointments added to his calendar in MoeGo. That is the number
-   the video title is about, and it is wired to render beneath the calls
-   figure — but not until the window it covers is stated, because "~23 over
-   an unstated period" is a recollection, not a figure. Set the period (for
-   example "in March 2026") and it appears, labelled approximate. A MoeGo
-   screenshot beside it would make it as solid as the calls figure.
+   Carlos also had around 23 appointments added to his calendar in MoeGo in
+   the same month (`gbpCallsProof.appointments`). It renders beneath the
+   calls figure, labelled approximate with MoeGo as its source, because it
+   is a count from the booking software rather than an export. A MoeGo
+   screenshot beside it would put it on the same footing as the calls,
+   where the reader can check the reading — worth adding when there is one.
 
 8. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business

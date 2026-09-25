@@ -238,7 +238,8 @@ export const gbpCallsProof = {
     count: 23,
     approximate: true,
     source: "MoeGo (the client's booking and scheduling software)",
-    period: "",
+    // The same window as the calls figure.
+    period: "in March 2026",
   },
   before: { label: "February 2026", calls: 24, days: 28, image: "/images/proof/gbp-calls-february-2026.jpg" },
   after: { label: "March 2026", calls: 77, days: 31, image: "/images/proof/gbp-calls-march-2026.jpg" },
@@ -265,7 +266,7 @@ export const headlineResult: HeadlineResult | null = {
   period: "February 2026 (24 calls, 28 days) against March 2026 (77 calls, 31 days).",
   source: "Google Business Profile's own Performance report. The two screenshots are published beside the figure.",
   method:
-    "Raw monthly totals as Google reports them: 77 ÷ 24 = 3.2×. Because February is three days shorter, the per-day rate is also shown: 0.86 → 2.48 calls a day, 2.9×. Calls are counted by Google, not by us, and nothing is excluded.",
+    "Raw monthly totals as Google reports them: 77 ÷ 24 = 3.2×. Because February is three days shorter, the per-day rate is also shown: 0.86 → 2.48 calls a day, 2.9×. Calls are counted by Google, not by us, and nothing is excluded. In the same month, around 23 appointments were added to his calendar in MoeGo — an approximate count from the booking software, shown separately and labelled as such.",
 };
 
 // ---------------------------------------------------------------------------
