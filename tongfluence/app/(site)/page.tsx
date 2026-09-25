@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, offer, faqs, audienceTypes, objections, business } from "@/lib/site-data";
+import { PATHS, offer, faqs, audienceTypes, objections, business, explainerVideo } from "@/lib/site-data";
 import { caseStudyBuilds, buildStats } from "@/lib/client-builds";
-import { JsonLd, faqSchema, serviceSchema } from "@/lib/schema";
+import { JsonLd, faqSchema, serviceSchema, videoSchema } from "@/lib/schema";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 import { ProofStrip } from "@/components/ProofStrip";
+import { ProvenClaim } from "@/components/ProvenClaim";
+import { ExplainerVideo } from "@/components/ExplainerVideo";
 import { PricingCard } from "@/components/PricingCard";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -84,6 +86,17 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema(faqs)} />
       <JsonLd
+        data={videoSchema({
+          name: explainerVideo.title,
+          description: explainerVideo.description,
+          thumbnailUrl: explainerVideo.swatchUrl,
+          uploadDate: explainerVideo.uploadDate,
+          duration: explainerVideo.durationIso,
+          embedUrl: explainerVideo.embedUrl,
+          pagePath: PATHS.home,
+        })}
+      />
+      <JsonLd
         data={serviceSchema({
           name: "Dog groomer marketing and SEO",
           serviceType: "Marketing and SEO for dog grooming businesses",
@@ -99,7 +112,7 @@ export default function HomePage() {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-start lg:gap-16">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-tf-border bg-white px-3.5 py-1.5 text-xs font-semibold text-tf-ink-soft">
-              <span className="h-1.5 w-1.5 rounded-full bg-tf-green" aria-hidden="true" />
+              <span className="h-1.5 w-1.5 rounded-full bg-tf-brown" aria-hidden="true" />
               For dog grooming businesses only
             </p>
             <h1 className="mt-5 font-tf-display text-4xl font-extrabold leading-[1.08] text-tf-ink sm:text-5xl lg:text-6xl">
@@ -118,15 +131,15 @@ export default function HomePage() {
 
             <dl className="mt-9 flex flex-wrap gap-x-10 gap-y-4">
               <div>
-                <dt className="text-xs font-medium uppercase tracking-wide text-tf-ink-soft">Price</dt>
+                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">Price</dt>
                 <dd className="font-tf-display text-xl font-bold text-tf-ink">{offer.priceLine}</dd>
               </div>
               <div>
-                <dt className="text-xs font-medium uppercase tracking-wide text-tf-ink-soft">Commitment</dt>
+                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">Commitment</dt>
                 <dd className="font-tf-display text-xl font-bold text-tf-ink">Cancel anytime</dd>
               </div>
               <div>
-                <dt className="text-xs font-medium uppercase tracking-wide text-tf-ink-soft">
+                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">
                   Who it&rsquo;s for
                 </dt>
                 <dd className="font-tf-display text-xl font-bold text-tf-ink">Groomers, only</dd>
@@ -149,14 +162,14 @@ export default function HomePage() {
                 const Icon = systemIcons[i];
                 return (
                   <li key={item.number} className="flex gap-3">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-tf-green-wash text-tf-green-dark">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-tf-brown-wash text-tf-brown-dark">
                       <Icon className="h-4 w-4" />
                     </span>
                     <div>
                       <p className="text-sm font-semibold leading-snug text-tf-ink">{item.title}</p>
                       <Link
                         href={item.href}
-                        className="mt-0.5 inline-block text-xs text-tf-ink-soft underline underline-offset-4 hover:text-tf-green-dark"
+                        className="mt-0.5 inline-block text-xs text-tf-ink-soft underline underline-offset-4 hover:text-tf-brown-dark"
                       >
                         {item.linkLabel}
                       </Link>
@@ -174,14 +187,33 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 2. IMMEDIATE PROOF — before any argument is made.                */}
+      {/* 2. THE WALKTHROUGH — answers "what do you actually do" before    */}
+      {/* the page starts arguing, which is the first thing a groomer      */}
+      {/* wants to know and the thing text is worst at conveying.          */}
+      {/* ---------------------------------------------------------------- */}
+      <Section width="narrow" className="pb-16" labelledBy="walkthrough">
+        <SectionHeading
+          eyebrow={`Watch · ${explainerVideo.durationLabel}`}
+          id="walkthrough"
+          title="Exactly what we do, start to finish"
+          intro="A walkthrough of what actually happens when a grooming business works with us. If you would rather read it, the same process is written out further down this page."
+          align="center"
+        />
+        <div className="mt-8">
+          <ExplainerVideo location="home_hero" />
+        </div>
+        <ProvenClaim />
+      </Section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* 3. IMMEDIATE PROOF — before any argument is made.                */}
       {/* ---------------------------------------------------------------- */}
       <Section className="pb-16">
         <ProofStrip />
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 3. PROBLEM / OPPORTUNITY                                          */}
+      {/* 4. PROBLEM / OPPORTUNITY                                          */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="problem">
         <SectionHeading
@@ -219,7 +251,7 @@ export default function HomePage() {
         </div>
         <p className="mt-6 text-base leading-relaxed text-tf-ink-soft">
           None of those are hard problems. They are just nobody&rsquo;s job. Read how the pieces fit together in{" "}
-          <Link href={PATHS.marketing} className="font-medium text-tf-green-dark underline underline-offset-4">
+          <Link href={PATHS.marketing} className="font-medium text-tf-brown-dark underline underline-offset-4">
             our guide to dog groomer marketing
           </Link>
           .
@@ -227,7 +259,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 4. THE SYSTEM                                                     */}
+      {/* 5. THE SYSTEM                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="system">
         <SectionHeading
@@ -242,16 +274,16 @@ export default function HomePage() {
             return (
               <li key={item.number} className="rounded-3xl border border-tf-border bg-white p-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-tf-green-wash text-tf-green-dark">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-tf-brown-wash text-tf-brown-dark">
                     <Icon />
                   </span>
-                  <span className="font-tf-mono text-sm font-semibold text-tf-clay">{item.number}</span>
+                  <span className="font-tf-mono text-sm font-semibold text-tf-brown">{item.number}</span>
                 </div>
                 <h3 className="mt-4 font-tf-display text-lg font-bold text-tf-ink">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{item.summary}</p>
                 <Link
                   href={item.href}
-                  className="mt-3 inline-block text-sm font-semibold text-tf-green-dark underline underline-offset-4 hover:text-tf-green-darker"
+                  className="mt-3 inline-block text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
                 >
                   {item.linkLabel}
                 </Link>
@@ -262,7 +294,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 5. WHY GROOMERS SPECIFICALLY                                      */}
+      {/* 6. WHY GROOMERS SPECIFICALLY                                      */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="specialised">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
@@ -305,7 +337,7 @@ export default function HomePage() {
                     </span>
                   </p>
                   <p className="flex items-start gap-2.5 text-sm text-tf-ink">
-                    <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-tf-green-dark" />
+                    <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-tf-brown-dark" />
                     <span>
                       <span className="font-semibold">Tongfluence: </span>
                       {row.specific}
@@ -319,14 +351,14 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 6. HOW IT WORKS                                                   */}
+      {/* 7. HOW IT WORKS                                                   */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="how">
         <SectionHeading eyebrow="How it works" id="how" title="What the first month actually looks like." />
         <ol className="mt-8 space-y-4">
           {howItWorks.map((s) => (
             <li key={s.step} className="grid gap-2 rounded-2xl border border-tf-border bg-white p-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-6">
-              <p className="font-tf-mono text-sm font-semibold text-tf-clay">{s.step}</p>
+              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{s.step}</p>
               <div>
                 <h3 className="font-semibold text-tf-ink">{s.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{s.body}</p>
@@ -344,7 +376,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 7. CASE STUDIES                                                   */}
+      {/* 8. CASE STUDIES                                                   */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="work">
         <SectionHeading
@@ -366,7 +398,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 8. THE OFFER                                                      */}
+      {/* 9. THE OFFER                                                      */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="pricing-heading" id="pricing">
         <SectionHeading
@@ -379,7 +411,7 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 9. OBJECTIONS                                                     */}
+      {/* 10. OBJECTIONS                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14" labelledBy="objections">
         <SectionHeading
@@ -389,7 +421,7 @@ export default function HomePage() {
         />
         <dl className="mt-8 space-y-6">
           {objections.map((o) => (
-            <div key={o.question} className="border-l-2 border-tf-clay/40 pl-5">
+            <div key={o.question} className="border-l-2 border-tf-brown/40 pl-5">
               <dt className="font-tf-display text-lg font-bold text-tf-ink">{o.question}</dt>
               <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{o.answer}</dd>
             </div>
@@ -398,14 +430,14 @@ export default function HomePage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 10. FAQ                                                           */}
+      {/* 11. FAQ                                                           */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14">
         <FaqBlock items={faqs} />
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 11. FINAL CTA                                                     */}
+      {/* 12. FINAL CTA                                                     */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14">
         <CtaBand location="home_footer" />

@@ -83,7 +83,7 @@ export default function WebsiteExamplesPage() {
       <article>
         <Section className="pt-6 pb-10">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-dark">
+            <p className="tf-caps text-xs text-tf-brown-dark">
               First-party data · {resource.readingTime}
             </p>
             <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
@@ -176,7 +176,7 @@ export default function WebsiteExamplesPage() {
               },
             ].map((f) => (
               <div key={f.n} className="grid gap-3 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
-                <p className="font-tf-mono text-sm font-semibold text-tf-clay">{f.n}</p>
+                <p className="font-tf-mono text-sm font-semibold text-tf-brown">{f.n}</p>
                 <div>
                   <h3 className="font-tf-display text-lg font-bold text-tf-ink">{f.t}</h3>
                   <p className="mt-2 text-base leading-relaxed text-tf-ink-soft">{f.b}</p>
@@ -210,7 +210,7 @@ export default function WebsiteExamplesPage() {
                         href={b.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-tf-green-dark underline underline-offset-4"
+                        className="text-tf-brown-dark underline underline-offset-4"
                       >
                         {b.liveUrl.replace("https://", "")}
                       </a>
@@ -221,7 +221,7 @@ export default function WebsiteExamplesPage() {
                 {b.hasCaseStudy ? (
                   <Link
                     href={caseStudyPath(b.slug)}
-                    className="mt-3 inline-block text-sm font-semibold text-tf-green-dark underline underline-offset-4 hover:text-tf-green-darker"
+                    className="mt-3 inline-block text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
                   >
                     Read the full build
                   </Link>
@@ -322,7 +322,7 @@ export default function WebsiteExamplesPage() {
             timeZone: "UTC",
           })}
           . Figures are Tongfluence&rsquo;s own build data and are updated when a new build ships.{" "}
-          <Link href={PATHS.resources} className="underline underline-offset-4 hover:text-tf-green-dark">
+          <Link href={PATHS.resources} className="underline underline-offset-4 hover:text-tf-brown-dark">
             More resources
           </Link>
           .

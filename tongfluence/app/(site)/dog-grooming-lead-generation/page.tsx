@@ -151,13 +151,13 @@ export default function LeadGenerationPage() {
           ].map((s, i) => (
             <li key={s.step} className="rounded-2xl border border-tf-border bg-white p-5">
               <div className="flex items-baseline gap-3">
-                <span className="font-tf-mono text-xs font-semibold text-tf-clay">
+                <span className="font-tf-mono text-xs font-semibold text-tf-brown">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-tf-display text-base font-bold text-tf-ink">{s.step}</h3>
               </div>
               <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{s.what}</p>
-              <p className="mt-2 border-l-2 border-tf-clay/40 pl-3 text-sm leading-relaxed text-tf-ink">
+              <p className="mt-2 border-l-2 border-tf-brown/40 pl-3 text-sm leading-relaxed text-tf-ink">
                 <span className="font-semibold">Where it leaks: </span>
                 {s.leak}
               </p>
@@ -246,13 +246,13 @@ export default function LeadGenerationPage() {
         <p className="mt-6 text-sm leading-relaxed text-tf-ink-soft">
           The third one is set up as part of every build, and it is why the monthly conversation can be about
           appointments rather than about impressions. The ranking work that feeds it is on{" "}
-          <Link href={PATHS.seo} className="font-medium text-tf-green-dark underline underline-offset-4">
+          <Link href={PATHS.seo} className="font-medium text-tf-brown-dark underline underline-offset-4">
             dog groomer SEO
           </Link>
           ; the page-level conversion work is on{" "}
           <Link
             href={PATHS.websiteDesign}
-            className="font-medium text-tf-green-dark underline underline-offset-4"
+            className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
             grooming website design
           </Link>

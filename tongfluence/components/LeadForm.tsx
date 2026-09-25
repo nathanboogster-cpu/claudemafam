@@ -80,7 +80,7 @@ export function LeadForm() {
     return (
       <div
         role="status"
-        className="rounded-3xl border border-tf-green/40 bg-tf-green-wash p-8 text-center"
+        className="rounded-3xl border border-tf-brown/40 bg-tf-brown-wash p-8 text-center"
       >
         <h2 className="font-tf-display text-2xl font-bold text-tf-ink">Got it — thank you.</h2>
         <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-tf-ink-soft">
@@ -93,7 +93,7 @@ export function LeadForm() {
   }
 
   const inputClasses =
-    "mt-1.5 block w-full rounded-xl border border-tf-border-strong bg-white px-3.5 py-2.5 text-base text-tf-ink placeholder:text-tf-ink-soft focus:border-tf-green-dark focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-tf-green-dark";
+    "mt-1.5 block w-full rounded-xl border border-tf-border-strong bg-white px-3.5 py-2.5 text-base text-tf-ink placeholder:text-tf-ink-soft focus:border-tf-brown-dark focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-tf-brown-dark";
   const labelClasses = "block text-sm font-semibold text-tf-ink";
 
   return (
@@ -190,7 +190,7 @@ export function LeadForm() {
       </div>
 
       {status === "error" ? (
-        <p role="alert" className="mt-5 rounded-xl border border-tf-clay/40 bg-tf-clay-wash px-4 py-3 text-sm text-tf-ink">
+        <p role="alert" className="mt-5 rounded-xl border border-tf-warn/40 bg-tf-warn-wash px-4 py-3 text-sm text-tf-ink">
           {error}
         </p>
       ) : null}
@@ -198,7 +198,7 @@ export function LeadForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-tf-green-dark px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-tf-green-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark disabled:opacity-70 sm:w-auto"
+        className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-tf-brown-dark px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-tf-brown-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark disabled:opacity-70 sm:w-auto"
       >
         {status === "sending" ? "Sending…" : "Request a call"}
       </button>

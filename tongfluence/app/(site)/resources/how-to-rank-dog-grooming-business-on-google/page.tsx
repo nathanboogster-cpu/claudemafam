@@ -211,7 +211,7 @@ export default function HowToRankPage() {
       <article>
         <Section className="pt-6 pb-10">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-dark">
+            <p className="tf-caps text-xs text-tf-brown-dark">
               Guide · {resource.readingTime}
             </p>
             <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
@@ -248,9 +248,9 @@ export default function HowToRankPage() {
                 <li key={s.n}>
                   <a
                     href={`#step-${s.n}`}
-                    className="text-tf-ink-soft underline underline-offset-4 hover:text-tf-green-dark"
+                    className="text-tf-ink-soft underline underline-offset-4 hover:text-tf-brown-dark"
                   >
-                    <span className="font-tf-mono text-xs text-tf-clay">{s.n}</span> {s.title}
+                    <span className="font-tf-mono text-xs text-tf-brown">{s.n}</span> {s.title}
                   </a>
                 </li>
               ))}
@@ -262,7 +262,7 @@ export default function HowToRankPage() {
           <div className="space-y-12">
             {steps.map((s) => (
               <section key={s.n} id={`step-${s.n}`} aria-labelledby={`step-${s.n}-heading`} className="scroll-mt-24">
-                <p className="font-tf-mono text-sm font-semibold text-tf-clay">
+                <p className="font-tf-mono text-sm font-semibold text-tf-brown">
                   {s.n} · {s.time}
                 </p>
                 <h2
@@ -277,7 +277,7 @@ export default function HowToRankPage() {
                   ))}
                 </div>
                 <div className="mt-5 rounded-2xl border border-tf-border bg-white p-5">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-tf-ink-soft">Done when</p>
+                  <p className="tf-caps text-xs text-tf-ink-soft">Done when</p>
                   <div className="mt-3">
                     <Checklist items={s.checklist} />
                   </div>
@@ -359,7 +359,7 @@ export default function HowToRankPage() {
             timeZone: "UTC",
           })}
           .{" "}
-          <Link href={PATHS.resources} className="underline underline-offset-4 hover:text-tf-green-dark">
+          <Link href={PATHS.resources} className="underline underline-offset-4 hover:text-tf-brown-dark">
             More resources
           </Link>
           .

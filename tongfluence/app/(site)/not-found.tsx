@@ -9,7 +9,7 @@ import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 export default function NotFound() {
   return (
     <Section width="narrow" className="py-20 text-center">
-      <p className="font-tf-mono text-sm font-semibold text-tf-clay">404</p>
+      <p className="font-tf-mono text-sm font-semibold text-tf-brown">404</p>
       <h1 className="mt-3 font-tf-display text-3xl font-extrabold text-tf-ink sm:text-4xl">
         That page isn&rsquo;t here.
       </h1>
@@ -27,7 +27,7 @@ export default function NotFound() {
           <li key={item.href}>
             <Link
               href={item.href}
-              className="block rounded-2xl border border-tf-border bg-white p-4 hover:border-tf-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark"
+              className="block rounded-2xl border border-tf-border bg-white p-4 hover:border-tf-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
             >
               <span className="block font-semibold text-tf-ink">{item.label}</span>
               {item.description ? (

@@ -50,7 +50,7 @@ export function SectionHeading({
   return (
     <div className={alignment}>
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-dark">{eyebrow}</p>
+        <p className="tf-caps text-xs text-tf-brown-dark">{eyebrow}</p>
       ) : null}
       <Heading
         id={id}
@@ -72,8 +72,8 @@ export function SectionHeading({
 // needing the rest of the page around it.
 export function AnswerBlock({ children, label = "Short answer" }: { children: React.ReactNode; label?: string }) {
   return (
-    <div className="rounded-2xl border border-tf-border bg-tf-green-wash p-5 sm:p-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-darker">{label}</p>
+    <div className="rounded-2xl border border-tf-border bg-tf-brown-wash p-5 sm:p-6">
+      <p className="tf-caps text-xs text-tf-brown-darker">{label}</p>
       <div className="mt-2 text-base leading-relaxed text-tf-ink sm:text-lg">{children}</div>
     </div>
   );

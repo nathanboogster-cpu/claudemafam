@@ -57,6 +57,14 @@ export const business = {
   // Where lead-form submissions are emailed (app/api/lead/route.ts). Set via
   // env so a real inbox never has to be committed to the repo.
   leadNotificationEmail: process.env.LEAD_NOTIFICATION_EMAIL ?? "",
+  // Brand tagline, exactly as it appears on the logo lockup. Used as brand
+  // furniture in the footer and the share image — deliberately not as page
+  // copy, since the site's body writing is specific to grooming rather than
+  // general growth language.
+  tagline: "Grow your business. Dominate your market.",
+  // NOTE: the logo is not configured here. lib/brand-logo.ts detects the real
+  // artwork at public/images/logo.(png|jpg|svg) at build time and reads its
+  // dimensions from the file, so adding the logo needs no code change at all.
   // A public address visitors can write to if the form fails. Empty until a
   // real inbox is confirmed — the booking page and the form's error message
   // both check for it rather than telling people to "email us directly" with
@@ -111,6 +119,94 @@ export const offer = {
     },
   ],
 } as const;
+
+// ---------------------------------------------------------------------------
+// THE EXPLAINER VIDEO
+//
+// Hosted on Wistia. Only the media ID lives here — every URL is derived from
+// it, so swapping the video is a one-line change.
+//
+// NOTE: no VideoObject structured data is emitted for this. Google's
+// VideoObject requires a name, description, thumbnail and upload date, and
+// inventing an upload date to satisfy it would break the same rule the rest of
+// this site is built on. Supply the video's real title, description, upload
+// date and duration and it becomes worth adding — see README.
+// ---------------------------------------------------------------------------
+export const explainerVideo = {
+  wistiaMediaId: "9stn7byinq",
+  // The video's real title, as it is named in Wistia.
+  //
+  // NOTE — this title makes a performance claim ("2-3X"), and no other claim
+  // like it appears anywhere on this site. /about states plainly that nothing
+  // unmeasured is published. Publishing this title puts the two in conflict,
+  // visibly, on the same domain. It is used here because it is the asset's
+  // real name; see README "Open items" for the choice that needs making.
+  title: "How We Get 2-3X More Dog Grooming Appointments",
+  // What the video is, in our own words, for the VideoObject description.
+  description:
+    "A walkthrough of how Tongfluence works with a dog grooming business: the Google Business Profile setup, the website build, the review system, and the ongoing optimization after launch.",
+  // Verified from the Wistia library listing.
+  uploadDate: "2026-07-20",
+  durationSeconds: 422,
+  durationLabel: "7 min",
+  // ISO 8601 duration for schema.org.
+  get durationIso() {
+    const m = Math.floor(this.durationSeconds / 60);
+    const sec = this.durationSeconds % 60;
+    return `PT${m}M${sec}S`;
+  },
+  // 16:9. Used to reserve the space before the player defines, so the embed
+  // cannot shift the page.
+  aspectRatio: 16 / 9,
+  get swatchUrl() {
+    return `https://fast.wistia.com/embed/medias/${this.wistiaMediaId}/swatch`;
+  },
+  get embedUrl() {
+    return `https://fast.wistia.net/embed/iframe/${this.wistiaMediaId}`;
+  },
+  // Plain link for the no-JavaScript case, where the web component never
+  // upgrades and the visitor would otherwise be left staring at a blur.
+  get fallbackUrl() {
+    return `https://fast.wistia.net/embed/iframe/${this.wistiaMediaId}`;
+  },
+} as const;
+
+// ---------------------------------------------------------------------------
+// HEADLINE RESULT
+//
+// The explainer video is titled "How We Get 2-3X More Dog Grooming
+// Appointments". That is a performance claim, and this site's whole argument
+// is that it does not make performance claims it cannot show. So the claim
+// gets published the way every other number here is: with the metric, the
+// sample, the period, the source and the method beside it.
+//
+// This is null until that evidence exists. While it is null:
+//   * the claim appears only as the video's own title, nowhere in page copy;
+//   * /about and /case-studies keep their "we publish nothing unmeasured"
+//     wording, which is true.
+// The moment it is filled in, the claim renders beneath the video with its
+// evidence, and both of those pages soften their wording automatically — so
+// the site can never end up asserting one thing and doing another.
+//
+// TO FILL IN, every field is required. If one of them cannot be answered
+// honestly, the claim is not ready to publish.
+// ---------------------------------------------------------------------------
+export type HeadlineResult = {
+  /** The claim in plain words, e.g. "2-3x more booked appointments". */
+  claim: string;
+  /** Exactly what was counted, e.g. "booked appointments per month". */
+  metric: string;
+  /** Which businesses, and how many, e.g. "4 of 7 clients". */
+  sample: string;
+  /** Over what window, e.g. "the 90 days before vs. the 90 days after launch". */
+  period: string;
+  /** Where the number came from, e.g. "the client's booking system". */
+  source: string;
+  /** How it was calculated, and what it excludes. */
+  method: string;
+};
+
+export const headlineResult: HeadlineResult | null = null;
 
 // ---------------------------------------------------------------------------
 // ROUTES — every indexable URL on this site. Object.values() feeds the

@@ -1,34 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  /* Tongfluence palette. The brief calls for "specialized, credible, modern,
-     results-driven" and explicitly rules out the dark agency-bro aesthetic and
-     neon SaaS gradients — so this is a light, editorial system: warm paper
-     ground, near-black ink, one confident green as the growth/action colour,
-     and a clay accent used sparingly for numbering and emphasis. */
-  --color-tf-paper: #faf9f6;
-  --color-tf-paper-deep: #f2efe8;
+  /* ---------------------------------------------------------------------
+     TONGFLUENCE PALETTE — taken from the brand logo.
+
+     The logo is a two-colour system: a warm near-black and a rich chocolate
+     brown, set on warm off-white, with a lighter bronze used for secondary
+     detail. The wordmark splits across the two ("TONG" black, "FLUENCE"
+     brown), and the whole lockup is built from hairline rules and wide
+     letter-spaced caps. Everything below follows from that.
+     --------------------------------------------------------------------- */
+  --color-tf-paper: #f6f3ee;
+  --color-tf-paper-deep: #ece5da;
   --color-tf-white: #ffffff;
-  --color-tf-ink: #15181c;
-  /* Body/secondary text. 7.0:1 on --color-tf-paper, so it clears AAA for
-     normal text and never needs a size exception. */
-  --color-tf-ink-soft: #4b535d;
-  /* Primary action colour. -green is decorative only (icons, rules, accents);
-     -green-dark is text/fill-safe (≥4.5:1 as text on paper, ≥5:1 as a button
-     fill under white text); -green-darker is the hover state. */
-  --color-tf-green: #1f8a63;
-  --color-tf-green-dark: #10684a;
-  --color-tf-green-darker: #0a4d37;
-  --color-tf-green-wash: #eaf5f0;
-  /* The on-dark counterpart: --color-tf-green is only 4.13:1 against
-     --color-tf-ink, so anything set in green on a dark panel uses this
-     instead (5.9:1 on ink). */
-  --color-tf-green-on-dark: #2ea87a;
-  /* Clay accent — section numbering, data callouts, chart bars. Text-safe. */
-  --color-tf-clay: #a8482a;
-  --color-tf-clay-wash: #fbf0eb;
-  --color-tf-border: #e4e0d7;
-  --color-tf-border-strong: #cfc9bc;
+
+  /* Warm near-black, as in the "TONG" half of the wordmark. */
+  --color-tf-ink: #1f1b18;
+  /* Body and secondary text. 7.36:1 on paper — AAA at any size. */
+  --color-tf-ink-soft: #564e47;
+
+  /* The brown family, from the "FLUENCE" half of the wordmark.
+     -brown is the accent used for section numbering and small emphasis
+     (5.28:1 on paper, 4.67:1 on paper-deep — AA everywhere it is used).
+     -brown-dark is the link and button colour (7.58:1 on paper, 8.39:1 as a
+     fill under white text). -brown-darker is the hover state. */
+  --color-tf-brown: #8a5a33;
+  --color-tf-brown-dark: #6b4526;
+  --color-tf-brown-darker: #4e3119;
+  --color-tf-brown-wash: #f2e9de;
+
+  /* Bronze — the lighter tone in the logo's lower rule. Decorative only on
+     light backgrounds (3.58:1); -light is its on-dark counterpart and is
+     text-safe against --color-tf-ink at 6.57:1. */
+  --color-tf-bronze: #a07850;
+  --color-tf-bronze-light: #c69863;
+
+  /* Caution. Kept inside the warm family rather than introducing a red the
+     brand does not have — used for the policy-risk callouts and form errors. */
+  --color-tf-warn: #8c4a2f;
+  --color-tf-warn-wash: #f7ebe4;
+
+  --color-tf-border: #e2dace;
+  --color-tf-border-strong: #c9bdac;
 }
 
 @theme inline {
@@ -37,17 +50,21 @@
   --color-tf-white: var(--color-tf-white);
   --color-tf-ink: var(--color-tf-ink);
   --color-tf-ink-soft: var(--color-tf-ink-soft);
-  --color-tf-green: var(--color-tf-green);
-  --color-tf-green-dark: var(--color-tf-green-dark);
-  --color-tf-green-darker: var(--color-tf-green-darker);
-  --color-tf-green-wash: var(--color-tf-green-wash);
-  --color-tf-green-on-dark: var(--color-tf-green-on-dark);
-  --color-tf-clay: var(--color-tf-clay);
-  --color-tf-clay-wash: var(--color-tf-clay-wash);
+  --color-tf-brown: var(--color-tf-brown);
+  --color-tf-brown-dark: var(--color-tf-brown-dark);
+  --color-tf-brown-darker: var(--color-tf-brown-darker);
+  --color-tf-brown-wash: var(--color-tf-brown-wash);
+  --color-tf-bronze: var(--color-tf-bronze);
+  --color-tf-bronze-light: var(--color-tf-bronze-light);
+  --color-tf-warn: var(--color-tf-warn);
+  --color-tf-warn-wash: var(--color-tf-warn-wash);
   --color-tf-border: var(--color-tf-border);
   --color-tf-border-strong: var(--color-tf-border-strong);
+
+  /* Archivo is the closest widely-available match to the logo's squared,
+     industrial grotesque wordmark. Inter carries body copy. */
   --font-tf-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-tf-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-tf-display: var(--font-archivo), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-tf-mono: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
 }
 
@@ -70,7 +87,15 @@ body {
   font-family: var(--font-tf-mono);
 }
 
-/* Long-form editorial body copy used on the guide and resource pages. */
+/* The logo sets its tagline and pillar labels in widely-tracked caps. This is
+   that treatment, used for eyebrows and small labels across the site. */
+.tf-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+}
+
+/* Long-form editorial body copy on the guide and resource pages. */
 .tf-prose p {
   margin-top: 1rem;
   line-height: 1.75;
@@ -84,6 +109,44 @@ body {
 .tf-prose strong {
   color: var(--color-tf-ink);
   font-weight: 600;
+}
+
+/* Hairline vertical dividers between items in a row — the device the logo
+   uses to separate its four pillars. Collapses to a horizontal rule on
+   narrow screens, where a vertical one would have nothing to divide. */
+.tf-ruled > * + * {
+  border-top: 1px solid var(--color-tf-border);
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .tf-ruled > * + * {
+    border-top: 0;
+    padding-top: 0;
+    border-left: 1px solid var(--color-tf-border);
+    padding-left: 1.5rem;
+  }
+}
+
+/* The explainer video's container. Before <wistia-player> upgrades, the
+   element has no size of its own, so the wrapper holds the 16:9 box and shows
+   the video's poster frame — blurred, as Wistia's own embed does — which keeps
+   the embed from ever shifting the page. Once the component is defined it
+   fills the box and the poster is irrelevant. */
+.tf-video {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.tf-video > wistia-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tf-video > wistia-player:not(:defined) {
+  filter: blur(5px);
 }
 
 @media (prefers-reduced-motion: reduce) {

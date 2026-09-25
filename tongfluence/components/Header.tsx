@@ -3,7 +3,7 @@ import { PATHS, serviceNav, proofNav, business } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { NavDropdown } from "./NavDropdown";
 import { BookCallButton } from "./CTAButton";
-import { TongfluenceMark } from "./icons";
+import { Logo } from "./Logo";
 
 export function Header() {
   return (
@@ -11,10 +11,10 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
         <Link
           href={PATHS.home}
-          className="flex shrink-0 items-center gap-2.5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tf-green-dark"
+          aria-label={`${business.name} — home`}
+          className="shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tf-brown-dark"
         >
-          <TongfluenceMark className="h-8 w-8 text-tf-green-dark" />
-          <span className="font-tf-display text-lg font-bold text-tf-ink">{business.name}</span>
+          <Logo />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
@@ -22,19 +22,19 @@ export function Header() {
           <NavDropdown label="Proof" items={proofNav} />
           <Link
             href={PATHS.caseStudies}
-            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-green-dark"
+            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
           >
             Case Studies
           </Link>
           <Link
             href={PATHS.resources}
-            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-green-dark"
+            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
           >
             Resources
           </Link>
           <Link
             href={PATHS.about}
-            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-green-dark"
+            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
           >
             About
           </Link>

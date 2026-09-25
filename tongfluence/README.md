@@ -53,9 +53,12 @@ npm run lint    # eslint
 
 ## Structure
 
+- `app/globals.css` — the design system, derived from the brand logo: a
+  warm near-black and a chocolate brown on warm off-white, with the
+  contrast ratio of every text-bearing pair recorded in the comments.
 - `lib/site-data.ts` — single source of truth for every fact published on
-  this site: the offer, the inclusions, the FAQ, the objections, the nav.
-  Change facts here, never in a page.
+  this site: the offer, the inclusions, the FAQ, the objections, the nav,
+  and the brand tagline and logo path. Change facts here, never in a page.
 - `lib/client-builds.ts` — the first-party dataset behind every proof
   claim: page composition of the seven real grooming builds, with a note
   on how each number was derived so any reader can re-verify it.
@@ -119,14 +122,54 @@ and documented where they bite:
 5. **Form backend.** Set `RESEND_API_KEY` and `LEAD_NOTIFICATION_EMAIL`
    before launch. Until then the form reports a clear error; it never
    pretends to have sent.
-6. **Real screenshots.** Every proof asset here is currently text: page
+6. **A vector logo, when there is one.** The site uses the real logo
+   artwork, cut out of the supplied raster file and cropped into the
+   variants the web needs — see `public/images/`:
+
+   | File | Used for |
+   | --- | --- |
+   | `logo-horizontal.png` | Header. Mark and wordmark side by side. |
+   | `logo-lockup.png` | Footer. The stacked lockup as supplied. |
+   | `logo-mark.png` | The emblem alone, for square contexts. |
+   | `logo-favicon.png` | Tab icon. A tighter crop onto the TF. |
+
+   The horizontal variant exists because the supplied lockup is stacked, and
+   scaled to fit a 64px header bar its wordmark lands about five pixels
+   tall. The favicon is a tighter crop for the same reason: the arc, swoosh
+   and bars are the first things to disappear at 16px.
+
+   If a vector export (`.svg`) ever exists it is worth dropping in —
+   `lib/brand-logo.ts` prefers `logo-*.svg` over the PNG automatically and
+   reads dimensions from the file, so replacing artwork needs no code
+   change. The current PNGs were cut from a JPEG, so their edges carry
+   whatever the JPEG had.
+
+7. **The evidence behind "2-3X".** The homepage explainer is titled *How
+   We Get 2-3X More Dog Grooming Appointments*, and that title is published
+   in the page's `VideoObject` structured data. It is the only performance
+   claim anywhere on this site, and it currently has nothing behind it.
+
+   `headlineResult` in `lib/site-data.ts` is the slot for that evidence. It
+   needs five things, all required: the **metric** (exactly what was
+   counted), the **sample** (which businesses, how many), the **period**
+   (the before and after windows), the **source** (where the number came
+   from), and the **method** (how it was calculated and what it excludes).
+
+   While it is `null`, the claim appears only as the video's own title and
+   `/about` and `/case-studies` keep their "we publish nothing unmeasured"
+   wording — which is true. Fill it in and the claim renders beneath the
+   video with its evidence, and both of those pages soften their wording
+   automatically. The site cannot end up asserting one thing and doing
+   another, whichever state it is in.
+
+8. **Real screenshots.** Every proof asset here is currently text: page
    counts, structure, decisions. Real Search Console and Google Business
    Profile screenshots, and before/after website captures, would make the
    case studies substantially stronger. Add them alongside the numbers,
    not instead of them.
-7. **Connect Google Search Console** on launch, submit `/sitemap.xml`, and
+9. **Connect Google Search Console** on launch, submit `/sitemap.xml`, and
    verify indexing. Then leave it roughly 28 days before reading anything
    into the data. `SEO-PLAN.md` documents the loop after that.
-8. **Legal review.** `/privacy` and `/terms` describe what the site and
+10. **Legal review.** `/privacy` and `/terms` describe what the site and
    the service actually do, and they match the FAQ. They have not been
    reviewed by a lawyer.

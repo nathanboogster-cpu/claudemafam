@@ -9,11 +9,11 @@ type Variant = "primary" | "secondary" | "quiet";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-tf-green-dark text-white hover:bg-tf-green-darker focus-visible:outline-tf-green-dark shadow-sm",
+    "bg-tf-brown-dark text-white hover:bg-tf-brown-darker focus-visible:outline-tf-brown-dark shadow-sm",
   secondary:
     "bg-white text-tf-ink border border-tf-border-strong hover:bg-tf-paper-deep focus-visible:outline-tf-ink",
   quiet:
-    "bg-transparent text-tf-green-dark hover:text-tf-green-darker underline underline-offset-4 decoration-tf-green/40 hover:decoration-tf-green-darker focus-visible:outline-tf-green-dark px-0 py-0 shadow-none",
+    "bg-transparent text-tf-brown-dark hover:text-tf-brown-darker underline underline-offset-4 decoration-tf-brown/40 hover:decoration-tf-brown-darker focus-visible:outline-tf-brown-dark px-0 py-0 shadow-none",
 };
 
 const base =

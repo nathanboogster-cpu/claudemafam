@@ -46,7 +46,7 @@ export default function BookPage() {
       <Section className="pt-6 pb-12">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-dark">
+            <p className="tf-caps text-xs text-tf-brown-dark">
               Book a call
             </p>
             <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl">
@@ -67,7 +67,7 @@ export default function BookPage() {
                 "A straight answer on whether this is worth $297 a month for your business.",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-tf-ink-soft">
-                  <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-green-dark" />
+                  <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-brown-dark" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -80,7 +80,7 @@ export default function BookPage() {
               written up in{" "}
               <Link
                 href="/resources/how-to-rank-dog-grooming-business-on-google"
-                className="font-medium text-tf-green-dark underline underline-offset-4"
+                className="font-medium text-tf-brown-dark underline underline-offset-4"
               >
                 our guide to ranking a grooming business on Google
               </Link>
@@ -97,7 +97,7 @@ export default function BookPage() {
                   Prefer email? Write to{" "}
                   <a
                     href={`mailto:${business.publicContactEmail}`}
-                    className="font-medium text-tf-green-dark underline underline-offset-4"
+                    className="font-medium text-tf-brown-dark underline underline-offset-4"
                   >
                     {business.publicContactEmail}
                   </a>
@@ -130,7 +130,7 @@ export default function BookPage() {
         />
         <dl className="mt-8 space-y-6">
           {objections.map((o) => (
-            <div key={o.question} className="border-l-2 border-tf-clay/40 pl-5">
+            <div key={o.question} className="border-l-2 border-tf-brown/40 pl-5">
               <dt className="font-tf-display text-lg font-bold text-tf-ink">{o.question}</dt>
               <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{o.answer}</dd>
             </div>
@@ -147,7 +147,7 @@ export default function BookPage() {
           intro={
             <>
               The rest of the questions are answered on{" "}
-              <Link href={PATHS.home} className="font-medium text-tf-green-dark underline underline-offset-4">
+              <Link href={PATHS.home} className="font-medium text-tf-brown-dark underline underline-offset-4">
                 the homepage FAQ
               </Link>
               .

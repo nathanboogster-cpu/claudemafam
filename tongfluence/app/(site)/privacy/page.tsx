@@ -94,7 +94,7 @@ export default function PrivacyPage() {
 
         <p className="mt-10 border-t border-tf-border pt-6 text-sm leading-relaxed text-tf-ink-soft">
           Questions about any of this, or a request to delete something, can go through{" "}
-          <Link href={PATHS.book} className="font-medium text-tf-green-dark underline underline-offset-4">
+          <Link href={PATHS.book} className="font-medium text-tf-brown-dark underline underline-offset-4">
             the contact form
           </Link>
           .
