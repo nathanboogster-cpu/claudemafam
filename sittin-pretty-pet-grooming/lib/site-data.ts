@@ -4,12 +4,13 @@
 // data. Do not add facts beyond what's listed there — see the "Not yet
 // verified" notes throughout for everything still outstanding before launch.
 
-// Own standalone Vercel project/domain (a sibling to the other unrelated
-// apps in this monorepo). Set NEXT_PUBLIC_SITE_URL once a custom domain is
-// attached; until then this falls back to the default Vercel-assigned
-// project URL.
+// Own standalone Vercel project (a sibling to the other unrelated apps in
+// this monorepo), served on the business's own domain. Every absolute URL
+// on the site (canonicals, sitemap, schema, OG tags) derives from this, so
+// the www host here must match the primary domain set in Vercel.
+// NEXT_PUBLIC_SITE_URL only exists to override it for a preview/staging build.
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://sittin-pretty-pet-grooming.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sittinprettypetgrooming.com";
 
 export const business = {
   name: "Sittin' Pretty Pet Grooming",
