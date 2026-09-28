@@ -363,6 +363,59 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "dog-bath-and-brush", "cat-grooming"],
   },
+  {
+    slug: "getting-your-pets-coat-ready-for-cold-weather",
+    title: "Getting Your Pet's Coat and Paws Ready for Cold Weather",
+    metaDescription:
+      "Should you let your dog's coat grow out for winter? What cold weather, snow, and road salt mean for dog and cat coats and paws, and how to adjust grooming for the season.",
+    excerpt:
+      "Colder months change what a coat and paws need. Here's how to adjust grooming for winter without overdoing it or letting things slide.",
+    eyebrow: "Seasonal Care",
+    publishedAt: "2026-09-28",
+    heroPhotoKey: "tricolorDogBandana",
+    body: [
+      {
+        type: "p",
+        text: "As fall turns to winter around Hagerstown and the rest of Washington County, a lot of pet owners wonder whether they should change their dog's or cat's grooming routine. The short answer is yes, a little. Cold, wet weather, snow, road salt, and dry indoor heat all affect coats and paws differently than summer does. The goal isn't to stop grooming for the season; it's to groom for the conditions.",
+      },
+      { type: "h2", text: "Should You Let the Coat Grow Out?" },
+      {
+        type: "p",
+        text: "For many dogs, leaving the coat a bit longer through winter makes sense, but longer isn't automatically warmer if the coat isn't maintained. A long coat that's matted doesn't insulate well: mats hold moisture against the skin and leave gaps where the coat can't loft. A slightly longer, well-brushed coat does the job better than a long, neglected one.",
+      },
+      {
+        type: "list",
+        items: [
+          "Double-coated breeds (Huskies, Malamutes, Shepherds) are built for cold, so their undercoat does the work. Keeping loose undercoat brushed out helps it insulate properly rather than packing down.",
+          "Curly and continuously growing coats (Poodles, Doodles, Bichons) still grow all winter and still mat, so regular grooms matter just as much in January as in July. Many owners simply ask for a slightly longer trim.",
+          "Short, single-coated dogs don't gain much from skipping grooms, and small or thin-coated breeds may be more comfortable in a sweater on the coldest walks.",
+        ],
+      },
+      { type: "h2", text: "Paws Take the Brunt of Winter" },
+      {
+        type: "p",
+        text: "Paws deal with snow, ice, and the salt and de-icer spread on sidewalks and roads. A few habits help a lot:",
+      },
+      {
+        type: "list",
+        items: [
+          "Wipe paws with a damp cloth after walks on salted surfaces, since salt and de-icers can dry and irritate the pads, and dogs will lick them off.",
+          "Keep the fur between the paw pads short. Long fur there collects snowballs and ice clumps that pull on the skin, and it holds onto salt. It's an easy thing to mention at your pet's next groom.",
+          "Keep an eye on nail length. Dogs often walk less on hard pavement in winter, so nails wear down less on their own and can get long faster than you expect.",
+        ],
+      },
+      { type: "h2", text: "Baths and Dry Indoor Air" },
+      {
+        type: "p",
+        text: "Winter baths are fine as long as your pet is dried completely, down to the skin, before going back out into the cold. A damp undercoat stays cold for a long time. Dry indoor heat can also leave some dogs and cats with flaky skin or static-prone coats; regular brushing helps spread natural oils, and over-bathing can make dryness worse. Cats, especially long-haired ones who spend more time curled up indoors, can develop mats in their belly and armpit fur during the colder months, so it's worth checking them too.",
+      },
+      {
+        type: "p",
+        text: "If you'd like a coat or paws looked at before the cold really sets in, call our Funkstown salon. We've been grooming dogs and cats for the Hagerstown area through more than 40 winters, and we're happy to talk through what your pet's coat needs this season.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "deshedding-treatment", "nail-trim-ear-cleaning"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
