@@ -343,6 +343,56 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: "dog-ear-care-basics",
+    title: "Dog Ear Care 101: What's Normal, and When to Get It Checked",
+    description:
+      "Ears are easy to overlook between grooms, but they're one of the fastest things to go from fine to uncomfortable. Here's what healthy ears look like and what's worth flagging.",
+    publishedDate: "2026-09-28",
+    readMinutes: 4,
+    sections: [
+      {
+        paragraphs: [
+          "Ears don't get the same attention as a coat or nails — there's no visible mat, no audible click on the floor to remind you. But ear issues can develop quickly, and a dog's floppy or hairy ear shape (common in breeds like Cocker Spaniels, Poodles, and many mixed breeds) can trap moisture and reduce airflow in a way that makes them more prone to irritation than a dog with upright, open ears.",
+        ],
+      },
+      {
+        heading: "What healthy ears look like",
+        paragraphs: ["A quick look is usually enough to tell if things are normal:"],
+        bullets: [
+          "Pale pink skin inside the ear, without redness or swelling",
+          "Little to no odor",
+          "Minimal wax buildup, and no dark, coffee-ground-like debris",
+          "Your dog isn't bothered by having the ear touched or lifted",
+        ],
+      },
+      {
+        heading: "Signs worth paying attention to",
+        paragraphs: [
+          "None of these mean something is definitely wrong, but they're worth watching closely and are reasonable to bring up with a vet if they don't clear up on their own:",
+        ],
+        bullets: [
+          "A noticeable odor, even if the ear looks okay otherwise",
+          "Redness, swelling, or heat inside the ear",
+          "Dark discharge or a buildup that looks like coffee grounds",
+          "Frequent head shaking or scratching at one ear more than the other",
+          "Sensitivity or discomfort when the ear is touched",
+        ],
+      },
+      {
+        heading: "Why regular ear cleaning helps",
+        paragraphs: [
+          "Routine cleaning removes everyday wax and debris before it has a chance to build up, which is part of why it's worth doing on a schedule rather than only when something looks off. Ear cleaning is included as part of every groom at Pet Spa Luxe — both the Essential Bath and Full Dog Grooming packages — and it's also part of the standalone Nail Care & Ear Cleaning visit for dogs who don't need a full bath or haircut but are due for a check.",
+        ],
+      },
+      {
+        heading: "When it's more than a routine cleaning",
+        paragraphs: [
+          "A groomer can clean the visible, outer part of the ear safely, but going deeper — or treating an ear that's already red, swollen, or clearly bothering your dog — is a job for a vet, not a grooming appointment. If you notice any of the signs above and they don't resolve after a routine cleaning, that's the point to have a vet take a look rather than waiting for the next scheduled groom.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "puppy-first-grooming-guide",
     title: "When Should You Start Grooming a Puppy?",
     description:
