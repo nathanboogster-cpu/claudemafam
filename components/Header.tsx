@@ -28,8 +28,14 @@ export function Header() {
           </Link>
           <NavDropdown label="Services" items={serviceNav} />
           <NavDropdown label="Service Areas" items={areaNavLinks} />
+          <Link href={PATHS.membership} className="hover:text-terracotta-dark whitespace-nowrap">
+            Membership
+          </Link>
           <Link href={PATHS.gallery} className="hover:text-terracotta-dark whitespace-nowrap">
             Gallery
+          </Link>
+          <Link href={PATHS.blog} className="hover:text-terracotta-dark whitespace-nowrap">
+            Blog
           </Link>
           <Link href={PATHS.reviews} className="hover:text-terracotta-dark whitespace-nowrap">
             Reviews

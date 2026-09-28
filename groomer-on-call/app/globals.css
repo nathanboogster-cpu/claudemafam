@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  /* ---------------------------------------------------------------------
+     Palette derived from the real Groomer On Call brand: bright magenta /
+     hot pink, orange, black, and cream/tan.
+
+     Contrast discipline — every value below has been checked against the
+     surface it is actually used on:
+       *-magenta / *-orange   decorative only (icon fills, borders, rules,
+                              large display type on dark). Never a button
+                              fill under white text, never body copy.
+       *-magenta-dark         AA (6.1:1) under white text — primary button.
+       *-magenta-darker       AA (8.1:1) on cream — link and accent text.
+       *-orange-dark          AA (5.2:1) on cream — accent text.
+     --------------------------------------------------------------------- */
+  --color-goc-cream: #fff7ef;
+  --color-goc-cream-deep: #ffe9d8;
+  --color-goc-ink: #171215;
+  --color-goc-ink-soft: #5b4f55;
+  --color-goc-magenta: #ec008c;
+  --color-goc-magenta-dark: #c0006f;
+  --color-goc-magenta-darker: #96005a;
+  --color-goc-orange: #fb8b24;
+  --color-goc-orange-dark: #a84e00;
+  --color-goc-border: #f3dfcd;
+  --color-goc-white: #ffffff;
+}
+
+@theme inline {
+  --color-goc-cream: var(--color-goc-cream);
+  --color-goc-cream-deep: var(--color-goc-cream-deep);
+  --color-goc-ink: var(--color-goc-ink);
+  --color-goc-ink-soft: var(--color-goc-ink-soft);
+  --color-goc-magenta: var(--color-goc-magenta);
+  --color-goc-magenta-dark: var(--color-goc-magenta-dark);
+  --color-goc-magenta-darker: var(--color-goc-magenta-darker);
+  --color-goc-orange: var(--color-goc-orange);
+  --color-goc-orange-dark: var(--color-goc-orange-dark);
+  --color-goc-border: var(--color-goc-border);
+  --color-goc-white: var(--color-goc-white);
+  /* Geometric, heavy-weight display for headlines; humanist sans for copy.
+     Bold and friendly without tipping into cartoon. */
+  --font-goc-display: var(--font-outfit), "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-goc-sans: var(--font-jakarta), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-goc-cream);
+  color: var(--color-goc-ink);
+  font-family: var(--font-goc-sans);
+}
+
+.font-goc-display {
+  font-family: var(--font-goc-display);
+  letter-spacing: -0.02em;
+}
+
+.font-goc-sans {
+  font-family: var(--font-goc-sans);
+}
+
+/* Reserve space so the sticky mobile call bar never covers page content. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* A visible, consistent focus ring on every interactive element. Uses
+   :focus-visible so it appears for keyboard users without adding a ring on
+   every mouse click. */
+:focus-visible {
+  outline: 3px solid var(--color-goc-magenta-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* On dark surfaces the magenta ring is too low-contrast to see — switch to
+   a bright ring inside any element marked as a dark surface. */
+.goc-dark :focus-visible {
+  outline-color: var(--color-goc-orange);
+}
+
+/* Soft decorative color blobs dropped behind hero and CTA content for
+   depth. Pure CSS — no image weight, no layout impact. */
+.goc-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* The brand's signature motif: a dashed "route" line, referencing a groomer
+   travelling to the customer. Decorative, drawn in CSS. */
+.goc-route {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-goc-orange) 0,
+    var(--color-goc-orange) 14px,
+    transparent 14px,
+    transparent 26px
+  );
+  height: 3px;
+  border-radius: 999px;
+}
+
+/* Low-opacity repeating paw texture for section backgrounds. Inline SVG
+   data URI — one tiny gradient-free asset, no network request. */
+.goc-paw-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='%23171215' fill-opacity='0.032'%3E%3Cellipse cx='36' cy='45' rx='10' ry='8'/%3E%3Cellipse cx='24' cy='31' rx='4.5' ry='5.6'/%3E%3Cellipse cx='48' cy='31' rx='4.5' ry='5.6'/%3E%3Cellipse cx='30' cy='22' rx='3.8' ry='4.8'/%3E%3Cellipse cx='42' cy='22' rx='3.8' ry='4.8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.goc-paw-pattern-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cellipse cx='36' cy='45' rx='10' ry='8'/%3E%3Cellipse cx='24' cy='31' rx='4.5' ry='5.6'/%3E%3Cellipse cx='48' cy='31' rx='4.5' ry='5.6'/%3E%3Cellipse cx='30' cy='22' rx='3.8' ry='4.8'/%3E%3Cellipse cx='42' cy='22' rx='3.8' ry='4.8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* A single rise-and-fade for above-the-fold content. Runs once, never
+   loops, and is skipped entirely when the visitor prefers reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .goc-rise {
+    animation: goc-rise 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .goc-rise-1 {
+    animation-delay: 0.07s;
+  }
+  .goc-rise-2 {
+    animation-delay: 0.14s;
+  }
+  .goc-rise-3 {
+    animation-delay: 0.21s;
+  }
+}
+
+@keyframes goc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

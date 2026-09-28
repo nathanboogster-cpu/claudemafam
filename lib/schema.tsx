@@ -99,6 +99,30 @@ export function faqSchema(qa: { question: string; answer: string }[]) {
   };
 }
 
+export function articleSchema(opts: {
+  pageUrl: string;
+  title: string;
+  description: string;
+  datePublished: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.title,
+    description: opts.description,
+    url: opts.pageUrl,
+    datePublished: opts.datePublished,
+    author: {
+      "@type": "Person",
+      name: "Ellen Flores Karikari",
+    },
+    publisher: {
+      "@type": "LocalBusiness",
+      name: business.name,
+    },
+  };
+}
+
 export function JsonLd({ data }: { data: object }) {
   return (
     <script

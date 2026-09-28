@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  /* Palette sampled from the real Flo's Happy Clipper logo (a circular
+     badge: sky-blue ring, pink center, navy poodle outline/wordmark, cream
+     ground, green leaf accents — see public/images/logo.jpg). "-dark"/
+     "-darker" are the WCAG AA text-safe variants for body copy and button
+     fills; the base pink/blue are decorative only (icon fills, borders,
+     small accents, never body text or a button fill under white text). */
+  --color-fh-cream: #fdf5ea;
+  --color-fh-cream-deep: #fbe4ec;
+  --color-fh-ink: #22305c;
+  --color-fh-ink-soft: #52608a;
+  --color-fh-pink: #f3b8ce;
+  --color-fh-pink-dark: #b23a63;
+  --color-fh-pink-darker: #8a2c4d;
+  --color-fh-blue: #9ed3ea;
+  --color-fh-blue-dark: #2c6f8e;
+  --color-fh-white: #ffffff;
+  --color-fh-border: #f6d9e2;
+}
+
+@theme inline {
+  --color-fh-cream: var(--color-fh-cream);
+  --color-fh-cream-deep: var(--color-fh-cream-deep);
+  --color-fh-ink: var(--color-fh-ink);
+  --color-fh-ink-soft: var(--color-fh-ink-soft);
+  --color-fh-pink: var(--color-fh-pink);
+  --color-fh-pink-dark: var(--color-fh-pink-dark);
+  --color-fh-pink-darker: var(--color-fh-pink-darker);
+  --color-fh-blue: var(--color-fh-blue);
+  --color-fh-blue-dark: var(--color-fh-blue-dark);
+  --color-fh-white: var(--color-fh-white);
+  --color-fh-border: var(--color-fh-border);
+  /* Playful rounded display (matches the logo's wordmark), friendly rounded sans. */
+  --font-fh-sans: var(--font-nunito), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-fh-display: var(--font-baloo), "Segoe UI", ui-rounded, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-fh-cream);
+  color: var(--color-fh-ink);
+  font-family: var(--font-fh-sans);
+}
+
+.font-fh-display {
+  font-family: var(--font-fh-display);
+}
+
+.font-fh-sans {
+  font-family: var(--font-fh-sans);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}
+
+/* Soft decorative color blobs — dropped behind hero/CTA content for depth.
+   Pure CSS, no images, no layout impact (absolutely positioned + blurred). */
+.fh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A gentle one-shot rise-and-fade for above-the-fold content. Runs once on
+   load, never loops, and is skipped entirely for reduced-motion users. */
+@media (prefers-reduced-motion: no-preference) {
+  .fh-rise {
+    animation: fh-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .fh-rise-delay-1 {
+    animation-delay: 0.08s;
+  }
+  .fh-rise-delay-2 {
+    animation-delay: 0.16s;
+  }
+}
+
+@keyframes fh-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle paw-print pattern for section backgrounds — a repeating inline SVG
+   data URI, very low opacity, purely decorative texture. */
+.fh-paw-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='%2322305c' fill-opacity='0.035'%3E%3Cellipse cx='32' cy='40' rx='9' ry='7'/%3E%3Cellipse cx='22' cy='28' rx='4' ry='5'/%3E%3Cellipse cx='42' cy='28' rx='4' ry='5'/%3E%3Cellipse cx='27' cy='20' rx='3.4' ry='4.4'/%3E%3Cellipse cx='37' cy='20' rx='3.4' ry='4.4'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}

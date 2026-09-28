@@ -11,7 +11,7 @@ const pageUrl = `${SITE_URL}${PATHS.reviews}`;
 export const metadata: Metadata = {
   title: "Reviews | Pampered Puppies Dog & Cat Grooming, Victorville CA",
   description:
-    "Pampered Puppies has hundreds of 5-star Google reviews. Read real client testimonials about Ellen Karikari's dog & cat grooming in Victorville, CA.",
+    "Pampered Puppies has hundreds of 5-star Google reviews. Read real client testimonials about Ellen Flores Karikari's dog & cat grooming in Victorville, CA.",
   alternates: { canonical: PATHS.reviews },
 };
 

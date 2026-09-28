@@ -12,7 +12,9 @@ import {
 const companyLinks = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
+  { label: "VIP Membership", href: PATHS.membership },
   { label: "Gallery", href: PATHS.gallery },
+  { label: "Blog", href: PATHS.blog },
   { label: "Reviews", href: PATHS.reviews },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },

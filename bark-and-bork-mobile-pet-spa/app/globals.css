@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  /* Palette sampled directly from the real Bark and Bork logo/brand assets
+     (business card + flyer): pastel pink ground, a vivid magenta CTA color,
+     and warm mocha-brown ink text — matching the "dog & cat in a bubble
+     bath" logo mark. Coral/pink "-dark" variants are the text-safe, WCAG AA
+     versions for body text and button fills; the base coral is
+     decorative-only (icon fills, borders, small accents). */
+  --color-bb-cream: #fff2f2;
+  --color-bb-cream-deep: #f5d6e0;
+  --color-bb-ink: #4a2a1f;
+  --color-bb-ink-soft: #7a5c4e;
+  /* Decorative use only — not for body text or button fills with white text.
+     Sampled from the "BARK & BORK" wordmark fill on the business card. */
+  --color-bb-coral: #f48eb8;
+  /* Text-safe as body text on light backgrounds AND as a button fill under
+     white text (4.5:1+). Close to the logo's "Mobile Pet Spa" magenta
+     (#ea307f), darkened slightly to clear WCAG AA. */
+  --color-bb-coral-dark: #d1206b;
+  /* Sampled directly from the business card's phone-number text color. */
+  --color-bb-coral-darker: #7a004b;
+  --color-bb-teal: #4fb8ab;
+  --color-bb-teal-dark: #146b60;
+  --color-bb-white: #ffffff;
+  --color-bb-border: #f2d0dc;
+}
+
+@theme inline {
+  --color-bb-cream: var(--color-bb-cream);
+  --color-bb-cream-deep: var(--color-bb-cream-deep);
+  --color-bb-ink: var(--color-bb-ink);
+  --color-bb-ink-soft: var(--color-bb-ink-soft);
+  --color-bb-coral: var(--color-bb-coral);
+  --color-bb-coral-dark: var(--color-bb-coral-dark);
+  --color-bb-coral-darker: var(--color-bb-coral-darker);
+  --color-bb-teal: var(--color-bb-teal);
+  --color-bb-teal-dark: var(--color-bb-teal-dark);
+  --color-bb-white: var(--color-bb-white);
+  --color-bb-border: var(--color-bb-border);
+  /* Premium editorial serif display, clean humanist sans for UI/body. */
+  --font-bb-sans: var(--font-manrope), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-bb-display: var(--font-dm-serif), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bb-cream);
+  color: var(--color-bb-ink);
+  font-family: var(--font-bb-sans);
+}
+
+.font-bb-display {
+  font-family: var(--font-bb-display);
+}
+
+.font-bb-sans {
+  font-family: var(--font-bb-sans);
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.25rem;
+  }
+}

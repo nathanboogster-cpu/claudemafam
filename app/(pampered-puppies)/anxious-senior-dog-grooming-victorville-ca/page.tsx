@@ -85,7 +85,7 @@ export default function AnxiousSeniorDogGroomingPage() {
           <p className="mt-4 text-ink-soft leading-relaxed">
             Some dogs need more than a standard groom — a dog other groomers
             have turned away, a senior dog with sore joints, or a pup who
-            just gets overwhelmed. Ellen Karikari has 35+ years of hands-on
+            just gets overwhelmed. Ellen Flores Karikari has 35+ years of hands-on
             experience and is first-aid trained, and welcomes these dogs
             with advance notice so she can prepare and give them the time
             they need.

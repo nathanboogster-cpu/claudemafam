@@ -1,18 +1,18 @@
 // Central, single source of truth for every verified business fact used across the site.
 // Sourced from the Client Record, Website Build Brief, and Claude Code Final Handoff
-// for Pampered Puppies (owner: Ellen Karikari). Do not add facts that aren't in those
-// documents — see the handoff §2 "what must not appear" list.
+// for Pampered Puppies (owner: Ellen Flores Karikari). Do not add facts that aren't in
+// those documents — see the handoff §2 "what must not appear" list.
 
-export const SITE_URL = "https://www.pamperedpuppies.net";
+export const SITE_URL = "https://www.pamperedpuppiespetgrooming.com";
 
 export const business = {
   name: "Pampered Puppies",
-  ownerName: "Ellen Karikari",
+  ownerName: "Ellen Flores Karikari",
   ownerExperience: "35+ years of hands-on dog & cat grooming experience",
   firstAid: "First-aid trained, including for seizures and heart attacks",
   phoneDisplay: "760-881-3171",
   phoneHref: "tel:+17608813171",
-  email: "pamperedpuppies.dn@gmail.com",
+  email: "hello@pamperedpuppiespetgrooming.com",
   addressLine1: "15444 Bear Valley Rd, Ste A",
   addressCity: "Victorville",
   addressState: "CA",
@@ -102,6 +102,19 @@ export const dogPricing = {
   note: "Starting prices — final pricing depends on breed, coat condition, and temperament.",
 } as const;
 
+// PPG VIP Membership — annual paid membership, enrolled by phone/in-person
+// (no online signup flow exists yet).
+export const vipMembership = {
+  name: "PPG VIP Membership",
+  tagline: "Save on every visit, automatically.",
+  price: "$99/year",
+  discountPercent: "18%",
+  perks: [
+    "18% off every grooming service, every visit",
+    "Priority scheduling on appointments",
+  ],
+} as const;
+
 export const testimonials = [
   {
     quote:
@@ -153,8 +166,12 @@ export const trustPoints = [
     body: "Verified accreditation with the Better Business Bureau.",
   },
   {
+    title: "Insured & Licensed",
+    body: "Fully insured and licensed for your peace of mind.",
+  },
+  {
     title: "35+ Years of Experience",
-    body: "Ellen Karikari has 35+ years of hands-on dog & cat grooming experience.",
+    body: "Ellen Flores Karikari has 35+ years of hands-on dog & cat grooming experience.",
   },
   {
     title: "First-Aid Trained",
@@ -207,6 +224,8 @@ export const PATHS = {
   faq: "/faq",
   puppy: "/puppy-grooming-victorville-ca",
   anxious: "/anxious-senior-dog-grooming-victorville-ca",
+  membership: "/vip-membership",
+  blog: "/blog",
 } as const;
 
 // Mobile service-area pages. Pampered Puppies has ONE physical location

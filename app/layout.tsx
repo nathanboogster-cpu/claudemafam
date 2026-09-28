@@ -26,7 +26,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.pamperedpuppies.net"),
+  metadataBase: new URL("https://www.pamperedpuppiespetgrooming.com"),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
