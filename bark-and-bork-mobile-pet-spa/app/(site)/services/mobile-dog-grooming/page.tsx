@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { ServiceGuide } from "@/components/ServiceGuide";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -16,7 +17,7 @@ const description =
   "Bark and Bork brings professional dog grooming to your home — based in Compton, serving greater Los Angeles. No car ride, no waiting room. Book online.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Mobile Dog Grooming in Los Angeles",
+  title: "How Mobile Dog Grooming Works & What It Costs",
   description,
   path: servicePath("mobile-dog-grooming"),
 });
@@ -74,7 +75,7 @@ export default function MobileDogGroomingPage() {
         <div>
           <Eyebrow>Flagship Service</Eyebrow>
           <h1 className="mt-1 font-bb-display text-4xl font-bold text-bb-ink sm:text-5xl">
-            Mobile Dog Grooming in Los Angeles
+            Mobile Dog Grooming: How It Works
           </h1>
           <p className="mt-4 text-lg text-bb-ink-soft">
             Bark and Bork is based in {business.homeBase} and brings professional dog grooming directly to your
@@ -118,6 +119,8 @@ export default function MobileDogGroomingPage() {
           ))}
         </ul>
       </section>
+
+      <ServiceGuide slug="mobile-dog-grooming" serviceName="Mobile Dog Grooming" />
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-bb-display text-2xl font-bold text-bb-ink sm:text-3xl">Choose Your Grooming Package</h2>

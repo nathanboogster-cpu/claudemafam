@@ -67,7 +67,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <article>
         <Section className="pt-6 pb-10">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-dark">
+            <p className="tf-caps text-xs text-tf-brown-dark">
               Case study · {study.businessType}
             </p>
             <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.14] text-tf-ink sm:text-4xl">
@@ -79,7 +79,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <dl className="mt-10 grid gap-x-8 gap-y-5 rounded-3xl border border-tf-border bg-white p-6 sm:grid-cols-2 lg:grid-cols-3">
             {study.atAGlance.map((row) => (
               <div key={row.label}>
-                <dt className="text-xs font-medium uppercase tracking-wide text-tf-ink-soft">{row.label}</dt>
+                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">{row.label}</dt>
                 <dd className="mt-1 font-semibold text-tf-ink">{row.value}</dd>
               </div>
             ))}
@@ -137,7 +137,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                   <ul className="mt-4 space-y-4">
                     {section.items.map((item) => (
                       <li key={item.title} className="flex gap-3 rounded-2xl border border-tf-border bg-white p-5">
-                        <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-green-dark" />
+                        <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-brown-dark" />
                         <div>
                           <p className="font-semibold text-tf-ink">{item.title}</p>
                           <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{item.body}</p>
@@ -163,7 +163,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <ul className="mt-4 space-y-3">
             {study.results.shipped.map((r) => (
               <li key={r.slice(0, 40)} className="flex gap-3 text-sm leading-relaxed text-tf-ink-soft">
-                <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-green-dark" />
+                <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-brown-dark" />
                 <span>{r}</span>
               </li>
             ))}
@@ -214,7 +214,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <SectionHeading eyebrow="What we took from it" id="lessons" title="Lessons" />
           <dl className="mt-7 space-y-6">
             {study.lessons.map((l) => (
-              <div key={l.title} className="border-l-2 border-tf-clay/40 pl-5">
+              <div key={l.title} className="border-l-2 border-tf-brown/40 pl-5">
                 <dt className="font-tf-display text-lg font-bold text-tf-ink">{l.title}</dt>
                 <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{l.body}</dd>
               </div>
@@ -271,7 +271,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           })}
           . Business details described here are published by {study.clientName} itself. Page counts come from
           the build&rsquo;s own sitemap. See{" "}
-          <Link href={PATHS.caseStudies} className="underline underline-offset-4 hover:text-tf-green-dark">
+          <Link href={PATHS.caseStudies} className="underline underline-offset-4 hover:text-tf-brown-dark">
             all case studies
           </Link>
           .

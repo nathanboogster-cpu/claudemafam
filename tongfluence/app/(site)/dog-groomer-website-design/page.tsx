@@ -185,7 +185,7 @@ export default function WebsiteDesignPage() {
             },
           ].map((x) => (
             <div key={x.n} className="grid gap-3 rounded-2xl border border-tf-border bg-white p-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
-              <p className="font-tf-mono text-sm font-semibold text-tf-clay">{x.n}</p>
+              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{x.n}</p>
               <div>
                 <h3 className="font-tf-display text-lg font-bold text-tf-ink">{x.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
@@ -208,13 +208,13 @@ export default function WebsiteDesignPage() {
         </div>
         <p className="mt-5 text-sm leading-relaxed text-tf-ink-soft">
           The full write-up of each one, including what was wrong before, is in{" "}
-          <Link href={PATHS.caseStudies} className="font-medium text-tf-green-dark underline underline-offset-4">
+          <Link href={PATHS.caseStudies} className="font-medium text-tf-brown-dark underline underline-offset-4">
             the case studies
           </Link>
           , and the shape-by-shape comparison is in{" "}
           <Link
             href={resourcePath("dog-grooming-website-examples")}
-            className="font-medium text-tf-green-dark underline underline-offset-4"
+            className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
             dog grooming website examples
           </Link>
@@ -259,7 +259,7 @@ export default function WebsiteDesignPage() {
           {buildStats.mobileCount} of our {clientBuilds.length} builds are mobile-only. The clearest example is{" "}
           <Link
             href={caseStudyPath("bark-and-bork-mobile-pet-spa")}
-            className="font-medium text-tf-green-dark underline underline-offset-4"
+            className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
             a mobile spa working across Greater Los Angeles
           </Link>

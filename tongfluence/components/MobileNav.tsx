@@ -43,7 +43,7 @@ export function MobileNav() {
       <nav aria-label="Mobile" className="flex flex-col p-4 pb-24">
         {groups.map((group) => (
           <div key={group.label} className="mb-3">
-            <p className="mt-3 px-2 text-xs font-semibold uppercase tracking-[0.14em] text-tf-ink-soft">
+            <p className="mt-3 px-2 tf-caps text-xs text-tf-ink-soft">
               {group.label}
             </p>
             {group.items.map((item) => {
@@ -55,7 +55,7 @@ export function MobileNav() {
                   onClick={() => setOpen(false)}
                   aria-current={active ? "page" : undefined}
                   className={`flex min-h-[48px] items-center border-b border-tf-border px-2 text-base font-medium ${
-                    active ? "text-tf-green-dark" : "text-tf-ink"
+                    active ? "text-tf-brown-dark" : "text-tf-ink"
                   }`}
                 >
                   {item.label}
@@ -77,7 +77,7 @@ export function MobileNav() {
         aria-controls="tf-mobile-menu"
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-11 w-11 items-center justify-center rounded-xl border border-tf-border-strong text-tf-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-green-dark"
+        className="flex h-11 w-11 items-center justify-center rounded-xl border border-tf-border-strong text-tf-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tf-brown-dark"
       >
         {open ? <CloseIcon /> : <MenuIcon />}
       </button>

@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { ServiceGuide } from "@/components/ServiceGuide";
 import { PricingTable } from "@/components/PricingTable";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
@@ -106,6 +107,8 @@ export default function FullDogGroomingPage() {
           ))}
         </ul>
       </section>
+
+      <ServiceGuide slug="full-dog-grooming" serviceName="Full Groom" />
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-bb-display text-2xl font-bold text-bb-ink sm:text-3xl">Related Services &amp; Areas</h2>

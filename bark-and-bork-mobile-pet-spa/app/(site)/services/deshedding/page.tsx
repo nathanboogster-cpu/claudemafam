@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { ServiceGuide } from "@/components/ServiceGuide";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { business, addOns, photos, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
@@ -76,7 +77,7 @@ export default function DesheddingPage() {
           </div>
         </div>
         <PhotoPlaceholder
-          caption="A Bark and Bork client dog after a mobile grooming appointment"
+          caption={photos.groomBichonHeld.alt}
           src={photos.groomBichonHeld.src}
           aspect="portrait"
           className="w-full"
@@ -94,6 +95,8 @@ export default function DesheddingPage() {
           </p>
         </div>
       </section>
+
+      <ServiceGuide slug="deshedding" serviceName="Deshedding" />
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-bb-display text-2xl font-bold text-bb-ink sm:text-3xl">Related Services &amp; Areas</h2>

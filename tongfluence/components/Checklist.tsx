@@ -11,7 +11,7 @@ export function Checklist({
   tone?: "do" | "dont";
 }) {
   const Icon = tone === "do" ? CheckIcon : CrossIcon;
-  const iconColor = tone === "do" ? "text-tf-green-dark" : "text-tf-clay";
+  const iconColor = tone === "do" ? "text-tf-brown-dark" : "text-tf-warn";
 
   return (
     <ul className="space-y-3.5">

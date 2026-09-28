@@ -138,6 +138,8 @@ export const photos = {
   },
 } as const;
 
+export type PhotoKey = keyof typeof photos;
+
 // Real before/after transformation pairs, supplied directly by the client.
 // Captions stay service-neutral (no specific package name asserted) since
 // no per-photo service data was supplied — see the anti-fabrication note
@@ -273,7 +275,7 @@ export const addOns = [
     duration: "30 minutes",
     summary: "A deeper deshedding treatment to cut down on loose fur.",
     detail:
-      "Particularly useful for huskies, German Shepherds, and other double-coated or high-shedding breeds. See our full Deshedding service page for the standalone deshedding option.",
+      "Particularly useful for huskies, German Shepherds, and other double-coated or high-shedding breeds. Added on to a Bath & Tidy or Full Groom appointment.",
   },
   {
     slug: "teeth-brushing",
@@ -310,13 +312,15 @@ export type ServiceSlug =
   | "anal-gland-expression"
   | "teeth-brushing";
 
-export const services: { slug: ServiceSlug; name: string; shortName: string; summary: string; isFlagship: boolean }[] = [
+// `updated` = date this service page's content last changed (sitemap lastmod).
+export const services: { slug: ServiceSlug; name: string; shortName: string; summary: string; isFlagship: boolean; updated: string }[] = [
   {
     slug: "mobile-dog-grooming",
     name: "Mobile Dog Grooming",
     shortName: "Mobile Dog Grooming",
     summary: "Professional dog grooming brought directly to your home, anywhere in Compton or greater Los Angeles.",
     isFlagship: true,
+    updated: "2026-09-25",
   },
   {
     slug: "full-dog-grooming",
@@ -324,6 +328,7 @@ export const services: { slug: ServiceSlug; name: string; shortName: string; sum
     shortName: "Full Groom",
     summary: "Bath, brush out, and a complete haircut — sized to your dog, starting at $100+.",
     isFlagship: false,
+    updated: "2026-09-25",
   },
   {
     slug: "bath-and-tidy",
@@ -331,6 +336,7 @@ export const services: { slug: ServiceSlug; name: string; shortName: string; sum
     shortName: "Bath & Tidy",
     summary: "A thorough bath and maintenance grooming without a full haircut, starting at $75+.",
     isFlagship: false,
+    updated: "2026-09-25",
   },
   {
     slug: "deshedding",
@@ -338,6 +344,7 @@ export const services: { slug: ServiceSlug; name: string; shortName: string; sum
     shortName: "Deshedding",
     summary: "A deeper deshedding treatment for huskies, German Shepherds, and other heavy-coated dogs.",
     isFlagship: false,
+    updated: "2026-09-25",
   },
   {
     slug: "dematting",
@@ -345,6 +352,7 @@ export const services: { slug: ServiceSlug; name: string; shortName: string; sum
     shortName: "Dematting",
     summary: "Careful, compassionate dematting for dogs with tangled or matted coats.",
     isFlagship: false,
+    updated: "2026-09-25",
   },
   {
     slug: "flea-tick-treatment",
@@ -352,6 +360,7 @@ export const services: { slug: ServiceSlug; name: string; shortName: string; sum
     shortName: "Flea & Tick Treatment",
     summary: "Flea and tick shampoo, rinsing, and combing added on to any grooming appointment — $15.",
     isFlagship: false,
+    updated: "2026-09-25",
   },
   {
     slug: "anal-gland-expression",
@@ -359,6 +368,7 @@ export const services: { slug: ServiceSlug; name: string; shortName: string; sum
     shortName: "Anal Gland Expression",
     summary: "External anal gland expression added on to any grooming appointment — $15.",
     isFlagship: false,
+    updated: "2026-09-25",
   },
   {
     slug: "teeth-brushing",
@@ -366,6 +376,7 @@ export const services: { slug: ServiceSlug; name: string; shortName: string; sum
     shortName: "Teeth Brushing",
     summary: "Dog teeth brushing added on to any grooming appointment — $10.",
     isFlagship: false,
+    updated: "2026-09-25",
   },
 ];
 
@@ -394,97 +405,111 @@ export type AreaSlug =
   | "bellflower-ca"
   | "hawthorne-ca";
 
-export const serviceAreas: { city: string; state: "CA"; slug: AreaSlug; description: string; isPrimary: boolean }[] = [
+// `updated` = date this area page's content last changed (sitemap lastmod).
+export const serviceAreas: { city: string; state: "CA"; slug: AreaSlug; description: string; isPrimary: boolean; updated: string }[] = [
   {
     city: "Compton",
     state: "CA",
     slug: "compton-ca",
-    description: "Bark and Bork's home base — the heart of our mobile grooming route.",
+    description: "Our home base. Starting prices by size and how a Compton visit works.",
     isPrimary: true,
+    updated: "2026-09-25",
   },
   {
     city: "Los Angeles",
     state: "CA",
     slug: "los-angeles-ca",
-    description: "Mobile dog grooming throughout greater Los Angeles, brought right to your door.",
+    description: "How we cover greater LA from Compton, grouped by region.",
     isPrimary: true,
+    updated: "2026-09-25",
   },
   {
     city: "South Gate",
     state: "CA",
     slug: "south-gate-ca",
-    description: "Mobile dog grooming for South Gate pet owners, just north of Compton.",
+    description: "North of Compton. A walkthrough of appointment day.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Lynwood",
     state: "CA",
     slug: "lynwood-ca",
-    description: "Mobile dog grooming for Lynwood, right along Bark and Bork's home route.",
+    description: "Next door to Compton. Bath & Tidy vs. Full Groom, explained.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Carson",
     state: "CA",
     slug: "carson-ca",
-    description: "Mobile dog grooming for Carson pet owners, just south of Compton.",
+    description: "Southwest of Compton. Help for huskies and other heavy shedders.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Gardena",
     state: "CA",
     slug: "gardena-ca",
-    description: "Mobile dog grooming for Gardena, minutes from Compton.",
+    description: "South Bay, west of Compton. Matted coats and dematting.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Long Beach",
     state: "CA",
     slug: "long-beach-ca",
-    description: "Mobile dog grooming for Long Beach pet owners along the southern LA County coast.",
+    description: "Directly south of Compton. Booking tips for Long Beach addresses.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Inglewood",
     state: "CA",
     slug: "inglewood-ca",
-    description: "Mobile dog grooming for Inglewood, on the western side of Bark and Bork's LA route.",
+    description: "Northwest of Compton, near LAX. Grooming large and XL dogs.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Paramount",
     state: "CA",
     slug: "paramount-ca",
-    description: "Mobile dog grooming for Paramount, directly east of Compton.",
+    description: "Borders Compton to the east. Add-ons: teeth, glands, flea & tick.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Willowbrook",
     state: "CA",
     slug: "willowbrook-ca",
-    description: "Mobile dog grooming for Willowbrook, right next to our Compton home base.",
+    description: "Beside Compton. How often your dog should be groomed.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Downey",
     state: "CA",
     slug: "downey-ca",
-    description: "Mobile dog grooming for Downey pet owners, northeast of Compton.",
+    description: "Northeast of Compton. Mobile grooming vs. a salon.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Bellflower",
     state: "CA",
     slug: "bellflower-ca",
-    description: "Mobile dog grooming for Bellflower, east of Compton along our LA route.",
+    description: "East of Compton. Preparing for your dog's first mobile groom.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
   {
     city: "Hawthorne",
     state: "CA",
     slug: "hawthorne-ca",
-    description: "Mobile dog grooming for Hawthorne, on the western side of Bark and Bork's LA route.",
+    description: "South Bay, west of Compton. How long a groom takes.",
     isPrimary: false,
+    updated: "2026-09-25",
   },
 ];
 
@@ -497,15 +522,24 @@ type SecondaryAreaContent = {
   eyebrow: string;
   h1: string;
   intro: string;
+  // One practical grooming topic per city, so each page answers a different
+  // real question instead of repeating the same pitch with a new city name.
+  topic: { heading: string; paragraphs: string[]; link?: { label: string; href: string } };
+  whyHeading: string;
   whyChoose: string[];
+  photo: PhotoKey;
+  nearby: AreaSlug[];
   faqs: AreaFaq[];
   metaTitle: string;
   metaDescription: string;
 };
 
 // Unique content for each secondary (dynamically rendered) service-area page.
-// Every intro/angle is written specifically for that city's real relationship
-// to Compton — never a template with the city name swapped in.
+// Geography is limited to plain, well-established facts (direction from
+// Compton, neighboring cities, freeways that run through). Everything else
+// comes from the verified pricing, hours, and service data above — no invented
+// landmarks, customer counts, or local claims. Keep pairwise overlap between
+// cities low: give a new city its own topic, not a copy of another city's.
 export const secondaryAreaContent: Record<
   Exclude<AreaSlug, "compton-ca" | "los-angeles-ca">,
   SecondaryAreaContent
@@ -514,332 +548,480 @@ export const secondaryAreaContent: Record<
     eyebrow: "South Gate • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in South Gate, CA",
     intro:
-      "South Gate sits just north of Compton along the Los Angeles River corridor, making it one of the closest stops on Bark and Bork's regular mobile grooming route. Instead of loading your dog into the car, our groomer drives to your South Gate home and sets up right at your door.",
+      "South Gate is a few miles north of Compton, with the Los Angeles River running through the middle of the city. If you live anywhere in South Gate, Bark and Bork can bring a full grooming appointment to your street, so your dog never has to ride to a salon or wait in a kennel between steps.",
+    topic: {
+      heading: "What Happens on Appointment Day",
+      paragraphs: [
+        "You book a specific service and time slot online. On the day, the groomer arrives at your South Gate address in the Bark and Bork van, which carries the tub, dryer, and grooming table. Your dog is groomed start to finish in the van, then handed back to you at your door.",
+        "A few things make the visit go smoothly: a spot near your home where the van can park, a quick potty walk for your dog beforehand, and a heads-up about anything the groomer should know, such as matting, sore spots, or nervousness around dryers. Appointment length depends on your dog's size and temperament, and most visits finish within four hours.",
+        "If your plans change, please reschedule early. A 50% cancellation fee applies to no-shows and to cancellations made within 24 hours of the appointment.",
+      ],
+      link: { label: "How to prepare your dog for a mobile grooming appointment", href: "/blog/how-to-prepare-your-dog-for-a-mobile-grooming-appointment" },
+    },
+    whyHeading: "What a South Gate Visit Includes",
     whyChoose: [
-      "Close to our Compton home base, so scheduling tends to be easier to fit in",
-      "No car ride, no waiting room — grooming happens at your address",
-      "Full-size range from small breeds up to extra-large dogs over 60 lbs",
-      "Same transparent starting prices as every other stop on our route",
+      "The whole groom happens in the van parked outside your home",
+      "One dog at a time, with no kennel wait between steps",
+      "A booked time slot instead of a drop-off window",
+      "Service for every size, from small dogs to 60+ lb dogs",
     ],
+    photo: "vanExteriorStreet",
+    nearby: ["lynwood-ca", "downey-ca", "compton-ca"],
     faqs: [
       {
-        question: "Does Bark and Bork groom dogs in South Gate?",
+        question: "Where does the grooming happen during a South Gate appointment?",
         answer:
-          "Yes. South Gate is part of Bark and Bork's regular mobile grooming route out of Compton. Book online and choose your address at checkout.",
+          "Inside the Bark and Bork van, parked at or near your South Gate home. The van holds the tub, dryer, and table, so nothing is set up inside your house.",
       },
       {
-        question: "How do I book a mobile groom in South Gate?",
-        answer: `Choose your service and book online at ${business.bookingUrl}, or call ${business.phoneDisplay}.`,
+        question: "What should I do before the groomer arrives?",
+        answer:
+          "Take your dog out for a potty break, make sure there's somewhere nearby for the van to park, and let us know about any matting, skin issues, or anxiety so the groomer can plan for it.",
       },
       {
-        question: "What's the difference between Bath & Tidy and a Full Groom?",
+        question: "What is the cancellation policy?",
         answer:
-          "Bath & Tidy is a full bath and maintenance grooming without a haircut. Full Groom includes everything in Bath & Tidy plus a complete haircut.",
+          "A 50% cancellation fee applies to no-shows and to cancellations made within 24 hours of the scheduled appointment.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in South Gate, CA",
     metaDescription:
-      "Bark and Bork Mobile Pet Spa brings professional dog grooming to South Gate, CA from our Compton home base. Transparent pricing. Book online today.",
+      "What a Bark and Bork mobile grooming visit looks like in South Gate, CA: the van comes to your street, one dog at a time. Bath & Tidy from $75+.",
   },
+
   "lynwood-ca": {
     eyebrow: "Lynwood • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Lynwood, CA",
     intro:
-      "Lynwood borders Compton directly, which makes it one of the easiest, most frequent stops on Bark and Bork's mobile grooming route. We bring the full grooming setup to your Lynwood driveway or curb, so your dog gets professional grooming without ever leaving home.",
+      "Lynwood shares its southern border with Compton, where Bark and Bork is based, and the 105 Freeway cuts across the city. Lynwood owners can book a mobile groom online and have it done outside their own home. A good first question is which package to pick, so here's the difference.",
+    topic: {
+      heading: "Bath & Tidy or Full Groom?",
+      paragraphs: [
+        "Bath & Tidy is maintenance grooming without a haircut. Your dog gets a bath with shampoo and conditioner, a blow dry and brush out, a nail trim, ear cleaning, a sanitary trim, a paw pad trim, a light face tidy, and finishing spray. It suits short-coated dogs, and longer-coated dogs between haircuts. It starts at $75+ for small dogs.",
+        "Full Groom includes all of that plus a complete haircut. Choose it when your dog's coat has grown out of shape, or for breeds that need regular trims to stay comfortable. It starts at $100+ for small dogs.",
+        "Both are priced by size: small (0–20 lbs), medium (20–40 lbs), large (40–60 lbs), and extra-large (60+ lbs). Coat condition and matting can change the final price, so if you're unsure, book the package that fits your dog best and mention the coat when you book.",
+      ],
+      link: { label: "See the full pricing table", href: "/services" },
+    },
+    whyHeading: "Why Book Mobile Grooming in Lynwood",
     whyChoose: [
-      "Directly adjacent to our Compton home base",
-      "Convenient scheduling with minimal drive time between appointments",
-      "Small to extra-large dogs, with transparent starting prices by size",
-      "The same Bath & Tidy and Full Groom packages offered across our whole LA route",
+      "Bark and Bork is based in Compton, right next to Lynwood",
+      "Two clear packages, with starting prices published by size",
+      "No haircut unless you choose one",
+      "Booking online takes a couple of minutes",
     ],
+    photo: "groomShihTzuBlackWhite",
+    nearby: ["compton-ca", "south-gate-ca", "willowbrook-ca"],
     faqs: [
       {
-        question: "Is Bark and Bork mobile grooming available in Lynwood?",
+        question: "Does Bath & Tidy include a haircut?",
         answer:
-          "Yes — Lynwood is right next to our Compton home base and a regular part of our mobile grooming route.",
+          "No. Bath & Tidy covers the bath, blow dry, brush out, nails, ears, sanitary trim, paw pads, and a light face tidy. For a complete haircut, book the Full Groom.",
       },
       {
-        question: "How do I book a mobile groom in Lynwood?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
+        question: "How much is a Full Groom for a medium dog in Lynwood?",
+        answer:
+          "Full Groom starts at $120+ for medium dogs (20–40 lbs). Starting prices may vary with coat condition and matting.",
       },
       {
-        question: "Do you groom large or extra-large dogs?",
-        answer:
-          "Yes. We groom dogs of every size, from small dogs 20 lbs and under up to extra-large dogs over 60 lbs.",
+        question: "Can I book a Lynwood appointment online?",
+        answer: `Yes. Book at ${business.bookingUrl}, or call ${business.phoneDisplay}.`,
       },
     ],
     metaTitle: "Mobile Dog Grooming in Lynwood, CA",
     metaDescription:
-      "Professional mobile dog grooming in Lynwood, CA from Bark and Bork Mobile Pet Spa, based right next door in Compton. Book your groom online.",
+      "Mobile dog grooming in Lynwood, CA, next door to our Compton base. Bath & Tidy from $75+ or Full Groom from $100+, done at your home.",
   },
+
   "carson-ca": {
     eyebrow: "Carson • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Carson, CA",
     intro:
-      "Carson sits just south of Compton, and it's a regular stop on Bark and Bork's mobile grooming route through southern Los Angeles County. Skip the trip to a salon — our groomer comes to your Carson home with everything needed for a full grooming appointment.",
+      "Carson lies just southwest of Compton, with both the 405 and the 110 freeways running through it. Bark and Bork brings mobile grooming to Carson homes. If you own a husky, German Shepherd, or another double-coated breed, this page covers how we deal with shedding.",
+    topic: {
+      heading: "Help for Heavy Shedders",
+      paragraphs: [
+        "Double-coated dogs grow a dense undercoat that sheds heavily, especially when the seasons change. A regular bath removes some of it, but much of the loose undercoat stays trapped close to the skin, where it ends up on your floors and furniture.",
+        "Our De-Shedding Treatment is a $15 add-on that takes about 30 minutes. It focuses on working that loose undercoat out during the grooming appointment, so less of it ends up in your house afterward. Add it to a Bath & Tidy or Full Groom when you book.",
+        "Deshedding reduces shedding for a while. It doesn't stop it, because shedding is a natural part of a double coat. Many owners of heavy shedders book it with each regular groom, especially during seasonal coat changes.",
+      ],
+      link: { label: "Read more about deshedding", href: "/services/deshedding" },
+    },
+    whyHeading: "Deshedding in Carson at a Glance",
     whyChoose: [
-      "Just south of our Compton home base along the same route",
-      "A convenient option for busy Carson households",
-      "Every size of dog, from small to extra-large, with clear starting prices",
-      "Add-ons available, including deshedding, dematting, and flea & tick treatment",
+      "A deshedding add-on built for double-coated breeds",
+      "Less loose undercoat around your house afterward",
+      "Pricing covers every size, including extra-large dogs",
+      "Available with Bath & Tidy or Full Groom",
     ],
+    photo: "groomGoldendoodleFullGroom",
+    nearby: ["long-beach-ca", "gardena-ca", "compton-ca"],
     faqs: [
       {
-        question: "Does Bark and Bork serve Carson, CA?",
-        answer: "Yes, Carson is part of our regular mobile grooming route out of Compton.",
-      },
-      {
-        question: "How much does mobile grooming cost in Carson?",
+        question: "Which Carson dogs benefit most from deshedding?",
         answer:
-          "Bath & Tidy starts at $75+ and Full Groom starts at $100+, depending on your dog's size. See our Services page for the full pricing table.",
+          "Double-coated and high-shedding breeds, such as huskies and German Shepherds, get the most out of it because they carry the most loose undercoat.",
       },
       {
-        question: "How do I schedule?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
+        question: "How much does the De-Shedding Treatment cost?",
+        answer: "It's a $15 add-on and takes about 30 minutes, on top of your Bath & Tidy or Full Groom.",
+      },
+      {
+        question: "Will deshedding stop my dog from shedding?",
+        answer:
+          "No. It removes a lot of the loose undercoat for now, but shedding is natural for double-coated dogs and will continue.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Carson, CA",
     metaDescription:
-      "Bark and Bork Mobile Pet Spa offers mobile dog grooming in Carson, CA, just south of our Compton home base. Transparent pricing, online booking.",
+      "Mobile dog grooming in Carson, CA, with a $15 De-Shedding add-on for huskies, shepherds, and other heavy shedders. Book online.",
   },
+
   "gardena-ca": {
     eyebrow: "Gardena • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Gardena, CA",
     intro:
-      "Gardena is a short drive from our Compton home base, and Bark and Bork regularly brings mobile dog grooming to Gardena driveways and homes. No crate, no car ride — just professional grooming at your address.",
+      "Gardena is a South Bay city a few miles west of Compton. Bark and Bork's mobile grooming reaches Gardena homes, including dogs whose coats have gotten away from their owners. If your dog has tangles or mats, here's what to expect.",
+    topic: {
+      heading: "Matted Coats and Dematting",
+      paragraphs: [
+        "Mats form when loose hair tangles and tightens against the skin. They're most common behind the ears, under the legs, and along the belly. Small mats can often be worked out. Large, tight mats pull on the skin and can be painful to brush.",
+        "Dematting is priced by size: $50 for small dogs, $60 for medium, $70 for large, and $80 for extra-large, with about 60 minutes set aside. It can be added on when a coat needs more than a normal brush out.",
+        "When matting is severe, brushing it all out isn't kind to the dog. In those cases the coat may need to be clipped short instead, so your dog stays comfortable and safe. The groomer will talk through the options with you before starting. Once the coat is back in shape, regular grooming keeps new mats from forming.",
+      ],
+      link: { label: "Why matting happens and how to prevent it", href: "/blog/why-matting-happens-and-how-to-prevent-it" },
+    },
+    whyHeading: "Coat Care in Gardena at a Glance",
     whyChoose: [
-      "Minutes from our Compton home base",
-      "Grooming happens entirely at your Gardena home",
-      "Full range of sizes served, small through extra-large",
-      "The same transparent Bath & Tidy and Full Groom pricing as the rest of our route",
+      "Dematting priced up front for every size",
+      "We talk through the options before any clipping",
+      "Your dog's comfort comes before saving length",
+      "Regular appointments help keep mats from coming back",
     ],
+    photo: "groomBichonHeld",
+    nearby: ["hawthorne-ca", "carson-ca", "inglewood-ca"],
     faqs: [
       {
-        question: "Does Bark and Bork groom dogs in Gardena?",
-        answer: "Yes, Gardena is part of Bark and Bork's regular mobile grooming route out of Compton.",
+        question: "How much is dematting in Gardena?",
+        answer: "Dematting is $50 for small dogs, $60 for medium, $70 for large, and $80 for extra-large, and takes about 60 minutes.",
       },
       {
-        question: "What's included in a Full Groom?",
+        question: "Will my dog have to be shaved?",
         answer:
-          "A Full Groom includes a bath, shampoo, conditioner, blow dry, brush out, nail trim, ear cleaning, sanitary trim, paw pad trim, light face tidy, finishing spray, and a complete haircut.",
+          "Only if the matting is too severe to brush out comfortably. The groomer will explain the options before starting, and your dog's comfort comes first.",
       },
       {
-        question: "How do I book?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
+        question: "How do I stop mats from coming back?",
+        answer:
+          "Brush between appointments, especially behind the ears and under the legs, and keep a regular grooming schedule so tangles don't have time to tighten.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Gardena, CA",
     metaDescription:
-      "Mobile dog grooming in Gardena, CA from Bark and Bork Mobile Pet Spa, based nearby in Compton. See pricing and book your dog's groom online.",
+      "Mobile dog grooming and dematting in Gardena, CA. Matted coats handled with care, from $50 for small dogs. Bark and Bork comes to you.",
   },
+
   "long-beach-ca": {
     eyebrow: "Long Beach • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Long Beach, CA",
     intro:
-      "Bark and Bork's mobile grooming route extends south from Compton down to Long Beach, bringing professional dog grooming to pet owners along the southern LA County coast without a single trip to a salon.",
+      "Long Beach is the large coastal city directly south of Compton, linked to it by the 710 Freeway. Bark and Bork brings mobile grooming to Long Beach addresses. Long Beach covers a big area, so it's worth reading a few booking tips before you choose a time.",
+    topic: {
+      heading: "Booking Tips for Long Beach Addresses",
+      paragraphs: [
+        "Online booking is open for any day of the week, and appointments run between 9 AM and 7 PM. Pick your service and add-ons first, then choose a time that works for you.",
+        "Because Long Beach is a large city, call us at the number below if you'd like to confirm availability for your specific address before you book. It's also the fastest way to ask about an unusual coat or a dog with special handling needs.",
+        "Keep the whole visit in mind when you plan your day. Appointments can take up to four hours depending on your dog's size and temperament, and a 50% fee applies to cancellations within 24 hours. Booking a slot you're confident you can keep saves you money.",
+      ],
+      link: { label: "Contact Bark and Bork", href: "/contact" },
+    },
+    whyHeading: "Long Beach Booking at a Glance",
     whyChoose: [
-      "Mobile grooming reaches Long Beach as part of our regular southern LA route",
-      "Convenient scheduling that skips the drive across town to a salon",
-      "Small to extra-large dogs, with transparent starting prices",
-      "Deshedding, dematting, and other add-ons available for every appointment",
+      "Open 7 days a week, 9 AM to 7 PM",
+      "Call ahead to confirm availability for your address",
+      "Online booking with your exact service and add-ons",
+      "A clear cancellation policy, stated up front",
     ],
+    photo: "vanExteriorSide",
+    nearby: ["carson-ca", "bellflower-ca", "paramount-ca"],
     faqs: [
       {
         question: "Does Bark and Bork's mobile grooming reach Long Beach?",
-        answer: "Yes — Long Beach is part of our mobile grooming route through southern Los Angeles County.",
+        answer: `Yes. For a specific address, call ${business.phoneDisplay} to confirm availability before booking.`,
       },
       {
-        question: "How do I book mobile grooming in Long Beach?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay} to confirm availability for your address.`,
+        question: "What hours can I book in Long Beach?",
+        answer: "Appointments are available seven days a week, from 9 AM to 7 PM.",
       },
       {
-        question: "Do you offer flea and tick treatment?",
-        answer:
-          "Yes, flea & tick treatment is available as a $15 add-on to any grooming appointment. It addresses active fleas and ticks found during grooming — for ongoing prevention, talk to your veterinarian.",
+        question: "How do I book?",
+        answer: `Book online at ${business.bookingUrl}, choosing your service, add-ons, and time.`,
       },
     ],
     metaTitle: "Mobile Dog Grooming in Long Beach, CA",
     metaDescription:
-      "Bark and Bork Mobile Pet Spa brings mobile dog grooming to Long Beach, CA as part of its southern Los Angeles County route. Book online today.",
+      "Mobile dog grooming in Long Beach, CA, 7 days a week from 9 AM to 7 PM. Call to confirm your address, then book online with Bark and Bork.",
   },
+
   "inglewood-ca": {
     eyebrow: "Inglewood • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Inglewood, CA",
     intro:
-      "Inglewood sits on the western side of Bark and Bork's Los Angeles service area. Our mobile grooming appointments bring the full setup — bath, dryer, and grooming table — right to your Inglewood home.",
+      "Inglewood sits northwest of Compton, near LAX. Bark and Bork's mobile grooming serves Inglewood homes, including big dogs that need a lot of table and tub space. Here's how we handle large and extra-large breeds.",
+    topic: {
+      heading: "Grooming Large and Extra-Large Dogs",
+      paragraphs: [
+        "Big dogs are fully welcome. We price by weight: large dogs are 40–60 lbs, and extra-large dogs are anything over 60 lbs. Bath & Tidy starts at $115+ for large dogs and $135+ for extra-large. Full Groom starts at $135+ for large dogs and $160+ for extra-large.",
+        "Larger dogs take longer to bathe and dry, so their appointments run longer: Full Groom is roughly 2.5–3.5 hours for a large dog and 3–4 hours for an extra-large one. For a big dog, a mobile appointment means no struggle getting them in and out of the car and no crowded salon lobby.",
+        "Big double-coated dogs often do well with the De-Shedding add-on as well, since there's simply more undercoat to shed.",
+      ],
+      link: { label: "Full Groom pricing by size", href: "/services/full-dog-grooming" },
+    },
+    whyHeading: "Big Dogs Welcome in Inglewood",
     whyChoose: [
-      "Part of Bark and Bork's regular mobile route across Los Angeles",
-      "No trip across town to a traditional grooming salon",
-      "Every size of dog served, with transparent starting prices",
-      "Online booking makes scheduling quick and easy",
+      "Extra-large dogs over 60 lbs are welcome",
+      "Size-based starting prices, listed before you book",
+      "Big dogs skip loading into the car",
+      "Appointment lengths planned for larger coats",
     ],
+    photo: "groomPuppyBrindleTrickOrTreat",
+    nearby: ["hawthorne-ca", "gardena-ca", "los-angeles-ca"],
     faqs: [
       {
-        question: "Is mobile dog grooming available in Inglewood?",
-        answer: "Yes, Inglewood is part of Bark and Bork's mobile grooming coverage across Los Angeles.",
+        question: "Do you groom extra-large dogs in Inglewood?",
+        answer: "Yes. Extra-large (60+ lbs) Bath & Tidy starts at $135+, and Full Groom starts at $160+.",
       },
       {
-        question: "How do I schedule a grooming appointment in Inglewood?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
-      },
-      {
-        question: "What size dogs do you groom?",
+        question: "How long does a large dog's appointment take?",
         answer:
-          "We groom dogs of every size — small (20 lbs or less), medium (40 lbs or less), large (60 lbs or less), and extra-large (over 60 lbs).",
+          "A large dog's Full Groom usually takes about 2.5–3.5 hours, and an extra-large dog's about 3–4 hours, depending on coat and temperament.",
+      },
+      {
+        question: "How do I book for my Inglewood address?",
+        answer: `Book online at ${business.bookingUrl}, or call ${business.phoneDisplay}.`,
       },
     ],
     metaTitle: "Mobile Dog Grooming in Inglewood, CA",
     metaDescription:
-      "Mobile dog grooming in Inglewood, CA from Bark and Bork Mobile Pet Spa. Professional grooming brought to your door. Book online now.",
+      "Mobile dog grooming in Inglewood, CA, including large and extra-large dogs over 60 lbs. See size-based pricing and book online.",
   },
+
   "paramount-ca": {
     eyebrow: "Paramount • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Paramount, CA",
     intro:
-      "Paramount sits directly east of Compton, just minutes from Bark and Bork's home base. Our mobile grooming appointments bring the full setup — bath, dryer, and grooming table — right to your Paramount home.",
+      "Paramount borders Compton on the east, so it's right next to where Bark and Bork is based. Along with a Bath & Tidy or Full Groom, Paramount owners can add small extras to the same visit. Here's what each one does, and what it doesn't do.",
+    topic: {
+      heading: "Add-Ons You Can Include",
+      paragraphs: [
+        "Teeth Brushing ($10, about 10 minutes) brushes your dog's teeth during the groom. It helps with day-to-day care but doesn't replace a professional dental cleaning at your vet.",
+        "Anal Gland Expression ($15, about 10 minutes) is done externally when appropriate. It is not the internal expression a vet performs. If your dog shows signs of pain, infection, or repeated problems, have a veterinarian check them.",
+        "Flea & Tick Treatment ($15, about 15 minutes) includes a flea and tick shampoo, thorough rinsing, and careful combing to remove fleas, flea debris, and ticks where possible. It deals with pests found during the visit. It doesn't give ongoing protection, so ask your vet about prevention.",
+      ],
+      link: { label: "See all add-on services", href: "/services" },
+    },
+    whyHeading: "Why Add Extras to a Paramount Visit",
     whyChoose: [
-      "Just minutes from our Compton home base",
-      "No car ride or waiting room — grooming happens at your address",
-      "Every size of dog served, small to extra-large",
-      "Online booking available 7 days a week, 9 AM–7 PM",
+      "Extras done during the same visit, with no separate trip",
+      "Flat add-on prices of $10–$15",
+      "Clear about what each add-on does and doesn't do",
+      "We tell you when something needs a vet instead",
     ],
+    photo: "groomYorkieSmile",
+    nearby: ["compton-ca", "bellflower-ca", "downey-ca"],
     faqs: [
       {
-        question: "Does Bark and Bork groom dogs in Paramount?",
-        answer: "Yes, Paramount is part of Bark and Bork's regular mobile grooming route out of Compton.",
+        question: "Can I add teeth brushing to a Paramount appointment?",
+        answer: "Yes. Teeth Brushing is a $10 add-on. It isn't a substitute for a veterinary dental cleaning.",
       },
       {
-        question: "How do I book a mobile groom in Paramount?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
-      },
-      {
-        question: "How much does mobile grooming cost in Paramount?",
+        question: "Is the flea and tick treatment a preventative?",
         answer:
-          "Bath & Tidy starts at $75+ and Full Groom starts at $100+, depending on your dog's size. See our Services page for the full pricing table.",
+          "No. It removes fleas and ticks found during grooming, but it doesn't provide ongoing prevention. Talk to your veterinarian about long-term options.",
+      },
+      {
+        question: "Do you do internal anal gland expression?",
+        answer:
+          "No. Ours is external expression only. For internal expression, or any sign of pain or infection, please see a veterinarian.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Paramount, CA",
     metaDescription:
-      "Bark and Bork Mobile Pet Spa brings mobile dog grooming to Paramount, CA, just minutes from our Compton home base. Book online today.",
+      "Mobile dog grooming in Paramount, CA, next to our Compton base. Add teeth brushing ($10), anal glands ($15), or flea & tick ($15).",
   },
+
   "willowbrook-ca": {
     eyebrow: "Willowbrook • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Willowbrook, CA",
     intro:
-      "Willowbrook sits immediately next to Compton, making it one of the closest communities on Bark and Bork's mobile grooming route. We bring the grooming appointment right to your Willowbrook home.",
+      "Willowbrook is an unincorporated Los Angeles County community on Compton's northwest side, so it's very close to where Bark and Bork is based. Once your Willowbrook dog has had a first groom, it helps to know how often to book.",
+    topic: {
+      heading: "How Often Should You Book?",
+      paragraphs: [
+        "It depends on the coat. Dogs with long or continuously growing coats, like poodle mixes, Shih Tzus, and doodles, usually need a haircut every several weeks to stay tangle-free. Short-coated dogs can often go longer between visits and mainly need baths, nails, and ears kept up.",
+        "A simple routine works for many owners: alternate between a Full Groom when the coat needs shaping and a Bath & Tidy in between. Heavy shedders can add the De-Shedding Treatment during seasonal coat changes.",
+        "Watch for signs that a visit is overdue. These include tangles behind the ears, nails clicking on the floor, a lingering odor, or hair growing over the eyes. Waiting too long can lead to matting, which takes more time to fix.",
+      ],
+      link: { label: "How often should you groom your dog?", href: "/blog/how-often-should-you-groom-your-dog" },
+    },
+    whyHeading: "Why a Regular Schedule Helps",
     whyChoose: [
-      "Directly adjacent to our Compton home base",
-      "Minimal drive time means easy scheduling",
-      "Small to extra-large dogs, with transparent starting prices",
-      "The same Bath & Tidy and Full Groom packages offered across our whole route",
+      "Very close to our Compton home base",
+      "Easy to rebook online on a regular rhythm",
+      "Mix Full Grooms and Bath & Tidy visits to fit the coat",
+      "Staying on schedule helps keep matting away",
     ],
+    photo: "groomPoodleMixTrickOrTreat",
+    nearby: ["compton-ca", "lynwood-ca", "los-angeles-ca"],
     faqs: [
       {
-        question: "Is mobile dog grooming available in Willowbrook?",
-        answer: "Yes — Willowbrook is right next to our Compton home base and part of our regular mobile route.",
+        question: "How often should a doodle or poodle mix be groomed?",
+        answer:
+          "Continuously growing coats usually need a haircut every several weeks. A Bath & Tidy in between can help keep the coat manageable.",
       },
       {
-        question: "How do I book a mobile groom in Willowbrook?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
+        question: "What are signs my dog is overdue for grooming?",
+        answer: "Tangles or mats, long nails that click on the floor, odor, and hair covering the eyes are common signs.",
       },
       {
-        question: "Do you groom large or extra-large dogs?",
-        answer: "Yes. We groom dogs of every size, from small dogs 20 lbs and under up to extra-large dogs over 60 lbs.",
+        question: "Is Willowbrook in your service area?",
+        answer: `Yes. It's right next to our Compton base. Book at ${business.bookingUrl}.`,
       },
     ],
     metaTitle: "Mobile Dog Grooming in Willowbrook, CA",
     metaDescription:
-      "Mobile dog grooming in Willowbrook, CA from Bark and Bork Mobile Pet Spa, based right next door in Compton. Book your groom online.",
+      "Mobile dog grooming in Willowbrook, CA, beside our Compton base. How often to groom your dog, plus easy online rebooking.",
   },
+
   "downey-ca": {
     eyebrow: "Downey • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Downey, CA",
     intro:
-      "Downey sits northeast of Compton and is a regular stop on Bark and Bork's mobile grooming route. Skip the drive to a salon — our groomer brings everything needed for a full appointment right to your Downey home.",
+      "Downey sits northeast of Compton, between South Gate and Bellflower. If you've always taken your dog to a salon, you may wonder how a mobile appointment compares. Here's an honest look.",
+    topic: {
+      heading: "Mobile Grooming vs. a Salon",
+      paragraphs: [
+        "At a traditional salon, you drive your dog there, drop them off, and pick them up later. Your dog may wait in a kennel between steps while other dogs are groomed nearby. With Bark and Bork, the groomer comes to your Downey home, and your dog is groomed on their own in the van from start to finish.",
+        "For many dogs that means less stress: no car ride, no noisy room full of other dogs, and no hours spent waiting. It also saves you the two trips across town.",
+        "The services are the familiar ones, including baths, haircuts, nails, ears, and add-ons, and starting prices are published by size so you can compare before booking. Choose whichever suits your dog. Mobile grooming works especially well for owners who value convenience and dogs who dislike busy spaces.",
+      ],
+      link: { label: "Mobile grooming vs. traditional salons", href: "/blog/mobile-grooming-vs-traditional-salons" },
+    },
+    whyHeading: "The Mobile Difference in Downey",
     whyChoose: [
-      "Northeast of our Compton home base, along our regular route",
-      "A convenient option for busy Downey households",
-      "Every size of dog, from small to extra-large, with clear starting prices",
-      "Add-ons available, including deshedding, dematting, and flea & tick treatment",
+      "No drop-off or pick-up trips",
+      "One dog at a time, with no salon waiting room",
+      "Familiar services with published starting prices",
+      "Often a calmer experience for nervous dogs",
     ],
+    photo: "groomFrenchBulldog",
+    nearby: ["south-gate-ca", "bellflower-ca", "paramount-ca"],
     faqs: [
       {
-        question: "Does Bark and Bork serve Downey, CA?",
-        answer: "Yes, Downey is part of our regular mobile grooming route out of Compton.",
-      },
-      {
-        question: "How much does mobile grooming cost in Downey?",
+        question: "Is mobile grooming less stressful than a salon?",
         answer:
-          "Bath & Tidy starts at $75+ and Full Groom starts at $100+, depending on your dog's size. See our Services page for the full pricing table.",
+          "For many dogs, yes. There's no car ride, no kennel wait, and no room full of other dogs, since each appointment is one-on-one in the van.",
       },
       {
-        question: "How do I schedule?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
+        question: "How does mobile grooming pricing compare in Downey?",
+        answer:
+          "Starting prices are published by size: Bath & Tidy from $75+ and Full Groom from $100+ for small dogs, rising with size. Coat condition and matting can affect the final price.",
+      },
+      {
+        question: "Is there a walk-in location in Downey?",
+        answer: "No. Bark and Bork is fully mobile and has no storefront. Every appointment happens at your address.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Downey, CA",
     metaDescription:
-      "Bark and Bork Mobile Pet Spa offers mobile dog grooming in Downey, CA, northeast of our Compton home base. Transparent pricing, online booking.",
+      "Thinking about switching from a salon? Bark and Bork brings one-on-one mobile dog grooming to Downey, CA homes. See how it compares.",
   },
+
   "bellflower-ca": {
     eyebrow: "Bellflower • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Bellflower, CA",
     intro:
-      "Bellflower sits east of Compton along Bark and Bork's mobile grooming route. We bring the full grooming setup directly to your Bellflower home — no crate, no car ride.",
+      "Bellflower lies east of Compton, with Paramount in between. Bark and Bork's mobile grooming covers Bellflower homes. If your dog has never been groomed in a van before, a little preparation makes the first visit easier for both of you.",
+    topic: {
+      heading: "Your Dog's First Mobile Groom",
+      paragraphs: [
+        "Before the appointment, give your dog a walk and a chance to go potty so they're relaxed when the groomer arrives. Brushing them gently in the days before can make the brush out go faster.",
+        "When you book, and again at handoff, tell us about your dog's coat and behavior: any mats, skin sensitivities, fear of dryers or clippers, or trouble with nail trims. Temperament is one of the biggest factors in how long an appointment takes, and knowing ahead lets the groomer go at your dog's pace.",
+        "Afterward, praise and a quiet afternoon help your dog link grooming with something positive. Many dogs grow more comfortable with repeat visits.",
+      ],
+      link: { label: "How to prepare for a mobile grooming appointment", href: "/blog/how-to-prepare-your-dog-for-a-mobile-grooming-appointment" },
+    },
+    whyHeading: "Why It Suits First-Timers in Bellflower",
     whyChoose: [
-      "East of our Compton home base, along our regular route",
-      "Grooming happens entirely at your Bellflower home",
-      "Full range of sizes served, small through extra-large",
-      "The same transparent Bath & Tidy and Full Groom pricing as the rest of our route",
+      "Your dog stays close to home the whole time",
+      "One dog at a time, at a pace that suits them",
+      "Tell us about your dog's quirks ahead of time",
+      "Every size welcome, from small to extra-large",
     ],
+    photo: "groomTerrierMixHalloweenBandana",
+    nearby: ["downey-ca", "paramount-ca", "long-beach-ca"],
     faqs: [
       {
-        question: "Does Bark and Bork groom dogs in Bellflower?",
-        answer: "Yes, Bellflower is part of Bark and Bork's regular mobile grooming route out of Compton.",
-      },
-      {
-        question: "What's included in a Full Groom?",
+        question: "My dog is nervous. Can you still groom them in Bellflower?",
         answer:
-          "A Full Groom includes a bath, shampoo, conditioner, blow dry, brush out, nail trim, ear cleaning, sanitary trim, paw pad trim, light face tidy, finishing spray, and a complete haircut.",
+          "Let us know when you book. The groomer can plan for it, and appointment length is based partly on your dog's temperament so there's no rushing.",
       },
       {
-        question: "How do I book?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
+        question: "What should I tell the groomer about my dog?",
+        answer:
+          "Anything that affects handling: matting, skin sensitivities, fear of dryers or clippers, or trouble with nail trims.",
+      },
+      {
+        question: "What's the most time an appointment can take?",
+        answer: "Most appointments finish within four hours. Smaller and calmer dogs are usually done sooner.",
       },
     ],
     metaTitle: "Mobile Dog Grooming in Bellflower, CA",
     metaDescription:
-      "Mobile dog grooming in Bellflower, CA from Bark and Bork Mobile Pet Spa, based nearby in Compton. See pricing and book your dog's groom online.",
+      "Mobile dog grooming in Bellflower, CA, with tips for a nervous dog's first visit. One-on-one appointments at your home. Book online.",
   },
+
   "hawthorne-ca": {
     eyebrow: "Hawthorne • Mobile Dog Grooming",
     h1: "Mobile Dog Grooming in Hawthorne, CA",
     intro:
-      "Hawthorne sits on the western side of Bark and Bork's Los Angeles service area. Our mobile grooming appointments bring the full setup — bath, dryer, and grooming table — right to your Hawthorne home.",
+      "Hawthorne is in the South Bay, west of Compton, and borders Inglewood and Gardena. Bark and Bork's mobile grooming serves Hawthorne homes. If you're planning your day around a visit, here's how we estimate how long the groomer will be there.",
+    topic: {
+      heading: "How Long a Mobile Groom Takes",
+      paragraphs: [
+        "Two things set the length: your dog's size and their temperament. A small dog's Bath & Tidy usually takes 1–2 hours, and an extra-large dog's can take 2.5–4 hours. A Full Groom adds haircut time, from about 1.5–2.5 hours for small dogs up to 3–4 hours for extra-large dogs.",
+        "Dogs who stand calmly for drying and trimming finish sooner. Dogs who need breaks, or who are nervous about clippers, take longer, and we'd rather go slowly than rush them. Add-ons add their own time, for example about 30 minutes for deshedding and about 60 minutes for dematting.",
+        "Whatever the mix, most appointments are finished within four hours, so you can plan your day around that window.",
+      ],
+      link: { label: "Bath & Tidy details and durations", href: "/services/bath-and-tidy" },
+    },
+    whyHeading: "Planning a Hawthorne Appointment",
     whyChoose: [
-      "Part of Bark and Bork's regular mobile route across Los Angeles",
-      "No trip across town to a traditional grooming salon",
-      "Every size of dog served, with transparent starting prices",
-      "Online booking makes scheduling quick and easy",
+      "Time estimates by size, listed up front",
+      "No rushing nervous dogs",
+      "Most appointments finish within four hours",
+      "Book any day, 9 AM to 7 PM",
     ],
+    photo: "groomPitbullMixHalloweenSmile",
+    nearby: ["inglewood-ca", "gardena-ca", "carson-ca"],
     faqs: [
       {
-        question: "Is mobile dog grooming available in Hawthorne?",
-        answer: "Yes, Hawthorne is part of Bark and Bork's mobile grooming coverage across Los Angeles.",
+        question: "How long is a Bath & Tidy for a small dog?",
+        answer: "Usually 1–2 hours, depending on your dog's coat and temperament.",
       },
       {
-        question: "How do I schedule a grooming appointment in Hawthorne?",
-        answer: `Book online at ${business.bookingUrl} or call ${business.phoneDisplay}.`,
-      },
-      {
-        question: "What size dogs do you groom?",
+        question: "Why do some appointments take longer?",
         answer:
-          "We groom dogs of every size — small (20 lbs or less), medium (40 lbs or less), large (60 lbs or less), and extra-large (over 60 lbs).",
+          "Bigger dogs take longer to bathe and dry, anxious dogs may need breaks, and add-ons like dematting add time.",
+      },
+      {
+        question: "How do I book for Hawthorne?",
+        answer: `Book online at ${business.bookingUrl}, or call ${business.phoneDisplay}.`,
       },
     ],
     metaTitle: "Mobile Dog Grooming in Hawthorne, CA",
     metaDescription:
-      "Mobile dog grooming in Hawthorne, CA from Bark and Bork Mobile Pet Spa. Professional grooming brought to your door. Book online now.",
+      "Mobile dog grooming in Hawthorne, CA. How long appointments take by dog size and temperament, and how to book with Bark and Bork.",
   },
 };
 
@@ -855,6 +1037,20 @@ export const PATHS = {
   faq: "/faq",
   contact: "/contact",
 } as const;
+
+// Sitemap <lastmod> for the core pages: the date each page's content last
+// actually changed. Bump the date when you edit that page — never set it to
+// the build time, or Google learns to ignore the signal. The blog index is
+// derived from the newest post instead (see app/sitemap.ts).
+export const pageUpdated: Record<Exclude<keyof typeof PATHS, "blog">, string> = {
+  home: "2026-09-25",
+  about: "2026-09-05",
+  services: "2026-09-03",
+  serviceAreas: "2026-09-25",
+  gallery: "2026-09-24",
+  faq: "2026-09-03",
+  contact: "2026-09-16",
+};
 
 export const serviceNav: NavItem[] = services.map((s) => ({
   label: s.shortName,

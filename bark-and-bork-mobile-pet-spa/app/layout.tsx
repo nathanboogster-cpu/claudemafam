@@ -19,7 +19,7 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const defaultTitle = "Mobile Dog Grooming in Los Angeles | Bark and Bork";
+const defaultTitle = "Bark and Bork Mobile Pet Spa | Mobile Dog Grooming, Compton CA";
 const defaultDescription =
   "Professional dog grooming brought to your door — based in Compton, serving greater Los Angeles. Bath & Tidy from $75, Full Groom from $100. Book online today.";
 

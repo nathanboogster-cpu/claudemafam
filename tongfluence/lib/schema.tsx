@@ -171,6 +171,34 @@ export function articleSchema(opts: {
   };
 }
 
+// The homepage explainer. Every field here is verified: the title and upload
+// date come from the Wistia library, the duration from the player, and the
+// thumbnail and embed URL derive from the media ID. Google requires name,
+// description, thumbnailUrl and uploadDate for a VideoObject, which is why
+// this could not be emitted until those were known.
+export function videoSchema(opts: {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  duration: string;
+  embedUrl: string;
+  pagePath: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: opts.name,
+    description: opts.description,
+    thumbnailUrl: [opts.thumbnailUrl],
+    uploadDate: opts.uploadDate,
+    duration: opts.duration,
+    embedUrl: opts.embedUrl,
+    publisher: { "@id": ORG_ID },
+    mainEntityOfPage: canonicalUrl(opts.pagePath),
+  };
+}
+
 // Case studies are represented as Articles about a named client, rather than
 // with an invented "CaseStudy" type. `about` names the real grooming business
 // the piece documents, which is the relationship an AI or search system

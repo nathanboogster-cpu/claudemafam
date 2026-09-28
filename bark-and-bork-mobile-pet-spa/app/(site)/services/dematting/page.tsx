@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BookButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { FaqBlock } from "@/components/FaqBlock";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { ServiceGuide } from "@/components/ServiceGuide";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { sizeTiers, business, dematting, photos, servicePath, areaPath, PATHS, SITE_URL } from "@/lib/site-data";
@@ -112,6 +113,8 @@ export default function DemattingPage() {
         <h2 className="font-bb-display text-2xl font-bold text-bb-ink sm:text-3xl">A Compassionate Approach to Severe Matting</h2>
         <p className="mt-4 max-w-2xl text-bb-ink-soft">{dematting.note}</p>
       </section>
+
+      <ServiceGuide slug="dematting" serviceName="Dematting" />
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-bb-display text-2xl font-bold text-bb-ink sm:text-3xl">Related Services &amp; Areas</h2>

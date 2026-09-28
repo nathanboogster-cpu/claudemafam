@@ -27,6 +27,8 @@ export const EVENTS = {
   bookCallClick: "book_call_click",
   pricingView: "pricing_view",
   caseStudyView: "case_study_view",
+  videoPlay: "video_play",
+  videoComplete: "video_complete",
   formStart: "form_start",
   formSubmit: "form_submit",
   formError: "form_error",

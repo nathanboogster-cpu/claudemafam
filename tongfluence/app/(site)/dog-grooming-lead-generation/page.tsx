@@ -11,6 +11,7 @@ import { FaqBlock } from "@/components/FaqBlock";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { ComparisonTable } from "@/components/ComparisonTable";
+import { GbpCallsProof } from "@/components/GbpCallsProof";
 
 // SEARCH INTENT
 //   Primary query:    dog grooming lead generation
@@ -151,13 +152,13 @@ export default function LeadGenerationPage() {
           ].map((s, i) => (
             <li key={s.step} className="rounded-2xl border border-tf-border bg-white p-5">
               <div className="flex items-baseline gap-3">
-                <span className="font-tf-mono text-xs font-semibold text-tf-clay">
+                <span className="font-tf-mono text-xs font-semibold text-tf-brown">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-tf-display text-base font-bold text-tf-ink">{s.step}</h3>
               </div>
               <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{s.what}</p>
-              <p className="mt-2 border-l-2 border-tf-clay/40 pl-3 text-sm leading-relaxed text-tf-ink">
+              <p className="mt-2 border-l-2 border-tf-brown/40 pl-3 text-sm leading-relaxed text-tf-ink">
                 <span className="font-semibold">Where it leaks: </span>
                 {s.leak}
               </p>
@@ -246,18 +247,30 @@ export default function LeadGenerationPage() {
         <p className="mt-6 text-sm leading-relaxed text-tf-ink-soft">
           The third one is set up as part of every build, and it is why the monthly conversation can be about
           appointments rather than about impressions. The ranking work that feeds it is on{" "}
-          <Link href={PATHS.seo} className="font-medium text-tf-green-dark underline underline-offset-4">
+          <Link href={PATHS.seo} className="font-medium text-tf-brown-dark underline underline-offset-4">
             dog groomer SEO
           </Link>
           ; the page-level conversion work is on{" "}
           <Link
             href={PATHS.websiteDesign}
-            className="font-medium text-tf-green-dark underline underline-offset-4"
+            className="font-medium text-tf-brown-dark underline underline-offset-4"
           >
             grooming website design
           </Link>
           .
         </p>
+      </Section>
+
+      <Section width="narrow" className="py-12" labelledBy="leads-measured">
+        <SectionHeading
+          eyebrow="Measured"
+          id="leads-measured"
+          title="What “more calls” looks like when it is real"
+          intro="The third row of the table above — calls — is the first number that is really about the business. This is that number for one client, before and after, straight from Google."
+        />
+        <div className="mt-8">
+          <GbpCallsProof location="leads_measured" />
+        </div>
       </Section>
 
       <Section width="narrow" className="py-12" labelledBy="leads-offer">

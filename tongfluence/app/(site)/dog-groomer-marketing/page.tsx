@@ -151,14 +151,14 @@ export default function DogGroomerMarketingPage() {
               ["Call or book", "Only if the answer was easy to find and the phone number is one tap away."],
             ].map(([step, detail]) => (
               <li key={step} className="flex gap-3">
-                <span className="mt-0.5 font-tf-mono text-xs font-semibold text-tf-clay">{step}</span>
+                <span className="mt-0.5 font-tf-mono text-xs font-semibold text-tf-brown">{step}</span>
                 <span className="flex-1 border-l border-tf-border pl-3">{detail}</span>
               </li>
             ))}
           </ol>
           <p className="mt-4 text-sm text-tf-ink-soft">
             The detail of that last stretch — search through to a booked appointment — is covered on{" "}
-            <Link href={PATHS.leadGeneration} className="font-medium text-tf-green-dark underline underline-offset-4">
+            <Link href={PATHS.leadGeneration} className="font-medium text-tf-brown-dark underline underline-offset-4">
               getting more grooming leads
             </Link>
             .
@@ -207,13 +207,13 @@ export default function DogGroomerMarketingPage() {
             },
           ].map((item) => (
             <div key={item.n} className="grid gap-3 rounded-2xl border border-tf-border bg-white p-6 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5">
-              <p className="font-tf-mono text-sm font-semibold text-tf-clay">{item.n}</p>
+              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{item.n}</p>
               <div>
                 <h3 className="font-tf-display text-lg font-bold text-tf-ink">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{item.body}</p>
                 <Link
                   href={item.href}
-                  className="mt-2.5 inline-block text-sm font-semibold text-tf-green-dark underline underline-offset-4 hover:text-tf-green-darker"
+                  className="mt-2.5 inline-block text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
                 >
                   More on {item.label}
                 </Link>

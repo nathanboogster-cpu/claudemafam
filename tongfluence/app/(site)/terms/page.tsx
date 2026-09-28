@@ -91,7 +91,7 @@ export default function TermsPage() {
         <h1 className="font-tf-display text-3xl font-extrabold text-tf-ink sm:text-4xl">Terms of Service</h1>
         <p className="mt-4 text-base leading-relaxed text-tf-ink-soft">
           The arrangement in plain language. These terms say the same thing as the answers on{" "}
-          <Link href={PATHS.book} className="font-medium text-tf-green-dark underline underline-offset-4">
+          <Link href={PATHS.book} className="font-medium text-tf-brown-dark underline underline-offset-4">
             the booking page
           </Link>{" "}
           — deliberately, so there is nothing to discover later.

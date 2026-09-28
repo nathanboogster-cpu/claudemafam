@@ -170,7 +170,7 @@ export default function ReviewManagementPage() {
             },
           ].map((x) => (
             <div key={x.n} className="grid gap-3 rounded-2xl border border-tf-border bg-white p-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
-              <p className="font-tf-mono text-sm font-semibold text-tf-clay">{x.n}</p>
+              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{x.n}</p>
               <div>
                 <h3 className="font-tf-display text-lg font-bold text-tf-ink">{x.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
@@ -193,7 +193,7 @@ export default function ReviewManagementPage() {
           title="Three shortcuts that put your profile at risk"
           intro="These get sold as review management. They are the reason some businesses lose their reviews, or their listing."
         />
-        <div className="mt-7 rounded-2xl border border-tf-clay/30 bg-tf-clay-wash p-6">
+        <div className="mt-7 rounded-2xl border border-tf-warn/30 bg-tf-warn-wash p-6">
           <Checklist
             tone="dont"
             items={[
@@ -217,7 +217,7 @@ export default function ReviewManagementPage() {
             We also do not add review or rating structured data to your website to produce stars in search
             results. Google restricts self-serving review markup, and the gain is cosmetic. Real reviews go on
             your{" "}
-            <Link href={PATHS.gbp} className="font-medium text-tf-green-dark underline underline-offset-4">
+            <Link href={PATHS.gbp} className="font-medium text-tf-brown-dark underline underline-offset-4">
               Google Business Profile
             </Link>
             , and get quoted on your site as visible content with a link to where they came from.

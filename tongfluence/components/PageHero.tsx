@@ -24,7 +24,7 @@ export function PageHero({
   return (
     <Section className="pt-6 pb-10 sm:pt-8">
       <div className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-tf-green-dark">{eyebrow}</p>
+        <p className="tf-caps text-xs text-tf-brown-dark">{eyebrow}</p>
         <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
           {title}
         </h1>
