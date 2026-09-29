@@ -300,22 +300,18 @@ export default function LeadGenerationPage() {
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "Getting found in the first place. The top half of the path above.",
             },
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "The pages that answer what someone really searched for.",
             },
             {
               href: PATHS.reviews,
               label: "Getting more reviews",
-              description: "The glance step. What makes someone trust you enough to call.",
             },
             {
               href: PATHS.marketing,
               label: "The whole picture",
-              description: "How search compares with social and ads for a grooming business.",
             },
           ]}
         />

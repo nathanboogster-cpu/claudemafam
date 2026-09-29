@@ -9,6 +9,13 @@ import { CheckIcon, ArrowRightIcon } from "./icons";
 // The offer block. Fires a pricing_view event the first time it actually
 // enters the viewport, so "saw the price" is measurable separately from
 // "landed on the page" — the two are very different funnel steps.
+//
+// Kept short on purpose: the price, three badges for the terms, and the four
+// inclusions as a checklist. Each inclusion links to its own page, which is
+// where the explanation lives. This card appears on most pages, so every
+// sentence here is a sentence the visitor reads several times.
+const terms = ["Cancel anytime", "No contract", "No setup fee"];
+
 export function PricingCard({ location, className = "" }: { location: string; className?: string }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const fired = useRef(false);
@@ -39,17 +46,26 @@ export function PricingCard({ location, className = "" }: { location: string; cl
       ref={ref}
       className={`overflow-hidden rounded-2xl border border-tf-border-strong bg-tf-card ${className}`}
     >
-      <div className="grid gap-0 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
-        <div className="border-b border-tf-border bg-tf-ink p-8 text-white md:border-b-0 md:border-r">
+      <div className="grid gap-0 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <div className="border-b border-tf-border bg-tf-ink p-7 text-white sm:p-8 md:border-b-0 md:border-r">
           <p className="tf-caps text-xs text-tf-bronze-light">Everything, one price</p>
           <p className="mt-4 flex items-baseline gap-1.5">
             <span className="font-tf-display text-5xl font-bold tracking-tight">{offer.priceDisplay}</span>
             <span className="text-lg text-white/70">/{offer.billingPeriod}</span>
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-white/80">{offer.commitment}</p>
-          <p className="mt-6 text-sm leading-relaxed text-white/80">
-            One price covers the build and the monthly work. No separate website fee. No setup fee. No charge
-            per page when we add a service or a town.
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {terms.map((t) => (
+              <li
+                key={t}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white"
+              >
+                <CheckIcon className="h-3.5 w-3.5 text-tf-bronze-light" />
+                {t}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-sm leading-relaxed text-white/80">
+            Covers the build and every month of work after it. No charge for pages we add later.
           </p>
           <Link
             href="/book"
@@ -61,22 +77,18 @@ export function PricingCard({ location, className = "" }: { location: string; cl
           </Link>
         </div>
 
-        <div className="p-8">
+        <div className="p-7 sm:p-8">
           <h3 className="font-tf-display text-lg font-bold text-tf-ink">What&rsquo;s included every month</h3>
-          <ul className="mt-5 space-y-5">
+          <ul className="mt-5 space-y-3">
             {offer.inclusions.map((item) => (
-              <li key={item.number} className="flex gap-3">
-                <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-tf-brown-dark" />
-                <div>
-                  <p className="font-semibold text-tf-ink">{item.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-tf-ink-soft">{item.summary}</p>
-                  <Link
-                    href={item.href}
-                    className="mt-0.5 inline-block py-2 text-sm font-medium text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
-                  >
-                    {item.linkLabel}
-                  </Link>
-                </div>
+              <li key={item.number} className="flex items-start gap-3">
+                <CheckIcon className="mt-1 h-5 w-5 shrink-0 text-tf-brown-dark" />
+                <Link
+                  href={item.href}
+                  className="inline-block py-2 font-semibold text-tf-ink underline decoration-tf-border underline-offset-4 hover:text-tf-brown-dark hover:decoration-current"
+                >
+                  {item.title}
+                </Link>
               </li>
             ))}
           </ul>

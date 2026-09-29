@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, offer, objections, faqs, business } from "@/lib/site-data";
-import { buildStats } from "@/lib/client-builds";
+import { PATHS, faqs, business, preCallVideos } from "@/lib/site-data";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
@@ -10,7 +9,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { TrustPills } from "@/components/TrustPills";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
-import { CheckIcon } from "@/components/icons";
+import { CheckIcon, ArrowRightIcon } from "@/components/icons";
 
 // SEARCH INTENT
 //   Primary:          navigational / transactional. This is the single
@@ -76,25 +75,19 @@ export default function BookPage() {
 
             <h2 className="mt-8 font-tf-display text-lg font-bold text-tf-ink">What it isn&rsquo;t</h2>
             <p className="mt-3 text-sm leading-relaxed text-tf-ink-soft">
-              No slide deck. No six-month plan. No pressure to decide on the call. You can take the list of
-              things we would change and do them yourself. Everything we would tell you is already written
-              up in{" "}
+              No slide deck. No pressure to decide on the call. You can take the list and do it yourself with{" "}
               <Link
                 href="/resources/how-to-rank-dog-grooming-business-on-google"
                 className="font-medium text-tf-brown-dark underline underline-offset-4"
               >
-                our guide to ranking a grooming business on Google
+                our guide
               </Link>
               .
             </p>
 
-            <div className="mt-8 rounded-xl border border-tf-border bg-tf-card p-5">
-              <p className="text-sm leading-relaxed text-tf-ink">
-                <span className="font-semibold">{offer.priceLine}</span>. {offer.commitment} We work with{" "}
-                {buildStats.siteCount} grooming businesses across {buildStats.stateCount} states.
-              </p>
+            <div className="mt-8">
               {business.publicContactEmail ? (
-                <p className="mt-3 text-sm leading-relaxed text-tf-ink-soft">
+                <p className="text-sm leading-relaxed text-tf-ink-soft">
                   Prefer email? Write to{" "}
                   <a
                     href={`mailto:${business.publicContactEmail}`}
@@ -127,25 +120,25 @@ export default function BookPage() {
         <SectionHeading
           eyebrow="Before you decide"
           id="last-objections"
-          title="The questions people ask on the call"
-          intro={
-            <>
-              More answers, seven of them on video, are on{" "}
-              <Link href={PATHS.faq} className="font-medium text-tf-brown-dark underline underline-offset-4">
-                the FAQ page
-              </Link>
-              .
-            </>
-          }
+          title="What groomers say before the call,"
+          accent="answered on video."
+          intro="Each answer is under a minute. Tap one to watch it."
         />
-        <dl className="mt-8 space-y-6">
-          {objections.map((o) => (
-            <div key={o.question} className="border-l-2 border-tf-brown/40 pl-5">
-              <dt className="font-tf-display text-lg font-bold text-tf-ink">{o.question}</dt>
-              <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{o.answer}</dd>
-            </div>
-          ))}
-        </dl>
+        <ul className="mt-6 flex flex-wrap gap-2.5">
+          {preCallVideos
+            .filter((v) => v.question)
+            .map((v) => (
+              <li key={v.wistiaMediaId}>
+                <Link
+                  href={`${PATHS.faq}#video-answers`}
+                  className="tf-lift group inline-flex min-h-[44px] items-center gap-2 rounded-full border border-tf-border bg-tf-card px-4 py-2 text-sm font-semibold text-tf-ink hover:border-tf-brown hover:bg-tf-brown-wash"
+                >
+                  “{v.question}”
+                  <ArrowRightIcon className="h-4 w-4 shrink-0 text-tf-brown-dark transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </li>
+            ))}
+        </ul>
       </Section>
 
       <Section width="narrow" className="py-12 pb-16">
@@ -157,9 +150,9 @@ export default function BookPage() {
           headingId="booking-faq"
           intro={
             <>
-              The rest of the questions are answered on{" "}
-              <Link href={PATHS.home} className="font-medium text-tf-brown-dark underline underline-offset-4">
-                the homepage FAQ
+              Everything else is answered on{" "}
+              <Link href={PATHS.faq} className="font-medium text-tf-brown-dark underline underline-offset-4">
+                the FAQ page
               </Link>
               .
             </>

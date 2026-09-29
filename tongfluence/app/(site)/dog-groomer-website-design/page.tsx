@@ -12,7 +12,7 @@ import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { BuildTable } from "@/components/BuildTable";
+import { Reveal } from "@/components/Reveal";
 import { Checklist } from "@/components/Checklist";
 
 // SEARCH INTENT
@@ -205,17 +205,23 @@ export default function WebsiteDesignPage() {
           id="real-builds"
           title="What our grooming sites"
           accent="are really made of"
-          intro={`Every site we built, counted. This is not an industry average. It is our own work, which is why we can stand behind the numbers.`}
+          intro={`Every page on all ${buildStats.siteCount} sites we built, counted from their own sitemaps.`}
         />
-        <div className="mt-8">
-          <BuildTable />
-        </div>
+        <dl className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {[
+            { n: buildStats.totalServicePages, l: "service pages" },
+            { n: buildStats.totalAreaPages, l: "town pages" },
+            { n: buildStats.totalArticlePages, l: "articles" },
+            { n: buildStats.totalPages, l: "pages in total" },
+          ].map((s, i) => (
+            <Reveal as="div" key={s.l} delay={i * 80} className="rounded-2xl border border-tf-border bg-tf-card p-5 sm:p-6">
+              <dd className="font-tf-display text-4xl font-bold tracking-tight text-tf-ink sm:text-5xl">{s.n}</dd>
+              <dt className="mt-1 text-sm text-tf-ink-soft">{s.l}</dt>
+            </Reveal>
+          ))}
+        </dl>
         <p className="mt-5 text-sm leading-relaxed text-tf-ink-soft">
-          The full story of each one, including what was wrong before, is in{" "}
-          <Link href={PATHS.caseStudies} className="font-medium text-tf-brown-dark underline underline-offset-4">
-            the case studies
-          </Link>
-          . You can compare them side by side in{" "}
+          The site-by-site table is in{" "}
           <Link
             href={resourcePath("dog-grooming-website-examples")}
             className="font-medium text-tf-brown-dark underline underline-offset-4"
@@ -298,22 +304,18 @@ export default function WebsiteDesignPage() {
             {
               href: resourcePath("dog-grooming-website-examples"),
               label: "The sites we've built, compared",
-              description: "Every site we built, what it had to solve, and what is inside it.",
             },
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "How these pages turn into rankings, and what happens after launch.",
             },
             {
               href: PATHS.leadGeneration,
               label: "Turning searches into calls",
-              description: "What makes a visitor pick up the phone.",
             },
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "Where most new customers see you before they see the website.",
             },
           ]}
         />

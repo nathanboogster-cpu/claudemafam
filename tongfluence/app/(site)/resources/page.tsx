@@ -5,7 +5,7 @@ import { PATHS, resourcePath } from "@/lib/site-data";
 import { resources } from "@/lib/resources-data";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
+import { Section, SectionHeading } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
 import { CtaBand } from "@/components/CtaBand";
 import { ArrowRightIcon } from "@/components/icons";
@@ -48,21 +48,6 @@ export default function ResourcesPage() {
         secondary={{ href: PATHS.caseStudies, label: "See the builds" }}
       />
 
-      <Section width="narrow" className="pb-12">
-        <AnswerBlock label="Why the list is short">
-          <p>
-            A grooming business does not need another article about why being online matters. Most
-            marketing articles in this field exist because somebody decided their website needed a blog.
-            Ours exist because we have built{" "}
-            <Link href={PATHS.caseStudies} className="font-medium underline underline-offset-4">
-              grooming websites
-            </Link>{" "}
-            and have something real to report from them. When there is a third thing worth writing, there
-            will be three.
-          </p>
-        </AnswerBlock>
-      </Section>
-
       <Section width="narrow" className="py-12" labelledBy="library">
         <SectionHeading eyebrow="The library" id="library" title="What's here" />
         <ul className="mt-8 space-y-5">
@@ -88,66 +73,6 @@ export default function ResourcesPage() {
             </li>
           ))}
         </ul>
-      </Section>
-
-      <Section width="narrow" className="py-12" labelledBy="not-published">
-        <SectionHeading
-          eyebrow="Transparency"
-          id="not-published"
-          title="What we chose not to post,"
-          accent="and why"
-          intro="These were all on the list. Each one was cut for a reason worth saying out loud."
-        />
-        <dl className="mt-7 space-y-5">
-          {[
-            {
-              t: "“How to get more dog grooming clients”",
-              b: (
-                <>
-                  People searching for this want the same thing as{" "}
-                  <Link
-                    href={PATHS.leadGeneration}
-                    className="font-medium text-tf-brown-dark underline underline-offset-4"
-                  >
-                    our lead generation page
-                  </Link>
-                  . Two pages chasing one search fight each other, and neither wins.
-                </>
-              ),
-            },
-            {
-              t: "“Dog grooming SEO keywords”",
-              b: (
-                <>
-                  A keyword list is only worth something with real search data behind it. We do not have
-                  that data for grooming yet. A made-up keyword list is exactly the filler this library is
-                  meant to avoid. It will be posted when there is real data to post.
-                </>
-              ),
-            },
-            {
-              t: "“Google Business Profile categories for dog groomers”",
-              b: (
-                <>
-                  Google&rsquo;s category list changes. The only real version is the picker inside your own
-                  profile. Instead of posting a list we cannot check, we explain how categories work on{" "}
-                  <Link
-                    href={PATHS.gbp}
-                    className="font-medium text-tf-brown-dark underline underline-offset-4"
-                  >
-                    the Google Business Profile page
-                  </Link>
-                  , which points to Google&rsquo;s own help pages.
-                </>
-              ),
-            },
-          ].map((x) => (
-            <div key={x.t} className="rounded-xl border border-tf-border bg-tf-card p-5">
-              <dt className="font-semibold text-tf-ink">{x.t}</dt>
-              <dd className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{x.b}</dd>
-            </div>
-          ))}
-        </dl>
       </Section>
 
       <Section className="py-12">

@@ -286,22 +286,18 @@ export default function WebsiteExamplesPage() {
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "How we build the pages above, and what it costs.",
             },
             {
               href: PATHS.caseStudies,
               label: "The full case studies",
-              description: "Three of these sites written up in detail, choice by choice.",
             },
             {
               href: resourcePath("how-to-rank-dog-grooming-business-on-google"),
               label: "How to rank a grooming business on Google",
-              description: "The step-by-step guide to doing all of this yourself.",
             },
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "Why the pages look like this, and what happens after launch.",
             },
           ]}
         />

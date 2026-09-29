@@ -357,32 +357,26 @@ export default function DogGroomerMarketingPage() {
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "How grooming businesses rank on Google, and what we change first.",
             },
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "Categories, services, service areas and photos. The fastest part of the job.",
             },
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "What pages a grooming site needs, and why one “Services” page is not enough.",
             },
             {
               href: PATHS.reviews,
               label: "Getting more reviews",
-              description: "Getting a steady flow of new Google reviews, without breaking Google's rules.",
             },
             {
               href: PATHS.leadGeneration,
               label: "Turning searches into calls",
-              description: "Turning searches into calls, and calls into booked appointments.",
             },
             {
               href: PATHS.caseStudies,
               label: `${buildStats.siteCount} grooming builds, broken down`,
-              description: "What each business had, what was wrong, and exactly what we built.",
             },
           ]}
         />

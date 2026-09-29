@@ -341,22 +341,18 @@ export default function GbpPage() {
             {
               href: PATHS.reviews,
               label: "Getting more reviews",
-              description: "Keeping the profile earning new reviews, without breaking Google's rules.",
             },
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "How the profile and the website rank in two different ways.",
             },
             {
               href: resourcePath("how-to-rank-dog-grooming-business-on-google"),
               label: "How to rank a grooming business on Google",
-              description: "The step-by-step version, if you would rather do it yourself.",
             },
             {
               href: PATHS.caseStudies,
               label: "Grooming builds, broken down",
-              description: "How the profile work fits with the site on a real business.",
             },
           ]}
         />

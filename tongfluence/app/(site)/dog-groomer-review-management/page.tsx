@@ -248,22 +248,18 @@ export default function ReviewManagementPage() {
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "Where your reviews live, and the rest of what that profile needs.",
             },
             {
               href: PATHS.leadGeneration,
               label: "Turning searches into calls",
-              description: "How reviews fit into the path from a search to a booked appointment.",
             },
             {
               href: PATHS.marketing,
               label: "The whole picture",
-              description: "The big picture, and where reviews sit in the order of work.",
             },
             {
               href: PATHS.caseStudies,
               label: "Grooming builds, broken down",
-              description: "How the review system is set up next to the site and profile.",
             },
           ]}
         />

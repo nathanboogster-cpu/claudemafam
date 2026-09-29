@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/metadata";
 import { PATHS, caseStudyPath } from "@/lib/site-data";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies-data";
-import { getBuild } from "@/lib/client-builds";
 import { JsonLd, breadcrumbSchema, caseStudySchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
@@ -41,7 +40,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   const study = getCaseStudy(slug);
   if (!study) notFound();
 
-  const build = getBuild(study.slug);
   const breadcrumbs = [
     { name: "Home", href: PATHS.home },
     { name: "Case Studies", href: PATHS.caseStudies },
@@ -231,24 +229,18 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: `The page plan used here: ${build?.pages.services ?? 0} service pages and ${
-                build?.pages.areas ?? 0
-              } town pages.`,
             },
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "The profile side of this build, in detail.",
             },
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "Why these sites are built this way, and what happens after launch.",
             },
             {
               href: PATHS.caseStudies,
               label: "All case studies",
-              description: "The rest of the grooming businesses we've built for.",
             },
           ]}
         />
