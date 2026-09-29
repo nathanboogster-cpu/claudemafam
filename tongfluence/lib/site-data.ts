@@ -395,6 +395,7 @@ export const PATHS = {
   caseStudies: "/case-studies",
   testimonials: "/testimonials",
   resources: "/resources",
+  blog: "/blog",
   about: "/about",
   faq: "/faq",
   book: "/book",

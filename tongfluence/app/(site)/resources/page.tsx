@@ -3,6 +3,9 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { PATHS, resourcePath } from "@/lib/site-data";
 import { resources } from "@/lib/resources-data";
+import { blogPosts } from "@/lib/blog-posts";
+import { BlogCard } from "@/components/BlogCard";
+import { SecondaryCTA } from "@/components/CTAButton";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading } from "@/components/Section";
@@ -18,7 +21,7 @@ import { ArrowRightIcon } from "@/components/icons";
 export const metadata: Metadata = pageMetadata({
   title: "Dog Grooming Marketing Resources",
   description:
-    "A small library for dog grooming businesses: how to rank on Google, and what the grooming websites we built are really made of.",
+    "Guides and articles for dog grooming businesses: how to rank on Google, what our grooming websites are made of, and how to get more appointments.",
   path: PATHS.resources,
 });
 
@@ -37,15 +40,15 @@ export default function ResourcesPage() {
       <PageHero
         eyebrow="Resources"
         title="Two guides,"
-        accent="not two hundred blog posts."
+        accent="and the questions groomers ask."
         intro={
           <>
-            We post something when we have something to say that a grooming business owner would save or
-            send to a friend. That makes a short list. The short list is the point.
+            Two long guides you can work through yourself, and a blog of short answers to the questions
+            grooming business owners ask us. Everything here comes from work we have done.
           </>
         }
         location="resources_hero"
-        secondary={{ href: PATHS.caseStudies, label: "See the builds" }}
+        secondary={{ href: PATHS.blog, label: "Read the blog" }}
       />
 
       <Section width="narrow" className="py-12" labelledBy="library">
@@ -73,6 +76,20 @@ export default function ResourcesPage() {
             </li>
           ))}
         </ul>
+      </Section>
+
+      <Section className="py-12" labelledBy="from-the-blog">
+        <SectionHeading eyebrow="From the blog" id="from-the-blog" title="Short answers," accent="one question each." />
+        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.slice(0, 3).map((p) => (
+            <li key={p.slug}>
+              <BlogCard post={p} />
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8">
+          <SecondaryCTA href={PATHS.blog} label={`All ${blogPosts.length} articles`} location="resources_blog" variant="quiet" />
+        </div>
       </Section>
 
       <Section className="py-12">

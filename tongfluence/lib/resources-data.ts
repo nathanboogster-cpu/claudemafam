@@ -5,10 +5,11 @@
 // distinct search intent that no commercial page on this site serves, and
 // because we can write it from work we have actually done.
 //
+// The blog (lib/blog-posts.ts) holds the shorter, question-shaped articles.
+// Each blog post targets an informational query none of these guides or the
+// commercial pages own; see SEO-PLAN.md for the split.
+//
 // PAGES CONSIDERED AND NOT PUBLISHED (and why):
-//   /resources/how-to-get-more-dog-grooming-clients
-//     Same intent as /dog-grooming-lead-generation. Two pages competing for
-//     one intent is cannibalization, so the commercial page keeps it.
 //   /resources/dog-grooming-seo-keywords
 //     A keyword list is only worth publishing with real volume and query data
 //     behind it. We do not have an exported Search Console dataset yet, and a

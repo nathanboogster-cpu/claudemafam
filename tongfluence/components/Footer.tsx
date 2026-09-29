@@ -106,6 +106,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href={PATHS.blog} className="inline-block py-1.5 hover:text-tf-brown-dark">
+                Blog
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

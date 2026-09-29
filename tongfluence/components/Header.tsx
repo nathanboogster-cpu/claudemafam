@@ -39,6 +39,12 @@ export function Header() {
             Resources
           </Link>
           <Link
+            href={PATHS.blog}
+            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
+          >
+            Blog
+          </Link>
+          <Link
             href={PATHS.about}
             className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
           >
