@@ -80,6 +80,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href={PATHS.faq} className="hover:text-tf-brown-dark">
+                FAQ
+              </Link>
+            </li>
+            <li>
               <Link href={PATHS.book} className="hover:text-tf-brown-dark">
                 Book a call
               </Link>

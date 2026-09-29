@@ -467,7 +467,18 @@ export default function HomePage() {
       {/* 11. FAQ                                                           */}
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-14">
-        <FaqBlock items={faqs} />
+        <FaqBlock
+          items={faqs}
+          intro={
+            <>
+              Video answers to the doubts groomers raise most, and the rest of the questions, are on{" "}
+              <Link href={PATHS.faq} className="font-medium text-tf-brown-dark underline underline-offset-4">
+                the FAQ page
+              </Link>
+              .
+            </>
+          }
+        />
       </Section>
 
       {/* ---------------------------------------------------------------- */}

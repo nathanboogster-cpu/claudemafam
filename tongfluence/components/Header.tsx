@@ -38,6 +38,12 @@ export function Header() {
           >
             About
           </Link>
+          <Link
+            href={PATHS.faq}
+            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
+          >
+            FAQ
+          </Link>
         </nav>
 
         <div className="hidden shrink-0 items-center gap-3 lg:flex">

@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [PATHS.leadGeneration]: 0.8,
     [PATHS.reviews]: 0.8,
     [PATHS.book]: 0.9,
+    [PATHS.faq]: 0.7,
     [PATHS.caseStudies]: 0.8,
     [PATHS.resources]: 0.6,
     [PATHS.about]: 0.6,

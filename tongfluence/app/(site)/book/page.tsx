@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, offer, objections, faqs, business, preCallVideos, wistiaSwatchUrl, wistiaEmbedUrl } from "@/lib/site-data";
+import { PATHS, offer, objections, faqs, business } from "@/lib/site-data";
 import { buildStats } from "@/lib/client-builds";
-import { JsonLd, breadcrumbSchema, faqSchema, videoSchema } from "@/lib/schema";
+import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
-import { Reveal } from "@/components/Reveal";
-import { VideoFaq } from "@/components/VideoFaq";
 import { LeadForm } from "@/components/LeadForm";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -37,42 +35,12 @@ const breadcrumbs = [
 const decisionQuestions = ["Is there a contract?", "What happens if I cancel?", "What exactly do you do every month?", "Do I own my website?"];
 const bookingFaqs = faqs.filter((f) => decisionQuestions.includes(f.question));
 
-// Pre-call video answers. Only videos whose real Wistia title has been filled
-// in as the question are shown (see preCallVideos in lib/site-data.ts).
-const videoAnswers = preCallVideos.filter(
-  (v): v is (typeof preCallVideos)[number] & { question: string } => Boolean(v.question),
-);
-
-// Written objections that one of the videos above already answers. On this
-// page the video answer is the one shown, so the same point is not made twice.
-const answeredOnVideo = ["I've tried marketing before and it didn't work.", "I'm already busy. Why would I bother?"];
-const writtenObjections = objections.filter(
-  (o) => !(videoAnswers.length > 0 && answeredOnVideo.includes(o.question)),
-);
-
-const isoDuration = (s: number) => `PT${Math.floor(s / 60)}M${s % 60}S`;
 
 export default function BookPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema(breadcrumbs.map((b) => ({ name: b.name, url: b.href })))} />
       <JsonLd data={faqSchema(bookingFaqs)} />
-      {videoAnswers
-        .filter((v) => v.uploadDate && v.durationSeconds)
-        .map((v) => (
-          <JsonLd
-            key={v.wistiaMediaId}
-            data={videoSchema({
-              name: v.question,
-              description: `Tongfluence\u2019s answer, before the call, to a grooming business owner who says: \u201c${v.question}\u201d`,
-              thumbnailUrl: wistiaSwatchUrl(v.wistiaMediaId),
-              uploadDate: v.uploadDate!,
-              duration: isoDuration(v.durationSeconds!),
-              embedUrl: wistiaEmbedUrl(v.wistiaMediaId),
-              pagePath: PATHS.book,
-            })}
-          />
-        ))}
 
       <Breadcrumbs items={breadcrumbs.map((b) => ({ name: b.name, href: b.href }))} />
 
@@ -144,23 +112,6 @@ export default function BookPage() {
         </div>
       </Section>
 
-      {videoAnswers.length > 0 ? (
-        <Section width="narrow" className="py-12" labelledBy="before-the-call">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Before the call"
-              id="before-the-call"
-              title="What groomers tell us"
-              accent="before the call."
-              intro="And what we say back. Tap one to play the answer; none of them is longer than a minute."
-            />
-          </Reveal>
-          <div className="mt-8">
-            <VideoFaq items={videoAnswers} location="book_video_faq" />
-          </div>
-        </Section>
-      ) : null}
-
       <Section width="narrow" className="py-12" labelledBy="what-you-get">
         <SectionHeading
           eyebrow="What you'd be signing up for"
@@ -175,9 +126,18 @@ export default function BookPage() {
           eyebrow="Before you decide"
           id="last-objections"
           title="The questions people ask on the call"
+          intro={
+            <>
+              More answers, seven of them on video, are on{" "}
+              <Link href={PATHS.faq} className="font-medium text-tf-brown-dark underline underline-offset-4">
+                the FAQ page
+              </Link>
+              .
+            </>
+          }
         />
         <dl className="mt-8 space-y-6">
-          {writtenObjections.map((o) => (
+          {objections.map((o) => (
             <div key={o.question} className="border-l-2 border-tf-brown/40 pl-5">
               <dt className="font-tf-display text-lg font-bold text-tf-ink">{o.question}</dt>
               <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{o.answer}</dd>

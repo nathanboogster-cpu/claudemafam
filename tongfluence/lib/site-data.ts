@@ -322,6 +322,7 @@ export const PATHS = {
   caseStudies: "/case-studies",
   resources: "/resources",
   about: "/about",
+  faq: "/faq",
   book: "/book",
   privacy: "/privacy",
   terms: "/terms",
