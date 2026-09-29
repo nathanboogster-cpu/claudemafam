@@ -7,18 +7,20 @@ export function FaqBlock({
   items,
   eyebrow = "FAQ",
   title = "Questions groomers ask before signing up",
+  accent,
   intro,
   headingId = "faq",
 }: {
   items: { question: string; answer: string }[];
   eyebrow?: string;
   title?: string;
+  accent?: string;
   intro?: React.ReactNode;
   headingId?: string;
 }) {
   return (
     <>
-      <SectionHeading eyebrow={eyebrow} title={title} intro={intro} id={headingId} />
+      <SectionHeading eyebrow={eyebrow} title={title} accent={accent} intro={intro} id={headingId} />
       <div className="mt-8 space-y-3">
         {items.map((item) => (
           <details key={item.question} className="group rounded-xl border border-tf-border bg-tf-card p-5">

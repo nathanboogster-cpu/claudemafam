@@ -12,6 +12,8 @@ import { BuildTable } from "@/components/BuildTable";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { GbpCallsProof } from "@/components/GbpCallsProof";
+import { Testimonials } from "@/components/Testimonials";
+import { Reveal } from "@/components/Reveal";
 
 // SEARCH INTENT
 //   Primary query:    dog grooming marketing case studies / dog groomer SEO
@@ -75,11 +77,31 @@ export default function CaseStudiesPage() {
           id="measured"
           title="The one performance figure"
           accent="we can show you"
-          intro="Everything else on this page is what we built. This is what the work did to one client's calls from Google."
+          intro="What the profile work did to one client's calls from Google, with the reports it was read from."
         />
         <div className="mt-8">
           <GbpCallsProof location="case_studies_measured" />
         </div>
+      </Section>
+
+      <Section className="py-12" labelledBy="testimonials">
+        <Reveal>
+          <SectionHeading
+            eyebrow="What clients say"
+            id="testimonials"
+            title="In their own words,"
+            accent="from their messages."
+            intro="Quoted word for word from emails and texts, with the original message under each one."
+          />
+        </Reveal>
+        <div className="mt-8">
+          <Testimonials />
+        </div>
+          <p className="mt-6 text-sm">
+            <Link href={PATHS.testimonials} className="font-medium text-tf-brown-dark underline underline-offset-4">
+              All testimonials, with the originals
+            </Link>
+          </p>
       </Section>
 
       <Section className="py-12" labelledBy="full-writeups">

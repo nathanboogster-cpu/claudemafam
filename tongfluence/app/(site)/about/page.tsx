@@ -7,6 +7,7 @@ import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
+import { pageDogPhoto } from "@/lib/dog-photos";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { Checklist } from "@/components/Checklist";
@@ -47,6 +48,8 @@ export default function AboutPage() {
           </>
         }
         location="about_hero"
+        image={pageDogPhoto.about}
+        pills
         secondary={{ href: PATHS.caseStudies, label: "See the work" }}
       />
 

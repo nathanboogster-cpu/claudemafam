@@ -7,6 +7,7 @@ import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
+import { pageDogPhoto } from "@/lib/dog-photos";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CtaBand } from "@/components/CtaBand";
@@ -98,6 +99,8 @@ export default function WebsiteDesignPage() {
           </>
         }
         location="web_hero"
+        image={pageDogPhoto.websiteDesign}
+        pills
         secondary={{ href: resourcePath("dog-grooming-website-examples"), label: "See the sites we've built" }}
       />
 

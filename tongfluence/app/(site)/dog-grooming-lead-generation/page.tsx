@@ -6,6 +6,7 @@ import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
+import { pageDogPhoto } from "@/lib/dog-photos";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CtaBand } from "@/components/CtaBand";
@@ -95,6 +96,8 @@ export default function LeadGenerationPage() {
           </>
         }
         location="leads_hero"
+        image={pageDogPhoto.leadGeneration}
+        pills
         secondary={{ href: PATHS.caseStudies, label: "See client results" }}
       />
 

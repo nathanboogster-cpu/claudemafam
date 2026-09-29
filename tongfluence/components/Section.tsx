@@ -8,6 +8,7 @@ export function Section({
   id,
   as: Tag = "section",
   labelledBy,
+  band = false,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -15,6 +16,9 @@ export function Section({
   id?: string;
   as?: "section" | "div" | "article" | "aside";
   labelledBy?: string;
+  /** Full-bleed beige band behind the section, to break up a long white page.
+   *  Cards inside a band render white (see .tf-band in globals.css). */
+  band?: boolean;
 }) {
   const widths = {
     wide: "max-w-6xl",
@@ -22,10 +26,21 @@ export function Section({
     prose: "max-w-3xl",
   } as const;
 
-  return (
-    <Tag id={id} aria-labelledby={labelledBy} className={`mx-auto w-full ${widths[width]} px-4 ${className}`}>
+  const inner = (
+    <Tag
+      id={band ? undefined : id}
+      aria-labelledby={labelledBy}
+      className={`mx-auto w-full ${widths[width]} px-4 ${band ? "" : className}`}
+    >
       {children}
     </Tag>
+  );
+
+  if (!band) return inner;
+  return (
+    <div id={id} className={`tf-band bg-tf-card ${className}`}>
+      {inner}
+    </div>
   );
 }
 

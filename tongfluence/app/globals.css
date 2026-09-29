@@ -228,7 +228,57 @@ body {
   transform: scaleX(1);
 }
 
+/* Cards inside a beige band read white, so they still stand off the page. */
+.tf-band .bg-tf-card {
+  background-color: var(--color-tf-white);
+}
+
+/* The strip of client-groomed dogs: a slow continuous scroll, paused on
+   hover. The track holds the list twice, so translating by half its width
+   lands exactly on the start again. */
+.tf-marquee-track {
+  animation: tf-marquee 60s linear infinite;
+}
+
+.tf-marquee:hover .tf-marquee-track,
+.tf-marquee:focus-within .tf-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes tf-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* A photo that settles into place as it reveals. */
+.tf-reveal.tf-reveal-photo {
+  transform: translateY(10px) scale(0.98);
+}
+
+.tf-reveal.tf-reveal-photo.is-shown {
+  transform: none;
+}
+
+/* The primary call-to-action band: a warm glow behind the copy. */
+.tf-cta-band {
+  background-image:
+    radial-gradient(60% 80% at 100% 0%, rgba(198, 152, 99, 0.28), transparent 70%),
+    radial-gradient(50% 60% at 0% 100%, rgba(138, 90, 51, 0.35), transparent 70%);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .tf-marquee {
+    overflow-x: auto;
+  }
+
+  .tf-marquee-track {
+    animation: none;
+  }
+
   .tf-reveal,
   .tf-reveal .tf-rule {
     opacity: 1;

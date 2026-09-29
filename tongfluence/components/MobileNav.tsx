@@ -11,8 +11,10 @@ import { BookCallButton } from "./CTAButton";
 const coreLinks: NavItem[] = [
   { label: "Home", href: PATHS.home },
   { label: "Case Studies", href: PATHS.caseStudies },
+  { label: "Testimonials", href: PATHS.testimonials },
   { label: "Resources", href: PATHS.resources },
   { label: "About", href: PATHS.about },
+  { label: "FAQ", href: PATHS.faq },
 ];
 
 const groups: { label: string; items: NavItem[] }[] = [

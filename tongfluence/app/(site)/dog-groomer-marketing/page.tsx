@@ -7,6 +7,7 @@ import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
+import { pageDogPhoto } from "@/lib/dog-photos";
 import { ProofStrip } from "@/components/ProofStrip";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -96,6 +97,8 @@ export default function DogGroomerMarketingPage() {
           </>
         }
         location="marketing_hero"
+        image={pageDogPhoto.marketing}
+        pills
         secondary={{ href: PATHS.caseStudies, label: "See the builds" }}
       />
 
@@ -266,11 +269,14 @@ export default function DogGroomerMarketingPage() {
         </div>
         <div className="tf-prose mt-6">
           <p>
-            Tongfluence only does the first row. Not because ads are bad — a lot of grooming businesses should
-            run them — but because doing one thing for one industry is what keeps this at {offer.priceLine}{" "}
-            instead of an agency retainer. If you want someone to run ads as well, run them alongside; the
-            search work makes the ads convert better anyway, because the same clicked-through website has to
-            do the convincing.
+            The {offer.priceLine} service is the first row, because it is the asset that keeps working after
+            you stop paying attention to it. We also run Google Local Services Ads and Facebook and Instagram
+            ads for groomers who want appointments sooner;{" "}
+            <Link href={PATHS.book} className="font-medium text-tf-brown-dark underline underline-offset-4">
+              book a call
+            </Link>{" "}
+            if you want them. Either way, the search work makes ads convert better, because the same website
+            has to do the convincing.
           </p>
         </div>
       </Section>

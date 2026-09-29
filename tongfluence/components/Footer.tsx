@@ -59,6 +59,11 @@ export function Footer() {
                 All case studies
               </Link>
             </li>
+            <li>
+              <Link href={PATHS.testimonials} className="hover:text-tf-brown-dark">
+                Testimonials
+              </Link>
+            </li>
             {caseStudyBuilds.map((b) => (
               <li key={b.slug}>
                 <Link href={caseStudyPath(b.slug)} className="hover:text-tf-brown-dark">
@@ -77,6 +82,11 @@ export function Footer() {
             <li>
               <Link href={PATHS.about} className="hover:text-tf-brown-dark">
                 About Tongfluence
+              </Link>
+            </li>
+            <li>
+              <Link href={PATHS.faq} className="hover:text-tf-brown-dark">
+                FAQ
               </Link>
             </li>
             <li>

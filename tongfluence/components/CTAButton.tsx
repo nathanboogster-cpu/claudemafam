@@ -5,13 +5,15 @@ import { EVENTS, trackEvent } from "@/lib/track";
 import { PATHS } from "@/lib/site-data";
 import { ArrowRightIcon } from "./icons";
 
-type Variant = "primary" | "secondary" | "quiet";
+type Variant = "primary" | "secondary" | "quiet" | "onDark";
 
 const variantClasses: Record<Variant, string> = {
   primary:
     "bg-tf-brown-dark text-white hover:bg-tf-brown-darker focus-visible:outline-tf-brown-dark shadow-sm",
   secondary:
     "bg-white text-tf-ink border border-tf-border-strong hover:bg-tf-paper-deep focus-visible:outline-tf-ink",
+  onDark:
+    "border border-white/30 bg-transparent text-white hover:bg-white/10 focus-visible:outline-white",
   quiet:
     "!shadow-none bg-transparent text-tf-brown-dark hover:text-tf-brown-darker underline underline-offset-4 decoration-tf-brown/40 hover:decoration-tf-brown-darker focus-visible:outline-tf-brown-dark px-0 py-0 hover:!translate-y-0",
 };
