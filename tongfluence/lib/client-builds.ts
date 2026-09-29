@@ -145,6 +145,9 @@ export const buildStats = {
   get totalAreaPages() {
     return clientBuilds.reduce((n, b) => n + b.pages.areas, 0);
   },
+  get totalArticlePages() {
+    return clientBuilds.reduce((n, b) => n + b.pages.articles, 0);
+  },
   get totalArticles() {
     return clientBuilds.reduce((n, b) => n + b.pages.articles, 0);
   },

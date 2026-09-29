@@ -360,22 +360,18 @@ export default function DogGroomerSeoPage() {
             {
               href: resourcePath("how-to-rank-dog-grooming-business-on-google"),
               label: "How to rank a grooming business on Google",
-              description: "The same work, written as a step-by-step guide you can follow yourself.",
             },
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "The map half of this page, in detail.",
             },
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "The website half: what pages a grooming site needs and how they connect.",
             },
             {
               href: PATHS.caseStudies,
               label: "Grooming builds, broken down",
-              description: "Real sites, page by page.",
             },
           ]}
         />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import { pageMetadata } from "@/lib/metadata";
 import { PATHS, business, offer, founder, resourcePath, headlineResult } from "@/lib/site-data";
 import { buildStats } from "@/lib/client-builds";
@@ -7,10 +7,11 @@ import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
-import { pageDogPhoto } from "@/lib/dog-photos";
+import { pageDogPhoto, dogPhotos } from "@/lib/dog-photos";
 import { CtaBand } from "@/components/CtaBand";
 import { RelatedLinks } from "@/components/RelatedLinks";
-import { Checklist } from "@/components/Checklist";
+import { Reveal } from "@/components/Reveal";
+import { CrossIcon } from "@/components/icons";
 
 // SEARCH INTENT
 //   Primary:          navigational / trust. Somebody who is most of the way to
@@ -30,6 +31,57 @@ const breadcrumbs = [
   { name: "About", href: PATHS.about },
 ];
 
+// Two client dogs the hero photos elsewhere do not use.
+const aboutPhotos = [dogPhotos[8], dogPhotos[0]];
+
+const whyGroomers = [
+  {
+    t: "Grooming search is simple",
+    b: "One service, one dog, one place. No guessing what people mean.",
+  },
+  {
+    t: "The work repeats",
+    b: `The tenth grooming site is not the first one again. That is what makes ${offer.priceLine} possible.`,
+  },
+  {
+    t: "It adds up",
+    b: "Every site teaches us what makes a grooming visitor pick up the phone.",
+  },
+];
+
+const howWeWork = [
+  { t: "One monthly price, one invoice", b: `${offer.priceLine}. No setup fee, no build fee, no contract.` },
+  { t: "Everything stays yours", b: "Your domain, your Google profile. We are a manager, never the owner." },
+  { t: "The monthly work is driven by data", b: "We read your search data and make the one change most likely to bring appointments." },
+  { t: "You hear from us when something changed", b: "What we changed, why, and what we are watching next. No dashboard." },
+];
+
+// The rules that cost us things. Titles only: each one is a promise, and the
+// pages they apply to show it being kept.
+const rules = [
+  {
+    group: "On your website",
+    items: [
+      "No stock photos of other people's dogs",
+      "No hidden code to fake stars in search results",
+      "No town pages made by swapping a name",
+      "No made-up facts, ever",
+    ],
+  },
+  {
+    group: "On reviews",
+    items: ["No review gating", "No incentives", "No written or bought reviews"],
+  },
+  {
+    group: "On this website",
+    items: [
+      headlineResult ? "No results without the report behind them" : "No results we haven't measured",
+      "No logos or testimonials without permission",
+      "No fake urgency",
+    ],
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -44,8 +96,7 @@ export default function AboutPage() {
         intro={
           <>
             Tongfluence is a small team that does one job for one industry. We get grooming businesses found
-            on Google and keep them there. We are not a big agency with a pet department. Grooming is the
-            only thing on the list.
+            on Google and keep them there.
           </>
         }
         location="about_hero"
@@ -57,47 +108,53 @@ export default function AboutPage() {
       <Section width="narrow" className="pb-12">
         <AnswerBlock label="What Tongfluence is">
           <p>
-            {business.entityDescription} We work with grooming businesses across the United States from a
-            distance. There is no office to visit. Right now we work with {buildStats.siteCount} grooming
-            businesses across {buildStats.stateCount} states. That covers salons, mobile groomers, and one
-            business that runs grooming with daycare and boarding.
+            {business.entityDescription} We work from a distance with {buildStats.siteCount} grooming businesses
+            across {buildStats.stateCount} states. Salons, mobile groomers, and one that runs daycare and
+            boarding too.
           </p>
         </AnswerBlock>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      <Section width="narrow" className="py-12" labelledBy="why-groomers">
-        <SectionHeading eyebrow="Why groomers" id="why-groomers" title="Why we picked" accent="such a narrow field" />
-        <div className="tf-prose mt-6">
-          <p>
-            The honest answer has three parts. None of them is that we love dogs more than the next agency.
-          </p>
-          <p>
-            <strong>Grooming search is easier to solve than most.</strong> The searches are local and
-            clear. Someone wants one service, for one dog, near one place. There is no guessing what they
-            mean. And in most towns, the other groomers have done very little. So the work that wins is
-            basic work done well, not anything clever.
-          </p>
-          <p>
-            <strong>The work repeats.</strong> The tenth grooming website is not the first one again. The
-            page layout, the Google profile checklist, the review system, the questions we ask at the start.
-            All of it already exists. That is what makes {offer.priceLine} possible. A general agency that
-            charges four times as much is not greedy. It starts from zero every time, and somebody has to pay
-            for that.
-          </p>
-          <p>
-            <strong>It adds up to something a general agency cannot copy.</strong> Every site teaches us
-            something about how grooming businesses do in search. Which services people look up by name. How
-            mobile and salon towns differ. What makes a grooming visitor pick up the phone. That knowledge
-            only builds up if you stay in one place. We share what we can of it, like{" "}
-            <Link
-              href={resourcePath("dog-grooming-website-examples")}
-              className="font-medium text-tf-brown-dark underline underline-offset-4"
-            >
-              the page-by-page breakdown of every site we built
-            </Link>
-            .
-          </p>
+      <Section className="py-12" labelledBy="why-groomers">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow="Why groomers"
+              id="why-groomers"
+              title="Why we picked"
+              accent="such a narrow field"
+              intro="Not because we love dogs more than the next agency. Three reasons."
+            />
+            <ol className="mt-7 space-y-4">
+              {whyGroomers.map((x, i) => (
+                <Reveal as="li" key={x.t} delay={i * 80} className="flex gap-4">
+                  <span className="w-7 shrink-0 font-tf-display text-xl font-bold leading-none text-tf-brown">0{i + 1}</span>
+                  <div>
+                    <h3 className="font-semibold text-tf-ink">{x.t}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+          <Reveal className="tf-reveal-photo grid grid-cols-2 gap-3" delay={120}>
+            {aboutPhotos.map((ph, i) => (
+              <figure key={ph.src} className={`m-0 ${i === 1 ? "mt-8" : ""}`}>
+                <Image
+                  src={ph.src}
+                  alt={ph.alt}
+                  width={ph.width}
+                  height={ph.height}
+                  sizes="(min-width: 1024px) 22vw, 45vw"
+                  className="aspect-[4/5] h-auto w-full rounded-2xl border border-tf-border object-cover object-top"
+                />
+              </figure>
+            ))}
+            <figcaption className="col-span-2 text-xs text-tf-ink-soft">
+              Groomed at {aboutPhotos[0].credit} and {aboutPhotos[1].credit}. Both are businesses we build for.
+            </figcaption>
+          </Reveal>
         </div>
       </Section>
 
@@ -110,24 +167,7 @@ export default function AboutPage() {
           intro="One person doing the work. Not an account manager passing it to a team you never meet."
         />
         <div className="mt-7 grid gap-4 sm:grid-cols-2">
-          {[
-            {
-              t: "One monthly price, one invoice",
-              b: `${offer.priceLine}. No setup fee. No build fee. No charge when we add a service page or a town page later. ${offer.commitment}`,
-            },
-            {
-              t: "Everything stays yours",
-              b: "Your domain is in your name. Your Google profile stays your profile. We are added as a manager, never as the owner. If you leave, we are removed and everything we set up stays.",
-            },
-            {
-              t: "The monthly work is driven by data",
-              b: "We connect Google Search Console at launch. Each month we read what you showed up for and make the change most likely to bring appointments. Not a content calendar written in advance.",
-            },
-            {
-              t: "You hear from us when something changed",
-              b: "We will not fill your inbox with a dashboard you do not read. You will know what we changed, why, and what we are watching next.",
-            },
-          ].map((x) => (
+          {howWeWork.map((x) => (
             <div key={x.t} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <h3 className="text-sm font-semibold text-tf-ink">{x.t}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{x.b}</p>
@@ -137,124 +177,33 @@ export default function AboutPage() {
       </Section>
 
       {/* ---------------------------------------------------------------- */}
-      <Section width="narrow" className="py-12" labelledBy="principles">
+      <Section width="narrow" className="py-14" labelledBy="principles" band>
         <SectionHeading
           eyebrow="What we won't do"
           id="principles"
           title="The rules we build to"
-          intro="These are not marketing lines. They are rules that cost us things. Shorter pages, fewer testimonials, no big percentages on the case studies. They are the reason you can trust what is on this site."
+          intro="Each one costs us something. That is why you can trust what is on this site."
         />
-        <div className="mt-7 space-y-5">
-          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
-            <h3 className="font-tf-display text-base font-bold text-tf-ink">On your website</h3>
-            <div className="mt-4">
-              <Checklist
-                tone="dont"
-                items={[
-                  {
-                    title: "No stock photos of other people's dogs",
-                    body: "If you have not sent us a real photo for a spot yet, it shows an honest placeholder until you do. Every one of our sites has some.",
-                  },
-                  {
-                    title: "No hidden code to fake stars in search results",
-                    body: "Google restricts that kind of code. Not one of our sites uses it.",
-                  },
-                  {
-                    title: "No location pages made by swapping a town name",
-                    body: "We build a page for a town when there is something true to say about working there. Otherwise we do not build it.",
-                  },
-                  {
-                    title: "No fabricated facts, ever",
-                    body: "If we cannot confirm your founding year, your review count or your team's names, they do not go on the site. Several of our sites have gaps for exactly this reason.",
-                  },
-                ]}
-              />
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
-            <h3 className="font-tf-display text-base font-bold text-tf-ink">On reviews</h3>
-            <div className="mt-4">
-              <Checklist
-                tone="dont"
-                items={[
-                  {
-                    title: "No review gating",
-                    body: "We never pick who gets a review request based on how happy they seem. It breaks Google's rules. It is also the most commonly sold 'feature' in this field.",
-                  },
-                  {
-                    title: "No incentives, no written reviews",
-                    body: "Nothing offered in exchange for a review. Nothing written by anyone who was not a customer.",
-                  },
-                ]}
-              />
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-tf-border bg-tf-card p-6">
-            <h3 className="font-tf-display text-base font-bold text-tf-ink">On this website</h3>
-            <div className="mt-4">
-              <Checklist
-                tone="dont"
-                items={[
-                  {
-                    title: "No results we haven't measured",
-                    body: headlineResult
-                      ? "The one result on this site is shown with the Google reports it came from. A number we cannot show the source for does not go up."
-                      : "There is not one traffic, ranking or call figure on this site. We have not checked a set of data we would stand behind. The case studies say so plainly instead of quietly leaving it out.",
-                  },
-                  {
-                    title: "No client logos or testimonials we don't have permission for",
-                    body: "The businesses in our case studies are named, and their work is described from their own public sites.",
-                  },
-                  {
-                    title: "No fake urgency",
-                    body: "No countdown. No 'only two spots left this month'. No made-up client count.",
-                  },
-                ]}
-              />
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      <Section width="narrow" className="py-12" labelledBy="learned">
-        <SectionHeading
-          eyebrow="What we've learned"
-          id="learned"
-          title="Things that turned out to be true"
-          accent="on every site we built"
-        />
-        <dl className="mt-7 space-y-6">
-          {[
-            {
-              t: "The gap is almost never effort. It's the setup.",
-              b: "Every groomer we have worked with works hard and does good work. What is missing is a website shaped like the searches people make, and a profile that says what the business does.",
-            },
-            {
-              t: "The address and the market are often different places",
-              b: "A salon in a small town whose customers all search for the bigger town next door. It is one of the most common things we see, and one of the easiest to fix once you name it.",
-            },
-            {
-              t: "Mobile grooming is a different problem, not a small change",
-              b: "With no shop, the map works differently and the website has to say where you go. Three of our sites are for mobile groomers, and none of them shows a street address.",
-            },
-            {
-              t: "The specific service is where the chance is",
-              b: "Competing for 'dog grooming' in a big city is hard. Competing for dematting, or a puppy's first groom, or cat grooming can be won. And the person searching for those needs you more.",
-            },
-            {
-              t: "Nobody is asking for reviews",
-              b: "Grooming businesses see happy customers in person every day. Almost none of them have a habit of asking. It is the biggest free win in the industry.",
-            },
-          ].map((x) => (
-            <div key={x.t} className="border-l-2 border-tf-brown/40 pl-5">
-              <dt className="font-tf-display text-lg font-bold text-tf-ink">{x.t}</dt>
-              <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{x.b}</dd>
+        <div className="mt-7 space-y-6">
+          {rules.map((r) => (
+            <div key={r.group}>
+              <h3 className="tf-caps text-xs text-tf-brown">{r.group}</h3>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {r.items.map((item, i) => (
+                  <Reveal
+                    as="li"
+                    key={item}
+                    delay={i * 60}
+                    className="inline-flex items-center gap-2 rounded-full border border-tf-border bg-white px-3.5 py-2 text-sm font-semibold text-tf-ink"
+                  >
+                    <CrossIcon className="h-4 w-4 shrink-0 text-tf-warn" />
+                    {item}
+                  </Reveal>
+                ))}
+              </ul>
             </div>
           ))}
-        </dl>
+        </div>
       </Section>
 
       {/* Founder section renders only once real, verified details exist in
@@ -275,26 +224,10 @@ export default function AboutPage() {
         <RelatedLinks
           title="See it in practice"
           items={[
-            {
-              href: PATHS.caseStudies,
-              label: "Case studies",
-              description: `All ${buildStats.siteCount} grooming sites, three of them written up in full.`,
-            },
-            {
-              href: PATHS.marketing,
-              label: "The whole picture",
-              description: "What the work is, and what order to do it in.",
-            },
-            {
-              href: resourcePath("how-to-rank-dog-grooming-business-on-google"),
-              label: "How to rank a grooming business on Google",
-              description: "The whole method, written so you can do it without us.",
-            },
-            {
-              href: PATHS.book,
-              label: "Book a call",
-              description: "Fifteen minutes on your profile and your current site. No sales pitch.",
-            },
+            { href: PATHS.caseStudies, label: "Case studies" },
+            { href: PATHS.marketing, label: "The whole picture" },
+            { href: resourcePath("how-to-rank-dog-grooming-business-on-google"), label: "How to rank a grooming business on Google" },
+            { href: PATHS.book, label: "Book a call" },
           ]}
         />
       </Section>

@@ -319,22 +319,18 @@ export default function HowToRankPage() {
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "Steps one to three, in much more detail.",
             },
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "Steps four to six: what the pages should contain.",
             },
             {
               href: PATHS.reviews,
               label: "Getting more reviews",
-              description: "Step seven, including the three shortcuts that get profiles in trouble.",
             },
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "Steps eight and nine, and how the whole list works.",
             },
           ]}
         />

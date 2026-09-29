@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, resourcePath, headlineResult } from "@/lib/site-data";
+import { PATHS, resourcePath } from "@/lib/site-data";
 import { clientBuilds, caseStudyBuilds, buildStats } from "@/lib/client-builds";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
+import { Section, SectionHeading } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { BuildTable } from "@/components/BuildTable";
@@ -57,20 +57,6 @@ export default function CaseStudiesPage() {
         location="case_studies_hero"
         secondary={{ href: PATHS.marketing, label: "How the work fits together" }}
       />
-
-      <Section width="narrow" className="pb-12">
-        <AnswerBlock label="About the numbers on this page">
-          <p>
-            We show <strong>what was built</strong>. Page counts, page types, and the reasons behind them.
-            You can check all of it by opening the sites.{" "}
-            {headlineResult
-              ? "The one result here is shown with the Google reports it came from."
-              : "We do not show rankings, traffic, call numbers or review growth. We have not checked a set of data we would stand behind. When we have one, it will appear with what was measured, when, and where the number came from."}{" "}
-            A bare &ldquo;+300%&rdquo; is not proof. An industry full of them is why this page reads the way
-            it does.
-          </p>
-        </AnswerBlock>
-      </Section>
 
       <Section width="narrow" className="py-12" labelledBy="measured">
         <SectionHeading
@@ -172,22 +158,18 @@ export default function CaseStudiesPage() {
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "The page layout every one of these sites uses, and why.",
             },
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "The profile work that goes with each site.",
             },
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "How these sites are meant to rank, and what happens after launch.",
             },
             {
               href: PATHS.reviews,
               label: "Getting more reviews",
-              description: "The review system handed over with every site.",
             },
           ]}
         />
