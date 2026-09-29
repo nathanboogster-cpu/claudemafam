@@ -72,7 +72,7 @@ export function PricingCard({ location, className = "" }: { location: string; cl
                   <p className="mt-1 text-sm leading-relaxed text-tf-ink-soft">{item.summary}</p>
                   <Link
                     href={item.href}
-                    className="mt-1.5 inline-block text-sm font-medium text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
+                    className="mt-0.5 inline-block py-2 text-sm font-medium text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
                   >
                     {item.linkLabel}
                   </Link>

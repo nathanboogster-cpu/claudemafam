@@ -25,7 +25,7 @@ export function Footer() {
             <ul className="mt-4 flex flex-wrap gap-4 text-sm">
               {socialProfiles.map((p) => (
                 <li key={p.url}>
-                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:text-tf-brown-dark">
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="inline-block py-1.5 hover:text-tf-brown-dark">
                     {p.label}
                   </a>
                 </li>
@@ -41,7 +41,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {serviceNav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-tf-brown-dark">
+                <Link href={item.href} className="inline-block py-1.5 hover:text-tf-brown-dark">
                   {item.label}
                 </Link>
               </li>
@@ -55,18 +55,18 @@ export function Footer() {
           </h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link href={PATHS.caseStudies} className="font-semibold hover:text-tf-brown-dark">
+              <Link href={PATHS.caseStudies} className="inline-block py-1.5 font-semibold hover:text-tf-brown-dark">
                 All case studies
               </Link>
             </li>
             <li>
-              <Link href={PATHS.testimonials} className="hover:text-tf-brown-dark">
+              <Link href={PATHS.testimonials} className="inline-block py-1.5 hover:text-tf-brown-dark">
                 Testimonials
               </Link>
             </li>
             {caseStudyBuilds.map((b) => (
               <li key={b.slug}>
-                <Link href={caseStudyPath(b.slug)} className="hover:text-tf-brown-dark">
+                <Link href={caseStudyPath(b.slug)} className="inline-block py-1.5 hover:text-tf-brown-dark">
                   {b.name}
                 </Link>
               </li>
@@ -80,28 +80,28 @@ export function Footer() {
           </h2>
           <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link href={PATHS.about} className="hover:text-tf-brown-dark">
+              <Link href={PATHS.about} className="inline-block py-1.5 hover:text-tf-brown-dark">
                 About Tongfluence
               </Link>
             </li>
             <li>
-              <Link href={PATHS.faq} className="hover:text-tf-brown-dark">
+              <Link href={PATHS.faq} className="inline-block py-1.5 hover:text-tf-brown-dark">
                 FAQ
               </Link>
             </li>
             <li>
-              <Link href={PATHS.book} className="hover:text-tf-brown-dark">
+              <Link href={PATHS.book} className="inline-block py-1.5 hover:text-tf-brown-dark">
                 Book a call
               </Link>
             </li>
             <li>
-              <Link href={PATHS.resources} className="hover:text-tf-brown-dark">
+              <Link href={PATHS.resources} className="inline-block py-1.5 hover:text-tf-brown-dark">
                 Resources
               </Link>
             </li>
             {resources.map((r) => (
               <li key={r.slug}>
-                <Link href={`/resources/${r.slug}`} className="hover:text-tf-brown-dark">
+                <Link href={`/resources/${r.slug}`} className="inline-block py-1.5 hover:text-tf-brown-dark">
                   {r.navLabel}
                 </Link>
               </li>
@@ -117,12 +117,12 @@ export function Footer() {
           </p>
           <ul className="flex gap-5">
             <li>
-              <Link href={PATHS.privacy} className="hover:text-tf-brown-dark">
+              <Link href={PATHS.privacy} className="inline-block py-1.5 hover:text-tf-brown-dark">
                 Privacy
               </Link>
             </li>
             <li>
-              <Link href={PATHS.terms} className="hover:text-tf-brown-dark">
+              <Link href={PATHS.terms} className="inline-block py-1.5 hover:text-tf-brown-dark">
                 Terms
               </Link>
             </li>

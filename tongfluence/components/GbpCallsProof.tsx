@@ -39,7 +39,7 @@ export function GbpCallsProof({ location }: { location: string }) {
               t.highlight ? "border-tf-ink bg-tf-ink text-white" : "border-tf-border bg-tf-card text-tf-ink"
             }`}
           >
-            <p className={`tf-caps text-[0.68rem] ${t.highlight ? "text-tf-bronze-light" : "text-tf-brown"}`}>
+            <p className={`tf-caps text-xs ${t.highlight ? "text-tf-bronze-light" : "text-tf-brown"}`}>
               {t.label}
             </p>
             <p className="mt-3 font-tf-display text-6xl font-bold leading-none">
@@ -73,7 +73,7 @@ export function GbpCallsProof({ location }: { location: string }) {
         {who}, one Tongfluence client. Google counted the calls. The reports are above.
         {appts ? " The appointments are a rough count from his booking software." : ""}
         <details className="group mt-2">
-          <summary className="cursor-pointer list-none font-medium text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker">
+          <summary className="inline-block cursor-pointer list-none py-2 font-medium text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker">
             How this was counted
           </summary>
           <p className="mt-2">

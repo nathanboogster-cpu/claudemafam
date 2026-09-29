@@ -99,7 +99,7 @@ export default function CaseStudiesPage() {
           <Testimonials />
         </div>
           <p className="mt-6 text-sm">
-            <Link href={PATHS.testimonials} className="font-medium text-tf-brown-dark underline underline-offset-4">
+            <Link href={PATHS.testimonials} className="inline-block py-2 font-medium text-tf-brown-dark underline underline-offset-4">
               All testimonials, with the originals
             </Link>
           </p>

@@ -19,7 +19,7 @@ export function DogStrip() {
             sizes="(min-width: 640px) 208px, 176px"
             className="aspect-square h-auto w-full object-cover"
           />
-          <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-tf-ink/70 to-transparent px-3 pb-2 pt-6 text-[0.65rem] font-medium text-white">
+          <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-tf-ink/70 to-transparent px-3 pb-2 pt-6 text-xs font-medium text-white">
             {d.credit.split(",")[0]}
           </span>
         </li>

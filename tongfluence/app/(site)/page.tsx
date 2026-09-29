@@ -115,132 +115,63 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* 1. HERO — audience, outcome, channel, price, action.             */}
       {/* ---------------------------------------------------------------- */}
-      <Section className="pt-10 pb-10 sm:pt-14">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-16">
-          <div>
+      <Section className="pt-8 pb-10 sm:pt-12">
+        {/* Three cells. On a phone they stack in DOM order: headline, then the
+            video, then the call to action and the trust pills, so the first
+            screen is the claim and the first swipe is the proof. On desktop the
+            video sits to the right of both text cells. */}
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:grid-rows-[auto_auto] lg:gap-x-16 lg:gap-y-6">
+          <div className="lg:col-start-1 lg:row-start-1">
             <Reveal>
               <Eyebrow>For grooming businesses only</Eyebrow>
             </Reveal>
             <Reveal delay={60}>
-              <h1 className="mt-5 font-tf-display text-[2.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-tf-ink sm:text-6xl lg:text-[3.6rem]">
+              <h1 className="mt-4 font-tf-display text-[2.15rem] font-bold leading-[1.05] tracking-[-0.02em] text-tf-ink sm:text-6xl lg:text-[3.6rem]">
                 Get more dog grooming appointments <span className="tf-accent">from Google.</span>
               </h1>
             </Reveal>
             <Reveal delay={120}>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-tf-ink-soft">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-tf-ink-soft sm:text-lg">
                 Someone in your town searches <em>dog groomer near me</em>. Three businesses show up on the
-                map. One of them gets the call. We build the website, Google profile and review system that
-                make that business you.
+                map. One gets the call. We make that business you.
               </p>
             </Reveal>
+          </div>
+
+          {/* The walkthrough video is the hero visual: the first thing a visitor
+              sees after the headline answers "what do you actually do?". The
+              result chip links down to the measured figures. */}
+          <Reveal className="tf-reveal-photo lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center" delay={120}>
+            <figure className="relative m-0">
+              <ExplainerVideo location="home_hero" />
+              {headlineResult ? (
+                <a
+                  href="#measured"
+                  className="tf-lift absolute -right-1 -top-4 rounded-xl border border-white/10 bg-tf-ink px-3.5 py-2.5 text-white shadow-lg sm:-right-4 sm:-top-5 sm:px-4 sm:py-3"
+                >
+                  <span className="tf-caps block text-xs text-tf-bronze-light">Calls from Google</span>
+                  <span className="mt-1 block font-tf-display text-xl font-bold leading-none sm:text-2xl">
+                    {gbpCallsProof.before.calls} <span className="tf-accent">→</span> {gbpCallsProof.after.calls}
+                  </span>
+                  <span className="mt-1 block text-xs text-white/70">one client, in one month</span>
+                </a>
+              ) : null}
+              <figcaption className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-tf-ink-soft">
+                <span className="tf-caps text-xs text-tf-brown">Watch · {explainerVideo.durationLabel}</span>
+                <span>Exactly what we do, start to finish.</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="lg:col-start-1 lg:row-start-2">
             <Reveal delay={180}>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <BookCallButton location="hero" />
                 <SecondaryCTA href={PATHS.testimonials} label="See client results" location="hero" />
               </div>
             </Reveal>
-            <TrustPills className="mt-8" />
+            <TrustPills className="mt-6" />
           </div>
-
-          {/* Real dogs, groomed by real clients, in place of a stock photo or a
-              mocked-up dashboard. The floating figure links to the measured
-              result further down. */}
-          <Reveal className="tf-reveal-photo" delay={120}>
-            <figure className="relative mx-auto mt-4 max-w-md lg:mt-0 lg:max-w-none">
-              <Image
-                src={heroDogPhoto.src}
-                alt={heroDogPhoto.alt}
-                width={heroDogPhoto.width}
-                height={heroDogPhoto.height}
-                sizes="(min-width: 1024px) 40vw, (min-width: 640px) 28rem, 100vw"
-                priority
-                className="aspect-[4/5] h-auto w-full rounded-2xl border border-tf-border object-cover"
-              />
-              <div className="absolute -bottom-5 -left-3 w-28 -rotate-3 overflow-hidden rounded-xl border-4 border-white shadow-lg sm:-left-6 sm:w-36">
-                <Image
-                  src={heroDetailPhoto.square}
-                  alt={heroDetailPhoto.alt}
-                  width={560}
-                  height={560}
-                  sizes="9rem"
-                  className="aspect-square h-auto w-full object-cover"
-                />
-              </div>
-              {headlineResult ? (
-                <a
-                  href="#measured"
-                  className="tf-lift absolute -right-2 top-5 rounded-xl border border-white/10 bg-tf-ink px-4 py-3 text-white shadow-lg sm:-right-5"
-                >
-                  <span className="tf-caps block text-[0.6rem] text-tf-bronze-light">Calls from Google</span>
-                  <span className="mt-1 block font-tf-display text-2xl font-bold leading-none">
-                    {gbpCallsProof.before.calls} <span className="tf-accent">→</span> {gbpCallsProof.after.calls}
-                  </span>
-                  <span className="mt-1 block text-[0.65rem] text-white/70">one client, in one month</span>
-                </a>
-              ) : null}
-              <figcaption className="mt-8 pl-28 text-xs text-tf-ink-soft sm:pl-36">
-                Groomed at {heroDogPhoto.credit}. Real client photos on every page. No stock photos.
-              </figcaption>
-            </figure>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* 1b. WHAT THE PRICE COVERS — the offer, above the fold on desktop.  */}
-      {/* ---------------------------------------------------------------- */}
-      <Section className="pb-14" as="div">
-        <Reveal className="rounded-2xl border border-tf-border bg-tf-card p-6 sm:p-7" delay={60}>
-          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-            <h2 id="hero-included" className="font-tf-display text-lg font-bold text-tf-ink">
-              What {offer.priceLine} covers
-            </h2>
-            <p className="text-xs text-tf-ink-soft">
-              One price, one bill. No setup fee. No build fee. No charge for pages we add later.
-            </p>
-          </div>
-          <ol className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {offer.inclusions.map((item, i) => {
-              const Icon = systemIcons[i];
-              return (
-                <li key={item.number} className="flex gap-3">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-tf-brown-dark">
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold leading-snug text-tf-ink">{item.title}</p>
-                    <Link
-                      href={item.href}
-                      className="mt-1 inline-block text-xs text-tf-ink-soft underline underline-offset-4 hover:text-tf-brown-dark"
-                    >
-                      {item.linkLabel}
-                    </Link>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-        </Reveal>
-      </Section>
-
-      {/* ---------------------------------------------------------------- */}
-      {/* 2. THE WALKTHROUGH — answers "what do you actually do" before    */}
-      {/* the page starts arguing, which is the first thing a groomer      */}
-      {/* wants to know and the thing text is worst at conveying.          */}
-      {/* ---------------------------------------------------------------- */}
-      <Section width="narrow" className="pb-16" labelledBy="walkthrough">
-        <Reveal>
-          <SectionHeading
-            eyebrow={`Watch · ${explainerVideo.durationLabel}`}
-            id="walkthrough"
-            title="Exactly what we do,"
-            accent="start to finish."
-            intro="A walk through what happens when a grooming business works with us. If you would rather read it, the same steps are written out further down this page."
-            align="center"
-          />
-        </Reveal>
-        <div className="mt-8">
-          <ExplainerVideo location="home_hero" />
         </div>
       </Section>
 
@@ -248,7 +179,7 @@ export default function HomePage() {
       {/* 2b. THE MEASURED RESULT                                           */}
       {/* ---------------------------------------------------------------- */}
       {headlineResult ? (
-        <Section width="narrow" className="pb-16" labelledBy="measured">
+        <Section width="narrow" className="pt-2 pb-16" labelledBy="measured">
           <Reveal>
             <SectionHeading eyebrow="Measured" id="measured" title="3× more calls from Google," accent="in one month." />
           </Reveal>
@@ -275,10 +206,76 @@ export default function HomePage() {
           <Testimonials />
         </div>
           <p className="mt-6 text-sm">
-            <Link href={PATHS.testimonials} className="font-medium text-tf-brown-dark underline underline-offset-4">
+            <Link href={PATHS.testimonials} className="inline-block py-2 font-medium text-tf-brown-dark underline underline-offset-4">
               All testimonials, with the originals
             </Link>
           </p>
+      </Section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* 2d. WHAT THE PRICE COVERS, with the client-groomed dogs on desktop. */}
+      {/* ---------------------------------------------------------------- */}
+      <Section className="pb-16" as="div">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-start">
+          <Reveal className="rounded-2xl border border-tf-border bg-tf-card p-6 sm:p-7" delay={60}>
+            <h2 id="hero-included" className="font-tf-display text-xl font-bold text-tf-ink">
+              What {offer.priceLine} covers
+            </h2>
+            <p className="mt-1 text-sm text-tf-ink-soft">
+              One price, one bill. No setup fee. No build fee. No charge for pages we add later.
+            </p>
+            <ol className="mt-6 grid gap-5 sm:grid-cols-2">
+              {offer.inclusions.map((item, i) => {
+                const Icon = systemIcons[i];
+                return (
+                  <li key={item.number} className="flex gap-3">
+                    <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-tf-brown-dark">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold leading-snug text-tf-ink">{item.title}</p>
+                      <Link
+                        href={item.href}
+                        className="mt-0.5 inline-block py-1.5 text-xs text-tf-ink-soft underline underline-offset-4 hover:text-tf-brown-dark"
+                      >
+                        {item.linkLabel}
+                      </Link>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </Reveal>
+
+          {/* Real dogs, groomed by real clients. Desktop only: on a phone the
+              proof above matters more than a photo, and the dog strip further
+              down carries the photos there. */}
+          <Reveal className="tf-reveal-photo hidden lg:block" delay={120}>
+            <figure className="relative m-0">
+              <Image
+                src={heroDogPhoto.src}
+                alt={heroDogPhoto.alt}
+                width={heroDogPhoto.width}
+                height={heroDogPhoto.height}
+                sizes="(min-width: 1024px) 34vw, 0px"
+                className="aspect-[4/3] h-auto w-full rounded-2xl border border-tf-border object-cover object-top"
+              />
+              <div className="absolute -bottom-5 -left-4 w-32 -rotate-3 overflow-hidden rounded-xl border-4 border-white shadow-lg">
+                <Image
+                  src={heroDetailPhoto.square}
+                  alt={heroDetailPhoto.alt}
+                  width={560}
+                  height={560}
+                  sizes="8rem"
+                  className="aspect-square h-auto w-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-8 pl-32 text-xs text-tf-ink-soft">
+                Groomed at {heroDogPhoto.credit}. Real client photos on every page. No stock photos.
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
@@ -365,7 +362,7 @@ export default function HomePage() {
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{item.summary}</p>
                 <Link
                   href={item.href}
-                  className="mt-3 inline-block text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
+                  className="mt-2 inline-block py-2 text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
                 >
                   {item.linkLabel}
                 </Link>
@@ -457,7 +454,7 @@ export default function HomePage() {
           <ol className="mt-8 space-y-4">
             {howItWorks.map((s) => (
               <li key={s.step} className="grid gap-2 rounded-xl border border-tf-border bg-tf-card p-5 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-6">
-                <p className="tf-caps pt-1 text-[0.7rem] text-tf-brown">{s.step}</p>
+                <p className="tf-caps pt-1 text-xs text-tf-brown">{s.step}</p>
                 <div>
                   <h3 className="font-semibold text-tf-ink">{s.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{s.body}</p>
