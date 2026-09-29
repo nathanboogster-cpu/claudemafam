@@ -21,7 +21,7 @@ import { CtaBand } from "@/components/CtaBand";
 export const metadata: Metadata = pageMetadata({
   title: "FAQ: What Groomers Ask Before Signing Up",
   description:
-    "Video and written answers to what groomers ask before working with Tongfluence: price, contract, the monthly work, and whether it fits your business.",
+    "Video and written answers to what groomers ask before working with Tongfluence: the price, the contract, the monthly work, and whether it fits your business.",
   path: PATHS.faq,
 });
 
@@ -120,8 +120,8 @@ export default function FaqPage() {
         accent="answered."
         intro={
           <>
-            Seven short videos first, each answering something a grooming business owner has said to us
-            before a call. Written answers to everything else follow underneath.
+            Seven short videos first. Each one answers something a grooming business owner has said to us
+            before a call. Written answers to everything else are below.
           </>
         }
         location="faq_hero"
@@ -154,7 +154,7 @@ export default function FaqPage() {
         <CtaBand
           location="faq_footer"
           title="Still have a question?"
-          body="Ask it on the call. We'll look at your Google profile and your current site while you're on the line, and you'll get a straight answer on whether this is worth it for your business."
+          body="Ask it on the call. We look at your Google profile and your current site while you are on the line. You get a straight answer on whether this is worth it for your business."
         />
       </Section>
     </>

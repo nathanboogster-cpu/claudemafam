@@ -45,22 +45,22 @@ const faqItems = [
   {
     question: "How many pages should a dog grooming website have?",
     answer:
-      `Across the ${buildStats.siteCount} grooming websites we have built, the total number of indexable pages ranges from 17 to 35, with a median of ${buildStats.medianPages}. The number itself is not the goal — it is a consequence of having one page per service you offer and one per town you serve. A business with four services and five towns needs fewer pages than one with eight services and fifteen towns.`,
+      `Across the ${buildStats.siteCount} grooming websites we built, the number of pages runs from 17 to 35. The middle number is ${buildStats.medianPages}. The number itself is not the goal. It comes from having one page per service you offer and one per town you serve. A business with four services and five towns needs fewer pages than one with eight services and fifteen towns.`,
   },
   {
     question: "What makes a good dog grooming website?",
     answer:
-      "It can be found for the searches your customers actually make, and it gets them to the phone. In practice that means a page per service, a page per area, real photos of your own work, a published price or range, a tap-to-call number, and fast loading on a phone. Design matters, but it is the thing that makes a site people already found feel trustworthy — it is not what makes them find it.",
+      "It can be found for the searches your customers really make, and it gets them to the phone. That means a page per service, a page per town, real photos of your own work, a price or a range, a tap-to-call number, and fast loading on a phone. Design matters. But design makes a site people already found feel trusted. It is not what makes them find it.",
   },
   {
     question: "Should a grooming website have a blog?",
     answer:
-      `Six of our ${buildStats.siteCount} builds publish articles, and the counts are small — between three and six each, ${buildStats.totalArticles} in total across every site. They exist to answer questions clients genuinely ask, not to hit a publishing schedule. A grooming site with forty generic pet-care posts and no service pages has its priorities exactly backwards.`,
+      `Six of our ${buildStats.siteCount} sites have articles, and the counts are small. Between three and six each, ${buildStats.totalArticles} in total. They exist to answer questions clients really ask, not to hit a posting schedule. A grooming site with forty vague pet-care posts and no service pages has it exactly backwards.`,
   },
   {
     question: "Do mobile grooming websites need to be different?",
     answer:
-      `Structurally, yes. ${buildStats.mobileCount} of our ${buildStats.siteCount} builds are mobile-only, and none of them publishes a street address anywhere — not on the site and not in the structured data. They lean much harder on service-area pages, because the map pack will mostly show a mobile business near its base rather than across its whole route.`,
+      `Yes. ${buildStats.mobileCount} of our ${buildStats.siteCount} sites are for mobile groomers, and none of them shows a street address anywhere. They lean much harder on town pages. The map will mostly show a mobile business near its base, not across its whole route.`,
   },
 ];
 
@@ -90,10 +90,10 @@ export default function WebsiteExamplesPage() {
               {resource.h1}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-tf-ink-soft">
-              Most &ldquo;grooming website examples&rdquo; articles are a gallery of screenshots with
-              comments about colour palettes. This one is a count of what is inside{" "}
-              {buildStats.siteCount} grooming websites we built ourselves — because the part that decides
-              whether a grooming site works is its structure, and structure is countable.
+              Most &ldquo;grooming website examples&rdquo; articles are a gallery of screenshots with notes
+              about colors. This one is a count of what is inside {buildStats.siteCount} grooming websites
+              we built ourselves. The part that decides whether a grooming site works is its pages. And pages
+              can be counted.
             </p>
           </div>
         </Section>
@@ -102,14 +102,14 @@ export default function WebsiteExamplesPage() {
         <Section width="narrow" className="pb-10">
           <AnswerBlock>
             <p>
-              Across {buildStats.siteCount} dog grooming websites we have built, there are{" "}
-              <strong>{buildStats.totalPages} indexable pages</strong> — of which{" "}
+              Across the {buildStats.siteCount} dog grooming websites we built, there are{" "}
+              <strong>{buildStats.totalPages} pages</strong>. Of those,{" "}
               <strong>{buildStats.totalServicePages} are service pages</strong> and{" "}
-              <strong>{buildStats.totalAreaPages} are service-area pages</strong>. Those two page types make
-              up {Math.round(((buildStats.totalServicePages + buildStats.totalAreaPages) / buildStats.totalPages) * 100)}
-              % of everything built. The median site has {buildStats.medianPages} pages. Articles account for
-              just {buildStats.totalArticles} pages in total — about{" "}
-              {Math.round((buildStats.totalArticles / buildStats.totalPages) * 100)}% — which is the opposite
+              <strong>{buildStats.totalAreaPages} are town pages</strong>. Those two kinds make up{" "}
+              {Math.round(((buildStats.totalServicePages + buildStats.totalAreaPages) / buildStats.totalPages) * 100)}
+              % of everything built. The middle site has {buildStats.medianPages} pages. Articles are just{" "}
+              {buildStats.totalArticles} pages in total, about{" "}
+              {Math.round((buildStats.totalArticles / buildStats.totalPages) * 100)}%. That is the opposite
               of how most grooming websites are put together.
             </p>
           </AnswerBlock>
@@ -121,12 +121,12 @@ export default function WebsiteExamplesPage() {
           <div className="mt-6 overflow-hidden rounded-xl border border-tf-border bg-tf-card">
             <dl className="divide-y divide-tf-border text-sm">
               {[
-                ["Data source", `Tongfluence's own client builds — ${buildStats.siteCount} dog grooming websites, each a separate production application.`],
-                ["Sample", `Every grooming website we have built, not a selected subset. ${buildStats.mobileCount} mobile-only, 3 salon-based, 1 grooming alongside daycare and boarding.`],
-                ["Measure", "Indexable pages, defined as the URLs each build's own XML sitemap publishes. Counted per build, not estimated."],
-                ["Period", "Builds completed to date, as of September 2026."],
-                ["What this is not", "An industry benchmark. This is what we build, which is a statement about our method, not about grooming websites in general."],
-                ["Limitations", "A small sample of our own work, so it cannot tell you what the average grooming website looks like — only what these seven contain and why."],
+                ["Where the data comes from", `Our own client sites. ${buildStats.siteCount} dog grooming websites, each one a separate live site.`],
+                ["Which sites", `Every grooming website we built, not a hand-picked few. ${buildStats.mobileCount} mobile groomers, 3 salons, 1 grooming with daycare and boarding.`],
+                ["What we counted", "Pages, meaning the web addresses each site's own sitemap lists. Counted per site, not guessed."],
+                ["When", "Sites finished so far, as of September 2026."],
+                ["What this is not", "An industry average. This is what we build. It says something about our method, not about grooming websites in general."],
+                ["Limits", "A small set of our own work. It cannot tell you what the average grooming website looks like. Only what these seven contain and why."],
               ].map(([k, v]) => (
                 <div key={k} className="grid gap-1 p-4 sm:grid-cols-[10rem_minmax(0,1fr)] sm:gap-4">
                   <dt className="font-semibold text-tf-ink">{k}</dt>
@@ -142,7 +142,8 @@ export default function WebsiteExamplesPage() {
           <SectionHeading
             eyebrow="The data"
             id="the-data"
-            title={`${buildStats.siteCount} grooming websites, page by page`}
+            title={`${buildStats.siteCount} grooming websites,`}
+            accent="page by page"
           />
           <div className="mt-8">
             <BuildTable caption={`Page composition of ${buildStats.siteCount} dog grooming websites built by Tongfluence`} />
@@ -151,28 +152,28 @@ export default function WebsiteExamplesPage() {
 
         {/* -------------------------------------------------------------- */}
         <Section width="narrow" className="py-10" labelledBy="findings">
-          <SectionHeading eyebrow="What the numbers say" id="findings" title="Four things that hold across all of them" />
+          <SectionHeading eyebrow="What the numbers say" id="findings" title="Four things that are true" accent="of all of them" />
           <div className="mt-8 space-y-7">
             {[
               {
                 n: "01",
-                t: "The site is mostly service and area pages",
-                b: `${buildStats.totalServicePages + buildStats.totalAreaPages} of ${buildStats.totalPages} pages. Core pages — home, about, contact, FAQ, gallery, reviews — are a small minority. This is the inversion most grooming websites need: the pages that match searches should outnumber the pages that describe the business.`,
+                t: "The site is mostly service and town pages",
+                b: `${buildStats.totalServicePages + buildStats.totalAreaPages} of ${buildStats.totalPages} pages. Core pages like home, about, contact, FAQ, gallery and reviews are a small share. This is the flip most grooming websites need. The pages that match searches should outnumber the pages that describe the business.`,
               },
               {
                 n: "02",
-                t: "Mobile businesses carry more geography",
-                b: `The heaviest area-page counts are on mobile builds: 15 cities for a van covering six Bay Area counties, 13 for one working across greater Los Angeles. A salon needs fewer, because more of its demand is within map-pack range. The exception proves it — our one build with no area pages at all is a mobile groomer whose specific service-area cities were never confirmed. Rather than template a dozen city pages off a guess, that site publishes a single service-areas page saying plainly that coverage depends on where you are, and to call and ask.`,
+                t: "Mobile businesses need more town pages",
+                b: `The biggest town-page counts are on mobile sites. 15 cities for a van covering six Bay Area counties. 13 for one working across greater Los Angeles. A salon needs fewer, because more of its demand is close enough for the map. The one exception proves it. Our one site with no town pages is a mobile groomer whose towns were never confirmed. Instead of making a dozen city pages from a guess, that site has one service-areas page. It says plainly that coverage depends on where you are, and to call and ask.`,
               },
               {
                 n: "03",
-                t: "Articles are a small minority, deliberately",
-                b: `${buildStats.totalArticles} articles across ${buildStats.siteCount} sites — between three and six each. Every one answers a question grooming clients genuinely ask. None exists because a content calendar said so.`,
+                t: "Articles are a small share, on purpose",
+                b: `${buildStats.totalArticles} articles across ${buildStats.siteCount} sites. Between three and six each. Every one answers a question grooming clients really ask. None exists because a content calendar said so.`,
               },
               {
                 n: "04",
-                t: "Every build ships the same structured data, and none ships review markup",
-                b: `All ${buildStats.siteCount} publish ${schemaTypesShipped.join(", ")} structured data. Not one publishes AggregateRating or Review markup, because Google restricts self-serving review markup and the upside is cosmetic. Real reviews are shown as visible page content, linking to the profile they came from.`,
+                t: "Every site has the same hidden labels for Google, and none has fake star code",
+                b: `All ${buildStats.siteCount} include ${schemaTypesShipped.join(", ")} labels, the hidden code that tells Google what a page is. Not one has star-rating code, because Google restricts it and the gain is only cosmetic. Real reviews are shown as words on the page, with a link to where they came from.`,
               },
             ].map((f) => (
               <div key={f.n} className="grid gap-3 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
@@ -191,8 +192,9 @@ export default function WebsiteExamplesPage() {
           <SectionHeading
             eyebrow="The examples"
             id="examples"
-            title="Each build, and the problem it was shaped around"
-            intro="A grooming website is only good relative to the business it belongs to. These are the problems each one had to solve."
+            title="Each site,"
+            accent="and the problem it was built around"
+            intro="A grooming website is only good for the business it belongs to. These are the problems each one had to solve."
           />
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {clientBuilds.map((b) => (
@@ -223,7 +225,7 @@ export default function WebsiteExamplesPage() {
                     href={caseStudyPath(b.slug)}
                     className="mt-3 inline-block text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
                   >
-                    Read the full build
+                    Read the full story
                   </Link>
                 ) : null}
               </li>
@@ -236,8 +238,9 @@ export default function WebsiteExamplesPage() {
           <SectionHeading
             eyebrow="What to take from it"
             id="borrow"
-            title="If you're planning your own grooming website"
-            intro="You do not need us to do any of this. The structure is the useful part and it is free."
+            title="If you're planning"
+            accent="your own grooming website"
+            intro="You do not need us to do any of this. The page plan is the useful part, and it is free."
           />
           <div className="mt-7 grid gap-6 sm:grid-cols-2">
             <div className="rounded-xl border border-tf-border bg-tf-card p-6">
@@ -262,7 +265,7 @@ export default function WebsiteExamplesPage() {
                   items={[
                     { title: "Town pages made by swapping one word" },
                     { title: "Stock photos of dogs that aren't your clients" },
-                    { title: "Star-rating markup to get stars in search results" },
+                    { title: "Hidden star code to get stars in search results" },
                     { title: "A blog post every week about nothing in particular" },
                     { title: "Hiding prices to “get them to call”" },
                   ]}
@@ -283,12 +286,12 @@ export default function WebsiteExamplesPage() {
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "How we build the structure above, and what it costs.",
+              description: "How we build the pages above, and what it costs.",
             },
             {
               href: PATHS.caseStudies,
               label: "The full case studies",
-              description: "Three of these builds written up in detail, decision by decision.",
+              description: "Three of these sites written up in detail, choice by choice.",
             },
             {
               href: resourcePath("how-to-rank-dog-grooming-business-on-google"),
@@ -298,7 +301,7 @@ export default function WebsiteExamplesPage() {
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "Why the structure looks like this, and what happens after launch.",
+              description: "Why the pages look like this, and what happens after launch.",
             },
           ]}
         />
@@ -321,7 +324,7 @@ export default function WebsiteExamplesPage() {
             day: "numeric",
             timeZone: "UTC",
           })}
-          . Figures are Tongfluence&rsquo;s own build data and are updated when a new build ships.{" "}
+          . The numbers are our own site data and are updated when a new site goes live.{" "}
           <Link href={PATHS.resources} className="underline underline-offset-4 hover:text-tf-brown-dark">
             More resources
           </Link>

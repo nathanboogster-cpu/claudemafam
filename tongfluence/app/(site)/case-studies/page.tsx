@@ -25,7 +25,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = pageMetadata({
   title: "Dog Grooming Website Case Studies",
   description:
-    "Seven real dog grooming businesses and exactly what we built for each: the structural problem, the pages, the profile work, and what we can't yet measure.",
+    "Seven real dog grooming businesses and exactly what we built for each: the problem, the pages, the profile work, and what we cannot measure yet.",
   path: PATHS.caseStudies,
 });
 
@@ -45,12 +45,13 @@ export default function CaseStudiesPage() {
 
       <PageHero
         eyebrow="Case studies"
-        title="Every grooming business we've built for, and exactly what we built."
+        title="Every grooming business we've built for,"
+        accent="and exactly what we built."
         intro={
           <>
-            These are write-ups of the work, not highlight reels. Each one covers what the business had, what
-            was structurally wrong with it, every page and profile change we made, and what we are still
-            waiting to be able to measure.
+            These are write-ups of the work, not highlight reels. Each one covers what the business had,
+            what was wrong with it, every page and profile change we made, and what we are still waiting to
+            measure.
           </>
         }
         location="case_studies_hero"
@@ -60,13 +61,13 @@ export default function CaseStudiesPage() {
       <Section width="narrow" className="pb-12">
         <AnswerBlock label="About the numbers on this page">
           <p>
-            We publish <strong>what was built</strong> — page counts, structure, and the decisions behind
-            them — because that is verifiable by opening the sites.{" "}
+            We show <strong>what was built</strong>. Page counts, page types, and the reasons behind them.
+            You can check all of it by opening the sites.{" "}
             {headlineResult
-              ? "The one performance figure here is shown with the Google reports it was read from."
-              : "We do not publish rankings, traffic, call volume or review growth, because we have not exported and checked a dataset we would stand behind. When we have one, it will appear with its metric, its time period and its source."}{" "}
-            A bare &ldquo;+300%&rdquo; is not evidence, and an industry full of them is why this section
-            reads the way it does.
+              ? "The one result here is shown with the Google reports it came from."
+              : "We do not show rankings, traffic, call numbers or review growth. We have not checked a set of data we would stand behind. When we have one, it will appear with what was measured, when, and where the number came from."}{" "}
+            A bare &ldquo;+300%&rdquo; is not proof. An industry full of them is why this page reads the way
+            it does.
           </p>
         </AnswerBlock>
       </Section>
@@ -77,7 +78,7 @@ export default function CaseStudiesPage() {
           id="measured"
           title="The one performance figure"
           accent="we can show you"
-          intro="What the profile work did to one client's calls from Google, with the reports it was read from."
+          intro="What the profile work did to one client's calls from Google, with the reports the numbers came from."
         />
         <div className="mt-8">
           <GbpCallsProof location="case_studies_measured" />
@@ -109,7 +110,7 @@ export default function CaseStudiesPage() {
           eyebrow="Full write-ups"
           id="full-writeups"
           title="Three builds, in detail"
-          intro="Chosen to cover the business types we work with: two mobile operations of very different sizes, and a salon with a geography problem."
+          intro="Picked to cover the kinds of business we work with. Two mobile groomers of very different sizes, and a salon with a location problem."
         />
         <ul className="mt-8 grid gap-5 md:grid-cols-3">
           {caseStudyBuilds.map((b) => (
@@ -125,7 +126,7 @@ export default function CaseStudiesPage() {
           eyebrow="Every build"
           id="all-builds"
           title={`All ${buildStats.siteCount} grooming websites, counted`}
-          intro="The same five measures across every site we've built, so the comparison is like for like."
+          intro="The same five counts for every site we built, so you can compare them fairly."
         />
         <div className="mt-8">
           <BuildTable />
@@ -136,8 +137,8 @@ export default function CaseStudiesPage() {
         <SectionHeading
           eyebrow="Also built"
           id="other-builds"
-          title="Builds without a full write-up yet"
-          intro="Listed because they are real and they count. Each will get a write-up when there is enough to say about it that is worth your time."
+          title="Sites without a full write-up yet"
+          intro="Listed because they are real and they count. Each will get a write-up when there is enough to say that is worth your time."
         />
         <ul className="mt-7 space-y-3">
           {withoutWriteups.map((b) => (
@@ -153,7 +154,7 @@ export default function CaseStudiesPage() {
           ))}
         </ul>
         <p className="mt-6 text-sm leading-relaxed text-tf-ink-soft">
-          The page-by-page comparison of all {buildStats.siteCount}, including what they have in common, is in{" "}
+          The page-by-page comparison of all {buildStats.siteCount}, and what they have in common, is in{" "}
           <Link
             href={resourcePath("dog-grooming-website-examples")}
             className="font-medium text-tf-brown-dark underline underline-offset-4"
@@ -171,12 +172,12 @@ export default function CaseStudiesPage() {
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "The page structure every one of these builds uses, and why.",
+              description: "The page layout every one of these sites uses, and why.",
             },
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "The profile work that runs alongside each build.",
+              description: "The profile work that goes with each site.",
             },
             {
               href: PATHS.seo,
@@ -186,7 +187,7 @@ export default function CaseStudiesPage() {
             {
               href: PATHS.reviews,
               label: "Getting more reviews",
-              description: "The review system handed over with every build.",
+              description: "The review system handed over with every site.",
             },
           ]}
         />
@@ -195,8 +196,8 @@ export default function CaseStudiesPage() {
       <Section className="py-12">
         <CtaBand
           location="case_studies_footer"
-          title="Want one of these for your grooming business?"
-          body="A short call: we look at your Google Business Profile and your current site while you're on the line and tell you what we'd change first."
+          title="Want one of these for your business?"
+          body="A short call. We look at your Google profile and your current site while you are on the line and tell you what we would change first."
           secondaryHref={PATHS.marketing}
           secondaryLabel="See what's included"
         />

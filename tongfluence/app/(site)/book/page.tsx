@@ -22,7 +22,7 @@ import { CheckIcon } from "@/components/icons";
 export const metadata: Metadata = pageMetadata({
   title: "Book a Call",
   description:
-    "A short call: we look at your Google Business Profile and your current site while you're on the line and tell you what we'd change first. $297/month.",
+    "A short call. We look at your Google profile and your current site while you are on the line and tell you what we would change first. $297 a month.",
   path: PATHS.book,
 });
 
@@ -53,18 +53,18 @@ export default function BookPage() {
               Fifteen minutes on <span className="tf-accent">your Google presence.</span>
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-tf-ink-soft">
-              We open your Google Business Profile and your current website while you&rsquo;re on the line and
-              tell you what we&rsquo;d change, in order. If the honest answer is that you don&rsquo;t need us,
-              that&rsquo;s the answer you&rsquo;ll get.
+              We open your Google profile and your current website while you are on the line. We tell you
+              what we would change, in order. If the honest answer is that you do not need us, that is the
+              answer you will get.
             </p>
             <TrustPills variant="compact" className="mt-6" />
 
             <h2 className="mt-9 font-tf-display text-lg font-bold text-tf-ink">What the call is</h2>
             <ul className="mt-4 space-y-3">
               {[
-                "A look at your Google Business Profile: category, services, service areas, photos, reviews.",
-                "A look at your current website, if you have one — what's missing structurally, not what it looks like.",
-                "What we'd do first, second and third, and roughly what to expect from each.",
+                "A look at your Google profile: category, services, service areas, photos, reviews.",
+                "A look at your current website, if you have one. What pages are missing, not what it looks like.",
+                "What we would do first, second and third, and about what to expect from each.",
                 "A straight answer on whether this is worth $297 a month for your business.",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-tf-ink-soft">
@@ -76,9 +76,9 @@ export default function BookPage() {
 
             <h2 className="mt-8 font-tf-display text-lg font-bold text-tf-ink">What it isn&rsquo;t</h2>
             <p className="mt-3 text-sm leading-relaxed text-tf-ink-soft">
-              No slide deck, no six-month proposal, no pressure to decide on the call. You can take the list
-              of things we&rsquo;d change and do them yourself — everything we&rsquo;d tell you is already
-              written up in{" "}
+              No slide deck. No six-month plan. No pressure to decide on the call. You can take the list of
+              things we would change and do them yourself. Everything we would tell you is already written
+              up in{" "}
               <Link
                 href="/resources/how-to-rank-dog-grooming-business-on-google"
                 className="font-medium text-tf-brown-dark underline underline-offset-4"
@@ -90,8 +90,8 @@ export default function BookPage() {
 
             <div className="mt-8 rounded-xl border border-tf-border bg-tf-card p-5">
               <p className="text-sm leading-relaxed text-tf-ink">
-                <span className="font-semibold">{offer.priceLine}</span> — {offer.commitment} We currently work
-                with {buildStats.siteCount} grooming businesses across {buildStats.stateCount} states.
+                <span className="font-semibold">{offer.priceLine}</span>. {offer.commitment} We work with{" "}
+                {buildStats.siteCount} grooming businesses across {buildStats.stateCount} states.
               </p>
               {business.publicContactEmail ? (
                 <p className="mt-3 text-sm leading-relaxed text-tf-ink-soft">
@@ -152,7 +152,8 @@ export default function BookPage() {
         <FaqBlock
           items={bookingFaqs}
           eyebrow="The fine print"
-          title="Contract, cancellation and ownership"
+          title="Contract, cancelling,"
+          accent="and what you own"
           headingId="booking-faq"
           intro={
             <>

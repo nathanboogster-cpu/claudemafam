@@ -47,8 +47,8 @@ export const business = {
   // meta description fallback. Keeping a single canonical description keeps
   // the entity consistent across the site (and legible to AI search systems).
   entityDescription:
-    "Tongfluence is a marketing and SEO service for dog grooming businesses. It builds SEO-optimized grooming websites, optimizes Google Business Profiles, runs a review-request system, and keeps improving all three based on real search performance — for $297 per month, cancel anytime.",
-  shortDescription: "Marketing and SEO built only for dog grooming businesses.",
+    "Tongfluence helps dog grooming businesses get found on Google. It builds the website, sets up the Google Business Profile, runs a system for asking for reviews, and keeps improving all three from real search data. It costs $297 a month, and you can cancel any time.",
+  shortDescription: "Marketing and SEO, only for dog grooming businesses.",
   category: "Marketing and SEO service for dog grooming businesses",
   // Tongfluence works with grooming businesses remotely across the US. There
   // is no walk-in office, so no street address is published here or in schema.
@@ -89,7 +89,7 @@ export const offer = {
       number: "01",
       title: "An SEO-built grooming website",
       summary:
-        "A fast, mobile-first website structured for how people actually search for grooming — a page per service, a page per area you serve, and a clear path to the phone.",
+        "A fast website built the way people search. One page for each service. One page for each town you serve. And a phone number that is easy to tap.",
       href: "/dog-groomer-website-design",
       linkLabel: "How we build grooming websites",
     },
@@ -97,7 +97,7 @@ export const offer = {
       number: "02",
       title: "Google Business Profile optimization",
       summary:
-        "Categories, services, service areas, description, photos and NAP set up properly, then kept current — because for most groomers the map pack is the first thing a customer sees.",
+        "We set up your categories, services, service areas, photos and hours the right way. Then we keep them current. For most groomers, the map is the first place a customer sees you.",
       href: "/google-business-profile-for-dog-groomers",
       linkLabel: "What we do to your Google profile",
     },
@@ -105,7 +105,7 @@ export const offer = {
       number: "03",
       title: "A review request system",
       summary:
-        "A repeatable way to ask every happy client for a Google review after their appointment, so your profile keeps earning fresh reviews instead of going quiet.",
+        "A simple way to ask every happy client for a Google review after their visit. Your profile keeps getting new reviews instead of going quiet.",
       href: "/dog-groomer-review-management",
       linkLabel: "How the review system works",
     },
@@ -113,7 +113,7 @@ export const offer = {
       number: "04",
       title: "Ongoing SEO, based on your real search data",
       summary:
-        "Search Console is connected on day one. Every month we read the queries you actually appeared for and change the site to match them — not a content calendar written in advance.",
+        "We connect Google Search Console on day one. Each month we look at what people searched to find you. Then we change the site to match. No content calendar written in advance.",
       href: "/dog-groomer-seo",
       linkLabel: "How the ongoing SEO works",
     },
@@ -144,7 +144,7 @@ export const explainerVideo = {
   title: "How We Get 2-3X More Dog Grooming Appointments",
   // What the video is, in our own words, for the VideoObject description.
   description:
-    "A walkthrough of how Tongfluence works with a dog grooming business: the Google Business Profile setup, the website build, the review system, and the ongoing optimization after launch.",
+    "A walk through how Tongfluence works with a dog grooming business. The Google profile setup, the website build, the review system, and the monthly work after launch.",
   // Verified from the Wistia library listing.
   uploadDate: "2026-07-20",
   durationSeconds: 422,
@@ -249,7 +249,7 @@ export const testimonials: Testimonial[] = [
       src: "/images/testimonials/bow-wags-dave-email.jpg",
       width: 900,
       height: 657,
-      alt: "Dave's email: \u201cHey Nathaniel, nothing but good vibes on the new website. I wanted to thank you for how painless you have made this process! Dave.\u201d Unrelated account details in the middle of the email are covered.",
+      alt: "Dave's email: \u201cHey Nathaniel, nothing but good vibes on the new website. I wanted to thank you for how painless you have made this process! Dave.\u201d The middle of the email was about other things, so it is covered.",
     },
   },
   {
@@ -372,12 +372,12 @@ export const gbpCallsProof = {
 
 export const headlineResult: HeadlineResult | null = {
   claim: "3× more calls from Google, in one month",
-  metric: "Calls placed from the Google Business Profile — the tap-to-call button on the listing itself.",
-  sample: "Carlos, one Tongfluence client. This is a single business, not an average across clients.",
+  metric: "Calls made from the Google Business Profile. That is the tap-to-call button on the listing.",
+  sample: "Carlos, one Tongfluence client. This is one business, not an average.",
   period: "February 2026 (24 calls, 28 days) against March 2026 (77 calls, 31 days).",
-  source: "Google Business Profile's own Performance report. The two screenshots are published beside the figure.",
+  source: "Google's own report for the profile. The two screenshots are shown next to the numbers.",
   method:
-    "Raw monthly totals as Google reports them: 77 ÷ 24 = 3.2×. Because February is three days shorter, the per-day rate is also shown: 0.86 → 2.48 calls a day, 2.9×. Calls are counted by Google, not by us, and nothing is excluded. In the same month, around 23 appointments were added to his calendar in MoeGo — an approximate count from the booking software, shown separately and labelled as such.",
+    "Monthly totals as Google reports them: 77 ÷ 24 = 3.2×. February is three days shorter, so we also show calls per day: 0.86 to 2.48 a day, or 2.9×. Google counts the calls, not us. Nothing is left out. In the same month, about 23 appointments were added to his calendar in MoeGo. That is a rough count from his booking software, shown on its own and marked as such.",
 };
 
 // ---------------------------------------------------------------------------
@@ -413,27 +413,27 @@ export const serviceNav: NavItem[] = [
   {
     label: "Marketing overview",
     href: PATHS.marketing,
-    description: "The whole picture: how grooming businesses get found and booked.",
+    description: "The big picture: how groomers get found and booked.",
   },
   {
     label: "SEO",
     href: PATHS.seo,
-    description: "Ranking a grooming business in local and organic search.",
+    description: "How a grooming business ranks on Google.",
   },
   {
     label: "Website design",
     href: PATHS.websiteDesign,
-    description: "What a grooming website needs to rank and convert.",
+    description: "What a grooming website needs to get found and get calls.",
   },
   {
     label: "Google Business Profile",
     href: PATHS.gbp,
-    description: "Categories, services, photos and reviews for the map pack.",
+    description: "Categories, services, photos and reviews for the map.",
   },
   {
     label: "Reviews",
     href: PATHS.reviews,
-    description: "Earning a steady flow of real Google reviews.",
+    description: "Getting a steady flow of real Google reviews.",
   },
   {
     label: "Lead generation",
@@ -443,10 +443,10 @@ export const serviceNav: NavItem[] = [
 ];
 
 export const proofNav: NavItem[] = [
-  { label: "Case Studies", href: PATHS.caseStudies, description: "Real grooming builds, broken down." },
-  { label: "Testimonials", href: PATHS.testimonials, description: "What clients said, with the original messages." },
-  { label: "Resources", href: PATHS.resources, description: "Guides written from real grooming builds." },
-  { label: "About", href: PATHS.about, description: "Why Tongfluence only works with groomers." },
+  { label: "Case Studies", href: PATHS.caseStudies, description: "Real grooming websites we built, explained." },
+  { label: "Testimonials", href: PATHS.testimonials, description: "What clients said, with their real messages." },
+  { label: "Resources", href: PATHS.resources, description: "Guides based on the sites we have built." },
+  { label: "About", href: PATHS.about, description: "Why we only work with groomers." },
 ];
 
 // ---------------------------------------------------------------------------
@@ -456,19 +456,19 @@ export const proofNav: NavItem[] = [
 export const audienceTypes = [
   {
     title: "Grooming salons",
-    body: "A shop customers drive to. Your Google profile and your service pages have to agree on what you do and where you are.",
+    body: "A shop that customers drive to. Your Google profile and your website need to say the same things about what you do and where you are.",
   },
   {
     title: "Mobile groomers",
-    body: "You groom at the customer's door. No storefront means the map pack behaves differently, and your site has to carry the service-area work.",
+    body: "You groom at the customer's home. With no shop, the map works differently. Your website has to do the work of telling Google where you go.",
   },
   {
     title: "Solo groomers and small teams",
-    body: "One or two chairs, a full book some weeks and gaps in others. The goal is a steadier flow of the right enquiries, not more of everything.",
+    body: "One or two chairs. Some weeks are full and some have gaps. The goal is a steady flow of the right calls, not more of everything.",
   },
   {
     title: "Grooming plus daycare or boarding",
-    body: "More than one service means more than one search intent. Each one needs its own page rather than a single blended 'Services' list.",
+    body: "More than one service means people search for more than one thing. Each one needs its own page, not one mixed 'Services' list.",
   },
 ];
 
@@ -480,67 +480,67 @@ export const faqs = [
   {
     question: "What does Tongfluence actually do?",
     answer:
-      "Tongfluence builds and runs the Google side of a dog grooming business: an SEO-built website, an optimized Google Business Profile, a system for requesting reviews after appointments, and ongoing optimization driven by your Search Console data. It is one monthly service, not four separate projects.",
+      "We run the Google side of your grooming business. We build a website that can be found. We set up your Google Business Profile the right way. We give you a system for asking for reviews. And we do monthly work based on your real search data. It is one monthly service, not four separate jobs.",
   },
   {
     question: "Is Tongfluence only for dog groomers?",
     answer:
-      "Yes. Every build, every page template and every piece of research is for grooming businesses — salons, mobile groomers, and groomers who also offer daycare or boarding. That is the whole point: the work is already shaped like your business before we start.",
+      "Yes. Everything we build is for grooming businesses. That means salons, mobile groomers, and groomers who also offer daycare or boarding. That is the whole point. The work already fits your business before we start.",
   },
   {
     question: "How much does it cost?",
     answer:
-      "$297 per month. That covers the website, the profile work, the review system and the ongoing optimization. There is no setup fee and no separate build fee.",
+      "$297 a month. That covers the website, the Google profile work, the review system, and the monthly search work. There is no setup fee and no build fee.",
   },
   {
     question: "Is there a contract?",
     answer:
-      "No. It is month to month and you can cancel anytime. Nothing is locked in for six or twelve months.",
+      "No. It is month to month. You can cancel any time. Nothing locks you in for six or twelve months.",
   },
   {
     question: "What happens if I cancel?",
     answer:
-      "Billing stops and the ongoing work stops. Your Google profile is yours and stays yours; we only work inside it. Your domain is yours. Tell us where you want the website content and we will hand over what we have so you can take it elsewhere.",
+      "Billing stops and the work stops. Your Google profile is yours and stays yours. Your domain is yours. Tell us where you want the website content and we will hand it over.",
   },
   {
     question: "Do I own my website?",
     answer:
-      "The domain is registered to you and the content is yours. While you are a client the site is hosted and maintained as part of the monthly service, which is what keeps it fast and lets us keep changing it.",
+      "The domain is in your name and the content is yours. While you are a client, we host and maintain the site as part of the monthly service. That keeps it fast and lets us keep improving it.",
   },
   {
     question: "I already have a website. Do I need a new one?",
     answer:
-      "Not always. If your current site is fast, has a real page for each service and each area you serve, and clearly gets people to the phone, the better move is usually to keep it and fix what is missing. If it is a one-page template, a builder site that loads slowly on a phone, or a site with no service pages at all, rebuilding is usually faster than patching. We will tell you which one you are.",
+      "Not always. Your site may be fast, with a real page for each service and each town. If it gets people to the phone, the better move is to keep it and fix what is missing. If it is a one-page site, or loads slowly on a phone, or has no service pages, a rebuild is usually faster. We will tell you which one you have.",
   },
   {
     question: "I already have a Google Business Profile. Is that enough?",
     answer:
-      "Having one is not the same as it being set up well. The common gaps are the wrong primary category, an empty services list, no service areas on a mobile business, a handful of photos from three years ago, and no recent reviews. Those are fixable, and fixing them is usually the fastest-moving part of the first month.",
+      "Having one is not the same as having it set up well. The common gaps are simple. The wrong main category. An empty services list. No service areas for a mobile business. Old photos. No recent reviews. All of that can be fixed. It is usually the fastest part of the first month.",
   },
   {
     question: "How long does SEO take?",
     answer:
-      "Profile changes can move within weeks. Website and organic search changes take longer — a first useful read on Search Console data is usually around 28 days after launch, and a fair judgement of direction takes a few months. Anyone promising page one in 30 days is guessing.",
+      "Profile changes can show results within weeks. Website changes take longer. The first useful search data comes about 28 days after launch. A fair read on progress takes a few months. Anyone promising page one in 30 days is guessing.",
   },
   {
     question: "What exactly do you do every month?",
     answer:
-      "Read your Search Console and profile data, pick the change most likely to win you appointments, make it, and measure it. In practice that is things like rewriting a page that is getting impressions but no clicks, adding a service page for a query you are already appearing for, adding a service area, refreshing profile photos, or chasing reviews. One evidence-based improvement at a time, not a blog post because it is Tuesday.",
+      "We read your search data and your profile data. We pick the one change most likely to bring you appointments. We make it and we measure it. That might mean rewriting a page that gets seen but not clicked. Or adding a page for a service people already search for. Or adding a town, updating photos, or chasing reviews. One change at a time, based on real data.",
   },
   {
     question: "Does this work for mobile grooming?",
     answer:
-      "Yes, and several of the builds in our case studies are mobile-only. Mobile grooming needs a different structure: no published street address, service areas rather than one location, and area pages that explain where the van actually goes.",
+      "Yes. Several of the sites we built are for mobile groomers. Mobile grooming needs a different setup. No street address on the site. Service areas instead of one location. And a page for each town the van goes to.",
   },
   {
     question: "Do you run ads too?",
     answer:
-      "Yes. We run Google Local Services Ads and Facebook and Instagram ads for grooming businesses that want them. The $297 monthly service covers the four parts described on this site; if you want ads as well, book a call and we will go through whether they make sense for your business and how we would set them up.",
+      "Yes. We run Google Local Services Ads and Facebook and Instagram ads for groomers who want them. The $297 a month covers the four parts described on this site. If you want ads too, book a call. We will talk through whether they make sense for you and how we would set them up.",
   },
   {
     question: "How does the review system work?",
     answer:
-      "You get a simple, repeatable way to ask every client for a Google review after their appointment, using your profile's own review link. We never filter customers by how happy they seem, never offer anything in exchange for a review, and never write reviews. All three break Google's policies and put the profile at risk.",
+      "You get a simple way to ask every client for a Google review after their visit, using your own review link. We never pick and choose who gets asked. We never offer anything for a review. We never write reviews. All three break Google's rules and put your profile at risk.",
   },
 ];
 
@@ -552,27 +552,27 @@ export const objections = [
   {
     question: "Why is it only $297? What is the catch?",
     answer:
-      "There isn't one, but there is a reason. Tongfluence does one thing for one industry. There is no new discovery process for each client, no bespoke design phase, no account manager layer — the grooming website structure, the profile checklist and the review flow are already built. A general agency charges more because it starts from scratch every time. We don't.",
+      "There is no catch, but there is a reason. We do one thing for one industry. There is no long research phase for each client. No custom design phase. No account manager in the middle. The website structure, the profile checklist and the review system are already built. A general agency charges more because it starts from zero every time. We don't.",
   },
   {
     question: "I've tried marketing before and it didn't work.",
     answer:
-      "Usually one of three things happened: it was social media posting with no search component, it was a website with no service or area pages, or it was an agency that had never worked with a grooming business and treated you like a restaurant. Ask us what we would change about your setup before you pay anything — the answer will tell you whether this is different.",
+      "Usually one of three things happened. It was social media posts with no search work. Or it was a website with no service or town pages. Or it was an agency that had never worked with a groomer and treated you like a restaurant. Ask us what we would change about your setup before you pay anything. The answer will show you whether this is different.",
   },
   {
     question: "Do I need to run ads as well?",
     answer:
-      "Ads and organic answer different questions. Ads buy you traffic today and stop the day you stop paying. Your profile and your website build an asset that keeps working. If you need appointments this week, ads are faster. If you want a channel that compounds, this is the one. Many groomers end up doing both, and we run both: Google Local Services Ads and Facebook and Instagram ads are available if you want them. Ask about them when you book a call.",
+      "Ads and search do different jobs. Ads bring you traffic today and stop the day you stop paying. Your profile and your website keep working after the work is done. If you need appointments this week, ads are faster. If you want something that grows over time, this is it. Many groomers do both. We run both. We offer Google Local Services Ads and Facebook and Instagram ads if you want them. Ask about them when you book a call.",
   },
   {
     question: "I'm already busy. Why would I bother?",
     answer:
-      "Being busy and being booked with the right work are different. Most groomers have weeks with gaps and a waiting list for the wrong services. Being easy to find raises the floor, and it means you are not dependent on one referral source.",
+      "Being busy and being booked with the right work are not the same. Most groomers have weeks with gaps, and a waiting list for the wrong services. Being easy to find raises your floor. It also means you do not depend on one source of referrals.",
   },
   {
     question: "How much of my time does this take?",
     answer:
-      "Roughly an onboarding call, a list of your services and prices, access to your Google profile, and photos when you have them. After that the monthly work does not need you unless something about the business changes.",
+      "About one call to start, a list of your services and prices, access to your Google profile, and photos when you have them. After that, the monthly work does not need you unless something about your business changes.",
   },
 ];
 

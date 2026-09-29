@@ -28,7 +28,7 @@ import { Checklist } from "@/components/Checklist";
 export const metadata: Metadata = pageMetadata({
   title: "Dog Groomer Website Design & SEO",
   description:
-    "Grooming websites built to be found and to get the phone ringing: a page per service, a page per area, fast on mobile, indexable throughout. $297/month.",
+    "Grooming websites built to be found and to make the phone ring: a page per service, a page per town, fast on a phone. $297 a month.",
   path: PATHS.websiteDesign,
 });
 
@@ -41,32 +41,32 @@ const faqItems = [
   {
     question: "What should a dog grooming website include?",
     answer:
-      "At minimum: a page for each service you offer, a page for each area you serve, clear pricing or price ranges, real photos of your own work, your hours, a tap-to-call phone number on every screen, and an honest description of how booking works. Everything else is optional. A gallery with no service pages is the most common version of getting this backwards.",
+      "At the very least: a page for each service you offer. A page for each town you serve. Clear prices or price ranges. Real photos of your own work. Your hours. A tap-to-call phone number on every screen. And an honest note on how booking works. Everything else is optional. A gallery with no service pages is the most common way to get this backwards.",
   },
   {
     question: "How many pages does a dog grooming website need?",
     answer:
-      "More than most groomers expect, because the pages are how you match searches. Across the seven grooming sites we have built the median is in the low thirties — a handful of core pages, then one page per service and one per town served. A five-page site cannot appear for twenty different searches because it does not have twenty things to say.",
+      "More than most groomers expect. The pages are how you match searches. Across the seven grooming sites we built, the middle number is in the low thirties. A few core pages, then one page per service and one per town. A five-page site cannot show up for twenty different searches. It does not have twenty things to say.",
   },
   {
     question: "Do I need a new website or can you fix my current one?",
     answer:
-      "It depends on what you have. If the site is fast, lets us add pages freely, and already has real service pages, improving it is usually the better move. If it is a one-page template, a slow builder site, or something you cannot edit without paying per change, rebuilding is normally quicker than working around it. We will tell you honestly which one you are on the call.",
+      "It depends on what you have. If the site is fast, lets us add pages, and already has real service pages, fixing it is usually better. If it is a one-page template, a slow builder site, or something you pay to change, a rebuild is usually quicker. We will tell you honestly on the call.",
   },
   {
     question: "Do I own the website?",
     answer:
-      "The domain is registered to you and the content is yours. While you are a client the site is hosted and maintained as part of the $297 monthly service, which is what keeps it fast and lets us keep changing it based on your search data.",
+      "The domain is in your name and the content is yours. While you are a client, we host and maintain the site as part of the $297 a month. That keeps it fast and lets us keep changing it based on your search data.",
   },
   {
     question: "Will my website work for mobile grooming?",
     answer:
-      "Yes, and it will be built differently. A mobile grooming site publishes service areas rather than a street address, explains what the van brings and what it needs from you (power, water, a parking spot), and carries a page per town. Three of our seven builds are mobile-only, so this is a well-worn path rather than an adaptation.",
+      "Yes, and it will be built differently. A mobile grooming site lists service areas instead of a street address. It explains what the van brings and what it needs from you, like power, water and a parking spot. And it has a page for each town. Three of our seven sites are for mobile groomers. This is a well-worn path.",
   },
   {
     question: "Can I use my existing booking system?",
     answer:
-      "Yes. If you already take bookings through something your clients know — an online booking platform, a phone line, a form — we point the site at it rather than replacing it. One of our builds routes every booking CTA to the client's existing booking platform for exactly this reason.",
+      "Yes. If you already take bookings through something your clients know, we point the site at it instead of replacing it. That could be a booking app, a phone line or a form. One of our sites sends every booking button to the client's own booking app for exactly this reason.",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function WebsiteDesignPage() {
           name: "Dog grooming website design",
           serviceType: "Website design and SEO for dog grooming businesses",
           description:
-            "SEO-structured, mobile-first websites for dog grooming businesses: a page per service, a page per service area, fast load times and structured data, built and maintained for $297 per month.",
+            "Websites for dog grooming businesses, built to be found on Google: a page per service, a page per town, fast on a phone, built and maintained for $297 a month.",
           path: PATHS.websiteDesign,
         })}
       />
@@ -89,13 +89,13 @@ export default function WebsiteDesignPage() {
 
       <PageHero
         eyebrow="Grooming website design"
-        title="A grooming website is not a brochure. It's a machine for getting the phone to ring."
+        title="A grooming website is not a brochure."
+        accent="It's a machine for making the phone ring."
         intro={
           <>
-            Most grooming websites are judged on whether they look nice. The ones that produce appointments
-            are judged on two other things: whether Google can find a page that matches what somebody
-            searched, and whether the person who lands on it can call you in one tap. We build for those
-            first, and it still looks good.
+            Most grooming websites are judged on looks. The ones that bring appointments are judged on two
+            other things. Can Google find a page that matches what someone searched? And can the person who
+            lands on it call you in one tap? We build for those first. It still looks good.
           </>
         }
         location="web_hero"
@@ -108,11 +108,11 @@ export default function WebsiteDesignPage() {
         <AnswerBlock>
           <p>
             A dog grooming website needs a <strong>page for each service</strong> and a{" "}
-            <strong>page for each area you serve</strong>, because those are the searches people make. It
-            needs real photos of your own work, a price or price range, a tap-to-call number on every screen,
-            and it needs to load fast on a phone. Across the {buildStats.siteCount} grooming sites we have
-            built, that structure accounts for {buildStats.totalServicePages + buildStats.totalAreaPages} of
-            the {buildStats.totalPages} pages — the service and area pages <em>are</em> the website.
+            <strong>page for each town you serve</strong>. Those are the searches people make. It needs real
+            photos of your own work, a price or a price range, and a tap-to-call number on every screen. It
+            needs to load fast on a phone. Across the {buildStats.siteCount} grooming sites we built, service
+            and town pages make up {buildStats.totalServicePages + buildStats.totalAreaPages} of the{" "}
+            {buildStats.totalPages} pages. Those pages <em>are</em> the website.
           </p>
         </AnswerBlock>
       </Section>
@@ -123,21 +123,20 @@ export default function WebsiteDesignPage() {
           eyebrow="The usual problem"
           id="what-goes-wrong"
           title="The five-page grooming website"
-          intro="Home, About, Services, Gallery, Contact. It is the default because every website builder ships it, and it is the reason so many groomers conclude their website “doesn't do anything.”"
+          intro="Home, About, Services, Gallery, Contact. Every website builder starts you there. It is why so many groomers decide their website “doesn't do anything.”"
         />
         <div className="tf-prose mt-6">
           <p>
-            Here is the mechanical problem. Somebody searches <em>dog deshedding in Hagerstown</em>. For your
-            site to be a candidate, Google needs a page that is convincingly about deshedding, in Hagerstown.
-            A page called &ldquo;Services&rdquo; that lists eleven services in bullet points, and a footer that
-            mentions three towns, is not convincingly about anything. So it does not appear — not because the
-            business is worse, but because it never offered Google anything to match.
+            Here is the problem. Someone searches <em>dog deshedding in Hagerstown</em>. For your site to
+            show up, Google needs a page that is clearly about deshedding in Hagerstown. A page called
+            &ldquo;Services&rdquo; that lists eleven things in bullet points is not clearly about anything. A
+            footer that names three towns does not help. So the site does not show up. Not because the
+            business is worse. Because it never gave Google anything to match.
           </p>
           <p>
-            Multiply that by every service you offer and every town you would happily drive to, and you can see
-            the size of what a five-page site is leaving behind. This is also why the fix is not &ldquo;better
-            copy&rdquo; or &ldquo;more keywords&rdquo; on the existing pages. It is more pages, each one
-            genuinely about one thing.
+            Now think of every service you offer and every town you would drive to. That is how much a
+            five-page site leaves behind. This is why the fix is not &ldquo;better writing&rdquo; or
+            &ldquo;more keywords&rdquo; on the pages you have. It is more pages, each one about one thing.
           </p>
         </div>
       </Section>
@@ -147,44 +146,45 @@ export default function WebsiteDesignPage() {
         <SectionHeading
           eyebrow="What we build"
           id="anatomy"
-          title="The anatomy of a grooming site that works"
+          title="What a grooming site"
+          accent="that works is made of"
         />
         <div className="mt-8 space-y-6">
           {[
             {
               n: "01",
               t: "A page per service",
-              b: "Full groom, bath and tidy, deshedding, dematting, nail trim and ear clean, puppy first groom, cat grooming — whatever you actually do. Each page says what it involves, who it suits, how long it takes, and what it costs or what the range is and what moves it.",
+              b: "Full groom, bath and tidy, deshedding, dematting, nail trim and ear clean, puppy first groom, cat grooming. Whatever you really do. Each page says what it involves, who it suits, how long it takes, and what it costs or what the range is.",
             },
             {
               n: "02",
               t: "A page per area",
-              b: "One for each town you take clients from, written with something true and specific in it: the drive, the days you're over that way, the neighbourhoods covered. Not one template with the town name swapped — that is the fastest way to build pages nobody wants and Google ignores.",
+              b: "One for each town you take clients from. Each one says something true about that town. The drive, the days you are over that way, the areas you cover. Not one template with the town name swapped. That is the fastest way to build pages nobody wants and Google ignores.",
             },
             {
               n: "03",
               t: "Pricing that exists",
-              b: "Grooming prices genuinely depend on size, coat and condition, which is why so many groomers publish nothing. Publish the range and say what moves it. A visitor who cannot find any number goes back to the search results.",
+              b: "Grooming prices depend on size, coat and condition. That is why so many groomers show nothing. Show the range and say what changes it. A visitor who cannot find any number goes back to Google.",
             },
             {
               n: "04",
               t: "Real photos of your own work",
-              b: "Stock photos of a perfectly groomed show dog convince nobody and are visibly not yours. Where a client hasn't sent photos yet, we use honest, correctly-sized placeholders rather than filling the gap with stock — it's less pretty and more trustworthy.",
+              b: "Stock photos of a perfect show dog convince nobody. They are clearly not yours. Where a client has not sent photos yet, we use an honest placeholder instead of stock. It is less pretty and more trusted.",
             },
             {
               n: "05",
               t: "One tap to call",
-              b: "A phone number that dials when tapped, in the header and in a persistent bar on mobile. Most grooming traffic is on a phone, often one-handed, often standing next to a dog.",
+              b: "A phone number that dials when tapped. It sits in the header and in a bar that stays on screen on a phone. Most grooming visitors are on a phone, often with one hand, often next to a dog.",
             },
             {
               n: "06",
-              t: "Reviews shown as content, not as fake stars",
-              b: "Real reviews quoted on the page and linked to the profile they came from. We do not inject rating markup to conjure stars in search results — Google restricts self-serving review markup, and the risk is not worth a cosmetic gain.",
+              t: "Reviews shown as words, not as fake stars",
+              b: "Real reviews quoted on the page and linked to where they came from. We do not add hidden star code to get stars in search results. Google restricts that, and the risk is not worth a small gain.",
             },
             {
               n: "07",
-              t: "Speed and structure under the hood",
-              b: "Server-rendered pages, compressed and correctly sized images, almost no JavaScript, unique titles and descriptions, correct canonicals, LocalBusiness and Service structured data, an accurate sitemap. Nothing exotic — just none of it missing.",
+              t: "Speed and the basics under the hood",
+              b: "Pages that load fast. Small, right-sized images. Very little script. A unique title on every page. A sitemap that is right. The hidden labels that tell Google what kind of business you are. Nothing fancy. Just none of it missing.",
             },
           ].map((x) => (
             <div key={x.n} className="grid gap-3 rounded-xl border border-tf-border bg-tf-card p-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
@@ -203,18 +203,19 @@ export default function WebsiteDesignPage() {
         <SectionHeading
           eyebrow="First-party data"
           id="real-builds"
-          title="What our grooming builds are actually made of"
-          intro={`Every site we have built, counted. This is not an industry benchmark — it is our own work, which is why we can vouch for the numbers.`}
+          title="What our grooming sites"
+          accent="are really made of"
+          intro={`Every site we built, counted. This is not an industry average. It is our own work, which is why we can stand behind the numbers.`}
         />
         <div className="mt-8">
           <BuildTable />
         </div>
         <p className="mt-5 text-sm leading-relaxed text-tf-ink-soft">
-          The full write-up of each one, including what was wrong before, is in{" "}
+          The full story of each one, including what was wrong before, is in{" "}
           <Link href={PATHS.caseStudies} className="font-medium text-tf-brown-dark underline underline-offset-4">
             the case studies
           </Link>
-          , and the shape-by-shape comparison is in{" "}
+          . You can compare them side by side in{" "}
           <Link
             href={resourcePath("dog-grooming-website-examples")}
             className="font-medium text-tf-brown-dark underline underline-offset-4"
@@ -230,7 +231,8 @@ export default function WebsiteDesignPage() {
         <SectionHeading
           eyebrow="It depends on your business"
           id="salon-vs-mobile"
-          title="Salon sites and mobile sites are built differently"
+          title="Salon sites and mobile sites"
+          accent="are built differently"
         />
         <div className="mt-7 grid gap-6 sm:grid-cols-2">
           <div className="rounded-xl border border-tf-border bg-tf-card p-6">
@@ -238,9 +240,9 @@ export default function WebsiteDesignPage() {
             <div className="mt-4">
               <Checklist
                 items={[
-                  { title: "One clear address, everywhere", body: "Identical on the site, the profile and every directory. Map embed on the contact page." },
-                  { title: "Parking and access spelled out", body: "Where to park, which door, what happens at drop-off." },
-                  { title: "Area pages aimed at drivers", body: "The neighbourhoods and towns people realistically drive in from." },
+                  { title: "One clear address, everywhere", body: "The same on the site, the profile and every directory. A map on the contact page." },
+                  { title: "Parking and access spelled out", body: "Where to park, which door, and what happens at drop-off." },
+                  { title: "Town pages aimed at drivers", body: "The areas and towns people really drive in from." },
                 ]}
               />
             </div>
@@ -250,16 +252,16 @@ export default function WebsiteDesignPage() {
             <div className="mt-4">
               <Checklist
                 items={[
-                  { title: "No published street address", body: "Usually the groomer's home. It goes nowhere on the site and nowhere in the structured data." },
-                  { title: "Service areas carry the geography", body: "A page per town, because the map pack won't reach most of them." },
-                  { title: "What the van needs, stated plainly", body: "Parking space, power and water if required, how long it takes, what happens if nobody's home." },
+                  { title: "No street address on the site", body: "It is usually the groomer's home. It goes nowhere on the site." },
+                  { title: "Town pages do the work", body: "A page per town, because the map will not reach most of them." },
+                  { title: "What the van needs, said plainly", body: "A parking spot, power and water if needed, how long it takes, and what happens if nobody is home." },
                 ]}
               />
             </div>
           </div>
         </div>
         <p className="mt-6 text-sm leading-relaxed text-tf-ink-soft">
-          {buildStats.mobileCount} of our {clientBuilds.length} builds are mobile-only. The clearest example is{" "}
+          {buildStats.mobileCount} of our {clientBuilds.length} sites are for mobile groomers. The clearest example is{" "}
           <Link
             href={caseStudyPath("bark-and-bork-mobile-pet-spa")}
             className="font-medium text-tf-brown-dark underline underline-offset-4"
@@ -274,8 +276,9 @@ export default function WebsiteDesignPage() {
         <SectionHeading
           eyebrow="What it costs"
           id="included"
-          title="The website is part of the monthly service, not a separate build fee"
-          intro="There is no five-figure build cost and no per-page charge when we add a service or an area later. That is deliberate — a site you are charged to change is a site that never changes."
+          title="The website is part of the monthly service,"
+          accent="not a separate build fee"
+          intro="There is no big build cost. No charge per page when we add a service or a town later. That is on purpose. A site you pay to change is a site that never changes."
         />
         <PricingCard location="website_design" className="mt-8" />
       </Section>
@@ -295,22 +298,22 @@ export default function WebsiteDesignPage() {
             {
               href: resourcePath("dog-grooming-website-examples"),
               label: "The sites we've built, compared",
-              description: "Every site we've built, what it had to solve, and what's inside it.",
+              description: "Every site we built, what it had to solve, and what is inside it.",
             },
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "How the structure above turns into rankings, and what happens after launch.",
+              description: "How these pages turn into rankings, and what happens after launch.",
             },
             {
               href: PATHS.leadGeneration,
               label: "Turning searches into calls",
-              description: "The conversion half: what makes a visitor actually pick up the phone.",
+              description: "What makes a visitor pick up the phone.",
             },
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "Where most of your first-time visitors will see you before the website.",
+              description: "Where most new customers see you before they see the website.",
             },
           ]}
         />
@@ -320,7 +323,7 @@ export default function WebsiteDesignPage() {
         <CtaBand
           location="website_footer"
           title="Send us your current site and we'll tell you what's missing"
-          body="Not a “free audit” PDF — a short call where we open your site and your Google profile and tell you what we'd change, in order. If the honest answer is that your current site is fine, that's the answer you'll get."
+          body="Not a “free audit” PDF. A short call where we open your site and your Google profile and tell you what we would change, in order. If your current site is fine, that is the answer you will get."
           secondaryHref={resourcePath("dog-grooming-website-examples")}
           secondaryLabel="See websites we've built"
         />

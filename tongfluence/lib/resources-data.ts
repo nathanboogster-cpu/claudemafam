@@ -43,9 +43,9 @@ export const resources: Resource[] = [
     h1: "How to Rank a Dog Grooming Business on Google",
     metaTitle: "How to Rank a Dog Grooming Business on Google (Step by Step)",
     metaDescription:
-      "A do-it-yourself guide to ranking a dog grooming business in Google Maps and search: categories, service pages, service areas, reviews, and what to fix first.",
+      "A do-it-yourself guide to ranking a dog grooming business on Google Maps and in search: categories, service pages, service areas, reviews, and what to fix first.",
     summary:
-      "The whole job, in the order it should be done, written so a groomer can work through it without hiring anyone. Covers the map pack and organic search separately, because they are ranked differently.",
+      "The whole job, in the order to do it, written so a groomer can work through it without hiring anyone. It covers the map and the search results on their own, because Google ranks them differently.",
     primaryQuery: "how to rank dog grooming business on google",
     readingTime: "12 min read",
     publishedAt: "2026-09-15",
@@ -55,12 +55,12 @@ export const resources: Resource[] = [
     slug: "dog-grooming-website-examples",
     title: "Dog Grooming Website Examples (And What They're Made Of)",
     navLabel: "Grooming website examples",
-    h1: "Dog Grooming Website Examples — And What They're Actually Made Of",
+    h1: "Dog Grooming Website Examples, and What They Are Really Made Of",
     metaTitle: "Dog Grooming Website Examples & What They're Made Of",
     metaDescription:
-      "Seven real grooming websites we built and the structure behind them: 198 indexable pages, 31 service pages and 59 service-area pages, counted build by build.",
+      "Seven real grooming websites we built and what is inside them: 198 pages, 31 service pages and 59 town pages, counted site by site.",
     summary:
-      "Every grooming website we have built, what each one had to solve, and a count of exactly what is inside them — service pages, area pages, articles and structured data.",
+      "Every grooming website we built, what each one had to solve, and a count of exactly what is inside them. Service pages, town pages, articles and more.",
     primaryQuery: "dog grooming website examples",
     readingTime: "9 min read",
     publishedAt: "2026-09-15",

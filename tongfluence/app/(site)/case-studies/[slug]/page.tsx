@@ -102,7 +102,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             eyebrow="The diagnosis"
             id="diagnosis"
             title="What was structurally wrong"
-            intro="Not a list of things that looked dated — a list of reasons specific searches had nothing to match against."
+            intro="Not a list of things that looked old. A list of reasons why real searches had nothing to match."
           />
           <div className="mt-7 grid gap-4 sm:grid-cols-2">
             {study.diagnosis.map((d) => (
@@ -156,10 +156,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <SectionHeading
             eyebrow="Results"
             id="results"
-            title="What shipped, and what we can't tell you yet"
+            title="What went live,"
+            accent="and what we can't tell you yet"
           />
 
-          <h3 className="mt-7 font-tf-display text-lg font-bold text-tf-ink">What shipped</h3>
+          <h3 className="mt-7 font-tf-display text-lg font-bold text-tf-ink">What went live</h3>
           <ul className="mt-4 space-y-3">
             {study.results.shipped.map((r) => (
               <li key={r.slice(0, 40)} className="flex gap-3 text-sm leading-relaxed text-tf-ink-soft">
@@ -203,7 +204,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           ) : null}
 
           <div className="mt-8">
-            <AnswerBlock label="Why there are no performance numbers here">
+            <AnswerBlock label="Why there are no result numbers here">
               <p>{study.results.pending}</p>
             </AnswerBlock>
           </div>
@@ -230,9 +231,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: `The page structure used here — ${build?.pages.services ?? 0} service pages and ${
+              description: `The page plan used here: ${build?.pages.services ?? 0} service pages and ${
                 build?.pages.areas ?? 0
-              } area pages.`,
+              } town pages.`,
             },
             {
               href: PATHS.gbp,
@@ -242,7 +243,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             {
               href: PATHS.seo,
               label: "How the SEO works",
-              description: "Why these sites are structured this way, and what happens after launch.",
+              description: "Why these sites are built this way, and what happens after launch.",
             },
             {
               href: PATHS.caseStudies,
@@ -257,7 +258,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <CtaBand
           location={`case_study_${study.slug}_footer`}
           title={`Is your business in the same position as ${study.clientName}?`}
-          body="A short call: we open your Google Business Profile and your current site while you're on the line, and tell you what we'd change first."
+          body="A short call. We open your Google profile and your current site while you are on the line, and tell you what we would change first."
         />
       </Section>
 
@@ -269,8 +270,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             day: "numeric",
             timeZone: "UTC",
           })}
-          . Business details described here are published by {study.clientName} itself. Page counts come from
-          the build&rsquo;s own sitemap. See{" "}
+          . The business details here are published by {study.clientName} itself. Page counts come from the
+          site&rsquo;s own sitemap. See{" "}
           <Link href={PATHS.caseStudies} className="underline underline-offset-4 hover:text-tf-brown-dark">
             all case studies
           </Link>

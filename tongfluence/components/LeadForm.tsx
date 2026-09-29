@@ -82,11 +82,11 @@ export function LeadForm() {
         role="status"
         className="rounded-2xl border border-tf-brown/40 bg-tf-brown-wash p-8 text-center"
       >
-        <h2 className="font-tf-display text-2xl font-bold text-tf-ink">Got it — thank you.</h2>
+        <h2 className="font-tf-display text-2xl font-bold text-tf-ink">Got it. Thank you.</h2>
         <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-tf-ink-soft">
-          We&rsquo;ll reply within one working day with a couple of times for a call. Before then we&rsquo;ll
-          have a look at your Google Business Profile, so the call starts with something useful rather than
-          with questions you&rsquo;ve already answered.
+          We will reply within one working day with a couple of times for a call. Before then, we will look
+          at your Google profile. That way the call starts with something useful, not with questions you
+          already answered.
         </p>
       </div>
     );
@@ -176,7 +176,7 @@ export function LeadForm() {
             id="lead-message"
             name="message"
             rows={4}
-            placeholder="e.g. we show up in our own town but nowhere else, or our Google profile hasn't had a review in a year"
+            placeholder="For example: we show up in our own town but nowhere else, or our Google profile has not had a review in a year"
             className={inputClasses}
           />
         </div>
@@ -204,7 +204,7 @@ export function LeadForm() {
       </button>
 
       <p className="mt-4 text-xs leading-relaxed text-tf-ink-soft">
-        We use what you send here to reply to you and nothing else. No list, no sequence, no sharing it with
+        We use what you send here to reply to you, and nothing else. No mailing list. No sharing it with
         anyone.
       </p>
     </form>

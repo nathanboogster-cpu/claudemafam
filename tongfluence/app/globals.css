@@ -4,9 +4,9 @@
    TONGFLUENCE THEME — matched to tongfluence.com.
 
    White page, soft beige cards, a warm near-black for type, and a tan that
-   picks out the last words of a heading. Headings are set in Fraunces (a
-   chunky, soft serif), body copy in Inter, and small labels in widely
-   tracked caps behind a short rule.
+   picks out the last words of a heading. Everything is set in Inter, a
+   neutral face that is easy to read; small labels sit in tracked caps
+   behind a short rule.
    --------------------------------------------------------------------------- */
 :root {
   --color-tf-paper: #ffffff;
@@ -63,9 +63,9 @@
   --color-tf-border: var(--color-tf-border);
   --color-tf-border-strong: var(--color-tf-border-strong);
 
-  /* Fraunces for headings and headline figures, Inter for everything else. */
+  /* Inter throughout: headings and figures use the same face at a heavier weight. */
   --font-tf-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-tf-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-tf-display: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-tf-mono: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
 }
 
@@ -81,13 +81,7 @@ body {
 
 .font-tf-display {
   font-family: var(--font-tf-display);
-  /* No negative tracking by default: at card-title sizes Fraunces bold already
-     sets tight, and pulling it in closes the word spaces. Big headings add
-     their own tracking-tight. */
-  letter-spacing: 0;
-  /* Fraunces is an optical-size font: let it pick the display cut at large
-     sizes, which is what gives the headings their weight and softness. */
-  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
 }
 
 /* The tan words at the end of a heading. */

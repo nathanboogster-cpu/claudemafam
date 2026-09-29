@@ -7,7 +7,7 @@ import { BookCallButton, SecondaryCTA } from "./CTAButton";
 export function CtaBand({
   location,
   title = "See what we'd change about your Google presence",
-  body = "A short call: we look at your Google profile and your current site while you're on the line, and tell you what we'd fix first. If it's not worth doing, we'll say that too.",
+  body = "A short call. We look at your Google profile and your current site while you are on the line, and tell you what we would fix first. If it is not worth doing, we will say so.",
   secondaryHref = "/case-studies",
   secondaryLabel = "See client results",
 }: {

@@ -20,8 +20,8 @@ export default function NotFound() {
       <ul className="mx-auto mt-10 grid max-w-2xl gap-3 text-left sm:grid-cols-2">
         {[
           ...serviceNav,
-          { label: "Case Studies", href: PATHS.caseStudies, description: "Real grooming builds, broken down." },
-          { label: "Resources", href: PATHS.resources, description: "Guides written from real builds." },
+          { label: "Case Studies", href: PATHS.caseStudies, description: "Real grooming websites we built, explained." },
+          { label: "Resources", href: PATHS.resources, description: "Guides based on the sites we built." },
           { label: "About", href: PATHS.about, description: "Why we only work with groomers." },
         ].map((item) => (
           <li key={item.href}>

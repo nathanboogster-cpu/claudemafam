@@ -36,7 +36,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Dog Groomer Marketing That Gets You Found | Tongfluence",
   titleTemplate: false,
   description:
-    "We build the website, Google Business Profile and review system dog groomers need to turn local searches into booked appointments. $297/month, cancel anytime.",
+    "We build the website, Google profile and review system that help dog groomers turn local searches into booked appointments. $297 a month, cancel any time.",
   path: PATHS.home,
 });
 
@@ -46,44 +46,44 @@ const howItWorks = [
   {
     step: "Week 1",
     title: "We look at what you already have",
-    body: "Your Google profile, your current website if you have one, what you actually offer, and which towns you take clients from. You give us your services and prices; we do the rest.",
+    body: "Your Google profile. Your current website, if you have one. What you offer. Which towns you take clients from. You give us your services and prices. We do the rest.",
   },
   {
     step: "Weeks 1–3",
     title: "Profile first, then the site",
-    body: "The profile work goes first because it moves fastest: categories, services, service areas, description, hours, photos. The website is built alongside it — a page per service, a page per area.",
+    body: "The profile work goes first because it moves fastest. Categories, services, service areas, hours and photos. We build the website at the same time. One page per service, one page per town.",
   },
   {
     step: "Launch",
     title: "Live, submitted, and measured",
-    body: "The site goes live, Search Console is connected, the sitemap is submitted, and indexing is verified. The review request flow is handed over so you can start asking clients from the next appointment.",
+    body: "The site goes live. We connect Google Search Console and check that Google can see every page. We hand you the review system so you can start asking clients at the next visit.",
   },
   {
     step: "Every month after",
     title: "One evidence-based change at a time",
-    body: "We read your Search Console queries and your profile data, find the biggest gap, and fix it. A page that gets impressions but no clicks gets a better title. A query you almost rank for gets a real page. That is the job.",
+    body: "We read your search data and your profile data. We find the biggest gap and fix it. A page that gets seen but not clicked gets a better title. A search you almost rank for gets a real page. That is the job.",
   },
 ];
 
 const specialisation = [
   {
     generic: "Asks you what a full groom is",
-    specific: "Already knows a full groom, a bath-and-tidy, a deshed and a dematting are four different searches",
+    specific: "Knows a full groom, a bath and tidy, a deshed and a dematting are four different searches",
   },
   {
     generic: "Builds one page called “Services”",
-    specific: "Builds a page per service, because that is how people search",
+    specific: "Builds one page per service, because that is how people search",
   },
   {
     generic: "Puts your address on a mobile grooming site",
-    specific: "Knows a mobile groomer publishes service areas, not a street address",
+    specific: "Knows a mobile groomer lists service areas, not a street address",
   },
   {
     generic: "Writes blog posts about “the importance of pet care”",
-    specific: "Writes the page you are actually appearing for in Search Console",
+    specific: "Writes the page people are already searching for",
   },
   {
-    generic: "Reports on impressions and “brand awareness”",
+    generic: "Reports on views and “brand awareness”",
     specific: "Cares whether the phone rang",
   },
 ];
@@ -128,9 +128,9 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-tf-ink-soft">
-                When someone in your town searches <em>dog groomer near me</em>, three businesses show up on the
-                map and one of them gets the call. Tongfluence builds the website, Google Business Profile and
-                review system that make that business you.
+                Someone in your town searches <em>dog groomer near me</em>. Three businesses show up on the
+                map. One of them gets the call. We build the website, Google profile and review system that
+                make that business you.
               </p>
             </Reveal>
             <Reveal delay={180}>
@@ -179,7 +179,7 @@ export default function HomePage() {
                 </a>
               ) : null}
               <figcaption className="mt-8 pl-28 text-xs text-tf-ink-soft sm:pl-36">
-                Groomed at {heroDogPhoto.credit}. Real client photos throughout, no stock.
+                Groomed at {heroDogPhoto.credit}. Real client photos on every page. No stock photos.
               </figcaption>
             </figure>
           </Reveal>
@@ -196,7 +196,7 @@ export default function HomePage() {
               What {offer.priceLine} covers
             </h2>
             <p className="text-xs text-tf-ink-soft">
-              One price, one invoice. No setup fee, no build fee, no charge for pages we add later.
+              One price, one bill. No setup fee. No build fee. No charge for pages we add later.
             </p>
           </div>
           <ol className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -235,7 +235,7 @@ export default function HomePage() {
             id="walkthrough"
             title="Exactly what we do,"
             accent="start to finish."
-            intro="A walkthrough of what actually happens when a grooming business works with us. If you would rather read it, the same process is written out further down this page."
+            intro="A walk through what happens when a grooming business works with us. If you would rather read it, the same steps are written out further down this page."
             align="center"
           />
         </Reveal>
@@ -268,7 +268,7 @@ export default function HomePage() {
             id="testimonials"
             title="In their own words,"
             accent="from their messages."
-            intro="Quoted word for word from emails and texts, with the original message under each one."
+            intro="Quoted word for word from emails and texts. The real message is under each one."
           />
         </Reveal>
         <div className="mt-8">
@@ -300,9 +300,9 @@ export default function HomePage() {
             accent="at the exact moment someone decides."
             intro={
               <>
-                Grooming is a local, high-repeat, word-of-mouth business — which is exactly why so many groomers
-                never build anything on Google. It works until the referrals slow down, a competitor opens
-                nearby, or a chain starts paying for the top of the map.
+                Grooming is a local business. Clients come back often and tell their friends. That is why so
+                many groomers never build anything on Google. It works until referrals slow down. Or a
+                competitor opens nearby. Or a chain starts paying for the top of the map.
               </>
             }
           />
@@ -311,15 +311,15 @@ export default function HomePage() {
           {[
             {
               title: "The profile is half-finished",
-              body: "Right category, no services listed. No service areas on a mobile business. Six photos from 2019. Four reviews, the newest one eighteen months old.",
+              body: "Right category, but no services listed. No service areas for a mobile business. Six photos from 2019. Four reviews, and the newest is a year and a half old.",
             },
             {
               title: "The website can't be found",
-              body: "One page, a phone number, and a gallery. Nothing that matches a search for a deshedding appointment in a specific town, so nothing ranks for one.",
+              body: "One page, a phone number and a gallery. Nothing that matches a search for deshedding in your town. So nothing ranks for it.",
             },
             {
               title: "Nobody's asking for reviews",
-              body: "Dozens of happy clients a week, and no repeatable moment where any of them are asked to leave a Google review.",
+              body: "Dozens of happy clients a week. And no set moment when any of them are asked to leave a Google review.",
             },
           ].map((item) => (
             <div key={item.title} className="rounded-xl border border-tf-border bg-tf-card p-5">
@@ -329,7 +329,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="mt-6 text-base leading-relaxed text-tf-ink-soft">
-          None of those are hard problems. They are just nobody&rsquo;s job. Read how the pieces fit together in{" "}
+          None of these are hard problems. They are just nobody&rsquo;s job. Read how the pieces fit together in{" "}
           <Link href={PATHS.marketing} className="font-medium text-tf-brown-dark underline underline-offset-4">
             the marketing overview
           </Link>
@@ -347,7 +347,7 @@ export default function HomePage() {
             id="system"
             title="Four parts,"
             accent="built to reinforce each other."
-            intro="They are sold together because they work together. An optimized profile sends people to a website that has a page about the exact thing they searched for; that page gets them to call; the appointment produces a review; the review makes the profile rank better. Break one link and the others do less."
+            intro="They come together because they work together. A good profile sends people to your website. The website has a page about the exact thing they searched for. That page gets them to call. The visit leads to a review. The review helps the profile rank better. Break one link and the others do less."
           />
         </Reveal>
         <ol className="mt-10 grid gap-5 md:grid-cols-2">
@@ -388,7 +388,7 @@ export default function HomePage() {
             <DogStrip />
           </div>
           <p className="mt-3 text-xs text-tf-ink-soft">
-            Dogs groomed at Bark and Bork Mobile Pet Spa and Pampered Puppies, two of the businesses we build for.
+            Dogs groomed at Bark and Bork Mobile Pet Spa and Pampered Puppies. Both are businesses we build for.
           </p>
         </Reveal>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
@@ -401,10 +401,10 @@ export default function HomePage() {
                 accent={`We start with ${buildStats.siteCount} grooming sites behind us.`}
                 intro={
                   <>
-                    Specialising is not a positioning trick — it is the reason the work is fast enough to cost
-                    ${offer.priceNumeric} a month. The page structure, the profile checklist and the review flow
-                    already exist because we have built them {buildStats.siteCount} times for grooming
-                    businesses. You are not paying for someone&rsquo;s learning curve.
+                    We only work with groomers. That is why the work is fast enough to cost ${offer.priceNumeric} a
+                    month. The page layout, the profile checklist and the review system already exist. We have
+                    built them {buildStats.siteCount} times for grooming businesses. You are not paying for
+                    someone to learn on the job.
                   </>
                 }
               />
@@ -467,9 +467,9 @@ export default function HomePage() {
           </ol>
           <AnswerBlock label="How long until it works" className="mt-6">
             <p>
-              Profile changes can show up within a few weeks. Website and organic search take
-              longer: about 28 days after launch before Search Console holds enough data to read, and a few
-              months before the direction is clear. Anyone promising page one in 30 days is guessing.
+              Profile changes can show up within a few weeks. Website changes take longer. It is about 28
+              days after launch before there is enough search data to read. It takes a few months to see the
+              trend. Anyone promising page one in 30 days is guessing.
             </p>
           </AnswerBlock>
       </Section>
@@ -484,7 +484,7 @@ export default function HomePage() {
             id="work"
             title="Real grooming builds,"
             accent="broken down."
-            intro="Each of these is a full write-up: what the business had, what was structurally wrong, exactly what we built, and what we are still waiting to be able to measure."
+            intro="Each one is a full write-up. What the business had, what was wrong, exactly what we built, and what we are still waiting to measure."
           />
         </Reveal>
         <ul className="mt-8 grid gap-5 md:grid-cols-3">
@@ -509,7 +509,7 @@ export default function HomePage() {
             id="pricing-heading"
             title="Everything above,"
             accent={`${offer.priceLine}.`}
-            intro="One price, one invoice, no tiers. You are not upsold a “growth plan” in month three."
+            intro="One price, one bill, no tiers. Nobody sells you a “growth plan” in month three."
           />
         </Reveal>
         <PricingCard location="home" className="mt-8" />
@@ -545,7 +545,7 @@ export default function HomePage() {
           items={faqs}
           intro={
             <>
-              Video answers to the doubts groomers raise most, and the rest of the questions, are on{" "}
+              Video answers to the questions groomers ask most, plus the rest, are on{" "}
               <Link href={PATHS.faq} className="font-medium text-tf-brown-dark underline underline-offset-4">
                 the FAQ page
               </Link>
