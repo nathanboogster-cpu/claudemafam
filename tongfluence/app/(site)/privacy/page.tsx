@@ -13,7 +13,7 @@ import { Section } from "@/components/Section";
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
   description:
-    "What Tongfluence collects through this website, why, and how long it is kept. Short, because the site does very little.",
+    "What Tongfluence collects through this website, why, and how long we keep it. Short, because the site does very little.",
   path: PATHS.privacy,
 });
 
@@ -27,39 +27,39 @@ const sections = [
     id: "what-we-collect",
     heading: "What this website collects",
     paragraphs: [
-      "If you fill in the form on the booking page, we receive what you typed into it: your name, your business name, your email address, your phone number if you gave one, your business type, your current website address, and your message. That is sent to us by email so we can reply to you.",
-      "Alongside a form submission we also record where you arrived from — the first page you landed on, the referring website, and any UTM campaign parameters in the link you followed. This is so we can tell whether an enquiry came from Google, from an advert, from a referral or from somewhere else. It is attached to your enquiry and nothing else.",
-      "Separately, this site uses Vercel Analytics to count page views and a small number of interaction events (clicking a 'Book a call' button, scrolling the pricing block into view, starting and submitting the form). Vercel Analytics does not use cookies and does not build a profile of you across websites.",
+      "If you fill in the form on the booking page, we get what you typed. Your name. Your business name. Your email. Your phone number, if you gave one. Your business type. Your current website. And your message. It is sent to us by email so we can reply to you.",
+      "With a form, we also record where you came from. The first page you landed on. The website that sent you. And any campaign tags in the link you followed. This lets us tell whether a message came from Google, an ad, a referral or somewhere else. It is attached to your message and nothing else.",
+      "This site also uses Vercel Analytics to count page views and a few actions. Clicking a 'Book a call' button. Scrolling the price into view. Starting and sending the form. Vercel Analytics does not use cookies. It does not build a profile of you across websites.",
     ],
   },
   {
     id: "what-we-dont",
     heading: "What it does not do",
     paragraphs: [
-      "There are no advertising cookies, no tracking pixels from social networks, and no third-party marketing scripts on this site. We do not sell or share what you send us. We do not add you to a mailing list — if you fill in the form, you get a reply from a person, not a sequence.",
-      "The site stores one thing in your browser's session storage: the page you arrived on and where you came from, so that if you fill in the form five pages later we know how you found us. It is cleared when you close the tab and never leaves your browser unless you submit the form.",
+      "There are no ad cookies. No tracking pixels from social networks. No outside marketing scripts. We do not sell or share what you send us. We do not add you to a mailing list. If you fill in the form, you get a reply from a person, not a series of emails.",
+      "The site stores one thing in your browser while you visit. The page you arrived on and where you came from. That way, if you fill in the form five pages later, we know how you found us. It is cleared when you close the tab. It never leaves your browser unless you send the form.",
     ],
   },
   {
     id: "how-long",
     heading: "How long we keep it",
     paragraphs: [
-      "Enquiries sent through the form are kept while we are in contact and for as long as we might reasonably need to refer back to them. If you would like yours deleted, ask and we will delete it.",
-      "Aggregate analytics are retained by Vercel according to their own retention policy and are not tied to you personally.",
+      "Messages sent through the form are kept while we are in touch, and for as long as we might need to look back at them. If you want yours deleted, ask and we will delete it.",
+      "Vercel keeps the page-view counts under its own rules. They are not tied to you.",
     ],
   },
   {
     id: "processors",
     heading: "Who else touches it",
     paragraphs: [
-      "This website is hosted by Vercel, which processes requests in order to serve the site and produces the aggregate analytics described above. Form submissions are delivered to us by email using Resend. Both are service providers acting on our instructions.",
+      "Vercel hosts this website. It handles requests to serve the site and makes the page-view counts described above. Form messages reach us by email through Resend. Both are service providers that act on our instructions.",
     ],
   },
   {
     id: "your-rights",
     heading: "Your choices",
     paragraphs: [
-      "You can ask us what we hold about you, ask for it to be corrected, or ask for it to be deleted, and we will do so. Because the site collects so little, that request is usually a single email thread.",
+      "You can ask us what we hold about you. You can ask us to fix it or delete it, and we will. The site collects so little that this is usually one email thread.",
     ],
   },
 ];
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
       <Section width="prose" className="pt-6 pb-16">
         <h1 className="font-tf-display text-3xl font-bold text-tf-ink sm:text-4xl">Privacy Policy</h1>
         <p className="mt-4 text-base leading-relaxed text-tf-ink-soft">
-          This page describes exactly what the {business.name} website does with information. It is short
+          This page says exactly what the {business.name} website does with your information. It is short,
           because the site does very little.
         </p>
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE_URL, PATHS, business } from "@/lib/site-data";
@@ -7,23 +7,16 @@ import { JsonLd, organizationSchema, webSiteSchema } from "@/lib/schema";
 
 // Self-hosted via next/font: no render-blocking request to Google, no layout
 // shift, and only the weights actually used are downloaded.
+// One neutral face for everything: Inter for body copy, and Inter at heavier
+// weights for headings and figures. Nothing decorative, easy to read at every
+// size.
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-inter",
   display: "swap",
 });
 
-// Fraunces carries the headings, as on tongfluence.com: a soft, heavy serif.
-// Loaded as a variable font with its optical-size axis, so display sizes get
-// the chunkier display cut and small sizes stay legible.
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: "variable",
-  axes: ["opsz"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -48,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`h-full ${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`h-full ${inter.variable}`}>
       <body className="flex min-h-full flex-col antialiased">
         {/* Both site-wide entity nodes are emitted once here, so every page
             inherits the same Organization and WebSite definition and other

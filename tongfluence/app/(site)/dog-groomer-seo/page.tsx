@@ -31,7 +31,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Dog Groomer SEO: Rank Your Grooming Business on Google",
   titleTemplate: false,
   description:
-    "How SEO works for a grooming business: the map pack versus organic results, service and area pages, and what Search Console tells you to fix next.",
+    "How SEO works for a grooming business: the map versus the search results, service and town pages, and what your search data tells you to fix next.",
   path: PATHS.seo,
 });
 
@@ -44,32 +44,32 @@ const faqItems = [
   {
     question: "What is dog groomer SEO?",
     answer:
-      "Dog groomer SEO is the work of making a grooming business the result Google shows when someone nearby searches for grooming. It has two halves that are ranked differently: the map pack, which is driven mostly by your Google Business Profile, and the organic results underneath it, which are driven by your website. Doing one without the other leaves most of the demand on the table.",
+      "Dog groomer SEO is the work of making your business the one Google shows when someone nearby searches for grooming. It has two halves, and Google ranks them differently. The map at the top is driven mostly by your Google Business Profile. The list of websites below it is driven by your website. Doing one without the other leaves most of the demand on the table.",
   },
   {
     question: "How long does SEO take for a dog grooming business?",
     answer:
-      "Google Business Profile changes can show up within weeks. Website changes are slower: expect around 28 days after launch before Search Console holds enough data to read, and a few months before you can fairly judge direction. Grooming is a local, relatively low-competition niche in most towns, which helps — but it is still not a 30-day channel.",
+      "Profile changes can show up within weeks. Website changes are slower. Expect about 28 days after launch before there is enough search data to read. It takes a few months to judge the trend fairly. Grooming has little competition in most towns, which helps. But it is still not a 30-day channel.",
   },
   {
     question: "Do dog groomers need a blog?",
     answer:
-      "Not a weekly one. What helps is a small number of genuinely useful pages that answer questions your clients actually ask — what to expect at a first groom, how often a particular coat needs doing, why matting changes the price. What does not help is publishing generic pet-care filler on a schedule. If an article would not be worth sending to a client, it will not rank either.",
+      "Not a weekly one. What helps is a few useful pages that answer questions your clients really ask. What to expect at a first groom. How often a certain coat needs doing. Why matting changes the price. What does not help is posting generic pet-care filler on a schedule. If an article is not worth sending to a client, it will not rank either.",
   },
   {
     question: "What keywords should a dog groomer target?",
     answer:
-      "In practice, three groups: service plus place (dog grooming Marietta, mobile dog grooming Compton), specific services people search by name (deshedding, dematting, puppy first groom, cat grooming, nail trim), and near-me searches, which Google resolves to your location rather than to a literal phrase. You do not need volume data to start — you need a page for each service you offer and each town you take clients from.",
+      "Three groups. First, a service plus a place, like dog grooming Marietta or mobile dog grooming Compton. Second, services people search for by name, like deshedding, dematting, puppy first groom, cat grooming or nail trim. Third, near-me searches, which Google matches to your location. You do not need search volume data to start. You need a page for each service you offer and each town you take clients from.",
   },
   {
     question: "Does SEO work for mobile dog grooming?",
     answer:
-      "Yes, and the structure differs. A mobile business is set up in Google as a service-area business with no published address, so the map pack behaves differently and the website carries more of the geographic work. In our mobile builds that means a page per town served, each one saying honestly what the van does in that town.",
+      "Yes, but the setup is different. A mobile business is set up in Google as a service-area business with no address. So the map works differently, and the website has to do more of the work of saying where you go. In our mobile builds that means a page for each town, each one saying honestly what the van does there.",
   },
   {
     question: "Can I do dog groomer SEO myself?",
     answer:
-      "Most of it, yes — it is work, not a secret. Our step-by-step guide to ranking a grooming business on Google walks through the whole thing in the order we would do it. People hire us because doing it takes weeks the first time and it needs maintaining after that, not because it is impossible.",
+      "Most of it, yes. It is work, not a secret. Our step-by-step guide to ranking a grooming business on Google walks through the whole thing in the order we would do it. People hire us because it takes weeks the first time and needs upkeep after that. Not because it is impossible.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function DogGroomerSeoPage() {
           name: "Dog groomer SEO",
           serviceType: "Search engine optimization for dog grooming businesses",
           description:
-            "Local and organic search optimization for dog grooming businesses: Google Business Profile, service and service-area pages, technical SEO and ongoing Search Console-driven improvement.",
+            "Search optimization for dog grooming businesses: the Google Business Profile, service and town pages, the technical basics, and monthly improvements driven by real search data.",
           path: PATHS.seo,
         })}
       />
@@ -92,13 +92,13 @@ export default function DogGroomerSeoPage() {
 
       <PageHero
         eyebrow="Dog groomer SEO"
-        title="SEO for dog groomers, without the vague parts."
+        title="SEO for dog groomers,"
+        accent="without the vague parts."
         intro={
           <>
-            Grooming search is unusually tractable. The queries are local, the intent is obvious, and the
-            businesses you are competing with have mostly done nothing. This page is what the work consists
-            of — the two ranking systems you are dealing with, the pages you need, and how the ongoing part
-            is actually decided.
+            Grooming search is easier than most. The searches are local. What people want is clear. And
+            most of the businesses you compete with have done nothing. This page shows what the work is.
+            The two ways Google ranks you, the pages you need, and how we decide what to do each month.
           </>
         }
         location="seo_hero"
@@ -113,24 +113,24 @@ export default function DogGroomerSeoPage() {
       <Section width="narrow" className="pb-12">
         <AnswerBlock>
           <p>
-            A grooming business has to rank in <strong>two different places at once</strong>. The map pack —
-            the three businesses shown above the normal results — is ranked on relevance, distance and
-            prominence, and is driven mostly by your Google Business Profile and your reviews. The organic
-            results below it are ranked on the usual web signals and are driven by your website: whether you
-            have a page that genuinely matches the search, whether Google can crawl and index it, and whether
-            it is better than the alternatives. Most grooming SEO advice only covers one half.
+            A grooming business has to rank in <strong>two places at once</strong>. The first is the map,
+            the three businesses shown above the normal results. Google ranks the map on fit, distance and
+            how well known you are. Your Google Business Profile and your reviews drive it. The second is the
+            list of websites below the map. Your website drives that. Do you have a page that really matches
+            the search? Can Google read it? Is it better than the other options? Most grooming SEO advice
+            only covers one half.
           </p>
         </AnswerBlock>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
       <Section width="narrow" className="py-12" labelledBy="two-systems">
-        <SectionHeading eyebrow="The two systems" id="two-systems" title="Map pack and organic are not the same game" />
+        <SectionHeading eyebrow="The two systems" id="two-systems" title="The map and the search results" accent="are not the same game" />
         <div className="mt-7">
           <ComparisonTable
-            caption="How the Google map pack and organic search results differ for a grooming business"
+            caption="How the Google map and the search results differ for a grooming business"
             rowHeader="Compared on"
-            columns={["Map pack (local results)", "Organic results"]}
+            columns={["The map (local results)", "The search results"]}
             rows={[
               {
                 label: "What it ranks",
@@ -139,8 +139,8 @@ export default function DogGroomerSeoPage() {
               {
                 label: "Main inputs",
                 cells: [
-                  "Category, services, service areas, reviews, photos, proximity to the searcher, name and address consistency.",
-                  "Page relevance to the query, site structure and internal links, crawlability, page speed, and how useful the page is compared with the alternatives.",
+                  "Category, services, service areas, reviews, photos, how close you are to the searcher, and a name and address that match everywhere.",
+                  "How well the page matches the search, how the site is laid out and linked, whether Google can read it, page speed, and how useful the page is next to the others.",
                 ],
               },
               {
@@ -150,15 +150,15 @@ export default function DogGroomerSeoPage() {
               {
                 label: "Where distance matters",
                 cells: [
-                  "Heavily. A salon rarely ranks in the map pack for a town twenty minutes away.",
+                  "A lot. A salon rarely shows on the map for a town twenty minutes away.",
                   "Much less. A good page about grooming in a town can rank there even if you are not the closest business.",
                 ],
               },
               {
                 label: "What this means for you",
                 cells: [
-                  "Fix the profile first — it is faster and it is free.",
-                  "Build the pages that let you appear in places the map pack will never show you.",
+                  "Fix the profile first. It is faster and it is free.",
+                  "Build the pages that let you show up in places the map never will.",
                 ],
               },
             ]}
@@ -166,11 +166,11 @@ export default function DogGroomerSeoPage() {
         </div>
         <div className="tf-prose mt-6">
           <p>
-            This split is the single most useful thing to understand about grooming SEO, and it explains a
-            frustration we hear constantly: <em>&ldquo;we rank fine in our own town and nowhere else.&rdquo;</em>{" "}
-            That is the map pack doing exactly what it does. The way into the surrounding towns is the second
-            column — real pages about the work you do there. It is also why a mobile groomer covering fourteen
-            towns needs a different site shape than a salon serving one.
+            This split is the most useful thing to understand about grooming SEO. It explains something we
+            hear all the time: <em>&ldquo;we rank fine in our own town and nowhere else.&rdquo;</em> That is
+            the map doing exactly what it does. The way into the towns around you is the second column. Real
+            pages about the work you do there. It is also why a mobile groomer covering fourteen towns needs
+            a different site than a salon serving one.
           </p>
         </div>
       </Section>
@@ -181,27 +181,27 @@ export default function DogGroomerSeoPage() {
           eyebrow="Site structure"
           id="page-structure"
           title="One search intent, one page"
-          intro="This is the rule that does most of the work, and the one most grooming websites break."
+          intro="This rule does most of the work. It is also the one most grooming websites break."
         />
         <div className="tf-prose mt-6">
           <p>
-            A single page cannot be the best answer to <em>dog deshedding near me</em>, <em>puppy&rsquo;s first
-            groom</em>, <em>cat grooming</em> and <em>mobile dog grooming in the next town over</em> at the
-            same time. Not because Google forbids it, but because a page that tries to cover four topics is
-            weaker on each of them than four pages would be — less specific, less complete, harder to link to,
-            and impossible to write a matching title for.
+            One page cannot be the best answer to <em>dog deshedding near me</em>, <em>puppy&rsquo;s first
+            groom</em>, <em>cat grooming</em> and <em>mobile dog grooming in the next town</em> all at once.
+            Not because Google forbids it. A page that tries to cover four topics is weaker on each one than
+            four pages would be. It is less clear, less complete, harder to link to, and impossible to give a
+            matching title.
           </p>
           <p>
-            So a grooming site gets a page per service and a page per area. Across{" "}
-            {buildStats.siteCount} grooming builds that has come out at{" "}
+            So a grooming site gets one page per service and one page per town. Across{" "}
+            {buildStats.siteCount} grooming sites, that adds up to{" "}
             <strong>{buildStats.totalServicePages} service pages</strong> and{" "}
-            <strong>{buildStats.totalAreaPages} service-area pages</strong>, which is the bulk of every one of
-            those sites. The counts, build by build, are in{" "}
+            <strong>{buildStats.totalAreaPages} town pages</strong>. That is most of every one of those
+            sites. The counts, site by site, are in{" "}
             <Link
               href={resourcePath("dog-grooming-website-examples")}
               className="font-medium text-tf-brown-dark underline underline-offset-4"
             >
-              our breakdown of the grooming websites we have built
+              our breakdown of the grooming websites we built
             </Link>
             .
           </p>
@@ -213,9 +213,9 @@ export default function DogGroomerSeoPage() {
             <div className="mt-4">
               <Checklist
                 items={[
-                  { title: "Someone searches for it by name", body: "Deshedding, dematting, nail trim, puppy first groom, cat grooming, hand stripping." },
-                  { title: "You genuinely offer it", body: "Not aspirationally. A page for a service you turn away is a bad first impression." },
-                  { title: "There is something real to say", body: "What it involves, who it suits, roughly what it costs, how long it takes." },
+                  { title: "People search for it by name", body: "Deshedding, dematting, nail trim, puppy first groom, cat grooming, hand stripping." },
+                  { title: "You really offer it", body: "Not someday. A page for a service you turn away makes a bad first impression." },
+                  { title: "There is something real to say", body: "What it involves, who it suits, about what it costs, and how long it takes." },
                 ]}
               />
             </div>
@@ -225,9 +225,9 @@ export default function DogGroomerSeoPage() {
             <div className="mt-4">
               <Checklist
                 items={[
-                  { title: "You really take clients there", body: "A town you'd genuinely drive to, or that genuinely drives to you." },
-                  { title: "You can say something specific about it", body: "How far it is, which days the van is over that way, which neighbourhoods it covers." },
-                  { title: "It isn't the same page with the name swapped", body: "Mass-produced location pages with one word changed are the clearest thing on this list to get wrong." },
+                  { title: "You really take clients there", body: "A town you would really drive to, or that really drives to you." },
+                  { title: "You can say something real about it", body: "How far it is, which days the van is over that way, which areas it covers." },
+                  { title: "It is not the same page with the name swapped", body: "Town pages made by changing one word are the easiest thing on this list to get wrong." },
                 ]}
               />
             </div>
@@ -240,34 +240,35 @@ export default function DogGroomerSeoPage() {
         <SectionHeading
           eyebrow="Technical"
           id="technical"
-          title="The technical part is short, and it is not optional"
-          intro="None of this wins you a ranking on its own. All of it can stop you getting one."
+          title="The technical part is short,"
+          accent="and it is not optional"
+          intro="None of this wins you a ranking on its own. All of it can stop you from getting one."
         />
         <div className="mt-7 grid gap-4 sm:grid-cols-2">
           {[
             {
               t: "Crawlable",
-              b: "Every page reachable by a normal HTML link from somewhere else on the site. Not through a search box, not through a filter that only works once JavaScript runs.",
+              b: "Every page can be reached by a normal link from somewhere else on the site. Not through a search box. Not through a filter that only works after scripts load.",
             },
             {
               t: "Indexable",
-              b: "200 status, no accidental noindex, not blocked in robots.txt, and a canonical tag pointing at itself rather than at the homepage.",
+              b: "The page loads, nothing tells Google to skip it, and nothing blocks it. Each page says it is the main copy of itself, not a copy of the homepage.",
             },
             {
               t: "In the sitemap",
-              b: "An XML sitemap containing exactly the pages you want indexed — no redirects, no 404s, no duplicates — submitted in Search Console.",
+              b: "A sitemap that lists exactly the pages you want in Google. No redirects, no dead pages, no copies. Sent to Google through Search Console.",
             },
             {
               t: "Fast on a phone",
-              b: "Most grooming traffic is mobile. Compressed, correctly sized images and very little JavaScript matter more than any clever optimisation.",
+              b: "Most grooming visitors are on a phone. Small, right-sized images and very little script matter more than any clever trick.",
             },
             {
-              t: "Consistent NAP",
-              b: "Name, address and phone identical on your website, your Google Business Profile and any directory that lists you. Mismatches are a common, invisible drag.",
+              t: "Same name, address and phone everywhere",
+              b: "Your name, address and phone must match on your website, your Google profile and any directory that lists you. Mismatches are a common, hidden drag.",
             },
             {
               t: "Unique titles and descriptions",
-              b: "One per page, matching what the page is about. This is also the single fastest thing to change when a page gets impressions but no clicks.",
+              b: "One per page, matching what the page is about. This is also the fastest thing to change when a page gets seen but not clicked.",
             },
           ].map((x) => (
             <div key={x.t} className="rounded-xl border border-tf-border bg-tf-card p-5">
@@ -278,10 +279,9 @@ export default function DogGroomerSeoPage() {
         </div>
         <div className="tf-prose mt-6">
           <p>
-            One thing we do <strong>not</strong> do: add review or star-rating structured data to a grooming
-            site to get stars in search results. Google&rsquo;s own guidelines restrict self-serving review
-            markup, and the sites that do it are risking a manual action for a cosmetic gain. Real reviews live
-            on your Google Business Profile, where they count.
+            One thing we do <strong>not</strong> do: add hidden star-rating code to your site to get stars
+            in search results. Google&rsquo;s rules restrict that, and sites that do it risk a penalty for a
+            small cosmetic gain. Real reviews live on your Google profile, where they count.
           </p>
         </div>
       </Section>
@@ -291,24 +291,25 @@ export default function DogGroomerSeoPage() {
         <SectionHeading
           eyebrow="The ongoing part"
           id="ongoing"
-          title="After launch, Search Console decides what we do next"
+          title="After launch, your search data"
+          accent="decides what we do next"
           intro="This is the part that is usually sold as a mystery. It is not one."
         />
         <div className="tf-prose mt-6">
           <p>
-            Once the site is live and Search Console is connected, Google starts reporting which searches you
-            appeared for, how often, where you ranked, and whether anyone clicked. That report is the work
-            queue. We read it monthly and pick the change most likely to produce appointments:
+            Once the site is live and connected to Google Search Console, Google starts reporting which
+            searches you showed up for. How often, where you ranked, and whether anyone clicked. That report
+            is our to-do list. We read it every month and pick the change most likely to bring appointments:
           </p>
         </div>
         <div className="mt-6 overflow-hidden rounded-xl border border-tf-border bg-tf-card">
           <ul className="divide-y divide-tf-border text-sm">
             {[
-              ["Lots of impressions, almost no clicks", "The page ranks but the title and description aren't winning the click. Rewrite them to match the search."],
-              ["Ranking around positions 4–20", "You are close. Strengthen the page itself: more specific content, better intent match, more internal links pointing at it."],
-              ["A real query with no good page for it", "Build the page. This is where most new service and area pages come from — not from a content calendar."],
-              ["Two pages competing for one query", "Cannibalization. Merge them, or differentiate them properly."],
-              ["Barely any data at all", "Do nothing dramatic. Low-volume local sites take longer, and over-reacting to noise is how sites get worse."],
+              ["Seen a lot, almost never clicked", "The page ranks, but the title is not winning the click. Rewrite it to match the search."],
+              ["Ranking around spots 4 to 20", "You are close. Make the page stronger. More specific content, a better match for the search, more links to it."],
+              ["A real search with no good page for it", "Build the page. This is where most new service and town pages come from. Not from a content calendar."],
+              ["Two pages fighting for one search", "They cancel each other out. Merge them, or make each one clearly different."],
+              ["Almost no data at all", "Do nothing drastic. Small local sites take longer. Reacting to noise is how sites get worse."],
             ].map(([signal, action]) => (
               <li key={signal} className="grid gap-1 p-4 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:gap-4">
                 <p className="font-medium text-tf-ink">{signal}</p>
@@ -319,8 +320,8 @@ export default function DogGroomerSeoPage() {
         </div>
         <div className="tf-prose mt-6">
           <p>
-            That is the whole monthly method: one evidence-based improvement at a time. It is deliberately not
-            &ldquo;four blog posts a month,&rdquo; because a blog post nobody searched for helps nobody.
+            That is the whole monthly method. One change at a time, based on real data. It is not &ldquo;four
+            blog posts a month,&rdquo; because a blog post nobody searched for helps nobody.
           </p>
         </div>
       </Section>
@@ -330,11 +331,12 @@ export default function DogGroomerSeoPage() {
         <SectionHeading
           eyebrow="Proof"
           id="our-work"
-          title="What this looks like on a real grooming business"
+          title="What this looks like"
+          accent="on a real grooming business"
           intro={
             <>
-              Every build we have done is written up: what the business had, what was structurally wrong, and
-              exactly what changed. The clearest example of the geography problem is{" "}
+              Every site we built is written up. What the business had, what was wrong, and exactly what we
+              changed. The clearest example of the town problem is{" "}
               <Link
                 href={caseStudyPath("sittin-pretty-pet-grooming")}
                 className="font-medium text-tf-brown-dark underline underline-offset-4"
@@ -363,17 +365,17 @@ export default function DogGroomerSeoPage() {
             {
               href: PATHS.gbp,
               label: "Your Google Business Profile",
-              description: "The map-pack half of this page, in detail.",
+              description: "The map half of this page, in detail.",
             },
             {
               href: PATHS.websiteDesign,
               label: "What the website needs",
-              description: "The organic half: what pages a grooming site needs and how they connect.",
+              description: "The website half: what pages a grooming site needs and how they connect.",
             },
             {
               href: PATHS.caseStudies,
               label: "Grooming builds, broken down",
-              description: "Real sites, real structure, page by page.",
+              description: "Real sites, page by page.",
             },
           ]}
         />
@@ -382,8 +384,8 @@ export default function DogGroomerSeoPage() {
       <Section className="py-12">
         <CtaBand
           location="seo_footer"
-          title="Want to know where you actually stand?"
-          body="On a short call we'll look at your Google Business Profile and your current site and tell you which of the two is costing you more — and what we'd change first."
+          title="Want to know where you really stand?"
+          body="On a short call, we look at your Google profile and your current site. We tell you which one is costing you more, and what we would change first."
         />
       </Section>
     </>

@@ -48,8 +48,8 @@ export function PricingCard({ location, className = "" }: { location: string; cl
           </p>
           <p className="mt-3 text-sm leading-relaxed text-white/80">{offer.commitment}</p>
           <p className="mt-6 text-sm leading-relaxed text-white/80">
-            One price covers the build and the ongoing work. There is no separate website fee, no onboarding
-            fee, and no per-page charge when we add a service or an area.
+            One price covers the build and the monthly work. No separate website fee. No setup fee. No charge
+            per page when we add a service or a town.
           </p>
           <Link
             href="/book"

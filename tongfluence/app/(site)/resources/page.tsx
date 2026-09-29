@@ -18,7 +18,7 @@ import { ArrowRightIcon } from "@/components/icons";
 export const metadata: Metadata = pageMetadata({
   title: "Dog Grooming Marketing Resources",
   description:
-    "A deliberately small library for dog grooming businesses: how to rank on Google, and what the grooming websites we've built are actually made of.",
+    "A small library for dog grooming businesses: how to rank on Google, and what the grooming websites we built are really made of.",
   path: PATHS.resources,
 });
 
@@ -36,11 +36,12 @@ export default function ResourcesPage() {
 
       <PageHero
         eyebrow="Resources"
-        title="Two guides, not two hundred blog posts."
+        title="Two guides,"
+        accent="not two hundred blog posts."
         intro={
           <>
-            We publish something when we have something to say that a grooming business owner would actually
-            save or send to someone else. That produces a short list, and the short list is the point.
+            We post something when we have something to say that a grooming business owner would save or
+            send to a friend. That makes a short list. The short list is the point.
           </>
         }
         location="resources_hero"
@@ -50,13 +51,13 @@ export default function ResourcesPage() {
       <Section width="narrow" className="pb-12">
         <AnswerBlock label="Why the list is short">
           <p>
-            A grooming business does not need another article about the importance of a strong online
-            presence. Almost all marketing content in this industry exists because somebody decided their
-            website needed a blog. Ours exists because we have built{" "}
+            A grooming business does not need another article about why being online matters. Most
+            marketing articles in this field exist because somebody decided their website needed a blog.
+            Ours exist because we have built{" "}
             <Link href={PATHS.caseStudies} className="font-medium underline underline-offset-4">
               grooming websites
             </Link>{" "}
-            and have something specific to report from them. When there is a third thing worth writing, there
+            and have something real to report from them. When there is a third thing worth writing, there
             will be three.
           </p>
         </AnswerBlock>
@@ -93,8 +94,9 @@ export default function ResourcesPage() {
         <SectionHeading
           eyebrow="Transparency"
           id="not-published"
-          title="What we decided not to publish, and why"
-          intro="These were all on the list. Each was cut for a reason worth stating out loud."
+          title="What we chose not to post,"
+          accent="and why"
+          intro="These were all on the list. Each one was cut for a reason worth saying out loud."
         />
         <dl className="mt-7 space-y-5">
           {[
@@ -102,14 +104,14 @@ export default function ResourcesPage() {
               t: "“How to get more dog grooming clients”",
               b: (
                 <>
-                  Exactly the same search intent as{" "}
+                  People searching for this want the same thing as{" "}
                   <Link
                     href={PATHS.leadGeneration}
                     className="font-medium text-tf-brown-dark underline underline-offset-4"
                   >
                     our lead generation page
                   </Link>
-                  . Two pages chasing one intent compete with each other and neither wins.
+                  . Two pages chasing one search fight each other, and neither wins.
                 </>
               ),
             },
@@ -117,10 +119,9 @@ export default function ResourcesPage() {
               t: "“Dog grooming SEO keywords”",
               b: (
                 <>
-                  A keyword list is only worth anything with real volume and query data behind it. We do not
-                  have an exported Search Console dataset for grooming yet, and a made-up keyword list is
-                  precisely the filler this library exists to avoid. It will be published when there is real
-                  data to publish.
+                  A keyword list is only worth something with real search data behind it. We do not have
+                  that data for grooming yet. A made-up keyword list is exactly the filler this library is
+                  meant to avoid. It will be posted when there is real data to post.
                 </>
               ),
             },
@@ -128,16 +129,15 @@ export default function ResourcesPage() {
               t: "“Google Business Profile categories for dog groomers”",
               b: (
                 <>
-                  Google&rsquo;s category list changes and the only authoritative version is the picker inside
-                  your own profile. Rather than publish a list we cannot verify, categories are covered
-                  conceptually on{" "}
+                  Google&rsquo;s category list changes. The only real version is the picker inside your own
+                  profile. Instead of posting a list we cannot check, we explain how categories work on{" "}
                   <Link
                     href={PATHS.gbp}
                     className="font-medium text-tf-brown-dark underline underline-offset-4"
                   >
                     the Google Business Profile page
                   </Link>
-                  , which points at Google&rsquo;s own documentation.
+                  , which points to Google&rsquo;s own help pages.
                 </>
               ),
             },

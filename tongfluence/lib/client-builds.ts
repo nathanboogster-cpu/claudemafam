@@ -70,7 +70,7 @@ export const clientBuilds: ClientBuild[] = [
     businessType: "Mobile grooming",
     pages: { core: 8, services: 8, areas: 13, articles: 5, total: 34 },
     problem:
-      "A mobile spa competing in the largest grooming market in the country, with an existing booking system that had to stay.",
+      "A mobile spa in the biggest grooming market in the country, with a booking system that had to stay.",
     hasCaseStudy: true,
   },
   {
@@ -82,7 +82,7 @@ export const clientBuilds: ClientBuild[] = [
     businessType: "Grooming salon",
     pages: { core: 9, services: 6, areas: 9, articles: 6, total: 30 },
     problem:
-      "A long-established salon with real expertise in small dogs and purebred breed cuts that the old site never mentioned.",
+      "A long-running salon with real skill in small dogs and breed cuts that the old site never mentioned.",
     hasCaseStudy: false,
   },
   {
@@ -94,7 +94,7 @@ export const clientBuilds: ClientBuild[] = [
     businessType: "Salon + mobile",
     pages: { core: 14, services: 0, areas: 6, articles: 3, total: 23 },
     problem:
-      "A grooming business moving off a locked-down website builder without losing the URLs Google already knew.",
+      "A grooming business moving off a locked-down website builder without losing the web addresses Google already knew.",
     hasCaseStudy: false,
   },
   {
@@ -106,7 +106,7 @@ export const clientBuilds: ClientBuild[] = [
     businessType: "Grooming, daycare & boarding",
     pages: { core: 15, services: 3, areas: 5, articles: 3, total: 26 },
     problem:
-      "Three different services — daycare, boarding and grooming — sharing one page and competing with each other.",
+      "Three different services, daycare, boarding and grooming, sharing one page and fighting each other.",
     hasCaseStudy: false,
   },
   {
@@ -118,7 +118,7 @@ export const clientBuilds: ClientBuild[] = [
     businessType: "Mobile grooming",
     pages: { core: 7, services: 4, areas: 0, articles: 6, total: 17 },
     problem:
-      "A 100% mobile groomer with no salon, no street address, and nothing on the web to anchor the business to.",
+      "A fully mobile groomer with no salon, no street address, and nothing on the web to tie the business to.",
     hasCaseStudy: false,
   },
 ];

@@ -40,10 +40,10 @@ export function ProofStrip() {
       </ul>
 
       <p className="mt-6 border-t border-tf-border pt-4 text-xs leading-relaxed text-tf-ink-soft">
-        Websites Tongfluence has built. Page counts come from each site&rsquo;s own sitemap.
+        Websites Tongfluence built. Page counts come from each site&rsquo;s own sitemap.
         {headlineResult
           ? null
-          : " We don't publish traffic, ranking or call-volume figures here, because we haven't measured and exported them yet — and made-up numbers are the reason most agency “results” pages are worthless."}
+          : " We do not show traffic, ranking or call figures here, because we have not measured them yet. Made-up numbers are the reason most agency “results” pages are worthless."}
       </p>
     </div>
   );

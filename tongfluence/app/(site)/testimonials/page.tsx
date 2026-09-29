@@ -20,7 +20,7 @@ import { CtaBand } from "@/components/CtaBand";
 export const metadata: Metadata = pageMetadata({
   title: "Client Testimonials",
   description:
-    "What groomers have said about working with Tongfluence, quoted word for word with the original messages, plus one client's calls before and after.",
+    "What groomers have said about working with Tongfluence, quoted word for word with their real messages, plus one client's calls before and after.",
   path: PATHS.testimonials,
 });
 
@@ -42,9 +42,8 @@ export default function TestimonialsPage() {
         accent="tell us."
         intro={
           <>
-            Quoted word for word from their emails and texts, with each original message shown underneath.
-            Nothing is paraphrased; where part of a message was about something unrelated, it is cut and
-            marked.
+            Quoted word for word from their emails and texts. The real message is shown under each one.
+            Nothing is reworded. Where part of a message was about something else, it is cut and marked.
           </>
         }
         location="testimonials_hero"
@@ -53,7 +52,7 @@ export default function TestimonialsPage() {
 
       <Section className="pb-14" labelledBy="client-messages">
         <Reveal>
-          <SectionHeading eyebrow="In their own words" id="client-messages" title="Client messages," accent="unprompted." />
+          <SectionHeading eyebrow="In their own words" id="client-messages" title="Client messages," accent="in their own words." />
         </Reveal>
         <div className="mt-8">
           <Testimonials />
@@ -75,7 +74,7 @@ export default function TestimonialsPage() {
         <CtaBand
           location="testimonials_footer"
           title="Want to be the next message on this page?"
-          body="A short call: we look at your Google profile and your current site while you're on the line and tell you what we'd change first."
+          body="A short call. We look at your Google profile and your current site while you are on the line and tell you what we would change first."
         />
       </Section>
     </>

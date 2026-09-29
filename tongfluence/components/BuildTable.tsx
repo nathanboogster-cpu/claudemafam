@@ -27,13 +27,13 @@ export function BuildTable({ caption }: { caption?: string }) {
                 Service pages
               </th>
               <th scope="col" className="px-4 py-3 text-right font-semibold text-tf-ink">
-                Area pages
+                Town pages
               </th>
               <th scope="col" className="px-4 py-3 text-right font-semibold text-tf-ink">
                 Articles
               </th>
               <th scope="col" className="px-4 py-3 text-right font-semibold text-tf-ink">
-                Indexable pages
+                Pages
               </th>
             </tr>
           </thead>
@@ -81,11 +81,10 @@ export function BuildTable({ caption }: { caption?: string }) {
         </table>
       </div>
       <figcaption className="mt-3 text-xs leading-relaxed text-tf-ink-soft">
-        Source: Tongfluence&rsquo;s own builds. &ldquo;Indexable pages&rdquo; is the number of URLs each
-        site&rsquo;s XML sitemap publishes — core pages plus one page per service, per service area and per
-        article — counted per build rather than estimated. Pampered Puppies keeps its service pages on legacy
-        URLs inherited from its previous site, so they are counted under core pages rather than service pages.
-        Groomer On Call publishes one combined service-area page instead of a page per city.
+        Source: our own sites. &ldquo;Pages&rdquo; means the web addresses each site&rsquo;s own sitemap
+        lists. Core pages, plus one page per service, per town and per article. Counted per site, not
+        guessed. Pampered Puppies keeps its service pages at the addresses from its old site, so they are
+        counted as core pages. Groomer On Call has one service-areas page instead of a page per city.
       </figcaption>
     </figure>
   );

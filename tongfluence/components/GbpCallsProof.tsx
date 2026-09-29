@@ -70,16 +70,16 @@ export function GbpCallsProof({ location }: { location: string }) {
       </div>
 
       <figcaption className="mt-4 text-sm leading-relaxed text-tf-ink-soft">
-        {who}, one Tongfluence client. Calls are Google&rsquo;s own count, from the reports above
-        {appts ? "; appointments are an approximate count from his booking software" : ""}.
+        {who}, one Tongfluence client. Google counted the calls. The reports are above.
+        {appts ? " The appointments are a rough count from his booking software." : ""}
         <details className="group mt-2">
           <summary className="cursor-pointer list-none font-medium text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker">
             How this was counted
           </summary>
           <p className="mt-2">
-            Raw monthly totals: {p.after.calls} ÷ {p.before.calls} = {p.multiple.toFixed(1)}×. February is{" "}
-            {p.after.days - p.before.days} days shorter, so per day the rise is {p.perDayBefore.toFixed(2)} to{" "}
-            {p.perDayAfter.toFixed(2)}, or {p.perDayMultiple.toFixed(1)}×. Nothing is excluded.
+            Monthly totals: {p.after.calls} ÷ {p.before.calls} = {p.multiple.toFixed(1)}×. February is{" "}
+            {p.after.days - p.before.days} days shorter. Per day, calls went from {p.perDayBefore.toFixed(2)} to{" "}
+            {p.perDayAfter.toFixed(2)}, or {p.perDayMultiple.toFixed(1)}×. Nothing is left out.
           </p>
         </details>
       </figcaption>
