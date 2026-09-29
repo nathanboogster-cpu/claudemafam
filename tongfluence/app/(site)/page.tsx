@@ -230,7 +230,7 @@ export default function HomePage() {
             id="testimonials"
             title="In their own words,"
             accent="from their messages."
-            intro="Quoted word for word from emails and texts. Open any of them to see the original."
+            intro="Quoted word for word from emails and texts, with the original message under each one."
           />
         </Reveal>
         <div className="mt-8">
