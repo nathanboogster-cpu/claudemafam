@@ -7,6 +7,7 @@ import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
+import { pageDogPhoto } from "@/lib/dog-photos";
 import { ProofStrip } from "@/components/ProofStrip";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -96,6 +97,8 @@ export default function DogGroomerMarketingPage() {
           </>
         }
         location="marketing_hero"
+        image={pageDogPhoto.marketing}
+        pills
         secondary={{ href: PATHS.caseStudies, label: "See the builds" }}
       />
 

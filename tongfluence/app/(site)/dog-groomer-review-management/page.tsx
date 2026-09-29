@@ -6,6 +6,7 @@ import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, AnswerBlock } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
+import { pageDogPhoto } from "@/lib/dog-photos";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CtaBand } from "@/components/CtaBand";
@@ -102,6 +103,8 @@ export default function ReviewManagementPage() {
           </>
         }
         location="reviews_hero"
+        image={pageDogPhoto.reviews}
+        pills
         secondary={{ href: PATHS.gbp, label: "Where reviews show up" }}
       />
 

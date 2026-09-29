@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { pageMetadata } from "@/lib/metadata";
 import { PATHS, offer, faqs, audienceTypes, objections, business, explainerVideo, headlineResult } from "@/lib/site-data";
 import { caseStudyBuilds, buildStats } from "@/lib/client-builds";
@@ -9,6 +10,10 @@ import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 import { ProofStrip } from "@/components/ProofStrip";
 import { GbpCallsProof } from "@/components/GbpCallsProof";
 import { Testimonials } from "@/components/Testimonials";
+import { TrustPills } from "@/components/TrustPills";
+import { DogStrip } from "@/components/DogStrip";
+import { heroDogPhoto, heroDetailPhoto } from "@/lib/dog-photos";
+import { gbpCallsProof } from "@/lib/site-data";
 import { Reveal } from "@/components/Reveal";
 import { ExplainerVideo } from "@/components/ExplainerVideo";
 import { PricingCard } from "@/components/PricingCard";
@@ -110,79 +115,112 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* 1. HERO — audience, outcome, channel, price, action.             */}
       {/* ---------------------------------------------------------------- */}
-      <Section className="pt-12 pb-14 sm:pt-16">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-start lg:gap-16">
+      <Section className="pt-10 pb-10 sm:pt-14">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-16">
           <div>
-            <Eyebrow>For grooming businesses only</Eyebrow>
-            <h1 className="mt-5 font-tf-display text-[2.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-tf-ink sm:text-6xl lg:text-[3.6rem]">
-              Get more dog grooming appointments <span className="tf-accent">from Google.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-tf-ink-soft">
-              When someone in your town searches <em>dog groomer near me</em>, three businesses show up on the
-              map and one of them gets the call. Tongfluence builds the website, Google Business Profile and
-              review system that make that business you.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <BookCallButton location="hero" />
-              <SecondaryCTA href={PATHS.caseStudies} label="See client results" location="hero" />
-            </div>
-
-            <dl className="mt-9 flex flex-wrap gap-x-10 gap-y-4">
-              <div>
-                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">Price</dt>
-                <dd className="font-tf-display text-xl font-bold text-tf-ink">{offer.priceLine}</dd>
+            <Reveal>
+              <Eyebrow>For grooming businesses only</Eyebrow>
+            </Reveal>
+            <Reveal delay={60}>
+              <h1 className="mt-5 font-tf-display text-[2.4rem] font-bold leading-[1.05] tracking-[-0.02em] text-tf-ink sm:text-6xl lg:text-[3.6rem]">
+                Get more dog grooming appointments <span className="tf-accent">from Google.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-tf-ink-soft">
+                When someone in your town searches <em>dog groomer near me</em>, three businesses show up on the
+                map and one of them gets the call. Tongfluence builds the website, Google Business Profile and
+                review system that make that business you.
+              </p>
+            </Reveal>
+            <Reveal delay={180}>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <BookCallButton location="hero" />
+                <SecondaryCTA href={PATHS.testimonials} label="See client results" location="hero" />
               </div>
-              <div>
-                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">Commitment</dt>
-                <dd className="font-tf-display text-xl font-bold text-tf-ink">Cancel anytime</dd>
-              </div>
-              <div>
-                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">
-                  Who it&rsquo;s for
-                </dt>
-                <dd className="font-tf-display text-xl font-bold text-tf-ink">Groomers, only</dd>
-              </div>
-            </dl>
+            </Reveal>
+            <TrustPills className="mt-8" />
           </div>
 
-          {/* The offer restated above the fold. Four real deliverables and the
-              real price — deliberately not a mocked-up dashboard or a fake
-              screenshot of results we have not measured. */}
-          <aside
-            aria-labelledby="hero-included"
-            className="rounded-2xl border border-tf-border bg-tf-card p-6 sm:p-7"
-          >
-            <h2 id="hero-included" className="font-tf-display text-base font-bold text-tf-ink">
+          {/* Real dogs, groomed by real clients, in place of a stock photo or a
+              mocked-up dashboard. The floating figure links to the measured
+              result further down. */}
+          <Reveal className="tf-reveal-photo" delay={120}>
+            <figure className="relative mx-auto mt-4 max-w-md lg:mt-0 lg:max-w-none">
+              <Image
+                src={heroDogPhoto.src}
+                alt={heroDogPhoto.alt}
+                width={heroDogPhoto.width}
+                height={heroDogPhoto.height}
+                sizes="(min-width: 1024px) 40vw, (min-width: 640px) 28rem, 100vw"
+                priority
+                className="aspect-[4/5] h-auto w-full rounded-2xl border border-tf-border object-cover"
+              />
+              <div className="absolute -bottom-5 -left-3 w-28 -rotate-3 overflow-hidden rounded-xl border-4 border-white shadow-lg sm:-left-6 sm:w-36">
+                <Image
+                  src={heroDetailPhoto.square}
+                  alt={heroDetailPhoto.alt}
+                  width={560}
+                  height={560}
+                  sizes="9rem"
+                  className="aspect-square h-auto w-full object-cover"
+                />
+              </div>
+              {headlineResult ? (
+                <a
+                  href="#measured"
+                  className="tf-lift absolute -right-2 top-5 rounded-xl border border-white/10 bg-tf-ink px-4 py-3 text-white shadow-lg sm:-right-5"
+                >
+                  <span className="tf-caps block text-[0.6rem] text-tf-bronze-light">Calls from Google</span>
+                  <span className="mt-1 block font-tf-display text-2xl font-bold leading-none">
+                    {gbpCallsProof.before.calls} <span className="tf-accent">→</span> {gbpCallsProof.after.calls}
+                  </span>
+                  <span className="mt-1 block text-[0.65rem] text-white/70">one client, in one month</span>
+                </a>
+              ) : null}
+              <figcaption className="mt-8 pl-28 text-xs text-tf-ink-soft sm:pl-36">
+                Groomed at {heroDogPhoto.credit}. Real client photos throughout, no stock.
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* 1b. WHAT THE PRICE COVERS — the offer, above the fold on desktop.  */}
+      {/* ---------------------------------------------------------------- */}
+      <Section className="pb-14" as="div">
+        <Reveal className="rounded-2xl border border-tf-border bg-tf-card p-6 sm:p-7" delay={60}>
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h2 id="hero-included" className="font-tf-display text-lg font-bold text-tf-ink">
               What {offer.priceLine} covers
             </h2>
-            <ol className="mt-5 space-y-4">
-              {offer.inclusions.map((item, i) => {
-                const Icon = systemIcons[i];
-                return (
-                  <li key={item.number} className="flex gap-3">
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-tf-paper text-tf-brown-dark">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <div>
-                      <p className="text-sm font-semibold leading-snug text-tf-ink">{item.title}</p>
-                      <Link
-                        href={item.href}
-                        className="mt-0.5 inline-block text-xs text-tf-ink-soft underline underline-offset-4 hover:text-tf-brown-dark"
-                      >
-                        {item.linkLabel}
-                      </Link>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-            <p className="mt-6 border-t border-tf-border pt-4 text-xs leading-relaxed text-tf-ink-soft">
-              One price, one invoice. No setup fee, no build fee, and no charge when we add a service page or
-              an area page later.
+            <p className="text-xs text-tf-ink-soft">
+              One price, one invoice. No setup fee, no build fee, no charge for pages we add later.
             </p>
-          </aside>
-        </div>
+          </div>
+          <ol className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {offer.inclusions.map((item, i) => {
+              const Icon = systemIcons[i];
+              return (
+                <li key={item.number} className="flex gap-3">
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-tf-brown-dark">
+                    <Icon className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold leading-snug text-tf-ink">{item.title}</p>
+                    <Link
+                      href={item.href}
+                      className="mt-1 inline-block text-xs text-tf-ink-soft underline underline-offset-4 hover:text-tf-brown-dark"
+                    >
+                      {item.linkLabel}
+                    </Link>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </Reveal>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
@@ -253,7 +291,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* 4. PROBLEM / OPPORTUNITY                                          */}
       {/* ---------------------------------------------------------------- */}
-      <Section width="narrow" className="py-14" labelledBy="problem">
+      <Section width="narrow" className="py-16" labelledBy="problem" band>
         <Reveal>
           <SectionHeading
             eyebrow="The problem"
@@ -341,6 +379,18 @@ export default function HomePage() {
       {/* 6. WHY GROOMERS SPECIFICALLY                                      */}
       {/* ---------------------------------------------------------------- */}
       <Section className="py-14" labelledBy="specialised">
+        <Reveal className="mb-10">
+          <p className="tf-caps flex items-center gap-3 text-xs text-tf-brown">
+            <span aria-hidden="true" className="tf-rule block h-px w-5 bg-current" />
+            Groomed by our clients
+          </p>
+          <div className="mt-4">
+            <DogStrip />
+          </div>
+          <p className="mt-3 text-xs text-tf-ink-soft">
+            Dogs groomed at Bark and Bork Mobile Pet Spa and Pampered Puppies, two of the businesses we build for.
+          </p>
+        </Reveal>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
           <div>
             <Reveal>
@@ -468,7 +518,7 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* 10. OBJECTIONS                                                     */}
       {/* ---------------------------------------------------------------- */}
-      <Section width="narrow" className="py-14" labelledBy="objections">
+      <Section width="narrow" className="py-16" labelledBy="objections" band>
         <Reveal>
           <SectionHeading
             eyebrow="Straight answers"

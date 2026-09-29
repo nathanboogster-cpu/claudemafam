@@ -7,6 +7,7 @@ import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
 import { LeadForm } from "@/components/LeadForm";
+import { TrustPills } from "@/components/TrustPills";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
 import { CheckIcon } from "@/components/icons";
@@ -56,6 +57,7 @@ export default function BookPage() {
               tell you what we&rsquo;d change, in order. If the honest answer is that you don&rsquo;t need us,
               that&rsquo;s the answer you&rsquo;ll get.
             </p>
+            <TrustPills variant="compact" className="mt-6" />
 
             <h2 className="mt-9 font-tf-display text-lg font-bold text-tf-ink">What the call is</h2>
             <ul className="mt-4 space-y-3">

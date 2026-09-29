@@ -18,7 +18,7 @@ export function CtaBand({
   secondaryLabel?: string;
 }) {
   return (
-    <div className="rounded-2xl bg-tf-ink px-6 py-10 text-white sm:px-10 sm:py-12">
+    <div className="tf-cta-band rounded-2xl bg-tf-ink px-6 py-10 text-white sm:px-10 sm:py-12">
       <div className="max-w-2xl">
         <h2 className="font-tf-display text-2xl font-bold sm:text-3xl">{title}</h2>
         <p className="mt-3 text-base leading-relaxed text-white/80">{body}</p>
@@ -30,12 +30,7 @@ export function CtaBand({
             location={location}
             className="bg-white !text-tf-ink hover:bg-tf-paper-deep focus-visible:outline-white"
           />
-          <SecondaryCTA
-            href={secondaryHref}
-            label={secondaryLabel}
-            location={location}
-            className="border-white/30 bg-transparent !text-white hover:bg-white/10 focus-visible:outline-white"
-          />
+          <SecondaryCTA href={secondaryHref} label={secondaryLabel} location={location} variant="onDark" />
         </div>
       </div>
     </div>
