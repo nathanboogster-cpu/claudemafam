@@ -194,11 +194,10 @@ export default function HomePage() {
         <div className="mt-8">
           <Testimonials />
         </div>
-          <p className="mt-6 text-sm">
-            <Link href={PATHS.testimonials} className="inline-block py-2 font-medium text-tf-brown-dark underline underline-offset-4">
-              All testimonials, with the originals
-            </Link>
-          </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <BookCallButton location="home_testimonials" />
+          <SecondaryCTA href={PATHS.testimonials} label="All testimonials, with the originals" location="home_testimonials" />
+        </div>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
@@ -234,6 +233,10 @@ export default function HomePage() {
                 );
               })}
             </ol>
+            <div className="mt-6 flex flex-col gap-3 border-t border-tf-border pt-6 sm:flex-row sm:items-center">
+              <BookCallButton location="home_offer" />
+              <p className="text-sm text-tf-ink-soft">Fifteen minutes. We open your profile and your site on the call.</p>
+            </div>
           </Reveal>
 
           {/* Real dogs, groomed by real clients. Desktop only: on a phone the
@@ -369,6 +372,18 @@ export default function HomePage() {
             </Reveal>
           ))}
         </ol>
+        <Reveal
+          delay={200}
+          className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-tf-border bg-tf-card p-6 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <p className="font-tf-display text-lg font-bold text-tf-ink">Want to know what week one would fix for you?</p>
+            <p className="mt-1 text-sm text-tf-ink-soft">
+              A short call. We open your Google profile and your site while you are on the line.
+            </p>
+          </div>
+          <BookCallButton location="home_how_it_works" className="shrink-0" />
+        </Reveal>
       </Section>
 
       {/* ---------------------------------------------------------------- */}
