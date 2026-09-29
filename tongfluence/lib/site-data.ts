@@ -460,7 +460,7 @@ export const faqs = [
   {
     question: "Do you run ads too?",
     answer:
-      "No. Tongfluence is the organic side only — website, Google profile, reviews and search. Plenty of groomers run ads as well; they answer a different question, and we do not charge you for something we are not doing.",
+      "Yes. We run Google Local Services Ads and Facebook and Instagram ads for grooming businesses that want them. The $297 monthly service covers the four parts described on this site; if you want ads as well, book a call and we will go through whether they make sense for your business and how we would set them up.",
   },
   {
     question: "How does the review system work?",
@@ -487,7 +487,7 @@ export const objections = [
   {
     question: "Do I need to run ads as well?",
     answer:
-      "Ads and organic answer different questions. Ads buy you traffic today and stop the day you stop paying. Your profile and your website build an asset that keeps working. If you need appointments this week, ads are faster. If you want a channel that compounds, this is the one. Many groomers end up doing both.",
+      "Ads and organic answer different questions. Ads buy you traffic today and stop the day you stop paying. Your profile and your website build an asset that keeps working. If you need appointments this week, ads are faster. If you want a channel that compounds, this is the one. Many groomers end up doing both, and we run both: Google Local Services Ads and Facebook and Instagram ads are available if you want them. Ask about them when you book a call.",
   },
   {
     question: "I'm already busy. Why would I bother?",

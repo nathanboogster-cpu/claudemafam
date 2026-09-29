@@ -69,7 +69,7 @@ const sections = [
     paragraphs: [
       "We do not guarantee rankings, traffic, leads, appointments or revenue. Nobody can, because Google's results are not ours to control and your local competition is not ours to control either.",
       "We do not guarantee any star rating or review outcome. We set up and support a system for asking every client for a review; what customers write is up to them. We do not filter who is asked, do not offer anything in exchange for a review, and do not write reviews.",
-      "We do not run paid advertising, and nothing in this service includes ad management or ad spend.",
+      "Paid advertising, such as Google Local Services Ads or Facebook and Instagram ads, is not part of the monthly service described here. It is only provided where agreed separately.",
     ],
   },
   {
