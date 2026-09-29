@@ -224,10 +224,11 @@ export const wistiaEmbedUrl = (id: string) => `https://fast.wistia.net/embed/ifr
 // ---------------------------------------------------------------------------
 export type Testimonial = {
   quote: string;
-  /** First name as signed, or null when the message carries no name. */
-  name: string | null;
-  business: string | null;
-  market: string | null;
+  /** First name of the owner who sent the message. */
+  name: string;
+  /** The client build this owner's business is (lib/client-builds.ts), which
+   *  supplies the business name, market and case-study link. */
+  buildSlug: string;
   channel: "Email" | "Text message";
   /** ISO date of the client's message. */
   date: string;
@@ -240,8 +241,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Nothing but good vibes on the new website. \u2026 I wanted to thank you for how painless you have made this process!",
     name: "Dave",
-    business: "Bow Wags",
-    market: "Marietta, GA",
+    buildSlug: "bow-wags",
     channel: "Email",
     date: "2026-09-13",
     dateLabel: "September 2026",
@@ -255,31 +255,29 @@ export const testimonials: Testimonial[] = [
   {
     quote: "Yes, thank God! We\u2019re getting some leads.",
     name: "Jakeline",
-    business: "Jakeline Dog Grooming",
-    market: null,
+    buildSlug: "pet-spa-luxe",
     channel: "Text message",
     date: "2026-09-21",
     dateLabel: "September 2026",
     image: {
-      src: "/images/testimonials/jakeline-dog-grooming-text.jpg",
+      src: "/images/testimonials/pet-spa-luxe-jakeline-text.jpg",
       width: 900,
       height: 761,
-      alt: "Text thread. Tongfluence: \u201cJust checking in and seeing if you wanted anything added, we\u2019ve been at work and are seeing people coming to the site and booking!\u201d Jakeline: \u201cHi, how are you? Yes, thank God! We\u2019re getting some leads. I wanted to ask you to remove Sunday from the business hours on the website because we are closed on Sundays. Thank you!\u201d",
+      alt: "Text thread with Jakeline of Pet Spa Luxe. Tongfluence: \u201cJust checking in and seeing if you wanted anything added, we\u2019ve been at work and are seeing people coming to the site and booking!\u201d Jakeline: \u201cHi, how are you? Yes, thank God! We\u2019re getting some leads. I wanted to ask you to remove Sunday from the business hours on the website because we are closed on Sundays. Thank you!\u201d",
     },
   },
   {
     quote: "Definitely we are getting calls from the website",
-    name: null,
-    business: null,
-    market: null,
+    name: "Ellen",
+    buildSlug: "pampered-puppies",
     channel: "Text message",
     date: "2026-08-29",
     dateLabel: "August 2026",
     image: {
-      src: "/images/testimonials/client-text-aug-2026.jpg",
+      src: "/images/testimonials/pampered-puppies-ellen-text.jpg",
       width: 900,
       height: 450,
-      alt: "Text thread, Saturday August 29. Tongfluence: \u201cMy tracker is showing that we\u2019re starting to get a few more calls from the website, just want to confirm that\u2019s true?\u201d Client: \u201cDefinitely we are getting calls from the website.\u201d",
+      alt: "Text thread with Ellen of Pampered Puppies, Saturday August 29. Tongfluence: \u201cMy tracker is showing that we\u2019re starting to get a few more calls from the website, just want to confirm that\u2019s true?\u201d Ellen: \u201cDefinitely we are getting calls from the website.\u201d",
     },
   },
 ];
@@ -395,6 +393,7 @@ export const PATHS = {
   leadGeneration: "/dog-grooming-lead-generation",
   reviews: "/dog-groomer-review-management",
   caseStudies: "/case-studies",
+  testimonials: "/testimonials",
   resources: "/resources",
   about: "/about",
   faq: "/faq",
@@ -445,6 +444,7 @@ export const serviceNav: NavItem[] = [
 
 export const proofNav: NavItem[] = [
   { label: "Case Studies", href: PATHS.caseStudies, description: "Real grooming builds, broken down." },
+  { label: "Testimonials", href: PATHS.testimonials, description: "What clients said, with the original messages." },
   { label: "Resources", href: PATHS.resources, description: "Guides written from real grooming builds." },
   { label: "About", href: PATHS.about, description: "Why Tongfluence only works with groomers." },
 ];

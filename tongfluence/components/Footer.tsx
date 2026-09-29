@@ -59,6 +59,11 @@ export function Footer() {
                 All case studies
               </Link>
             </li>
+            <li>
+              <Link href={PATHS.testimonials} className="hover:text-tf-brown-dark">
+                Testimonials
+              </Link>
+            </li>
             {caseStudyBuilds.map((b) => (
               <li key={b.slug}>
                 <Link href={caseStudyPath(b.slug)} className="hover:text-tf-brown-dark">

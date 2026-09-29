@@ -27,6 +27,12 @@ export function Header() {
             Case Studies
           </Link>
           <Link
+            href={PATHS.testimonials}
+            className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
+          >
+            Testimonials
+          </Link>
+          <Link
             href={PATHS.resources}
             className="whitespace-nowrap text-sm font-medium text-tf-ink-soft hover:text-tf-brown-dark"
           >

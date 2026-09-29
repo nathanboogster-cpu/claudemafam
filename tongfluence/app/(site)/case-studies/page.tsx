@@ -97,6 +97,11 @@ export default function CaseStudiesPage() {
         <div className="mt-8">
           <Testimonials />
         </div>
+          <p className="mt-6 text-sm">
+            <Link href={PATHS.testimonials} className="font-medium text-tf-brown-dark underline underline-offset-4">
+              All testimonials, with the originals
+            </Link>
+          </p>
       </Section>
 
       <Section className="py-12" labelledBy="full-writeups">
