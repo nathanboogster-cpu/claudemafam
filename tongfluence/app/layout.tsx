@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE_URL, PATHS, business } from "@/lib/site-data";
@@ -14,13 +14,14 @@ const inter = Inter({
   display: "swap",
 });
 
-// Archivo is the closest widely-available match to the logo's squared,
-// industrial grotesque wordmark — it holds up at display weights and keeps
-// its shape under the wide letter-spacing the brand uses for labels.
-const archivo = Archivo({
+// Fraunces carries the headings, as on tongfluence.com: a soft, heavy serif.
+// Loaded as a variable font with its optical-size axis, so display sizes get
+// the chunkier display cut and small sizes stay legible.
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-archivo",
+  weight: "variable",
+  axes: ["opsz"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`h-full ${inter.variable} ${archivo.variable}`}>
+    <html lang="en" className={`h-full ${inter.variable} ${fraunces.variable}`}>
       <body className="flex min-h-full flex-col antialiased">
         {/* Both site-wide entity nodes are emitted once here, so every page
             inherits the same Organization and WebSite definition and other

@@ -80,7 +80,7 @@ export function LeadForm() {
     return (
       <div
         role="status"
-        className="rounded-3xl border border-tf-brown/40 bg-tf-brown-wash p-8 text-center"
+        className="rounded-2xl border border-tf-brown/40 bg-tf-brown-wash p-8 text-center"
       >
         <h2 className="font-tf-display text-2xl font-bold text-tf-ink">Got it — thank you.</h2>
         <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-tf-ink-soft">
@@ -97,7 +97,7 @@ export function LeadForm() {
   const labelClasses = "block text-sm font-semibold text-tf-ink";
 
   return (
-    <form onSubmit={onSubmit} onFocus={markStarted} className="rounded-3xl border border-tf-border bg-white p-6 sm:p-8">
+    <form onSubmit={onSubmit} onFocus={markStarted} className="rounded-2xl border border-tf-border bg-tf-card p-6 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="lead-name" className={labelClasses}>

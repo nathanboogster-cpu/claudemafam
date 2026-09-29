@@ -7,7 +7,7 @@ import { BookCallButton, SecondaryCTA } from "./CTAButton";
 export function CtaBand({
   location,
   title = "See what we'd change about your Google presence",
-  body = "A short call: we look at your Google Business Profile and your current site while you're on the line, and tell you what we'd fix first. If it's not worth doing, we'll say that too.",
+  body = "A short call: we look at your Google profile and your current site while you're on the line, and tell you what we'd fix first. If it's not worth doing, we'll say that too.",
   secondaryHref = "/case-studies",
   secondaryLabel = "See client results",
 }: {
@@ -18,7 +18,7 @@ export function CtaBand({
   secondaryLabel?: string;
 }) {
   return (
-    <div className="rounded-3xl bg-tf-ink px-6 py-10 text-white sm:px-10 sm:py-12">
+    <div className="rounded-2xl bg-tf-ink px-6 py-10 text-white sm:px-10 sm:py-12">
       <div className="max-w-2xl">
         <h2 className="font-tf-display text-2xl font-bold sm:text-3xl">{title}</h2>
         <p className="mt-3 text-base leading-relaxed text-white/80">{body}</p>

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { PATHS, offer, objections, faqs, business } from "@/lib/site-data";
+import { PATHS, offer, objections, faqs, business, preCallVideos, wistiaSwatchUrl, wistiaEmbedUrl } from "@/lib/site-data";
 import { buildStats } from "@/lib/client-builds";
-import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { JsonLd, breadcrumbSchema, faqSchema, videoSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Section, SectionHeading } from "@/components/Section";
+import { Section, SectionHeading, Eyebrow } from "@/components/Section";
+import { Reveal } from "@/components/Reveal";
+import { VideoFaq } from "@/components/VideoFaq";
 import { LeadForm } from "@/components/LeadForm";
 import { PricingCard } from "@/components/PricingCard";
 import { FaqBlock } from "@/components/FaqBlock";
@@ -35,22 +37,51 @@ const breadcrumbs = [
 const decisionQuestions = ["Is there a contract?", "What happens if I cancel?", "What exactly do you do every month?", "Do I own my website?"];
 const bookingFaqs = faqs.filter((f) => decisionQuestions.includes(f.question));
 
+// Pre-call video answers. Only videos whose real Wistia title has been filled
+// in as the question are shown (see preCallVideos in lib/site-data.ts).
+const videoAnswers = preCallVideos.filter(
+  (v): v is (typeof preCallVideos)[number] & { question: string } => Boolean(v.question),
+);
+
+// Written objections that one of the videos above already answers. On this
+// page the video answer is the one shown, so the same point is not made twice.
+const answeredOnVideo = ["I've tried marketing before and it didn't work.", "I'm already busy. Why would I bother?"];
+const writtenObjections = objections.filter(
+  (o) => !(videoAnswers.length > 0 && answeredOnVideo.includes(o.question)),
+);
+
+const isoDuration = (s: number) => `PT${Math.floor(s / 60)}M${s % 60}S`;
+
 export default function BookPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema(breadcrumbs.map((b) => ({ name: b.name, url: b.href })))} />
       <JsonLd data={faqSchema(bookingFaqs)} />
+      {videoAnswers
+        .filter((v) => v.uploadDate && v.durationSeconds)
+        .map((v) => (
+          <JsonLd
+            key={v.wistiaMediaId}
+            data={videoSchema({
+              name: v.question,
+              description: `Tongfluence\u2019s answer, before the call, to a grooming business owner who says: \u201c${v.question}\u201d`,
+              thumbnailUrl: wistiaSwatchUrl(v.wistiaMediaId),
+              uploadDate: v.uploadDate!,
+              duration: isoDuration(v.durationSeconds!),
+              embedUrl: wistiaEmbedUrl(v.wistiaMediaId),
+              pagePath: PATHS.book,
+            })}
+          />
+        ))}
 
       <Breadcrumbs items={breadcrumbs.map((b) => ({ name: b.name, href: b.href }))} />
 
       <Section className="pt-6 pb-12">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-14">
           <div>
-            <p className="tf-caps text-xs text-tf-brown-dark">
-              Book a call
-            </p>
-            <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl">
-              Fifteen minutes on your Google presence.
+            <Eyebrow>Book a call</Eyebrow>
+            <h1 className="mt-4 font-tf-display text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-tf-ink sm:text-5xl">
+              Fifteen minutes on <span className="tf-accent">your Google presence.</span>
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-tf-ink-soft">
               We open your Google Business Profile and your current website while you&rsquo;re on the line and
@@ -87,7 +118,7 @@ export default function BookPage() {
               .
             </p>
 
-            <div className="mt-8 rounded-2xl border border-tf-border bg-tf-paper-deep p-5">
+            <div className="mt-8 rounded-xl border border-tf-border bg-tf-card p-5">
               <p className="text-sm leading-relaxed text-tf-ink">
                 <span className="font-semibold">{offer.priceLine}</span> — {offer.commitment} We currently work
                 with {buildStats.siteCount} grooming businesses across {buildStats.stateCount} states.
@@ -113,6 +144,23 @@ export default function BookPage() {
         </div>
       </Section>
 
+      {videoAnswers.length > 0 ? (
+        <Section width="narrow" className="py-12" labelledBy="before-the-call">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Before the call"
+              id="before-the-call"
+              title="What groomers tell us"
+              accent="before the call."
+              intro="And what we say back. Tap one to play the answer; none of them is longer than a minute."
+            />
+          </Reveal>
+          <div className="mt-8">
+            <VideoFaq items={videoAnswers} location="book_video_faq" />
+          </div>
+        </Section>
+      ) : null}
+
       <Section width="narrow" className="py-12" labelledBy="what-you-get">
         <SectionHeading
           eyebrow="What you'd be signing up for"
@@ -129,7 +177,7 @@ export default function BookPage() {
           title="The questions people ask on the call"
         />
         <dl className="mt-8 space-y-6">
-          {objections.map((o) => (
+          {writtenObjections.map((o) => (
             <div key={o.question} className="border-l-2 border-tf-brown/40 pl-5">
               <dt className="font-tf-display text-lg font-bold text-tf-ink">{o.question}</dt>
               <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{o.answer}</dd>

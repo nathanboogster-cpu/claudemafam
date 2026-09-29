@@ -9,7 +9,7 @@ import { Logo } from "./Logo";
 // stuffed link farm, and not a duplicate of the whole sitemap.
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-tf-border bg-tf-paper-deep text-tf-ink-soft">
+    <footer className="mt-20 border-t border-tf-border bg-tf-card text-tf-ink-soft">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo variant="full" />

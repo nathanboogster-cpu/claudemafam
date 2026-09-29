@@ -1,4 +1,4 @@
-import { Section } from "./Section";
+import { Section, Eyebrow } from "./Section";
 import { BookCallButton, SecondaryCTA } from "./CTAButton";
 
 // The top of every commercial and resource page: the H1 that matches the
@@ -7,6 +7,7 @@ import { BookCallButton, SecondaryCTA } from "./CTAButton";
 export function PageHero({
   eyebrow,
   title,
+  accent,
   intro,
   location,
   primaryLabel = "Book a call",
@@ -15,6 +16,8 @@ export function PageHero({
 }: {
   eyebrow: string;
   title: string;
+  /** Closing words set in the tan accent. */
+  accent?: string;
   intro: React.ReactNode;
   location: string;
   primaryLabel?: string;
@@ -24,9 +27,10 @@ export function PageHero({
   return (
     <Section className="pt-6 pb-10 sm:pt-8">
       <div className="max-w-3xl">
-        <p className="tf-caps text-xs text-tf-brown-dark">{eyebrow}</p>
-        <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <h1 className="mt-4 font-tf-display text-[2rem] font-bold leading-[1.1] tracking-[-0.02em] text-tf-ink sm:text-5xl lg:text-[3.4rem]">
           {title}
+          {accent ? <span className="tf-accent"> {accent}</span> : null}
         </h1>
         <div className="mt-5 text-lg leading-relaxed text-tf-ink-soft">{intro}</div>
         {meta ? <div className="mt-5 text-sm text-tf-ink-soft">{meta}</div> : null}

@@ -1,52 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  /* ---------------------------------------------------------------------
-     TONGFLUENCE PALETTE — taken from the brand logo.
+/* ---------------------------------------------------------------------------
+   TONGFLUENCE THEME — matched to tongfluence.com.
 
-     The logo is a two-colour system: a warm near-black and a rich chocolate
-     brown, set on warm off-white, with a lighter bronze used for secondary
-     detail. The wordmark splits across the two ("TONG" black, "FLUENCE"
-     brown), and the whole lockup is built from hairline rules and wide
-     letter-spaced caps. Everything below follows from that.
-     --------------------------------------------------------------------- */
-  --color-tf-paper: #f6f3ee;
-  --color-tf-paper-deep: #ece5da;
+   White page, soft beige cards, a warm near-black for type, and a tan that
+   picks out the last words of a heading. Headings are set in Fraunces (a
+   chunky, soft serif), body copy in Inter, and small labels in widely
+   tracked caps behind a short rule.
+   --------------------------------------------------------------------------- */
+:root {
+  --color-tf-paper: #ffffff;
+  /* Card and panel fill — the beige of the cards on tongfluence.com. */
+  --color-tf-card: #f5f0ea;
+  --color-tf-paper-deep: #ece4d9;
   --color-tf-white: #ffffff;
 
-  /* Warm near-black, as in the "TONG" half of the wordmark. */
-  --color-tf-ink: #1f1b18;
-  /* Body and secondary text. 7.36:1 on paper — AAA at any size. */
-  --color-tf-ink-soft: #564e47;
+  /* Type. Ink is 17.8:1 on white; ink-soft is 7.5:1 on white and 6.7:1 on
+     the card beige, AA at any size. */
+  --color-tf-ink: #1c1714;
+  --color-tf-ink-soft: #5b534c;
 
-  /* The brown family, from the "FLUENCE" half of the wordmark.
-     -brown is the accent used for section numbering and small emphasis
-     (5.28:1 on paper, 4.67:1 on paper-deep — AA everywhere it is used).
-     -brown-dark is the link and button colour (7.58:1 on paper, 8.39:1 as a
-     fill under white text). -brown-darker is the hover state. */
-  --color-tf-brown: #8a5a33;
+  /* Tan accent for the highlighted words in headings. 3.8:1 on white and
+     3.3:1 on beige, so it is only ever used at heading sizes (24px+ bold),
+     where 3:1 is the AA bar. */
+  --color-tf-accent: #a67b55;
+
+  /* The brown family. -brown is the eyebrow and small-label colour (5.2:1 on
+     white, 4.6:1 on beige). -brown-dark is the button fill and link colour
+     (8.4:1 under white text). -brown-darker is hover. */
+  --color-tf-brown: #8f6340;
   --color-tf-brown-dark: #6b4526;
   --color-tf-brown-darker: #4e3119;
   --color-tf-brown-wash: #f2e9de;
 
-  /* Bronze — the lighter tone in the logo's lower rule. Decorative only on
-     light backgrounds (3.58:1); -light is its on-dark counterpart and is
-     text-safe against --color-tf-ink at 6.57:1. */
   --color-tf-bronze: #a07850;
+  /* On-dark counterpart, 6.6:1 against ink. */
   --color-tf-bronze-light: #c69863;
 
-  /* Caution. Kept inside the warm family rather than introducing a red the
-     brand does not have — used for the policy-risk callouts and form errors. */
   --color-tf-warn: #8c4a2f;
   --color-tf-warn-wash: #f7ebe4;
 
-  --color-tf-border: #e2dace;
-  --color-tf-border-strong: #c9bdac;
+  --color-tf-border: #e7dfd4;
+  --color-tf-border-strong: #d3c6b5;
 }
 
 @theme inline {
   --color-tf-paper: var(--color-tf-paper);
+  --color-tf-card: var(--color-tf-card);
   --color-tf-paper-deep: var(--color-tf-paper-deep);
+  --color-tf-accent: var(--color-tf-accent);
   --color-tf-white: var(--color-tf-white);
   --color-tf-ink: var(--color-tf-ink);
   --color-tf-ink-soft: var(--color-tf-ink-soft);
@@ -61,10 +63,9 @@
   --color-tf-border: var(--color-tf-border);
   --color-tf-border-strong: var(--color-tf-border-strong);
 
-  /* Archivo is the closest widely-available match to the logo's squared,
-     industrial grotesque wordmark. Inter carries body copy. */
+  /* Fraunces for headings and headline figures, Inter for everything else. */
   --font-tf-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-tf-display: var(--font-archivo), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-tf-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
   --font-tf-mono: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
 }
 
@@ -80,7 +81,18 @@ body {
 
 .font-tf-display {
   font-family: var(--font-tf-display);
-  letter-spacing: -0.02em;
+  /* No negative tracking by default: at card-title sizes Fraunces bold already
+     sets tight, and pulling it in closes the word spaces. Big headings add
+     their own tracking-tight. */
+  letter-spacing: 0;
+  /* Fraunces is an optical-size font: let it pick the display cut at large
+     sizes, which is what gives the headings their weight and softness. */
+  font-optical-sizing: auto;
+}
+
+/* The tan words at the end of a heading. */
+.tf-accent {
+  color: var(--color-tf-accent);
 }
 
 .font-tf-mono {
@@ -91,7 +103,7 @@ body {
    that treatment, used for eyebrows and small labels across the site. */
 .tf-caps {
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   font-weight: 600;
 }
 

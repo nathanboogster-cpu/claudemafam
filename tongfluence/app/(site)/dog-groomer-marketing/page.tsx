@@ -140,7 +140,7 @@ export default function DogGroomerMarketingPage() {
           </p>
         </div>
 
-        <div className="mt-8 rounded-2xl border border-tf-border bg-white p-6">
+        <div className="mt-8 rounded-xl border border-tf-border bg-tf-card p-6">
           <h3 className="font-tf-display text-base font-bold text-tf-ink">The path, step by step</h3>
           <ol className="mt-4 space-y-3 text-sm leading-relaxed text-tf-ink-soft">
             {[
@@ -151,7 +151,7 @@ export default function DogGroomerMarketingPage() {
               ["Call or book", "Only if the answer was easy to find and the phone number is one tap away."],
             ].map(([step, detail]) => (
               <li key={step} className="flex gap-3">
-                <span className="mt-0.5 font-tf-mono text-xs font-semibold text-tf-brown">{step}</span>
+                <span className="tf-caps mt-1 w-20 shrink-0 text-[0.68rem] text-tf-brown">{step}</span>
                 <span className="flex-1 border-l border-tf-border pl-3">{detail}</span>
               </li>
             ))}
@@ -181,33 +181,33 @@ export default function DogGroomerMarketingPage() {
               n: "01",
               title: "Google Business Profile",
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "the profile work",
               body: "The single highest-leverage asset most groomers already own and have never finished. Primary category, full service list, service areas if you are mobile, a current photo set, hours that are actually right. This is where the map pack ranking comes from, and it responds faster than anything else on this list.",
             },
             {
               n: "02",
               title: "Reviews",
               href: PATHS.reviews,
-              label: "review management for groomers",
+              label: "the review system",
               body: "Recency matters as much as volume. A profile with forty reviews and nothing in the last year reads as a business that may have closed. Grooming has a built-in advantage here — you see clients regularly, in person, at a moment when they are pleased — and almost nobody exploits it systematically.",
             },
             {
               n: "03",
               title: "Your website's structure",
               href: PATHS.websiteDesign,
-              label: "dog grooming website design",
+              label: "the website structure",
               body: "Not how it looks: what pages it has. A single “Services” page cannot rank for a deshedding search and a puppy-first-groom search and a cat grooming search, because it is not really about any of them. One page per service, one per area you serve.",
             },
             {
               n: "04",
               title: "Ongoing search work",
               href: PATHS.seo,
-              label: "dog groomer SEO",
+              label: "the ongoing search work",
               body: "After launch, Search Console starts telling you which searches you appear for. Most of the useful work for the next year is in that data: pages that get impressions but no clicks, queries you nearly rank for, services people search that you offer but never wrote a page about.",
             },
           ].map((item) => (
-            <div key={item.n} className="grid gap-3 rounded-2xl border border-tf-border bg-white p-6 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5">
-              <p className="font-tf-mono text-sm font-semibold text-tf-brown">{item.n}</p>
+            <div key={item.n} className="grid gap-3 rounded-xl border border-tf-border bg-tf-card p-6 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-5">
+              <p className="font-tf-display text-xl font-bold leading-none text-tf-brown">{item.n}</p>
               <div>
                 <h3 className="font-tf-display text-lg font-bold text-tf-ink">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-tf-ink-soft">{item.body}</p>
@@ -309,7 +309,7 @@ export default function DogGroomerMarketingPage() {
               b: "It mostly gets them to call a competitor who published a range. Grooming prices vary by size and coat — say that, and give the range.",
             },
           ].map((m) => (
-            <div key={m.t} className="rounded-2xl border border-tf-border bg-white p-5">
+            <div key={m.t} className="rounded-xl border border-tf-border bg-tf-card p-5">
               <h3 className="text-sm font-semibold text-tf-ink">{m.t}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-tf-ink-soft">{m.b}</p>
             </div>
@@ -335,7 +335,7 @@ export default function DogGroomerMarketingPage() {
       <Section width="narrow" className="py-12">
         <FaqBlock
           items={faqItems}
-          eyebrow="Dog groomer marketing FAQ"
+          eyebrow="FAQ"
           title="Common questions"
           headingId="marketing-faq"
         />
@@ -347,27 +347,27 @@ export default function DogGroomerMarketingPage() {
           items={[
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "How grooming businesses rank in local and organic search, and what we change first.",
             },
             {
               href: PATHS.gbp,
-              label: "Google Business Profile for dog groomers",
+              label: "Your Google Business Profile",
               description: "Categories, services, service areas and photos — the fastest-moving part of the job.",
             },
             {
               href: PATHS.websiteDesign,
-              label: "Dog grooming website design",
+              label: "What the website needs",
               description: "What pages a grooming site needs, and why one “Services” page is not enough.",
             },
             {
               href: PATHS.reviews,
-              label: "Review management for groomers",
+              label: "Getting more reviews",
               description: "Getting a steady flow of recent Google reviews, without breaking Google's rules.",
             },
             {
               href: PATHS.leadGeneration,
-              label: "Dog grooming lead generation",
+              label: "Turning searches into calls",
               description: "Turning searches into calls, and calls into appointments you actually keep.",
             },
             {

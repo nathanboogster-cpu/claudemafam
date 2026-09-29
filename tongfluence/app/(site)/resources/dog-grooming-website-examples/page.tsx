@@ -86,7 +86,7 @@ export default function WebsiteExamplesPage() {
             <p className="tf-caps text-xs text-tf-brown-dark">
               First-party data · {resource.readingTime}
             </p>
-            <h1 className="mt-3 font-tf-display text-3xl font-extrabold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 font-tf-display text-3xl font-bold leading-[1.12] text-tf-ink sm:text-4xl lg:text-5xl">
               {resource.h1}
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-tf-ink-soft">
@@ -118,7 +118,7 @@ export default function WebsiteExamplesPage() {
         {/* -------------------------------------------------------------- */}
         <Section width="narrow" className="py-10" labelledBy="method">
           <SectionHeading eyebrow="How to read this" id="method" title="Where these numbers come from" />
-          <div className="mt-6 overflow-hidden rounded-2xl border border-tf-border bg-white">
+          <div className="mt-6 overflow-hidden rounded-xl border border-tf-border bg-tf-card">
             <dl className="divide-y divide-tf-border text-sm">
               {[
                 ["Data source", `Tongfluence's own client builds — ${buildStats.siteCount} dog grooming websites, each a separate production application.`],
@@ -176,7 +176,7 @@ export default function WebsiteExamplesPage() {
               },
             ].map((f) => (
               <div key={f.n} className="grid gap-3 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
-                <p className="font-tf-mono text-sm font-semibold text-tf-brown">{f.n}</p>
+                <p className="font-tf-display text-xl font-bold leading-none text-tf-brown">{f.n}</p>
                 <div>
                   <h3 className="font-tf-display text-lg font-bold text-tf-ink">{f.t}</h3>
                   <p className="mt-2 text-base leading-relaxed text-tf-ink-soft">{f.b}</p>
@@ -196,10 +196,10 @@ export default function WebsiteExamplesPage() {
           />
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {clientBuilds.map((b) => (
-              <li key={b.slug} className="rounded-2xl border border-tf-border bg-white p-6">
+              <li key={b.slug} className="rounded-xl border border-tf-border bg-tf-card p-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="font-tf-display text-lg font-bold text-tf-ink">{b.name}</h3>
-                  <p className="font-tf-mono text-xs text-tf-ink-soft">{b.pages.total} pages</p>
+                  <p className="font-tf-display text-xs text-tf-ink-soft">{b.pages.total} pages</p>
                 </div>
                 <p className="mt-1 text-xs text-tf-ink-soft">
                   {b.market} · {b.businessType}
@@ -240,7 +240,7 @@ export default function WebsiteExamplesPage() {
             intro="You do not need us to do any of this. The structure is the useful part and it is free."
           />
           <div className="mt-7 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-2xl border border-tf-border bg-white p-6">
+            <div className="rounded-xl border border-tf-border bg-tf-card p-6">
               <h3 className="font-tf-display text-base font-bold text-tf-ink">Worth copying</h3>
               <div className="mt-4">
                 <Checklist
@@ -254,7 +254,7 @@ export default function WebsiteExamplesPage() {
                 />
               </div>
             </div>
-            <div className="rounded-2xl border border-tf-border bg-white p-6">
+            <div className="rounded-xl border border-tf-border bg-tf-card p-6">
               <h3 className="font-tf-display text-base font-bold text-tf-ink">Not worth copying</h3>
               <div className="mt-4">
                 <Checklist
@@ -282,7 +282,7 @@ export default function WebsiteExamplesPage() {
           items={[
             {
               href: PATHS.websiteDesign,
-              label: "Dog grooming website design",
+              label: "What the website needs",
               description: "How we build the structure above, and what it costs.",
             },
             {
@@ -297,7 +297,7 @@ export default function WebsiteExamplesPage() {
             },
             {
               href: PATHS.seo,
-              label: "Dog groomer SEO",
+              label: "How the SEO works",
               description: "Why the structure looks like this, and what happens after launch.",
             },
           ]}

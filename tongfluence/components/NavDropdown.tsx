@@ -49,7 +49,7 @@ export function NavDropdown({ label, items }: { label: string; items: NavItem[] 
       <div
         className={`absolute left-0 top-full z-50 w-80 pt-2 ${open ? "block" : "hidden"}`}
       >
-        <ul className="rounded-2xl border border-tf-border bg-white p-2 shadow-lg">
+        <ul className="rounded-xl border border-tf-border bg-white p-2 shadow-lg">
           {items.map((item) => (
             <li key={item.href}>
               <Link
