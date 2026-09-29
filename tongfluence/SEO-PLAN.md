@@ -28,6 +28,17 @@ cheaper to avoid now than to fix with redirects later.
 | `/resources` | — (hub, not built to rank) | Navigational | Route readers up to commercial pages | Both resources, GBP, leads |
 | `/resources/how-to-rank-dog-grooming-business-on-google` | how to rank dog grooming business on google | Informational, DIY | Capture the DIY searcher and be genuinely useful | GBP, websites, reviews, SEO |
 | `/resources/dog-grooming-website-examples` | dog grooming website examples | Informational | The original-data asset; a competitor can't reproduce it | Website design, case studies, SEO |
+| `/blog` | — (hub) | Navigational | Hold the short question-shaped articles; route each reader to the commercial page that owns their intent | Every post, both guides, marketing, case studies |
+| `/blog/how-to-get-more-dog-grooming-appointments` | how to get more dog grooming appointments | Informational, list | The "more appointments" cluster: nine actions in order | Leads, GBP, reviews, how-to-rank guide |
+| `/blog/best-dog-groomer-marketing-service` | best dog groomer marketing service | Commercial investigation | Buyer's guide: checklist, red flags, questions, how to compare quotes; Tongfluence as one option | Marketing, case studies, testimonials, about |
+| `/blog/dog-grooming-marketing-ideas` | dog grooming marketing ideas | Informational, list | Seventeen ideas in four tiers, ranked by booked appointments | Marketing, leads, GBP, how-to-rank guide |
+| `/blog/dog-groomer-marketing-cost` | dog groomer marketing cost | Commercial investigation | The five pricing models and cost per booked appointment; our price stated plainly | Marketing, best-service post, FAQ, book |
+| `/blog/google-ads-for-dog-groomers` | google ads for dog groomers | Informational-commercial | Local Services Ads vs search ads; what to have in place first; we run both | Leads, GBP, Facebook-ads post, marketing |
+| `/blog/facebook-ads-for-dog-groomers` | facebook ads for dog groomers | Informational-commercial | When social ads work and when they waste money; search first | Marketing, Google-ads post, website design, book |
+| `/blog/mobile-dog-grooming-marketing` | mobile dog grooming marketing | Informational | The mobile-specific problem: service-area profile, a page per town, the van | Pet Spa Luxe case study, website design, GBP, SEO |
+| `/blog/how-to-get-dog-grooming-clients-starting-out` | how to get dog grooming clients | Informational, new business | First clients in order, without buying leads | GBP, reviews, website design, how-to-rank guide |
+| `/blog/fill-last-minute-grooming-openings` | how to fill last minute grooming openings | Informational, operational | Cancellation list, the text, reminders, deposits | More-appointments post, GBP, leads, website design |
+| `/blog/dog-grooming-referral-program` | dog grooming referral program | Informational, ideas | Referral rewards done simply; the referral/review line | Reviews, more-appointments post, GBP, leads |
 | `/about` | — (trust) | Navigational | Why the specialisation exists; the constraints we work under | Case studies, marketing, book |
 | `/testimonials` | — (trust) | Evaluation | Client messages quoted word for word with the original screenshots, and the one measured result | Case studies, book |
 | `/faq` | — (objections) | Pre-decision | Seven video answers to what groomers say before a call, then every written answer, grouped | Book |
@@ -36,12 +47,16 @@ cheaper to avoid now than to fix with redirects later.
 
 ## Cannibalization analysis
 
-Checked pairwise before publishing. Three overlaps were real and were
-resolved by **not building the second page**:
+Checked pairwise before publishing. Three overlaps were real at launch and
+were resolved by **not building the second page**; the blog later took one
+of them on with a distinct intent, noted below:
 
 | Considered | Conflicts with | Resolution |
 | --- | --- | --- |
-| `/resources/how-to-get-more-dog-grooming-clients` | `/dog-grooming-lead-generation` | Identical intent. Not published; the commercial page keeps it. |
+| `/resources/how-to-get-more-dog-grooming-clients` | `/dog-grooming-lead-generation` | Originally not published. Now covered by `/blog/how-to-get-more-dog-grooming-appointments`, which is an informational action list (what a groomer does) rather than the commercial page's service framing (the six-step path and what we do about it). Each links to the other. |
+| `/blog/best-dog-groomer-marketing-service` | `/dog-groomer-marketing` | Kept distinct: the hub explains the subject; the post is a buyer's guide for comparing providers, with Tongfluence as one option run through the same checklist. |
+| `/blog/google-ads-for-dog-groomers`, `/blog/facebook-ads-for-dog-groomers` | `/dog-groomer-marketing` (channels table) | Kept distinct: the hub compares channels in one table; each post covers one ad platform in depth. Neither commercial page targets an ads query. |
+| `/blog/mobile-dog-grooming-marketing` | `/dog-groomer-website-design` (salon vs mobile) | Kept distinct: the website page covers site structure; the post covers the whole mobile marketing problem, profile and route included, and links to the Pet Spa Luxe case study. |
 | `/resources/dog-grooming-seo-keywords` | `/dog-groomer-seo` (partly) | Deferred. A keyword page is only worth publishing with real volume and query data behind it, and there is no exported Search Console dataset yet. |
 | `/resources/google-business-profile-categories-dog-groomers` | `/google-business-profile-for-dog-groomers` | Not published. Google's category list changes and is only authoritative inside the profile's own picker; the GBP page covers the category model and cites Google's docs. |
 
@@ -103,7 +118,7 @@ a given page.
 
 ## Technical baseline (verified on the production build)
 
-- 18 indexable URLs; sitemap and crawl agree exactly, in both directions.
+- 31 indexable URLs; sitemap and crawl agree exactly, in both directions.
 - Every page: 200, unique title (≤61 chars), unique meta description
   (≤161 chars), exactly one `<h1>`, self-referencing canonical, no
   accidental `noindex`, valid JSON-LD.

@@ -13,6 +13,7 @@ const coreLinks: NavItem[] = [
   { label: "Case Studies", href: PATHS.caseStudies },
   { label: "Testimonials", href: PATHS.testimonials },
   { label: "Resources", href: PATHS.resources },
+  { label: "Blog", href: PATHS.blog },
   { label: "About", href: PATHS.about },
   { label: "FAQ", href: PATHS.faq },
 ];

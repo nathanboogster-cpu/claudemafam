@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { PATHS, SITE_URL, caseStudyPath, resourcePath } from "@/lib/site-data";
 import { caseStudyBuilds } from "@/lib/client-builds";
 import { resources } from "@/lib/resources-data";
+import { blogPosts, blogPath } from "@/lib/blog-posts";
 
 // Every URL here is canonical, indexable, returns 200 and has unique value.
 // Nothing is listed that redirects, 404s, or duplicates another page.
@@ -21,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [PATHS.caseStudies]: 0.8,
     [PATHS.testimonials]: 0.7,
     [PATHS.resources]: 0.6,
+    [PATHS.blog]: 0.6,
     [PATHS.about]: 0.6,
     [PATHS.privacy]: 0.2,
     [PATHS.terms]: 0.2,
@@ -47,5 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...corePages, ...caseStudyPages, ...resourcePages];
+  const blogPages = blogPosts.map((p) => ({
+    url: `${SITE_URL}${blogPath(p.slug)}`,
+    lastModified: new Date(`${p.publishedAt}T00:00:00Z`),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...corePages, ...caseStudyPages, ...resourcePages, ...blogPages];
 }
