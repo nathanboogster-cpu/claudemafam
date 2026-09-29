@@ -192,13 +192,15 @@ export type PreCallVideo = {
 };
 
 export const preCallVideos: PreCallVideo[] = [
-  { wistiaMediaId: "6ic5brm3xd", question: null },
-  { wistiaMediaId: "r9yvjigysf", question: null },
-  { wistiaMediaId: "amtcdc194e", question: null },
-  { wistiaMediaId: "hmj7r3bvbd", question: null },
-  { wistiaMediaId: "gm32vc9733", question: null },
-  { wistiaMediaId: "lwdv0uut95", question: null },
-  { wistiaMediaId: "gx15ov061y", question: null },
+  // Titles, lengths and dates from the Wistia folder listing (7 media, all
+  // created Jul 20, 2026), matched to the embeds in the order supplied.
+  { wistiaMediaId: "6ic5brm3xd", question: "Not sure if I need this, I’ll think about it later.", uploadDate: "2026-07-20", durationSeconds: 51 },
+  { wistiaMediaId: "r9yvjigysf", question: "I’m mobile with no storefront, does this even apply to me?", uploadDate: "2026-07-20", durationSeconds: 27 },
+  { wistiaMediaId: "amtcdc194e", question: "I already show up when people search for me on Google.", uploadDate: "2026-07-20", durationSeconds: 27 },
+  { wistiaMediaId: "hmj7r3bvbd", question: "What if I get too busy and my quality slips?", uploadDate: "2026-07-20", durationSeconds: 25 },
+  { wistiaMediaId: "gm32vc9733", question: "My calendar’s already full, why do I need more leads?", uploadDate: "2026-07-20", durationSeconds: 31 },
+  { wistiaMediaId: "lwdv0uut95", question: "I already get all my clients from referrals, the vet down the street sends me people.", uploadDate: "2026-07-20", durationSeconds: 34 },
+  { wistiaMediaId: "gx15ov061y", question: "I’ve paid for marketing before and got nothing out of it.", uploadDate: "2026-07-20", durationSeconds: 49 },
 ];
 
 // Every pre-call video shares Wistia's aspect ratio from the supplied embeds.

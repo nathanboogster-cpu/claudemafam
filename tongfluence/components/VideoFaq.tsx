@@ -40,6 +40,11 @@ export function VideoFaq({
               <span className="flex-1 font-tf-display text-lg font-bold leading-snug text-tf-ink">
                 {item.question}
               </span>
+              {item.durationSeconds ? (
+                <span className="hidden shrink-0 text-sm tabular-nums text-tf-ink-soft sm:block">
+                  {Math.floor(item.durationSeconds / 60)}:{String(item.durationSeconds % 60).padStart(2, "0")}
+                </span>
+              ) : null}
               <span
                 aria-hidden="true"
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tf-brown-dark text-white transition-transform group-open:rotate-90"

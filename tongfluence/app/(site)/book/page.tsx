@@ -43,6 +43,13 @@ const videoAnswers = preCallVideos.filter(
   (v): v is (typeof preCallVideos)[number] & { question: string } => Boolean(v.question),
 );
 
+// Written objections that one of the videos above already answers. On this
+// page the video answer is the one shown, so the same point is not made twice.
+const answeredOnVideo = ["I've tried marketing before and it didn't work.", "I'm already busy. Why would I bother?"];
+const writtenObjections = objections.filter(
+  (o) => !(videoAnswers.length > 0 && answeredOnVideo.includes(o.question)),
+);
+
 const isoDuration = (s: number) => `PT${Math.floor(s / 60)}M${s % 60}S`;
 
 export default function BookPage() {
@@ -57,7 +64,7 @@ export default function BookPage() {
             key={v.wistiaMediaId}
             data={videoSchema({
               name: v.question,
-              description: `Tongfluence answers a question grooming business owners ask before their call: ${v.question}`,
+              description: `Tongfluence\u2019s answer, before the call, to a grooming business owner who says: \u201c${v.question}\u201d`,
               thumbnailUrl: wistiaSwatchUrl(v.wistiaMediaId),
               uploadDate: v.uploadDate!,
               duration: isoDuration(v.durationSeconds!),
@@ -143,9 +150,9 @@ export default function BookPage() {
             <SectionHeading
               eyebrow="Before the call"
               id="before-the-call"
-              title="Your questions,"
-              accent="answered on video."
-              intro="The questions grooming business owners ask most before we talk. Tap one to play the answer."
+              title="What groomers tell us"
+              accent="before the call."
+              intro="And what we say back. Tap one to play the answer; none of them is longer than a minute."
             />
           </Reveal>
           <div className="mt-8">
@@ -170,7 +177,7 @@ export default function BookPage() {
           title="The questions people ask on the call"
         />
         <dl className="mt-8 space-y-6">
-          {objections.map((o) => (
+          {writtenObjections.map((o) => (
             <div key={o.question} className="border-l-2 border-tf-brown/40 pl-5">
               <dt className="font-tf-display text-lg font-bold text-tf-ink">{o.question}</dt>
               <dd className="mt-2 text-base leading-relaxed text-tf-ink-soft">{o.answer}</dd>
