@@ -79,7 +79,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           <dl className="mt-10 grid gap-x-8 gap-y-5 rounded-2xl border border-tf-border bg-tf-card p-6 sm:grid-cols-2 lg:grid-cols-3">
             {study.atAGlance.map((row) => (
               <div key={row.label}>
-                <dt className="tf-caps text-[0.65rem] text-tf-ink-soft">{row.label}</dt>
+                <dt className="tf-caps text-xs text-tf-ink-soft">{row.label}</dt>
                 <dd className="mt-1 font-semibold text-tf-ink">{row.value}</dd>
               </div>
             ))}

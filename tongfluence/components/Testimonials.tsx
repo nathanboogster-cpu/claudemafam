@@ -26,7 +26,7 @@ export function Testimonials() {
             <p className="mt-5 text-sm font-semibold text-tf-ink">
               {t.name},{" "}
               {build.hasCaseStudy ? (
-                <Link href={caseStudyPath(build.slug)} className="underline underline-offset-4 hover:text-tf-brown-dark">
+                <Link href={caseStudyPath(build.slug)} className="inline-block py-1 underline underline-offset-4 hover:text-tf-brown-dark">
                   {build.name}
                 </Link>
               ) : (

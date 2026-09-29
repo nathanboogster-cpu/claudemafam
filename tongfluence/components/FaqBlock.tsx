@@ -23,8 +23,8 @@ export function FaqBlock({
       <SectionHeading eyebrow={eyebrow} title={title} accent={accent} intro={intro} id={headingId} />
       <div className="mt-8 space-y-3">
         {items.map((item) => (
-          <details key={item.question} className="group rounded-xl border border-tf-border bg-tf-card p-5">
-            <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-tf-ink">
+          <details key={item.question} className="group rounded-xl border border-tf-border bg-tf-card">
+            <summary className="flex min-h-[56px] cursor-pointer list-none items-start justify-between gap-4 p-5 font-semibold text-tf-ink">
               <span>{item.question}</span>
               <span
                 aria-hidden="true"
@@ -33,7 +33,7 @@ export function FaqBlock({
                 +
               </span>
             </summary>
-            <p className="mt-3 text-sm leading-relaxed text-tf-ink-soft">{item.answer}</p>
+            <p className="px-5 pb-5 text-sm leading-relaxed text-tf-ink-soft">{item.answer}</p>
           </details>
         ))}
       </div>

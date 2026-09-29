@@ -155,7 +155,7 @@ export default function DogGroomerMarketingPage() {
               ["Call or book", "Only if the answer was easy to find and the phone number is one tap away."],
             ].map(([step, detail]) => (
               <li key={step} className="flex gap-3">
-                <span className="tf-caps mt-1 w-20 shrink-0 text-[0.68rem] text-tf-brown">{step}</span>
+                <span className="tf-caps mt-1 w-20 shrink-0 text-xs text-tf-brown">{step}</span>
                 <span className="flex-1 border-l border-tf-border pl-3">{detail}</span>
               </li>
             ))}

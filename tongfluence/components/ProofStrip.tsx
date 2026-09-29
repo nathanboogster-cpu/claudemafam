@@ -14,7 +14,7 @@ export function ProofStrip() {
         </h2>
         <Link
           href={PATHS.caseStudies}
-          className="text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
+          className="inline-block py-2 text-sm font-semibold text-tf-brown-dark underline underline-offset-4 hover:text-tf-brown-darker"
         >
           See the builds
         </Link>
@@ -25,7 +25,7 @@ export function ProofStrip() {
           <li key={b.slug} className="border-l-2 border-tf-brown/40 pl-3">
             <p className="text-sm font-semibold text-tf-ink">
               {b.hasCaseStudy ? (
-                <Link href={caseStudyPath(b.slug)} className="hover:text-tf-brown-dark">
+                <Link href={caseStudyPath(b.slug)} className="inline-block py-1 hover:text-tf-brown-dark">
                   {b.name}
                 </Link>
               ) : (
