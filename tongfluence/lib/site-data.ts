@@ -172,6 +172,42 @@ export const explainerVideo = {
 } as const;
 
 // ---------------------------------------------------------------------------
+// PRE-CALL FAQ VIDEOS
+//
+// Short videos that answer the questions people have before their call. Each
+// video's title in Wistia IS the question, word for word, and the video is
+// the answer. Listed in the order they were supplied.
+//
+// `question` stays null until the real Wistia title is filled in. An item with
+// no question does not render: a guessed question over someone else's answer
+// would be worse than no item. `uploadDate` and `durationSeconds` are optional
+// and only used for VideoObject structured data, which is emitted per video
+// once both are known.
+// ---------------------------------------------------------------------------
+export type PreCallVideo = {
+  wistiaMediaId: string;
+  question: string | null;
+  uploadDate?: string;
+  durationSeconds?: number;
+};
+
+export const preCallVideos: PreCallVideo[] = [
+  { wistiaMediaId: "6ic5brm3xd", question: null },
+  { wistiaMediaId: "r9yvjigysf", question: null },
+  { wistiaMediaId: "amtcdc194e", question: null },
+  { wistiaMediaId: "hmj7r3bvbd", question: null },
+  { wistiaMediaId: "gm32vc9733", question: null },
+  { wistiaMediaId: "lwdv0uut95", question: null },
+  { wistiaMediaId: "gx15ov061y", question: null },
+];
+
+// Every pre-call video shares Wistia's aspect ratio from the supplied embeds.
+export const preCallVideoAspect = 1.8604651162790697;
+
+export const wistiaSwatchUrl = (id: string) => `https://fast.wistia.com/embed/medias/${id}/swatch`;
+export const wistiaEmbedUrl = (id: string) => `https://fast.wistia.net/embed/iframe/${id}`;
+
+// ---------------------------------------------------------------------------
 // HEADLINE RESULT
 //
 // The explainer video is titled "How We Get 2-3X More Dog Grooming
