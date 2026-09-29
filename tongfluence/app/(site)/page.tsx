@@ -234,7 +234,7 @@ export default function HomePage() {
               })}
             </ol>
             <div className="mt-6 flex flex-col gap-3 border-t border-tf-border pt-6 sm:flex-row sm:items-center">
-              <BookCallButton location="home_offer" />
+              <BookCallButton location="home_offer" className="shrink-0 whitespace-nowrap" />
               <p className="text-sm text-tf-ink-soft">Fifteen minutes. We open your profile and your site on the call.</p>
             </div>
           </Reveal>
