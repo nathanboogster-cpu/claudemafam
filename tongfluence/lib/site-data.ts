@@ -210,6 +210,81 @@ export const wistiaSwatchUrl = (id: string) => `https://fast.wistia.com/embed/me
 export const wistiaEmbedUrl = (id: string) => `https://fast.wistia.net/embed/iframe/${id}`;
 
 // ---------------------------------------------------------------------------
+// CLIENT TESTIMONIALS
+//
+// Quoted word for word from real client messages, from the "Testimonials
+// Tongfluence" Drive folder. Each one carries the message it came from as a
+// cropped screenshot in public/images/testimonials/, so a reader can see the
+// original. Dates come from the messages themselves.
+//
+// Dave's email also discussed staff and another vendor; those lines are
+// covered in the screenshot and cut from the quote (marked with an ellipsis).
+// No Review or AggregateRating markup is emitted for these: Google restricts
+// self-published review markup, and these are messages, not reviews.
+// ---------------------------------------------------------------------------
+export type Testimonial = {
+  quote: string;
+  /** First name as signed, or null when the message carries no name. */
+  name: string | null;
+  business: string | null;
+  market: string | null;
+  channel: "Email" | "Text message";
+  /** ISO date of the client's message. */
+  date: string;
+  dateLabel: string;
+  image: { src: string; width: number; height: number; alt: string };
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Nothing but good vibes on the new website. \u2026 I wanted to thank you for how painless you have made this process!",
+    name: "Dave",
+    business: "Bow Wags",
+    market: "Marietta, GA",
+    channel: "Email",
+    date: "2026-09-13",
+    dateLabel: "September 2026",
+    image: {
+      src: "/images/testimonials/bow-wags-dave-email.jpg",
+      width: 900,
+      height: 657,
+      alt: "Dave's email: \u201cHey Nathaniel, nothing but good vibes on the new website. I wanted to thank you for how painless you have made this process! Dave.\u201d Unrelated account details in the middle of the email are covered.",
+    },
+  },
+  {
+    quote: "Yes, thank God! We\u2019re getting some leads.",
+    name: "Jakeline",
+    business: "Jakeline Dog Grooming",
+    market: null,
+    channel: "Text message",
+    date: "2026-09-21",
+    dateLabel: "September 2026",
+    image: {
+      src: "/images/testimonials/jakeline-dog-grooming-text.jpg",
+      width: 900,
+      height: 761,
+      alt: "Text thread. Tongfluence: \u201cJust checking in and seeing if you wanted anything added, we\u2019ve been at work and are seeing people coming to the site and booking!\u201d Jakeline: \u201cHi, how are you? Yes, thank God! We\u2019re getting some leads. I wanted to ask you to remove Sunday from the business hours on the website because we are closed on Sundays. Thank you!\u201d",
+    },
+  },
+  {
+    quote: "Definitely we are getting calls from the website",
+    name: null,
+    business: null,
+    market: null,
+    channel: "Text message",
+    date: "2026-08-29",
+    dateLabel: "August 2026",
+    image: {
+      src: "/images/testimonials/client-text-aug-2026.jpg",
+      width: 900,
+      height: 450,
+      alt: "Text thread, Saturday August 29. Tongfluence: \u201cMy tracker is showing that we\u2019re starting to get a few more calls from the website, just want to confirm that\u2019s true?\u201d Client: \u201cDefinitely we are getting calls from the website.\u201d",
+    },
+  },
+];
+
+// ---------------------------------------------------------------------------
 // HEADLINE RESULT
 //
 // The explainer video is titled "How We Get 2-3X More Dog Grooming

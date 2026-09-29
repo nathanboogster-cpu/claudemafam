@@ -8,6 +8,7 @@ import { Section, SectionHeading, AnswerBlock, Eyebrow } from "@/components/Sect
 import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 import { ProofStrip } from "@/components/ProofStrip";
 import { GbpCallsProof } from "@/components/GbpCallsProof";
+import { Testimonials } from "@/components/Testimonials";
 import { Reveal } from "@/components/Reveal";
 import { ExplainerVideo } from "@/components/ExplainerVideo";
 import { PricingCard } from "@/components/PricingCard";
@@ -218,6 +219,24 @@ export default function HomePage() {
           </div>
         </Section>
       ) : null}
+
+      {/* ---------------------------------------------------------------- */}
+      {/* 2c. WHAT CLIENTS SAY                                              */}
+      {/* ---------------------------------------------------------------- */}
+      <Section className="pb-16" labelledBy="testimonials">
+        <Reveal>
+          <SectionHeading
+            eyebrow="What clients say"
+            id="testimonials"
+            title="In their own words,"
+            accent="from their messages."
+            intro="Quoted word for word from emails and texts. Open any of them to see the original."
+          />
+        </Reveal>
+        <div className="mt-8">
+          <Testimonials />
+        </div>
+      </Section>
 
       {/* ---------------------------------------------------------------- */}
       {/* 3. IMMEDIATE PROOF — before any argument is made.                */}
