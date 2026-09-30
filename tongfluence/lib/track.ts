@@ -29,9 +29,6 @@ export const EVENTS = {
   caseStudyView: "case_study_view",
   videoPlay: "video_play",
   videoComplete: "video_complete",
-  formStart: "form_start",
-  formSubmit: "form_submit",
-  formError: "form_error",
 } as const;
 
 export type TrackEventName = (typeof EVENTS)[keyof typeof EVENTS];

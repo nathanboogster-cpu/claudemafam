@@ -54,9 +54,6 @@ export const business = {
   // is no walk-in office, so no street address is published here or in schema.
   servesRemotely: true,
   areaServed: "United States",
-  // Where lead-form submissions are emailed (app/api/lead/route.ts). Set via
-  // env so a real inbox never has to be committed to the repo.
-  leadNotificationEmail: process.env.LEAD_NOTIFICATION_EMAIL ?? "",
   // Brand tagline, exactly as it appears on the logo lockup. Used as brand
   // furniture in the footer and the share image — deliberately not as page
   // copy, since the site's body writing is specific to grooming rather than

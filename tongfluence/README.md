@@ -45,10 +45,7 @@ npm run lint    # eslint
 
 | Variable | Required | What it does |
 | --- | --- | --- |
-| `RESEND_API_KEY` | For the form | Sends lead notifications (`app/api/lead/route.ts`). Without it the form returns an honest error instead of a fake success. |
-| `LEAD_NOTIFICATION_EMAIL` | For the form | Inbox that receives enquiries. |
-| `LEAD_FROM_EMAIL` | Optional | From address for the notification. Defaults to Resend's onboarding sender. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Optional | A public address shown on `/book` and offered in the form's error message if sending fails. Left unset, neither mentions an email. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Optional | A public address shown on `/book` under the calendar. Left unset, the page does not mention an email. |
 | `NEXT_PUBLIC_SITE_URL` | Optional | Overrides the site origin. Not needed on Vercel once a domain is attached. |
 
 ## Structure
@@ -117,11 +114,11 @@ and documented where they bite:
    empty. Add only confirmed profiles — they feed the footer and
    schema.org `sameAs`, and an unverified `sameAs` is worse than none.
 4. **A public contact address.** Set `NEXT_PUBLIC_CONTACT_EMAIL` so the
-   booking page offers an email fallback and the form's error message has
-   somewhere to point.
-5. **Form backend.** Set `RESEND_API_KEY` and `LEAD_NOTIFICATION_EMAIL`
-   before launch. Until then the form reports a clear error; it never
-   pretends to have sent.
+   booking page offers an email fallback under the calendar.
+5. **The booking calendar.** `/book` embeds the GoHighLevel calendar
+   (`components/BookingCalendar.tsx`). Bookings land in the Tongfluence
+   GoHighLevel account, which sends the confirmation and reminders. Change
+   the calendar ID there if the calendar is ever replaced.
 6. **A vector logo, when there is one.** The site uses the real logo
    artwork, cut out of the supplied raster file and cropped into the
    variants the web needs — see `public/images/`:
