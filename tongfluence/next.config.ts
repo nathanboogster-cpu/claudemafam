@@ -7,7 +7,7 @@ import type { NextConfig } from "next";
 // there with any query string intact. Add a path here for every funnel step
 // that was published under the root domain.
 const FUNNEL_HOST = "https://go.tongfluence.com";
-const funnelPaths = ["/dog-groomers-welcome"];
+const funnelPaths = ["/dog-groomers-welcome", "/dq-sales-page-page"];
 
 const nextConfig: NextConfig = {
   // This app lives in a subdirectory of a monorepo that also contains the
