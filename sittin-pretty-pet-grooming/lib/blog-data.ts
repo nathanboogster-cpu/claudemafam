@@ -416,6 +416,67 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "deshedding-treatment", "nail-trim-ear-cleaning"],
   },
+  {
+    slug: "fall-tick-and-flea-checks-for-dogs-and-cats",
+    title: "Fall Tick and Flea Checks: What to Look For After Walks",
+    metaDescription:
+      "Ticks and fleas don't disappear when summer ends. Where to check your dog or cat after fall walks, how to remove a tick safely, and signs of fleas to watch for.",
+    excerpt:
+      "Ticks and fleas don't quit when summer ends. Here's where to check after fall walks, and what to do if you find something.",
+    eyebrow: "Seasonal Care",
+    publishedAt: "2026-10-01",
+    heroPhotoKey: "blackLabPinkBandana",
+    body: [
+      {
+        type: "p",
+        text: "It's easy to assume tick and flea season wraps up with summer, but fall is still an active time for both. Adult deer ticks are out in autumn and on mild winter days, and fleas brought indoors can keep breeding in a warm house long after the weather turns. Leaf piles, tall grass at field edges, and wooded trails around Washington County, from the C&O Canal towpath near Williamsport to backyard tree lines in Funkstown and Hagerstown, are all prime spots for a dog to pick something up.",
+      },
+      { type: "h2", text: "Where to Check After a Walk" },
+      {
+        type: "p",
+        text: "Ticks tend to crawl to warm, sheltered spots before they attach, so a quick pass over the top of the back can miss them. Run your fingers slowly through the coat, down to the skin, and pay extra attention to:",
+      },
+      {
+        type: "list",
+        items: [
+          "In and around the ears, including the folds of floppy ears.",
+          "Under the collar or harness.",
+          "The armpits and the groin, where the legs meet the body.",
+          "Between the toes and around the paw pads.",
+          "Around the eyes and along the muzzle.",
+          "Under the tail and around the base of the tail.",
+        ],
+      },
+      {
+        type: "p",
+        text: "A tick that's attached can feel like a small, firm bump, and it's easy to mistake for a skin tag or a burr. Thick or long coats make this harder, which is one more reason regular brushing at home pays off: you're far more likely to notice something new when you're working through the coat a few times a week.",
+      },
+      { type: "h2", text: "If You Find a Tick" },
+      {
+        type: "list",
+        items: [
+          "Use fine-tipped tweezers or a tick-removal tool and grasp the tick as close to the skin as you can.",
+          "Pull straight out with steady, even pressure. Don't twist, squeeze the body, or jerk it out.",
+          "Skip the old tricks like petroleum jelly, nail polish, or a hot match. They don't make the tick let go, and they can make things worse.",
+          "Clean the spot afterward and keep an eye on it for a few days. If it looks red or swollen, or your pet seems off, check in with your vet.",
+        ],
+      },
+      { type: "h2", text: "Signs of Fleas" },
+      {
+        type: "p",
+        text: "Fleas are quick and hard to spot directly, so look for the clues they leave: more scratching or chewing than usual, especially around the lower back and tail base, and tiny black specks in the coat called flea dirt. To tell flea dirt from ordinary dirt, put a few specks on a damp white paper towel. If they smear reddish-brown, it's flea dirt. Cats, even indoor ones, can get fleas carried in on people or other pets, and they often over-groom rather than scratch, so thinning fur or hair in the litter box area can be a sign.",
+      },
+      {
+        type: "p",
+        text: "Prevention is a conversation for your veterinarian, who can recommend a product that suits your pet's age, size, and health. One important note: never use a dog flea product on a cat. Some ingredients that are safe for dogs are toxic to cats.",
+      },
+      {
+        type: "p",
+        text: "A bath and thorough brush-out between full grooms is also a good chance to get a close look at skin and coat. If your pet is due for one, or you've recently found fleas and want to mention it ahead of an appointment, call our Funkstown salon.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "cat-grooming"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
