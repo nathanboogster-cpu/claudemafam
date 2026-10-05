@@ -27,6 +27,10 @@ const galleryItems = [
   { caption: "A happy daycare regular", src: "/images/dog-lobby-husky.jpg" },
   { caption: "A puppy visiting Bow Wags", src: "/images/german-shepherd-puppy-outdoor.jpg" },
   { caption: "Another happy Bow Wags regular", src: "/images/boston-terrier-portrait.jpg" },
+  { caption: "A grooming finish with a dapper bow tie", src: "/images/groomed-dog-blue-bow-tie.jpg" },
+  { caption: "Two groomed regulars at home", src: "/images/two-yorkies-groomed-bows.jpg" },
+  { caption: "A grooming finish with a polka-dot bow tie", src: "/images/groomed-dog-polka-dot-bow-tie.jpg" },
+  { caption: "A creative grooming result", src: "/images/creative-grooming-pink-butterfly.jpg" },
 ];
 
 export default function GalleryPage() {

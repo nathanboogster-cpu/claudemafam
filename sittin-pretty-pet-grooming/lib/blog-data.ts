@@ -416,6 +416,118 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "deshedding-treatment", "nail-trim-ear-cleaning"],
   },
+  {
+    slug: "fall-tick-and-flea-checks-for-dogs-and-cats",
+    title: "Fall Tick and Flea Checks: What to Look For After Walks",
+    metaDescription:
+      "Ticks and fleas don't disappear when summer ends. Where to check your dog or cat after fall walks, how to remove a tick safely, and signs of fleas to watch for.",
+    excerpt:
+      "Ticks and fleas don't quit when summer ends. Here's where to check after fall walks, and what to do if you find something.",
+    eyebrow: "Seasonal Care",
+    publishedAt: "2026-10-01",
+    heroPhotoKey: "blackLabPinkBandana",
+    body: [
+      {
+        type: "p",
+        text: "It's easy to assume tick and flea season wraps up with summer, but fall is still an active time for both. Adult deer ticks are out in autumn and on mild winter days, and fleas brought indoors can keep breeding in a warm house long after the weather turns. Leaf piles, tall grass at field edges, and wooded trails around Washington County, from the C&O Canal towpath near Williamsport to backyard tree lines in Funkstown and Hagerstown, are all prime spots for a dog to pick something up.",
+      },
+      { type: "h2", text: "Where to Check After a Walk" },
+      {
+        type: "p",
+        text: "Ticks tend to crawl to warm, sheltered spots before they attach, so a quick pass over the top of the back can miss them. Run your fingers slowly through the coat, down to the skin, and pay extra attention to:",
+      },
+      {
+        type: "list",
+        items: [
+          "In and around the ears, including the folds of floppy ears.",
+          "Under the collar or harness.",
+          "The armpits and the groin, where the legs meet the body.",
+          "Between the toes and around the paw pads.",
+          "Around the eyes and along the muzzle.",
+          "Under the tail and around the base of the tail.",
+        ],
+      },
+      {
+        type: "p",
+        text: "A tick that's attached can feel like a small, firm bump, and it's easy to mistake for a skin tag or a burr. Thick or long coats make this harder, which is one more reason regular brushing at home pays off: you're far more likely to notice something new when you're working through the coat a few times a week.",
+      },
+      { type: "h2", text: "If You Find a Tick" },
+      {
+        type: "list",
+        items: [
+          "Use fine-tipped tweezers or a tick-removal tool and grasp the tick as close to the skin as you can.",
+          "Pull straight out with steady, even pressure. Don't twist, squeeze the body, or jerk it out.",
+          "Skip the old tricks like petroleum jelly, nail polish, or a hot match. They don't make the tick let go, and they can make things worse.",
+          "Clean the spot afterward and keep an eye on it for a few days. If it looks red or swollen, or your pet seems off, check in with your vet.",
+        ],
+      },
+      { type: "h2", text: "Signs of Fleas" },
+      {
+        type: "p",
+        text: "Fleas are quick and hard to spot directly, so look for the clues they leave: more scratching or chewing than usual, especially around the lower back and tail base, and tiny black specks in the coat called flea dirt. To tell flea dirt from ordinary dirt, put a few specks on a damp white paper towel. If they smear reddish-brown, it's flea dirt. Cats, even indoor ones, can get fleas carried in on people or other pets, and they often over-groom rather than scratch, so thinning fur or hair in the litter box area can be a sign.",
+      },
+      {
+        type: "p",
+        text: "Prevention is a conversation for your veterinarian, who can recommend a product that suits your pet's age, size, and health. One important note: never use a dog flea product on a cat. Some ingredients that are safe for dogs are toxic to cats.",
+      },
+      {
+        type: "p",
+        text: "A bath and thorough brush-out between full grooms is also a good chance to get a close look at skin and coat. If your pet is due for one, or you've recently found fleas and want to mention it ahead of an appointment, call our Funkstown salon.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "cat-grooming"],
+  },
+  {
+    slug: "bath-and-brush-or-full-groom-which-does-your-dog-need",
+    title: "Bath & Brush or Full Groom? How to Tell Which Your Dog Needs",
+    metaDescription:
+      "Not every visit needs a haircut. How to tell whether your dog is due for a bath and brush-out or a full groom, based on coat type, how the coat looks, and the season.",
+    excerpt:
+      "Not every grooming visit needs a haircut. Here's how to tell whether your dog is due for a bath and brush-out or a full groom.",
+    eyebrow: "Dog Grooming",
+    publishedAt: "2026-10-05",
+    heroPhotoKey: "creamMalteseBlueBandana",
+    body: [
+      {
+        type: "p",
+        text: "When you call to book, one of the first questions is whether your dog needs a full groom or just a bath and brush. The difference is simple: a bath and brush is a thorough wash and brush-out with no haircut, while a full groom adds a breed-appropriate haircut or trim. Knowing which one your dog needs right now makes booking easier, and it helps you plan a rhythm that keeps the coat in good shape all year.",
+      },
+      { type: "h2", text: "When a Bath & Brush Is Enough" },
+      {
+        type: "list",
+        items: [
+          "Short-coated dogs (Labs, Beagles, Boxers, Pit Bull mixes) whose coat never really needs cutting, just cleaning and a good brush-out to clear loose hair.",
+          "Double-coated breeds (Huskies, Shepherds, Golden Retrievers) between seasonal sheds, when the coat is the right length but has gotten dirty or dull.",
+          "Any dog that's simply grubby after a muddy walk, a roll in something unpleasant, or a stretch of rainy weather, but whose haircut still looks good.",
+          "Dogs on a full-groom schedule who need a refresh halfway between haircuts.",
+        ],
+      },
+      { type: "h2", text: "When It's Time for a Full Groom" },
+      {
+        type: "list",
+        items: [
+          "The coat is growing over your dog's eyes, or the face and feet have lost their shape.",
+          "Curly or continuously growing coats (Poodles, Doodles, Bichons, Shih Tzus) that are a few weeks past their last cut and getting long or tangled.",
+          "You can feel tangles close to the skin that brushing at home isn't reaching.",
+          "Hair between the paw pads is long enough to collect debris, or long fur around the rear end is staying dirty.",
+        ],
+      },
+      { type: "h2", text: "A Simple Rhythm That Works for Many Dogs" },
+      {
+        type: "p",
+        text: "For dogs with coats that need regular cutting, a common pattern is to alternate: a full groom, then a bath and brush a few weeks later, then the next full groom. The bath in between keeps the coat clean and brushed out, which makes the next haircut easier and lowers the chance of mats forming in the meantime. Short-coated dogs may never need more than a bath and brush plus regular nail trims, and nail trims can be booked on their own whenever they're due.",
+      },
+      {
+        type: "p",
+        text: "Seasons shift the balance a little too. As the weather turns colder around Funkstown and Hagerstown, plenty of owners keep coats a bit longer and lean on baths and brush-outs to keep them clean and tangle-free until the next trim.",
+      },
+      {
+        type: "p",
+        text: "If you're not sure which your dog needs, just tell us your dog's breed, coat, and when they were last groomed when you call, and we'll help you pick. We offer both at our Funkstown salon, in the same cage-free setting, so a quick bath visit doesn't mean a long wait in a kennel.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "nail-trim-ear-cleaning"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
