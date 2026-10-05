@@ -477,6 +477,57 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "cat-grooming"],
   },
+  {
+    slug: "bath-and-brush-or-full-groom-which-does-your-dog-need",
+    title: "Bath & Brush or Full Groom? How to Tell Which Your Dog Needs",
+    metaDescription:
+      "Not every visit needs a haircut. How to tell whether your dog is due for a bath and brush-out or a full groom, based on coat type, how the coat looks, and the season.",
+    excerpt:
+      "Not every grooming visit needs a haircut. Here's how to tell whether your dog is due for a bath and brush-out or a full groom.",
+    eyebrow: "Dog Grooming",
+    publishedAt: "2026-10-05",
+    heroPhotoKey: "creamMalteseBlueBandana",
+    body: [
+      {
+        type: "p",
+        text: "When you call to book, one of the first questions is whether your dog needs a full groom or just a bath and brush. The difference is simple: a bath and brush is a thorough wash and brush-out with no haircut, while a full groom adds a breed-appropriate haircut or trim. Knowing which one your dog needs right now makes booking easier, and it helps you plan a rhythm that keeps the coat in good shape all year.",
+      },
+      { type: "h2", text: "When a Bath & Brush Is Enough" },
+      {
+        type: "list",
+        items: [
+          "Short-coated dogs (Labs, Beagles, Boxers, Pit Bull mixes) whose coat never really needs cutting, just cleaning and a good brush-out to clear loose hair.",
+          "Double-coated breeds (Huskies, Shepherds, Golden Retrievers) between seasonal sheds, when the coat is the right length but has gotten dirty or dull.",
+          "Any dog that's simply grubby after a muddy walk, a roll in something unpleasant, or a stretch of rainy weather, but whose haircut still looks good.",
+          "Dogs on a full-groom schedule who need a refresh halfway between haircuts.",
+        ],
+      },
+      { type: "h2", text: "When It's Time for a Full Groom" },
+      {
+        type: "list",
+        items: [
+          "The coat is growing over your dog's eyes, or the face and feet have lost their shape.",
+          "Curly or continuously growing coats (Poodles, Doodles, Bichons, Shih Tzus) that are a few weeks past their last cut and getting long or tangled.",
+          "You can feel tangles close to the skin that brushing at home isn't reaching.",
+          "Hair between the paw pads is long enough to collect debris, or long fur around the rear end is staying dirty.",
+        ],
+      },
+      { type: "h2", text: "A Simple Rhythm That Works for Many Dogs" },
+      {
+        type: "p",
+        text: "For dogs with coats that need regular cutting, a common pattern is to alternate: a full groom, then a bath and brush a few weeks later, then the next full groom. The bath in between keeps the coat clean and brushed out, which makes the next haircut easier and lowers the chance of mats forming in the meantime. Short-coated dogs may never need more than a bath and brush plus regular nail trims, and nail trims can be booked on their own whenever they're due.",
+      },
+      {
+        type: "p",
+        text: "Seasons shift the balance a little too. As the weather turns colder around Funkstown and Hagerstown, plenty of owners keep coats a bit longer and lean on baths and brush-outs to keep them clean and tangle-free until the next trim.",
+      },
+      {
+        type: "p",
+        text: "If you're not sure which your dog needs, just tell us your dog's breed, coat, and when they were last groomed when you call, and we'll help you pick. We offer both at our Funkstown salon, in the same cage-free setting, so a quick bath visit doesn't mean a long wait in a kennel.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "nail-trim-ear-cleaning"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
