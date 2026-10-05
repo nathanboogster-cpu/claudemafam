@@ -1,4 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':!bark-and-bork-mobile-pet-spa' ':!bow-wags' ':!flos-happy-clipper' ':!groomer-on-call' ':!pet-spa-luxe' ':!sittin-pretty-pet-grooming' ':!tongfluence'"
+  "ignoreCommand": "git diff --quiet \"${VERCEL_GIT_PREVIOUS_SHA:-HEAD^}\" HEAD -- . ':!bark-and-bork-mobile-pet-spa' ':!bow-wags' ':!flos-happy-clipper' ':!groomer-on-call' ':!pet-spa-luxe' ':!sittin-pretty-pet-grooming' ':!tongfluence' 2>/dev/null || exit 1",
+  "git": {
+    "deploymentEnabled": {
+      "claude/*": false
+    }
+  }
 }
