@@ -20,16 +20,23 @@
 import { sign } from "node:crypto";
 import { appendFile, writeFile } from "node:fs/promises";
 
+// `property` must match the Search Console property EXACTLY as it appears in
+// GSC. Every Tongfluence property is a Domain property, so it's the
+// `sc-domain:` form — a URL-prefix string (https://www.x.com/) against a
+// Domain property returns 403 even when the service account has access.
+// `sitemap` is the live sitemap URL (its <loc> host can be www or not; a
+// Domain property covers both).
 const SITES = [
-  { name: "bow-wags", siteUrl: "https://www.bowwags.com/" },
-  { name: "pet-spa-luxe", siteUrl: "https://www.petspaluxe.com/" },
-  { name: "sittin-pretty-pet-grooming", siteUrl: "https://www.sittinprettypetgrooming.com/" },
-  { name: "bark-and-bork-mobile-pet-spa", siteUrl: "https://www.barkandbork.com/" },
-  { name: "flos-happy-clipper", siteUrl: "https://www.floshappyclipper.com/" },
-  { name: "tongfluence", siteUrl: "https://www.tongfluence.com/" },
+  { name: "bow-wags", property: "sc-domain:bowwags.com", sitemap: "https://www.bowwags.com/sitemap.xml" },
+  { name: "sittin-pretty-pet-grooming", property: "sc-domain:sittinprettypetgrooming.com", sitemap: "https://www.sittinprettypetgrooming.com/sitemap.xml" },
+  { name: "bark-and-bork-mobile-pet-spa", property: "sc-domain:barkandbork.com", sitemap: "https://www.barkandbork.com/sitemap.xml" },
+  { name: "flos-happy-clipper", property: "sc-domain:floshappyclipper.com", sitemap: "https://floshappyclipper.com/sitemap.xml" },
+  { name: "pampered-puppies", property: "sc-domain:pamperedpuppiespetgrooming.com", sitemap: "https://www.pamperedpuppiespetgrooming.com/sitemap.xml" },
+  { name: "petssible", property: "sc-domain:petssibleus.com", sitemap: "https://www.petssibleus.com/sitemap.xml" },
+  { name: "tongfluence", property: "sc-domain:tongfluence.com", sitemap: "https://www.tongfluence.com/sitemap.xml" },
   // groomer-on-call has no custom domain attached yet (still *.vercel.app),
   // so there is no real Search Console property to check. Add it here once
-  // a domain is live.
+  // a domain is live. Pet Spa Luxe was removed 2026-10-06 (former client).
 ];
 
 const INSPECT_DELAY_MS = 350; // stay well under the per-minute quota
@@ -78,27 +85,33 @@ async function getAccessToken(serviceAccount) {
   return access_token;
 }
 
-async function fetchSitemapUrls(siteUrl) {
-  const res = await fetch(`${siteUrl}sitemap.xml`);
+async function fetchSitemapUrls(sitemapUrl, depth = 0) {
+  const res = await fetch(sitemapUrl);
   if (!res.ok) {
-    throw new Error(`Could not fetch sitemap.xml: ${res.status}`);
+    throw new Error(`Could not fetch ${sitemapUrl}: ${res.status}`);
   }
   const xml = await res.text();
-  const locs = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1].trim());
+  const locs = [...xml.matchAll(/<loc>\s*(.*?)\s*<\/loc>/g)].map((m) => m[1].trim());
+  // A sitemap index lists child sitemaps, not pages — follow them (1 level).
+  if (/<sitemapindex/i.test(xml) && depth === 0) {
+    const nested = [];
+    for (const child of locs) nested.push(...(await fetchSitemapUrls(child, 1)));
+    return [...new Set(nested)];
+  }
   return [...new Set(locs)];
 }
 
-async function inspectUrl(accessToken, siteUrl, inspectionUrl) {
+async function inspectUrl(accessToken, property, inspectionUrl) {
   const res = await fetch(INSPECT_URL, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ inspectionUrl, siteUrl }),
+    body: JSON.stringify({ inspectionUrl, siteUrl: property }),
   });
   if (!res.ok) {
-    return { error: `${res.status} ${await res.text()}` };
+    return { status: res.status, error: `${res.status} ${(await res.text()).slice(0, 300)}` };
   }
   const data = await res.json();
   const result = data.inspectionResult?.indexStatusResult;
@@ -109,8 +122,8 @@ async function inspectUrl(accessToken, siteUrl, inspectionUrl) {
   };
 }
 
-function inspectDeepLink(siteUrl, pageUrl) {
-  const resourceId = encodeURIComponent(siteUrl);
+function inspectDeepLink(property, pageUrl) {
+  const resourceId = encodeURIComponent(property);
   const id = encodeURIComponent(pageUrl);
   return `https://search.google.com/search-console/inspect?resource_id=${resourceId}&id=${id}`;
 }
@@ -120,14 +133,23 @@ function sleep(ms) {
 }
 
 async function checkSite(accessToken, site) {
-  const urls = await fetchSitemapUrls(site.siteUrl);
+  const urls = await fetchSitemapUrls(site.sitemap);
   const indexed = [];
   const notIndexed = [];
   const errored = [];
 
   for (const url of urls) {
-    const result = await inspectUrl(accessToken, site.siteUrl, url);
+    const result = await inspectUrl(accessToken, site.property, url);
     if (result.error) {
+      // 403 on the first URL = the service account isn't a user on this
+      // property (or the property string doesn't match). Don't spam one
+      // error line per URL — report it once.
+      if (result.status === 403 && indexed.length + notIndexed.length + errored.length === 0) {
+        return {
+          site,
+          skipped: `No access to \`${site.property}\` — add the service account as a Restricted user on this property in Search Console (Settings → Users and permissions). API said: ${result.error}`,
+        };
+      }
       errored.push({ url, error: result.error });
     } else if (result.verdict === "PASS") {
       indexed.push({ url, ...result });
@@ -156,7 +178,7 @@ function renderReport(results) {
       lines.push(`**Not indexed (${r.notIndexed.length}):**`, "");
       for (const item of r.notIndexed) {
         lines.push(
-          `- [${item.url}](${inspectDeepLink(r.site.siteUrl, item.url)}) — ${item.verdict} / ${item.coverageState}`,
+          `- [${item.url}](${inspectDeepLink(r.site.property, item.url)}) — ${item.verdict} / ${item.coverageState}`,
         );
       }
       lines.push("");
@@ -202,7 +224,9 @@ async function main() {
     await appendFile(summaryPath, report + "\n");
   }
 
-  const hasIssues = results.some((r) => (r.notIndexed?.length ?? 0) > 0 || (r.errored?.length ?? 0) > 0);
+  const hasIssues = results.some(
+    (r) => r.skipped || (r.notIndexed?.length ?? 0) > 0 || (r.errored?.length ?? 0) > 0,
+  );
   await writeFile("gsc-report.md", report);
   await writeFile("gsc-has-issues.txt", hasIssues ? "true" : "false");
 }
