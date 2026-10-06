@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
+import { MorePosts } from "@/components/RelatedArticles";
 import { JsonLd, breadcrumbSchema, blogPostingSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import { business, services, servicePath, photos, PATHS, SITE_URL, blogPostPath } from "@/lib/site-data";
@@ -125,6 +126,8 @@ export default async function BlogPostPage({
           })}
         </div>
       </article>
+
+      <MorePosts currentSlug={post.slug} />
 
       <section className="bg-sp-ink text-white">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 py-14 text-center">

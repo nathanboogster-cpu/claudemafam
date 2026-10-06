@@ -4,6 +4,8 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { photos, blogPostPath, PATHS, type ServiceSlug } from "@/lib/site-data";
 import { blogPosts, formatBlogDate } from "@/lib/blog-data";
 
+type Post = (typeof blogPosts)[number];
+
 // Reverse of each post's relatedServiceSlugs: a service page links back to
 // the posts that link to it, so every new post from the blog routine picks
 // up internal links automatically instead of only being reachable from /blog.
@@ -12,7 +14,26 @@ export function RelatedArticles({ serviceSlug }: { serviceSlug: ServiceSlug }) {
     .filter((p) => p.relatedServiceSlugs.includes(serviceSlug))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
     .slice(0, 3);
+  return <ArticleCards posts={posts} heading="Grooming Tips & Advice" />;
+}
 
+// Other posts for the bottom of a blog post: the posts published just before
+// and after this one (so every post, however old, is linked from two others),
+// plus the closest topical match by shared services.
+export function MorePosts({ currentSlug }: { currentSlug: string }) {
+  const byDate = [...blogPosts].sort((a, b) => a.publishedAt.localeCompare(b.publishedAt));
+  const i = byDate.findIndex((p) => p.slug === currentSlug);
+  if (i === -1) return null;
+  const current = byDate[i];
+  const neighbors = [byDate[i + 1], byDate[i - 1]].filter((p): p is Post => Boolean(p));
+  const shared = (p: Post) => p.relatedServiceSlugs.filter((s) => current.relatedServiceSlugs.includes(s)).length;
+  const topical = byDate
+    .filter((p) => p !== current && !neighbors.includes(p))
+    .sort((a, b) => shared(b) - shared(a) || b.publishedAt.localeCompare(a.publishedAt));
+  return <ArticleCards posts={[...neighbors, ...topical].slice(0, 3)} heading="More From the Blog" />;
+}
+
+function ArticleCards({ posts, heading }: { posts: Post[]; heading: string }) {
   if (posts.length === 0) return null;
 
   return (
@@ -20,7 +41,7 @@ export function RelatedArticles({ serviceSlug }: { serviceSlug: ServiceSlug }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <Eyebrow>From the Blog</Eyebrow>
-          <h2 className="mt-1 font-sp-display text-2xl font-bold text-sp-ink sm:text-3xl">Grooming Tips & Advice</h2>
+          <h2 className="mt-1 font-sp-display text-2xl font-bold text-sp-ink sm:text-3xl">{heading}</h2>
         </div>
         <Link href={PATHS.blog} className="text-sm font-semibold text-sp-purple-dark hover:underline">
           All articles →
