@@ -1,0 +1,97 @@
+name: Search Console Index Check
+
+on:
+  schedule:
+    # 13:17 UTC daily (off the hour, to avoid GitHub's on-the-hour scheduling
+    # congestion) — see scripts/gsc-index-check.mjs for what this runs.
+    - cron: "17 13 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "bow-wags/lib/blog-data.ts"
+      - "pet-spa-luxe/lib/blog-data.ts"
+      - "sittin-pretty-pet-grooming/lib/blog-data.ts"
+      - "bark-and-bork-mobile-pet-spa/lib/blog-data.ts"
+      - "flos-happy-clipper/lib/blog-data.ts"
+      - "tongfluence/lib/blog-posts.ts"
+
+permissions:
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run Search Console index check
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/gsc-index-check.mjs
+
+      - name: Upsert tracking issue
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('gsc-report.md')) return;
+
+            const body = fs.readFileSync('gsc-report.md', 'utf8');
+            const hasIssues =
+              fs.existsSync('gsc-has-issues.txt') &&
+              fs.readFileSync('gsc-has-issues.txt', 'utf8').trim() === 'true';
+            const title = 'Search Console Index Check';
+
+            const { data: openIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+            });
+            const existing = openIssues.find((i) => i.title === title && !i.pull_request);
+
+            if (!hasIssues) {
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  body: 'All sitemap URLs are now indexed across every checked site. Closing.\n\n' + body,
+                });
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  state: 'closed',
+                });
+              }
+              return;
+            }
+
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: 'Updated ' + new Date().toISOString(),
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['gsc-index-check'],
+              });
+            }
