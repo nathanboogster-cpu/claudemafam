@@ -40,6 +40,7 @@ const SITES = [
 ];
 
 const INSPECT_DELAY_MS = 350; // stay well under the per-minute quota
+const FETCH_TIMEOUT_MS = 30_000; // never let one slow request hang the whole run
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const INSPECT_URL = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect";
 const SCOPE = "https://www.googleapis.com/auth/webmasters.readonly";
@@ -71,6 +72,7 @@ async function getAccessToken(serviceAccount) {
   const jwt = `${unsigned}.${signature}`;
 
   const res = await fetch(TOKEN_URL, {
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
@@ -86,7 +88,7 @@ async function getAccessToken(serviceAccount) {
 }
 
 async function fetchSitemapUrls(sitemapUrl, depth = 0) {
-  const res = await fetch(sitemapUrl);
+  const res = await fetch(sitemapUrl, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
   if (!res.ok) {
     throw new Error(`Could not fetch ${sitemapUrl}: ${res.status}`);
   }
@@ -102,14 +104,20 @@ async function fetchSitemapUrls(sitemapUrl, depth = 0) {
 }
 
 async function inspectUrl(accessToken, property, inspectionUrl) {
-  const res = await fetch(INSPECT_URL, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ inspectionUrl, siteUrl: property }),
-  });
+  let res;
+  try {
+    res = await fetch(INSPECT_URL, {
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ inspectionUrl, siteUrl: property }),
+    });
+  } catch (err) {
+    return { error: `request failed: ${err.name === "TimeoutError" ? "timed out" : err.message}` };
+  }
   if (!res.ok) {
     return { status: res.status, error: `${res.status} ${(await res.text()).slice(0, 300)}` };
   }
@@ -134,6 +142,7 @@ function sleep(ms) {
 
 async function checkSite(accessToken, site) {
   const urls = await fetchSitemapUrls(site.sitemap);
+  console.log(`[${site.name}] ${urls.length} sitemap URLs — inspecting…`);
   const indexed = [];
   const notIndexed = [];
   const errored = [];
@@ -159,6 +168,9 @@ async function checkSite(accessToken, site) {
     await sleep(INSPECT_DELAY_MS);
   }
 
+  console.log(
+    `[${site.name}] done: ${indexed.length} indexed, ${notIndexed.length} not indexed, ${errored.length} errors`,
+  );
   return { site, total: urls.length, indexed, notIndexed, errored };
 }
 
