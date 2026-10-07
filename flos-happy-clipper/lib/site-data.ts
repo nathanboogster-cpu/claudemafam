@@ -8,7 +8,16 @@
 // client apps in this monorepo — see the repo root README). Set
 // NEXT_PUBLIC_SITE_URL once a custom domain is attached; until then this
 // falls back to the default Vercel-assigned project URL.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://flos-happy-clipper.vercel.app";
+//
+// The live site is served on www — Vercel redirects the bare domain
+// (floshappyclipper.com) to www.floshappyclipper.com. Canonicals, og:url,
+// schema, the sitemap and robots.txt must all name the host that actually
+// serves the page, or Google gets conflicting signals and can ignore the
+// sitemap (sitemap URLs must be on the sitemap's own host). So the bare
+// domain is always normalized to www here, whatever NEXT_PUBLIC_SITE_URL is
+// set to.
+const RAW_SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://flos-happy-clipper.vercel.app").replace(/\/+$/, "");
+export const SITE_URL = RAW_SITE_URL.replace(/^https?:\/\/floshappyclipper\.com$/i, "https://www.floshappyclipper.com");
 
 export const business = {
   name: "Flo's Happy Clipper",

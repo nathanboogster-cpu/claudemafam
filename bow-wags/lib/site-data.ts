@@ -9,7 +9,15 @@
 // other Tongfluence client app in this monorepo). Set NEXT_PUBLIC_SITE_URL
 // once a custom domain (e.g. bowwags.com) is attached; until then this
 // falls back to the default Vercel-assigned project URL.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bow-wags.vercel.app";
+//
+// The live site is served on www — Vercel redirects the bare domain
+// (bowwags.com) to www.bowwags.com. Canonicals, og:url, schema, the sitemap
+// and robots.txt must all name the host that actually serves the page, or
+// Google gets conflicting signals and can ignore the sitemap (sitemap URLs
+// must be on the sitemap's own host). So the bare domain is always
+// normalized to www here, whatever NEXT_PUBLIC_SITE_URL is set to.
+const RAW_SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://bow-wags.vercel.app").replace(/\/+$/, "");
+export const SITE_URL = RAW_SITE_URL.replace(/^https?:\/\/bowwags\.com$/i, "https://www.bowwags.com");
 
 export const business = {
   name: "Bow Wags",
