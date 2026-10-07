@@ -29,14 +29,14 @@ import { appendFile, writeFile } from "node:fs/promises";
 const SITES = [
   { name: "bow-wags", property: "sc-domain:bowwags.com", sitemap: "https://www.bowwags.com/sitemap.xml" },
   { name: "sittin-pretty-pet-grooming", property: "sc-domain:sittinprettypetgrooming.com", sitemap: "https://www.sittinprettypetgrooming.com/sitemap.xml" },
-  { name: "bark-and-bork-mobile-pet-spa", property: "sc-domain:barkandbork.com", sitemap: "https://www.barkandbork.com/sitemap.xml" },
-  { name: "flos-happy-clipper", property: "sc-domain:floshappyclipper.com", sitemap: "https://floshappyclipper.com/sitemap.xml" },
+  { name: "flos-happy-clipper", property: "sc-domain:floshappyclipper.com", sitemap: "https://www.floshappyclipper.com/sitemap.xml" },
   { name: "pampered-puppies", property: "sc-domain:pamperedpuppiespetgrooming.com", sitemap: "https://www.pamperedpuppiespetgrooming.com/sitemap.xml" },
   { name: "petssible", property: "sc-domain:petssibleus.com", sitemap: "https://www.petssibleus.com/sitemap.xml" },
   { name: "tongfluence", property: "sc-domain:tongfluence.com", sitemap: "https://www.tongfluence.com/sitemap.xml" },
   // groomer-on-call has no custom domain attached yet (still *.vercel.app),
   // so there is no real Search Console property to check. Add it here once
-  // a domain is live. Pet Spa Luxe was removed 2026-10-06 (former client).
+  // a domain is live. Pet Spa Luxe was removed 2026-10-06 and Bark and Bork
+  // 2026-10-07 (former clients).
 ];
 
 const INSPECT_DELAY_MS = 350; // stay well under the per-minute quota
