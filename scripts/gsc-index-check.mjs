@@ -87,20 +87,32 @@ async function getAccessToken(serviceAccount) {
   return access_token;
 }
 
+// Returns [{ url, lastmod }] — lastmod is the sitemap's date (or null).
 async function fetchSitemapUrls(sitemapUrl, depth = 0) {
   const res = await fetch(sitemapUrl, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
   if (!res.ok) {
     throw new Error(`Could not fetch ${sitemapUrl}: ${res.status}`);
   }
   const xml = await res.text();
-  const locs = [...xml.matchAll(/<loc>\s*(.*?)\s*<\/loc>/g)].map((m) => m[1].trim());
   // A sitemap index lists child sitemaps, not pages — follow them (1 level).
   if (/<sitemapindex/i.test(xml) && depth === 0) {
+    const children = [...xml.matchAll(/<loc>\s*(.*?)\s*<\/loc>/g)].map((m) => m[1].trim());
     const nested = [];
-    for (const child of locs) nested.push(...(await fetchSitemapUrls(child, 1)));
-    return [...new Set(nested)];
+    for (const child of children) nested.push(...(await fetchSitemapUrls(child, 1)));
+    return dedupe(nested);
   }
-  return [...new Set(locs)];
+  const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => {
+    const loc = m[1].match(/<loc>\s*(.*?)\s*<\/loc>/)?.[1]?.trim();
+    const lastmod = m[1].match(/<lastmod>\s*(.*?)\s*<\/lastmod>/)?.[1]?.trim() ?? null;
+    return loc ? { url: loc, lastmod } : null;
+  });
+  return dedupe(entries.filter(Boolean));
+}
+
+function dedupe(entries) {
+  const seen = new Map();
+  for (const e of entries) if (!seen.has(e.url)) seen.set(e.url, e);
+  return [...seen.values()];
 }
 
 async function inspectUrl(accessToken, property, inspectionUrl) {
@@ -130,6 +142,40 @@ async function inspectUrl(accessToken, property, inspectionUrl) {
   };
 }
 
+// Coverage states where clicking "Request Indexing" is the right move.
+const REQUESTABLE = [
+  "URL is unknown to Google",
+  "Discovered - currently not indexed",
+  "Crawled - currently not indexed",
+];
+// States that are only correct if the LIVE page still redirects / points its
+// canonical elsewhere. Google's verdict is often stale (e.g. a domain switch
+// since the last crawl), so we check the live page before trusting it.
+const VERIFY_LIVE = ["Page with redirect", "Alternate page with proper canonical tag"];
+
+const sameUrl = (a, b) => a.replace(/\/+$/, "") === b.replace(/\/+$/, "");
+
+// What does the page do right now? { ok, note }: ok=true means it serves 200
+// with a self-referencing (or no) canonical, so a fresh crawl will fix it.
+async function checkLivePage(url) {
+  try {
+    const res = await fetch(url, { redirect: "manual", signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+    if (res.status >= 300 && res.status < 400) {
+      return { ok: false, note: `live page redirects (${res.status}) to ${res.headers.get("location")}` };
+    }
+    if (res.status !== 200) return { ok: false, note: `live page returns ${res.status}` };
+    const html = await res.text();
+    const tag = html.match(/<link[^>]+rel=["']canonical["'][^>]*>/i)?.[0];
+    const canonical = tag?.match(/href=["']([^"']+)["']/i)?.[1];
+    if (canonical && !sameUrl(new URL(canonical, url).href, url)) {
+      return { ok: false, note: `live canonical points to ${canonical}` };
+    }
+    return { ok: true, note: "live page is now fine (200, self-canonical); Google's data is stale" };
+  } catch (err) {
+    return { ok: false, note: `could not load live page: ${err.message}` };
+  }
+}
+
 function inspectDeepLink(property, pageUrl) {
   const resourceId = encodeURIComponent(property);
   const id = encodeURIComponent(pageUrl);
@@ -141,13 +187,13 @@ function sleep(ms) {
 }
 
 async function checkSite(accessToken, site) {
-  const urls = await fetchSitemapUrls(site.sitemap);
-  console.log(`[${site.name}] ${urls.length} sitemap URLs — inspecting…`);
+  const entries = await fetchSitemapUrls(site.sitemap);
+  console.log(`[${site.name}] ${entries.length} sitemap URLs — inspecting…`);
   const indexed = [];
   const notIndexed = [];
   const errored = [];
 
-  for (const url of urls) {
+  for (const { url, lastmod } of entries) {
     const result = await inspectUrl(accessToken, site.property, url);
     if (result.error) {
       // 403 on the first URL = the service account isn't a user on this
@@ -163,7 +209,14 @@ async function checkSite(accessToken, site) {
     } else if (result.verdict === "PASS") {
       indexed.push({ url, ...result });
     } else {
-      notIndexed.push({ url, ...result });
+      const item = { url, lastmod, ...result, requestable: REQUESTABLE.includes(result.coverageState) };
+      if (VERIFY_LIVE.includes(result.coverageState)) {
+        const live = await checkLivePage(url);
+        item.requestable = live.ok;
+        item.note = live.note;
+        if (!live.ok) item.needsSiteFix = true;
+      }
+      notIndexed.push(item);
     }
     await sleep(INSPECT_DELAY_MS);
   }
@@ -171,35 +224,62 @@ async function checkSite(accessToken, site) {
   console.log(
     `[${site.name}] done: ${indexed.length} indexed, ${notIndexed.length} not indexed, ${errored.length} errors`,
   );
-  return { site, total: urls.length, indexed, notIndexed, errored };
+  return { site, total: entries.length, indexed, notIndexed, errored };
+}
+
+// Blog posts first, then newest sitemap lastmod, then sitemap order.
+function requestQueue(r) {
+  const isBlog = (u) => /\/blog\/[^/]+/.test(u);
+  return r.notIndexed
+    .map((item, i) => ({ ...item, i }))
+    .filter((item) => item.requestable)
+    .sort(
+      (a, b) =>
+        isBlog(b.url) - isBlog(a.url) ||
+        (b.lastmod ?? "").localeCompare(a.lastmod ?? "") ||
+        a.i - b.i,
+    );
 }
 
 function renderReport(results) {
   const lines = [`# Search Console Index Check — ${new Date().toISOString().slice(0, 10)}`, ""];
+  const queue = [];
 
   for (const r of results) {
     if (r.skipped) {
       lines.push(`## ${r.site.name} — skipped`, "", r.skipped, "");
       continue;
     }
-    lines.push(
-      `## ${r.site.name} — ${r.indexed.length}/${r.total} indexed`,
-      "",
-    );
-    if (r.notIndexed.length > 0) {
-      lines.push(`**Not indexed (${r.notIndexed.length}):**`, "");
-      for (const item of r.notIndexed) {
+    lines.push(`## ${r.site.name} — ${r.indexed.length}/${r.total} indexed`, "");
+    const q = requestQueue(r);
+    for (const item of q) {
+      queue.push({ site: r.site.name, property: r.site.property, url: item.url, state: item.coverageState });
+    }
+    if (q.length > 0) {
+      lines.push(`**Request indexing (${q.length}, in priority order):**`, "");
+      for (const item of q) {
+        const extra = item.note ? ` — ${item.note}` : "";
         lines.push(
-          `- [${item.url}](${inspectDeepLink(r.site.property, item.url)}) — ${item.verdict} / ${item.coverageState}`,
+          `- [${item.url}](${inspectDeepLink(r.site.property, item.url)}) — ${item.coverageState}${extra}`,
         );
       }
       lines.push("");
     }
+    const fix = r.notIndexed.filter((i) => i.needsSiteFix);
+    if (fix.length > 0) {
+      lines.push(`**Needs a site fix — requesting won't help (${fix.length}):**`, "");
+      for (const item of fix) lines.push(`- ${item.url} — ${item.coverageState} — ${item.note}`);
+      lines.push("");
+    }
+    const other = r.notIndexed.filter((i) => !i.requestable && !i.needsSiteFix);
+    if (other.length > 0) {
+      lines.push(`**Not indexed, excluded on purpose (${other.length}):**`, "");
+      for (const item of other) lines.push(`- ${item.url} — ${item.coverageState}`);
+      lines.push("");
+    }
     if (r.errored.length > 0) {
       lines.push(`**Inspection errors (${r.errored.length}):**`, "");
-      for (const item of r.errored) {
-        lines.push(`- ${item.url} — ${item.error}`);
-      }
+      for (const item of r.errored) lines.push(`- ${item.url} — ${item.error}`);
       lines.push("");
     }
     if (r.notIndexed.length === 0 && r.errored.length === 0) {
@@ -207,6 +287,8 @@ function renderReport(results) {
     }
   }
 
+  // Machine-readable copy for the daily request task (hidden when rendered).
+  lines.push("<!-- request-queue-json", JSON.stringify(queue), "-->");
   return lines.join("\n");
 }
 
@@ -219,14 +301,13 @@ async function main() {
   const serviceAccount = JSON.parse(keyJson);
   const accessToken = await getAccessToken(serviceAccount);
 
-  const results = [];
-  for (const site of SITES) {
-    try {
-      results.push(await checkSite(accessToken, site));
-    } catch (err) {
-      results.push({ site, skipped: `Error: ${err.message}` });
-    }
-  }
+  // Sites run in parallel: the URL Inspection quota is per property, so this
+  // is safe, and it cuts the run from ~20 min to roughly the slowest site.
+  const results = await Promise.all(
+    SITES.map((site) =>
+      checkSite(accessToken, site).catch((err) => ({ site, skipped: `Error: ${err.message}` })),
+    ),
+  );
 
   const report = renderReport(results);
   console.log(report);
