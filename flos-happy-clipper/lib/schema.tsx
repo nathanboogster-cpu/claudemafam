@@ -55,6 +55,19 @@ function addressSchema() {
 // display-formatted "(732) 544-8186" used in visible page copy.
 const telephoneSchema = business.phoneHref.replace("tel:", "");
 
+// Google reads WebSite structured data on the home page to pick the site name
+// shown above the URL in search results.
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: business.name,
+    url: `${SITE_URL}/`,
+    publisher: { "@id": `${SITE_URL}/#business` },
+  };
+}
+
 export function localBusinessSchema(pageUrl: string) {
   return {
     "@context": "https://schema.org",

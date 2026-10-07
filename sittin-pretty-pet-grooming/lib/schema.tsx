@@ -53,6 +53,20 @@ function addressSchema() {
   };
 }
 
+// Google reads WebSite structured data on the home page to pick the site name
+// shown above the URL in search results.
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: business.name,
+    alternateName: business.shortName,
+    url: `${SITE_URL}/`,
+    publisher: { "@id": `${SITE_URL}/#business` },
+  };
+}
+
 export function localBusinessSchema(pageUrl: string) {
   return {
     "@context": "https://schema.org",

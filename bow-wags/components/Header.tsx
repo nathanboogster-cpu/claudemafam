@@ -28,6 +28,9 @@ export function Header() {
           <Link href={PATHS.about} className="hover:text-bw-red-dark whitespace-nowrap">
             About
           </Link>
+          <Link href={PATHS.blog} className="hover:text-bw-red-dark whitespace-nowrap">
+            Blog
+          </Link>
           <Link href={PATHS.faq} className="hover:text-bw-red-dark whitespace-nowrap">
             FAQ
           </Link>
@@ -39,7 +42,7 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3 shrink-0">
           <a
             href={business.phoneHref}
-            className="text-sm font-semibold text-bw-ink-soft hover:text-bw-red-dark whitespace-nowrap"
+            className="hidden xl:inline text-sm font-semibold text-bw-ink-soft hover:text-bw-red-dark whitespace-nowrap"
           >
             {business.phoneDisplay}
           </a>
