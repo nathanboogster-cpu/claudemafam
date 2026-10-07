@@ -38,8 +38,14 @@ function vercelProductionOrigin(): string | undefined {
   return host ? `https://${host}` : undefined;
 }
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? vercelProductionOrigin() ?? "http://localhost:3000";
+// Vercel fills VERCEL_PROJECT_PRODUCTION_URL with the *shortest* custom
+// domain — the bare tongfluence.com — but the site is served on www (the bare
+// domain 308s to www). Canonicals and sitemap URLs pointing at a redirecting
+// host send Google conflicting signals, so the bare domain is normalized here.
+const RAW_SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? vercelProductionOrigin() ?? "http://localhost:3000"
+).replace(/\/+$/, "");
+export const SITE_URL = RAW_SITE_URL.replace(/^https?:\/\/tongfluence\.com$/i, "https://www.tongfluence.com");
 
 export const business = {
   name: "Tongfluence",

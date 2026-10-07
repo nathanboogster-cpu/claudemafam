@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
-import { JsonLd, localBusinessSchema } from "@/lib/schema";
+import { JsonLd, localBusinessSchema, webSiteSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -18,6 +18,7 @@ export default function PamperedPuppiesLayout({ children }: { children: React.Re
   return (
     <>
       <JsonLd data={localBusinessSchema(SITE_URL)} />
+      <JsonLd data={webSiteSchema()} />
       <Header />
       <main id="main-content" className="flex-1">
         {children}

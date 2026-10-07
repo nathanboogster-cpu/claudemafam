@@ -1,5 +1,18 @@
 import { business, hoursSchema, serviceAreas, SITE_URL } from "./site-data";
 
+// Google reads WebSite structured data on the home page to pick the site name
+// shown above the URL in search results.
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: business.name,
+    url: `${SITE_URL}/`,
+    publisher: { "@id": `${SITE_URL}/#business` },
+  };
+}
+
 // NOTE: Per the client handoff §2/§8, AggregateRating/Review schema must NOT be added
 // anywhere on this site (Google's structured-data guidelines restrict third-party-sourced
 // ratings). The 4.3★/226-review figure is shown as visible page content only — never here.

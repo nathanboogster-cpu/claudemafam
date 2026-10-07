@@ -52,6 +52,19 @@ const postalAddress = {
   addressCountry: "US",
 } as const;
 
+// Google reads WebSite structured data on the home page to pick the site name
+// shown above the URL in search results.
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: business.name,
+    url: `${SITE_URL}/`,
+    publisher: { "@id": `${SITE_URL}/#business` },
+  };
+}
+
 // Schema.org has no single standard subtype covering daycare + boarding +
 // grooming together (AnimalShelter, its closest LocalBusiness subtype, means
 // something different — animal rescue/adoption — so it's deliberately not

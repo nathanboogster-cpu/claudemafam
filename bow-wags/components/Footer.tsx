@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { business, hours, trustPillars, PATHS, mainNav } from "@/lib/site-data";
+import { business, hours, trustPillars, PATHS, mainNav, areaNav } from "@/lib/site-data";
 import { ShieldCheckIcon, TreesIcon, HouseIcon, ScissorsIcon } from "./icons";
 
 const badgeIcons = [ShieldCheckIcon, TreesIcon, HouseIcon, ScissorsIcon];
@@ -35,7 +35,7 @@ export function Footer() {
           })}
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <div>
           <span className="relative block h-9 w-[86px] overflow-hidden rounded-lg border border-bw-border">
             <Image src="/images/logo-mark.jpg" alt="Bow Wags" fill className="object-cover" sizes="86px" />
@@ -68,11 +68,24 @@ export function Footer() {
                 Rates
               </Link>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-bw-ink">Service Areas</h2>
+          <ul className="mt-3 space-y-2 text-sm">
             <li>
-              <Link href={PATHS.serviceAreas} className="hover:text-bw-red-dark">
-                Service Areas
+              <Link href={PATHS.serviceAreas} className="font-semibold hover:text-bw-red-dark">
+                All Service Areas
               </Link>
             </li>
+            {areaNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-bw-red-dark">
+                  Dog Care Near {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
