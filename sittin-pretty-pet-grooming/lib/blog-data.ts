@@ -528,6 +528,52 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "nail-trim-ear-cleaning"],
   },
+  {
+    slug: "hairballs-and-long-haired-cats-how-grooming-helps",
+    title: "Hairballs and Long-Haired Cats: How Regular Grooming Helps",
+    metaDescription:
+      "Why cats get hairballs, why long-haired cats get more of them, and how brushing at home and professional cat grooming can cut down on the fur your cat swallows.",
+    excerpt:
+      "Hairballs come from the loose fur cats swallow while grooming themselves. Here's why long-haired cats get more of them, and how grooming helps.",
+    eyebrow: "Cat Grooming",
+    publishedAt: "2026-10-08",
+    heroPhotoKey: "catGrayTabbiesWindow",
+    body: [
+      {
+        type: "p",
+        text: "Hairballs are one of the most common reasons cat owners start thinking about grooming. A cat's tongue is covered in tiny backward-facing barbs that pull loose fur out as they groom, and most of that fur gets swallowed. Usually it passes through without trouble. When there's more loose fur than the digestive system can handle, it collects in the stomach and comes back up as a hairball.",
+      },
+      { type: "h2", text: "Why Some Cats Get More Hairballs" },
+      {
+        type: "list",
+        items: [
+          "Long-haired breeds like Persians, Maine Coons, Ragdolls, and long-haired mixes simply have more fur to swallow, and it tangles more easily on the way down.",
+          "Heavy shedding seasons, when cats drop their coat in spring and again in fall, mean more loose fur on the surface for them to lick up.",
+          "Cats who over-groom from stress, boredom, or itchy skin swallow more fur than usual.",
+          "Older cats who've slowed down sometimes groom less evenly, leaving loose undercoat in some spots and matting in others.",
+        ],
+      },
+      { type: "h2", text: "How Grooming Cuts Down on Hairballs" },
+      {
+        type: "p",
+        text: "The idea is simple: every bit of loose fur you remove with a brush is fur your cat doesn't swallow. For long-haired cats, a few minutes of brushing several times a week makes a real difference, especially through fall as coats change over for winter here in Washington County. A wide-toothed metal comb works well for long coats, followed by a softer brush to pick up what the comb loosens. Go gently around the belly and back legs, where many cats are sensitive.",
+      },
+      {
+        type: "p",
+        text: "Some cats won't sit still for brushing at home no matter how patient you are, and some long coats shed more undercoat than home brushing can keep up with. That's where a professional groom helps. A thorough brush-out, or a deshedding treatment for a heavy coat, clears out a large amount of loose undercoat at once and gives you a much easier coat to maintain afterward.",
+      },
+      { type: "h2", text: "When to Call the Vet Instead" },
+      {
+        type: "p",
+        text: "An occasional hairball is normal for many cats. Frequent hairballs, repeated retching without bringing anything up, a loss of appetite, lethargy, or constipation are worth a call to your veterinarian, since those can point to something more than fur. Grooming helps with the fur; it doesn't replace a vet visit when something seems off.",
+      },
+      {
+        type: "p",
+        text: "Cats need a different touch than dogs, and plenty of groomers don't take cats at all. Sittin' Pretty is one of the few local groomers Funkstown and Hagerstown-area owners trust specifically for cat grooming. If your long-haired cat is leaving more hairballs around the house than usual, give our Funkstown salon a call.",
+      },
+    ],
+    relatedServiceSlugs: ["cat-grooming", "deshedding-treatment"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
