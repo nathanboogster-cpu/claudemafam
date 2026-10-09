@@ -183,8 +183,18 @@ export function videoSchema(opts: {
   uploadDate: string;
   duration: string;
   embedUrl: string;
+  /** Direct video file, when Wistia exposes one. */
+  contentUrl?: string;
+  /** The page this schema is emitted on. */
   pagePath: string;
+  /** The dedicated watch page, when the video is embedded somewhere else.
+   *  Google indexes a video only where it is the main content, so every
+   *  embed points mainEntityOfPage at its watch page. Defaults to pagePath. */
+  watchPath?: string;
+  /** Transcript paragraphs, on the watch page only. */
+  transcript?: string[];
 }) {
+  const watchUrl = canonicalUrl(opts.watchPath ?? opts.pagePath);
   return {
     "@context": "https://schema.org",
     "@type": "VideoObject",
@@ -194,8 +204,11 @@ export function videoSchema(opts: {
     uploadDate: opts.uploadDate,
     duration: opts.duration,
     embedUrl: opts.embedUrl,
+    ...(opts.contentUrl ? { contentUrl: opts.contentUrl } : {}),
+    ...(opts.transcript ? { transcript: opts.transcript.join("\n\n") } : {}),
     publisher: { "@id": ORG_ID },
-    mainEntityOfPage: canonicalUrl(opts.pagePath),
+    url: watchUrl,
+    mainEntityOfPage: watchUrl,
   };
 }
 

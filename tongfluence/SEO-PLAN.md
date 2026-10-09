@@ -42,6 +42,7 @@ cheaper to avoid now than to fix with redirects later.
 | `/about` | — (trust) | Navigational | Why the specialisation exists; the constraints we work under | Case studies, marketing, book |
 | `/testimonials` | — (trust) | Evaluation | Client messages quoted word for word with the original screenshots, and the one measured result | Case studies, book |
 | `/faq` | — (objections) | Pre-decision | Seven video answers to what groomers say before a call, then every written answer, grouped | Book |
+| `/video/[slug]` | — (video indexing) | Navigational | One watch page per Wistia video (the explainer and the seven FAQ answers): player first, H1 = video title, transcript from Wistia captions, VideoObject pointing at itself. Google indexes a video only where it is the main content; the embeds on `/`, `/book` and `/faq` point `mainEntityOfPage` here | Home, FAQ, book |
 | `/book` | — (conversion) | Transactional | The one dominant conversion action for the whole site | — |
 | `/privacy`, `/terms` | — | Utility | Required trust pages, written from what the code and offer actually do | — |
 
