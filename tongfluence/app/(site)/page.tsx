@@ -13,6 +13,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { TrustPills } from "@/components/TrustPills";
 import { DogStrip } from "@/components/DogStrip";
 import { heroDogPhoto, heroDetailPhoto } from "@/lib/dog-photos";
+import { videoPath } from "@/lib/videos";
 import { gbpCallsProof } from "@/lib/site-data";
 import { Reveal } from "@/components/Reveal";
 import { ExplainerVideo } from "@/components/ExplainerVideo";
@@ -90,6 +91,7 @@ export default function HomePage() {
           duration: explainerVideo.durationIso,
           embedUrl: explainerVideo.embedUrl,
           pagePath: PATHS.home,
+          watchPath: videoPath("how-tongfluence-works"),
         })}
       />
       <JsonLd
@@ -148,6 +150,12 @@ export default function HomePage() {
               <figcaption className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-tf-ink-soft">
                 <span className="tf-caps text-xs text-tf-brown">Watch · {explainerVideo.durationLabel}</span>
                 <span>Exactly what we do, start to finish.</span>
+                <Link
+                  href={videoPath("how-tongfluence-works")}
+                  className="inline-block py-1 font-medium text-tf-brown-dark underline underline-offset-4"
+                >
+                  Watch the full video
+                </Link>
               </figcaption>
             </figure>
           </Reveal>

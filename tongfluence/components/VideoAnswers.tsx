@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { preCallVideoAspect, wistiaSwatchUrl, type PreCallVideo } from "@/lib/site-data";
+import { watchPathForMedia } from "@/lib/videos";
 import { WistiaPlayer } from "./WistiaPlayer";
 
 // Video answers, all visible at once: each card is the question as a heading
@@ -78,7 +80,17 @@ function VideoAnswerCard({
           style={{ aspectRatio: String(preCallVideoAspect), backgroundImage: `url('${wistiaSwatchUrl(item.wistiaMediaId)}')` }}
         />
       )}
-      {length ? <p className="mt-2 text-xs text-tf-ink-soft">Video answer · {length}</p> : null}
+      <p className="mt-2 flex flex-wrap items-center gap-x-3 text-xs text-tf-ink-soft">
+        {length ? <span>Video answer · {length}</span> : null}
+        {watchPathForMedia(item.wistiaMediaId) ? (
+          <Link
+            href={watchPathForMedia(item.wistiaMediaId)!}
+            className="inline-block py-1 font-medium text-tf-brown-dark underline underline-offset-4"
+          >
+            Watch the full video
+          </Link>
+        ) : null}
+      </p>
     </li>
   );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { PATHS, faqs, business, preCallVideos, explainerVideo, headlineResult } from "@/lib/site-data";
 import { JsonLd, breadcrumbSchema, faqSchema, videoSchema } from "@/lib/schema";
+import { videoPath } from "@/lib/videos";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading, Eyebrow } from "@/components/Section";
 import { BookingCalendar } from "@/components/BookingCalendar";
@@ -62,6 +63,7 @@ export default function BookPage() {
           duration: explainerVideo.durationIso,
           embedUrl: explainerVideo.embedUrl,
           pagePath: PATHS.book,
+          watchPath: videoPath("how-tongfluence-works"),
         })}
       />
 
@@ -91,6 +93,14 @@ export default function BookPage() {
         </div>
         <Reveal className="tf-reveal-photo mt-8" delay={180}>
           <ExplainerVideo location="book_hero" />
+          <p className="mt-3 text-center text-sm">
+            <Link
+              href={videoPath("how-tongfluence-works")}
+              className="inline-block py-1 font-medium text-tf-brown-dark underline underline-offset-4"
+            >
+              Watch the full video, with transcript
+            </Link>
+          </p>
         </Reveal>
       </Section>
 

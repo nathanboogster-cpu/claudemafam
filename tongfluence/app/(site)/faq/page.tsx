@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { PATHS, faqs, objections, preCallVideos, wistiaSwatchUrl, wistiaEmbedUrl } from "@/lib/site-data";
 import { JsonLd, breadcrumbSchema, faqSchema, videoSchema } from "@/lib/schema";
+import { faqVideoDescription, isoDuration, watchPathForMedia } from "@/lib/videos";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, SectionHeading } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
@@ -88,7 +89,6 @@ const groups = [
   },
 ];
 
-const isoDuration = (s: number) => `PT${Math.floor(s / 60)}M${s % 60}S`;
 
 export default function FaqPage() {
   return (
@@ -102,12 +102,13 @@ export default function FaqPage() {
             key={v.wistiaMediaId}
             data={videoSchema({
               name: v.question,
-              description: `Tongfluence’s answer to a grooming business owner who says: “${v.question}”`,
+              description: faqVideoDescription(v.question),
               thumbnailUrl: wistiaSwatchUrl(v.wistiaMediaId),
               uploadDate: v.uploadDate!,
               duration: isoDuration(v.durationSeconds!),
               embedUrl: wistiaEmbedUrl(v.wistiaMediaId),
               pagePath: PATHS.faq,
+              watchPath: watchPathForMedia(v.wistiaMediaId),
             })}
           />
         ))}

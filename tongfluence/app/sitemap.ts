@@ -3,6 +3,7 @@ import { PATHS, SITE_URL, caseStudyPath, resourcePath } from "@/lib/site-data";
 import { caseStudyBuilds } from "@/lib/client-builds";
 import { resources } from "@/lib/resources-data";
 import { blogPosts, blogPath } from "@/lib/blog-posts";
+import { watchVideos, videoPath } from "@/lib/videos";
 
 // Every URL here is canonical, indexable, returns 200 and has unique value.
 // Nothing is listed that redirects, 404s, or duplicates another page.
@@ -56,5 +57,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...corePages, ...caseStudyPages, ...resourcePages, ...blogPages];
+  const videoPages = watchVideos.map((v) => ({
+    url: `${SITE_URL}${videoPath(v.slug)}`,
+    lastModified: new Date(`${v.uploadDate}T00:00:00Z`),
+    changeFrequency: "yearly" as const,
+    priority: 0.5,
+  }));
+
+  return [...corePages, ...caseStudyPages, ...resourcePages, ...blogPages, ...videoPages];
 }
