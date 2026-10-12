@@ -574,6 +574,57 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["cat-grooming", "deshedding-treatment"],
   },
+  {
+    slug: "what-to-tell-your-groomer-describing-the-cut-you-want",
+    title: "What to Tell Your Groomer: How to Describe the Cut You Want",
+    metaDescription:
+      "Haircut names mean different things to different groomers. How to describe the cut you want, what to mention when you book, and why a groomer may suggest something shorter.",
+    excerpt:
+      "\"Puppy cut\" and \"teddy bear\" can mean different things to different groomers. Here's how to describe what you want and what to mention when you book.",
+    eyebrow: "Grooming Tips",
+    publishedAt: "2026-10-12",
+    heroPhotoKey: "tanChihuahua",
+    body: [
+      {
+        type: "p",
+        text: "One of the most common reasons a pet owner walks out of a grooming appointment a little surprised isn't a bad groom. It's a cut that didn't match what they had in mind. Haircut names like \"puppy cut,\" \"teddy bear,\" or \"summer cut\" aren't standardized, and two groomers can picture very different lengths and shapes from the same words. A few minutes of clear description up front makes a big difference.",
+      },
+      { type: "h2", text: "Describe the Cut, Not Just the Name" },
+      {
+        type: "list",
+        items: [
+          "Bring a photo. A picture of your own dog after a groom you liked is ideal; a photo of a similar breed works too. It's the fastest way to get on the same page.",
+          "Talk length in plain terms, like \"about an inch all over\" or \"short on the body, a little longer on the legs.\" Holding your fingers apart to show the length helps more than you'd think.",
+          "Go area by area: body, legs, face, ears, feet, and tail. Many owners want the body short but the face kept round and fluffy, or the ears left long. Say so.",
+          "Mention what bothered you last time, if anything. Too short around the eyes, ears cut shorter than you liked, a tail that lost its plume: specifics are easy to fix.",
+        ],
+      },
+      { type: "h2", text: "What to Mention When You Call" },
+      {
+        type: "p",
+        text: "At Sittin' Pretty we schedule by phone, so the call is the perfect time to share anything that helps us plan your pet's visit:",
+      },
+      {
+        type: "list",
+        items: [
+          "Breed or mix, age, and roughly when they were last groomed.",
+          "Anything about handling: nervousness, a spot they don't like touched, trouble with stairs or standing for long, or a history of nipping when stressed.",
+          "Health notes like skin sensitivities, recent surgery, lumps, or sore joints.",
+          "For cats, how they do with handling and car rides, since cats need a different approach than dogs.",
+        ],
+      },
+      { type: "h2", text: "When a Groomer Suggests Something Shorter" },
+      {
+        type: "p",
+        text: "Sometimes the cut you picture isn't the kindest option for the coat your pet has that day. If the coat is matted close to the skin, brushing those mats out can be painful, and a shorter clip that gets underneath them is often more comfortable for the pet. A good groomer will explain that before starting rather than surprising you at pickup. The upside: the coat grows back fresh, and with regular brushing at home you can keep it longer next time.",
+      },
+      {
+        type: "p",
+        text: "We've been grooming dogs and cats in Funkstown for more than 40 years, and pet owners around Hagerstown and Halfway regularly mention how comfortable their nervous, senior, and large-breed dogs are with us. If you have a particular look in mind, or just aren't sure what to ask for, give us a call and we'll talk it through before the appointment.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "cat-grooming", "puppy-first-groom"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
