@@ -34,10 +34,10 @@ import { SearchIcon, MapPinIcon, StarIcon, ChartIcon, CheckIcon, CrossIcon, Scis
 //   Deliberately NOT targeting "dog groomer SEO" or "grooming website design"
 //   in depth — those belong to their own pages (see SEO-PLAN.md).
 export const metadata: Metadata = pageMetadata({
-  title: "Dog Groomer Marketing That Gets You Found | Tongfluence",
+  title: "Dog Grooming Marketing Agency for Groomers | Tongfluence",
   titleTemplate: false,
   description:
-    "We build the website, Google profile and review system that help dog groomers turn local searches into booked appointments. $297 a month, cancel any time.",
+    "A marketing agency for dog groomers only. We build the website, Google profile and review system that turn local searches into booked appointments. $297/mo.",
   path: PATHS.home,
 });
 
@@ -118,7 +118,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={60}>
               <h1 className="mt-4 font-tf-display text-[2.15rem] font-bold leading-[1.05] tracking-[-0.02em] text-tf-ink sm:text-6xl lg:text-[3.6rem]">
-                Get more dog grooming appointments <span className="tf-accent">from Google.</span>
+                The dog grooming marketing agency <span className="tf-accent">that gets you found.</span>
               </h1>
             </Reveal>
             <Reveal delay={120}>
