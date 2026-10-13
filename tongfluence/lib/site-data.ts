@@ -603,4 +603,6 @@ export const founder: {
 
 // Verified social/profile URLs for schema.org sameAs. Empty until real,
 // confirmed profiles exist — an unverified sameAs is worse than none.
-export const socialProfiles: { label: string; url: string }[] = [];
+export const socialProfiles: { label: string; url: string }[] = [
+  { label: "Instagram", url: "https://www.instagram.com/tongfluence/" },
+];

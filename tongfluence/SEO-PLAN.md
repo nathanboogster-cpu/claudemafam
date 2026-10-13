@@ -16,7 +16,7 @@ cheaper to avoid now than to fix with redirects later.
 
 | URL | Primary query | Intent | Business purpose | Links out to |
 | --- | --- | --- | --- | --- |
-| `/` | dog groomer marketing (brand + offer) | Commercial | Establish the entity, show proof, state the offer, convert | All six commercial pages, case studies, book |
+| `/` | dog grooming marketing agency (brand + offer) | Commercial | Establish the entity, show proof, state the offer, convert. The only page that uses the word "agency" in its title and H1; `/blog/how-to-get-more-dog-grooming-appointments` owns the "more appointments" phrase | All six commercial pages, case studies, book |
 | `/dog-groomer-marketing` | dog groomer marketing | Informational → commercial | Topical hub for the whole subject | SEO, GBP, websites, reviews, leads, case studies |
 | `/dog-groomer-seo` | dog groomer SEO | Commercial investigation | Prove we understand grooming search specifically | GBP, websites, how-to-rank guide, case studies |
 | `/dog-groomer-website-design` | dog groomer website design | Commercial | Sell the website as an SEO/conversion asset | Website examples, case studies, SEO, leads |

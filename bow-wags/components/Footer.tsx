@@ -130,7 +130,10 @@ export function Footer() {
       </div>
 
       <div className="border-t border-bw-border py-4 text-center text-xs text-bw-ink-soft">
-        © {new Date().getFullYear()} {business.name}. All rights reserved.
+        © {new Date().getFullYear()} {business.name}. All rights reserved.{" "}
+        <a href="https://www.tongfluence.com" className="whitespace-nowrap underline underline-offset-2 hover:opacity-80">
+          Website by Tongfluence
+        </a>
       </div>
     </footer>
   );

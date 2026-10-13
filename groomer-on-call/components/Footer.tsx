@@ -145,7 +145,10 @@ export function Footer() {
             © {new Date().getFullYear()} {business.name}. Mobile pet grooming, {market.cityState}.
           </p>
           <p>
-            Mobile service-area business — no public salon address.
+            Mobile service-area business — no public salon address.{" "}
+            <a href="https://www.tongfluence.com" className="whitespace-nowrap underline underline-offset-2 hover:text-white/80">
+              Website by Tongfluence
+            </a>
           </p>
         </div>
       </div>
