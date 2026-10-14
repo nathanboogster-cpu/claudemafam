@@ -1,4 +1,4 @@
-import { SITE_URL, business, offer, founder, socialProfiles } from "./site-data";
+import { SITE_URL, PATHS, business, offer, founder, socialProfiles } from "./site-data";
 
 // ---------------------------------------------------------------------------
 // STRUCTURED DATA
@@ -64,6 +64,8 @@ export function organizationSchema() {
             "@type": "Person",
             name: founder.name,
             jobTitle: founder.role,
+            url: `${canonicalUrl(PATHS.about)}#founder`,
+            ...(founder.photo ? { image: `${SITE_URL}${founder.photo}` } : {}),
             ...(founder.sameAs.length ? { sameAs: founder.sameAs } : {}),
           },
         }

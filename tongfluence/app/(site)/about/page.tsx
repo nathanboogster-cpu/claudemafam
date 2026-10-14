@@ -210,12 +210,28 @@ export default function AboutPage() {
           lib/site-data.ts. An invented founder bio would break the first rule
           on this page, so the section simply isn't there until then. */}
       {founder.name ? (
-        <Section width="narrow" className="py-12" labelledBy="founder">
-          <SectionHeading eyebrow="Who's behind it" id="founder" title={founder.name} />
-          <div className="tf-prose mt-6">
-            {founder.bio.map((p) => (
-              <p key={p.slice(0, 40)}>{p}</p>
-            ))}
+        <Section className="py-12" labelledBy="founder">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-center lg:gap-14">
+            {founder.photo ? (
+              <Reveal className="tf-reveal-photo mx-auto w-full max-w-sm lg:max-w-none">
+                <Image
+                  src={founder.photo}
+                  alt={`${founder.name}, ${founder.role.toLowerCase()} of ${business.name}.`}
+                  width={1000}
+                  height={1501}
+                  sizes="(min-width: 1024px) 35vw, 90vw"
+                  className="h-auto w-full rounded-2xl border border-tf-border object-cover"
+                />
+              </Reveal>
+            ) : null}
+            <div>
+              <SectionHeading eyebrow={`${founder.role} · Who's behind it`} id="founder" title={founder.name} />
+              <div className="tf-prose mt-6">
+                {founder.bio.map((p) => (
+                  <p key={p.slice(0, 40)}>{p}</p>
+                ))}
+              </div>
+            </div>
           </div>
         </Section>
       ) : null}

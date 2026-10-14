@@ -594,10 +594,15 @@ export const founder: {
   bio: string[];
   sameAs: string[];
 } = {
-  name: null,
+  name: "Nathaniel Tong",
   role: "Founder",
-  photo: null,
-  bio: [],
+  photo: "/images/nathaniel-tong.jpg",
+  bio: [
+    "Nathaniel Tong started Tongfluence to give dog groomers a calendar they can count on. Not a full week and then an empty one. The same number of dogs, week after week.",
+    "He works only with grooming businesses, and only on the things that fill a book: the Google profile, the website and the reviews.",
+    "At home he has six mini poodles. Java and Kona are the parents. Biggie, Kobe, Coco and Nala are their puppies. So he knows exactly what a good groomer is worth.",
+  ],
+  // No LinkedIn or other profile confirmed yet.
   sameAs: [],
 };
 
