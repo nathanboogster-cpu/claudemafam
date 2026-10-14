@@ -28,10 +28,10 @@ import { ComparisonTable } from "@/components/ComparisonTable";
 //                     subject. This is the page that links outward to
 //                     everything else (see SEO-PLAN.md).
 export const metadata: Metadata = pageMetadata({
-  title: "Dog Groomer Marketing: Get More Customers From Google",
+  title: "Dog & Pet Grooming Marketing: Get More Customers From Google",
   titleTemplate: false,
   description:
-    "How grooming businesses really get customers: local search, your Google profile, service pages and reviews. And which one to fix first.",
+    "How dog and pet grooming businesses really get customers: local search, your Google profile, service pages and reviews. And which one to fix first.",
   path: PATHS.marketing,
 });
 
@@ -94,7 +94,7 @@ export default function DogGroomerMarketingPage() {
             Grooming is a local business with repeat clients. That makes its marketing simple to predict.
             Almost all new clients come from one place. And most grooming businesses have never set that
             place up properly. This page explains what it is, what to fix first, and what we do about each
-            part.
+            part. It applies the same whether you groom dogs only or every pet that walks in.
           </>
         }
         location="marketing_hero"

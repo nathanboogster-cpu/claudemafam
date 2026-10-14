@@ -9,16 +9,16 @@ import type { BlogPost } from "../types";
 //               reader to search first and the commercial pages.
 export const post: BlogPost = {
   slug: "dog-grooming-marketing-ideas",
-  title: "17 Dog Grooming Marketing Ideas, Ranked by What They Bring In",
-  metaTitle: "17 Dog Grooming Marketing Ideas, Ranked by What Works",
+  title: "17 Dog Grooming Marketing and Advertising Ideas, Ranked by What They Bring In",
+  metaTitle: "17 Dog Grooming Marketing & Advertising Ideas That Work",
   metaDescription:
-    "Seventeen dog grooming marketing ideas in four tiers: do these first, worth your time, nice to have, and skip. Ranked by booked appointments, not likes.",
+    "Seventeen dog grooming marketing and advertising ideas in four tiers: do these first, worth your time, nice to have, and skip. Ranked by booked appointments.",
   excerpt:
     "Seventeen ideas in four tiers. Do these first, worth your time, nice to have, and skip. Ranked by booked appointments, not likes.",
   intro:
     "Most lists of marketing ideas treat a flyer and a Google profile as equals. They are not. This list is ranked by one thing: how many booked appointments each idea tends to bring in for the time and money it costs.",
   primaryQuery: "dog grooming marketing ideas",
-  secondaryQueries: ["marketing ideas for dog groomers", "how to promote a dog grooming business"],
+  secondaryQueries: ["dog grooming advertising ideas", "marketing ideas for dog groomers", "how to promote a dog grooming business"],
   publishedAt: "2026-09-29",
   photo: 2,
   takeaways: [
@@ -109,11 +109,26 @@ export const post: BlogPost = {
     },
     {
       id: "ads",
-      heading: "Where do ads go?",
+      heading: "Dog grooming advertising ideas: where paid ads fit",
       blocks: [
         {
           type: "p",
-          text: "Between tiers two and three, once tier one is done. Ads bring appointments this week and stop when you stop paying. They work much better when the person who clicks lands on a real service page with a price and a tap-to-call number. [Google ads for groomers](/blog/google-ads-for-dog-groomers) and [Facebook and Instagram ads](/blog/facebook-ads-for-dog-groomers) each have their own post.",
+          text: "Between tiers two and three, once tier one is done. Ads bring appointments this week and stop when you stop paying. They work much better when the person who clicks lands on a real service page with a price and a tap-to-call number. In the order we would try them:",
+        },
+        {
+          type: "ol",
+          items: [
+            "**Google Local Services Ads.** The green-check listings above the map. You pay per lead, not per click, and Google screens the business first. The best fit for a salon with an address. [How they compare to search ads](/blog/google-ads-for-dog-groomers).",
+            "**Google search ads on service and town terms.** “Dog grooming” plus your town, “mobile dog groomer” plus your town. Send each ad to the matching service or town page, never the homepage.",
+            "**A Google profile offer post.** Free. A first-groom or deshed offer on your profile shows up under your listing on the map. Change it monthly.",
+            "**Facebook and Instagram ads to people who already know you.** Rebooking reminders, a seasonal deshed offer, a new-service announcement to past clients and their friends. [When social ads work and when they waste money](/blog/facebook-ads-for-dog-groomers).",
+            "**Skip boosted posts with no landing page.** A boosted before-and-after photo gets likes from people in other states. If the ad does not land on a page with a price and a phone number, it is not advertising. It is a tip jar.",
+          ],
+        },
+        {
+          type: "callout",
+          label: "The test for any ad",
+          text: "Can you say what one booked appointment cost? If you can, and you would pay it again, keep the ad. If you cannot, fix the tracking before you spend more.",
         },
       ],
     },

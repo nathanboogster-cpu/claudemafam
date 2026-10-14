@@ -28,10 +28,10 @@ import { ComparisonTable } from "@/components/ComparisonTable";
 //                     search only, in depth. The DIY step-by-step version is
 //                     /resources/how-to-rank-dog-grooming-business-on-google.
 export const metadata: Metadata = pageMetadata({
-  title: "Dog Groomer SEO: Rank Your Grooming Business on Google",
+  title: "SEO for Dog & Pet Groomers: Rank Your Grooming Business",
   titleTemplate: false,
   description:
-    "How SEO works for a grooming business: the map versus the search results, service and town pages, and what your search data tells you to fix next.",
+    "How SEO works for dog and pet groomers: the map versus the search results, service and town pages, the keywords to target, and what your search data says to fix next.",
   path: PATHS.seo,
 });
 
@@ -98,7 +98,12 @@ export default function DogGroomerSeoPage() {
           <>
             Grooming search is easier than most. The searches are local. What people want is clear. And
             most of the businesses you compete with have done nothing. This page shows what the work is.
-            The two ways Google ranks you, the pages you need, and how we decide what to do each month.
+            The two ways Google ranks you, the pages you need,{" "}
+            <Link href={resourcePath("dog-grooming-seo-keywords")} className="font-medium text-tf-brown-dark underline underline-offset-4">
+              the keywords they target
+            </Link>
+            , and how we decide what to do each month. It is the same whether you groom dogs only or every
+            pet that comes through the door.
           </>
         }
         location="seo_hero"

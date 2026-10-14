@@ -17,9 +17,9 @@ cheaper to avoid now than to fix with redirects later.
 | URL | Primary query | Intent | Business purpose | Links out to |
 | --- | --- | --- | --- | --- |
 | `/` | dog grooming marketing agency (brand + offer) | Commercial | Establish the entity, show proof, state the offer, convert. The only page that uses the word "agency" in its title and H1; `/blog/how-to-get-more-dog-grooming-appointments` owns the "more appointments" phrase | All six commercial pages, case studies, book |
-| `/dog-groomer-marketing` | dog groomer marketing | Informational → commercial | Topical hub for the whole subject | SEO, GBP, websites, reviews, leads, case studies |
-| `/dog-groomer-seo` | dog groomer SEO | Commercial investigation | Prove we understand grooming search specifically | GBP, websites, how-to-rank guide, case studies |
-| `/dog-groomer-website-design` | dog groomer website design | Commercial | Sell the website as an SEO/conversion asset | Website examples, case studies, SEO, leads |
+| `/dog-groomer-marketing` | dog groomer marketing, pet grooming marketing | Informational → commercial | Topical hub for the whole subject | SEO, GBP, websites, reviews, leads, case studies |
+| `/dog-groomer-seo` | dog groomer SEO, seo for pet groomers | Commercial investigation | Prove we understand grooming search specifically | GBP, websites, how-to-rank guide, case studies |
+| `/dog-groomer-website-design` | dog groomer website design, pet grooming business website | Commercial | Sell the website as an SEO/conversion asset | Website examples, case studies, SEO, leads |
 | `/google-business-profile-for-dog-groomers` | google business profile for dog groomers | Informational-commercial | Sell the fastest-moving component | Reviews, SEO, how-to-rank guide |
 | `/dog-grooming-lead-generation` | dog grooming lead generation | Commercial | Own the "more customers" intent, framed as appointments not traffic | SEO, websites, reviews, marketing |
 | `/dog-groomer-review-management` | dog groomer review management | Commercial-informational | Sell the review system and establish it is policy-safe | GBP, leads, marketing |
@@ -28,10 +28,11 @@ cheaper to avoid now than to fix with redirects later.
 | `/resources` | — (hub, not built to rank) | Navigational | Route readers up to commercial pages | Both resources, GBP, leads |
 | `/resources/how-to-rank-dog-grooming-business-on-google` | how to rank dog grooming business on google | Informational, DIY | Capture the DIY searcher and be genuinely useful | GBP, websites, reviews, SEO |
 | `/resources/dog-grooming-website-examples` | dog grooming website examples | Informational | The original-data asset; a competitor can't reproduce it | Website design, case studies, SEO |
+| `/resources/dog-grooming-seo-keywords` | dog groomer keywords | Informational | The keyword map the service and town pages are built from, grouped by intent, with no invented volumes. Published once Search Console showed this as the site’s most-shown query | SEO, website design, GBP, website examples |
 | `/blog` | — (hub) | Navigational | Hold the short question-shaped articles; route each reader to the commercial page that owns their intent | Every post, both guides, marketing, case studies |
 | `/blog/how-to-get-more-dog-grooming-appointments` | how to get more dog grooming appointments | Informational, list | The "more appointments" cluster: nine actions in order | Leads, GBP, reviews, how-to-rank guide |
 | `/blog/best-dog-groomer-marketing-service` | best dog groomer marketing service | Commercial investigation | Buyer's guide: checklist, red flags, questions, how to compare quotes; Tongfluence as one option | Marketing, case studies, testimonials, about |
-| `/blog/dog-grooming-marketing-ideas` | dog grooming marketing ideas | Informational, list | Seventeen ideas in four tiers, ranked by booked appointments | Marketing, leads, GBP, how-to-rank guide |
+| `/blog/dog-grooming-marketing-ideas` | dog grooming marketing ideas, dog grooming advertising ideas | Informational, list | Seventeen ideas in four tiers, ranked by booked appointments | Marketing, leads, GBP, how-to-rank guide |
 | `/blog/dog-groomer-marketing-cost` | dog groomer marketing cost | Commercial investigation | The five pricing models and cost per booked appointment; our price stated plainly | Marketing, best-service post, FAQ, book |
 | `/blog/google-ads-for-dog-groomers` | google ads for dog groomers | Informational-commercial | Local Services Ads vs search ads; what to have in place first; we run both | Leads, GBP, Facebook-ads post, marketing |
 | `/blog/facebook-ads-for-dog-groomers` | facebook ads for dog groomers | Informational-commercial | When social ads work and when they waste money; search first | Marketing, Google-ads post, website design, book |
@@ -58,7 +59,7 @@ of them on with a distinct intent, noted below:
 | `/blog/best-dog-groomer-marketing-service` | `/dog-groomer-marketing` | Kept distinct: the hub explains the subject; the post is a buyer's guide for comparing providers, with Tongfluence as one option run through the same checklist. |
 | `/blog/google-ads-for-dog-groomers`, `/blog/facebook-ads-for-dog-groomers` | `/dog-groomer-marketing` (channels table) | Kept distinct: the hub compares channels in one table; each post covers one ad platform in depth. Neither commercial page targets an ads query. |
 | `/blog/mobile-dog-grooming-marketing` | `/dog-groomer-website-design` (salon vs mobile) | Kept distinct: the website page covers site structure; the post covers the whole mobile marketing problem, profile and route included, and links to the Pet Spa Luxe case study. |
-| `/resources/dog-grooming-seo-keywords` | `/dog-groomer-seo` (partly) | Deferred. A keyword page is only worth publishing with real volume and query data behind it, and there is no exported Search Console dataset yet. |
+| `/resources/dog-grooming-seo-keywords` | `/dog-groomer-seo` (partly) | Published Oct 2026, once the site’s own Search Console showed “dog groomer keywords” as its most-shown query. Kept distinct: the SEO page is the service and the method; the keyword page is the list of searches, grouped by intent, with the page each needs. |
 | `/resources/google-business-profile-categories-dog-groomers` | `/google-business-profile-for-dog-groomers` | Not published. Google's category list changes and is only authoritative inside the profile's own picker; the GBP page covers the category model and cites Google's docs. |
 
 Overlaps that were kept, and how they are kept distinct:
