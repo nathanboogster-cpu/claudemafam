@@ -26,9 +26,9 @@ import { Checklist } from "@/components/Checklist";
 //                     informational "show me examples" intent; this page is
 //                     the service. They cross-link rather than overlap.
 export const metadata: Metadata = pageMetadata({
-  title: "Dog Groomer Website Design & SEO",
+  title: "Dog & Pet Grooming Website Design",
   description:
-    "Grooming websites built to be found and to make the phone ring: a page per service, a page per town, fast on a phone. $297 a month.",
+    "Pet grooming business websites built to be found and to make the phone ring: a page per service, a page per town, fast on a phone. $297 a month.",
   path: PATHS.websiteDesign,
 });
 
@@ -95,7 +95,8 @@ export default function WebsiteDesignPage() {
           <>
             Most grooming websites are judged on looks. The ones that bring appointments are judged on two
             other things. Can Google find a page that matches what someone searched? And can the person who
-            lands on it call you in one tap? We build for those first. It still looks good.
+            lands on it call you in one tap? We build for those first. It still looks good. Salon or mobile,
+            dog groomer or pet groomer, the build is the same.
           </>
         }
         location="web_hero"

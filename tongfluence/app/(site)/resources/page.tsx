@@ -39,7 +39,7 @@ export default function ResourcesPage() {
 
       <PageHero
         eyebrow="Resources"
-        title="Two guides,"
+        title="Three guides,"
         accent="and the questions groomers ask."
         intro={
           <>
