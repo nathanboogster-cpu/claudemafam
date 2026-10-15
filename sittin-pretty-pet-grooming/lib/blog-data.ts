@@ -625,6 +625,53 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "cat-grooming", "puppy-first-groom"],
   },
+  {
+    slug: "grooming-large-breed-dogs-what-big-dog-owners-should-know",
+    title: "Grooming Large-Breed Dogs: What Big-Dog Owners Should Know",
+    metaDescription:
+      "Big dogs bring big coats, long drying times, and joints that need care. What large-breed owners should know about grooming at home and at the salon.",
+    excerpt:
+      "Big dogs mean more coat, longer drying, and joints that deserve some extra care. Here's what large-breed owners should know about grooming.",
+    eyebrow: "Dog Grooming",
+    publishedAt: "2026-10-15",
+    heroPhotoKey: "seniorBlackDog",
+    body: [
+      {
+        type: "p",
+        text: "Grooming a Golden Retriever, a Bernese Mountain Dog, a Husky, or a big shepherd mix isn't just a bigger version of grooming a small dog. There's simply more coat to wash, brush, and dry, and a lot more dog to lift, steady, and keep comfortable. For many owners around Hagerstown and Washington County, that's exactly where home grooming starts to fall apart.",
+      },
+      { type: "h2", text: "Why Big Dogs Are Harder to Groom at Home" },
+      {
+        type: "list",
+        items: [
+          "Getting a 70- or 100-pound dog into a bathtub, and back out safely, is hard on both of you, and slippery tubs are a common way for dogs to strain something.",
+          "Thick double coats hold water deep near the skin. A big dog can stay damp for hours after a bath, and an undercoat that never fully dries is uncomfortable and can lead to skin irritation.",
+          "Many large breeds blow their undercoat heavily in spring and fall. Brushing out that much loose fur at home can take far longer than most owners expect.",
+          "Nail trims are a two-person job for a lot of big dogs, and long nails on a heavy dog put real strain on the paws and joints.",
+        ],
+      },
+      { type: "h2", text: "What Helps Between Grooms" },
+      {
+        type: "list",
+        items: [
+          "Brush a few times a week with an undercoat rake or slicker brush, working down to the skin rather than skimming the top of the coat.",
+          "Pay extra attention behind the ears, under the collar, and on the back of the legs (the \"pants\" on breeds like Goldens and shepherds), where big dogs mat first.",
+          "Check nails regularly. If you can hear them clicking on the floor, they're likely due.",
+          "Keep the fur between the paw pads short, especially heading into wet or snowy months.",
+        ],
+      },
+      { type: "h2", text: "Big Dogs and Senior Joints" },
+      {
+        type: "p",
+        text: "Large breeds tend to feel age in their hips and elbows sooner than small dogs do. Standing for a long groom can be tiring for an older big dog, so it's worth mentioning stiffness, arthritis, or any trouble with stairs when you call to schedule. A calmer, unhurried visit without long stretches spent waiting in a kennel can make a real difference for a big dog who's slowing down.",
+      },
+      {
+        type: "p",
+        text: "Large-breed owners regularly tell us their dogs are handled well and come home looking great, and our Funkstown salon has been grooming big dogs for more than 40 years in a cage-free setting. Whether your dog needs a full groom, a bath and brush-out, or a deshedding treatment to get ahead of a heavy coat blow, give us a call and we'll plan a visit that fits your dog's size and age.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "deshedding-treatment", "dog-bath-and-brush"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
