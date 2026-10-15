@@ -13,6 +13,18 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  // Google indexed the vercel.app copy before the custom domain was the
+  // canonical, and kept treating it as the main version. A permanent redirect
+  // consolidates everything onto www. Only the exact production alias and the
+  // bare domain are matched, so per-deployment preview URLs keep working.
+  async redirects() {
+    return ["sittin-pretty-pet-grooming.vercel.app", "sittinprettypetgrooming.com"].map((host) => ({
+      source: "/:path*",
+      has: [{ type: "host" as const, value: host }],
+      destination: "https://www.sittinprettypetgrooming.com/:path*",
+      permanent: true,
+    }));
+  },
   // Baseline hardening headers. This is a fully static marketing site (no
   // forms, no API routes, no user input) so there's no injectable content
   // to write a content-security-policy around — these just close off
