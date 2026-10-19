@@ -672,6 +672,59 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "deshedding-treatment", "dog-bath-and-brush"],
   },
+  {
+    slug: "tear-stains-and-eye-care-for-small-long-haired-dogs",
+    title: "Tear Stains and Eye Care for Shih Tzus, Maltese, and Other Small Breeds",
+    metaDescription:
+      "Why small, long-haired dogs get tear stains and eye gunk, how to keep the eye area clean at home, and when to call your vet instead of your groomer.",
+    excerpt:
+      "Tear stains and eye gunk are common in Shih Tzus, Maltese, and other small long-haired breeds. Here's how to keep the eye area clean and comfortable.",
+    eyebrow: "Dog Grooming",
+    publishedAt: "2026-10-19",
+    heroPhotoKey: "grayWhiteShihTzuBlackCollar",
+    body: [
+      {
+        type: "p",
+        text: "If you share your home with a Shih Tzu, Maltese, Yorkie, Lhasa Apso, Poodle, or a mix of any of them, you've probably noticed reddish-brown streaks under the eyes, crusty bits in the corners, or hair that seems to grow straight toward the eyeballs. It's one of the most common things small-breed owners around Hagerstown and Funkstown ask about, and a little regular care goes a long way.",
+      },
+      { type: "h2", text: "Why Small Breeds Get Tear Stains" },
+      {
+        type: "list",
+        items: [
+          "Shallow eye sockets and flat or short faces mean tears spill onto the face instead of draining away normally.",
+          "Long facial hair wicks moisture and holds it against the skin, which is why the staining shows up so clearly on white and light coats.",
+          "The reddish color comes from natural compounds in tears and saliva that tint fur when it stays damp, which is why the same color can show up around the mouth or on paws a dog licks.",
+          "Hair growing into or touching the eye can cause extra tearing on its own.",
+        ],
+      },
+      { type: "h2", text: "Keeping the Eye Area Clean at Home" },
+      {
+        type: "list",
+        items: [
+          "Wipe gently under each eye once a day with a soft cloth or cotton pad dampened with plain warm water, using a fresh one for each eye.",
+          "Comb out crusty bits with a fine-toothed comb rather than pulling them, working away from the eye.",
+          "Keep the area dry. Moisture sitting in the hair is what makes stains set, so a quick pat dry after meals and walks helps.",
+          "Don't trim close to the eyes yourself. A sudden head turn near scissors is one of the most common ways small dogs get hurt during home grooming.",
+          "Skip anything not made for use around eyes, and talk to your vet before trying stain-removal products or supplements.",
+        ],
+      },
+      { type: "h2", text: "Where Grooming Helps" },
+      {
+        type: "p",
+        text: "Keeping the hair around the eyes short and tidy is one of the biggest things you can do to cut down on irritation and staining, and it's a normal part of a full groom for most small, long-haired breeds. A clean face trim keeps hair out of the eyes and lets the area dry properly between washes. Regular grooms every few weeks also mean the face never gets long enough to cause trouble in the first place.",
+      },
+      { type: "h2", text: "When to Call the Vet" },
+      {
+        type: "p",
+        text: "Some tearing is normal for these breeds, but certain signs point to something a groomer can't fix: a sudden increase in tearing, thick yellow or green discharge, squinting or pawing at an eye, redness in the white of the eye, or a cloudy look to the eye itself. Those are worth a call to your veterinarian.",
+      },
+      {
+        type: "p",
+        text: "We've been grooming dogs and cats in Funkstown for more than 40 years, and a neat, comfortable face is part of a full groom for small, long-haired breeds. If your pup's eyes are looking teary or the face is getting shaggy, give us a call to schedule.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "dog-bath-and-brush", "puppy-first-groom"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
