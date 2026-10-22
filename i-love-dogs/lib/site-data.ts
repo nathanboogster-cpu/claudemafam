@@ -1,9 +1,9 @@
-// Single source of truth for every I Love Dogs Pet Grooming fact on this
-// site. Everything here comes from the verified build brief (current and
-// older client websites, Google, Yelp, Facebook). Do not add a fact that is
-// not in that brief: no hours, ratings, reviews, awards, business age,
-// email, booking widget or services beyond the three grooming packages and
-// pickup and delivery.
+// Central, single source of truth for every verified I Love Dogs Pet Grooming
+// fact used across the site. Sourced from the build brief (current and older
+// client websites, Google, Yelp, Facebook). Same shape as the Pampered Puppies
+// app, but do not add a fact that is not in the brief: no hours, ratings,
+// review counts, testimonials, awards, business age, email, booking widget,
+// photos, or services beyond the three packages and pickup and delivery.
 
 // Production domain is owner-supplied and served on www. Canonicals, og:url,
 // schema, the sitemap and robots.txt must all name that host, so a bare
@@ -14,55 +14,34 @@ export const SITE_URL = RAW_SITE_URL.replace(/^https?:\/\/ilovedogsgrooming\.com
 export const business = {
   name: "I Love Dogs Pet Grooming",
   shortName: "I Love Dogs",
+  owners: "Bob and Theresa Pelletier",
   phoneDisplay: "610-525-7387",
   phoneHref: "tel:+16105257387",
   phoneE164: "+16105257387",
-  street: "723 County Line Rd",
-  city: "Bryn Mawr",
-  region: "PA",
-  zip: "19010",
+  addressLine1: "723 County Line Rd",
+  addressCity: "Bryn Mawr",
+  addressState: "PA",
+  addressZip: "19010",
   addressFull: "723 County Line Rd, Bryn Mawr, PA 19010",
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=723%20County%20Line%20Rd%2C%20Bryn%20Mawr%2C%20PA%2019010",
-  facebookUrl: "https://www.facebook.com/ilovedogspetgrooming",
-  yelpUrl: "https://www.yelp.com/biz/i-love-dogs-bryn-mawr-2",
+  mapsLinkQuery:
+    "https://www.google.com/maps/search/?api=1&query=723%20County%20Line%20Rd%2C%20Bryn%20Mawr%2C%20PA%2019010",
+  socials: {
+    facebook: "https://www.facebook.com/ilovedogspetgrooming",
+    yelp: "https://www.yelp.com/biz/i-love-dogs-bryn-mawr-2",
+  },
   // Google and Yelp disagree on hours, so none are published anywhere.
   hoursNote: "Please call 610-525-7387 for current hours.",
 } as const;
 
-// Towns served, as listed on the client's older website.
-export const towns = ["Bryn Mawr", "Gladwyne", "Haverford", "Ardmore", "Havertown"] as const;
-
-export const PATHS = {
-  home: "/",
-  dogGrooming: "/dog-grooming/",
-  pickup: "/pickup-and-delivery/",
-  serviceArea: "/service-area/",
-  about: "/about/",
-  faq: "/faq/",
-  contact: "/contact/",
+export const people = {
+  theresa: "Theresa has over 50 years of experience caring for dogs.",
+  jolie: "Groomer Jolie has 15 years of professional grooming experience.",
 } as const;
 
-export type SitePath = (typeof PATHS)[keyof typeof PATHS];
+// Towns served, as listed on the client's older website.
+export const serviceAreas = ["Bryn Mawr", "Gladwyne", "Haverford", "Ardmore", "Havertown"] as const;
 
-export const nav: { label: string; href: SitePath }[] = [
-  { label: "Dog Grooming", href: PATHS.dogGrooming },
-  { label: "Pickup & Delivery", href: PATHS.pickup },
-  { label: "Service Area", href: PATHS.serviceArea },
-  { label: "About", href: PATHS.about },
-  { label: "FAQ", href: PATHS.faq },
-  { label: "Contact", href: PATHS.contact },
-];
-
-// Breadcrumb / footer names per page.
-export const pageNames: Record<SitePath, string> = {
-  [PATHS.home]: "Home",
-  [PATHS.dogGrooming]: "Dog Grooming",
-  [PATHS.pickup]: "Pickup & Delivery",
-  [PATHS.serviceArea]: "Service Area",
-  [PATHS.about]: "About",
-  [PATHS.faq]: "FAQ",
-  [PATHS.contact]: "Contact",
-};
+export const serviceAreaGeneral = "the greater Eastern Main Line";
 
 export const packages = [
   {
@@ -88,8 +67,55 @@ export const packages = [
 export const priceNote =
   "Prices are quoted when we meet your dog. They depend on size, coat length, coat type and condition.";
 
-// FAQ answers are plain text so the visible copy and the FAQPage schema are
-// identical, character for character.
+// Verified trust facts for the "Why Main Line dog owners call us" grid.
+export const trustPoints = [
+  {
+    title: "Warm bath, every time",
+    body: "Tankless water heating means the bath stays warm from the first rinse to the last.",
+  },
+  {
+    title: "Chemical-free washing products",
+    body: "We wash with chemical-free products.",
+  },
+  {
+    title: "Family-owned",
+    body: "I Love Dogs is family-owned and run by Bob and Theresa Pelletier.",
+  },
+  {
+    title: "Over 50 years with dogs",
+    body: people.theresa,
+  },
+  {
+    title: "15 years of professional grooming",
+    body: people.jolie,
+  },
+  {
+    title: "Pickup and delivery",
+    body: "We can pick your dog up and bring them home after the groom. Call to confirm your address.",
+  },
+] as const;
+
+// Verified 4-step process, used across service and town pages.
+export const processSteps = [
+  {
+    title: "Call us",
+    body: "Call 610-525-7387 to book. Asking about pickup? Tell us your address so we can confirm we cover it.",
+  },
+  {
+    title: "Drop off, or we pick up",
+    body: "Bring your dog to the salon at 723 County Line Rd, or we pick your dog up.",
+  },
+  {
+    title: "The groom",
+    body: "A warm bath from our tankless system, chemical-free products and the package you chose.",
+  },
+  {
+    title: "Home, clean",
+    body: "Collect your dog from the salon, or we bring them home.",
+  },
+] as const;
+
+// FAQ answers are plain text so visible copy and FAQPage schema are identical.
 export const faqs = [
   {
     question: "What grooming packages do you offer?",
@@ -127,3 +153,78 @@ export const faqs = [
     answer: "Call 610-525-7387. Please ask about current hours when you call.",
   },
 ] as const;
+
+export type NavItem = { label: string; href: string };
+
+export const PATHS = {
+  home: "/",
+  dogGrooming: "/dog-grooming/",
+  pickup: "/pickup-and-delivery/",
+  serviceArea: "/service-area/",
+  about: "/about/",
+  faq: "/faq/",
+  contact: "/contact/",
+} as const;
+
+// Town pages. I Love Dogs has ONE salon (Bryn Mawr, see business.addressFull);
+// every page built from this data must say so and never imply a second
+// location or that grooming happens at the customer's home. The township and
+// county lines are public geography, not business claims. Pickup radius is
+// unknown, so every page says to call and confirm the address. Bryn Mawr has
+// no town page: the home page targets it.
+export const townPages = [
+  {
+    city: "Gladwyne",
+    slug: "/dog-grooming-gladwyne-pa/",
+    intro:
+      "Gladwyne is in Lower Merion Township, Montgomery County, and it is one of the towns our salon on County Line Road in Bryn Mawr serves.",
+    angle:
+      "Gladwyne dog owners can bring their dog to the salon, or call to ask whether we can pick up from their address and bring their dog home after the groom.",
+  },
+  {
+    city: "Haverford",
+    slug: "/dog-grooming-haverford-pa/",
+    intro:
+      "Haverford sits between Bryn Mawr and Ardmore on the Main Line, and it is one of the towns our salon on County Line Road serves.",
+    angle:
+      "Haverford dog owners can bring their dog to the salon. Rather not make the trip? Call with your address and we will confirm whether pickup and delivery covers it.",
+  },
+  {
+    city: "Ardmore",
+    slug: "/dog-grooming-ardmore-pa/",
+    intro:
+      "Ardmore spans Lower Merion Township in Montgomery County and Haverford Township in Delaware County. It is one of the Eastern Main Line towns our Bryn Mawr salon serves.",
+    angle:
+      "Ardmore dog owners can drop off at 723 County Line Rd, or call to ask about pickup and delivery from their address.",
+  },
+  {
+    city: "Havertown",
+    slug: "/dog-grooming-havertown-pa/",
+    intro:
+      "Havertown is in Haverford Township, Delaware County, and it is one of the towns our salon on County Line Road in Bryn Mawr serves.",
+    angle:
+      "Havertown dog owners can bring their dog to the salon, or call with their address to ask whether we can pick up and bring their dog home clean.",
+  },
+] as const;
+
+export type TownPage = (typeof townPages)[number];
+
+export const serviceNav: NavItem[] = [
+  { label: "Dog Grooming & Prices", href: PATHS.dogGrooming },
+  { label: "Pickup & Delivery", href: PATHS.pickup },
+];
+
+export const areaNavLinks: NavItem[] = [
+  { label: "All Service Areas", href: PATHS.serviceArea },
+  ...townPages.map((t) => ({ label: t.city, href: t.slug })),
+];
+
+export const companyNav: NavItem[] = [
+  { label: "Home", href: PATHS.home },
+  { label: "About", href: PATHS.about },
+  { label: "FAQ", href: PATHS.faq },
+  { label: "Contact", href: PATHS.contact },
+];
+
+// Every indexable URL, for the sitemap.
+export const allPaths: string[] = [...Object.values(PATHS), ...townPages.map((t) => t.slug)];
