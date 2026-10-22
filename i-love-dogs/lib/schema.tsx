@@ -1,21 +1,36 @@
-import { business, faqs, packages, pageNames, PATHS, SITE_URL, towns, type SitePath } from "./site-data";
+import { business, faqs, packages, serviceAreas, SITE_URL } from "./site-data";
 
-// NOTE: deliberately no openingHours (sources disagree), image (no client
-// photos yet), priceRange, aggregateRating or review. Google and Yelp ratings
-// disagree and no review has been cleared for reuse.
-
-export function JsonLd({ data }: { data: object }) {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
-    />
-  );
-}
+// NOTE: No openingHours (Google and Yelp disagree), image/logo (no client
+// photos or logo yet), email, priceRange, AggregateRating or Review. Ratings
+// disagree across platforms and no review has been cleared for reuse.
 
 const BUSINESS_ID = `${SITE_URL}/#business`;
 
-const areaServed = towns.map((name) => ({ "@type": "City", name }));
+const postalAddress = {
+  "@type": "PostalAddress",
+  streetAddress: business.addressLine1,
+  addressLocality: business.addressCity,
+  addressRegion: business.addressState,
+  postalCode: business.addressZip,
+  addressCountry: "US",
+} as const;
+
+function cities(names: readonly string[]) {
+  return names.map((name) => ({ "@type": "City", name }));
+}
+
+// Google reads WebSite structured data on the home page to pick the site name
+// shown above the URL in search results.
+export function webSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: business.name,
+    url: `${SITE_URL}/`,
+    publisher: { "@id": BUSINESS_ID },
+  };
+}
 
 export function localBusinessSchema() {
   return {
@@ -25,83 +40,77 @@ export function localBusinessSchema() {
     name: business.name,
     url: `${SITE_URL}/`,
     telephone: business.phoneE164,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: business.street,
-      addressLocality: business.city,
-      addressRegion: business.region,
-      postalCode: business.zip,
-      addressCountry: "US",
-    },
-    areaServed,
+    address: postalAddress,
+    areaServed: cities(serviceAreas),
+    sameAs: [business.socials.facebook, business.socials.yelp],
   };
 }
 
-// Google reads WebSite structured data on the home page to pick the site
-// name shown above the URL in search results.
-export function webSiteSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    name: business.name,
-    url: `${SITE_URL}/`,
-  };
-}
-
-export function groomingServiceSchema() {
+export function serviceSchema(opts: {
+  pageUrl: string;
+  name: string;
+  description: string;
+  areaServed?: readonly string[];
+  withPackages?: boolean;
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Dog Grooming",
-    description: "Dog grooming packages in Bryn Mawr, PA: Bath & Pamper, The Works and Full Spa Day.",
-    url: `${SITE_URL}${PATHS.dogGrooming}`,
+    serviceType: opts.name,
+    name: opts.name,
+    description: opts.description,
+    url: opts.pageUrl,
+    areaServed: cities(opts.areaServed ?? serviceAreas),
     provider: { "@id": BUSINESS_ID },
-    areaServed,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Dog grooming packages",
-      itemListElement: packages.map((p) => ({
-        "@type": "Offer",
-        name: p.name,
-        priceSpecification: { "@type": "PriceSpecification", priceCurrency: "USD", minPrice: p.price },
-      })),
-    },
+    ...(opts.withPackages
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Dog grooming packages",
+            itemListElement: packages.map((p) => ({
+              "@type": "Offer",
+              name: p.name,
+              priceSpecification: { "@type": "PriceSpecification", priceCurrency: "USD", minPrice: p.price },
+            })),
+          },
+        }
+      : {}),
   };
 }
 
-export function pickupServiceSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Pet Pickup and Delivery for Grooming",
-    description:
-      "Pickup and delivery service for dog grooming clients of I Love Dogs Pet Grooming in Bryn Mawr, PA.",
-    url: `${SITE_URL}${PATHS.pickup}`,
-    provider: { "@id": BUSINESS_ID },
-    areaServed,
-  };
-}
-
-export function breadcrumbSchema(path: SitePath) {
+export function breadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: pageNames[PATHS.home], item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: pageNames[path], item: `${SITE_URL}${path}` },
-    ],
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }
 
-export function faqSchema() {
+export function faqSchema(qa: readonly { question: string; answer: string }[] = faqs) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: qa.map((item) => ({
       "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
     })),
   };
+}
+
+export function JsonLd({ data }: { data: object }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
+    />
+  );
 }
