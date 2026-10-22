@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, people, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, people, PATHS, SITE_URL, teamPhotos } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { CallButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -9,7 +9,8 @@ import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { Eyebrow } from "@/components/Eyebrow";
 import { StatBand } from "@/components/StatBand";
 import { BottomCta } from "@/components/BottomCta";
-import { StudioInfoCard } from "@/components/StudioInfoCard";
+import { Photo } from "@/components/Photo";
+import { RecentWork } from "@/components/RecentWork";
 
 export const metadata = pageMetadata({
   title: "About I Love Dogs Pet Grooming | Bryn Mawr, PA",
@@ -49,7 +50,13 @@ export default function AboutPage() {
             <CallButton location="about_top" />
           </div>
         </div>
-        <StudioInfoCard location="about_hero" />
+        <Photo
+          photo={teamPhotos.theresaTwoDogs}
+          aspect="portrait"
+          position="top"
+          preload
+          caption="Theresa Pelletier, who runs I Love Dogs with Bob Pelletier."
+        />
       </section>
 
       <StatBand />
@@ -88,7 +95,42 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <WhyChooseUs />
+        <div className="text-center">
+          <Eyebrow>The Team</Eyebrow>
+          <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">Who Will Be Handling Your Dog</h2>
+        </div>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <Photo
+            photo={teamPhotos.jolieAndTheresa}
+            aspect="square"
+            sizes="(max-width: 640px) 100vw, 33vw"
+            caption="Groomer Jolie (left), with 15 years of professional grooming experience, and Theresa Pelletier."
+          />
+          <Photo
+            photo={teamPhotos.theresaHug}
+            aspect="square"
+            position="top"
+            sizes="(max-width: 640px) 100vw, 33vw"
+            caption="Theresa Pelletier in the grooming room."
+          />
+          <Photo
+            photo={teamPhotos.theresaKiss}
+            aspect="square"
+            position="top"
+            sizes="(max-width: 640px) 100vw, 33vw"
+            caption="Theresa has over 50 years of experience caring for dogs."
+          />
+        </div>
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <WhyChooseUs />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-12">
+        <RecentWork offset={2} />
       </section>
 
       <BottomCta title="Book with the I Love Dogs family" location="about_bottom" />

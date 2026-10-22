@@ -14,7 +14,7 @@ const SITE = "https://www.ilovedogsgrooming.com";
 const TEL = "tel:+16105257387";
 const MAPS = "https://www.google.com/maps/search/?api=1&query=723%20County%20Line%20Rd%2C%20Bryn%20Mawr%2C%20PA%2019010";
 const TOWNS = ["/dog-grooming-gladwyne-pa/", "/dog-grooming-haverford-pa/", "/dog-grooming-ardmore-pa/", "/dog-grooming-havertown-pa/"];
-const PAGES = ["/", "/dog-grooming/", "/pickup-and-delivery/", "/service-area/", "/about/", "/faq/", "/contact/", ...TOWNS];
+const PAGES = ["/", "/dog-grooming/", "/pickup-and-delivery/", "/service-area/", "/about/", "/faq/", "/contact/", "/gallery/", ...TOWNS];
 const ALL = [...PAGES, "/404.html"];
 // Vercel Analytics serves its script at /_vercel/insights/* on Vercel only;
 // under `next start` that request 404s, so it is ignored here.
@@ -52,6 +52,20 @@ const FORBIDDEN = [
 // Hours-like strings. Checked against visible text only: SVG path data in the
 // HTML ("M1 1l5 5 5-5") would otherwise match.
 const HOURS = [/\b\d{1,2}:\d\d\s*(am|pm)?\b/i, /\b\d{1,2}\s*[–-]\s*\d{1,2}\s*(am|pm)?\b(?![\d-])/i, /\b\d{1,2}\s*(am|pm)\b/i];
+
+// Scroll through the page so lazy images load, wait until every image has
+// decoded, then return to the top.
+async function loadAllImages(page) {
+  await page.evaluate(async () => {
+    for (let y = 0; y < document.documentElement.scrollHeight; y += 600) {
+      window.scrollTo({ top: y, behavior: "instant" });
+      await new Promise((r) => setTimeout(r, 60));
+    }
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+  await page.waitForLoadState("networkidle");
+  await page.waitForFunction(() => [...document.images].every((i) => i.complete && i.naturalWidth > 0), null, { timeout: 15000 });
+}
 
 // Uses a pre-installed Chromium when CHROMIUM_PATH is set (e.g. /opt/pw-browsers/chromium).
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
@@ -113,6 +127,7 @@ for (const p of ALL) {
   });
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto(BASE + p, { waitUntil: "networkidle" });
+  await loadAllImages(page);
   if (p === "/") homeJs = jsBytes;
   const name = p === "/" ? "home" : p.replace(/\//g, "").replace(".html", "");
   await page.screenshot({ path: `qa/mobile-${name}.png`, fullPage: true });
@@ -160,7 +175,7 @@ for (const p of ALL) {
         .filter((a) => !a.closest("p, dd, address") || a.closest("footer"))
         .filter((a) => a.getBoundingClientRect().height < 24)
         .map((a) => a.textContent.trim()),
-      imgs: document.querySelectorAll("img, picture").length,
+      ogImage: document.querySelector('meta[property="og:image"]')?.content ?? "",
       hrefs: [...document.querySelectorAll("a[href]")].map((a) => a.getAttribute("href")),
     };
   });
@@ -188,7 +203,7 @@ for (const p of ALL) {
     try {
       const d = JSON.parse(block);
       ld.push(d);
-      if (/openingHours|aggregateRating|"review"|priceRange|"image"|"email"/i.test(JSON.stringify(d))) ok = false;
+      if (/openingHours|aggregateRating|"review"|priceRange|"email"/i.test(JSON.stringify(d))) ok = false;
     } catch {
       ok = false;
     }
@@ -247,7 +262,21 @@ for (const p of ALL) {
   // 6. Performance / privacy
   const foreign = [...hosts].filter((h) => h !== new URL(BASE).host);
   check("6-perf", foreign.length === 0, `${p} requests to other hosts: ${foreign}`);
-  check("6-perf", info.imgs === 0, `${p} has images`);
+  const imgs = await page.$$eval("img", (els) =>
+    els.map((i) => ({ src: i.currentSrc || i.src, alt: i.getAttribute("alt"), ok: i.complete && i.naturalWidth > 0 })),
+  );
+  for (const im of imgs) {
+    check("7-images", im.alt !== null && im.alt.trim().length > 0, `${p} image without alt text: ${im.src}`);
+    check("7-images", im.ok, `${p} image failed to load: ${im.src}`);
+    check("7-images", new URL(im.src).host === new URL(BASE).host && im.src.includes("/_next/image"), `${p} image not served by next/image: ${im.src}`);
+  }
+  if (indexable) {
+    check("7-images", info.ogImage === `${SITE}/images/og-image.jpg`, `${p} og:image ${info.ogImage}`);
+    const biz = ld.find((d) => d["@type"] === "LocalBusiness");
+    for (const u of biz?.image ?? []) {
+      check("7-images", u.startsWith(`${SITE}/images/`) && (await fetch(BASE + new URL(u).pathname)).status === 200, `${p} schema image ${u}`);
+    }
+  }
   check("6-perf", errors.length === 0, `${p} errors: ${errors.join("; ")}`);
   await page.close();
 
@@ -264,7 +293,10 @@ for (const p of ALL) {
     if (label === "1280") {
       check("5-mobile", d.sticky === "none", `${p} sticky bar visible on desktop`);
       check("5-mobile", d.headerCall, `${p} header call button missing on desktop`);
-      if (p === "/") await pg.screenshot({ path: "qa/desktop-home.png", fullPage: true });
+      if (p === "/") {
+        await loadAllImages(pg);
+        await pg.screenshot({ path: "qa/desktop-home.png", fullPage: true });
+      }
     }
     await pg.close();
   }
