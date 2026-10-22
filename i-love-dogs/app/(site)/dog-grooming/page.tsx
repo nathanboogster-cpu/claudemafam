@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { faqs, PATHS, SITE_URL, townPages } from "@/lib/site-data";
+import { beforeAfterPhotos, faqs, PATHS, SITE_URL, townPages } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { CallButton, DirectionsButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -11,6 +11,8 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { PackageCards } from "@/components/PackageCards";
 import { BottomCta } from "@/components/BottomCta";
 import { CheckIcon } from "@/components/icons";
+import { Photo } from "@/components/Photo";
+import { RecentWork } from "@/components/RecentWork";
 
 const pageUrl = `${SITE_URL}${PATHS.dogGrooming}`;
 
@@ -43,18 +45,21 @@ export default function DogGroomingPage() {
         })}
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-10">
-        <Eyebrow>Bryn Mawr, PA · Dog Grooming</Eyebrow>
-        <h1 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">Dog Grooming in Bryn Mawr</h1>
-        <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-          Not sure which groom your dog needs?
-          <br />
-          Three packages, with starting prices up front.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <CallButton location="dog_grooming_top" />
-          <DirectionsButton location="dog_grooming_top" />
+      <section className="mx-auto max-w-6xl px-4 py-10 grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <Eyebrow>Bryn Mawr, PA · Dog Grooming</Eyebrow>
+          <h1 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">Dog Grooming in Bryn Mawr</h1>
+          <p className="mt-4 max-w-2xl text-lg text-ink-soft">
+            Not sure which groom your dog needs?
+            <br />
+            Three packages, with starting prices up front.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <CallButton location="dog_grooming_top" />
+            <DirectionsButton location="dog_grooming_top" />
+          </div>
         </div>
+        <Photo photo={beforeAfterPhotos[0]} aspect="square" preload caption="Before and after a groom at our Bryn Mawr salon." />
       </section>
 
       <section className="bg-white border-y border-border">
@@ -93,6 +98,10 @@ export default function DogGroomingPage() {
           </p>
           <CallButton location="dog_grooming_booking" className="mt-5" />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-12">
+        <RecentWork offset={1} title="Before and After" />
       </section>
 
       <section className="bg-white border-y border-border">

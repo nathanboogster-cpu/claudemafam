@@ -164,6 +164,7 @@ export const PATHS = {
   about: "/about/",
   faq: "/faq/",
   contact: "/contact/",
+  gallery: "/gallery/",
 } as const;
 
 // Town pages. I Love Dogs has ONE salon (Bryn Mawr, see business.addressFull);
@@ -222,8 +223,132 @@ export const areaNavLinks: NavItem[] = [
 export const companyNav: NavItem[] = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
+  { label: "Gallery", href: PATHS.gallery },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
+];
+
+// Client-supplied photos (Google Drive "I Love Dogs Grooming" folder), with
+// EXIF/GPS stripped. The people were identified by the owner's agency:
+// Theresa Pelletier in three photos, groomer Jolie with Theresa in one.
+// Alt text describes only what is visible; no breeds are guessed.
+export type Photo = { src: string; width: number; height: number; alt: string };
+
+export const teamPhotos = {
+  theresaHug: {
+    src: "/images/theresa-pelletier-hugging-groomed-dog.jpg",
+    width: 947,
+    height: 1280,
+    alt: "Theresa Pelletier hugging a fluffy black, white and tan dog in the grooming room at I Love Dogs",
+  },
+  theresaKiss: {
+    src: "/images/theresa-pelletier-kissing-small-dog.jpg",
+    width: 892,
+    height: 1600,
+    alt: "Theresa Pelletier kissing a small cream-colored dog",
+  },
+  theresaTwoDogs: {
+    src: "/images/theresa-pelletier-with-two-dogs.jpg",
+    width: 726,
+    height: 1280,
+    alt: "Theresa Pelletier sitting in a wicker chair with two small long-haired dogs",
+  },
+  jolieAndTheresa: {
+    src: "/images/jolie-and-theresa-pelletier.jpg",
+    width: 1320,
+    height: 1369,
+    alt: "Groomer Jolie and Theresa Pelletier smiling together",
+  },
+} satisfies Record<string, Photo>;
+
+export const beforeAfterPhotos: Photo[] = [
+  {
+    src: "/images/before-after-brown-white-fluffy-dog.jpg",
+    width: 800,
+    height: 799,
+    alt: "Before and after grooming at I Love Dogs: a shaggy brown and white dog, then trimmed short with a rounded face",
+  },
+  {
+    src: "/images/before-after-apricot-curly-dog.jpg",
+    width: 1280,
+    height: 1265,
+    alt: "Before and after grooming at I Love Dogs: a curly apricot dog, then clipped into a neat rounded trim",
+  },
+  {
+    src: "/images/before-after-gray-white-shaggy-dog.jpg",
+    width: 1024,
+    height: 1013,
+    alt: "Before and after grooming at I Love Dogs: a gray and white dog with hair over its eyes, then a clean face and tidy coat",
+  },
+  {
+    src: "/images/before-after-cream-dog-face-trim.jpg",
+    width: 933,
+    height: 950,
+    alt: "Before and after grooming at I Love Dogs: a small fluffy cream dog, then a rounded face trim",
+  },
+  {
+    src: "/images/before-after-tan-long-haired-dog.jpg",
+    width: 946,
+    height: 942,
+    alt: "Before and after grooming at I Love Dogs: a long-haired tan dog, then a shorter, neater trim",
+  },
+];
+
+export const groomedPhotos: Photo[] = [
+  {
+    src: "/images/groomed-two-fluffy-dogs.jpg",
+    width: 360,
+    height: 480,
+    alt: "Two freshly groomed fluffy dogs, one red-brown and one apricot, in front of a paw-print backdrop",
+  },
+  {
+    src: "/images/groomed-black-white-fluffy-dog.jpg",
+    width: 391,
+    height: 800,
+    alt: "A groomed black and white fluffy dog sitting on the grooming table",
+  },
+  {
+    src: "/images/groomed-tan-black-terrier.jpg",
+    width: 462,
+    height: 480,
+    alt: "A small tan and black dog with a groomed coat resting on the grooming table",
+  },
+  {
+    src: "/images/groomed-tan-dog-dark-ears.jpg",
+    width: 519,
+    height: 640,
+    alt: "A groomed tan dog with dark ears sitting on the grooming table",
+  },
+  {
+    src: "/images/groomed-tan-terrier-mix.jpg",
+    width: 613,
+    height: 640,
+    alt: "A small tan dog with a short trim sitting in front of a paw-print backdrop",
+  },
+  {
+    src: "/images/groomed-apricot-dog-short-trim.jpg",
+    width: 322,
+    height: 640,
+    alt: "An apricot dog with a short body trim and longer ears",
+  },
+  {
+    src: "/images/groomed-cream-small-dog.jpg",
+    width: 592,
+    height: 640,
+    alt: "A small fluffy cream dog lying on a rug at home after a groom",
+  },
+  {
+    src: "/images/fluffy-cream-puppy.jpg",
+    width: 640,
+    height: 603,
+    alt: "A fluffy cream puppy sitting on a tiled floor",
+  },
+  {
+    src: "/images/black-white-puppy-with-toy.jpg",
+    width: 489,
+    height: 640,
+    alt: "A black and white puppy holding a blue chew toy",
+  },
 ];
 
 // Every indexable URL, for the sitemap.

@@ -11,6 +11,7 @@ import { StudioInfoCard } from "./StudioInfoCard";
 import { PackageCards } from "./PackageCards";
 import { BottomCta } from "./BottomCta";
 import { PinIcon } from "./icons";
+import { RecentWork } from "./RecentWork";
 
 export function TownPageContent({ town }: { town: TownPage }) {
   const pageUrl = `${SITE_URL}${town.slug}`;
@@ -108,7 +109,13 @@ export function TownPageContent({ town }: { town: TownPage }) {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12">
-        <WhyChooseUs />
+        <RecentWork offset={townPages.indexOf(town) + 1} title="Recent Grooms at Our Salon" />
+      </section>
+
+      <section className="bg-white border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <WhyChooseUs />
+        </div>
       </section>
 
       <section className="bg-white border-y border-border">
