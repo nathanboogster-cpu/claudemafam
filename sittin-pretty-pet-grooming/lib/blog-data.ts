@@ -725,6 +725,65 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "dog-bath-and-brush", "puppy-first-groom"],
   },
+  {
+    slug: "lumps-bumps-and-skin-changes-what-grooming-helps-you-notice",
+    title: "Lumps, Bumps, and Dry Skin: What Regular Grooming Helps You Notice",
+    metaDescription:
+      "Grooming is often when owners first notice a new lump, hot spot, or patch of dry skin. What to look for, a simple at-home skin check, and when to call your vet.",
+    excerpt:
+      "Brushing and grooming put hands on nearly every inch of your pet, which makes it the easiest time to notice a new lump or skin change. Here's what to look for.",
+    eyebrow: "Skin & Coat Health",
+    publishedAt: "2026-10-22",
+    heroPhotoKey: "tanShorthairPinkLeash",
+    body: [
+      {
+        type: "p",
+        text: "Every grooming visit, and every brushing session at home, means hands on nearly every inch of your pet. That's why grooming is so often when owners first notice a new lump, a patch of flaky skin, or a spot that seems sore, especially on thick-coated dogs and long-haired cats, where the skin itself stays hidden most of the time. The goal isn't to diagnose anything. It's to notice changes early, so the right person can take a look.",
+      },
+      { type: "h2", text: "What's Worth Paying Attention To" },
+      {
+        type: "list",
+        items: [
+          "New lumps or bumps, either under the skin or on the surface. Many turn out to be harmless, especially in older dogs, but only a vet can tell which is which, so any new one is worth having checked.",
+          "Red, moist, or raw patches. Hot spots can appear quickly, often where a dog has been licking or scratching, and they're more likely under dense or matted coats that stay damp.",
+          "Dry, flaky skin or dandruff. This is common once the heat comes on indoors for a Washington County fall and winter, but if it doesn't improve it can point to diet, allergies, or other issues.",
+          "Thinning fur or bald patches, or a cat that keeps over-grooming one spot.",
+          "A spot your pet suddenly doesn't want touched, flinching or pulling away when you reach it.",
+          "Ears with an unusual smell, redness, or dark discharge.",
+          "Scabs, small wounds, or a cracked nail that went unnoticed under the coat.",
+        ],
+      },
+      { type: "h2", text: "A Simple Nose-to-Tail Check at Home" },
+      {
+        type: "p",
+        text: "Once a month or so, slow down during a brushing session and do a full check:",
+      },
+      {
+        type: "list",
+        items: [
+          "Run your fingertips over the whole body against the direction of the coat, so you're feeling skin, not just fur.",
+          "Don't skip the hidden spots: armpits, groin, belly, under the tail, between the toes, and under the collar.",
+          "If you find a lump, note where it is and roughly how big, and take a photo with a coin next to it for scale. \"Has it changed?\" is one of the first things a vet will ask, and a dated photo answers it.",
+          "Re-check any lumps you already know about each month for changes in size, shape, or texture.",
+        ],
+      },
+      { type: "h2", text: "When to Call the Vet" },
+      {
+        type: "p",
+        text: "A groomer can point out something that looks or feels new, but a groomer isn't a veterinarian and can't tell you what a lump is. Call your vet about any new lump, and sooner rather than later if it's growing quickly, changing shape, bleeding or oozing, or firm and fixed in place, or if your pet seems painful, is scratching hard enough to break the skin, or just isn't acting like themselves. Hot spots and skin infections usually need a vet's treatment too, not just a bath.",
+      },
+      { type: "h2", text: "How Grooming Helps the Skin Itself" },
+      {
+        type: "p",
+        text: "Beyond spotting problems, regular grooming supports healthy skin. Brushing spreads natural oils through the coat, which helps with the dry, flaky skin that tends to show up in heated homes over the colder months. Keeping mats out matters just as much: a matted coat holds moisture and dirt against the skin and hides whatever is going on underneath. A thorough bath and brush-out between full grooms keeps the coat clean and the skin easier to keep an eye on. If your vet has recommended a medicated shampoo or a special skin routine, mention it when you call to book.",
+      },
+      {
+        type: "p",
+        text: "Area veterinary clinics have referred pet owners to Sittin' Pretty for decades, and we've been grooming dogs and cats in Funkstown for more than 40 years. If your pet is due for a bath, a full groom, or a cat groom, give our Funkstown salon a call. We welcome pet owners from Hagerstown, Halfway, and across Washington County.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "cat-grooming"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
