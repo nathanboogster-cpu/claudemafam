@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  /* Sky Pet Grooming palette: deep sky navy brand, warm sun accent on a pale
+     sky background. The plain accent (#f2b632) is for fills under dark text
+     only; text in gold uses accent-dark, which passes WCAG AA on white and
+     on sky. */
+  --color-sky: #f3f8fd;
+  --color-sky-deep: #e2eef9;
+  --color-ink: #13212f;
+  --color-ink-soft: #46576a;
+  --color-brand: #12406b;
+  --color-brand-dark: #0b2c4b;
+  --color-brand-light: #d6e7f7;
+  --color-accent: #f2b632;
+  --color-accent-hover: #f6c75c;
+  --color-accent-dark: #8a5a00;
+  --color-accent-light: #f9d987;
+  --color-on-accent: #1c1404;
+  --color-white: #ffffff;
+  --color-border: #d3e1ee;
+}
+
+@theme inline {
+  --color-sky: var(--color-sky);
+  --color-sky-deep: var(--color-sky-deep);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-light: var(--color-brand-light);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-light: var(--color-accent-light);
+  --color-on-accent: var(--color-on-accent);
+  --color-white: var(--color-white);
+  --color-border: var(--color-border);
+  /* Same pairing as the other client apps (serif display, clean sans body),
+     from system fonts so pages make no font requests. */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sky);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Keep anchored headings clear of the 64px sticky header. */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Reserve space so the sticky mobile CTA bar never overlaps content */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.75rem;
+  }
+}
