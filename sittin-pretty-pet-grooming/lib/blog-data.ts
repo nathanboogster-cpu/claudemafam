@@ -784,6 +784,65 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "cat-grooming"],
   },
+  {
+    slug: "how-to-bathe-your-dog-at-home",
+    title: "How to Bathe Your Dog at Home (and When to Leave It to a Groomer)",
+    metaDescription:
+      "A step-by-step guide to bathing your dog at home: brushing first, choosing a shampoo, rinsing well, drying fully, how often to bathe, and when a groomer makes more sense.",
+    excerpt:
+      "Muddy fall walks mean more baths. Here's how to bathe your dog at home without leaving them itchy or damp, and when it's easier to leave it to a groomer.",
+    eyebrow: "At-Home Care",
+    publishedAt: "2026-10-26",
+    heroPhotoKey: "blackLabSmiling",
+    body: [
+      {
+        type: "p",
+        text: "Fall walks around Funkstown and Hagerstown come with wet leaves, muddy trails, and the occasional roll in something unpleasant, so a lot of dogs end up needing a bath between grooms. Bathing at home is perfectly doable for many dogs. A few habits make the difference between a clean, comfortable dog and one who's itchy, flaky, or still damp hours later.",
+      },
+      { type: "h2", text: "Before the Water Goes On" },
+      {
+        type: "list",
+        items: [
+          "Brush first, all the way down to the skin. Water tightens tangles into mats, so anything you don't brush out before the bath gets harder to deal with after it.",
+          "Gather everything before your dog gets in: shampoo, a cup or sprayer for rinsing, a washcloth for the face, and more towels than you think you'll need.",
+          "Put a non-slip mat or towel in the tub. Slipping is what makes a lot of dogs panic in the bath, and it's an easy way for them to strain something.",
+          "Use lukewarm water. Too hot is uncomfortable for dogs, and too cold makes it hard to get through a thick coat.",
+        ],
+      },
+      { type: "h2", text: "Choosing a Shampoo" },
+      {
+        type: "p",
+        text: "Use a shampoo made for dogs. Dog skin has a different pH than human skin, and human shampoo can leave it dry and itchy, especially with frequent baths. A plain, gentle dog shampoo works for most dogs; if your dog has sensitive skin, a fragrance-free option is a good place to start. If your vet has prescribed a medicated shampoo, follow their directions on how long to leave it on and how often to use it.",
+      },
+      { type: "h2", text: "Washing, Step by Step" },
+      {
+        type: "list",
+        items: [
+          "Wet the coat thoroughly, down to the skin. Double coats shed water on purpose, so it can take a few minutes of soaking to get through to the undercoat.",
+          "Lather from the neck back, working the shampoo into the coat with your fingertips rather than just across the surface.",
+          "Wash the face with a damp washcloth instead of pouring water over the head, and keep water and shampoo out of the eyes and ears.",
+          "Rinse, then rinse again. Leftover shampoo is one of the most common causes of itching and flakes after a bath. Keep going until the water runs clear and the coat no longer feels slick.",
+          "Squeeze the excess water out of the coat and legs with your hands before you reach for the towels.",
+        ],
+      },
+      { type: "h2", text: "Drying Matters More Than Most People Think" },
+      {
+        type: "p",
+        text: "Towel dry by pressing and squeezing rather than rubbing hard, which tangles longer coats. Then make sure your dog is dry down to the skin, especially with a thick double coat and especially in cool fall and winter weather. A damp undercoat can stay wet for hours, which is uncomfortable and can lead to odor or irritated skin. If you use a hair dryer, keep it on a cool or low setting and keep it moving; a human dryer on high heat can burn skin quickly.",
+      },
+      { type: "h2", text: "How Often to Bathe" },
+      {
+        type: "p",
+        text: "Most dogs don't need weekly baths. For many, every month or two is plenty, with extra baths whenever they get into something. Bathing too often can strip the natural oils that keep skin and coat healthy, and regular brushing between baths does a lot of the work of keeping a coat clean.",
+      },
+      { type: "h2", text: "When to Leave It to a Groomer" },
+      {
+        type: "p",
+        text: "Some baths are just easier at a salon: a big dog who's hard to lift in and out of the tub, a heavy double coat that takes hours to dry, a coat that's already matted, or a dog who panics in the bathtub. That's what our Dog Bath & Brush service is for, a thorough bath and brush-out without a haircut. Our Funkstown salon is cage-free, so your dog isn't kenneled between steps, and we've been bathing and grooming dogs for Hagerstown, Halfway, and the rest of Washington County for more than 40 years. If your dog is due, give us a call to schedule.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "deshedding-treatment"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
