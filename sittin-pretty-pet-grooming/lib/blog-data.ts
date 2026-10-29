@@ -843,6 +843,55 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-bath-and-brush", "dog-grooming", "deshedding-treatment"],
   },
+  {
+    slug: "how-to-trim-your-cats-nails-at-home",
+    title: "How to Trim Your Cat's Nails at Home (and When to Get Help)",
+    metaDescription:
+      "A calm, step-by-step guide to trimming your cat's nails at home: getting your cat used to paw handling, how much to cut, avoiding the quick, and when a groomer is the better call.",
+    excerpt:
+      "Indoor cats need regular nail trims, and many owners dread doing them. Here's a calm, step-by-step way to do it at home, and when to get help.",
+    eyebrow: "Cat Grooming",
+    publishedAt: "2026-10-29",
+    heroPhotoKey: "catGrooming",
+    body: [
+      {
+        type: "p",
+        text: "As the weather cools off around Funkstown and Hagerstown, a lot of cats spend more of their time indoors, and indoor cats don't wear their nails down the way outdoor cats can. Long, sharp nails snag on carpet and blankets, get stuck in furniture, and can make scratches on people a lot more painful. In older cats, nails can thicken and even curl back toward the paw pad. Regular trims prevent all of that, and with some patience many cats learn to tolerate them at home.",
+      },
+      { type: "h2", text: "Start With Paw Handling, Not Clippers" },
+      {
+        type: "p",
+        text: "Most nail-trim battles start because the cat is surprised. For a week or so before the first trim, get your cat used to having their paws touched when they're relaxed, like after a meal or while they're dozing on your lap. Hold a paw for a second or two, gently press a toe pad, then let go and offer a treat. Once that's no big deal, let them sniff the clippers and hear the click near them without actually cutting anything.",
+      },
+      { type: "h2", text: "Trimming, Step by Step" },
+      {
+        type: "list",
+        items: [
+          "Use clippers made for cats. Small scissor-style or guillotine-style clippers work well; large dog clippers are hard to control on tiny nails.",
+          "Pick a calm moment and a spot with good light. Many owners find it easiest with the cat on their lap, facing away from them.",
+          "Gently press the top and bottom of a toe to extend the claw.",
+          "Look for the quick, the pink part inside the nail where the blood vessel and nerve are. Only clip the sharp, clear tip in front of it. On dark nails where you can't see the quick, take off just a tiny bit at a time.",
+          "Don't forget the dewclaw on the inside of each front paw. It doesn't touch the ground, so it's the nail most likely to overgrow.",
+          "Stop while it's still going well. One or two paws today and the rest tomorrow is completely fine, and it keeps nail trims from turning into a wrestling match.",
+        ],
+      },
+      {
+        type: "p",
+        text: "If you do nick the quick, stay calm. A small amount of styptic powder, or plain cornstarch if that's what you have, pressed onto the nail tip will usually stop the bleeding quickly. Give your cat a break and a treat, and try again another day.",
+      },
+      { type: "h2", text: "How Often to Trim" },
+      {
+        type: "p",
+        text: "Every few weeks is a good rhythm for most indoor cats. Keeping a scratching post around helps cats maintain their claws and saves your furniture, but it doesn't replace trimming. Senior cats are worth checking more often, since thicker nails that grow faster than they wear down are common as cats age.",
+      },
+      { type: "h2", text: "When to Leave It to a Groomer" },
+      {
+        type: "p",
+        text: "Some cats simply won't allow it at home, no matter how patient you are, and that's okay. It's also worth getting help if a nail is already curling toward the paw pad, if your senior cat's nails have become thick and hard to cut, or if you can't see the quick at all. Nail trims are available as a quick, standalone visit at our Funkstown salon, so you don't need to book a full groom just to keep nails short. Cats need a different touch than dogs, and Sittin' Pretty is one of the few local groomers cat owners across Hagerstown, Halfway, and Washington County trust specifically for cat grooming. Give us a call if your cat is due.",
+      },
+    ],
+    relatedServiceSlugs: ["nail-trim-ear-cleaning", "cat-grooming"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
