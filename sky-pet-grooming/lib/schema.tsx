@@ -44,7 +44,7 @@ export function localBusinessSchema() {
   };
 }
 
-export function serviceSchema(opts: { pageUrl: string; name: string; description: string; city?: string }) {
+export function serviceSchema(opts: { pageUrl: string; name: string; description: string; city?: string; catalog?: boolean }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -54,14 +54,19 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     url: opts.pageUrl,
     areaServed: opts.city ? city(opts.city) : areaServed,
     provider: { "@id": BUSINESS_ID },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Mobile grooming services",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.title, description: s.body },
-      })),
-    },
+    // Single-service pages describe one service, so they skip the catalog.
+    ...(opts.catalog === false
+      ? {}
+      : {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Mobile grooming services",
+            itemListElement: services.map((s) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: s.title, description: s.body },
+            })),
+          },
+        }),
   };
 }
 

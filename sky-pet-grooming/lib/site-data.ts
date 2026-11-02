@@ -58,47 +58,99 @@ export const pillars = [
   },
 ] as const;
 
-// Services from the owner's MoeGo booking page, plus cat grooming (their photos).
+// Services, all from the owner's MoeGo booking page (bookable items and their
+// rules, as listed there; prices change, so the site links to that page for
+// them instead of printing any). `kind`: "main" services can be booked on
+// their own; "add-on" ones only alongside a bath or groom, as `availability`
+// says. Long page copy lives in lib/service-pages.ts.
 export const services = [
   {
     key: "full-dog-grooming",
+    kind: "main",
     title: "Full dog grooming",
-    body: "A complete groom in our van, from small breeds to big, fluffy coats.",
+    body: "Bath, haircut, ear cleaning and a nail trim, in packages from small to extra-extra-large dogs.",
+    availability: "Packages for every size, Small to XXLarge",
     photo: "white-curly-dog-teddy-face",
   },
   {
+    key: "dog-bath",
+    kind: "main",
+    title: "Dog bath",
+    body: "A bath-only appointment for dogs who need a wash, not a haircut, sized from small to extra-extra-large.",
+    availability: "Bath-only, Small to XXLarge",
+    photo: "two-doodles-in-van-bathtub",
+  },
+  {
     key: "cat-grooming",
+    kind: "main",
     title: "Cat grooming",
-    body: "Gentle grooming for cats, at home and without the stress of a car ride.",
+    body: "Grooming and bath-only appointments for cats, at home and without the stress of a car ride.",
+    availability: "Cat grooming or a cat bath",
     photo: "two-fluffy-cats-after-grooming",
   },
   {
+    key: "skunk-off",
+    kind: "main",
+    title: "Skunk-Off treatment",
+    body: "A bath-only treatment for dogs and cats who have met a skunk.",
+    availability: "Bath-only, for dogs of every size and cats",
+    photo: "white-fluffy-dog-sitting",
+  },
+  {
+    key: "nail-trimming",
+    kind: "main",
+    title: "Nail trimming",
+    body: "A nail trim on its own, no bath or groom needed.",
+    availability: "Book on its own",
+    photo: "smiling-pomeranian",
+  },
+  {
     key: "de-shedding",
+    kind: "add-on",
     title: "De-shedding",
-    body: "Helps clear loose undercoat from heavy shedders.",
+    body: "Brushes out the loose, fuzzy undercoat of heavy shedders.",
+    availability: "Add-on with a bath or grooming package",
     photo: "golden-retriever-standing-in-van",
   },
   {
     key: "detangling",
+    kind: "add-on",
     title: "Detangling",
-    body: "Works knots and tangles out of long and curly coats.",
+    body: "Works knots and tangles out of dog and cat coats.",
+    availability: "Add-on with a bath or grooming package",
     photo: "apricot-poodle-lying-down",
   },
   {
-    key: "nail-trimming",
-    title: "Nail trimming",
-    body: "Neat, comfortable nails for dogs and cats.",
-    photo: "smiling-pomeranian",
+    key: "teeth-brushing",
+    kind: "add-on",
+    title: "Teeth brushing",
+    body: "A quick tooth brushing to go with your pet's bath or groom.",
+    availability: "Add-on with a bath or grooming package",
+    photo: "smiling-pit-bull-mix",
+  },
+  {
+    key: "face-trim",
+    kind: "add-on",
+    title: "Face trim",
+    body: "A neat trim around the eyes, muzzle and ears, for dogs between full grooms.",
+    availability: "Add-on with a bath",
+    photo: "white-dog-rounded-trim",
   },
   {
     key: "anal-gland-expression",
+    kind: "add-on",
     title: "Anal gland expression",
-    body: "Available with your appointment. Add it when you book.",
+    body: "External expression for dogs that need it.",
+    availability: "Add-on with a bath or grooming package",
     photo: "cream-doodle-smiling",
   },
 ] as const;
 
 export type ServiceKey = (typeof services)[number]["key"];
+export type Service = (typeof services)[number];
+
+export const mainServices = services.filter((x) => x.kind === "main");
+export const addOnServices = services.filter((x) => x.kind === "add-on");
 
 // What the van photos show is on board.
 export const vanFeatures = [
@@ -150,7 +202,7 @@ export const faqs = [
   {
     question: "What services do you offer?",
     answer:
-      "Full dog grooming, cat grooming, de-shedding, detangling, nail trimming and anal gland expression. You can see every option on our online booking page.",
+      "Full dog grooming, dog baths, cat grooming and cat baths, Skunk-Off treatments and nail trims. With a bath or groom you can add de-shedding, detangling, teeth brushing, a face trim or anal gland expression. You can see every option on our online booking page.",
   },
   {
     question: "What is inside the grooming van?",
@@ -187,6 +239,9 @@ export const PATHS = {
   about: "/about/",
   faq: "/faq/",
 } as const;
+
+export const blogPostPath = (slug: string) => `${PATHS.blog}${slug}/`;
+export const servicePath = (key: string) => `${PATHS.mobileGrooming}${key}/`;
 
 export const mainNav: NavItem[] = [
   { label: "Services", href: PATHS.mobileGrooming },
@@ -346,13 +401,21 @@ export function areaByKey(key: string): ServiceArea {
   return a;
 }
 
+export const serviceNav: NavItem[] = [
+  { label: "All Services", href: PATHS.mobileGrooming },
+  ...services.map((x) => ({ label: x.title, href: servicePath(x.key) })),
+];
+
 export const areaNav: NavItem[] = [
   { label: "All Service Areas", href: PATHS.serviceArea },
   ...serviceAreas.map((a) => ({ label: a.city, href: a.slug })),
 ];
 
-export const blogPostPath = (slug: string) => `${PATHS.blog}${slug}/`;
 
 // Every indexable URL except blog posts (the sitemap adds those from
 // lib/blog-data.ts, which imports this file).
-export const allPaths: string[] = [...Object.values(PATHS), ...serviceAreas.map((a) => a.slug)];
+export const allPaths: string[] = [
+  ...Object.values(PATHS),
+  ...services.map((x) => servicePath(x.key)),
+  ...serviceAreas.map((a) => a.slug),
+];

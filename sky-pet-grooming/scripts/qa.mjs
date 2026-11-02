@@ -54,7 +54,32 @@ const AREA_POSTS = [
   "cat-grooming-at-home-san-francisco",
 ];
 const POST_PAGES = [...SERVICE_POSTS, ...AREA_POSTS].map((s) => `/blog/${s}/`);
-const PAGES = ["/", "/mobile-pet-grooming/", "/service-area/", "/gallery/", "/blog/", "/about/", "/faq/", ...AREA_PAGES, ...POST_PAGES];
+// Service pages (lib/site-data.ts services), one per bookable service.
+const SERVICE_KEYS = [
+  "full-dog-grooming",
+  "dog-bath",
+  "cat-grooming",
+  "skunk-off",
+  "nail-trimming",
+  "de-shedding",
+  "detangling",
+  "teeth-brushing",
+  "face-trim",
+  "anal-gland-expression",
+];
+const SERVICE_PAGES = SERVICE_KEYS.map((k) => `/mobile-pet-grooming/${k}/`);
+const PAGES = [
+  "/",
+  "/mobile-pet-grooming/",
+  "/service-area/",
+  "/gallery/",
+  "/blog/",
+  "/about/",
+  "/faq/",
+  ...SERVICE_PAGES,
+  ...AREA_PAGES,
+  ...POST_PAGES,
+];
 // The two numbers on the owner's van; the first is also on the logo.
 const TELS = ["tel:+14157540813", "tel:+16504383498"];
 // Every photo the owner supplied (lib/photos.ts) must be on /gallery/.
@@ -254,7 +279,7 @@ for (const p of ALL) {
     check("3-seo", types.includes("LocalBusiness") && types.includes("WebSite"), `${p} missing LocalBusiness/WebSite`);
     check("3-seo", types.includes("BreadcrumbList"), `${p} missing BreadcrumbList`);
     check("3-seo", (p === "/faq/") === types.includes("FAQPage"), `${p} FAQPage placement`);
-    const wantsService = p === "/mobile-pet-grooming/" || AREA_PAGES.includes(p);
+    const wantsService = p === "/mobile-pet-grooming/" || AREA_PAGES.includes(p) || SERVICE_PAGES.includes(p);
     check("3-seo", wantsService === types.includes("Service"), `${p} Service schema placement`);
     if (AREA_PAGES.includes(p)) {
       const city = Object.keys(AREAS).find((c) => p === `/mobile-dog-grooming-${AREAS[c]}-ca/`);
@@ -274,6 +299,13 @@ for (const p of ALL) {
         const town = AREA_PAGES[areaIdx];
         check("4-links", info.hrefs.includes(town), `${p} does not link to ${town}`);
       }
+    }
+    if (SERVICE_PAGES.includes(p)) {
+      const svc = ld.find((d) => d["@type"] === "Service");
+      check("3-seo", svc && !svc.hasOfferCatalog && svc.areaServed?.length === Object.keys(AREAS).length, `${p} Service schema should be single-service across all areas`);
+      check("3-seo", ld.some((d) => d["@type"] === "BreadcrumbList" && d.itemListElement.length === 3), `${p} breadcrumb Home > Services > service`);
+      // Prices change, so service pages send people to the booking page for them.
+      check("1-accuracy", /current prices/i.test(info.text), `${p} should point to the booking page for current prices`);
     }
     if (AREA_PAGES.includes(p)) {
       const post = POST_PAGES.find((x) => x.includes(AREA_POSTS[AREA_PAGES.indexOf(p)]));

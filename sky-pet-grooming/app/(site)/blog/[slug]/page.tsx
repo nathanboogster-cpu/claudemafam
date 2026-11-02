@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { areaByKey, blogPostPath, PATHS, services, SITE_URL } from "@/lib/site-data";
+import { areaByKey, blogPostPath, PATHS, services, servicePath, SITE_URL } from "@/lib/site-data";
 import { blogPosts, formatBlogDate, getBlogPost, type BlogBlock, type BlogPost } from "@/lib/blog-data";
 import { pageMetadata } from "@/lib/metadata";
 import { BookButton, CallButton } from "@/components/CTAButton";
@@ -116,10 +116,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           )}
           {service && (
             <Link
-              href={PATHS.mobileGrooming}
+              href={servicePath(service.key)}
               className="inline-flex min-h-[44px] items-center rounded-full border border-border bg-white px-4 text-sm font-bold text-brand hover:border-accent hover:text-accent-dark"
             >
-              {service.title}: all our services →
+              {service.title} →
             </Link>
           )}
           <Link
