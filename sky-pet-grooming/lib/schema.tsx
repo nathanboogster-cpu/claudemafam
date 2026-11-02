@@ -1,4 +1,4 @@
-import { business, faqs, services, SITE_URL } from "./site-data";
+import { business, faqs, serviceAreas, services, SITE_URL } from "./site-data";
 
 // NOTE: Sky Pet Grooming is a mobile, service-area business, so there is no
 // street address. No openingHours, priceRange, email, AggregateRating or
@@ -7,12 +7,13 @@ import { business, faqs, services, SITE_URL } from "./site-data";
 
 const BUSINESS_ID = `${SITE_URL}/#business`;
 
-// San Francisco plus the Peninsula (San Mateo County), from the 415/650
-// numbers and "peninsula" web address on the van.
-const areaServed = [
-  { "@type": "City", name: "San Francisco" },
-  { "@type": "AdministrativeArea", name: "San Mateo County" },
-] as const;
+// Every service-area city (see serviceAreas in site-data for how they were
+// chosen).
+const areaServed = serviceAreas.map((a) => ({ "@type": "City", name: `${a.city}, CA` }));
+
+function city(name: string) {
+  return { "@type": "City", name: `${name}, CA` };
+}
 
 // Google reads WebSite structured data on the home page to pick the site name
 // shown above the URL in search results.
@@ -43,7 +44,7 @@ export function localBusinessSchema() {
   };
 }
 
-export function serviceSchema(opts: { pageUrl: string; name: string; description: string }) {
+export function serviceSchema(opts: { pageUrl: string; name: string; description: string; city?: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -51,7 +52,7 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
-    areaServed,
+    areaServed: opts.city ? city(opts.city) : areaServed,
     provider: { "@id": BUSINESS_ID },
     hasOfferCatalog: {
       "@type": "OfferCatalog",

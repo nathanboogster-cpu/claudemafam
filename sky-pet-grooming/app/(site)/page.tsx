@@ -14,6 +14,7 @@ import { PhotoGrid } from "@/components/PhotoGrid";
 import { Pic } from "@/components/Pic";
 import { BottomCta } from "@/components/BottomCta";
 import { CheckIcon } from "@/components/icons";
+import { AreaLinks } from "@/components/AreaLinks";
 
 export const metadata = pageMetadata({
   title: "Mobile Dog & Cat Grooming, SF Peninsula | Sky Pet Grooming",
@@ -156,12 +157,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <FaqBlock items={homeFaqs} title="Common Questions" />
-        <div className="mt-8 text-center">
-          <Link href={PATHS.faq} className="inline-flex min-h-[44px] items-center font-bold text-brand hover:underline">
-            More questions →
+      <section className="mx-auto max-w-6xl px-4 py-16 text-center">
+        <Eyebrow>Service Areas</Eyebrow>
+        <h2 className="mt-1 font-display text-3xl font-extrabold text-ink sm:text-4xl">Mobile Grooming Near You</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-ink-soft">
+          Based in San Bruno, our van comes to homes across the northern Peninsula and southern and western San Francisco.
+        </p>
+        <AreaLinks className="mt-8 justify-center" />
+        <p className="mt-6">
+          <Link href={PATHS.serviceArea} className="inline-flex min-h-[44px] items-center font-bold text-brand hover:underline">
+            All service areas →
           </Link>
+        </p>
+      </section>
+
+      <section className="bg-sky">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <FaqBlock items={homeFaqs} title="Common Questions" />
+          <div className="mt-8 text-center">
+            <Link href={PATHS.faq} className="inline-flex min-h-[44px] items-center font-bold text-brand hover:underline">
+              More questions →
+            </Link>
+          </div>
         </div>
       </section>
 

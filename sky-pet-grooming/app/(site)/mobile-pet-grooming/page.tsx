@@ -11,7 +11,8 @@ import { ServiceGrid } from "@/components/ServiceGrid";
 import { PhotoGrid } from "@/components/PhotoGrid";
 import { Pic } from "@/components/Pic";
 import { BottomCta } from "@/components/BottomCta";
-import { CheckIcon, PinIcon } from "@/components/icons";
+import { CheckIcon } from "@/components/icons";
+import { AreaLinks } from "@/components/AreaLinks";
 
 const PAGE_URL = `${SITE_URL}${PATHS.mobileGrooming}`;
 const DESCRIPTION =
@@ -81,12 +82,10 @@ export default function MobileGroomingPage() {
             ))}
           </ul>
           <h2 className="mt-10 font-display text-3xl font-extrabold text-ink">Where We Groom</h2>
-          <p className="mt-4 flex items-start gap-2 leading-relaxed text-ink-soft">
-            <PinIcon className="mt-1 h-5 w-5 shrink-0 text-accent" />
-            <span>
-              San Francisco and the Peninsula. Not sure we reach your street? Call{" "}
-              <PhoneLink location="service_area" className="inline-flex min-h-6 items-center" /> or ask when you book.
-            </span>
+          <AreaLinks className="mt-5" />
+          <p className="mt-4 leading-relaxed text-ink-soft">
+            Not sure we reach your street? Call <PhoneLink location="service_area" className="inline-flex min-h-6 items-center" /> or
+            ask when you book.
           </p>
         </div>
         <div>
