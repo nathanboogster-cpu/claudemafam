@@ -16,6 +16,7 @@ on:
       - "flos-happy-clipper/lib/blog-data.ts"
       - "tongfluence/lib/blog-posts.ts"
       - "i-love-dogs/lib/blog-data.ts"
+      - "sky-pet-grooming/lib/blog-data.ts"
 
 permissions:
   issues: write

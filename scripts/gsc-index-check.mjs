@@ -36,8 +36,12 @@ const SITES = [
   // I Love Dogs: the new site (i-love-dogs/) is on Vercel, but until
   // www.ilovedogsgrooming.com is pointed at it, that domain still serves the
   // client's old Squarespace site, so this checks the old sitemap. It switches
-  // to the new site's 30 URLs automatically once the domain moves.
+  // to the new site's URLs automatically once the domain moves.
   { name: "i-love-dogs", property: "sc-domain:ilovedogsgrooming.com", sitemap: "https://www.ilovedogsgrooming.com/sitemap.xml" },
+  // Until skypetgrooming.com points at the sky-pet-grooming Vercel project,
+  // this sitemap is the client's old site, so expect it to be reported as
+  // skipped or to list the old site's URLs.
+  { name: "sky-pet-grooming", property: "sc-domain:skypetgrooming.com", sitemap: "https://www.skypetgrooming.com/sitemap.xml" },
   // groomer-on-call has no custom domain attached yet (still *.vercel.app),
   // so there is no real Search Console property to check. Add it here once
   // a domain is live. Pet Spa Luxe was removed 2026-10-06 and Bark and Bork

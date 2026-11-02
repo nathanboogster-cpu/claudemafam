@@ -30,7 +30,56 @@ const AREAS = {
   "San Francisco": "san-francisco",
 };
 const AREA_PAGES = Object.values(AREAS).map((k) => `/mobile-dog-grooming-${k}-ca/`);
-const PAGES = ["/", "/mobile-pet-grooming/", "/service-area/", "/gallery/", "/about/", "/faq/", ...AREA_PAGES];
+// Blog posts (lib/blog-data.ts): six service guides and one post per area.
+const SERVICE_POSTS = [
+  "what-happens-during-a-mobile-dog-groom",
+  "mobile-cat-grooming-what-it-involves",
+  "what-is-a-de-shedding-treatment",
+  "detangling-vs-shave-down-matted-dog",
+  "why-regular-nail-trims-matter",
+  "dog-anal-glands-when-they-need-help",
+];
+const AREA_POSTS = [
+  "how-often-to-groom-your-dog-san-bruno",
+  "foxtail-season-dog-safety-south-san-francisco",
+  "helping-a-nervous-dog-enjoy-grooming-millbrae",
+  "ticks-burrs-and-muddy-paws-brisbane",
+  "doodle-coat-care-burlingame",
+  "grooming-senior-dogs-at-home-colma",
+  "grooming-large-double-coated-dogs-hillsborough",
+  "beach-dog-grooming-salt-sand-pacifica",
+  "fog-damp-coats-matting-daly-city",
+  "should-you-shave-your-dog-for-summer-san-mateo",
+  "paw-and-nail-care-foster-city",
+  "cat-grooming-at-home-san-francisco",
+];
+const POST_PAGES = [...SERVICE_POSTS, ...AREA_POSTS].map((s) => `/blog/${s}/`);
+// Service pages (lib/site-data.ts services), one per bookable service.
+const SERVICE_KEYS = [
+  "full-dog-grooming",
+  "dog-bath",
+  "cat-grooming",
+  "skunk-off",
+  "nail-trimming",
+  "de-shedding",
+  "detangling",
+  "teeth-brushing",
+  "face-trim",
+  "anal-gland-expression",
+];
+const SERVICE_PAGES = SERVICE_KEYS.map((k) => `/mobile-pet-grooming/${k}/`);
+const PAGES = [
+  "/",
+  "/mobile-pet-grooming/",
+  "/service-area/",
+  "/gallery/",
+  "/blog/",
+  "/about/",
+  "/faq/",
+  ...SERVICE_PAGES,
+  ...AREA_PAGES,
+  ...POST_PAGES,
+];
 // The two numbers on the owner's van; the first is also on the logo.
 const TELS = ["tel:+14157540813", "tel:+16504383498"];
 // Every photo the owner supplied (lib/photos.ts) must be on /gallery/.
@@ -158,6 +207,7 @@ for (const p of ALL) {
       theme: document.querySelector('meta[name="theme-color"]')?.content ?? "",
       lang: document.documentElement.lang,
       h1: document.querySelectorAll("h1").length,
+      h1Text: document.querySelector("h1")?.textContent ?? "",
       headings: [...document.querySelectorAll("main h1, main h2, main h3")].map((h) => Number(h.tagName[1])),
       skip: !!document.querySelector('a[href="#main-content"]') && !!document.getElementById("main-content"),
       jsonld: [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => s.textContent),
@@ -229,7 +279,7 @@ for (const p of ALL) {
     check("3-seo", types.includes("LocalBusiness") && types.includes("WebSite"), `${p} missing LocalBusiness/WebSite`);
     check("3-seo", types.includes("BreadcrumbList"), `${p} missing BreadcrumbList`);
     check("3-seo", (p === "/faq/") === types.includes("FAQPage"), `${p} FAQPage placement`);
-    const wantsService = p === "/mobile-pet-grooming/" || AREA_PAGES.includes(p);
+    const wantsService = p === "/mobile-pet-grooming/" || AREA_PAGES.includes(p) || SERVICE_PAGES.includes(p);
     check("3-seo", wantsService === types.includes("Service"), `${p} Service schema placement`);
     if (AREA_PAGES.includes(p)) {
       const city = Object.keys(AREAS).find((c) => p === `/mobile-dog-grooming-${AREAS[c]}-ca/`);
@@ -239,6 +289,28 @@ for (const p of ALL) {
       check("3-seo", ld.some((d) => d["@type"] === "BreadcrumbList" && d.itemListElement.length === 3), `${p} breadcrumb Home > Service Areas > ${city}`);
     }
     check("3-seo", (p === "/gallery/") === types.includes("ImageGallery"), `${p} ImageGallery schema placement`);
+    check("3-seo", POST_PAGES.includes(p) === types.includes("BlogPosting"), `${p} BlogPosting schema placement`);
+    if (POST_PAGES.includes(p)) {
+      const bp = ld.find((d) => d["@type"] === "BlogPosting");
+      check("3-seo", bp?.headline === info.h1Text && bp?.url === SITE + p && bp?.datePublished, `${p} BlogPosting headline/url/date`);
+      const areaIdx = AREA_POSTS.indexOf(p.split("/")[2]);
+      if (areaIdx >= 0) {
+        // Area posts link to their own town page.
+        const town = AREA_PAGES[areaIdx];
+        check("4-links", info.hrefs.includes(town), `${p} does not link to ${town}`);
+      }
+    }
+    if (SERVICE_PAGES.includes(p)) {
+      const svc = ld.find((d) => d["@type"] === "Service");
+      check("3-seo", svc && !svc.hasOfferCatalog && svc.areaServed?.length === Object.keys(AREAS).length, `${p} Service schema should be single-service across all areas`);
+      check("3-seo", ld.some((d) => d["@type"] === "BreadcrumbList" && d.itemListElement.length === 3), `${p} breadcrumb Home > Services > service`);
+      // Prices change, so service pages send people to the booking page for them.
+      check("1-accuracy", /current prices/i.test(info.text), `${p} should point to the booking page for current prices`);
+    }
+    if (AREA_PAGES.includes(p)) {
+      const post = POST_PAGES.find((x) => x.includes(AREA_POSTS[AREA_PAGES.indexOf(p)]));
+      check("4-links", info.hrefs.includes(post), `${p} does not link to its blog post ${post}`);
+    }
     const biz = ld.find((d) => d["@type"] === "LocalBusiness");
     check(
       "3-seo",

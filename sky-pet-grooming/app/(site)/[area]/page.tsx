@@ -15,6 +15,8 @@ import { Pic } from "@/components/Pic";
 import { TrustBar } from "@/components/TrustBar";
 import { AreaLinks } from "@/components/AreaLinks";
 import { BottomCta } from "@/components/BottomCta";
+import { PostCard } from "@/components/PostCard";
+import { postForArea } from "@/lib/blog-data";
 import { CheckIcon } from "@/components/icons";
 
 // One page per service area: /mobile-dog-grooming-<city>-ca/. Only the
@@ -56,6 +58,7 @@ export default async function AreaPage({ params }: { params: Promise<{ area: str
   const nearby = a.nearby.map(areaByKey);
   const pageUrl = `${SITE_URL}${a.slug}`;
   const zipText = a.zips.length ? ` (${a.zips.join(", ")})` : "";
+  const post = postForArea(a.slug.replace("/mobile-dog-grooming-", "").replace("-ca/", ""));
 
   return (
     <div>
@@ -155,6 +158,18 @@ export default async function AreaPage({ params }: { params: Promise<{ area: str
           <ProcessSteps />
         </div>
       </section>
+
+      {post && (
+        <section className="mx-auto max-w-3xl px-4 pb-4 pt-14">
+          <div className="text-center">
+            <Eyebrow>From Our Blog</Eyebrow>
+            <h2 className="mt-1 font-display text-3xl font-extrabold text-ink">Tips for {a.city} Pet Owners</h2>
+          </div>
+          <div className="mt-6">
+            <PostCard post={post} />
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto max-w-6xl px-4 py-14 text-center">
         <Eyebrow>Nearby</Eyebrow>

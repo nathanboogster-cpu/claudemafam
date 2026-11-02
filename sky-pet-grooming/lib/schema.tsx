@@ -44,7 +44,7 @@ export function localBusinessSchema() {
   };
 }
 
-export function serviceSchema(opts: { pageUrl: string; name: string; description: string; city?: string }) {
+export function serviceSchema(opts: { pageUrl: string; name: string; description: string; city?: string; catalog?: boolean }) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -54,13 +54,47 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     url: opts.pageUrl,
     areaServed: opts.city ? city(opts.city) : areaServed,
     provider: { "@id": BUSINESS_ID },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Mobile grooming services",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.title, description: s.body },
-      })),
+    // Single-service pages describe one service, so they skip the catalog.
+    ...(opts.catalog === false
+      ? {}
+      : {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Mobile grooming services",
+            itemListElement: services.map((s) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: s.title, description: s.body },
+            })),
+          },
+        }),
+  };
+}
+
+export function blogPostingSchema(opts: {
+  pageUrl: string;
+  headline: string;
+  description: string;
+  imageUrl: string;
+  datePublished: string;
+  // Area posts name their town; service guides have none.
+  city?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.headline,
+    description: opts.description,
+    image: opts.imageUrl,
+    datePublished: opts.datePublished,
+    dateModified: opts.datePublished,
+    url: opts.pageUrl,
+    mainEntityOfPage: opts.pageUrl,
+    ...(opts.city ? { contentLocation: city(opts.city) } : {}),
+    author: { "@id": BUSINESS_ID },
+    publisher: {
+      "@type": "Organization",
+      name: business.name,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-full.png` },
     },
   };
 }

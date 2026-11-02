@@ -4,10 +4,14 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { areaNav, mainNav, PATHS, type NavItem } from "@/lib/site-data";
+import { areaNav, mainNav, PATHS, serviceNav, type NavItem } from "@/lib/site-data";
 
 const groups: { label: string; items: NavItem[] }[] = [
-  { label: "Menu", items: [{ label: "Home", href: PATHS.home }, ...mainNav.filter((i) => i.href !== PATHS.serviceArea)] },
+  {
+    label: "Menu",
+    items: [{ label: "Home", href: PATHS.home }, ...mainNav.filter((i) => i.href !== PATHS.serviceArea && i.href !== PATHS.mobileGrooming)],
+  },
+  { label: "Services", items: serviceNav },
   { label: "Service Areas", items: areaNav },
 ];
 

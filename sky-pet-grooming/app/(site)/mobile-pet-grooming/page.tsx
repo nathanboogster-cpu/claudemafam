@@ -16,7 +16,7 @@ import { AreaLinks } from "@/components/AreaLinks";
 
 const PAGE_URL = `${SITE_URL}${PATHS.mobileGrooming}`;
 const DESCRIPTION =
-  "Mobile dog and cat grooming services in San Francisco and the Peninsula: full grooms, cat grooming, de-shedding, detangling and nail trims at your door.";
+  "Mobile dog and cat grooming in San Francisco and the Peninsula: full grooms, baths, cat grooming, Skunk-Off, nail trims and add-ons at your door.";
 
 export const metadata = pageMetadata({
   title: "Mobile Pet Grooming Services, SF Peninsula | Sky Pet",
