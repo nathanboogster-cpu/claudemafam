@@ -17,12 +17,16 @@ Google listing:
 - Serves customers across California.
 - Licensed, insured and eco-friendly.
 
+The owner also supplied their MoeGo online booking page,
+`https://booking.moego.pet/ol/landing?name=SkyPetGrooming` (`BOOKING_URL` in
+`lib/site-data.ts`).
+
 No phone number, email, address, city list, hours, prices, service menu,
 species (dogs, cats), staff, years of experience, ratings, reviews, logo or
 photos could be verified, so **none of them are on the site**. That is why:
 
-- The only call to action is **Request an Appointment**, a form at `/book/`.
-  There is no Call button, no map and no Contact page.
+- The only call to action is **Book Online**, which opens the MoeGo page in a
+  new tab. There is no Call button, no map and no Contact page.
 - Copy says "pet", never "dog" or "cat", and lists no services or prices.
 - `scripts/qa.mjs` fails the build's QA if any of those creep in.
 
@@ -35,28 +39,24 @@ Nothing from it is used here.
 | Path | Purpose |
 | --- | --- |
 | `/` | Home: hero, the three verified pillars, why mobile, how booking works, FAQ excerpt |
-| `/mobile-pet-grooming/` | Service page (Service schema), service area, what to put in a request |
+| `/mobile-pet-grooming/` | Service page (Service schema), service area, what to have ready before booking |
 | `/about/` | About |
 | `/faq/` | FAQ (FAQPage schema, identical to visible text) |
-| `/book/` | Appointment request form |
-| `/requests?key=…` | Private inbox of sent requests (noindex, disallowed in robots.txt) |
 
-## How appointment requests work
+`/book/` was an on-site request form for a short time and is now a temporary
+redirect to the MoeGo page, so any old links still reach booking.
 
-`/book/` posts to a Server Action (`app/(site)/book/actions.ts`) that
-validates the fields, drops honeypot spam, limits each IP to 5 requests an
-hour, and stores the request in Upstash Redis (`lib/requests-store.ts`). The
-owner reads them at `/requests?key=<REQUESTS_SECRET>`, newest first, with
-tap-to-call phone numbers.
+## Booking
 
-**Without Redis connected, the form cannot send** and tells the visitor so.
-Connecting it is a launch blocker (step 5 below).
+Every Book Online button (header, hero, sticky mobile bar, page CTAs,
+footer) links to the MoeGo page in a new tab and sends a `book_click` event
+to Vercel Analytics. Bookings, customer details and confirmations all live
+in MoeGo, so the site stores nothing and needs no database or secrets.
 
-There is no email or SMS alert yet: the owner has to check `/requests`.
-Adding an email notification (for example with Resend) is the recommended
-next step once the owner gives us an address to send to.
+## Vercel project
 
-## Deploying as its own Vercel project (owner approval required)
+The `sky-pet-grooming` project (Tongfluence team) deploys this folder from
+`main`. To recreate it:
 
 1. In Vercel (Tongfluence team), create a **new project** from this repository.
 2. Set **Root Directory** to `sky-pet-grooming`. Framework preset: Next.js.
@@ -66,9 +66,7 @@ next step once the owner gives us an address to send to.
    with 301s in `next.config.ts` before launch.
 4. `NEXT_PUBLIC_SITE_URL` is optional: canonicals, schema, the sitemap and
    robots.txt already default to `https://www.skypetgrooming.com`.
-5. **Required:** add the Upstash for Redis integration (Storage tab), and set
-   `REQUESTS_SECRET` to a long random string. Send a test request from the
-   live `/book/` page and confirm it appears at `/requests?key=<secret>`.
+5. No environment variables or storage are needed.
 
 Never deploy this app into another client's Vercel project.
 
@@ -79,21 +77,18 @@ cd sky-pet-grooming
 npm install
 npm run dev          # http://localhost:3000
 
-# QA against a production build, with a local stand-in for Redis
-npm run build
-node scripts/mock-upstash.mjs &
-KV_REST_API_URL=http://localhost:8079 KV_REST_API_TOKEN=qa REQUESTS_SECRET=qa-secret npx next start -p 3100 &
+# QA against a production build
+npm run build && npx next start -p 3100 &
 QA_BASE=http://localhost:3100 CHROMIUM_PATH=/path/to/chromium npm run qa
 ```
 
 `npm run qa` (`scripts/qa.mjs`) runs the pre-launch checks with Playwright:
 banned-claim grep, titles/descriptions/H1/canonicals, JSON-LD placement and
 contents, sitemap and robots, every internal link and anchor, orphan pages,
-Book link in the first 390×844 viewport, sticky bar, overflow at
-320/390/1280, tap targets, third-party requests, and the booking form end to
-end (field errors, values kept after an error, a sent request appearing in
-`/requests`, honeypot not stored). It writes mobile screenshots to `qa/`.
-`scripts/mock-upstash.mjs` is for local QA only.
+every booking link being exactly the MoeGo URL and opening in a new tab,
+the `/book/` redirect, Book Online in the first 390×844 viewport, sticky bar,
+overflow at 320/390/1280, tap targets and third-party requests. It writes
+mobile screenshots to `qa/`.
 
 ## Structure
 
@@ -102,10 +97,9 @@ end (field errors, values kept after an error, a sent request appearing in
 - `lib/schema.tsx`: JSON-LD. LocalBusiness (service-area: no address or
   phone, `areaServed` California) and WebSite on every page, BreadcrumbList
   on every page, Service on `/mobile-pet-grooming/`, FAQPage on `/faq/`.
-- `lib/requests-store.ts`, `app/(site)/book/actions.ts`,
-  `components/BookingForm.tsx`, `app/requests/`: the booking flow.
-- `lib/track.ts`: `book_click` and `booking_request` events to Vercel
-  Analytics and `window.dataLayer`.
+- `components/CTAButton.tsx`: `BookButton`, the MoeGo link used everywhere.
+- `lib/track.ts`: `book_click` events to Vercel Analytics and
+  `window.dataLayer`.
 - `components/SkyScene.tsx`: inline SVG hero art, standing in for photos.
 - `components/BrandMark.tsx` and `app/icon.svg`: a placeholder sun-and-cloud
   mark, not the client's logo.
@@ -120,7 +114,6 @@ end (field errors, values kept after an error, a sent request appearing in
 4. Hours or booking days.
 5. Logo and original grooming photos.
 6. Reviews they are happy to quote, for a Reviews section.
-7. Who should be told about new requests, and how (email or text).
-8. The URLs of their current site, for 301 redirects.
-9. Approval to deploy, plus Vercel project and DNS access for
-   `skypetgrooming.com`.
+7. The URLs of their current site, for 301 redirects.
+8. DNS access for `skypetgrooming.com`, to point the domain at the new
+   Vercel project.

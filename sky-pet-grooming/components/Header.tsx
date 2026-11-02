@@ -4,9 +4,6 @@ import { MobileNav } from "./MobileNav";
 import { BookButton } from "./CTAButton";
 import { BrandMark } from "./BrandMark";
 
-// "Book" is the header button, so it is left out of the text links.
-const desktopLinks = mainNav.filter((item) => item.href !== PATHS.book);
-
 export function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-border bg-sky/95 backdrop-blur supports-[backdrop-filter]:bg-sky/80">
@@ -20,7 +17,7 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-6 text-sm font-medium text-ink-soft">
-          {desktopLinks.map((item) => (
+          {mainNav.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-brand whitespace-nowrap">
               {item.label}
             </Link>

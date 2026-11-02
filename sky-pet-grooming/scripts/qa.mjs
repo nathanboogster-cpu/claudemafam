@@ -1,23 +1,20 @@
 // Pre-launch QA for the Sky Pet Grooming site. Run against a production
-// build, with the local Upstash mock standing in for Redis:
+// build:
 //
-//   npm run build
-//   node scripts/mock-upstash.mjs &
-//   KV_REST_API_URL=http://localhost:8079 KV_REST_API_TOKEN=qa REQUESTS_SECRET=qa-secret npx next start -p 3100 &
+//   npm run build && npx next start -p 3100 &
 //   QA_BASE=http://localhost:3100 npm run qa
 //
-// Checks accuracy (banned claims), SEO, links, conversion/mobile, the booking
-// form end to end, and performance, and saves 390x844 full-page screenshots
-// to qa/. The adversarial read is done by a person. Exits non-zero on any
-// failure.
+// Checks accuracy (banned claims), SEO, links, conversion/mobile and
+// performance, and saves 390x844 full-page screenshots to qa/. The
+// adversarial read is done by a person. Exits non-zero on any failure.
 import { chromium } from "playwright";
 import { mkdir } from "node:fs/promises";
 
 const BASE = (process.env.QA_BASE ?? "http://localhost:3100").replace(/\/$/, "");
-const SECRET = process.env.REQUESTS_SECRET ?? "qa-secret";
 const SITE = "https://www.skypetgrooming.com";
-const BOOK = "/book/";
-const PAGES = ["/", "/mobile-pet-grooming/", "/about/", "/faq/", BOOK];
+// The owner's MoeGo booking page. Every booking link must be exactly this.
+const BOOK = "https://booking.moego.pet/ol/landing?name=SkyPetGrooming";
+const PAGES = ["/", "/mobile-pet-grooming/", "/about/", "/faq/"];
 const ALL = [...PAGES, "/404.html"];
 // Vercel Analytics serves its script at /_vercel/insights/* on Vercel only;
 // under `next start` that request 404s, so it is ignored here.
@@ -69,7 +66,7 @@ for (const p of ALL) {
 const robots = await (await fetch(BASE + "/robots.txt")).text();
 check(
   "3-seo",
-  /User-Agent: \*/i.test(robots) && /Allow: \/\n/.test(robots) && /Disallow: \/requests/.test(robots) && robots.includes(`Sitemap: ${SITE}/sitemap.xml`),
+  /User-Agent: \*/i.test(robots) && /Allow: \/\n/.test(robots) && !/Disallow/.test(robots) && robots.includes(`Sitemap: ${SITE}/sitemap.xml`),
   "robots.txt",
 );
 const sitemap = await (await fetch(BASE + "/sitemap.xml")).text();
@@ -77,12 +74,13 @@ const locs = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
 check("3-seo", locs.length === PAGES.length && PAGES.every((p) => locs.includes(SITE + p)), `sitemap locs: ${locs.join(", ")}`);
 check("3-seo", (sitemap.match(/<lastmod>/g) ?? []).length === PAGES.length, "sitemap lastmod on every URL");
 
-// The private inbox: locked without the key, noindex either way.
-{
-  const locked = await (await fetch(BASE + "/requests/")).text();
-  check("7-form", locked.includes("Not authorized") && /noindex/.test(locked), "/requests/ without key must be locked and noindex");
-  const wrong = await (await fetch(BASE + "/requests/?key=wrong")).text();
-  check("7-form", wrong.includes("Not authorized"), "/requests/ with a wrong key must be locked");
+// The old on-site form URL forwards to the booking page.
+for (const src of ["/book", "/book/"]) {
+  const res = await fetch(BASE + src, { redirect: "manual" });
+  const hop = res.headers.get("location") ?? "";
+  // `next start` may add the trailing-slash hop first; follow internal hops only.
+  const final = hop.startsWith("/") ? (await fetch(BASE + hop, { redirect: "manual" })).headers.get("location") : hop;
+  check("4-links", final === BOOK, `${src} should redirect to the booking page, got ${final}`);
 }
 
 // ---- Page-level checks in a real browser ----
@@ -140,8 +138,13 @@ for (const p of ALL) {
       jsonld: [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => s.textContent),
       text: document.body.innerText,
       bookInFirstViewport: books.some(inFirstViewport),
-      formInFirstViewport: !!document.getElementById("name") && inFirstViewport(document.querySelector("h1")),
       sticky: !!sticky,
+      // External booking links open in a new tab, without opener access.
+      badBookLinks: books
+        .filter((a) => a.target !== "_blank" || !/noopener/.test(a.rel) || !/noreferrer/.test(a.rel))
+        .map((a) => a.textContent.trim()),
+      // Any link to MoeGo that is not exactly the booking URL.
+      wrongBookUrls: [...document.querySelectorAll('a[href*="moego"]')].map((a) => a.getAttribute("href")).filter((h) => h !== BOOK),
       stickyVisible: sticky ? vis(sticky) : false,
       overflow: document.documentElement.scrollWidth - innerWidth,
       // Pill CTA buttons must be >= 44px; every other visible link >= 24px (WCAG 2.5.8).
@@ -209,26 +212,22 @@ for (const p of ALL) {
   }
 
   // 4. Links
+  check("4-links", info.badBookLinks.length === 0, `${p} booking links missing target/rel: ${info.badBookLinks}`);
+  check("4-links", info.wrongBookUrls.length === 0, `${p} wrong booking URLs: ${info.wrongBookUrls}`);
   for (const h of info.hrefs) {
     if (h.startsWith("#")) check("4-links", html[p].includes(`id="${h.slice(1)}"`), `${p} same-page anchor ${h} has no target`);
     else if (h.startsWith("/")) internal.set(h, p);
   }
 
-  // 5. Conversion / mobile. The booking page has the form instead of a Book
-  // button and no sticky bar.
-  if (p === BOOK) {
-    check("5-mobile", info.formInFirstViewport, `${p} heading of the form page not in first viewport`);
-    check("5-mobile", !info.sticky, `${p} should not show the sticky bar`);
-  } else {
-    check("5-mobile", info.bookInFirstViewport, `${p} no Book link fully visible in first 390x844 viewport`);
-    check("5-mobile", info.stickyVisible, `${p} sticky Book bar hidden on mobile`);
-  }
+  // 5. Conversion / mobile
+  check("5-mobile", info.bookInFirstViewport, `${p} no Book Online link fully visible in first 390x844 viewport`);
+  check("5-mobile", info.stickyVisible, `${p} sticky Book bar hidden on mobile`);
   check("5-mobile", info.overflow === 0, `${p} horizontal overflow ${info.overflow}px at 390`);
   check("5-mobile", info.smallButtons.length === 0, `${p} CTA buttons under 44px: ${info.smallButtons}`);
   check("5-mobile", info.smallLinks.length === 0, `${p} links under 24px: ${info.smallLinks}`);
 
   // Footer's last line must not sit under the sticky bar at the bottom of the page.
-  if (info.sticky) {
+  {
     await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
     await page.waitForTimeout(100);
     const covered = await page.evaluate(() => {
@@ -293,59 +292,6 @@ for (const p of PAGES) check("4-links", internal.has(p), `${p} is not linked fro
     "FAQPage schema differs from visible FAQ",
   );
   await pg.close();
-}
-
-// 7. Booking form, end to end against the Redis mock.
-{
-  const stamp = `QA ${Date.now()}`;
-  const pg = await mobile.newPage();
-  await pg.goto(BASE + BOOK, { waitUntil: "networkidle" });
-
-  // Empty submit: server-side field errors, nothing stored.
-  await pg.click('button[type="submit"]');
-  await pg.waitForSelector('[role="alert"]');
-  const errs = await pg.$$eval('[id$="-error"]', (els) => els.map((e) => e.id));
-  check("7-form", ["name-error", "phone-error", "location-error", "pets-error"].every((e) => errs.includes(e)), `empty submit errors: ${errs}`);
-  check("7-form", !errs.includes("email-error"), "email is optional");
-  await pg.screenshot({ path: "qa/mobile-book-errors.png", fullPage: true });
-
-  // Typed values survive an error round trip.
-  await pg.fill("#name", stamp);
-  await pg.fill("#phone", "123");
-  await pg.click('button[type="submit"]');
-  await pg.waitForSelector("#phone-error");
-  check("7-form", (await pg.inputValue("#name")) === stamp, "name kept after a failed submit");
-
-  // Valid submit.
-  await pg.fill("#phone", "(555) 010-0199");
-  await pg.fill("#email", "qa@example.com");
-  await pg.fill("#location", "90210");
-  await pg.fill("#pets", "Medium, 4 years, curly coat");
-  await pg.fill("#timing", "Weekday mornings");
-  await pg.click('button[type="submit"]');
-  await pg.waitForSelector('[role="status"]');
-  check("7-form", (await pg.textContent('[role="status"]')).includes("Request sent"), "success message after a valid submit");
-  await pg.screenshot({ path: "qa/mobile-book-sent.png", fullPage: true });
-  await pg.close();
-
-  // It shows up in the inbox.
-  const inbox = await (await fetch(`${BASE}/requests/?key=${SECRET}`)).text();
-  check("7-form", inbox.includes(stamp) && inbox.includes("90210") && inbox.includes("Medium, 4 years, curly coat"), "request listed at /requests");
-
-  // Honeypot: looks sent, is not stored.
-  const bot = await mobile.newPage();
-  await bot.goto(BASE + BOOK, { waitUntil: "networkidle" });
-  const botName = `BOT ${Date.now()}`;
-  await bot.fill("#name", botName);
-  await bot.fill("#phone", "5550100199");
-  await bot.fill("#location", "90210");
-  await bot.fill("#pets", "x");
-  await bot.$eval("#website", (el) => (el.value = "http://spam.example"));
-  await bot.click('button[type="submit"]');
-  await bot.waitForSelector('[role="status"]');
-  await bot.close();
-  const inbox2 = await (await fetch(`${BASE}/requests/?key=${SECRET}`)).text();
-  check("7-form", !inbox2.includes(botName), "honeypot submission must not be stored");
 }
 
 // 6. Own CSS weight (inlined Tailwind output).

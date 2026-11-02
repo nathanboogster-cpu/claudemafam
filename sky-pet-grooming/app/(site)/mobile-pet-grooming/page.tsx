@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { mobileBenefits, PATHS, requestChecklist, SITE_URL } from "@/lib/site-data";
+import { bookingChecklist, mobileBenefits, PATHS, SITE_URL } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { BookButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -12,7 +12,7 @@ import { CheckIcon, PinIcon } from "@/components/icons";
 
 const PAGE_URL = `${SITE_URL}${PATHS.mobileGrooming}`;
 const DESCRIPTION =
-  "Luxury mobile pet grooming at your doorstep across California. Licensed, insured and eco-friendly. See how booking works and request an appointment.";
+  "Luxury mobile pet grooming at your doorstep across California. Licensed, insured and eco-friendly. See how it works and book online.";
 
 export const metadata = pageMetadata({
   title: "Mobile Pet Grooming Across California | Sky Pet Grooming",
@@ -76,16 +76,15 @@ export default function MobileGroomingPage() {
             <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">Where We Groom</h2>
             <p className="mt-4 flex items-start gap-2 leading-relaxed text-ink-soft">
               <PinIcon className="mt-1 h-5 w-5 shrink-0 text-brand" />
-              We serve customers across California. Put your city or ZIP code in your request and we will confirm we can reach
-              you.
+              We serve customers across California. Not sure we reach your area? Ask when you book online.
             </p>
           </div>
           <div>
-            <Eyebrow>Your Request</Eyebrow>
-            <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">What to Tell Us</h2>
-            <p className="mt-4 text-ink-soft">The more we know, the better we can plan your pet&rsquo;s groom and quote it:</p>
+            <Eyebrow>Before You Book</Eyebrow>
+            <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">What to Have Ready</h2>
+            <p className="mt-4 text-ink-soft">The more we know, the better we can plan your pet&rsquo;s groom:</p>
             <ul className="mt-3 space-y-2">
-              {requestChecklist.map((item) => (
+              {bookingChecklist.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-ink-soft">
                   <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                   {item}

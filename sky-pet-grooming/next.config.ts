@@ -1,5 +1,6 @@
 import path from "node:path";
 import type { NextConfig } from "next";
+import { BOOKING_URL } from "./lib/site-data";
 
 const nextConfig: NextConfig = {
   // This app lives in a subdirectory of a monorepo that also contains
@@ -15,6 +16,11 @@ const nextConfig: NextConfig = {
   // mobile visit wait on a render-blocking CSS request.
   experimental: {
     inlineCss: true,
+  },
+  // /book/ was the old on-site request form, briefly live and in the sitemap.
+  // Booking is now the owner's MoeGo page, so send any old links there.
+  async redirects() {
+    return [{ source: "/book", destination: BOOKING_URL, permanent: false }];
   },
 };
 

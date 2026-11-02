@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { business, PATHS, SITE_URL } from "@/lib/site-data";
+import { BOOKING_URL, business, PATHS, SITE_URL } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
@@ -35,11 +34,11 @@ export default function AboutPage() {
           </p>
           <p>We are licensed and insured, and we run an eco-friendly grooming service.</p>
           <p>
-            Booking starts with a short request.{" "}
-            <Link href={PATHS.book} className="font-semibold text-brand hover:underline">
-              Tell us where you are and about your pet
-            </Link>
-            , and we will get back to you to set a time.
+            Booking is online.{" "}
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand hover:underline">
+              Open our booking page
+            </a>{" "}
+            to tell us about your pet and choose your appointment.
           </p>
         </div>
       </section>

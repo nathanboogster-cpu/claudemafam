@@ -8,6 +8,8 @@
 //   - across California
 //   - licensed, insured and eco-friendly
 //
+// plus the online booking page (MoeGo), supplied by the owner.
+//
 // Do not add a fact that is not on that list: no phone, email, address,
 // cities, hours, prices, service menu, species, vehicle, staff, experience,
 // ratings, reviews, awards or photos. See README "Needs owner input".
@@ -17,6 +19,9 @@
 // is normalized to www here.
 const RAW_SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.skypetgrooming.com").replace(/\/+$/, "");
 export const SITE_URL = RAW_SITE_URL.replace(/^https?:\/\/skypetgrooming\.com$/i, "https://www.skypetgrooming.com");
+
+// Owner-supplied MoeGo online booking page. Every Book button links here.
+export const BOOKING_URL = "https://booking.moego.pet/ol/landing?name=SkyPetGrooming";
 
 export const business = {
   name: "Sky Pet Grooming",
@@ -41,16 +46,12 @@ export const pillars = [
   },
 ] as const;
 
-// How booking works. Steps 1-2 describe this site's request form; steps 3-4
+// How booking works. Step 1 is the owner's online booking page; steps 2-3
 // are the verified service (mobile, at the doorstep).
 export const processSteps = [
   {
-    title: "Send a request",
-    body: "Fill in the short request form: where you are in California, and about your pet.",
-  },
-  {
-    title: "We confirm",
-    body: "We get back to you to confirm we can reach you, and to set a time.",
+    title: "Book online",
+    body: "Use our online booking page to tell us about your pet and choose your appointment.",
   },
   {
     title: "We come to you",
@@ -79,8 +80,8 @@ export const mobileBenefits = [
   },
 ] as const;
 
-// What to put in the request so the groomer can plan and quote.
-export const requestChecklist = [
+// What to have ready when booking, so the groomer can plan the groom.
+export const bookingChecklist = [
   "Your city or ZIP code in California",
   "Breed, size and age of each pet",
   "Coat type and when they were last groomed",
@@ -101,7 +102,7 @@ export const faqs = [
   {
     question: "Which areas do you serve?",
     answer:
-      "We serve customers across California. Put your city or ZIP code in the request form and we will confirm we can reach you.",
+      "We serve customers across California. Not sure we reach your area? Ask when you book online.",
   },
   {
     question: "Are you licensed and insured?",
@@ -114,12 +115,11 @@ export const faqs = [
   {
     question: "How much does mobile grooming cost?",
     answer:
-      "We do not publish prices online. Send a request with your pet's breed, size and coat, and we will give you a quote before you book.",
+      "We do not publish prices on this website. Grooming depends on your pet's breed, size and coat, so tell us about your pet when you book online.",
   },
   {
     question: "How do I book?",
-    answer:
-      "Fill in the appointment request form on this site. We will get back to you to confirm that we can reach you and to set a time.",
+    answer: "Book online through our booking page. Every Book Online button on this site takes you there.",
   },
 ] as const;
 
@@ -130,7 +130,6 @@ export const PATHS = {
   mobileGrooming: "/mobile-pet-grooming/",
   about: "/about/",
   faq: "/faq/",
-  book: "/book/",
 } as const;
 
 export const mainNav: NavItem[] = [
@@ -138,7 +137,6 @@ export const mainNav: NavItem[] = [
   { label: "Mobile Grooming", href: PATHS.mobileGrooming },
   { label: "About", href: PATHS.about },
   { label: "FAQ", href: PATHS.faq },
-  { label: "Book", href: PATHS.book },
 ];
 
 // Every indexable URL, for the sitemap.

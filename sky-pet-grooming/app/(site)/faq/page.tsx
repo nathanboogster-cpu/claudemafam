@@ -16,7 +16,6 @@ export const metadata = pageMetadata({
 const related = [
   { label: "Mobile Pet Grooming", href: PATHS.mobileGrooming },
   { label: "About", href: PATHS.about },
-  { label: "Request an Appointment", href: PATHS.book },
 ];
 
 export default function FaqPage() {
@@ -57,7 +56,7 @@ export default function FaqPage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-16 text-center">
         <h2 className="font-display text-2xl font-bold text-ink">Still have a question?</h2>
-        <p className="mt-2 text-ink-soft">Ask it in your request. We will answer when we get back to you.</p>
+        <p className="mt-2 text-ink-soft">Ask it when you book online.</p>
         <div className="mt-5 flex justify-center">
           <BookButton location="faq_bottom" />
         </div>

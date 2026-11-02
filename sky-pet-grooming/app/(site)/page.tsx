@@ -15,7 +15,7 @@ import { CheckIcon } from "@/components/icons";
 export const metadata = pageMetadata({
   title: "Luxury Mobile Pet Grooming in California | Sky Pet Grooming",
   description:
-    "Sky Pet Grooming brings luxury mobile pet grooming to your doorstep across California. Licensed, insured and eco-friendly. Request an appointment online.",
+    "Sky Pet Grooming brings luxury mobile pet grooming to your doorstep across California. Licensed, insured and eco-friendly. Book your appointment online.",
   path: PATHS.home,
 });
 

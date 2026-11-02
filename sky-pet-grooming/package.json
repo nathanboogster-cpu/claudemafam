@@ -10,7 +10,6 @@
     "qa": "node scripts/qa.mjs"
   },
   "dependencies": {
-    "@upstash/redis": "^1.39.0",
     "@vercel/analytics": "^2.0.1",
     "next": "16.3.1",
     "react": "19.2.8",

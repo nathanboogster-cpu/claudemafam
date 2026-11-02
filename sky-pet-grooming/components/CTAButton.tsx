@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { trackEvent } from "@/lib/track";
-import { PATHS } from "@/lib/site-data";
+import { BOOKING_URL } from "@/lib/site-data";
 
 type Variant = "primary" | "secondary" | "ghost";
 
@@ -15,16 +15,16 @@ const variantClasses: Record<Variant, string> = {
   ghost: "bg-white text-ink border border-border hover:bg-sky-deep focus-visible:outline-ink",
 };
 
-export const buttonBaseClasses =
+const buttonBaseClasses =
   "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold shadow-sm transition-colors min-h-[44px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
 
-// No phone number or email has been verified, so booking is by request form
-// only and "Request an Appointment" is the primary CTA everywhere. When the
-// owner supplies a phone number, add a Call button beside it (see the
-// CallButton in the I Love Dogs app).
+// No phone number or email has been verified, so booking is online only and
+// "Book Online" (the owner's MoeGo page, in a new tab) is the primary CTA
+// everywhere. When the owner supplies a phone number, add a Call button
+// beside it (see the CallButton in the I Love Dogs app).
 export function BookButton({
   variant = "primary",
-  label = "Request an Appointment",
+  label = "Book Online",
   location,
   className = "",
 }: {
@@ -34,14 +34,16 @@ export function BookButton({
   className?: string;
 }) {
   return (
-    <Link
-      href={PATHS.book}
+    <a
+      href={BOOKING_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={() => trackEvent("book_click", { location })}
       className={`${buttonBaseClasses} ${variantClasses[variant]} ${className}`}
     >
       <CalendarIcon />
       {label}
-    </Link>
+    </a>
   );
 }
 

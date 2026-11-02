@@ -25,7 +25,7 @@ export default function NotFound() {
             <Link href={PATHS.home} className="font-semibold text-brand hover:underline">
               Go to the home page
             </Link>{" "}
-            or request an appointment.
+            or book online.
           </p>
           <div className="mt-6 flex justify-center">
             <BookButton location="not_found" />

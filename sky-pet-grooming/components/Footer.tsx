@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, mainNav } from "@/lib/site-data";
+import { BOOKING_URL, business, mainNav } from "@/lib/site-data";
 import { BrandMark } from "./BrandMark";
 
 export function Footer() {
@@ -24,6 +24,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center hover:text-brand">
+                Book Online
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -31,7 +36,12 @@ export function Footer() {
           <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Service Area</h2>
           <p className="mt-3 text-sm">Mobile grooming across {business.state}. We come to your doorstep.</p>
           <h2 className="mt-5 text-sm font-semibold uppercase tracking-wide text-ink">Booking</h2>
-          <p className="mt-3 text-sm">By appointment request. We get back to you to confirm a time.</p>
+          <p className="mt-3 text-sm">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center underline underline-offset-2 hover:text-brand">
+              Book online
+            </a>{" "}
+            through our booking page.
+          </p>
         </div>
       </div>
 
