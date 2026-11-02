@@ -15,7 +15,7 @@ export function PriceList({ service, className = "" }: { service?: ServiceKey; c
       {all.map((r) => (
         <div key={r.label} className="flex items-baseline justify-between gap-4 px-4 py-3">
           <dt className="text-ink-soft">{r.label}</dt>
-          <dd className="font-display text-lg font-extrabold text-ink">{formatPrice(r.amount)}</dd>
+          <dd className="text-lg font-bold tabular-nums text-ink">{formatPrice(r.amount)}</dd>
         </div>
       ))}
     </dl>

@@ -38,11 +38,12 @@
   --color-on-accent: var(--color-on-accent);
   --color-white: var(--color-white);
   --color-border: var(--color-border);
-  /* System fonts only, so pages make no font requests. Headings use the
-     rounded system face where there is one, to match the friendly brand. */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: ui-rounded, "SF Pro Rounded", "Nunito", "Arial Rounded MT Bold", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* Same pairing as the Pampered Puppies site (fonts loaded in app/layout.tsx
+     with next/font): Playfair Display headings, Inter body, IBM Plex Mono for
+     eyebrow labels. */
+  --font-sans: var(--font-inter), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-playfair), "Iowan Old Style", "Palatino Linotype", ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 html {
@@ -57,7 +58,6 @@ body {
 
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.01em;
 }
 
 /* The rainbow from the logo's dogs, for thin accent rules and the CTA band. */
