@@ -3,8 +3,7 @@ import { Footer } from "@/components/Footer";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { JsonLd, localBusinessSchema, webSiteSchema } from "@/lib/schema";
 
-// Chrome for the public site only. The internal /requests inbox lives outside
-// this route group so it renders without header, footer or schema.
+// Chrome for the public site.
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <>

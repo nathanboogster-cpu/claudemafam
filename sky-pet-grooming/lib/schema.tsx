@@ -1,14 +1,18 @@
-import { business, faqs, SITE_URL } from "./site-data";
+import { business, faqs, services, SITE_URL } from "./site-data";
 
-// NOTE: Sky Pet Grooming is a mobile, service-area business and no address,
-// phone, email, hours, prices, logo or photos have been verified, so none of
-// address, telephone, email, openingHours, priceRange, image/logo,
-// AggregateRating or Review appear here. Add them only once the owner
+// NOTE: Sky Pet Grooming is a mobile, service-area business, so there is no
+// street address. No openingHours, priceRange, email, AggregateRating or
+// Review either: none of those are verified. Add them only once the owner
 // confirms them.
 
 const BUSINESS_ID = `${SITE_URL}/#business`;
 
-const california = { "@type": "State", name: business.state } as const;
+// San Francisco plus the Peninsula (San Mateo County), from the 415/650
+// numbers and "peninsula" web address on the van.
+const areaServed = [
+  { "@type": "City", name: "San Francisco" },
+  { "@type": "AdministrativeArea", name: "San Mateo County" },
+] as const;
 
 // Google reads WebSite structured data on the home page to pick the site name
 // shown above the URL in search results.
@@ -30,8 +34,12 @@ export function localBusinessSchema() {
     "@id": BUSINESS_ID,
     name: business.name,
     description: business.tagline,
+    slogan: business.slogan,
     url: `${SITE_URL}/`,
-    areaServed: california,
+    telephone: business.phone.e164,
+    logo: `${SITE_URL}/logo-full.png`,
+    image: [`${SITE_URL}/photos/sky-pet-grooming-van.webp`, `${SITE_URL}/logo-full.png`],
+    areaServed,
   };
 }
 
@@ -43,8 +51,32 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     name: opts.name,
     description: opts.description,
     url: opts.pageUrl,
-    areaServed: california,
+    areaServed,
     provider: { "@id": BUSINESS_ID },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Mobile grooming services",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.title, description: s.body },
+      })),
+    },
+  };
+}
+
+// Gallery page: the owner's photos as an ImageGallery.
+export function imageGallerySchema(opts: { pageUrl: string; images: readonly { slug: string; alt: string }[] }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: `${business.name} gallery`,
+    url: opts.pageUrl,
+    about: { "@id": BUSINESS_ID },
+    image: opts.images.map((p) => ({
+      "@type": "ImageObject",
+      contentUrl: `${SITE_URL}/photos/${p.slug}.webp`,
+      description: p.alt,
+    })),
   };
 }
 

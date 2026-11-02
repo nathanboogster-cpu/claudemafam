@@ -1,25 +1,27 @@
 import Link from "next/link";
-import { business, mainNav } from "@/lib/site-data";
-import { BrandMark } from "./BrandMark";
+import { BOOKING_URL, business, mainNav, PATHS } from "@/lib/site-data";
+import { PhoneLink } from "./CTAButton";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-sky-deep text-ink-soft">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3">
+    <footer className="bg-brand-dark text-white/80">
+      <div className="bg-rainbow h-1.5" aria-hidden="true" />
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2 text-ink">
-            <BrandMark className="h-8 w-8" />
-            <span className="font-display text-lg font-bold">{business.name}</span>
-          </div>
-          <p className="mt-3 text-sm">{business.tagline}</p>
+          <Link href={PATHS.home} className="inline-block rounded-2xl bg-white p-3" aria-label={`${business.name} home`}>
+            <Logo className="h-16 w-auto" />
+          </Link>
+          <p className="mt-4 text-sm">{business.tagline}</p>
+          <p className="mt-2 font-display text-sm font-bold text-white">{business.slogan}</p>
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Menu</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white">Menu</h2>
           <ul className="mt-2 text-sm">
-            {mainNav.map((item) => (
+            {[{ label: "Home", href: PATHS.home }, ...mainNav].map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="inline-flex min-h-[44px] items-center hover:text-brand">
+                <Link href={item.href} className="inline-flex min-h-[44px] items-center hover:text-white">
                   {item.label}
                 </Link>
               </li>
@@ -28,16 +30,32 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">Service Area</h2>
-          <p className="mt-3 text-sm">Mobile grooming across {business.state}. We come to your doorstep.</p>
-          <h2 className="mt-5 text-sm font-semibold uppercase tracking-wide text-ink">Booking</h2>
-          <p className="mt-3 text-sm">By appointment request. We get back to you to confirm a time.</p>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white">Contact</h2>
+          <ul className="mt-2 text-sm">
+            <li>
+              <PhoneLink location="footer" className="inline-flex min-h-[44px] items-center text-white" />
+            </li>
+            <li>
+              <PhoneLink which="phoneAlt" location="footer" className="inline-flex min-h-[44px] items-center text-white" />
+            </li>
+            <li>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[44px] items-center font-semibold text-white hover:underline">
+                Book Online
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white">Service Area</h2>
+          <p className="mt-3 text-sm">Mobile grooming for dogs and cats in {business.area}. Our van comes to your door.</p>
+          <p className="mt-3 text-sm">Licensed, insured and eco-friendly.</p>
         </div>
       </div>
 
-      <div className="border-t border-border py-4 text-center text-xs text-ink-soft">
-        © {new Date().getFullYear()} {business.name}. Licensed, insured, eco-friendly mobile pet grooming.{" "}
-        <a href="https://www.tongfluence.com" className="inline-flex min-h-6 items-center whitespace-nowrap underline underline-offset-2 hover:opacity-80">
+      <div className="border-t border-white/15 py-4 text-center text-xs text-white/70">
+        © {new Date().getFullYear()} {business.name}.{" "}
+        <a href="https://www.tongfluence.com" className="inline-flex min-h-6 items-center whitespace-nowrap underline underline-offset-2 hover:text-white">
           Website by Tongfluence
         </a>
       </div>

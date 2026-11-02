@@ -1,16 +1,20 @@
 // Central, single source of truth for every verified Sky Pet Grooming fact
-// used across the site. Same shape as the I Love Dogs app, but the verified
-// facts are few. The only ones we have (from the client's current site at
-// skypetgrooming.com and its Google listing) are:
+// used across the site. Sources, all the owner's own:
 //
-//   - the name, Sky Pet Grooming, and the domain skypetgrooming.com
-//   - luxury mobile pet grooming, delivered to the customer's doorstep
-//   - across California
-//   - licensed, insured and eco-friendly
+//   - their current site (skypetgrooming.com): luxury mobile pet grooming at
+//     your doorstep; licensed, insured and eco-friendly
+//   - their logo and van wrap (photos in the Drive folder): the phone numbers,
+//     the slogans, the van itself, and "Visit our website & book online"
+//   - their MoeGo booking page: the service list
+//   - their photos: dogs and cats groomed in the van (bathtub, grooming table,
+//     dryers)
 //
-// Do not add a fact that is not on that list: no phone, email, address,
-// cities, hours, prices, service menu, species, vehicle, staff, experience,
-// ratings, reviews, awards or photos. See README "Needs owner input".
+// The 415 and 650 numbers, the "peninsula" web address on the van and the
+// San Bruno address on the MoeGo page put the service area on the San
+// Francisco Peninsula. Individual cities are not confirmed, so no town pages.
+//
+// Do not add a fact that is not on that list: no prices, hours, street
+// address, staff names, years in business, ratings, reviews or awards.
 
 // Production domain is served on www. Canonicals, og:url, schema, the sitemap
 // and robots.txt must all name that host, so a bare skypetgrooming.com value
@@ -18,18 +22,26 @@
 const RAW_SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.skypetgrooming.com").replace(/\/+$/, "");
 export const SITE_URL = RAW_SITE_URL.replace(/^https?:\/\/skypetgrooming\.com$/i, "https://www.skypetgrooming.com");
 
+// Owner-supplied MoeGo online booking page. Every Book Online button links here.
+export const BOOKING_URL = "https://booking.moego.pet/ol/landing?name=SkyPetGrooming";
+
 export const business = {
   name: "Sky Pet Grooming",
-  tagline: "Luxury mobile pet grooming, delivered to your doorstep across California.",
-  state: "California",
+  tagline: "Mobile dog and cat grooming, delivered to your doorstep.",
+  slogan: "Paws Down, The Best Around!",
+  area: "San Francisco & the Peninsula",
+  areaShort: "SF Peninsula",
+  // The number on the logo and the van, and the one on the MoeGo page.
+  phone: { display: "(415) 754-0813", href: "tel:+14157540813", e164: "+14157540813" },
+  // Second number on the van.
+  phoneAlt: { display: "(650) 438-3498", href: "tel:+16504383498", e164: "+16504383498" },
 } as const;
 
-// The three verified trust facts. Used by the trust bar, the home page and the
-// About page, so the wording stays identical everywhere.
+// Verified trust facts, used by the trust bar, the hero and the About page.
 export const pillars = [
   {
-    title: "Mobile, to your doorstep",
-    body: "We bring luxury pet grooming to your doorstep, so there is no drive and no salon waiting room.",
+    title: "We come to you",
+    body: "Our grooming van parks at your home, so there is no car ride and no salon waiting room.",
   },
   {
     title: "Licensed & insured",
@@ -39,49 +51,72 @@ export const pillars = [
     title: "Eco-friendly",
     body: "Sky Pet Grooming is an eco-friendly grooming service.",
   },
+  {
+    title: "Dogs & cats",
+    body: "We groom dogs of every size, and cats too.",
+  },
 ] as const;
 
-// How booking works. Steps 1-2 describe this site's request form; steps 3-4
-// are the verified service (mobile, at the doorstep).
+// Services from the owner's MoeGo booking page, plus cat grooming (their photos).
+export const services = [
+  {
+    title: "Full dog grooming",
+    body: "A complete groom in our van, from small breeds to big, fluffy coats.",
+    photo: "white-curly-dog-teddy-face",
+  },
+  {
+    title: "Cat grooming",
+    body: "Gentle grooming for cats, at home and without the stress of a car ride.",
+    photo: "two-fluffy-cats-after-grooming",
+  },
+  {
+    title: "De-shedding",
+    body: "Helps clear loose undercoat from heavy shedders.",
+    photo: "golden-retriever-standing-in-van",
+  },
+  {
+    title: "Detangling",
+    body: "Works knots and tangles out of long and curly coats.",
+    photo: "apricot-poodle-lying-down",
+  },
+  {
+    title: "Nail trimming",
+    body: "Neat, comfortable nails for dogs and cats.",
+    photo: "smiling-pomeranian",
+  },
+  {
+    title: "Anal gland expression",
+    body: "Available with your appointment. Add it when you book.",
+    photo: "cream-doodle-smiling",
+  },
+] as const;
+
+// What the van photos show is on board.
+export const vanFeatures = [
+  "A full bathtub with running water",
+  "A grooming table and professional dryers",
+  "Parked right at your door for the whole appointment",
+] as const;
+
+// How booking works: the MoeGo page, then the visit.
 export const processSteps = [
   {
-    title: "Send a request",
-    body: "Fill in the short request form: where you are in California, and about your pet.",
+    title: "Book online or call",
+    body: "Pick your service and time on our booking page, or call us.",
   },
   {
-    title: "We confirm",
-    body: "We get back to you to confirm we can reach you, and to set a time.",
+    title: "We pull up at your door",
+    body: "The Sky Pet Grooming van parks at your home. No drive, no drop-off.",
   },
   {
-    title: "We come to you",
-    body: "On the day, grooming comes to your doorstep. No drive, no drop-off.",
-  },
-  {
-    title: "Groomed at home",
-    body: "Your pet is groomed at your doorstep and stays close to home the whole time.",
+    title: "A fresh, happy pet",
+    body: "Your pet is groomed in the van and back inside with you right after.",
   },
 ] as const;
 
-// What a mobile groom saves the owner. These follow from "delivered to your
-// doorstep" itself; they are not service-menu claims.
-export const mobileBenefits = [
-  {
-    title: "No drive",
-    body: "No loading your pet into the car, and no trip across town and back.",
-  },
-  {
-    title: "No waiting room",
-    body: "No drop-off window and no hours waiting at a salon.",
-  },
-  {
-    title: "Close to home",
-    body: "Your pet stays at home, right up until the groom starts at your doorstep.",
-  },
-] as const;
-
-// What to put in the request so the groomer can plan and quote.
-export const requestChecklist = [
-  "Your city or ZIP code in California",
+// What to have ready when booking, so the groomer can plan the groom.
+export const bookingChecklist = [
+  "Your address on the Peninsula or in San Francisco",
   "Breed, size and age of each pet",
   "Coat type and when they were last groomed",
   "Anything we should know: nerves, health, matting",
@@ -92,34 +127,43 @@ export const faqs = [
   {
     question: "What is Sky Pet Grooming?",
     answer:
-      "Sky Pet Grooming is a luxury mobile pet grooming service. We bring grooming to your doorstep across California.",
+      "Sky Pet Grooming is a mobile grooming service for dogs and cats. Our grooming van comes to your doorstep in San Francisco and on the Peninsula.",
   },
   {
     question: "Do I need to take my pet anywhere?",
-    answer: "No. We are mobile, so grooming comes to your doorstep. There is no drive and no salon waiting room.",
+    answer:
+      "No. Our van parks at your home and your pet is groomed right there. There is no car ride and no salon waiting room.",
+  },
+  {
+    question: "Do you groom cats?",
+    answer: "Yes. We groom cats as well as dogs.",
+  },
+  {
+    question: "What services do you offer?",
+    answer:
+      "Full dog grooming, cat grooming, de-shedding, detangling, nail trimming and anal gland expression. You can see every option on our online booking page.",
+  },
+  {
+    question: "What is inside the grooming van?",
+    answer: "Our van has a full bathtub, a grooming table and professional dryers, so the whole groom happens at your door.",
   },
   {
     question: "Which areas do you serve?",
     answer:
-      "We serve customers across California. Put your city or ZIP code in the request form and we will confirm we can reach you.",
+      "We serve San Francisco and the Peninsula. Not sure we reach your street? Call us at (415) 754-0813 or ask when you book online.",
   },
   {
     question: "Are you licensed and insured?",
-    answer: "Yes. Sky Pet Grooming is licensed and insured.",
-  },
-  {
-    question: "Are you eco-friendly?",
-    answer: "Yes. Sky Pet Grooming is an eco-friendly grooming service.",
+    answer: "Yes. Sky Pet Grooming is licensed and insured, and we are an eco-friendly grooming service.",
   },
   {
     question: "How much does mobile grooming cost?",
     answer:
-      "We do not publish prices online. Send a request with your pet's breed, size and coat, and we will give you a quote before you book.",
+      "It depends on your pet's breed, size and coat, and the services you choose. You will see the options when you book online, or call us at (415) 754-0813.",
   },
   {
     question: "How do I book?",
-    answer:
-      "Fill in the appointment request form on this site. We will get back to you to confirm that we can reach you and to set a time.",
+    answer: "Book online through our booking page any time, or call us at (415) 754-0813 or (650) 438-3498.",
   },
 ] as const;
 
@@ -128,17 +172,16 @@ export type NavItem = { label: string; href: string };
 export const PATHS = {
   home: "/",
   mobileGrooming: "/mobile-pet-grooming/",
+  gallery: "/gallery/",
   about: "/about/",
   faq: "/faq/",
-  book: "/book/",
 } as const;
 
 export const mainNav: NavItem[] = [
-  { label: "Home", href: PATHS.home },
-  { label: "Mobile Grooming", href: PATHS.mobileGrooming },
+  { label: "Services", href: PATHS.mobileGrooming },
+  { label: "Gallery", href: PATHS.gallery },
   { label: "About", href: PATHS.about },
   { label: "FAQ", href: PATHS.faq },
-  { label: "Book", href: PATHS.book },
 ];
 
 // Every indexable URL, for the sitemap.

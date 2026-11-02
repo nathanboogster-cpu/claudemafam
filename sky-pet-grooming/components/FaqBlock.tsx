@@ -15,7 +15,7 @@ export function FaqBlock({
     <section className={className}>
       <div className="text-center">
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h2 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">
+        <h2 className="mt-1 font-display text-3xl font-extrabold text-ink sm:text-4xl">
           {title}
         </h2>
       </div>

@@ -1,76 +1,70 @@
 # Sky Pet Grooming — Website
 
-Site for Sky Pet Grooming, a luxury mobile pet grooming service that comes to
-customers' doorsteps across California (skypetgrooming.com). Built with
-Next.js (App Router), TypeScript and Tailwind CSS on the same skeleton as the
-I Love Dogs app: same page anatomy, schema builders, metadata helper and QA
-script, filled with Sky Pet Grooming's verified facts only. It is a
-**separate, standalone app** with its own Vercel project and domain.
+Site for Sky Pet Grooming, a mobile dog and cat grooming service whose van
+comes to customers' doors in San Francisco and on the Peninsula
+(skypetgrooming.com). Built with Next.js (App Router), TypeScript and
+Tailwind CSS on the same skeleton as the I Love Dogs app: same page anatomy,
+schema builders, metadata helper and QA script. It is a **separate,
+standalone app** with its own Vercel project (`sky-pet-grooming`, Root
+Directory `sky-pet-grooming`).
 
-## What is verified, and what is not
+## Where the facts come from
 
-Web research turned up only these facts, from the client's current site and
-Google listing:
+Every fact is in `lib/site-data.ts`, and each one comes from the owner:
 
-- Name: Sky Pet Grooming. Domain: skypetgrooming.com.
-- Luxury mobile pet grooming, delivered to your doorstep.
-- Serves customers across California.
-- Licensed, insured and eco-friendly.
+- **Current site (skypetgrooming.com):** luxury mobile grooming at your
+  doorstep; licensed, insured and eco-friendly.
+- **Logo and van wrap** (photos in the Drive folder): phone numbers
+  (415) 754-0813 and (650) 438-3498, the slogans "Paws Down, The Best
+  Around!" and "We make it easy, your pet grooming comes to you", and the van
+  itself.
+- **MoeGo booking page** (`BOOKING_URL`): the service list (dog grooming,
+  de-shedding, detangling, nail trimming, anal gland expression).
+- **Photos:** cats as well as dogs; the van has a bathtub, a grooming table
+  and dryers.
 
-No phone number, email, address, city list, hours, prices, service menu,
-species (dogs, cats), staff, years of experience, ratings, reviews, logo or
-photos could be verified, so **none of them are on the site**. That is why:
+The 415/650 numbers, the "peninsula" web address on the van and the San Bruno
+address on the MoeGo page put the service area in San Francisco and on the
+Peninsula. Individual cities are not confirmed, so there are no town pages.
 
-- The only call to action is **Request an Appointment**, a form at `/book/`.
-  There is no Call button, no map and no Contact page.
-- Copy says "pet", never "dog" or "cat", and lists no services or prices.
-- `scripts/qa.mjs` fails the build's QA if any of those creep in.
-
-Note: a different business, *Sky's Pet Grooming HD* in Hesperia, CA
-((760) 261-1634), shows up in the same searches. It is not this client.
-Nothing from it is used here.
+Not on the site because none is verified: prices, hours, street address,
+staff names, years in business, ratings, reviews, awards. `scripts/qa.mjs`
+fails if any creep in.
 
 ## Pages
 
 | Path | Purpose |
 | --- | --- |
-| `/` | Home: hero, the three verified pillars, why mobile, how booking works, FAQ excerpt |
-| `/mobile-pet-grooming/` | Service page (Service schema), service area, what to put in a request |
+| `/` | Home: hero with Book + Call, photo strip, services, the van, how it works, trust points, FAQ excerpt |
+| `/mobile-pet-grooming/` | Services (Service schema with the service catalog), the van, service area, cat grooming |
+| `/gallery/` | All 39 owner photos: dogs, cats, the van and team (ImageGallery schema) |
 | `/about/` | About |
 | `/faq/` | FAQ (FAQPage schema, identical to visible text) |
-| `/book/` | Appointment request form |
-| `/requests?key=…` | Private inbox of sent requests (noindex, disallowed in robots.txt) |
 
-## How appointment requests work
+`/book/` was an on-site request form for a short time and is now a temporary
+redirect to the MoeGo page, so any old links still reach booking.
 
-`/book/` posts to a Server Action (`app/(site)/book/actions.ts`) that
-validates the fields, drops honeypot spam, limits each IP to 5 requests an
-hour, and stores the request in Upstash Redis (`lib/requests-store.ts`). The
-owner reads them at `/requests?key=<REQUESTS_SECRET>`, newest first, with
-tap-to-call phone numbers.
+## Conversion
 
-**Without Redis connected, the form cannot send** and tells the visitor so.
-Connecting it is a launch blocker (step 5 below).
+- **Book Online** (pink, the van's colour) opens the MoeGo page in a new tab;
+  **Call (415) 754-0813** sits beside it. Both are in the hero, the header,
+  every page's CTAs, the closing band, and a sticky bar on mobile.
+- Clicks send `book_click` and `call_click` events to Vercel Analytics and
+  `window.dataLayer` (`lib/track.ts`). Bookings themselves live in MoeGo.
 
-There is no email or SMS alert yet: the owner has to check `/requests`.
-Adding an email notification (for example with Resend) is the recommended
-next step once the owner gives us an address to send to.
+## Photos and logo
 
-## Deploying as its own Vercel project (owner approval required)
-
-1. In Vercel (Tongfluence team), create a **new project** from this repository.
-2. Set **Root Directory** to `sky-pet-grooming`. Framework preset: Next.js.
-3. Attach `www.skypetgrooming.com`, with the bare domain redirecting to www.
-   The client's current site lives on that domain today, so plan the DNS
-   switch with the owner, and map any of its indexed URLs to the new pages
-   with 301s in `next.config.ts` before launch.
-4. `NEXT_PUBLIC_SITE_URL` is optional: canonicals, schema, the sitemap and
-   robots.txt already default to `https://www.skypetgrooming.com`.
-5. **Required:** add the Upstash for Redis integration (Storage tab), and set
-   `REQUESTS_SECRET` to a long random string. Send a test request from the
-   live `/book/` page and confirm it appears at `/requests?key=<secret>`.
-
-Never deploy this app into another client's Vercel project.
+- Source: the owner's Google Drive folder "Sky Pet Grooming" (42 files, 2
+  exact duplicates skipped).
+- `public/photos/<slug>.webp`: each photo at 1280px wide, rotated upright,
+  with EXIF (including GPS) stripped. `lib/photos.ts` lists them with alt
+  text and tags. Pages render them through `components/Pic.tsx`
+  (`next/image`), which serves right-sized AVIF/WebP; `next.config.ts` only
+  allows `/photos/**` and the logo files to be optimized.
+- `public/logo.png`: the logo without its phone line, transparent background
+  (header and footer). `public/logo-full.png`: the full logo (schema).
+- `app/icon.png` / `app/apple-icon.png`: the navy paw from the logo.
+- `app/opengraph-image.jpg`: the van, for link previews.
 
 ## Local development and QA
 
@@ -79,48 +73,28 @@ cd sky-pet-grooming
 npm install
 npm run dev          # http://localhost:3000
 
-# QA against a production build, with a local stand-in for Redis
-npm run build
-node scripts/mock-upstash.mjs &
-KV_REST_API_URL=http://localhost:8079 KV_REST_API_TOKEN=qa REQUESTS_SECRET=qa-secret npx next start -p 3100 &
+npm run build && npx next start -p 3100 &
 QA_BASE=http://localhost:3100 CHROMIUM_PATH=/path/to/chromium npm run qa
 ```
 
-`npm run qa` (`scripts/qa.mjs`) runs the pre-launch checks with Playwright:
-banned-claim grep, titles/descriptions/H1/canonicals, JSON-LD placement and
-contents, sitemap and robots, every internal link and anchor, orphan pages,
-Book link in the first 390×844 viewport, sticky bar, overflow at
-320/390/1280, tap targets, third-party requests, and the booking form end to
-end (field errors, values kept after an error, a sent request appearing in
-`/requests`, honeypot not stored). It writes mobile screenshots to `qa/`.
-`scripts/mock-upstash.mjs` is for local QA only.
+`npm run qa` (`scripts/qa.mjs`) checks: banned claims, titles, descriptions,
+H1s, canonicals, JSON-LD placement and contents, sitemap and robots, every
+internal link and anchor, orphan pages, every booking link being the MoeGo
+URL in a new tab, every tel link being one of the two numbers, the `/book/`
+redirect, Book Online and Call both in the first 390×844 viewport, the sticky
+bar, overflow at 320/390/1280, tap targets, third-party requests, and every
+image loading with alt text through `next/image`, with all 39 photos on
+`/gallery/`. Screenshots go to `qa/`.
 
-## Structure
+## Needs owner input
 
-- `lib/site-data.ts`: every business fact, plus nav, FAQ, process steps.
-  Change facts here only.
-- `lib/schema.tsx`: JSON-LD. LocalBusiness (service-area: no address or
-  phone, `areaServed` California) and WebSite on every page, BreadcrumbList
-  on every page, Service on `/mobile-pet-grooming/`, FAQPage on `/faq/`.
-- `lib/requests-store.ts`, `app/(site)/book/actions.ts`,
-  `components/BookingForm.tsx`, `app/requests/`: the booking flow.
-- `lib/track.ts`: `book_click` and `booking_request` events to Vercel
-  Analytics and `window.dataLayer`.
-- `components/SkyScene.tsx`: inline SVG hero art, standing in for photos.
-- `components/BrandMark.tsx` and `app/icon.svg`: a placeholder sun-and-cloud
-  mark, not the client's logo.
-
-## Needs owner input before launch
-
-1. A phone number and email to publish. With a phone number, add Call
-   buttons (header, sticky bar, hero) and `telephone` in the schema.
-2. Where in California they actually go: cities or counties served, and any
-   travel limits. That unlocks town pages and a precise `areaServed`.
-3. Services and prices, and which pets they groom.
-4. Hours or booking days.
-5. Logo and original grooming photos.
-6. Reviews they are happy to quote, for a Reviews section.
-7. Who should be told about new requests, and how (email or text).
-8. The URLs of their current site, for 301 redirects.
-9. Approval to deploy, plus Vercel project and DNS access for
-   `skypetgrooming.com`.
+1. **Service area:** which cities or neighbourhoods they cover, to add town
+   pages (the biggest local-SEO gain left).
+2. **Prices and hours,** if they want them on the site.
+3. **Website on the van:** the van says skypetgroomingspapeninsula.com, not
+   skypetgrooming.com. Confirm which domain this site goes on, and redirect
+   the other to it.
+4. **Instagram:** the van has an Instagram badge; the handle would go in the
+   footer and the schema's `sameAs`.
+5. **Reviews** they are happy to quote, for a Reviews section.
+6. DNS access for the domain, to point it at the Vercel project.
