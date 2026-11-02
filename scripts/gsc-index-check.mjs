@@ -33,6 +33,11 @@ const SITES = [
   { name: "pampered-puppies", property: "sc-domain:pamperedpuppiespetgrooming.com", sitemap: "https://www.pamperedpuppiespetgrooming.com/sitemap.xml" },
   { name: "petssible", property: "sc-domain:petssibleus.com", sitemap: "https://www.petssibleus.com/sitemap.xml" },
   { name: "tongfluence", property: "sc-domain:tongfluence.com", sitemap: "https://www.tongfluence.com/sitemap.xml" },
+  // I Love Dogs: the new site (i-love-dogs/) is on Vercel, but until
+  // www.ilovedogsgrooming.com is pointed at it, that domain still serves the
+  // client's old Squarespace site, so this checks the old sitemap. It switches
+  // to the new site's URLs automatically once the domain moves.
+  { name: "i-love-dogs", property: "sc-domain:ilovedogsgrooming.com", sitemap: "https://www.ilovedogsgrooming.com/sitemap.xml" },
   // Until skypetgrooming.com points at the sky-pet-grooming Vercel project,
   // this sitemap is the client's old site, so expect it to be reported as
   // skipped or to list the old site's URLs.

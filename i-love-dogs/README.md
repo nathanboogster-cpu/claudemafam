@@ -75,6 +75,13 @@ browser.
   estimate from straight-line distance, not measured routes) with median
   household incomes at or above the Pennsylvania median. Income is a targeting
   criterion only and is never shown on the site.
+- `app/(site)/dog-grooming/[service]/`: six service pages (bath and blow dry,
+  haircuts and tidy-up trims, nail trims, ear cleaning, de-shedding and deep
+  conditioning, teeth brushing), from `servicePages` in `lib/site-data.ts`.
+  Each service is part of one or more packages and is never described as
+  sold on its own, because no source says so; the page's starting price is
+  the cheapest package that includes it. The current site, old site, Yelp,
+  Google listing and directories list no other services.
 - `lib/blog-data.ts`, `app/(site)/blog/`: 13 posts. One per service area
   (Bryn Mawr and the eight towns), each on a different grooming topic, and
   one per service (Bath & Pamper, The Works, Full Spa Day, Pickup &

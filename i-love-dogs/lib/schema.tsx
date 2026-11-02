@@ -56,7 +56,10 @@ export function serviceSchema(opts: {
   description: string;
   areaServed?: readonly string[];
   withPackages?: boolean;
+  // Limit the offer catalog to these packages (for a service included in only some of them).
+  packageNames?: readonly string[];
 }) {
+  const offered = opts.packageNames ? packages.filter((p) => opts.packageNames!.includes(p.name)) : packages;
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -66,12 +69,12 @@ export function serviceSchema(opts: {
     url: opts.pageUrl,
     areaServed: cities(opts.areaServed ?? serviceAreas),
     provider: { "@id": BUSINESS_ID },
-    ...(opts.withPackages
+    ...(opts.withPackages || opts.packageNames
       ? {
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Dog grooming packages",
-            itemListElement: packages.map((p) => ({
+            itemListElement: offered.map((p) => ({
               "@type": "Offer",
               name: p.name,
               priceSpecification: { "@type": "PriceSpecification", priceCurrency: "USD", minPrice: p.price },
