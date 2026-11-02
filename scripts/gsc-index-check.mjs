@@ -33,6 +33,10 @@ const SITES = [
   { name: "pampered-puppies", property: "sc-domain:pamperedpuppiespetgrooming.com", sitemap: "https://www.pamperedpuppiespetgrooming.com/sitemap.xml" },
   { name: "petssible", property: "sc-domain:petssibleus.com", sitemap: "https://www.petssibleus.com/sitemap.xml" },
   { name: "tongfluence", property: "sc-domain:tongfluence.com", sitemap: "https://www.tongfluence.com/sitemap.xml" },
+  // Until skypetgrooming.com points at the sky-pet-grooming Vercel project,
+  // this sitemap is the client's old site, so expect it to be reported as
+  // skipped or to list the old site's URLs.
+  { name: "sky-pet-grooming", property: "sc-domain:skypetgrooming.com", sitemap: "https://www.skypetgrooming.com/sitemap.xml" },
   // groomer-on-call has no custom domain attached yet (still *.vercel.app),
   // so there is no real Search Console property to check. Add it here once
   // a domain is live. Pet Spa Luxe was removed 2026-10-06 and Bark and Bork

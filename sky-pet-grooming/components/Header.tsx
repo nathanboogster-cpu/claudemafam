@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { areaNav, business, mainNav, PATHS } from "@/lib/site-data";
+import { areaNav, business, mainNav, PATHS, serviceNav } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { BookButton, CallIconButton, PhoneLink } from "./CTAButton";
 import { Logo } from "./Logo";
@@ -30,6 +30,8 @@ export function Header() {
             {mainNav.map((item) =>
               item.href === PATHS.serviceArea ? (
                 <NavDropdown key={item.href} label={item.label} items={areaNav} />
+              ) : item.href === PATHS.mobileGrooming ? (
+                <NavDropdown key={item.href} label={item.label} items={serviceNav} />
               ) : (
                 <Link key={item.href} href={item.href} className="whitespace-nowrap hover:text-accent-dark">
                   {item.label}

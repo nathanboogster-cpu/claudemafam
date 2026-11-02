@@ -18,8 +18,16 @@ Every fact is in `lib/site-data.ts`, and each one comes from the owner:
   (415) 754-0813 and (650) 438-3498, the slogans "Paws Down, The Best
   Around!" and "We make it easy, your pet grooming comes to you", and the van
   itself.
-- **MoeGo booking page** (`BOOKING_URL`): the service list (dog grooming,
-  de-shedding, detangling, nail trimming, anal gland expression).
+- **MoeGo booking page** (`BOOKING_URL`): the service list and how each can
+  be booked: dog grooming packages Small to XXLarge (with ear cleaning and a
+  nail trim), dog baths by size, cat grooming and cat baths, Skunk-Off for
+  dogs and cats, nail trims on their own; add-ons only with a bath or groom
+  (de-shedding, detangling, teeth brushing, anal glands) or a bath (face
+  trim); a matted-coat surcharge and a travel fee. The page also has prices,
+  but they change and only came through partly, so the site never prints
+  them: each service page sends people to the booking page for current
+  prices. No Yelp or Google Business Profile listing under this name was
+  found.
 - **Photos:** cats as well as dogs; the van has a bathtub, a grooming table
   and dryers.
 
@@ -70,7 +78,8 @@ fails if any creep in.
 | Path | Purpose |
 | --- | --- |
 | `/` | Home: hero with Book + Call, photo strip, services, the van, how it works, trust points, FAQ excerpt |
-| `/mobile-pet-grooming/` | Services (Service schema with the service catalog), the van, service areas, cat grooming |
+| `/mobile-pet-grooming/` | Services hub (Service schema with the service catalog), the van, service areas, cat grooming |
+| `/mobile-pet-grooming/<service>/` | 10 service pages (single-service Service schema): full dog grooming, dog bath, cat grooming, Skunk-Off, nail trimming, and the add-ons de-shedding, detangling, teeth brushing, face trim, anal gland expression |
 | `/service-area/` | Hub linking every service-area page |
 | `/mobile-dog-grooming-<city>-ca/` | 12 town pages (Service schema scoped to the city, breadcrumb Home > Service Areas > city) |
 | `/gallery/` | All 39 owner photos: dogs, cats, the van and team (ImageGallery schema) |
