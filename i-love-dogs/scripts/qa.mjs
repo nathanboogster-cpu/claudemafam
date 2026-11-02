@@ -16,10 +16,14 @@ const MAPS = "https://www.google.com/maps/search/?api=1&query=723%20County%20Lin
 const TOWNS = ["rosemont", "haverford", "ardmore", "villanova", "wynnewood", "havertown", "gladwyne", "radnor"].map(
   (t) => `/dog-grooming-${t}-pa/`,
 );
+// Service pages are discovered from the Dog Grooming hub.
+const groomingHub = await (await fetch(`${BASE}/dog-grooming/`)).text();
+const SERVICES = [...new Set([...groomingHub.matchAll(/href="(\/dog-grooming\/[a-z0-9-]+\/)"/g)].map((m) => m[1]))];
+
 // Blog posts are discovered from the blog index, so new posts are covered automatically.
 const blogIndex = await (await fetch(`${BASE}/blog/`)).text();
 const POSTS = [...new Set([...blogIndex.matchAll(/href="(\/blog\/[a-z0-9-]+\/)"/g)].map((m) => m[1]))];
-const PAGES = ["/", "/dog-grooming/", "/pickup-and-delivery/", "/service-area/", "/about/", "/faq/", "/contact/", "/gallery/", "/blog/", ...TOWNS, ...POSTS];
+const PAGES = ["/", "/dog-grooming/", "/pickup-and-delivery/", "/service-area/", "/about/", "/faq/", "/contact/", "/gallery/", "/blog/", ...SERVICES, ...TOWNS, ...POSTS];
 const ALL = [...PAGES, "/404.html"];
 // Vercel Analytics serves its script at /_vercel/insights/* on Vercel only;
 // under `next start` that request 404s, so it is ignored here.
@@ -235,7 +239,7 @@ for (const p of ALL) {
     check("3-seo", types.includes("BreadcrumbList"), `${p} missing BreadcrumbList`);
     check("3-seo", (p === "/faq/") === types.includes("FAQPage"), `${p} FAQPage placement`);
     check("3-seo", POSTS.includes(p) === types.includes("BlogPosting"), `${p} BlogPosting placement`);
-    const wantsService = ["/dog-grooming/", "/pickup-and-delivery/", ...TOWNS].includes(p);
+    const wantsService = ["/dog-grooming/", "/pickup-and-delivery/", ...SERVICES, ...TOWNS].includes(p);
     check("3-seo", wantsService === types.includes("Service"), `${p} Service schema placement`);
     const biz = ld.find((d) => d["@type"] === "LocalBusiness");
     check(
@@ -334,6 +338,9 @@ for (const p of ALL) {
   }
 }
 
+check("4-links", SERVICES.length === 6, `expected 6 service pages, found ${SERVICES.length}`);
+// Each service page shows a starting price from the published packages.
+for (const p of SERVICES) check("2-prices", /From \$(75|115|150)\b/.test(visibleText[p]), `${p} missing a package starting price`);
 check("4-links", POSTS.length === 13, `expected 13 blog posts (9 towns, 4 services), found ${POSTS.length}`);
 
 // The award appears where it is meant to.

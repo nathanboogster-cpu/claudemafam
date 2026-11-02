@@ -279,8 +279,189 @@ export const townPages = [
 
 export type TownPage = (typeof townPages)[number];
 
+// Individual service pages (/dog-grooming/<slug>/). Every service here is
+// part of one or more of the three published packages; none is listed as
+// sold on its own, because no source says so. `packages` names which
+// packages include it, and the page's starting price is the cheapest of
+// those. Sources checked: the current site, the old site, Yelp, the Google
+// listing and directory listings. None lists any service beyond the
+// packages and pickup and delivery.
+export type PackageName = (typeof packages)[number]["name"];
+
+export const servicePages = [
+  {
+    slug: "dog-bath",
+    name: "Dog Bath & Blow Dry",
+    schemaName: "Dog Bathing",
+    seoTitle: "Dog Bath & Blow Dry in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "A warm, gentle dog bath with chemical-free products, blow dry and brushing, in every package from $75. I Love Dogs, Bryn Mawr, PA. Call 610-525-7387.",
+    hook: "Does your dog shiver through bath time?",
+    intro:
+      "Every groom at I Love Dogs starts with a bath. Our water is heated by a tankless system, so it stays warm from the first rinse to the last, and we wash with chemical-free products.",
+    included: [
+      "A gentle bath in warm water that doesn't run cold",
+      "Chemical-free washing products",
+      "A full blow dry, so the coat isn't left damp",
+      "Brushing to lift out loose hair and small tangles",
+    ],
+    goodToKnow: [
+      "A coat that's left damp can tangle and stay cold against the skin, which is why we blow dry every dog.",
+      "Brushing at home between visits keeps tangles from turning into mats.",
+      "If your dog's skin is red, flaky or itchy, check with your vet.",
+    ],
+    packages: ["Bath & Pamper", "The Works", "Full Spa Day"],
+    guideSlug: "warm-bath-nervous-dogs-haverford",
+    photo: "groomed-two-fluffy-dogs",
+  },
+  {
+    slug: "dog-haircuts",
+    name: "Dog Haircuts & Tidy-Up Trims",
+    schemaName: "Dog Haircut",
+    seoTitle: "Dog Haircuts & Trims in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "A full dog haircut or a tidy-up trim, part of The Works (from $115) and Full Spa Day at I Love Dogs in Bryn Mawr, PA. Call 610-525-7387.",
+    hook: "Has your dog's coat grown out of shape?",
+    intro:
+      "We offer a full haircut or a tidy-up trim as part of The Works and Full Spa Day. Tell us what you'd like when you call, and we'll suggest which suits your dog.",
+    included: [
+      "A full haircut, taking the whole coat to a new length and shape, or",
+      "A tidy-up trim that keeps the current style and neatens the face, eyes, feet and rear",
+      "Everything in Bath & Pamper first: warm bath, blow dry, brushing and nail trim",
+    ],
+    goodToKnow: [
+      "A tidy-up trim suits a coat that's already a length you like. A full haircut suits a coat that has grown out, tangled or lost its shape.",
+      "Coats that keep growing, such as curly and wavy coats, usually need trims on a steady routine.",
+      "Hair in the eyes or tangles you can't brush out at home are signs it's time.",
+    ],
+    packages: ["The Works", "Full Spa Day"],
+    guideSlug: "haircut-or-tidy-up-trim-wynnewood",
+    photo: "before-after-brown-white-fluffy-dog",
+  },
+  {
+    slug: "nail-trims",
+    name: "Dog Nail Trims",
+    schemaName: "Dog Nail Trimming",
+    seoTitle: "Dog Nail Trims in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "Dog nail trims are part of every grooming package at I Love Dogs in Bryn Mawr, PA, starting with Bath & Pamper from $75. Call 610-525-7387.",
+    hook: "Can you hear your dog coming across the kitchen floor?",
+    intro:
+      "A nail trim is part of every grooming package we offer, starting with Bath & Pamper. Long nails can change the way a dog stands and walks, and they're more likely to catch or split.",
+    included: [
+      "A nail trim with every package",
+      "Plus a warm bath, blow dry and brushing in Bath & Pamper",
+    ],
+    goodToKnow: [
+      "If you can hear clicking on hard floors, or the nails touch the ground when your dog stands still, they're due.",
+      "Dewclaws, on the inside of the leg, can curl around if they're left too long.",
+      "If a nail is cracked, bleeding or your dog is limping, call your vet.",
+    ],
+    packages: ["Bath & Pamper", "The Works", "Full Spa Day"],
+    guideSlug: "dog-nail-care-between-grooms-ardmore",
+    photo: "groomed-tan-terrier-mix",
+  },
+  {
+    slug: "ear-cleaning",
+    name: "Dog Ear Cleaning",
+    schemaName: "Dog Ear Cleaning",
+    seoTitle: "Dog Ear Cleaning in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "Dog ear cleaning is part of The Works (from $115) and Full Spa Day at I Love Dogs Pet Grooming in Bryn Mawr, PA. Call 610-525-7387 to book.",
+    hook: "Does your dog have floppy or hairy ears?",
+    intro:
+      "Ear cleaning is part of The Works and Full Spa Day. Floppy ears and ears with a lot of hair inside let less air in, so moisture and dirt can build up.",
+    included: [
+      "Ear cleaning",
+      "Plus a haircut or tidy-up trim and a dog-safe cologne spritz in The Works",
+      "Plus everything in Bath & Pamper: warm bath, blow dry, brushing and nail trim",
+    ],
+    goodToKnow: [
+      "A little light-colored wax is normal.",
+      "Redness, swelling, a strong smell, dark discharge or a lot of head shaking are reasons to see your vet, not a groomer.",
+      "Dogs who swim or are bathed often may need their ears checked more.",
+    ],
+    packages: ["The Works", "Full Spa Day"],
+    guideSlug: "dog-ear-cleaning-basics-gladwyne",
+    photo: "groomed-tan-dog-dark-ears",
+  },
+  {
+    slug: "de-shedding",
+    name: "De-Shedding & Deep Conditioning",
+    schemaName: "Dog De-Shedding Treatment",
+    seoTitle: "Dog De-Shedding in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "De-shedding or deep conditioning for your dog's skin and coat, part of Full Spa Day from $150 at I Love Dogs in Bryn Mawr, PA. Call 610-525-7387.",
+    hook: "Is your dog's fur all over the floor, the car and the sofa?",
+    intro:
+      "Our Full Spa Day includes a skin and coat treatment, chosen for your dog's coat: de-shedding for heavy shedders, or deep conditioning for a coat that feels dry or looks dull.",
+    included: [
+      "De-shedding, which works out loose undercoat during the groom, or",
+      "Deep conditioning, for a dry or dull coat",
+      "Plus paw balm and teeth brushing",
+      "Plus everything in The Works: warm bath, blow dry, brushing, nail trim, haircut or tidy-up trim, ear cleaning and a cologne spritz",
+    ],
+    goodToKnow: [
+      "Many dogs have a soft undercoat that gets trapped when it loosens. De-shedding helps it come out at the salon rather than around your home.",
+      "Shaving a double coat isn't always a good idea, because it helps protect the skin and doesn't always grow back the same. Ask us first.",
+      "If shedding comes with bald patches, sores or itching, see your vet.",
+    ],
+    packages: ["Full Spa Day"],
+    guideSlug: "what-de-shedding-does-villanova",
+    photo: "before-after-gray-white-shaggy-dog",
+  },
+  {
+    slug: "teeth-brushing",
+    name: "Dog Teeth Brushing",
+    schemaName: "Dog Teeth Brushing",
+    seoTitle: "Dog Teeth Brushing in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "Dog teeth brushing is part of Full Spa Day (from $150) at I Love Dogs Pet Grooming in Bryn Mawr, PA, with paw balm and a coat treatment. Call 610-525-7387.",
+    hook: "When did your dog last have their teeth brushed?",
+    intro:
+      "Teeth brushing is part of our Full Spa Day, together with paw balm and a skin and coat treatment. Regular brushing helps remove plaque before it builds up.",
+    included: [
+      "Teeth brushing",
+      "Paw balm, to help keep paw pads soft",
+      "A skin and coat treatment, such as de-shedding or deep conditioning",
+      "Plus everything in The Works",
+    ],
+    goodToKnow: [
+      "Brushing during a groom is not a dental cleaning, and it doesn't replace one at the vet.",
+      "Very bad breath, red or bleeding gums, loose teeth or trouble eating are reasons to see your vet.",
+      "Brushing at home, with a toothpaste made for dogs, helps between visits.",
+    ],
+    packages: ["Full Spa Day"],
+    guideSlug: "why-teeth-brushing-matters-radnor",
+    photo: "groomed-black-white-fluffy-dog",
+  },
+] as const satisfies readonly {
+  slug: string;
+  name: string;
+  schemaName: string;
+  seoTitle: string;
+  description: string;
+  hook: string;
+  intro: string;
+  included: readonly string[];
+  goodToKnow: readonly string[];
+  packages: readonly PackageName[];
+  guideSlug: string;
+  photo: string;
+}[];
+
+export type ServicePage = (typeof servicePages)[number];
+
+export const servicePath = (slug: string) => `${PATHS.dogGrooming}${slug}/`;
+
+// Starting price of a service: the cheapest package that includes it.
+export function serviceFromPrice(service: ServicePage) {
+  return Math.min(...packages.filter((p) => (service.packages as readonly string[]).includes(p.name)).map((p) => p.price));
+}
+
 export const serviceNav: NavItem[] = [
   { label: "Dog Grooming & Prices", href: PATHS.dogGrooming },
+  ...servicePages.map((s) => ({ label: s.name, href: servicePath(s.slug) })),
   { label: "Pickup & Delivery", href: PATHS.pickup },
 ];
 
@@ -422,4 +603,8 @@ export const groomedPhotos: Photo[] = [
 ];
 
 // Every indexable URL, for the sitemap.
-export const allPaths: string[] = [...Object.values(PATHS), ...townPages.map((t) => t.slug)];
+export const allPaths: string[] = [
+  ...Object.values(PATHS),
+  ...servicePages.map((s) => servicePath(s.slug)),
+  ...townPages.map((t) => t.slug),
+];

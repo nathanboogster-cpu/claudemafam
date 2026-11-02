@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { beforeAfterPhotos, faqs, PATHS, SITE_URL, townPages } from "@/lib/site-data";
+import { beforeAfterPhotos, faqs, PATHS, serviceFromPrice, servicePages, servicePath, SITE_URL, townPages } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { CallButton, DirectionsButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -71,6 +71,24 @@ export default function DogGroomingPage() {
           <div className="mt-6">
             <PackageCards />
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pt-12">
+        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Our Grooming Services</h2>
+        <p className="mt-2 text-ink-soft">Each service is part of the packages above. See what each one involves:</p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {servicePages.map((svc) => (
+            <Link
+              key={svc.slug}
+              href={servicePath(svc.slug)}
+              className="flex flex-col rounded-2xl border border-border bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <h3 className="font-display text-lg font-bold text-ink">{svc.name}</h3>
+              <p className="mt-1 text-sm font-semibold text-brand">{`From $${serviceFromPrice(svc)}`}</p>
+              <span className="mt-2 text-sm font-semibold text-brand">Learn more →</span>
+            </Link>
+          ))}
         </div>
       </section>
 
