@@ -64,9 +64,15 @@ browser.
   lettering. `logo-mark.png`, `app/icon.png`, `app/apple-icon.png` and
   `app/favicon.ico` are the dog-and-cat line art from the logo on its teal
   tile, with lines thickened slightly so they stay visible at small sizes.
-- `components/TownPageContent.tsx`: the template behind the four town pages
-  (`/dog-grooming-<town>-pa/`). Bryn Mawr has no town page; the home page
-  targets it.
+- `components/TownPageContent.tsx`: the template behind the eight town pages
+  (`/dog-grooming-<town>-pa/`): Rosemont, Haverford, Ardmore, Villanova,
+  Wynnewood, Havertown, Gladwyne and Radnor. Bryn Mawr has no town page; the
+  home page targets it. Gladwyne, Haverford, Ardmore and Havertown come from
+  the client's older site. The agency added Rosemont, Villanova, Wynnewood and
+  Radnor: Main Line towns within about a 10-minute drive of the salon (an
+  estimate from straight-line distance, not measured routes) with median
+  household incomes at or above the Pennsylvania median. Income is a targeting
+  criterion only and is never shown on the site.
 - `next.config.ts`: `trailingSlash: true`, and the 301s from the old
   Squarespace `/home` URL to `/`.
 

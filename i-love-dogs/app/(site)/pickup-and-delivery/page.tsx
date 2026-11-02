@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, faqs, PATHS, SITE_URL, townPages } from "@/lib/site-data";
+import { business, faqs, PATHS, SITE_URL, serviceAreas, townPages } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { CallButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -100,7 +100,7 @@ export default function PickupPage() {
         <div className="mx-auto max-w-6xl px-4 py-12">
           <h2 className="font-display text-2xl font-bold text-ink text-center">Towns We Serve</h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-ink-soft">
-            We serve Bryn Mawr, Gladwyne, Haverford, Ardmore, Havertown and the greater Eastern Main Line. Call{" "}
+            We serve {serviceAreas.join(", ")} and the greater Eastern Main Line. Call{" "}
             {business.phoneDisplay} with your address to confirm pickup.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

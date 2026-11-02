@@ -1,4 +1,4 @@
-import { PATHS, SITE_URL } from "@/lib/site-data";
+import { PATHS, SITE_URL, serviceAreaList, serviceAreas } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { CallButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -11,11 +11,11 @@ import { CheckIcon } from "@/components/icons";
 export const metadata = pageMetadata({
   title: "Dog Groomer Serving the Eastern Main Line | Bryn Mawr, PA",
   description:
-    "I Love Dogs serves Bryn Mawr, Gladwyne, Haverford, Ardmore, Havertown and the greater Eastern Main Line. Call 610-525-7387.",
+    `I Love Dogs serves ${serviceAreaList}, PA. Call 610-525-7387.`,
   path: PATHS.serviceArea,
 });
 
-const towns = ["Bryn Mawr", "Gladwyne", "Haverford", "Ardmore", "Havertown", "The greater Eastern Main Line"];
+const towns = [...serviceAreas, "The greater Eastern Main Line"];
 
 export default function ServiceAreaPage() {
   return (
