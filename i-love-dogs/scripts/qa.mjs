@@ -46,7 +46,6 @@ const FORBIDDEN = [
   /★/,
   /review/i,
   /testimonial/i,
-  /@gmail|mailto:/i,
   /(?<!facebook\.com\/)ilovedogspetgrooming\.com/i,
   /look no further|pride ourselves|fur-ever|pawsome|groomer comes to|come to your (home|door)/i,
 ];
@@ -163,6 +162,7 @@ for (const p of ALL) {
       text: document.body.innerText,
       tels: tels.map((a) => a.getAttribute("href")),
       maps: [...document.querySelectorAll('a[href*="google.com/maps"]')].map((a) => a.getAttribute("href")),
+      mailtos: [...document.querySelectorAll('a[href^="mailto:"]')].map((a) => a.getAttribute("href")),
       telInFirstViewport: tels.some((a) => {
         if (!vis(a)) return false;
         const r = a.getBoundingClientRect();
@@ -213,7 +213,7 @@ for (const p of ALL) {
     try {
       const d = JSON.parse(block);
       ld.push(d);
-      if (/openingHours|aggregateRating|"review"|priceRange|"email"/i.test(JSON.stringify(d))) ok = false;
+      if (/openingHours|aggregateRating|"review"|priceRange/i.test(JSON.stringify(d))) ok = false;
     } catch {
       ok = false;
     }
@@ -236,7 +236,11 @@ for (const p of ALL) {
     const biz = ld.find((d) => d["@type"] === "LocalBusiness");
     check(
       "3-seo",
-      biz && biz.telephone === "+16105257387" && biz.address.streetAddress === "723 County Line Rd" && biz.address.postalCode === "19010",
+      biz &&
+        biz.telephone === "+16105257387" &&
+        biz.email === "ilovedogsgroomingbrynmawr@gmail.com" &&
+        biz.address.streetAddress === "723 County Line Rd" &&
+        biz.address.postalCode === "19010",
       `${p} LocalBusiness NAP`,
     );
   } else {
@@ -247,6 +251,8 @@ for (const p of ALL) {
   // 4. Links
   for (const t of info.tels) check("4-links", t === TEL, `${p} tel href ${t}`);
   for (const m of info.maps) check("4-links", m === MAPS, `${p} maps href ${m}`);
+  for (const m of info.mailtos) check("4-links", m === "mailto:ilovedogsgroomingbrynmawr@gmail.com", `${p} mailto href ${m}`);
+  check("4-links", info.mailtos.length > 0, `${p} has no email link`);
   for (const h of info.hrefs) {
     if (h.startsWith("#")) check("4-links", html[p].includes(`id="${h.slice(1)}"`), `${p} same-page anchor ${h} has no target`);
     else if (h.startsWith("/")) internal.set(h, p);
@@ -353,7 +359,7 @@ for (const p of PAGES) check("4-links", internal.has(p), `${p} is not linked fro
   const visible = await pg.$$eval("main dl > div", (ds) => ds.map((d) => ({ q: d.querySelector("dt").textContent, a: d.querySelector("dd").textContent })));
   check(
     "3-seo",
-    faqLd.mainEntity.length === 8 && faqLd.mainEntity.every((m, i) => m.name === visible[i].q && m.acceptedAnswer.text === visible[i].a),
+    faqLd.mainEntity.length === 10 && faqLd.mainEntity.every((m, i) => m.name === visible[i].q && m.acceptedAnswer.text === visible[i].a),
     "FAQPage schema differs from visible FAQ",
   );
   await pg.close();

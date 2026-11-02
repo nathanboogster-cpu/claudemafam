@@ -69,9 +69,11 @@ export default function AboutPage() {
             <p className="mt-4 text-ink-soft leading-relaxed">
               I Love Dogs is family-owned and run by {business.owners}.
               <br />
+              {people.family}
+              <br />
               {people.theresa}
               <br />
-              {people.jolie}
+              {people.jolie} {people.jolieGrewUp}
             </p>
           </div>
           <div>
@@ -104,7 +106,7 @@ export default function AboutPage() {
             photo={teamPhotos.jolieAndTheresa}
             aspect="square"
             sizes="(max-width: 640px) 100vw, 33vw"
-            caption="Groomer Jolie (left), with 15 years of professional grooming experience, and Theresa Pelletier."
+            caption="Groomer Jolie (left), with 15 years of professional grooming experience, and her mother, Theresa Pelletier."
           />
           <Photo
             photo={teamPhotos.theresaHug}

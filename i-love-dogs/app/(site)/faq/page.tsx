@@ -50,7 +50,7 @@ export default function FaqPage() {
           {faqs.map((item) => (
             <div key={item.question} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
               <dt className="font-display text-lg font-bold text-ink">{item.question}</dt>
-              <dd className="mt-2 text-ink-soft leading-relaxed">{item.answer}</dd>
+              <dd className="mt-2 text-ink-soft leading-relaxed [overflow-wrap:anywhere]">{item.answer}</dd>
             </div>
           ))}
         </dl>

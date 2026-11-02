@@ -31,7 +31,7 @@ export function FaqBlock({
                 +
               </span>
             </summary>
-            <p className="mt-3 text-sm text-ink-soft leading-relaxed">{item.answer}</p>
+            <p className="mt-3 text-sm text-ink-soft leading-relaxed [overflow-wrap:anywhere]">{item.answer}</p>
           </details>
         ))}
       </div>

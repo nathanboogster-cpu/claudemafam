@@ -136,7 +136,8 @@ export default function HomePage() {
               Family-Owned, With Decades of Experience
             </h2>
             <p className="mt-4 text-ink-soft leading-relaxed">
-              I Love Dogs is family-owned and run by {business.owners}. {people.theresa} {people.jolie}
+              I Love Dogs is family-owned and run by {business.owners}. {people.family} {people.theresa}{" "}
+              {people.jolie}
             </p>
             <ul className="mt-5 flex flex-wrap gap-2">
               {badges.map((b) => (
@@ -155,7 +156,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <Photo photo={teamPhotos.jolieAndTheresa} aspect="square" caption="Groomer Jolie (left) and Theresa Pelletier." />
+          <Photo photo={teamPhotos.jolieAndTheresa} aspect="square" caption="Groomer Jolie (left) and her mother, Theresa Pelletier." />
         </div>
       </section>
 
