@@ -16,7 +16,10 @@ const MAPS = "https://www.google.com/maps/search/?api=1&query=723%20County%20Lin
 const TOWNS = ["rosemont", "haverford", "ardmore", "villanova", "wynnewood", "havertown", "gladwyne", "radnor"].map(
   (t) => `/dog-grooming-${t}-pa/`,
 );
-const PAGES = ["/", "/dog-grooming/", "/pickup-and-delivery/", "/service-area/", "/about/", "/faq/", "/contact/", "/gallery/", ...TOWNS];
+// Blog posts are discovered from the blog index, so new posts are covered automatically.
+const blogIndex = await (await fetch(`${BASE}/blog/`)).text();
+const POSTS = [...new Set([...blogIndex.matchAll(/href="(\/blog\/[a-z0-9-]+\/)"/g)].map((m) => m[1]))];
+const PAGES = ["/", "/dog-grooming/", "/pickup-and-delivery/", "/service-area/", "/about/", "/faq/", "/contact/", "/gallery/", "/blog/", ...TOWNS, ...POSTS];
 const ALL = [...PAGES, "/404.html"];
 // Vercel Analytics serves its script at /_vercel/insights/* on Vercel only;
 // under `next start` that request 404s, so it is ignored here.
@@ -36,8 +39,8 @@ const FORBIDDEN = [
   /flea/i,
   /40 years/i,
   /since 19/i,
-  /award/i,
-  /best of/i,
+  // "Best of Philly" is the one award shown (agency request); any other "best of" is not.
+  /best of (?!philly)/i,
   /\bcats?\b/i,
   /mobile groom/i,
   /boarding/i,
@@ -231,6 +234,7 @@ for (const p of ALL) {
     check("3-seo", types.includes("LocalBusiness") && types.includes("WebSite"), `${p} missing LocalBusiness/WebSite`);
     check("3-seo", types.includes("BreadcrumbList"), `${p} missing BreadcrumbList`);
     check("3-seo", (p === "/faq/") === types.includes("FAQPage"), `${p} FAQPage placement`);
+    check("3-seo", POSTS.includes(p) === types.includes("BlogPosting"), `${p} BlogPosting placement`);
     const wantsService = ["/dog-grooming/", "/pickup-and-delivery/", ...TOWNS].includes(p);
     check("3-seo", wantsService === types.includes("Service"), `${p} Service schema placement`);
     const biz = ld.find((d) => d["@type"] === "LocalBusiness");
@@ -239,6 +243,7 @@ for (const p of ALL) {
       biz &&
         biz.telephone === "+16105257387" &&
         biz.email === "ilovedogsgroomingbrynmawr@gmail.com" &&
+        biz.award === "Best of Philly" &&
         biz.address.streetAddress === "723 County Line Rd" &&
         biz.address.postalCode === "19010",
       `${p} LocalBusiness NAP`,
@@ -328,6 +333,11 @@ for (const p of ALL) {
     await pg.close();
   }
 }
+
+check("4-links", POSTS.length === 13, `expected 13 blog posts (9 towns, 4 services), found ${POSTS.length}`);
+
+// The award appears where it is meant to.
+for (const p of ["/", "/about/"]) check("1-accuracy", visibleText[p].includes("Best of Philly"), `${p} missing "Best of Philly"`);
 
 // 2. Prices
 for (const p of ["/dog-grooming/", "/"]) {

@@ -34,6 +34,9 @@ export function Header() {
           <Link href={PATHS.gallery} className="hover:text-brand whitespace-nowrap">
             Gallery
           </Link>
+          <Link href={PATHS.blog} className="hover:text-brand whitespace-nowrap">
+            Blog
+          </Link>
           <Link href={PATHS.faq} className="hover:text-brand whitespace-nowrap">
             FAQ
           </Link>

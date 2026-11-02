@@ -1,7 +1,8 @@
+import { business } from "@/lib/site-data";
 import { CheckIcon } from "./icons";
 
 // Verified trust facts only: no stars, ratings or review counts.
-const items = ["Family-owned", "Over 50 years caring for dogs", "Pickup & delivery", "Chemical-free products"];
+const items = [business.awardLine, "Family-owned", "Over 50 years caring for dogs", "Pickup & delivery", "Chemical-free products"];
 
 export function TrustBar({ className = "" }: { className?: string }) {
   return (

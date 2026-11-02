@@ -19,14 +19,14 @@ import { RecentWork } from "@/components/RecentWork";
 export const metadata = pageMetadata({
   title: "Dog Grooming in Bryn Mawr, PA | I Love Dogs Pet Grooming",
   description:
-    "Dog grooming in Bryn Mawr, PA from $75. Warm baths, chemical-free products and pickup and delivery. Call 610-525-7387.",
+    "Voted Best of Philly. Dog grooming in Bryn Mawr, PA from $75: warm baths, chemical-free products, pickup and delivery. Call 610-525-7387.",
   path: PATHS.home,
 });
 
 // FAQ #1 (packages), #2 (pickup) and #7 (cost).
 const homeFaqs = [faqs[0], faqs[1], faqs[6]];
 
-const badges = ["Family-owned", "Over 50 years with dogs", "15 years grooming", "Chemical-free products"];
+const badges = [business.awardLine, "Family-owned", "Over 50 years with dogs", "15 years grooming", "Chemical-free products"];
 
 export default function HomePage() {
   return (

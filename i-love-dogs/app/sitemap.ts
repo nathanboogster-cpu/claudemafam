@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { allPaths, beforeAfterPhotos, groomedPhotos, PATHS, SITE_URL, teamPhotos } from "@/lib/site-data";
+import { blogPostPath, blogPosts } from "@/lib/blog-data";
 
 const priorities: Record<string, number> = {
   [PATHS.home]: 1,
@@ -22,11 +23,17 @@ const images: Record<string, string[]> = {
 export default function sitemap(): MetadataRoute.Sitemap {
   // Build date (YYYY-MM-DD).
   const lastModified = new Date().toISOString().slice(0, 10);
-  return allPaths.map((path) => ({
+  const posts = blogPosts.map((post) => ({
+    url: `${SITE_URL}${blogPostPath(post.slug)}`,
+    lastModified: post.date,
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+  return [...allPaths.map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
     changeFrequency: "monthly" as const,
     priority: priorities[path] ?? 0.6,
     ...(images[path] ? { images: images[path] } : {}),
-  }));
+  })), ...posts];
 }
