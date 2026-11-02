@@ -74,11 +74,32 @@ fails if any creep in.
 | `/service-area/` | Hub linking every service-area page |
 | `/mobile-dog-grooming-<city>-ca/` | 12 town pages (Service schema scoped to the city, breadcrumb Home > Service Areas > city) |
 | `/gallery/` | All 39 owner photos: dogs, cats, the van and team (ImageGallery schema) |
+| `/blog/` | Blog index: service guides, then area posts |
+| `/blog/<slug>/` | 18 posts (BlogPosting schema): one guide per service, one post per service area |
 | `/about/` | About |
 | `/faq/` | FAQ (FAQPage schema, identical to visible text) |
 
 `/book/` was an on-site request form for a short time and is now a temporary
 redirect to the MoeGo page, so any old links still reach booking.
+
+## Blog
+
+`lib/blog-data.ts` holds 18 posts as content blocks, rendered by
+`app/(site)/blog/[slug]/` (prebuilt; unknown slugs 404), the same pattern as
+the Bow Wags blog:
+
+- **Six service guides,** one per service on the MoeGo page: what a mobile
+  groom involves, cat grooming, de-shedding, detangling vs shave-down, nail
+  trims, anal glands. Each service card on the site links to its guide.
+- **Twelve area posts,** one per service area, pairing a real local detail
+  (Sign Hill foxtails, Pacifica beaches, Daly City fog, Burlingame doodles...)
+  with general pet-care advice. Each links to its town page, and each town
+  page shows its post.
+
+Posts only state verified facts about the business (the van, the services,
+booking, the phone number). Health advice is general and points to the vet
+for anything medical. All posts are dated 2026-11-02. When adding a post,
+also add its slug to `SERVICE_POSTS` or `AREA_POSTS` in `scripts/qa.mjs`.
 
 ## Conversion
 
