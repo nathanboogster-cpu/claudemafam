@@ -11,6 +11,7 @@ import { ServiceGrid } from "@/components/ServiceGrid";
 import { PhotoGrid } from "@/components/PhotoGrid";
 import { Pic } from "@/components/Pic";
 import { BottomCta } from "@/components/BottomCta";
+import { PriceList } from "@/components/PriceList";
 import { CheckIcon } from "@/components/icons";
 import { AreaLinks } from "@/components/AreaLinks";
 
@@ -66,6 +67,21 @@ export default function MobileGroomingPage() {
           <div className="mt-10">
             <ServiceGrid />
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-4 py-16">
+        <div className="text-center">
+          <Eyebrow>Prices</Eyebrow>
+          <h2 className="mt-1 font-display text-3xl font-extrabold text-ink sm:text-4xl">Prices at a Glance</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-ink-soft">
+            Grooming packages and baths are priced by your dog&rsquo;s size; see them on our booking page. Other prices,
+            from our booking page:
+          </p>
+        </div>
+        <PriceList className="mt-8" />
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <BookButton location="service_prices" label="See All Prices & Book" />
         </div>
       </section>
 
