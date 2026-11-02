@@ -27,6 +27,9 @@ export function Header() {
           </Link>
           <NavDropdown label="Services" items={serviceNav} />
           <NavDropdown label="Service Areas" items={areaNavLinks} />
+          <Link href={PATHS.gallery} className="hover:text-brand whitespace-nowrap">
+            Gallery
+          </Link>
           <Link href={PATHS.faq} className="hover:text-brand whitespace-nowrap">
             FAQ
           </Link>

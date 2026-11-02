@@ -52,6 +52,12 @@ browser.
   Analytics, `window.dataLayer`, and a self-hosted Redis counter.
 - `components/`: header with Services and Service Areas dropdowns, mobile
   menu, sticky Call + Directions bar, footer, and the content blocks.
+- `public/images/`: the client's own photos (Google Drive folder "I Love Dogs
+  Grooming"), EXIF/GPS stripped and capped at 1600px. Registered with alt
+  text in `lib/site-data.ts` (`teamPhotos`, `beforeAfterPhotos`,
+  `groomedPhotos`) and served through `next/image` as AVIF/WebP. People were
+  identified by the agency: Theresa Pelletier (three photos) and groomer
+  Jolie with Theresa (one). `og-image.jpg` is the 1200×630 share image.
 - `components/TownPageContent.tsx`: the template behind the four town pages
   (`/dog-grooming-<town>-pa/`). Bryn Mawr has no town page; the home page
   targets it.
@@ -62,8 +68,8 @@ browser.
 
 Left out until the owner confirms them: hours (Google and Yelp disagree),
 ratings, review counts, testimonials, awards, business age, email, online
-booking, photos and logo. That is why this app has no Reviews, Gallery, Blog,
-Membership or Employment pages, which the Pampered Puppies skeleton has.
+booking and logo. That is why this app has no Reviews, Blog, Membership or
+Employment pages, which the Pampered Puppies skeleton has.
 
 ## Needs owner input before launch
 
@@ -72,8 +78,8 @@ Membership or Employment pages, which the Pampered Puppies skeleton has.
    bath are still current, and the pickup radius.
 3. Year and publication for "Best of Philly / Best of the Main Line", if it
    should be shown.
-4. Logo and original grooming photos. `components/BrandMark.tsx` and
-   `app/icon.svg` are a plain heart placeholder, not the client's logo.
+4. Logo. `components/BrandMark.tsx` and `app/icon.svg` are a plain heart
+   placeholder, not the client's logo. (Photos are in.)
 5. Reviews the owner is happy to quote, for a Reviews page.
 6. The old domain `ilovedogspetgrooming.com`: recommended 301 of the whole
    domain to the new site at launch.

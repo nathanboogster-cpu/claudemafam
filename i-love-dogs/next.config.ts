@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
   // Every URL on this site ends in a slash (/dog-grooming/, /faq/ ...).
   trailingSlash: true,
   poweredByHeader: false,
+  // Client photos are served as responsive AVIF/WebP by next/image.
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   // The stylesheet is a few KB, so inline it rather than make the first
   // mobile visit wait on a render-blocking CSS request.
   experimental: {

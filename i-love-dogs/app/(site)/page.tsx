@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business, faqs, people, PATHS, SITE_URL } from "@/lib/site-data";
+import { business, faqs, people, PATHS, SITE_URL, teamPhotos } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
 import { CallButton } from "@/components/CTAButton";
 import { TrustBar } from "@/components/TrustBar";
@@ -12,8 +12,9 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { StatBand } from "@/components/StatBand";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
-import { StudioInfoCard } from "@/components/StudioInfoCard";
 import { BottomCta } from "@/components/BottomCta";
+import { Photo } from "@/components/Photo";
+import { RecentWork } from "@/components/RecentWork";
 
 export const metadata = pageMetadata({
   title: "Dog Grooming in Bryn Mawr, PA | I Love Dogs Pet Grooming",
@@ -58,9 +59,15 @@ export default function HomePage() {
             <TrustBar className="mt-6" />
           </div>
           <div className="space-y-4">
-            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <Photo
+              photo={teamPhotos.theresaHug}
+              aspect="portrait"
+              preload
+              caption="Theresa Pelletier has over 50 years of experience caring for dogs."
+            />
+            <div className="rounded-2xl border border-border bg-white p-5 shadow-sm">
               <Eyebrow>Starting Prices</Eyebrow>
-              <ul className="mt-3 divide-y divide-border">
+              <ul className="mt-2 divide-y divide-border">
                 <li className="flex items-baseline justify-between gap-4 py-2">
                   <span className="font-semibold text-ink">Bath &amp; Pamper</span>
                   <span className="font-display text-xl font-bold text-accent-dark">From $75</span>
@@ -74,11 +81,10 @@ export default function HomePage() {
                   <span className="font-display text-xl font-bold text-accent-dark">From $150</span>
                 </li>
               </ul>
-              <Link href={`${PATHS.dogGrooming}#pricing`} className="mt-3 inline-flex min-h-[44px] items-center text-sm font-semibold text-brand hover:underline">
+              <Link href={`${PATHS.dogGrooming}#pricing`} className="mt-2 inline-flex min-h-[44px] items-center text-sm font-semibold text-brand hover:underline">
                 See what each includes →
               </Link>
             </div>
-            <StudioInfoCard location="home_hero_card" />
           </div>
         </div>
       </section>
@@ -117,6 +123,10 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pb-14">
+        <RecentWork />
+      </section>
+
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-2 md:items-center">
           <div>
@@ -144,13 +154,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="rounded-2xl border border-border bg-cream p-6">
-            <h3 className="font-display text-xl font-bold text-ink">Serving the Eastern Main Line</h3>
-            <p className="mt-2 text-ink-soft">Bryn Mawr, Gladwyne, Haverford, Ardmore, Havertown and nearby.</p>
-            <Link href={PATHS.serviceArea} className="mt-2 inline-flex min-h-[44px] items-center font-semibold text-brand hover:underline">
-              See where we serve →
-            </Link>
-          </div>
+          <Photo photo={teamPhotos.jolieAndTheresa} aspect="square" caption="Groomer Jolie (left) and Theresa Pelletier." />
         </div>
       </section>
 
