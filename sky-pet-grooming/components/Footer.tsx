@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BOOKING_URL, business, mainNav, PATHS } from "@/lib/site-data";
+import { BOOKING_URL, business, mainNav, PATHS, serviceAreas } from "@/lib/site-data";
 import { PhoneLink } from "./CTAButton";
 import { Logo } from "./Logo";
 
@@ -7,13 +7,14 @@ export function Footer() {
   return (
     <footer className="bg-brand-dark text-white/80">
       <div className="bg-rainbow h-1.5" aria-hidden="true" />
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_1fr_1.6fr]">
         <div>
           <Link href={PATHS.home} className="inline-block rounded-2xl bg-white p-3" aria-label={`${business.name} home`}>
             <Logo className="h-16 w-auto" />
           </Link>
           <p className="mt-4 text-sm">{business.tagline}</p>
           <p className="mt-2 font-display text-sm font-bold text-white">{business.slogan}</p>
+          <p className="mt-3 text-sm">Licensed, insured and eco-friendly.</p>
         </div>
 
         <div>
@@ -47,9 +48,20 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-sm font-bold uppercase tracking-wider text-white">Service Area</h2>
-          <p className="mt-3 text-sm">Mobile grooming for dogs and cats in {business.area}. Our van comes to your door.</p>
-          <p className="mt-3 text-sm">Licensed, insured and eco-friendly.</p>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-white">
+            <Link href={PATHS.serviceArea} className="inline-flex min-h-6 items-center hover:underline">
+              Service Areas
+            </Link>
+          </h2>
+          <ul className="mt-2 grid grid-cols-2 gap-x-4 text-sm">
+            {serviceAreas.map((a) => (
+              <li key={a.slug}>
+                <Link href={a.slug} className="inline-flex min-h-[44px] items-center hover:text-white">
+                  {a.city}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

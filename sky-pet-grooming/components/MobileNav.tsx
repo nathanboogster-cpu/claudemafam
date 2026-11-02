@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { mainNav, PATHS, type NavItem } from "@/lib/site-data";
+import { areaNav, mainNav, PATHS, type NavItem } from "@/lib/site-data";
 
-const groups: { label: string; items: NavItem[] }[] = [{ label: "Menu", items: [{ label: "Home", href: PATHS.home }, ...mainNav] }];
+const groups: { label: string; items: NavItem[] }[] = [
+  { label: "Menu", items: [{ label: "Home", href: PATHS.home }, ...mainNav.filter((i) => i.href !== PATHS.serviceArea)] },
+  { label: "Service Areas", items: areaNav },
+];
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);

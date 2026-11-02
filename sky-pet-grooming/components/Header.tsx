@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { business, mainNav, PATHS } from "@/lib/site-data";
+import { areaNav, business, mainNav, PATHS } from "@/lib/site-data";
 import { MobileNav } from "./MobileNav";
 import { BookButton, CallIconButton, PhoneLink } from "./CTAButton";
 import { Logo } from "./Logo";
+import { NavDropdown } from "./NavDropdown";
 
 export function Header() {
   return (
@@ -26,11 +27,15 @@ export function Header() {
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-7 text-[15px] font-semibold text-ink-soft lg:flex">
-            {mainNav.map((item) => (
-              <Link key={item.href} href={item.href} className="whitespace-nowrap hover:text-accent-dark">
-                {item.label}
-              </Link>
-            ))}
+            {mainNav.map((item) =>
+              item.href === PATHS.serviceArea ? (
+                <NavDropdown key={item.href} label={item.label} items={areaNav} />
+              ) : (
+                <Link key={item.href} href={item.href} className="whitespace-nowrap hover:text-accent-dark">
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="hidden shrink-0 items-center gap-4 lg:flex">

@@ -24,8 +24,42 @@ Every fact is in `lib/site-data.ts`, and each one comes from the owner:
   and dryers.
 
 The 415/650 numbers, the "peninsula" web address on the van and the San Bruno
-address on the MoeGo page put the service area in San Francisco and on the
-Peninsula. Individual cities are not confirmed, so there are no town pages.
+address on the MoeGo page put the base in San Bruno.
+
+## Service areas
+
+Twelve town pages at `/mobile-dog-grooming-<city>-ca/`, built from
+`serviceAreas` in `lib/site-data.ts` by one template (`app/(site)/[area]/`,
+prebuilt with `generateStaticParams`; any other slug is a 404), plus a hub at
+`/service-area/`. The list was chosen by Tongfluence with this rule: every city
+within about a **20-minute off-peak drive** of San Bruno whose **median
+household income is middle class or higher** (Pew: at least two-thirds of the
+US median, about $52,400; all twelve also clear two-thirds of the Bay Area
+median, about $93,000).
+
+| Area | Median household income (ACS 2019-23) | Est. drive |
+| --- | --- | --- |
+| San Bruno | $135,976 | base |
+| South San Francisco | $135,909 | ~5 min |
+| Millbrae | $157,567 | ~6 min |
+| Brisbane | $151,593 | ~10 min |
+| Burlingame | $168,832 | ~10 min |
+| Colma | $121,488 | ~10 min |
+| Hillsborough | $250,001+ | ~12 min |
+| Pacifica | $156,819 | ~12 min |
+| Daly City | $119,570 | ~12 min |
+| San Mateo | $152,669 | ~15 min |
+| Foster City | $193,633 | ~18 min |
+| San Francisco (south and west) | $141,446 | ~10-20 min |
+
+Left out as over 20 minutes: Belmont, San Carlos, Redwood City, Half Moon Bay,
+Montara. Drive times are estimates from distance (no maps service was
+reachable from the build environment); confirm them with the owner. Income is
+only a selection rule and never appears on the site; QA fails if it does.
+San Francisco's page names only its southern and western neighborhoods, since
+the north-east of the city is beyond 20 minutes.
+
+To add or drop an area, edit `serviceAreas` (and `AREAS` in `scripts/qa.mjs`).
 
 Not on the site because none is verified: prices, hours, street address,
 staff names, years in business, ratings, reviews, awards. `scripts/qa.mjs`
@@ -36,7 +70,9 @@ fails if any creep in.
 | Path | Purpose |
 | --- | --- |
 | `/` | Home: hero with Book + Call, photo strip, services, the van, how it works, trust points, FAQ excerpt |
-| `/mobile-pet-grooming/` | Services (Service schema with the service catalog), the van, service area, cat grooming |
+| `/mobile-pet-grooming/` | Services (Service schema with the service catalog), the van, service areas, cat grooming |
+| `/service-area/` | Hub linking every service-area page |
+| `/mobile-dog-grooming-<city>-ca/` | 12 town pages (Service schema scoped to the city, breadcrumb Home > Service Areas > city) |
 | `/gallery/` | All 39 owner photos: dogs, cats, the van and team (ImageGallery schema) |
 | `/about/` | About |
 | `/faq/` | FAQ (FAQPage schema, identical to visible text) |
@@ -88,8 +124,7 @@ image loading with alt text through `next/image`, with all 39 photos on
 
 ## Needs owner input
 
-1. **Service area:** which cities or neighbourhoods they cover, to add town
-   pages (the biggest local-SEO gain left).
+1. **Service areas:** confirm the twelve towns and the drive-time cut-off.
 2. **Prices and hours,** if they want them on the site.
 3. **Website on the van:** the van says skypetgroomingspapeninsula.com, not
    skypetgrooming.com. Confirm which domain this site goes on, and redirect

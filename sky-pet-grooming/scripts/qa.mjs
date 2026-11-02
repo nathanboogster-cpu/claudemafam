@@ -14,7 +14,23 @@ const BASE = (process.env.QA_BASE ?? "http://localhost:3100").replace(/\/$/, "")
 const SITE = "https://www.skypetgrooming.com";
 // The owner's MoeGo booking page. Every booking link must be exactly this.
 const BOOK = "https://booking.moego.pet/ol/landing?name=SkyPetGrooming";
-const PAGES = ["/", "/mobile-pet-grooming/", "/gallery/", "/about/", "/faq/"];
+// Service-area pages (lib/site-data.ts serviceAreas), city -> slug.
+const AREAS = {
+  "San Bruno": "san-bruno",
+  "South San Francisco": "south-san-francisco",
+  Millbrae: "millbrae",
+  Brisbane: "brisbane",
+  Burlingame: "burlingame",
+  Colma: "colma",
+  Hillsborough: "hillsborough",
+  Pacifica: "pacifica",
+  "Daly City": "daly-city",
+  "San Mateo": "san-mateo",
+  "Foster City": "foster-city",
+  "San Francisco": "san-francisco",
+};
+const AREA_PAGES = Object.values(AREAS).map((k) => `/mobile-dog-grooming-${k}-ca/`);
+const PAGES = ["/", "/mobile-pet-grooming/", "/service-area/", "/gallery/", "/about/", "/faq/", ...AREA_PAGES];
 // The two numbers on the owner's van; the first is also on the logo.
 const TELS = ["tel:+14157540813", "tel:+16504383498"];
 // Every photo the owner supplied (lib/photos.ts) must be on /gallery/.
@@ -44,7 +60,8 @@ const FORBIDDEN = [
   /\d+\+?\s*years|since (19|20)\d\d/i,
   /family-owned|certified|\bAKC\b/i,
   /natural products|organic|hypoallergenic|non-toxic/i,
-  /Hesperia|Victorville|Los Angeles|San Diego|Orange County|San Bruno|Piccadilly/i, // no street address, no other regions
+  /Hesperia|Victorville|Los Angeles|San Diego|Orange County|Piccadilly|Belmont|San Carlos|Redwood City|Half Moon Bay|Montara/i, // no street address; nothing outside the 20-minute area
+  /median|household income|affluent|wealthy|upscale|high-income/i, // income picks the areas but is never published
   /look no further|pride ourselves|fur-ever|pawsome|furbab/i,
 ];
 
@@ -74,6 +91,12 @@ const sitemap = await (await fetch(BASE + "/sitemap.xml")).text();
 const locs = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
 check("3-seo", locs.length === PAGES.length && PAGES.every((p) => locs.includes(SITE + p)), `sitemap locs: ${locs.join(", ")}`);
 check("3-seo", (sitemap.match(/<lastmod>/g) ?? []).length === PAGES.length, "sitemap lastmod on every URL");
+
+// Only the listed areas get pages; any other area slug is a 404.
+{
+  const res = await fetch(BASE + "/mobile-dog-grooming-belmont-ca/", { redirect: "manual" });
+  check("4-links", res.status === 404, `unlisted area slug returned ${res.status}`);
+}
 
 // The old on-site form URL forwards to the booking page.
 for (const src of ["/book", "/book/"]) {
@@ -206,12 +229,23 @@ for (const p of ALL) {
     check("3-seo", types.includes("LocalBusiness") && types.includes("WebSite"), `${p} missing LocalBusiness/WebSite`);
     check("3-seo", types.includes("BreadcrumbList"), `${p} missing BreadcrumbList`);
     check("3-seo", (p === "/faq/") === types.includes("FAQPage"), `${p} FAQPage placement`);
-    check("3-seo", (p === "/mobile-pet-grooming/") === types.includes("Service"), `${p} Service schema placement`);
+    const wantsService = p === "/mobile-pet-grooming/" || AREA_PAGES.includes(p);
+    check("3-seo", wantsService === types.includes("Service"), `${p} Service schema placement`);
+    if (AREA_PAGES.includes(p)) {
+      const city = Object.keys(AREAS).find((c) => p === `/mobile-dog-grooming-${AREAS[c]}-ca/`);
+      const svc = ld.find((d) => d["@type"] === "Service");
+      check("3-seo", svc?.areaServed?.name === `${city}, CA`, `${p} Service areaServed should be ${city}, CA`);
+      check("3-seo", info.title.includes(city) && info.desc.includes(city), `${p} title/description must name ${city}`);
+      check("3-seo", ld.some((d) => d["@type"] === "BreadcrumbList" && d.itemListElement.length === 3), `${p} breadcrumb Home > Service Areas > ${city}`);
+    }
     check("3-seo", (p === "/gallery/") === types.includes("ImageGallery"), `${p} ImageGallery schema placement`);
     const biz = ld.find((d) => d["@type"] === "LocalBusiness");
     check(
       "3-seo",
-      biz && biz.name === "Sky Pet Grooming" && biz.telephone === "+14157540813" && biz.areaServed?.some((a) => a.name === "San Francisco"),
+      biz &&
+        biz.name === "Sky Pet Grooming" &&
+        biz.telephone === "+14157540813" &&
+        Object.keys(AREAS).every((c) => biz.areaServed?.some((a) => a.name === `${c}, CA`)),
       `${p} LocalBusiness name/telephone/areaServed`,
     );
   } else {
