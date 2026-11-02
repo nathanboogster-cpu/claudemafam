@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { business, companyNav, serviceNav, areaNavLinks, serviceAreaGeneral } from "@/lib/site-data";
-import { DirectionsLink, PhoneLink } from "./CTAButton";
+import { DirectionsLink, EmailLink, PhoneLink } from "./CTAButton";
 
 export function Footer() {
   return (
@@ -50,6 +50,9 @@ export function Footer() {
           <ul className="mt-1 text-sm">
             <li>
               <PhoneLink location="footer" className="inline-flex min-h-[44px] items-center" />
+            </li>
+            <li>
+              <EmailLink location="footer" className="inline-flex min-h-[44px] items-center" />
             </li>
             <li>
               <DirectionsLink location="footer" className="inline-flex min-h-[44px] items-center" />

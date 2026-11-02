@@ -1,6 +1,6 @@
 import { business, faqs, packages, serviceAreas, SITE_URL, teamPhotos, beforeAfterPhotos } from "./site-data";
 
-// NOTE: No openingHours (Google and Yelp disagree), email, priceRange,
+// NOTE: No openingHours (Google and Yelp disagree), priceRange,
 // AggregateRating or Review. Ratings disagree across platforms and no review
 // has been cleared for reuse. `logo` and `image` are the client's own files.
 
@@ -40,6 +40,7 @@ export function localBusinessSchema() {
     name: business.name,
     url: `${SITE_URL}/`,
     telephone: business.phoneE164,
+    email: business.email,
     address: postalAddress,
     logo: `${SITE_URL}/images/logo.png`,
     image: [teamPhotos.theresaHug.src, teamPhotos.jolieAndTheresa.src, beforeAfterPhotos[0].src].map((src) => `${SITE_URL}${src}`),

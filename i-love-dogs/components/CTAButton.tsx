@@ -93,6 +93,18 @@ export function DirectionsLink({ location, className = "" }: { location: string;
   );
 }
 
+export function EmailLink({ location, className = "" }: { location: string; className?: string }) {
+  return (
+    <a
+      href={`mailto:${business.email}`}
+      onClick={() => trackEvent("email_click", { location })}
+      className={`break-all font-semibold text-brand hover:underline ${className}`}
+    >
+      {business.email}
+    </a>
+  );
+}
+
 function PhoneIcon() {
   return (
     <svg

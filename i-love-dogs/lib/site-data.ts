@@ -1,9 +1,10 @@
 // Central, single source of truth for every verified I Love Dogs Pet Grooming
 // fact used across the site. Sourced from the build brief (current and older
-// client websites, Google, Yelp, Facebook). Same shape as the Pampered Puppies
-// app, but do not add a fact that is not in the brief: no hours, ratings,
-// review counts, testimonials, awards, business age, email, booking widget,
-// photos, or services beyond the three packages and pickup and delivery.
+// client websites, Google, Yelp, Facebook), plus the email address and the
+// mother-daughter relationship from the client's current site. Same shape as
+// the Pampered Puppies app, but do not add an unverified fact: no hours,
+// ratings, review counts, testimonials, awards, business age, booking widget,
+// or services beyond the three packages and pickup and delivery.
 
 // Production domain is owner-supplied and served on www. Canonicals, og:url,
 // schema, the sitemap and robots.txt must all name that host, so a bare
@@ -18,6 +19,7 @@ export const business = {
   phoneDisplay: "610-525-7387",
   phoneHref: "tel:+16105257387",
   phoneE164: "+16105257387",
+  email: "ilovedogsgroomingbrynmawr@gmail.com",
   addressLine1: "723 County Line Rd",
   addressCity: "Bryn Mawr",
   addressState: "PA",
@@ -36,6 +38,9 @@ export const business = {
 export const people = {
   theresa: "Theresa has over 50 years of experience caring for dogs.",
   jolie: "Groomer Jolie has 15 years of professional grooming experience.",
+  // From the client's current site.
+  family: "Theresa and her daughter Jolie work side by side as a mother-daughter team.",
+  jolieGrewUp: "Jolie grew up working in the salon beside her mother.",
 } as const;
 
 // Towns served, nearest first. The first five are from the client's older
@@ -96,7 +101,7 @@ export const trustPoints = [
   },
   {
     title: "Family-owned",
-    body: "I Love Dogs is family-owned and run by Bob and Theresa Pelletier.",
+    body: "I Love Dogs is family-owned and run by Bob and Theresa Pelletier. Theresa grooms alongside her daughter Jolie.",
   },
   {
     title: "Over 50 years with dogs",
@@ -168,6 +173,16 @@ export const faqs = [
   {
     question: "How do I book?",
     answer: "Call 610-525-7387. Please ask about current hours when you call.",
+  },
+  {
+    question: "Who will groom my dog?",
+    answer:
+      "Theresa Pelletier, who has over 50 years of experience caring for dogs, and her daughter Jolie, who has 15 years of professional grooming experience. They work side by side as a mother-daughter team.",
+  },
+  {
+    question: "Can I email you?",
+    answer:
+      "Yes, at ilovedogsgroomingbrynmawr@gmail.com. To book, or to check current hours, a phone call to 610-525-7387 is fastest.",
   },
 ] as const;
 
@@ -279,7 +294,7 @@ export const companyNav: NavItem[] = [
 
 // Client-supplied photos (Google Drive "I Love Dogs Grooming" folder), with
 // EXIF/GPS stripped. The people were identified by the owner's agency:
-// Theresa Pelletier in three photos, groomer Jolie with Theresa in one.
+// Theresa Pelletier in three photos, her daughter Jolie with her in one.
 // Alt text describes only what is visible; no breeds are guessed.
 export type Photo = { src: string; width: number; height: number; alt: string };
 
@@ -306,7 +321,7 @@ export const teamPhotos = {
     src: "/images/jolie-and-theresa-pelletier.jpg",
     width: 1320,
     height: 1369,
-    alt: "Groomer Jolie and Theresa Pelletier smiling together",
+    alt: "Groomer Jolie and her mother, Theresa Pelletier, smiling together",
   },
 } satisfies Record<string, Photo>;
 

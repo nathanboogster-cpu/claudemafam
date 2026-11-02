@@ -40,9 +40,11 @@ browser.
 
 ## Structure
 
-- `lib/site-data.ts`: every business fact (NAP, owners, experience, towns,
-  packages, prices, FAQ, trust points, process steps, town pages). Change
-  facts here only.
+- `lib/site-data.ts`: every business fact (name, address, phone, email,
+  owners, experience, towns, packages, prices, FAQ, trust points, process
+  steps, town pages). Change facts here only. The email address and the
+  mother-daughter relationship come from the client's current site, read
+  through search-engine results because this environment blocks the site.
 - `lib/schema.tsx`: JSON-LD builders. LocalBusiness and WebSite on every page
   (from `app/(site)/layout.tsx`), BreadcrumbList on every page, Service on
   `/dog-grooming/`, `/pickup-and-delivery/` and each town page, FAQPage on
@@ -79,7 +81,7 @@ browser.
 ## Deliberately not on the site
 
 Left out until the owner confirms them: hours (Google and Yelp disagree),
-ratings, review counts, testimonials, awards, business age, email, online
+ratings, review counts, testimonials, awards, business age and online
 booking. That is why this app has no Reviews, Blog, Membership or
 Employment pages, which the Pampered Puppies skeleton has.
 

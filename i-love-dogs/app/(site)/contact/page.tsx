@@ -1,13 +1,14 @@
 import { business, PATHS, SITE_URL } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
-import { CallButton, DirectionsButton, DirectionsLink, PhoneLink } from "@/components/CTAButton";
+import { CallButton, DirectionsButton, DirectionsLink, EmailLink, PhoneLink } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema } from "@/lib/schema";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata = pageMetadata({
   title: "Contact I Love Dogs Pet Grooming | Bryn Mawr, PA",
-  description: "Call I Love Dogs Pet Grooming at 610-525-7387 or visit 723 County Line Rd, Bryn Mawr, PA 19010.",
+  description:
+    "Call I Love Dogs Pet Grooming at 610-525-7387, email us, or visit 723 County Line Rd, Bryn Mawr, PA 19010.",
   path: PATHS.contact,
 });
 
@@ -33,7 +34,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
             <h2 className="font-display text-lg font-bold text-ink">Address</h2>
             <address className="mt-3 not-italic text-ink-soft">
@@ -50,6 +51,11 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
             <h2 className="font-display text-lg font-bold text-ink">Phone</h2>
             <PhoneLink location="contact_phone" className="mt-2 inline-flex min-h-[44px] items-center" />
+            <p className="mt-1 text-sm text-ink-soft">The fastest way to book.</p>
+          </div>
+          <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <h2 className="font-display text-lg font-bold text-ink">Email</h2>
+            <EmailLink location="contact_email" className="mt-2 inline-flex min-h-[44px] items-center" />
           </div>
         </div>
       </section>
