@@ -61,7 +61,8 @@ export default function HomePage() {
           <div className="space-y-4">
             <Photo
               photo={teamPhotos.theresaHug}
-              aspect="portrait"
+              aspect="square"
+              position="top"
               preload
               caption="Theresa Pelletier has over 50 years of experience caring for dogs."
             />
@@ -70,15 +71,15 @@ export default function HomePage() {
               <ul className="mt-2 divide-y divide-border">
                 <li className="flex items-baseline justify-between gap-4 py-2">
                   <span className="font-semibold text-ink">Bath &amp; Pamper</span>
-                  <span className="font-display text-xl font-bold text-accent-dark">From $75</span>
+                  <span className="font-display text-xl font-bold text-brand">From $75</span>
                 </li>
                 <li className="flex items-baseline justify-between gap-4 py-2">
                   <span className="font-semibold text-ink">The Works</span>
-                  <span className="font-display text-xl font-bold text-accent-dark">From $115</span>
+                  <span className="font-display text-xl font-bold text-brand">From $115</span>
                 </li>
                 <li className="flex items-baseline justify-between gap-4 py-2">
                   <span className="font-semibold text-ink">Full Spa Day</span>
-                  <span className="font-display text-xl font-bold text-accent-dark">From $150</span>
+                  <span className="font-display text-xl font-bold text-brand">From $150</span>
                 </li>
               </ul>
               <Link href={`${PATHS.dogGrooming}#pricing`} className="mt-2 inline-flex min-h-[44px] items-center text-sm font-semibold text-brand hover:underline">

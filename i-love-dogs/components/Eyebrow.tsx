@@ -9,7 +9,7 @@ export function Eyebrow({
 }) {
   return (
     <p
-      className={`font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent-dark ${className}`}
+      className={`font-display text-xs font-semibold uppercase tracking-[0.25em] text-brand ${className}`}
     >
       {children}
     </p>

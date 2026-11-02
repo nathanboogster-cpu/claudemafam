@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* I Love Dogs palette: deep green brand, warm orange accent on cream.
-     The plain accent (#d9822b) is for fills under dark text only; text in
-     orange uses accent-dark, which passes WCAG AA on white and cream. */
-  --color-cream: #faf6ee;
-  --color-cream-deep: #f2ead9;
-  --color-ink: #1d2421;
-  --color-ink-soft: #4a5550;
-  --color-brand: #1f4d3a;
-  --color-brand-dark: #163a2b;
-  --color-brand-light: #dcebe2;
-  --color-accent: #d9822b;
-  --color-accent-hover: #e8964a;
-  --color-accent-dark: #a35a12;
-  --color-accent-light: #f3c48f;
-  --color-on-accent: #1d1306;
+  /* I Love Dogs palette, sampled from the client's logo (public/images/logo.png):
+     teal #7bb5b2, paw yellow #ffde59, lettering gray #545454, white.
+     The logo teal fails contrast under white or small text, so it is only a
+     fill (logo tile, accents). Text and links use darker teals from the same
+     hue that pass WCAG AA on white and on the cream background. Yellow is the
+     primary CTA fill, always under dark ink. */
+  --color-cream: #f4faf9;
+  --color-cream-deep: #e5f0f0;
+  --color-ink: #1d2b2b;
+  --color-ink-soft: #545454;
+  --color-teal: #7bb5b2;
+  --color-brand: #3b6966;
+  --color-brand-dark: #2c4e4d;
+  --color-brand-light: #d8e9e8;
+  --color-accent: #ffde59;
+  --color-accent-hover: #f5cf3a;
+  --color-on-accent: #1d2b2b;
   --color-white: #ffffff;
-  --color-border: #e4dccb;
+  --color-border: #cfe3e1;
 }
 
 @theme inline {
@@ -25,21 +27,19 @@
   --color-cream-deep: var(--color-cream-deep);
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
+  --color-teal: var(--color-teal);
   --color-brand: var(--color-brand);
   --color-brand-dark: var(--color-brand-dark);
   --color-brand-light: var(--color-brand-light);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
-  --color-accent-dark: var(--color-accent-dark);
-  --color-accent-light: var(--color-accent-light);
   --color-on-accent: var(--color-on-accent);
   --color-white: var(--color-white);
   --color-border: var(--color-border);
-  /* Same pairing as Pampered Puppies (serif display, clean sans body), from
-     system fonts so pages make no font requests. */
+  /* Montserrat (self-hosted, app/fonts) echoes the logo's geometric
+     lettering for headings and labels; body copy stays on system fonts. */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, ui-serif, Georgia, serif;
-  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-display: var(--font-montserrat), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 html {

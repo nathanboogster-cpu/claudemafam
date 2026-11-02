@@ -13,7 +13,7 @@ export function PackageCards({ headingLevel = "h3" }: { headingLevel?: "h2" | "h
             className={`relative flex flex-col rounded-2xl border bg-white p-6 shadow-sm ${i === 1 ? "border-2 border-brand" : "border-border"}`}
           >
             <Heading className="font-display text-xl font-bold text-ink">{p.name}</Heading>
-            <p className="mt-2 font-display text-3xl font-bold text-accent-dark">{`From $${p.price}`}</p>
+            <p className="mt-2 font-display text-3xl font-bold text-brand">{`From $${p.price}`}</p>
             <p className="mt-3 text-sm text-ink-soft">{p.description}</p>
             {p.plus.length > 0 ? (
               <ul className="mt-3 space-y-2">

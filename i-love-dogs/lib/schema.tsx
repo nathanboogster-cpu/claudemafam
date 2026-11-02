@@ -1,9 +1,8 @@
 import { business, faqs, packages, serviceAreas, SITE_URL, teamPhotos, beforeAfterPhotos } from "./site-data";
 
-// NOTE: No openingHours (Google and Yelp disagree), logo (none supplied yet),
-// email, priceRange, AggregateRating or Review. Ratings disagree across
-// platforms and no review has been cleared for reuse. `image` uses the
-// client's own photos.
+// NOTE: No openingHours (Google and Yelp disagree), email, priceRange,
+// AggregateRating or Review. Ratings disagree across platforms and no review
+// has been cleared for reuse. `logo` and `image` are the client's own files.
 
 const BUSINESS_ID = `${SITE_URL}/#business`;
 
@@ -42,6 +41,7 @@ export function localBusinessSchema() {
     url: `${SITE_URL}/`,
     telephone: business.phoneE164,
     address: postalAddress,
+    logo: `${SITE_URL}/images/logo.png`,
     image: [teamPhotos.theresaHug.src, teamPhotos.jolieAndTheresa.src, beforeAfterPhotos[0].src].map((src) => `${SITE_URL}${src}`),
     areaServed: cities(serviceAreas),
     sameAs: [business.socials.facebook, business.socials.yelp],

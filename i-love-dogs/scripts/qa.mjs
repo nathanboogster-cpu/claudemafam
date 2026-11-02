@@ -67,6 +67,10 @@ async function loadAllImages(page) {
   await page.waitForFunction(() => [...document.images].every((i) => i.complete && i.naturalWidth > 0), null, { timeout: 15000 });
 }
 
+// Mobile emulation widens the layout viewport (innerWidth) to fit over-wide
+// content, which would hide the overflow being tested. Width checks below use
+// documentElement.clientWidth, the real screen width.
+
 // Uses a pre-installed Chromium when CHROMIUM_PATH is set (e.g. /opt/pw-browsers/chromium).
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 await mkdir("qa", { recursive: true });
@@ -160,10 +164,14 @@ for (const p of ALL) {
       telInFirstViewport: tels.some((a) => {
         if (!vis(a)) return false;
         const r = a.getBoundingClientRect();
-        return r.top >= 0 && r.left >= 0 && r.bottom <= innerHeight && r.right <= innerWidth;
+        return r.top >= 0 && r.left >= 0 && r.bottom <= innerHeight && r.right <= document.documentElement.clientWidth;
       }),
       stickyVisible: sticky ? vis(sticky) : false,
-      overflow: document.documentElement.scrollWidth - innerWidth,
+      headerOffscreen: [...document.querySelectorAll("header a, header button")]
+        .filter(vis)
+        .filter((el) => el.getBoundingClientRect().right > document.documentElement.clientWidth + 0.5)
+        .map((el) => el.getAttribute("aria-label") || el.textContent.trim()),
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       // Pill CTA buttons must be >= 44px; every other visible link >= 24px (WCAG 2.5.8).
       smallButtons: [...document.querySelectorAll("a.rounded-full, button")]
         .filter(vis)
@@ -192,7 +200,7 @@ for (const p of ALL) {
   const indexable = p !== "/404.html";
   check("3-seo", info.h1 === 1, `${p} has ${info.h1} h1`);
   check("3-seo", info.lang === "en", `${p} lang`);
-  check("3-seo", info.theme === "#1f4d3a", `${p} theme-color`);
+  check("3-seo", info.theme === "#7bb5b2", `${p} theme-color`);
   check("3-seo", info.skip, `${p} skip link`);
   for (let i = 1; i < info.headings.length; i++) {
     check("3-seo", info.headings[i] - info.headings[i - 1] <= 1, `${p} heading level skips h${info.headings[i - 1]} -> h${info.headings[i]}`);
@@ -245,6 +253,7 @@ for (const p of ALL) {
   // 5. Conversion / mobile
   check("5-mobile", info.telInFirstViewport, `${p} no tel link fully visible in first 390x844 viewport`);
   check("5-mobile", info.stickyVisible, `${p} sticky call bar hidden on mobile`);
+  check("5-mobile", info.headerOffscreen.length === 0, `${p} header controls off-screen at 390: ${info.headerOffscreen}`);
   check("5-mobile", info.overflow === 0, `${p} horizontal overflow ${info.overflow}px at 390`);
   check("5-mobile", info.smallButtons.length === 0, `${p} CTA buttons under 44px: ${info.smallButtons}`);
   check("5-mobile", info.smallLinks.length === 0, `${p} links under 24px: ${info.smallLinks}`);
@@ -263,10 +272,16 @@ for (const p of ALL) {
   const foreign = [...hosts].filter((h) => h !== new URL(BASE).host);
   check("6-perf", foreign.length === 0, `${p} requests to other hosts: ${foreign}`);
   const imgs = await page.$$eval("img", (els) =>
-    els.map((i) => ({ src: i.currentSrc || i.src, alt: i.getAttribute("alt"), ok: i.complete && i.naturalWidth > 0 })),
+    els.map((i) => ({
+      src: i.currentSrc || i.src,
+      alt: i.getAttribute("alt"),
+      // Empty alt is right only for a decorative image inside a link that has its own text (the header logo mark).
+      decorative: i.getAttribute("alt") === "" && !!i.closest("a")?.textContent.trim(),
+      ok: i.complete && i.naturalWidth > 0,
+    })),
   );
   for (const im of imgs) {
-    check("7-images", im.alt !== null && im.alt.trim().length > 0, `${p} image without alt text: ${im.src}`);
+    check("7-images", im.alt !== null && (im.alt.trim().length > 0 || im.decorative), `${p} image without alt text: ${im.src}`);
     check("7-images", im.ok, `${p} image failed to load: ${im.src}`);
     check("7-images", new URL(im.src).host === new URL(BASE).host && im.src.includes("/_next/image"), `${p} image not served by next/image: ${im.src}`);
   }
@@ -285,11 +300,15 @@ for (const p of ALL) {
     const pg = await ctx.newPage();
     await pg.goto(BASE + p, { waitUntil: "networkidle" });
     const d = await pg.evaluate(() => ({
-      overflow: document.documentElement.scrollWidth - innerWidth,
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       sticky: getComputedStyle(document.getElementById("sticky-cta")).display,
       headerCall: [...document.querySelectorAll('header a[href^="tel:"]')].some((a) => a.getBoundingClientRect().height > 0),
+      headerOffscreen: [...document.querySelectorAll("header a, header button")].filter(
+        (el) => el.getBoundingClientRect().width > 0 && el.getBoundingClientRect().right > document.documentElement.clientWidth + 0.5,
+      ).length,
     }));
     check("5-mobile", d.overflow === 0, `${p} horizontal overflow ${d.overflow}px at ${label}`);
+    check("5-mobile", d.headerOffscreen === 0, `${p} header controls off-screen at ${label}`);
     if (label === "1280") {
       check("5-mobile", d.sticky === "none", `${p} sticky bar visible on desktop`);
       check("5-mobile", d.headerCall, `${p} header call button missing on desktop`);
