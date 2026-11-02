@@ -31,7 +31,7 @@ export function ServiceCard({
       </div>
       <h3 className="font-display text-lg font-bold text-ink">{title}</h3>
       <p className="text-sm text-ink-soft">{description}</p>
-      {price && <p className="font-mono text-sm font-semibold text-brand">{price}</p>}
+      {price && <p className="font-display text-sm font-semibold text-brand">{price}</p>}
       <span className="mt-1 text-sm font-semibold text-brand group-hover:underline">
         Learn more →
       </span>

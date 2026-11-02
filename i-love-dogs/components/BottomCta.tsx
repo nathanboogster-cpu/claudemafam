@@ -3,7 +3,7 @@ import { CallButton, DirectionsButton } from "./CTAButton";
 
 export function BottomCta({ title, body, location }: { title: string; body?: string; location: string }) {
   return (
-    <section className="bg-brand">
+    <section className="bg-brand-dark">
       <div className="mx-auto max-w-6xl px-4 py-14 text-center">
         <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">{title}</h2>
         <p className="mt-3 text-cream">{body ?? business.addressFull}</p>

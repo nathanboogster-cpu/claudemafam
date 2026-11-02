@@ -58,6 +58,12 @@ browser.
   `groomedPhotos`) and served through `next/image` as AVIF/WebP. People were
   identified by the agency: Theresa Pelletier (three photos) and groomer
   Jolie with Theresa (one). `og-image.jpg` is the 1200×630 share image.
+- Branding: `public/images/logo.png` is the client's logo. The palette in
+  `app/globals.css` is sampled from it (teal, paw yellow, lettering gray), and
+  headings use Montserrat (OFL, self-hosted in `app/fonts`) to echo its
+  lettering. `logo-mark.png`, `app/icon.png`, `app/apple-icon.png` and
+  `app/favicon.ico` are the dog-and-cat line art from the logo on its teal
+  tile, with lines thickened slightly so they stay visible at small sizes.
 - `components/TownPageContent.tsx`: the template behind the four town pages
   (`/dog-grooming-<town>-pa/`). Bryn Mawr has no town page; the home page
   targets it.
@@ -68,7 +74,7 @@ browser.
 
 Left out until the owner confirms them: hours (Google and Yelp disagree),
 ratings, review counts, testimonials, awards, business age, email, online
-booking and logo. That is why this app has no Reviews, Blog, Membership or
+booking. That is why this app has no Reviews, Blog, Membership or
 Employment pages, which the Pampered Puppies skeleton has.
 
 ## Needs owner input before launch
@@ -78,10 +84,8 @@ Employment pages, which the Pampered Puppies skeleton has.
    bath are still current, and the pickup radius.
 3. Year and publication for "Best of Philly / Best of the Main Line", if it
    should be shown.
-4. Logo. `components/BrandMark.tsx` and `app/icon.svg` are a plain heart
-   placeholder, not the client's logo. (Photos are in.)
-5. Reviews the owner is happy to quote, for a Reviews page.
-6. The old domain `ilovedogspetgrooming.com`: recommended 301 of the whole
+4. Reviews the owner is happy to quote, for a Reviews page.
+5. The old domain `ilovedogspetgrooming.com`: recommended 301 of the whole
    domain to the new site at launch.
-7. Approval to deploy, plus Vercel project and DNS access for
-   `ilovedogsgrooming.com`.
+6. DNS access to attach `ilovedogsgrooming.com` to the `i-love-dogs` Vercel
+   project (live at https://i-love-dogs.vercel.app).

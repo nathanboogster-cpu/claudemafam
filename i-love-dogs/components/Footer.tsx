@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { business, companyNav, serviceNav, areaNavLinks, serviceAreaGeneral } from "@/lib/site-data";
-import { BrandMark } from "./BrandMark";
 import { DirectionsLink, PhoneLink } from "./CTAButton";
 
 export function Footer() {
@@ -8,10 +8,14 @@ export function Footer() {
     <footer className="border-t border-border bg-cream-deep text-ink-soft">
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-1">
-          <div className="flex items-center gap-2 text-ink">
-            <BrandMark className="h-8 w-8" />
-            <span className="font-display text-lg font-bold">{business.name}</span>
-          </div>
+          <Image
+            src="/images/logo.png"
+            alt={`${business.name} logo`}
+            width={736}
+            height={448}
+            sizes="200px"
+            className="h-auto w-[200px] rounded-2xl"
+          />
           <p className="mt-3 text-sm">Family-owned dog grooming in Bryn Mawr, PA, with pickup and delivery.</p>
           <ul className="mt-2 flex gap-4 text-sm">
             <li>

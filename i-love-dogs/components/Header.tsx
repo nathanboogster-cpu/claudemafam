@@ -9,12 +9,16 @@ import { BrandMark } from "./BrandMark";
 export function Header() {
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-border bg-cream/95 backdrop-blur supports-[backdrop-filter]:bg-cream/80">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
-        <Link href={PATHS.home} className="flex items-center gap-2 shrink-0 text-ink">
-          <BrandMark />
-          <span className="leading-tight">
-            <span className="block font-display text-lg font-bold sm:text-xl">{business.shortName}</span>
-            <span className="block text-xs text-ink-soft">Pet Grooming · Bryn Mawr, PA</span>
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-3 sm:gap-4 sm:px-4">
+        <Link href={PATHS.home} className="flex min-w-0 items-center gap-2 text-ink">
+          <BrandMark size={44} className="h-9 w-9 sm:h-11 sm:w-11" />
+          <span className="min-w-0 leading-tight">
+            <span className="block whitespace-nowrap font-display text-[13px] font-bold uppercase tracking-[0.08em] text-ink sm:text-lg sm:tracking-[0.12em]">
+              {business.shortName}
+            </span>
+            <span className="block whitespace-nowrap font-display text-[10px] font-medium uppercase tracking-[0.12em] text-ink-soft sm:text-[11px] sm:tracking-[0.2em]">
+              Pet Grooming<span className="hidden sm:inline"> · Bryn Mawr</span>
+            </span>
           </span>
         </Link>
 
@@ -42,7 +46,7 @@ export function Header() {
           <CallButton location="header" variant="primary" className="px-4 py-2 text-sm" />
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex shrink-0 items-center gap-2 lg:hidden">
           <MobileHeaderCall />
           <MobileNav />
         </div>
