@@ -9,6 +9,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { BottomCta } from "@/components/BottomCta";
 import { StudioInfoCard } from "@/components/StudioInfoCard";
 import { PinIcon } from "@/components/icons";
+import { blogPostPath, servicePosts } from "@/lib/blog-data";
 
 const pageUrl = `${SITE_URL}${PATHS.pickup}`;
 
@@ -115,6 +116,16 @@ export default function PickupPage() {
               </Link>
             ))}
           </div>
+          {servicePosts()
+            .filter((p) => p.relatedPath === PATHS.pickup)
+            .map((p) => (
+              <p key={p.slug} className="mt-6 text-center text-sm text-ink-soft">
+                From our blog:{" "}
+                <Link href={blogPostPath(p.slug)} className="font-semibold text-brand hover:underline">
+                  {p.title}
+                </Link>
+              </p>
+            ))}
           <p className="mt-6 text-center">
             <Link href={PATHS.serviceArea} className="inline-flex min-h-[44px] items-center font-semibold text-brand hover:underline">
               See the service area →

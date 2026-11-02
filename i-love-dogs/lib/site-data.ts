@@ -3,8 +3,10 @@
 // client websites, Google, Yelp, Facebook), plus the email address and the
 // mother-daughter relationship from the client's current site. Same shape as
 // the Pampered Puppies app, but do not add an unverified fact: no hours,
-// ratings, review counts, testimonials, awards, business age, booking widget,
-// or services beyond the three packages and pickup and delivery.
+// ratings, review counts, testimonials, business age, booking widget, or
+// services beyond the three packages and pickup and delivery. The one award,
+// "Best of Philly", is shown at the agency's request, worded as on the
+// client's current site; it has no year or publication, so name neither.
 
 // Production domain is owner-supplied and served on www. Canonicals, og:url,
 // schema, the sitemap and robots.txt must all name that host, so a bare
@@ -20,6 +22,8 @@ export const business = {
   phoneHref: "tel:+16105257387",
   phoneE164: "+16105257387",
   email: "ilovedogsgroomingbrynmawr@gmail.com",
+  award: "Best of Philly",
+  awardLine: "Voted Best of Philly",
   addressLine1: "723 County Line Rd",
   addressCity: "Bryn Mawr",
   addressState: "PA",
@@ -197,6 +201,7 @@ export const PATHS = {
   faq: "/faq/",
   contact: "/contact/",
   gallery: "/gallery/",
+  blog: "/blog/",
 } as const;
 
 // Town pages. I Love Dogs has ONE salon (Bryn Mawr, see business.addressFull);
@@ -288,6 +293,7 @@ export const companyNav: NavItem[] = [
   { label: "Home", href: PATHS.home },
   { label: "About", href: PATHS.about },
   { label: "Gallery", href: PATHS.gallery },
+  { label: "Blog", href: PATHS.blog },
   { label: "FAQ", href: PATHS.faq },
   { label: "Contact", href: PATHS.contact },
 ];

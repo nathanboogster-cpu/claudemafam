@@ -13,6 +13,7 @@ import { BottomCta } from "@/components/BottomCta";
 import { CheckIcon } from "@/components/icons";
 import { Photo } from "@/components/Photo";
 import { RecentWork } from "@/components/RecentWork";
+import { blogPostPath, servicePosts } from "@/lib/blog-data";
 
 const pageUrl = `${SITE_URL}${PATHS.dogGrooming}`;
 
@@ -117,6 +118,23 @@ export default function DogGroomingPage() {
       <section className="bg-white border-y border-border">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <FaqBlock items={groomingFaqs} title="Dog Grooming FAQ" />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pt-12">
+        <h2 className="font-display text-xl font-bold text-ink text-center">Each Package in Detail</h2>
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          {servicePosts()
+            .filter((p) => p.relatedPath.startsWith(PATHS.dogGrooming))
+            .map((p) => (
+              <Link
+                key={p.slug}
+                href={blogPostPath(p.slug)}
+                className="rounded-xl border border-border bg-white p-4 text-sm font-semibold text-brand hover:bg-cream-deep"
+              >
+                {p.title} →
+              </Link>
+            ))}
         </div>
       </section>
 

@@ -67,7 +67,7 @@ export default function AboutPage() {
             <Eyebrow>The Family</Eyebrow>
             <h2 className="mt-1 font-display text-2xl font-bold text-ink">The People Behind I Love Dogs</h2>
             <p className="mt-4 text-ink-soft leading-relaxed">
-              I Love Dogs is family-owned and run by {business.owners}.
+              I Love Dogs is family-owned and run by {business.owners}, and has been voted {business.award}.
               <br />
               {people.family}
               <br />

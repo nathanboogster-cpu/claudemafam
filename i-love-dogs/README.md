@@ -75,15 +75,23 @@ browser.
   estimate from straight-line distance, not measured routes) with median
   household incomes at or above the Pennsylvania median. Income is a targeting
   criterion only and is never shown on the site.
+- `lib/blog-data.ts`, `app/(site)/blog/`: 13 posts. One per service area
+  (Bryn Mawr and the eight towns), each on a different grooming topic, and
+  one per service (Bath & Pamper, The Works, Full Spa Day, Pickup &
+  Delivery), which link to the deeper town posts. Posts use only verified
+  business facts plus general grooming advice, and send health questions to
+  a vet. Town pages and the Dog Grooming and Pickup pages link to their posts.
 - `next.config.ts`: `trailingSlash: true`, and the 301s from the old
   Squarespace `/home` URL to `/`.
 
 ## Deliberately not on the site
 
 Left out until the owner confirms them: hours (Google and Yelp disagree),
-ratings, review counts, testimonials, awards, business age and online
-booking. That is why this app has no Reviews, Blog, Membership or
-Employment pages, which the Pampered Puppies skeleton has.
+ratings, review counts, testimonials, business age and online booking. That
+is why this app has no Reviews, Membership or Employment pages, which the
+Pampered Puppies skeleton has. The one award shown, "Voted Best of Philly",
+was added at the agency's request, worded as on the client's current site;
+it has no year or publication, so the site names neither.
 
 ## Needs owner input before launch
 

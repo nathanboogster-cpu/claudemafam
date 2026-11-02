@@ -12,11 +12,13 @@ import { PackageCards } from "./PackageCards";
 import { BottomCta } from "./BottomCta";
 import { PinIcon } from "./icons";
 import { RecentWork } from "./RecentWork";
+import { blogPostForTown, blogPostPath } from "@/lib/blog-data";
 
 export function TownPageContent({ town }: { town: TownPage }) {
   const pageUrl = `${SITE_URL}${town.slug}`;
   const otherTowns = townPages.filter((t) => t.city !== town.city);
   const loc = `town_${town.city.toLowerCase()}`;
+  const post = blogPostForTown(town.city);
 
   const faqs = [
     {
@@ -100,6 +102,14 @@ export function TownPageContent({ town }: { town: TownPage }) {
           </Link>{" "}
           works.
         </p>
+        {post ? (
+          <p className="mt-2 text-sm text-ink-soft">
+            From our blog:{" "}
+            <Link href={blogPostPath(post.slug)} className="font-semibold text-brand hover:underline">
+              {post.title}
+            </Link>
+          </p>
+        ) : null}
       </section>
 
       <section className="bg-white border-y border-border">

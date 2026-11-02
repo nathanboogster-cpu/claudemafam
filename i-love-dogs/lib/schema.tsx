@@ -41,6 +41,7 @@ export function localBusinessSchema() {
     url: `${SITE_URL}/`,
     telephone: business.phoneE164,
     email: business.email,
+    award: business.award,
     address: postalAddress,
     logo: `${SITE_URL}/images/logo.png`,
     image: [teamPhotos.theresaHug.src, teamPhotos.jolieAndTheresa.src, beforeAfterPhotos[0].src].map((src) => `${SITE_URL}${src}`),
@@ -106,6 +107,21 @@ export function faqSchema(qa: readonly { question: string; answer: string }[] = 
         text: item.answer,
       },
     })),
+  };
+}
+
+export function articleSchema(opts: { pageUrl: string; title: string; description: string; datePublished: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.title,
+    description: opts.description,
+    url: opts.pageUrl,
+    mainEntityOfPage: opts.pageUrl,
+    datePublished: opts.datePublished,
+    image: `${SITE_URL}/images/og-image.jpg`,
+    author: { "@type": "Organization", name: business.name, url: `${SITE_URL}/` },
+    publisher: { "@id": BUSINESS_ID },
   };
 }
 
