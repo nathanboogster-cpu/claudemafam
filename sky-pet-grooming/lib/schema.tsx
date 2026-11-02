@@ -65,6 +65,35 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
   };
 }
 
+export function blogPostingSchema(opts: {
+  pageUrl: string;
+  headline: string;
+  description: string;
+  imageUrl: string;
+  datePublished: string;
+  // Area posts name their town; service guides have none.
+  city?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: opts.headline,
+    description: opts.description,
+    image: opts.imageUrl,
+    datePublished: opts.datePublished,
+    dateModified: opts.datePublished,
+    url: opts.pageUrl,
+    mainEntityOfPage: opts.pageUrl,
+    ...(opts.city ? { contentLocation: city(opts.city) } : {}),
+    author: { "@id": BUSINESS_ID },
+    publisher: {
+      "@type": "Organization",
+      name: business.name,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-full.png` },
+    },
+  };
+}
+
 // Gallery page: the owner's photos as an ImageGallery.
 export function imageGallerySchema(opts: { pageUrl: string; images: readonly { slug: string; alt: string }[] }) {
   return {

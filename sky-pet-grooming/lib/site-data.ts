@@ -61,36 +61,44 @@ export const pillars = [
 // Services from the owner's MoeGo booking page, plus cat grooming (their photos).
 export const services = [
   {
+    key: "full-dog-grooming",
     title: "Full dog grooming",
     body: "A complete groom in our van, from small breeds to big, fluffy coats.",
     photo: "white-curly-dog-teddy-face",
   },
   {
+    key: "cat-grooming",
     title: "Cat grooming",
     body: "Gentle grooming for cats, at home and without the stress of a car ride.",
     photo: "two-fluffy-cats-after-grooming",
   },
   {
+    key: "de-shedding",
     title: "De-shedding",
     body: "Helps clear loose undercoat from heavy shedders.",
     photo: "golden-retriever-standing-in-van",
   },
   {
+    key: "detangling",
     title: "Detangling",
     body: "Works knots and tangles out of long and curly coats.",
     photo: "apricot-poodle-lying-down",
   },
   {
+    key: "nail-trimming",
     title: "Nail trimming",
     body: "Neat, comfortable nails for dogs and cats.",
     photo: "smiling-pomeranian",
   },
   {
+    key: "anal-gland-expression",
     title: "Anal gland expression",
     body: "Available with your appointment. Add it when you book.",
     photo: "cream-doodle-smiling",
   },
 ] as const;
+
+export type ServiceKey = (typeof services)[number]["key"];
 
 // What the van photos show is on board.
 export const vanFeatures = [
@@ -175,6 +183,7 @@ export const PATHS = {
   mobileGrooming: "/mobile-pet-grooming/",
   serviceArea: "/service-area/",
   gallery: "/gallery/",
+  blog: "/blog/",
   about: "/about/",
   faq: "/faq/",
 } as const;
@@ -183,6 +192,7 @@ export const mainNav: NavItem[] = [
   { label: "Services", href: PATHS.mobileGrooming },
   { label: "Service Areas", href: PATHS.serviceArea },
   { label: "Gallery", href: PATHS.gallery },
+  { label: "Blog", href: PATHS.blog },
   { label: "About", href: PATHS.about },
   { label: "FAQ", href: PATHS.faq },
 ];
@@ -341,5 +351,8 @@ export const areaNav: NavItem[] = [
   ...serviceAreas.map((a) => ({ label: a.city, href: a.slug })),
 ];
 
-// Every indexable URL, for the sitemap.
+export const blogPostPath = (slug: string) => `${PATHS.blog}${slug}/`;
+
+// Every indexable URL except blog posts (the sitemap adds those from
+// lib/blog-data.ts, which imports this file).
 export const allPaths: string[] = [...Object.values(PATHS), ...serviceAreas.map((a) => a.slug)];
