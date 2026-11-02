@@ -892,6 +892,65 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["nail-trim-ear-cleaning", "cat-grooming"],
   },
+  {
+    slug: "how-to-clean-your-dogs-ears-at-home",
+    title: "How to Clean Your Dog's Ears at Home (and Signs It's Time for the Vet)",
+    metaDescription:
+      "Which dogs need regular ear cleaning, how to check and clean your dog's ears safely at home, how often to do it, and the warning signs that mean a vet visit instead.",
+    excerpt:
+      "Floppy ears, hairy ear canals, and damp weather all make ear care more important. Here's how to check and clean your dog's ears safely at home.",
+    eyebrow: "Nail & Ear Care",
+    publishedAt: "2026-11-02",
+    heroPhotoKey: "triColorLonghairBandana",
+    body: [
+      {
+        type: "p",
+        text: "Ears are easy to forget until a dog starts shaking their head or scratching at one side. A quick weekly look and a gentle cleaning when needed can catch problems early, and it's simple to do at home once you know what you're looking for. Damp fall and winter weather around Funkstown and Hagerstown, plus more baths after muddy walks, means more moisture finding its way into ears, which is exactly what makes regular checks worth the habit.",
+      },
+      { type: "h2", text: "Which Dogs Need Ear Care Most" },
+      {
+        type: "list",
+        items: [
+          "Floppy-eared breeds like Cocker Spaniels, Basset Hounds, Labs, and Golden Retrievers, where the ear flap traps warmth and moisture.",
+          "Dogs with a lot of hair in the ear canal, such as Poodles, Doodles, Shih Tzus, and Schnauzers, since the hair holds onto wax and debris.",
+          "Dogs who swim or get bathed often, because water left in the ear canal is a common starting point for irritation.",
+          "Dogs with allergies, which often show up as itchy, red ears.",
+        ],
+      },
+      { type: "h2", text: "A Quick Weekly Check" },
+      {
+        type: "p",
+        text: "Lift each ear flap and take a look and a sniff. A healthy ear is pale pink inside, with little or no wax and no strong smell. A small amount of light-colored wax is normal. Dark, crumbly debris, a yeasty or sour odor, redness, swelling, or a dog who pulls away when you touch the ear are all signs to stop and call your vet rather than clean.",
+      },
+      { type: "h2", text: "How to Clean Your Dog's Ears" },
+      {
+        type: "list",
+        items: [
+          "Use an ear cleaner made for dogs. Your vet can recommend one, especially if your dog has had ear trouble before. Skip hydrogen peroxide, alcohol, and vinegar, which can irritate the ear.",
+          "Gently hold the ear flap up and fill the ear canal with the cleaner as directed on the bottle.",
+          "Massage the base of the ear for about 20 to 30 seconds. You should hear a soft squishing sound as the cleaner loosens wax.",
+          "Step back and let your dog shake their head. This is how most of the loosened debris comes out, so it's a good idea to do this outside or somewhere easy to wipe down.",
+          "Wipe the inside of the ear flap and the opening of the canal with a cotton ball or gauze. Never push cotton swabs down into the ear canal, which can pack debris deeper or injure the ear.",
+          "Finish with a treat so ear cleaning becomes something your dog doesn't mind.",
+        ],
+      },
+      { type: "h2", text: "How Often to Clean" },
+      {
+        type: "p",
+        text: "It depends on the dog. Some do fine with a cleaning every few weeks or only when the ears look dirty, while dogs prone to ear trouble may need a regular schedule from their vet. More isn't always better: cleaning healthy ears too often can irritate them. After a bath or a swim, gently drying the outer ear with a towel is a good habit for every dog.",
+      },
+      { type: "h2", text: "When to Call the Vet" },
+      {
+        type: "p",
+        text: "Cleaning is for healthy ears. Head shaking, scratching or rubbing an ear, a head tilt, a strong odor, dark or bloody discharge, redness, swelling, or pain when the ear is touched all point to something a cleaning won't fix, like an infection, ear mites, or something stuck in the ear. Those need a veterinarian. Cats are a different story too: most cats keep their own ears clean, so dirty or itchy ears in a cat are usually worth a vet visit rather than a home cleaning.",
+      },
+      {
+        type: "p",
+        text: "At Sittin' Pretty, ear cleaning is available as part of a full groom or on its own, so you can leave it to us between grooms if you'd rather not do it at home. Area veterinary clinics have referred pet owners to our Funkstown salon for decades, and we've been caring for dogs and cats from Hagerstown, Halfway, and across Washington County for more than 40 years. Give us a call to schedule.",
+      },
+    ],
+    relatedServiceSlugs: ["nail-trim-ear-cleaning", "dog-grooming", "dog-bath-and-brush"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
