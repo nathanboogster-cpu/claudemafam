@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Sky Pet Grooming palette: deep sky navy brand, warm sun accent on a pale
-     sky background. The plain accent (#f2b632) is for fills under dark text
-     only; text in gold uses accent-dark, which passes WCAG AA on white and
-     on sky. */
-  --color-sky: #f3f8fd;
-  --color-sky-deep: #e2eef9;
-  --color-ink: #13212f;
-  --color-ink-soft: #46576a;
-  --color-brand: #12406b;
-  --color-brand-dark: #0b2c4b;
-  --color-brand-light: #d6e7f7;
-  --color-accent: #f2b632;
-  --color-accent-hover: #f6c75c;
-  --color-accent-dark: #8a5a00;
-  --color-accent-light: #f9d987;
-  --color-on-accent: #1c1404;
+  /* Sky Pet Grooming palette, taken from the owner's logo and van wrap: deep
+     navy lettering, sky-blue arc, hot-pink van. Pink is the call-to-action
+     colour (white text on it passes WCAG AA); sky blue is decoration only.
+     Text in pink uses accent-dark, which passes AA on white and on sky. */
+  --color-sky: #f3f8fe;
+  --color-sky-deep: #e2f0fc;
+  --color-ink: #101935;
+  --color-ink-soft: #46506b;
+  --color-brand: #12307a;
+  --color-brand-dark: #0b1f52;
+  --color-brand-light: #dce8fb;
+  --color-blue: #1a9fe6;
+  --color-accent: #e0187a;
+  --color-accent-hover: #c40f68;
+  --color-accent-dark: #b00c5e;
+  --color-accent-light: #fde4f0;
+  --color-on-accent: #ffffff;
   --color-white: #ffffff;
-  --color-border: #d3e1ee;
+  --color-border: #d9e3f0;
 }
 
 @theme inline {
@@ -29,6 +30,7 @@
   --color-brand: var(--color-brand);
   --color-brand-dark: var(--color-brand-dark);
   --color-brand-light: var(--color-brand-light);
+  --color-blue: var(--color-blue);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
   --color-accent-dark: var(--color-accent-dark);
@@ -36,10 +38,10 @@
   --color-on-accent: var(--color-on-accent);
   --color-white: var(--color-white);
   --color-border: var(--color-border);
-  /* Same pairing as the other client apps (serif display, clean sans body),
-     from system fonts so pages make no font requests. */
+  /* System fonts only, so pages make no font requests. Headings use the
+     rounded system face where there is one, to match the friendly brand. */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, ui-serif, Georgia, serif;
+  --font-display: ui-rounded, "SF Pro Rounded", "Nunito", "Arial Rounded MT Bold", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
@@ -48,18 +50,28 @@ html {
 }
 
 body {
-  background: var(--color-sky);
+  background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
 .font-display {
   font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
-/* Keep anchored headings clear of the 64px sticky header. */
+/* The rainbow from the logo's dogs, for thin accent rules and the CTA band. */
+.bg-rainbow {
+  background-image: linear-gradient(90deg, #1a9fe6, #22c3a6, #f5c242, #f0642d, #e0187a);
+}
+
+.bg-van {
+  background-image: linear-gradient(120deg, #12307a 0%, #1a6fc4 45%, #c40f68 100%);
+}
+
+/* Keep anchored headings clear of the sticky header. */
 [id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 6rem;
 }
 
 /* Reserve space so the sticky mobile CTA bar never overlaps content */

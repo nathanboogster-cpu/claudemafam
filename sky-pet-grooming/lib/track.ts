@@ -2,12 +2,11 @@
 
 import { track } from "@vercel/analytics";
 
-// Conversion tracking. There is no phone number yet, so the conversion is a
-// Book Online click (book_click), which opens the MoeGo booking page. Sent as
-// a Vercel Analytics custom event (queryable in the Vercel dashboard's
-// Analytics tab), also pushed to window.dataLayer for a future GTM/GA
-// snippet, and logged to the console in dev. Bookings themselves are in
-// MoeGo.
+// Conversion tracking: Book Online clicks (book_click, which open the MoeGo
+// booking page) and Call clicks (call_click). Sent as Vercel Analytics custom
+// events (queryable in the Vercel dashboard's Analytics tab), also pushed to
+// window.dataLayer for a future GTM/GA snippet, and logged to the console in
+// dev. Bookings themselves are in MoeGo.
 
 declare global {
   interface Window {

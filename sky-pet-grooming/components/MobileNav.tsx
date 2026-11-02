@@ -4,12 +4,15 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { mainNav, type NavItem } from "@/lib/site-data";
+import { mainNav, PATHS, type NavItem } from "@/lib/site-data";
 
-const groups: { label: string; items: NavItem[] }[] = [{ label: "Menu", items: mainNav }];
+const groups: { label: string; items: NavItem[] }[] = [{ label: "Menu", items: [{ label: "Home", href: PATHS.home }, ...mainNav] }];
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  // The menu starts where the sticky header ends. That moves while the top
+  // strip above the header is still on screen, so it is measured on open.
+  const [menuTop, setMenuTop] = useState(72);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
@@ -31,7 +34,8 @@ export function MobileNav() {
   const menu = (
     <div
       id="mobile-menu"
-      className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-sky"
+      className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-sky"
+      style={{ top: menuTop }}
     >
       <nav aria-label="Mobile" className="flex flex-col p-4">
         {groups.map((group) => (
@@ -68,7 +72,11 @@ export function MobileNav() {
         aria-expanded={open}
         aria-controls="mobile-menu"
         aria-label={open ? "Close menu" : "Open menu"}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          const header = document.querySelector("header");
+          if (header) setMenuTop(Math.round(header.getBoundingClientRect().bottom));
+          setOpen((v) => !v);
+        }}
         className="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-ink"
       >
         {open ? <CloseIcon /> : <MenuIcon />}

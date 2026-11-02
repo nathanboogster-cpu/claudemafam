@@ -1,20 +1,21 @@
 import Link from "next/link";
 import { faqs, PATHS, SITE_URL } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
-import { BookButton } from "@/components/CTAButton";
+import { BookButton, CallButton } from "@/components/CTAButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata = pageMetadata({
-  title: "Mobile Pet Grooming FAQ | Sky Pet Grooming",
+  title: "Mobile Dog & Cat Grooming FAQ | Sky Pet Grooming",
   description:
-    "Answers about Sky Pet Grooming: how mobile grooming works, areas served across California, licensing and insurance, pricing and how to book.",
+    "Answers about Sky Pet Grooming: how mobile grooming works, cats, services, the van, areas served in SF and the Peninsula, and how to book.",
   path: PATHS.faq,
 });
 
 const related = [
-  { label: "Mobile Pet Grooming", href: PATHS.mobileGrooming },
+  { label: "Services", href: PATHS.mobileGrooming },
+  { label: "Gallery", href: PATHS.gallery },
   { label: "About", href: PATHS.about },
 ];
 
@@ -33,21 +34,22 @@ export default function FaqPage() {
       <section className="mx-auto max-w-3xl px-4 py-10">
         <div className="text-center">
           <Eyebrow>FAQ</Eyebrow>
-          <h1 className="mt-2 font-display text-3xl font-bold text-ink sm:text-4xl">Mobile Pet Grooming FAQ</h1>
+          <h1 className="mt-2 font-display text-4xl font-extrabold text-ink sm:text-5xl">Mobile Grooming FAQ</h1>
           <p className="mt-3 text-lg text-ink-soft">
             New to mobile grooming?
             <br />
             Start here.
           </p>
-          <div className="mt-5 flex justify-center">
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
             <BookButton location="faq_top" />
+            <CallButton location="faq_top" />
           </div>
         </div>
 
         <dl className="mt-10 space-y-4">
           {faqs.map((item) => (
-            <div key={item.question} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-              <dt className="font-display text-lg font-bold text-ink">{item.question}</dt>
+            <div key={item.question} className="rounded-3xl border border-border bg-white p-6 shadow-sm">
+              <dt className="font-display text-lg font-extrabold text-ink">{item.question}</dt>
               <dd className="mt-2 leading-relaxed text-ink-soft">{item.answer}</dd>
             </div>
           ))}
@@ -55,10 +57,11 @@ export default function FaqPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-16 text-center">
-        <h2 className="font-display text-2xl font-bold text-ink">Still have a question?</h2>
-        <p className="mt-2 text-ink-soft">Ask it when you book online.</p>
-        <div className="mt-5 flex justify-center">
-          <BookButton location="faq_bottom" />
+        <h2 className="font-display text-3xl font-extrabold text-ink">Still have a question?</h2>
+        <p className="mt-2 text-ink-soft">Call us, or ask when you book online.</p>
+        <div className="mt-5 flex flex-wrap justify-center gap-3">
+          <CallButton location="faq_bottom" variant="primary" />
+          <BookButton location="faq_bottom" variant="secondary" />
         </div>
         <ul className="mt-8 flex flex-wrap justify-center gap-x-6 text-sm">
           {related.map((r) => (

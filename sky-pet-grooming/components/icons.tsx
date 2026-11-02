@@ -64,5 +64,5 @@ export function PinIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-// Icons for the three verified pillars, in site-data order.
-export const pillarIcons = [HomeIcon, ShieldIcon, LeafIcon] as const;
+// Icons for the four verified pillars, in site-data order.
+export const pillarIcons = [HomeIcon, ShieldIcon, LeafIcon, PawIcon] as const;
