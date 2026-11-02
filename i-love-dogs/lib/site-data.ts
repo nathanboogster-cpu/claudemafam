@@ -38,8 +38,25 @@ export const people = {
   jolie: "Groomer Jolie has 15 years of professional grooming experience.",
 } as const;
 
-// Towns served, as listed on the client's older website.
-export const serviceAreas = ["Bryn Mawr", "Gladwyne", "Haverford", "Ardmore", "Havertown"] as const;
+// Towns served, nearest first. The first five are from the client's older
+// website. Rosemont, Villanova, Wynnewood and Radnor were added by the agency:
+// Main Line towns within about a 10-minute drive of the salon, with median
+// household incomes at or above the Pennsylvania median (2019-2023 ACS).
+// Drive times are estimates from distance, not measured routes.
+export const serviceAreas = [
+  "Bryn Mawr",
+  "Rosemont",
+  "Haverford",
+  "Ardmore",
+  "Villanova",
+  "Wynnewood",
+  "Havertown",
+  "Gladwyne",
+  "Radnor",
+] as const;
+
+// "Bryn Mawr, Rosemont, ... and Radnor", for running text.
+export const serviceAreaList = `${serviceAreas.slice(0, -1).join(", ")} and ${serviceAreas[serviceAreas.length - 1]}`;
 
 export const serviceAreaGeneral = "the greater Eastern Main Line";
 
@@ -141,7 +158,7 @@ export const faqs = [
   },
   {
     question: "Which towns do you serve?",
-    answer: "We serve Bryn Mawr, Gladwyne, Haverford, Ardmore, Havertown and the greater Eastern Main Line.",
+    answer: `We serve ${serviceAreas.join(", ")} and the greater Eastern Main Line.`,
   },
   {
     question: "How much does dog grooming cost?",
@@ -175,12 +192,12 @@ export const PATHS = {
 // no town page: the home page targets it.
 export const townPages = [
   {
-    city: "Gladwyne",
-    slug: "/dog-grooming-gladwyne-pa/",
+    city: "Rosemont",
+    slug: "/dog-grooming-rosemont-pa/",
     intro:
-      "Gladwyne is in Lower Merion Township, Montgomery County, and it is one of the towns our salon on County Line Road in Bryn Mawr serves.",
+      "Rosemont, just west of Bryn Mawr, spans Lower Merion and Radnor townships, and it is one of the towns our salon on County Line Road serves.",
     angle:
-      "Gladwyne dog owners can bring their dog to the salon, or call to ask whether we can pick up from their address and bring their dog home after the groom.",
+      "Rosemont dog owners are close to the salon at 723 County Line Rd. Can't drop off? Call with your address and we will confirm whether pickup and delivery covers it.",
   },
   {
     city: "Haverford",
@@ -199,12 +216,44 @@ export const townPages = [
       "Ardmore dog owners can drop off at 723 County Line Rd, or call to ask about pickup and delivery from their address.",
   },
   {
+    city: "Villanova",
+    slug: "/dog-grooming-villanova-pa/",
+    intro:
+      "Villanova spans Radnor Township in Delaware County and Lower Merion Township in Montgomery County, and it is one of the towns our Bryn Mawr salon serves.",
+    angle:
+      "Villanova dog owners can bring their dog to the salon on County Line Road, or call to ask whether we can pick up from their address.",
+  },
+  {
+    city: "Wynnewood",
+    slug: "/dog-grooming-wynnewood-pa/",
+    intro:
+      "Wynnewood, east of Ardmore in Lower Merion Township, Montgomery County, is one of the Eastern Main Line towns our Bryn Mawr salon serves.",
+    angle:
+      "Wynnewood dog owners can drop off at the salon, or call with their address to ask about pickup and delivery.",
+  },
+  {
     city: "Havertown",
     slug: "/dog-grooming-havertown-pa/",
     intro:
       "Havertown is in Haverford Township, Delaware County, and it is one of the towns our salon on County Line Road in Bryn Mawr serves.",
     angle:
       "Havertown dog owners can bring their dog to the salon, or call with their address to ask whether we can pick up and bring their dog home clean.",
+  },
+  {
+    city: "Gladwyne",
+    slug: "/dog-grooming-gladwyne-pa/",
+    intro:
+      "Gladwyne is in Lower Merion Township, Montgomery County, and it is one of the towns our salon on County Line Road in Bryn Mawr serves.",
+    angle:
+      "Gladwyne dog owners can bring their dog to the salon, or call to ask whether we can pick up from their address and bring their dog home after the groom.",
+  },
+  {
+    city: "Radnor",
+    slug: "/dog-grooming-radnor-pa/",
+    intro:
+      "Radnor, west of Villanova in Radnor Township, Delaware County, is one of the Main Line towns our Bryn Mawr salon serves.",
+    angle:
+      "Radnor dog owners can bring their dog to the salon at 723 County Line Rd, or call with their address to ask about pickup and delivery.",
   },
 ] as const;
 

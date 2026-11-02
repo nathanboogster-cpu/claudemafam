@@ -13,7 +13,9 @@ const BASE = (process.env.QA_BASE ?? "http://localhost:3100").replace(/\/$/, "")
 const SITE = "https://www.ilovedogsgrooming.com";
 const TEL = "tel:+16105257387";
 const MAPS = "https://www.google.com/maps/search/?api=1&query=723%20County%20Line%20Rd%2C%20Bryn%20Mawr%2C%20PA%2019010";
-const TOWNS = ["/dog-grooming-gladwyne-pa/", "/dog-grooming-haverford-pa/", "/dog-grooming-ardmore-pa/", "/dog-grooming-havertown-pa/"];
+const TOWNS = ["rosemont", "haverford", "ardmore", "villanova", "wynnewood", "havertown", "gladwyne", "radnor"].map(
+  (t) => `/dog-grooming-${t}-pa/`,
+);
 const PAGES = ["/", "/dog-grooming/", "/pickup-and-delivery/", "/service-area/", "/about/", "/faq/", "/contact/", "/gallery/", ...TOWNS];
 const ALL = [...PAGES, "/404.html"];
 // Vercel Analytics serves its script at /_vercel/insights/* on Vercel only;
