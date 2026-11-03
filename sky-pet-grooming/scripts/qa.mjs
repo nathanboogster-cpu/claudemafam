@@ -73,6 +73,7 @@ const PAGES = [
   "/mobile-pet-grooming/",
   "/service-area/",
   "/gallery/",
+  "/reviews/",
   "/blog/",
   "/about/",
   "/faq/",
@@ -101,10 +102,9 @@ function check(pass, ok, msg) {
 // more is banned from visible text and HTML.
 const FORBIDDEN = [
   /mailto:|@gmail/i, // no verified email
-  /\breview/i,
   /\brating/i,
   /★/,
-  /award|best of|#1\b|top-rated/i, // "#1" but not hex colors like #12406b
+  /award|best of|#1\b|top-rated|\d(\.\d)? stars? (rating|average)/i, // rating claims; "#1" but not hex colors like #12406b (quoted reviews are fine)
   /\d+\+?\s*years|since (19|20)\d\d/i,
   /family-owned|certified|\bAKC\b/i,
   /natural products|organic|hypoallergenic|non-toxic/i,
@@ -112,6 +112,9 @@ const FORBIDDEN = [
   /median|household income|affluent|wealthy|upscale|high-income/i, // income picks the areas but is never published
   /look no further|pride ourselves|fur-ever|pawsome|furbab/i,
 ];
+
+// Every 5-star Google review in lib/reviews.ts must be on /reviews/.
+const REVIEW_COUNT = 29;
 
 // The only confirmed prices (lib/site-data.ts confirmedPrices and fees). Any
 // other dollar amount in visible text fails.
@@ -373,6 +376,11 @@ for (const p of ALL) {
       check("6-perf", i.ok, `${p} image failed to load: ${i.src}`);
       check("1-accuracy", !!i.alt && i.alt.trim().length > 3, `${p} image without alt text: ${i.src}`);
       check("6-perf", /\/_next\/image\/?\?url=%2F(photos%2F|logo)/.test(i.src), `${p} image not served by next/image: ${i.src}`);
+    }
+    if (p === "/reviews/") {
+      const cards = await page.$$eval("main figure", (els) => els.length);
+      check("7-photos", cards === REVIEW_COUNT, `/reviews/ shows ${cards} of ${REVIEW_COUNT} reviews`);
+      check("1-accuracy", info.text.includes("Buttercupe loves him") && info.text.includes("The best"), "/reviews/ must quote reviews verbatim");
     }
     if (p === "/gallery/") {
       const unique = new Set(imgs.map((i) => decodeURIComponent(i.src).match(/photos\/([^.]+)\.webp/)?.[1]).filter(Boolean));
