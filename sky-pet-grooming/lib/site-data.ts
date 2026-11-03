@@ -14,14 +14,21 @@
 // list (serviceAreas, below) was chosen by Tongfluence, not the owner: see
 // the selection rule there.
 //
-// Do not add a fact that is not on that list: no prices, hours, street
-// address, staff names, years in business, ratings, reviews or awards.
+// Do not add a fact that is not on that list: no hours, street address,
+// staff names, years in business, ratings or awards. Prices are only the
+// confirmed ones below; customer reviews are quoted word for word in
+// lib/reviews.ts and never turned into business claims.
 
 // Production domain is served on www. Canonicals, og:url, schema, the sitemap
 // and robots.txt must all name that host, so a bare skypetgrooming.com value
 // is normalized to www here.
 const RAW_SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.skypetgrooming.com").replace(/\/+$/, "");
 export const SITE_URL = RAW_SITE_URL.replace(/^https?:\/\/skypetgrooming\.com$/i, "https://www.skypetgrooming.com");
+
+// The Google search that shows the Sky Pet Grooming Business Profile (and its
+// reviews), as supplied by Tongfluence.
+export const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/search?q=Sky+Pet+Grooming&stick=H4sIAAAAAAAA_-NgU1I1qEhMSrM0NDIzs0hLMU8ySDO1MqgwSk02sjBNTjW0NDE2SzEwW8QqEJxdqRCQWqLgXpSfn5uZlw4AwU1GJDwAAAA&hl=en";
 
 // Owner-supplied MoeGo online booking page. Every Book Online button links here.
 export const BOOKING_URL = "https://booking.moego.pet/ol/landing?name=SkyPetGrooming";
@@ -259,6 +266,7 @@ export const PATHS = {
   mobileGrooming: "/mobile-pet-grooming/",
   serviceArea: "/service-area/",
   gallery: "/gallery/",
+  reviews: "/reviews/",
   blog: "/blog/",
   about: "/about/",
   faq: "/faq/",
@@ -271,6 +279,7 @@ export const mainNav: NavItem[] = [
   { label: "Services", href: PATHS.mobileGrooming },
   { label: "Service Areas", href: PATHS.serviceArea },
   { label: "Gallery", href: PATHS.gallery },
+  { label: "Reviews", href: PATHS.reviews },
   { label: "Blog", href: PATHS.blog },
   { label: "About", href: PATHS.about },
   { label: "FAQ", href: PATHS.faq },

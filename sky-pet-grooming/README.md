@@ -82,6 +82,7 @@ fails if any creep in.
 | `/mobile-pet-grooming/<service>/` | 10 service pages (single-service Service schema): full dog grooming, dog bath, cat grooming, Skunk-Off, nail trimming, and the add-ons de-shedding, detangling, teeth brushing, face trim, anal gland expression |
 | `/service-area/` | Hub linking every service-area page |
 | `/mobile-dog-grooming-<city>-ca/` | 12 town pages (Service schema scoped to the city, breadcrumb Home > Service Areas > city) |
+| `/reviews/` | Every 5-star Google review, verbatim |
 | `/gallery/` | All 39 owner photos: dogs, cats, the van and team (ImageGallery schema) |
 | `/blog/` | Blog index: service guides, then area posts |
 | `/blog/<slug>/` | 18 posts (BlogPosting schema): one guide per service, one post per service area |
@@ -109,6 +110,19 @@ Posts only state verified facts about the business (the van, the services,
 booking, the phone number). Health advice is general and points to the vet
 for anything medical. All posts are dated 2026-11-02. When adding a post,
 also add its slug to `SERVICE_POSTS` or `AREA_POSTS` in `scripts/qa.mjs`.
+
+## Reviews
+
+`/reviews/` (in the main nav) shows every 5-star Google review from the Sky
+Pet Grooming Business Profile, word for word, from `lib/reviews.ts`: 29
+reviews collected with Claude in Chrome on 2026-11-03. One duplicate was
+dropped, one cut-off review ends at its last full sentence with an
+ellipsis, and a stray quote mark was removed; all noted in the file. Names
+show as first name + last initial; dates and owner replies are not shown.
+There is no star-rating schema (Google ignores self-serving review markup),
+and QA still fails on any rating or review-count claim. To refresh,
+re-collect the 5-star reviews and replace the list, then update
+`REVIEW_COUNT` in `scripts/qa.mjs`.
 
 ## Prices
 
