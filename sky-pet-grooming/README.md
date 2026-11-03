@@ -110,6 +110,24 @@ booking, the phone number). Health advice is general and points to the vet
 for anything medical. All posts are dated 2026-11-02. When adding a post,
 also add its slug to `SERVICE_POSTS` or `AREA_POSTS` in `scripts/qa.mjs`.
 
+## Prices
+
+Only prices confirmed from the owner's MoeGo page are published, in
+`confirmedPrices` and `fees` (`lib/site-data.ts`): nail trim $50 first pet /
+$25 second, detangling $30, face trim $20, teeth brushing $10, matted coat
+$30, travel fee $20. They were read from search results on 2026-11-02 (the
+page itself was not reachable from the build environment), so re-check them
+against the live MoeGo page. Grooming packages, baths, cat grooming,
+Skunk-Off, de-shedding and anal glands are not priced yet; their pages send
+people to the booking page. QA fails on any other dollar amount, so add new
+prices to `confirmedPrices` and to `PRICES` in `scripts/qa.mjs` together.
+
+## Type
+
+Same pairing as the Pampered Puppies site, loaded in `app/layout.tsx` with
+`next/font` (self-hosted at build, no requests to Google): Playfair Display
+for headings, Inter for body text, IBM Plex Mono for eyebrow labels.
+
 ## Conversion
 
 - **Book Online** (pink, the van's colour) opens the MoeGo page in a new tab;

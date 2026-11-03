@@ -44,7 +44,15 @@ export function localBusinessSchema() {
   };
 }
 
-export function serviceSchema(opts: { pageUrl: string; name: string; description: string; city?: string; catalog?: boolean }) {
+export function serviceSchema(opts: {
+  pageUrl: string;
+  name: string;
+  description: string;
+  city?: string;
+  catalog?: boolean;
+  // Confirmed prices for this service (site-data confirmedPrices), if any.
+  offers?: readonly { label: string; amount: number }[];
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -54,6 +62,16 @@ export function serviceSchema(opts: { pageUrl: string; name: string; description
     url: opts.pageUrl,
     areaServed: opts.city ? city(opts.city) : areaServed,
     provider: { "@id": BUSINESS_ID },
+    ...(opts.offers?.length
+      ? {
+          offers: opts.offers.map((o) => ({
+            "@type": "Offer",
+            name: o.label,
+            price: o.amount.toFixed(2),
+            priceCurrency: "USD",
+          })),
+        }
+      : {}),
     // Single-service pages describe one service, so they skip the catalog.
     ...(opts.catalog === false
       ? {}

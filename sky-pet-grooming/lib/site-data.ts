@@ -146,6 +146,30 @@ export const services = [
   },
 ] as const;
 
+// Prices confirmed from the owner's MoeGo booking page (via search results,
+// 2026-11-02; the page itself was not reachable from the build environment).
+// Only these are published. Grooming packages, baths, cat grooming,
+// Skunk-Off, de-shedding and anal glands have no confirmed price yet, so
+// their pages send people to the booking page. Re-check against MoeGo
+// before relying on them, and update here when they change.
+export const confirmedPrices: Partial<Record<(typeof services)[number]["key"], { label: string; amount: number }[]>> = {
+  "nail-trimming": [
+    { label: "Nail trim, first pet", amount: 50 },
+    { label: "Second pet, same visit", amount: 25 },
+  ],
+  detangling: [{ label: "Detangling, dog or cat (with a bath or groom)", amount: 30 }],
+  "face-trim": [{ label: "Face trim (with a bath)", amount: 20 }],
+  "teeth-brushing": [{ label: "Teeth brushing (with a bath or groom)", amount: 10 }],
+};
+
+// Fees that apply across services.
+export const fees = {
+  matted: 30, // extra charge if the pet is matted
+  travel: 20, // travel fee, as listed on the booking page
+} as const;
+
+export const formatPrice = (amount: number) => `$${amount}`;
+
 export type ServiceKey = (typeof services)[number]["key"];
 export type Service = (typeof services)[number];
 
@@ -220,7 +244,7 @@ export const faqs = [
   {
     question: "How much does mobile grooming cost?",
     answer:
-      "It depends on your pet's breed, size and coat, and the services you choose. You will see the options when you book online, or call us at (415) 754-0813.",
+      "Grooming packages and baths are priced by your dog's size, and you will see every price when you book online. Some prices to go by: a nail trim is $50 for the first pet and $25 for a second, detangling is $30, a face trim $20 and teeth brushing $10. Matted coats are an extra $30, and there is a $20 travel fee. Questions? Call (415) 754-0813.",
   },
   {
     question: "How do I book?",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PATHS, services, servicePath, SITE_URL, type Service } from "@/lib/site-data";
+import { confirmedPrices, PATHS, services, servicePath, SITE_URL, type Service } from "@/lib/site-data";
 import { servicePages } from "@/lib/service-pages";
 import { postForService } from "@/lib/blog-data";
 import { pageMetadata } from "@/lib/metadata";
@@ -14,6 +14,7 @@ import { PostCard } from "@/components/PostCard";
 import { AreaLinks } from "@/components/AreaLinks";
 import { BottomCta } from "@/components/BottomCta";
 import { CheckIcon } from "@/components/icons";
+import { PriceList } from "@/components/PriceList";
 
 // One page per service: /mobile-pet-grooming/<key>/. Only the services in
 // site-data are built; any other slug is a 404.
@@ -59,7 +60,15 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
           { name: s.title, url },
         ])}
       />
-      <JsonLd data={serviceSchema({ pageUrl: url, name: page.h1, description: page.metaDescription, catalog: false })} />
+      <JsonLd
+        data={serviceSchema({
+          pageUrl: url,
+          name: page.h1,
+          description: page.metaDescription,
+          catalog: false,
+          offers: confirmedPrices[s.key],
+        })}
+      />
 
       <section className="bg-gradient-to-b from-sky-deep to-white">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-14 pt-6 md:grid-cols-[1.1fr_1fr]">
@@ -105,9 +114,11 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
         <div className="mt-10 rounded-3xl border border-border bg-sky p-6">
           <h2 className="font-display text-2xl font-extrabold text-ink">Prices and Booking</h2>
           <p className="mt-2 text-ink-soft">
-            Current prices for every option are on our booking page, along with any travel fee for your area. Pick a time
-            there, or call us with questions.
+            {confirmedPrices[s.key]
+              ? "Prices from our booking page. Your total, with any add-ons, shows before you confirm."
+              : "Prices for this service depend on your pet and are shown on our booking page before you confirm. Other charges:"}
           </p>
+          <PriceList service={s.key} className="mt-4" />
           <div className="mt-4 flex flex-wrap gap-3">
             <BookButton location={`${loc}_pricing`} label="See Prices & Book" />
             <CallButton location={`${loc}_pricing`} />

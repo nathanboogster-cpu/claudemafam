@@ -124,7 +124,7 @@ export default function HomePage() {
             </div>
           </div>
           <div>
-            <p className="font-display text-sm font-extrabold uppercase tracking-[0.18em] text-accent-light">The Grooming Van</p>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent-light">The Grooming Van</p>
             <h2 className="mt-1 font-display text-3xl font-extrabold sm:text-4xl">We Make It Easy</h2>
             <p className="mt-4 text-lg text-white/85">
               Everything a salon has, on wheels. We bring the whole groom to your home, so your pet stays close to you.

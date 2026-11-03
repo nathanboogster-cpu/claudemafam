@@ -54,7 +54,7 @@ export const servicePages: Record<ServiceKey, ServicePage> = {
       {
         question: "What if my dog is matted?",
         answer:
-          "Tell us when you book. Matted coats take extra time and care, so there is an extra charge, and very tight mats may need a shorter clip.",
+          "Tell us when you book. Matted coats take extra time and care, so there is an extra $30 charge, and very tight mats may need a shorter clip.",
       },
     ],
   },
@@ -195,7 +195,7 @@ export const servicePages: Record<ServiceKey, ServicePage> = {
       },
       {
         h2: "More Than One Pet",
-        p: "Booking nail trims for two pets in the same visit costs less for the second one. You will see the details on our booking page.",
+        p: "A nail trim is $50 for the first pet and $25 for a second pet in the same visit.",
       },
     ],
     faqs: [
@@ -264,7 +264,7 @@ export const servicePages: Record<ServiceKey, ServicePage> = {
       },
       {
         h2: "Tangles vs Tight Mats",
-        p: "Loose tangles can usually be worked out. When mats are tight against the skin, brushing them out would hurt, so a shorter clip is the kinder choice. Matted coats take extra time, so there is an extra charge; please mention matting when you book.",
+        p: "Loose tangles can usually be worked out. When mats are tight against the skin, brushing them out would hurt, so a shorter clip is the kinder choice. Matted coats take extra time, so there is an extra $30 charge; please mention matting when you book.",
       },
       {
         h2: "Keeping Tangles Away",
@@ -278,7 +278,7 @@ export const servicePages: Record<ServiceKey, ServicePage> = {
       },
       {
         question: "Is there an extra charge for matted pets?",
-        answer: "Yes, matted coats have an extra charge because they take more time. Mention it when you book.",
+        answer: "Yes. Matted coats are an extra $30 because they take more time. Mention it when you book.",
       },
     ],
   },

@@ -100,7 +100,6 @@ function check(pass, ok, msg) {
 // Only the facts in lib/site-data.ts are verified. Anything that would claim
 // more is banned from visible text and HTML.
 const FORBIDDEN = [
-  /(?<!["\\])\$\s?\d/, // prices (the RSC payload's "$1" references are not)
   /mailto:|@gmail/i, // no verified email
   /\breview/i,
   /\brating/i,
@@ -113,6 +112,11 @@ const FORBIDDEN = [
   /median|household income|affluent|wealthy|upscale|high-income/i, // income picks the areas but is never published
   /look no further|pride ourselves|fur-ever|pawsome|furbab/i,
 ];
+
+// The only confirmed prices (lib/site-data.ts confirmedPrices and fees). Any
+// other dollar amount in visible text fails.
+const PRICES = ["$50", "$25", "$30", "$20", "$10"];
+const PRICED_SERVICES = { "nail-trimming": ["50.00", "25.00"], detangling: ["30.00"], "face-trim": ["20.00"], "teeth-brushing": ["10.00"] };
 
 // Hours-like strings. Checked against visible text only: SVG path data in the
 // HTML would otherwise match.
@@ -245,6 +249,9 @@ for (const p of ALL) {
     check("1-accuracy", !re.test(html[p]), `${p} HTML matches ${re}`);
   }
   for (const re of HOURS) check("1-accuracy", !re.test(info.text), `${p} visible text has an hours-like string ${re}`);
+  for (const amount of info.text.match(/\$\s?\d+(?:\.\d\d)?/g) ?? []) {
+    check("1-accuracy", PRICES.includes(amount), `${p} unconfirmed price ${amount}`);
+  }
 
   // 3. SEO
   const indexable = p !== "/404.html";
@@ -261,7 +268,7 @@ for (const p of ALL) {
     try {
       const d = JSON.parse(block);
       ld.push(d);
-      if (/openingHours|aggregateRating|"review"|priceRange|"email"|"address"|"price"/i.test(JSON.stringify(d))) ok = false;
+      if (/openingHours|aggregateRating|"review"|priceRange|"email"|"address"/i.test(JSON.stringify(d))) ok = false;
     } catch {
       ok = false;
     }
@@ -304,8 +311,12 @@ for (const p of ALL) {
       const svc = ld.find((d) => d["@type"] === "Service");
       check("3-seo", svc && !svc.hasOfferCatalog && svc.areaServed?.length === Object.keys(AREAS).length, `${p} Service schema should be single-service across all areas`);
       check("3-seo", ld.some((d) => d["@type"] === "BreadcrumbList" && d.itemListElement.length === 3), `${p} breadcrumb Home > Services > service`);
-      // Prices change, so service pages send people to the booking page for them.
-      check("1-accuracy", /current prices/i.test(info.text), `${p} should point to the booking page for current prices`);
+      // Every service page lists the fees and points to the booking page.
+      check("1-accuracy", /booking page/i.test(info.text) && info.text.includes("Travel fee") && info.text.includes("$20"), `${p} should list fees and point to the booking page`);
+      const key = p.split("/")[2];
+      const want = PRICED_SERVICES[key] ?? [];
+      const got = (svc?.offers ?? []).map((o) => o.price);
+      check("3-seo", JSON.stringify(got) === JSON.stringify(want), `${p} Service offers ${got} should be ${want}`);
     }
     if (AREA_PAGES.includes(p)) {
       const post = POST_PAGES.find((x) => x.includes(AREA_POSTS[AREA_PAGES.indexOf(p)]));
