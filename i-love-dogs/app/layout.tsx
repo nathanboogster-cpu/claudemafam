@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { business, SITE_URL } from "@/lib/site-data";
@@ -9,6 +10,15 @@ const montserrat = localFont({
   src: "./fonts/montserrat-latin-wght-normal.woff2",
   weight: "100 900",
   variable: "--font-montserrat",
+  display: "swap",
+});
+
+// Body text uses Inter, the same font as the Pampered Puppies site, loaded
+// the same way: next/font self-hosts it at build time, so pages make no
+// requests to Google. It's a variable font, one file for every weight.
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -24,7 +34,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`h-full antialiased ${montserrat.variable}`}>
+    <html lang="en" className={`h-full antialiased ${montserrat.variable} ${inter.variable}`}>
       <body className="min-h-full flex flex-col">
         <a
           href="#main-content"

@@ -63,7 +63,8 @@ browser.
 - Branding: `public/images/logo.png` is the client's logo. The palette in
   `app/globals.css` is sampled from it (teal, paw yellow, lettering gray), and
   headings use Montserrat (OFL, self-hosted in `app/fonts`) to echo its
-  lettering. `logo-mark.png`, `app/icon.png`, `app/apple-icon.png` and
+  lettering. Body text uses Inter, the same font as the Pampered Puppies
+  site, loaded the same way (`next/font/google`, self-hosted at build). `logo-mark.png`, `app/icon.png`, `app/apple-icon.png` and
   `app/favicon.ico` are the dog-and-cat line art from the logo on its teal
   tile, with lines thickened slightly so they stay visible at small sizes.
 - `components/TownPageContent.tsx`: the template behind the eight town pages
