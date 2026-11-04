@@ -146,7 +146,11 @@ for headings, Inter for body text, IBM Plex Mono for eyebrow labels.
 
 - **Book Online** (pink, the van's colour) opens the MoeGo page in a new tab;
   **Call (415) 754-0813** sits beside it. Both are in the hero, the header,
-  every page's CTAs, the closing band, and a sticky bar on mobile.
+  every page's CTAs, the closing band, and a sticky bar on mobile. The
+  sticky bar stays hidden at the top of the page so it doesn't repeat the
+  hero's Book Online button, and slides in once the visitor scrolls (on a
+  page with no Book Online button in its first screen it shows straight
+  away).
 - Clicks send `book_click` and `call_click` events to Vercel Analytics and
   `window.dataLayer` (`lib/track.ts`). Bookings themselves live in MoeGo.
 
@@ -180,7 +184,7 @@ H1s, canonicals, JSON-LD placement and contents, sitemap and robots, every
 internal link and anchor, orphan pages, every booking link being the MoeGo
 URL in a new tab, every tel link being one of the two numbers, the `/book/`
 redirect, Book Online and Call both in the first 390×844 viewport, the sticky
-bar, overflow at 320/390/1280, tap targets, third-party requests, and every
+bar (hidden at the top beside a Book button, shown after scrolling), overflow at 320/390/1280, tap targets, third-party requests, and every
 image loading with alt text through `next/image`, with all 39 photos on
 `/gallery/`. Screenshots go to `qa/`.
 

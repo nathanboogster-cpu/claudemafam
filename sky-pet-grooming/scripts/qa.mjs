@@ -230,6 +230,8 @@ for (const p of ALL) {
       // Any link to MoeGo that is not exactly the booking URL.
       wrongBookUrls: [...document.querySelectorAll('a[href*="moego"]')].map((a) => a.getAttribute("href")).filter((h) => h !== BOOK),
       stickyVisible: sticky ? vis(sticky) : false,
+      // Book Online links on screen at load other than the sticky bar's own.
+      pageBookInFirstViewport: books.filter((a) => !a.closest("#sticky-cta")).some(inFirstViewport),
       overflow: document.documentElement.scrollWidth - innerWidth,
       // Pill CTA buttons must be >= 44px; every other visible link >= 24px (WCAG 2.5.8).
       smallButtons: [...document.querySelectorAll("a.rounded-full, button")]
@@ -351,7 +353,21 @@ for (const p of ALL) {
   // 5. Conversion / mobile
   check("5-mobile", info.bookInFirstViewport, `${p} no Book Online link fully visible in first 390x844 viewport`);
   check("5-mobile", info.telInFirstViewport, `${p} no Call link fully visible in first 390x844 viewport`);
-  check("5-mobile", info.stickyVisible, `${p} sticky Book bar hidden on mobile`);
+  // The sticky bar stays hidden at the top while the page's own Book Online
+  // button is on screen, and slides in once the visitor scrolls.
+  check("5-mobile", !(info.stickyVisible && info.pageBookInFirstViewport), `${p} sticky Book bar doubles a Book button at the top`);
+  check("5-mobile", info.stickyVisible || info.pageBookInFirstViewport, `${p} no Book button at the top and sticky bar hidden`);
+  {
+    await page.evaluate(() => window.scrollTo({ top: 300, behavior: "instant" }));
+    await page.waitForTimeout(400);
+    const shown = await page.evaluate(() => {
+      const s = document.getElementById("sticky-cta");
+      const r = s.getBoundingClientRect();
+      return getComputedStyle(s).visibility !== "hidden" && r.bottom <= innerHeight + 1;
+    });
+    check("5-mobile", shown, `${p} sticky Book bar not shown after scrolling`);
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  }
   check("5-mobile", info.overflow === 0, `${p} horizontal overflow ${info.overflow}px at 390`);
   check("5-mobile", info.smallButtons.length === 0, `${p} CTA buttons under 44px: ${info.smallButtons}`);
   check("5-mobile", info.smallLinks.length === 0, `${p} links under 24px: ${info.smallLinks}`);
