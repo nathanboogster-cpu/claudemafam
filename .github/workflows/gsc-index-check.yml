@@ -9,6 +9,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "lib/blog-data.ts"
       - "bow-wags/lib/blog-data.ts"
       - "pet-spa-luxe/lib/blog-data.ts"
       - "sittin-pretty-pet-grooming/lib/blog-data.ts"
