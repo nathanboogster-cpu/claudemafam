@@ -219,7 +219,6 @@ for (const p of ALL) {
       skip: !!document.querySelector('a[href="#main-content"]') && !!document.getElementById("main-content"),
       jsonld: [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => s.textContent),
       text: document.body.innerText,
-      bookInFirstViewport: books.some(inFirstViewport),
       telInFirstViewport: tels.some(inFirstViewport),
       tels: tels.map((a) => a.getAttribute("href")),
       sticky: !!sticky,
@@ -230,8 +229,6 @@ for (const p of ALL) {
       // Any link to MoeGo that is not exactly the booking URL.
       wrongBookUrls: [...document.querySelectorAll('a[href*="moego"]')].map((a) => a.getAttribute("href")).filter((h) => h !== BOOK),
       stickyVisible: sticky ? vis(sticky) : false,
-      // Book Online links on screen at load other than the sticky bar's own.
-      pageBookInFirstViewport: books.filter((a) => !a.closest("#sticky-cta")).some(inFirstViewport),
       overflow: document.documentElement.scrollWidth - innerWidth,
       // Pill CTA buttons must be >= 44px; every other visible link >= 24px (WCAG 2.5.8).
       smallButtons: [...document.querySelectorAll("a.rounded-full, button")]
@@ -351,12 +348,10 @@ for (const p of ALL) {
   }
 
   // 5. Conversion / mobile
-  check("5-mobile", info.bookInFirstViewport, `${p} no Book Online link fully visible in first 390x844 viewport`);
+  // The sticky Book bar waits for a scroll on every page, so Book Online is
+  // not required in the first screen; Call (the header icon) always is.
   check("5-mobile", info.telInFirstViewport, `${p} no Call link fully visible in first 390x844 viewport`);
-  // The sticky bar stays hidden at the top while the page's own Book Online
-  // button is on screen, and slides in once the visitor scrolls.
-  check("5-mobile", !(info.stickyVisible && info.pageBookInFirstViewport), `${p} sticky Book bar doubles a Book button at the top`);
-  check("5-mobile", info.stickyVisible || info.pageBookInFirstViewport, `${p} no Book button at the top and sticky bar hidden`);
+  check("5-mobile", !info.stickyVisible, `${p} sticky Book bar shown before scrolling`);
   {
     await page.evaluate(() => window.scrollTo({ top: 300, behavior: "instant" }));
     await page.waitForTimeout(400);
