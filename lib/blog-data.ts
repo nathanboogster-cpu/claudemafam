@@ -133,6 +133,48 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "why-cats-need-professional-grooming-too",
+    title: "Why Cats Need Professional Grooming Too",
+    description:
+      "Cats groom themselves, but self-grooming has real limits — here's when a professional cat groom actually helps, from mats to hairballs to overdue nail trims.",
+    date: "2026-11-05",
+    category: "Pet Care",
+    excerpt:
+      "Self-grooming has real limits — here's when your cat could use some professional help, and why it matters more than most pet parents realize.",
+    relatedPath: PATHS.cat,
+    relatedLabel: "See our Cat Grooming services",
+    content: [
+      {
+        type: "paragraph",
+        text: "It's a common assumption that cats don't need grooming help since they groom themselves — and for plenty of short-haired, healthy adult cats, that's mostly true. But self-grooming has real limits, and knowing when a cat could use some extra help keeps their coat and skin genuinely healthy, not just tidy.",
+      },
+      { type: "heading", text: "What self-grooming doesn't cover" },
+      {
+        type: "paragraph",
+        text: "A cat's tongue is great at maintaining a healthy coat day to day, but it can't do everything. Loose fur a cat swallows while grooming has to go somewhere — more hairballs are often a sign there's more loose coat than self-grooming can keep up with. Cats also can't reach every spot on their own body, so mats tend to form in the same few places: behind the legs, under the arms, and around the belly. And grooming doesn't include nail trims, which still need to happen on their own schedule.",
+      },
+      { type: "heading", text: "Signs your cat could use a groom" },
+      {
+        type: "list",
+        items: [
+          "Visible mats or tangles, especially behind the legs, under the arms, or on the belly",
+          "More hairballs than usual, or excessive loose fur around the house",
+          "Nails long enough to catch on fabric or furniture",
+          "A senior or overweight cat who seems to be grooming less than they used to",
+          "A coat that looks oily, dull, or has a noticeable odor",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Mats that are tight against the skin can be genuinely painful and sometimes mask irritation or sores underneath — if a mat looks severe or your cat reacts painfully when you touch it, it's worth having it checked by a veterinarian rather than working it out at home.",
+      },
+      {
+        type: "paragraph",
+        text: "Even short-haired cats benefit from an occasional professional groom, and long-haired breeds typically need it more regularly to stay comfortable. A groomer experienced with cats can also make the whole experience far less stressful than most pet parents expect.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
