@@ -951,6 +951,59 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["nail-trim-ear-cleaning", "dog-grooming", "dog-bath-and-brush"],
   },
+  {
+    slug: "lion-cuts-and-sanitary-trims-for-long-haired-cats",
+    title: "Lion Cuts and Sanitary Trims for Long-Haired Cats: When a Shorter Cut Helps",
+    metaDescription:
+      "What a lion cut and a sanitary trim are, when a shorter cut helps a long-haired cat with mats or hygiene trouble, and what to know before choosing one in colder months.",
+    excerpt:
+      "Long-haired cats can mat fast, especially as they age. Here's what lion cuts and sanitary trims are, when they help, and what to consider heading into winter.",
+    eyebrow: "Cat Grooming",
+    publishedAt: "2026-11-05",
+    heroPhotoKey: "catGrooming",
+    body: [
+      {
+        type: "p",
+        text: "Persians, Maine Coons, Ragdolls, Himalayans, and long-haired mixes have gorgeous coats, but those coats can mat quickly, especially as cats get older, put on weight, or slow down and stop reaching every spot. Two shorter cuts come up often when brushing isn't keeping up: the sanitary trim and the lion cut. With colder weather settling over Funkstown and Hagerstown, a lot of owners also wonder whether a shorter cut is a good idea this time of year.",
+      },
+      { type: "h2", text: "What a Sanitary Trim Is" },
+      {
+        type: "p",
+        text: "A sanitary trim keeps the fur short around the rear end, the belly, and the backs of the hind legs, where long fur tends to get soiled or tangle from litter box use. The rest of the coat stays long. For many senior or heavier cats, this small trim is all they need to stay clean and comfortable.",
+      },
+      { type: "h2", text: "What a Lion Cut Is" },
+      {
+        type: "p",
+        text: "A lion cut clips the body short while leaving the fur longer on the head and neck, the lower legs, and a tuft at the end of the tail. It looks dramatic, but it's usually about comfort rather than style: it removes a coat that has become too matted or too hard for the cat to manage and gives everyone a fresh start.",
+      },
+      { type: "h2", text: "When a Shorter Cut Can Help" },
+      {
+        type: "list",
+        items: [
+          "Mats that are tight against the skin or spread across large areas, where brushing them out would be painful.",
+          "Senior, arthritic, or overweight cats who can no longer groom their back half on their own.",
+          "Cats who keep developing new mats even with regular brushing at home.",
+          "Long fur around the rear end that keeps getting soiled.",
+        ],
+      },
+      { type: "h2", text: "What to Know Before You Decide" },
+      {
+        type: "list",
+        items: [
+          "Never cut mats out with scissors at home. A cat's skin is thin and stretches up into a tight mat, so it's very easy to cut the skin along with the fur.",
+          "Coats grow back, but slowly, often over several months, and the texture can look a little different at first.",
+          "In colder months, a cat with a short body clip will feel the chill more. Keep them indoors with warm bedding, and if the mats are limited to a few areas, a sanitary trim or spot clipping may be a better winter choice than a full lion cut.",
+          "Regular brushing as the coat grows back, with a wide-toothed metal comb, helps keep new mats from forming.",
+          "If a cat who always kept themselves tidy suddenly starts matting, mention it to your vet. A change in self-grooming can be a sign of arthritis, dental pain, weight change, or another health issue.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Cats need a different touch than dogs, and Sittin' Pretty is one of the few local groomers cat owners in Funkstown, Hagerstown, Halfway, and across Washington County trust specifically for cat grooming. If your long-haired cat is matting or struggling to stay clean, give our Funkstown salon a call to talk through what would work best for their coat.",
+      },
+    ],
+    relatedServiceSlugs: ["cat-grooming", "deshedding-treatment"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
