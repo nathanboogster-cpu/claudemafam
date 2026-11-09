@@ -1004,6 +1004,53 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["cat-grooming", "deshedding-treatment"],
   },
+  {
+    slug: "grooming-short-haired-dogs",
+    title: "Grooming Short-Haired Dogs: Why Labs, Beagles, and Pugs Still Need Regular Care",
+    metaDescription:
+      "Short coats aren't no-maintenance. How to manage shedding, bathing, nails, ears, and skin folds for short-haired dogs, plus what changes in winter.",
+    excerpt:
+      "Short coats don't need haircuts, but they still shed, get dirty, and grow nails. Here's a simple care routine for short-haired dogs.",
+    eyebrow: "Dog Grooming",
+    publishedAt: "2026-11-09",
+    heroPhotoKey: "tanPugMixBowtie",
+    body: [
+      {
+        type: "p",
+        text: "It's easy to assume a short-haired dog is basically maintenance-free. There's no haircut to schedule and no long coat to tangle. But anyone who has owned a Lab, a Beagle, or a Pug around Funkstown and Hagerstown knows the hair still ends up everywhere, especially once everyone is spending more time indoors for the winter. Short coats need a different routine than long ones, not no routine at all.",
+      },
+      { type: "h2", text: "Short Coats Still Shed, Sometimes a Lot" },
+      {
+        type: "p",
+        text: "Many short-coated breeds, including Labs, Pugs, Beagles, and Dalmatians, shed steadily all year, and some, like Labs and Pugs, have a dense undercoat underneath the short outer coat. The short, stiff hairs work their way into furniture and clothing more stubbornly than long fur does. A weekly brushing with a rubber curry brush or grooming mitt loosens dead hair before it falls out on its own, and a soft bristle brush afterward picks up what's loose and spreads natural oils for a shinier coat. For heavy shedders, a deshedding treatment can clear out a large amount of loose undercoat at once.",
+      },
+      { type: "h2", text: "A Simple Routine for Short Coats" },
+      {
+        type: "list",
+        items: [
+          "Brush once a week, a little more often during heavy shedding in spring and fall.",
+          "Bathe every month or two, or whenever your dog gets into something. Short coats dry quickly, but they still need a dog shampoo and a thorough rinse.",
+          "Check nails regularly. If you can hear them clicking on the floor, they're due for a trim.",
+          "Look in the ears once a week, especially on floppy-eared breeds like Labs and Beagles, where moisture and debris collect.",
+        ],
+      },
+      { type: "h2", text: "Skin Folds Need Extra Attention" },
+      {
+        type: "p",
+        text: "Wrinkly breeds like Pugs, Bulldogs, and Shar-Peis have folds that trap moisture, food, and debris, which can lead to irritation and odor if they're left alone. A few times a week, gently wipe inside the folds with a soft, damp cloth and then dry them completely. Redness, a strong smell, discharge, or a fold your dog doesn't want touched is worth a call to your vet.",
+      },
+      { type: "h2", text: "Short Coats in Washington County Winters" },
+      {
+        type: "p",
+        text: "A short, single coat doesn't hold much warmth, so smaller or thin-coated dogs may be more comfortable in a sweater on the coldest walks. Dry indoor heat can also leave short coats flaky or dull. Regular brushing helps by spreading the skin's natural oils, and bathing too often can make dryness worse.",
+      },
+      {
+        type: "p",
+        text: "Short-haired dogs don't need a haircut, but they do benefit from a thorough wash and brush-out every so often. That's exactly what our Dog Bath & Brush service is for, and nail trims can be booked on their own whenever they're due. Our Funkstown salon is cage-free and has been caring for dogs from Hagerstown, Halfway, and across Washington County for more than 40 years. Give us a call to schedule.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-bath-and-brush", "deshedding-treatment", "nail-trim-ear-cleaning"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
