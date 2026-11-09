@@ -175,6 +175,43 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "when-to-schedule-your-puppys-first-grooming-appointment",
+    title: "When Should You Schedule Your Puppy's First Grooming Appointment?",
+    description:
+      "When to book your puppy's first grooming visit, why early positive exposure matters, and what a first appointment typically looks like.",
+    date: "2026-11-09",
+    category: "Pet Care",
+    excerpt:
+      "Starting early and keeping the first visit low-key sets the tone for every grooming appointment that follows.",
+    relatedPath: PATHS.puppy,
+    relatedLabel: "See our Puppy Grooming page",
+    content: [
+      {
+        type: "paragraph",
+        text: "One of the most common questions new puppy owners ask is when to start grooming — too early and it feels unnecessary, too late and a puppy can already have developed matting or a fear of the process. Getting the timing right makes grooming a normal, low-stress part of their routine instead of something to dread.",
+      },
+      { type: "heading", text: "Why early exposure matters" },
+      {
+        type: "paragraph",
+        text: "Puppies go through a key socialization window roughly between 8 and 16 weeks of age, when new experiences are much more likely to be accepted calmly rather than feared. A positive first grooming visit during this window — gentle handling, the sound of clippers or a dryer, being on a grooming table — helps a puppy grow into an adult dog who's relaxed about grooming rather than anxious about it.",
+      },
+      { type: "heading", text: "What a first visit typically looks like" },
+      {
+        type: "list",
+        items: [
+          "Shorter and lighter than an adult groom — often just a bath, a light trim around the face, feet, and sanitary areas, and getting comfortable with being handled",
+          "A slower pace with more breaks, prioritizing a calm experience over a perfectly polished result",
+          "Many groomers ask about vaccination status before a puppy's first visit, since they'll be around other animals and shared equipment",
+          "Breeds with fast-growing or curly coats (poodles, doodles, and similar) may need their first trim earlier than breeds with a slower-growing coat",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "If your puppy already seems nervous by the time you're ready to book, the same patient, go-slow approach used for anxious dogs works well for puppies too — there's no reason a first grooming experience has to be stressful for either of you.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
