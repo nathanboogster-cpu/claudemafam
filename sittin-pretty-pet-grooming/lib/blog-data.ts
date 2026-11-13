@@ -1051,6 +1051,58 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-bath-and-brush", "deshedding-treatment", "nail-trim-ear-cleaning"],
   },
+  {
+    slug: "car-rides-and-carriers-on-grooming-day",
+    title: "Getting There Calmly: Car Ride and Carrier Tips for Grooming Day",
+    metaDescription:
+      "For many dogs and cats, the hardest part of grooming day is the trip. Tips for calmer car rides, carrier training for cats, and safe travel in cold weather.",
+    excerpt:
+      "For a lot of pets, the stressful part of grooming day starts in the driveway. Here's how to make the car ride and the carrier easier for dogs and cats.",
+    eyebrow: "Grooming Day Tips",
+    publishedAt: "2026-11-13",
+    heroPhotoKey: "whiteFluffyYellowBandana",
+    body: [
+      {
+        type: "p",
+        text: "For plenty of dogs and most cats, the most stressful part of a grooming visit isn't the bath or the brush. It's the trip. If the only time a pet rides in the car is on the way to somewhere unfamiliar, they can arrive already wound up. Whether you're coming from Hagerstown, Halfway, or elsewhere in Washington County, a little practice before grooming day can make the whole visit calmer.",
+      },
+      { type: "h2", text: "For Cats: Make the Carrier Part of the Furniture" },
+      {
+        type: "list",
+        items: [
+          "Leave the carrier out in a room your cat already likes, door open, with a soft towel inside, instead of bringing it out only on travel days.",
+          "Toss treats or a favorite toy inside now and then so the carrier becomes a place good things happen.",
+          "A carrier with a top opening, or one that comes apart, makes it easier to get a cat in and out without tipping them.",
+          "On the day, carry it level and from underneath rather than by the handle alone, and drape a light towel over it so your cat can't see everything going by.",
+        ],
+      },
+      { type: "h2", text: "For Dogs: Practice Short, Boring Rides" },
+      {
+        type: "p",
+        text: "If your dog only rides to the vet or the groomer, try a few short trips that end somewhere pleasant, or just a loop around the block that ends back home with a treat. Keep the mood relaxed and matter-of-fact. Skip a big meal right before the drive, which helps dogs prone to car sickness. If your dog gets carsick or very anxious in the car no matter what, talk to your vet about options.",
+      },
+      { type: "h2", text: "Traveling Safely" },
+      {
+        type: "list",
+        items: [
+          "Keep pets secured: a carrier buckled in on the back seat for cats and small dogs, or a crate or travel harness for larger dogs.",
+          "Keep pets out of the front seat, where an airbag can seriously injure them.",
+          "Don't let dogs ride with their head out the window, where debris can hit their eyes.",
+          "In cold weather, warm the car up first, and never leave a pet waiting alone in a parked car in winter or summer.",
+        ],
+      },
+      { type: "h2", text: "When You Arrive" },
+      {
+        type: "p",
+        text: "Stay calm and keep goodbyes short; pets pick up on our nerves. Bring anything that helps, like a familiar blanket in the carrier. And if your pet is nervous, mention it when you call to schedule so the visit can be planned around it.",
+      },
+      {
+        type: "p",
+        text: "Our Funkstown salon is cage-free, so pets aren't kenneled between steps once they arrive, which helps keep a calm trip from turning into a stressful afternoon. Cats need a different touch than dogs, and Sittin' Pretty is one of the few local groomers pet owners trust specifically for cat grooming. Give us a call to schedule.",
+      },
+    ],
+    relatedServiceSlugs: ["dog-grooming", "cat-grooming", "puppy-first-groom"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
