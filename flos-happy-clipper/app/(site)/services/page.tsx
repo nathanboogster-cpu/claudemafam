@@ -16,6 +16,8 @@ const serviceIcons: Record<string, React.ReactNode> = {
   "dog-ear-cleaning": <DropletIcon className="h-6 w-6" />,
   "dog-flea-tick-treatment": <BugIcon className="h-6 w-6" />,
   "dog-anal-gland-expression": <ShieldCheckIcon className="h-6 w-6" />,
+  "puppy-grooming": <DogIcon className="h-6 w-6" />,
+  "dog-deshedding": <ScissorsIcon className="h-6 w-6" />,
 };
 
 const fullAppointments = services.filter((s) => s.isFlagship);

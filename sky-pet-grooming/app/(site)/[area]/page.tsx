@@ -18,6 +18,8 @@ import { BottomCta } from "@/components/BottomCta";
 import { PostCard } from "@/components/PostCard";
 import { postForArea } from "@/lib/blog-data";
 import { CheckIcon } from "@/components/icons";
+import { FaqBlock } from "@/components/FaqBlock";
+import { faqSchema } from "@/lib/schema";
 
 // One page per service area: /mobile-dog-grooming-<city>-ca/. Only the
 // areas in site-data are built; any other slug is a 404.
@@ -109,6 +111,11 @@ export default async function AreaPage({ params }: { params: Promise<{ area: str
           <h2 className="mt-1 font-display text-3xl font-extrabold text-ink">Grooming at Your Door in {a.city}</h2>
           <p className="mt-4 leading-relaxed text-ink-soft">{a.intro}</p>
           <p className="mt-3 leading-relaxed text-ink-soft">{a.local}</p>
+          {a.drive ? (
+            <p className="mt-3 leading-relaxed text-ink-soft">
+              From San Bruno, the van&rsquo;s trip to {a.city} is {a.drive}, according to Google Maps.
+            </p>
+          ) : null}
           <p className="mt-3 leading-relaxed text-ink-soft">
             Not sure we reach your street? Call <PhoneLink location={`area_body_${index}`} className="inline-flex min-h-6 items-center" />{" "}
             or ask when you book online.
@@ -157,6 +164,11 @@ export default async function AreaPage({ params }: { params: Promise<{ area: str
         <div className="mx-auto max-w-6xl px-4 py-14">
           <ProcessSteps />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-4 pt-14">
+        <JsonLd data={faqSchema(a.faqs)} />
+        <FaqBlock items={[...a.faqs]} title={`${a.city} Grooming FAQ`} />
       </section>
 
       {post && (

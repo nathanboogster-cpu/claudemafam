@@ -142,12 +142,9 @@ export const services = [
 
 export const servicePath = (slug: ServiceSlug) => `/${slug}`;
 
-// Towns within roughly a 15–20 minute drive of the Marietta facility
-// (1691 Powder Springs Rd SW), per real driving-time lookups (not
-// straight-line distance). Powder Springs, Smyrna, Austell, Kennesaw, and
-// Mableton are the closer set (~15 min or less); Vinings, Acworth, Hiram,
-// and Lithia Springs are the wider set (~18–27 min depending on route/
-// traffic) — each area's driveTimeNote below reflects which group it's in.
+// Towns around the Marietta facility (1691 Powder Springs Rd SW). Drive
+// times, distances and routes come from Google Maps driving directions
+// looked up on 2026-11-16 (weekday afternoon); real times vary with traffic.
 // No area outside this real, local radius is claimed.
 export type ServiceAreaSlug =
   | "powder-springs-ga"
@@ -165,63 +162,63 @@ export const serviceAreas: { slug: ServiceAreaSlug; city: string; state: string;
     slug: "powder-springs-ga",
     city: "Powder Springs",
     state: "GA",
-    description: "Dog daycare, boarding, and grooming a short drive down Powder Springs Rd.",
+    description: "Dog daycare, boarding, and grooming 6.5 miles up Powder Springs Rd SW.",
     driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "smyrna-ga",
     city: "Smyrna",
     state: "GA",
-    description: "Clean, safe, fully supervised care about a 15-minute drive from Smyrna.",
+    description: "Clean, safe, fully supervised care about 6 miles from Smyrna via Windy Hill Rd.",
     driveTimeNote: "about a 15-minute drive",
   },
   {
     slug: "austell-ga",
     city: "Austell",
     state: "GA",
-    description: "Daycare, boarding, and grooming convenient to Austell dog owners.",
-    driveTimeNote: "about a 15-minute drive",
+    description: "Daycare, boarding, and grooming about 7.6 miles north of Austell.",
+    driveTimeNote: "about a 15–20 minute drive",
   },
   {
     slug: "kennesaw-ga",
     city: "Kennesaw",
     state: "GA",
-    description: "Private boarding suites and full-service grooming near Kennesaw.",
-    driveTimeNote: "about a 15-minute drive",
+    description: "Private boarding suites and full-service grooming about 11 miles south of Kennesaw.",
+    driveTimeNote: "about a 25-minute drive",
   },
   {
     slug: "mableton-ga",
     city: "Mableton",
     state: "GA",
-    description: "Size-appropriate daycare playrooms and grooming close to Mableton.",
-    driveTimeNote: "about a 15-minute drive",
+    description: "Size-appropriate daycare playrooms and grooming about 7.5 miles from Mableton via Floyd Rd.",
+    driveTimeNote: "about a 15–20 minute drive",
   },
   {
     slug: "vinings-ga",
     city: "Vinings",
     state: "GA",
-    description: "Daycare, boarding, and grooming about a 20-minute drive from Vinings.",
-    driveTimeNote: "about a 20-minute drive",
+    description: "Daycare, boarding, and grooming about 10 miles from Vinings via Windy Hill Rd.",
+    driveTimeNote: "about a 20–30 minute drive",
   },
   {
     slug: "acworth-ga",
     city: "Acworth",
     state: "GA",
-    description: "Private boarding suites and full-service grooming for Acworth dog owners.",
-    driveTimeNote: "about a 20-minute drive",
+    description: "Private boarding suites and full-service grooming about 15 miles from Acworth.",
+    driveTimeNote: "about a 35-minute drive",
   },
   {
     slug: "hiram-ga",
     city: "Hiram",
     state: "GA",
-    description: "Clean, safe, fully supervised daycare and boarding for Hiram dog owners.",
-    driveTimeNote: "about a 20-minute drive",
+    description: "Clean, safe, fully supervised daycare and boarding about 11 miles east of Hiram.",
+    driveTimeNote: "about a 20–25 minute drive",
   },
   {
     slug: "lithia-springs-ga",
     city: "Lithia Springs",
     state: "GA",
-    description: "Size-appropriate daycare playrooms and grooming for Lithia Springs dog owners.",
+    description: "Size-appropriate daycare playrooms and grooming about 10 miles from Lithia Springs.",
     driveTimeNote: "about a 20-minute drive",
   },
 ];
@@ -569,58 +566,261 @@ export const footerNav: NavItem[] = [
   { label: "Requirements", href: PATHS.requirements },
 ];
 
-// Per-area page content. Every claim here is either a fact already stated
-// elsewhere on the site (services, requirements, differentiators) or a
-// generic, honest drive-time framing — no fabricated city-specific details
-// (no invented landmarks, neighborhoods, or "voted best" claims).
-export const areaContent: Record<
-  ServiceAreaSlug,
-  {
-    metaTitle: string;
-    metaDescription: string;
-    eyebrow: string;
-    h1: string;
-    intro: string;
-    whyChoose: string[];
-    faqs: { question: string; answer: string }[];
-  }
-> = Object.fromEntries(
-  serviceAreas.map((a) => [
-    a.slug,
-    {
-      metaTitle: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
-      metaDescription: `Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA, ${a.driveTimeNote} from ${a.city} — clean, safe, fully supervised care. Call ${business.phoneDisplay}.`,
-      eyebrow: `${a.city}, GA`,
-      h1: `Dog Daycare, Boarding & Grooming Near ${a.city}, GA`,
-      intro: `Bow Wags is located at ${business.addressFull} — ${a.driveTimeNote} from ${a.city} — offering size-appropriate daycare playrooms, private wooden boarding suites (no cages), and full-service grooming for all breeds.`,
-      whyChoose: [
-        "Clean, safe, fully supervised daycare and boarding",
-        "Private wooden boarding suites — not traditional cages",
-        "Boarding includes about 12 hours of daycare each day",
-        `Full-service grooming from a groomer at Bow Wags since ${groomer.since}`,
-      ],
-      faqs: [
-        {
-          question: `Does Bow Wags serve dog owners in ${a.city}?`,
-          answer: `Yes — Bow Wags is in Marietta, GA, ${a.driveTimeNote} from ${a.city}, and welcomes dog owners from ${a.city} for daycare, boarding, and grooming.`,
-        },
-        {
-          question: `Does my dog need anything before their first visit from ${a.city}?`,
-          answer: `Yes — every dog needs a 4-hour temperament test (${temperamentTest.price}) before their first daycare or boarding visit, plus current Rabies, Distemper, and Bordetella vaccinations. Call ${business.phoneDisplay} to schedule.`,
-        },
-        {
-          question: `How do I book from ${a.city}?`,
-          answer: `Call ${business.phoneDisplay} to reserve daycare or boarding, schedule a temperament test, or book a grooming appointment.`,
-        },
-      ],
-    },
-  ]),
-) as Record<ServiceAreaSlug, {
+// Per-area page content. Every claim is either a fact already stated
+// elsewhere on this site (services, pricing, hours, requirements, groomer)
+// or a Google Maps driving route looked up on 2026-11-16 — no invented
+// landmarks, neighborhoods, customers or "voted best" claims. The title and
+// H1 pattern is unchanged from the original pages to protect their rankings.
+type AreaContent = {
   metaTitle: string;
   metaDescription: string;
   eyebrow: string;
   h1: string;
   intro: string;
+  gettingHereTitle: string;
+  gettingHere: string[];
   whyChoose: string[];
   faqs: { question: string; answer: string }[];
-}>;
+};
+
+const areaBase = (city: string, drive: string) => ({
+  metaTitle: `Dog Daycare, Boarding & Grooming Near ${city}, GA`,
+  metaDescription: `Bow Wags is a dog daycare, boarding, and grooming facility in Marietta, GA, ${drive} from ${city}: clean, safe, fully supervised care. Call ${business.phoneDisplay}.`,
+  eyebrow: `${city}, GA`,
+  h1: `Dog Daycare, Boarding & Grooming Near ${city}, GA`,
+});
+
+const faq = {
+  temperament: {
+    question: "Does my dog need a temperament test first?",
+    answer: `Yes. Every dog needs a ${temperamentTest.durationNote} (${temperamentTest.price}) before their first daycare or boarding stay, so staff can see how they play in a group. Call ${business.phoneDisplay} to schedule it.`,
+  },
+  vaccines: {
+    question: "Which vaccinations does my dog need?",
+    answer: `Current ${vaccinationRequirements.join(", ")} vaccinations are required for daycare and boarding.`,
+  },
+  boardingDaycare: {
+    question: "Does boarding include playtime?",
+    answer: `Yes. ${boardingPricing.daycareIncludedNote}`,
+  },
+  halfFull: {
+    question: "What's the difference between a half day and a full day of daycare?",
+    answer: `A half day is ${daycarePricing.halfDay.note.toLowerCase()} (${daycarePricing.halfDay.price}); a full day is ${daycarePricing.fullDay.note.toLowerCase()} (${daycarePricing.fullDay.price}). Multi-day packages bring the daily price down.`,
+  },
+  sunday: {
+    question: "Is Bow Wags open on weekends?",
+    answer: `Saturdays, yes: 8 AM to 5 PM. Bow Wags is closed on Sundays. Weekdays run 6:30 AM to 6:30 PM.`,
+  },
+  checkout: {
+    question: "What time do I need to pick up after boarding?",
+    answer: "Pick up by 2 PM on your checkout day. After 2 PM, a $26 daycare charge applies.",
+  },
+  food: {
+    question: "Do I need to bring food for boarding?",
+    answer: "You're welcome to bring your dog's own food. If you'd rather we feed the house food, it's $2 a day.",
+  },
+  groomingBook: {
+    question: "How do I book a grooming appointment?",
+    answer: `Call ${business.phoneDisplay}. Grooming is full-service for all breeds and handled by ${groomer.name}, who has groomed at Bow Wags since ${groomer.since}.`,
+  },
+  difficult: {
+    question: "My dog is nervous at the groomer. Can you still help?",
+    answer: `${groomer.name} is comfortable working with puppies and difficult dogs, and grooms by the rule "${groomer.philosophy}": your dog's comfort and safety come before a picture-perfect cut.`,
+  },
+  siblings: {
+    question: "Is there a discount for two dogs?",
+    answer: "For daycare, siblings get 20% off a second package. For boarding, ask about multi-dog discounts.",
+  },
+} as const;
+
+export const areaContent: Record<ServiceAreaSlug, AreaContent> = {
+  "powder-springs-ga": {
+    ...areaBase("Powder Springs", "about 15 minutes"),
+    intro: `Bow Wags sits on the same road that runs through Powder Springs: head up Powder Springs Rd SW for about 6.5 miles and you'll reach ${business.addressFull}. That makes daily daycare drop-off, weekend grooming, and boarding before a trip an easy, one-road drive.`,
+    gettingHereTitle: "Getting Here From Powder Springs",
+    gettingHere: [
+      "Google Maps routes most Powder Springs drivers straight along Powder Springs Rd SW: about 6.5 miles, roughly 15 minutes depending on traffic.",
+      "Doors open at 6:30 AM on weekdays, so you can drop off for daycare before work and pick up as late as 6:30 PM.",
+      `If you only need a few hours of care, a half day (${daycarePricing.halfDay.note.toLowerCase()}) is ${daycarePricing.halfDay.price}.`,
+    ],
+    whyChoose: [
+      "One straight drive up Powder Springs Rd SW",
+      "Size-appropriate indoor playrooms plus a secure outdoor playground",
+      `Half-day (${daycarePricing.halfDay.price}) and full-day (${daycarePricing.fullDay.price}) daycare`,
+      "Private wooden boarding suites, not cages",
+    ],
+    faqs: [
+      { question: "How far is Bow Wags from Powder Springs?", answer: "About 6.5 miles, roughly 15 minutes up Powder Springs Rd SW, depending on traffic." },
+      faq.halfFull,
+      faq.temperament,
+    ],
+  },
+  "smyrna-ga": {
+    ...areaBase("Smyrna", "about 15 minutes"),
+    intro: `From Smyrna, Bow Wags is about 6 miles west via Windy Hill Rd, at ${business.addressFull}. Weekday doors open at 6:30 AM, so Smyrna dog owners can drop off for supervised daycare before the workday and pick up by 6:30 PM.`,
+    gettingHereTitle: "Getting Here From Smyrna",
+    gettingHere: [
+      "Google Maps' usual route from Smyrna is via Windy Hill Rd SE and Windy Hill Rd: about 6.1 miles, roughly 15 minutes outside peak traffic.",
+      "Boarding is a good fit for trips out of town: every night includes about 12 hours of supervised daycare, so your dog isn't just kept overnight.",
+      `New dogs start with a ${temperamentTest.durationNote} (${temperamentTest.price}) before their first daycare or boarding stay.`,
+    ],
+    whyChoose: [
+      "About 6 miles from Smyrna via Windy Hill Rd",
+      "Open from 6:30 AM on weekdays for before-work drop-off",
+      "Boarding includes about 12 hours of supervised daycare each day",
+      "Full-service grooming for all breeds",
+    ],
+    faqs: [
+      { question: "How do I get to Bow Wags from Smyrna?", answer: "Take Windy Hill Rd west toward Powder Springs Rd SW. It's about 6.1 miles, roughly 15 minutes outside rush hour." },
+      faq.boardingDaycare,
+      faq.vaccines,
+    ],
+  },
+  "austell-ga": {
+    ...areaBase("Austell", "about 15–20 minutes"),
+    intro: `Bow Wags is about 7.6 miles north of Austell, at ${business.addressFull}. Austell dog owners come for size-appropriate daycare playrooms, private wooden boarding suites, and full-service grooming by ${groomer.name}.`,
+    gettingHereTitle: "Getting Here From Austell",
+    gettingHere: [
+      "Google Maps routes Austell drivers via Flint Hill Rd SW and Powder Springs Rd SW: about 7.6 miles, roughly 15–20 minutes.",
+      `Grooming is handled by ${groomer.name}, who has groomed at Bow Wags since ${groomer.since} and is Pet CPR and First Aid certified.`,
+      "Saturday hours (8 AM to 5 PM) make a weekend grooming or daycare visit easy to fit in.",
+    ],
+    whyChoose: [
+      "About 7.6 miles from Austell via Flint Hill Rd SW",
+      `Grooming by ${groomer.name}, Pet CPR and First Aid certified`,
+      "Open Saturdays 8 AM to 5 PM",
+      "Clean, safe, fully supervised daycare and boarding",
+    ],
+    faqs: [
+      { question: "How long is the drive from Austell?", answer: "About 7.6 miles via Flint Hill Rd SW and Powder Springs Rd SW, usually 15 to 20 minutes." },
+      faq.groomingBook,
+      faq.sunday,
+    ],
+  },
+  "kennesaw-ga": {
+    ...areaBase("Kennesaw", "about 25 minutes"),
+    intro: `Bow Wags is about 11 miles south of Kennesaw, at ${business.addressFull}. For Kennesaw dog owners, that makes it a strong option for boarding during trips (with daycare included every day) and for full-service grooming.`,
+    gettingHereTitle: "Getting Here From Kennesaw",
+    gettingHere: [
+      "Google Maps routes Kennesaw drivers via Cheatham Hill Rd: about 11.1 miles, roughly 25 minutes depending on traffic.",
+      `Boarding is ${boardingPricing.tiers[0].price}/night for nights 1–5, dropping to ${boardingPricing.tiers[1].price} for nights 6–10 and ${boardingPricing.tiers[2].price} for 11 nights or more.`,
+      "Pick up by 2 PM on your checkout day to avoid an extra daycare charge.",
+    ],
+    whyChoose: [
+      "About 11 miles from Kennesaw via Cheatham Hill Rd",
+      "Private indoor wooden boarding suites, not cages",
+      "Boarding includes about 12 hours of supervised daycare each day",
+      "Lower nightly boarding rates for longer stays",
+    ],
+    faqs: [
+      { question: "How far is Bow Wags from Kennesaw?", answer: "About 11.1 miles via Cheatham Hill Rd, roughly 25 minutes depending on traffic." },
+      faq.checkout,
+      faq.food,
+    ],
+  },
+  "mableton-ga": {
+    ...areaBase("Mableton", "about 15–20 minutes"),
+    intro: `From Mableton, Bow Wags is about 7.5 miles away via Floyd Rd SW, at ${business.addressFull}. Mableton dog owners use Bow Wags for supervised daycare in size-appropriate playrooms, boarding in private suites, and grooming.`,
+    gettingHereTitle: "Getting Here From Mableton",
+    gettingHere: [
+      "Google Maps routes Mableton drivers via Floyd Rd SW: about 7.5 miles, roughly 15–20 minutes.",
+      `Before your dog's first daycare or boarding visit, plan for the ${temperamentTest.durationNote} (${temperamentTest.price}). Staff watch how your dog settles in and plays over several hours, not just a quick first impression.`,
+      `Daycare packages save on regular visits: for example, 10 full days are ${daycarePricing.packages[3].price}.`,
+    ],
+    whyChoose: [
+      "About 7.5 miles from Mableton via Floyd Rd SW",
+      "Size-appropriate indoor playrooms plus a secure outdoor playground",
+      "Multi-day daycare packages for regular visits",
+      `A ${temperamentTest.durationNote} keeps group play safe for every dog`,
+    ],
+    faqs: [
+      { question: "How do I get to Bow Wags from Mableton?", answer: "Head north via Floyd Rd SW to Powder Springs Rd SW. It's about 7.5 miles, usually 15 to 20 minutes." },
+      faq.temperament,
+      faq.siblings,
+    ],
+  },
+  "vinings-ga": {
+    ...areaBase("Vinings", "about 20–30 minutes"),
+    intro: `Bow Wags is about 10 miles west of Vinings, at ${business.addressFull}. Vinings dog owners come for boarding with daycare included every day, private wooden suites instead of cages, and full-service grooming.`,
+    gettingHereTitle: "Getting Here From Vinings",
+    gettingHere: [
+      "Google Maps routes Vinings drivers via Atlanta Rd SE and Windy Hill Rd: about 9.9 miles. It can take up to 30 minutes in traffic.",
+      "Boarding suites are private and wooden, not traditional cages, and each night includes about 12 hours of supervised daycare.",
+      "Open weekdays 6:30 AM to 6:30 PM and Saturdays 8 AM to 5 PM; closed Sundays.",
+    ],
+    whyChoose: [
+      "About 10 miles from Vinings via Windy Hill Rd",
+      "Private indoor wooden boarding suites, not cages",
+      "Boarding includes about 12 hours of supervised daycare each day",
+      "Full-service grooming for all breeds",
+    ],
+    faqs: [
+      { question: "How long is the drive from Vinings?", answer: "About 9.9 miles via Atlanta Rd SE and Windy Hill Rd. Allow 20 to 30 minutes depending on traffic." },
+      faq.boardingDaycare,
+      faq.sunday,
+    ],
+  },
+  "acworth-ga": {
+    ...areaBase("Acworth", "about 35 minutes"),
+    intro: `Bow Wags is about 15 miles south of Acworth, at ${business.addressFull}. It's a longer drive than a daily daycare run for most Acworth owners, so it's best suited to boarding while you travel and to full-service grooming visits.`,
+    gettingHereTitle: "Getting Here From Acworth",
+    gettingHere: [
+      "Google Maps routes Acworth drivers via Acworth Due West Rd NW: about 15.4 miles, roughly 35 minutes depending on traffic.",
+      "For a longer stay, boarding gets cheaper the more nights you book, and every night includes about 12 hours of supervised daycare.",
+      `Grooming is full-service for all breeds. ${groomer.name} grooms by the rule "${groomer.philosophy}": comfort and safety before a picture-perfect cut.`,
+    ],
+    whyChoose: [
+      "Boarding with daycare included every day",
+      "Lower nightly boarding rates for longer stays",
+      `Grooming by ${groomer.name}, at Bow Wags since ${groomer.since}`,
+      "Private indoor wooden boarding suites, not cages",
+    ],
+    faqs: [
+      { question: "How far is Bow Wags from Acworth?", answer: "About 15.4 miles via Acworth Due West Rd NW, roughly 35 minutes depending on traffic." },
+      faq.difficult,
+      faq.checkout,
+    ],
+  },
+  "hiram-ga": {
+    ...areaBase("Hiram", "about 20–25 minutes"),
+    intro: `From Hiram, Bow Wags is about 11 miles east along GA-360 (Powder Springs Rd), at ${business.addressFull}. Hiram dog owners use it for supervised daycare, boarding in private suites, and grooming.`,
+    gettingHereTitle: "Getting Here From Hiram",
+    gettingHere: [
+      "Google Maps routes Hiram drivers via GA-360 E: about 11.2 miles, roughly 20–25 minutes depending on traffic.",
+      `Daycare is ${daycarePricing.halfDay.price} for a half day (${daycarePricing.halfDay.note.toLowerCase()}) or ${daycarePricing.fullDay.price} for a full day, with packages for regular visits.`,
+      `Current ${vaccinationRequirements.join(", ")} vaccinations are required for daycare and boarding.`,
+    ],
+    whyChoose: [
+      "About 11 miles from Hiram via GA-360",
+      "Clean, safe, fully supervised daycare and boarding",
+      "20% off a second daycare package for siblings",
+      "Open Saturdays 8 AM to 5 PM",
+    ],
+    faqs: [
+      { question: "How do I get to Bow Wags from Hiram?", answer: "Take GA-360 E (Powder Springs Rd) toward Marietta. It's about 11.2 miles, usually 20 to 25 minutes." },
+      faq.vaccines,
+      faq.halfFull,
+    ],
+  },
+  "lithia-springs-ga": {
+    ...areaBase("Lithia Springs", "about 20 minutes"),
+    intro: `Bow Wags is about 10 miles north of Lithia Springs, at ${business.addressFull}. Lithia Springs dog owners come for size-appropriate daycare playrooms, private boarding suites, and grooming for nervous or difficult dogs as well as easy ones.`,
+    gettingHereTitle: "Getting Here From Lithia Springs",
+    gettingHere: [
+      "Google Maps routes Lithia Springs drivers via Powder Springs Rd SW: about 10 miles, roughly 20 minutes depending on traffic.",
+      `${groomer.name} is comfortable with puppies and difficult dogs, and has completed skin and coat coursework, useful for dogs with sensitive skin.`,
+      "Open from 6:30 AM on weekdays, with daycare half days and full days to fit your schedule.",
+    ],
+    whyChoose: [
+      "About 10 miles from Lithia Springs via Powder Springs Rd SW",
+      "Groomer comfortable with puppies and difficult dogs",
+      "Size-appropriate indoor playrooms plus a secure outdoor playground",
+      "Private indoor wooden boarding suites, not cages",
+    ],
+    faqs: [
+      { question: "How far is Bow Wags from Lithia Springs?", answer: "About 10 miles via Powder Springs Rd SW, roughly 20 minutes depending on traffic." },
+      faq.difficult,
+      faq.food,
+    ],
+  },
+};

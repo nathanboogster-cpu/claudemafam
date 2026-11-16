@@ -233,54 +233,86 @@ export const PATHS = {
 // only through the mobile "At Your Door" service, and every page built from this
 // data must say so honestly (never implying a second physical location). City
 // list matches the verified `serviceAreas` above exactly — do not add cities.
+// Distances and drive times are Google Maps driving directions from the studio,
+// looked up on 2026-11-16; real times vary with traffic.
 export const serviceAreaPages = [
   {
     city: "Hesperia",
     slug: "/mobile-dog-cat-grooming-hesperia-ca",
     intro:
-      "Hesperia sits right next to Victorville in the High Desert, and it's one of the areas Pampered Puppies' mobile grooming reaches most often.",
+      "Hesperia is the closest town to the Pampered Puppies studio: Google Maps puts it about 4 miles from 15444 Bear Valley Rd, roughly 10 minutes via Seventh Ave. Hesperia pet parents can book mobile grooming with Pampered Puppies At Your Door, or drive in to the Victorville studio.",
     angle:
-      "For Hesperia pet parents juggling a busy schedule, skipping the drive into Victorville and having Ellen come to you can be the easiest way to keep up with regular grooming.",
+      "Because the studio is so close, Hesperia is a good fit for either option. Choose mobile if a car ride stresses your pet, or the studio if you'd rather skip the mobile fee.",
+    gettingHere: ["Mobile visits follow the same starting prices as the studio (from $55–65 for small dogs and $65–85 for large dogs), plus about $10–15 for gas and a convenience fee.", "Every groom starts with a quick consultation, so you agree on the cut before any clippers come out."],
+    faqs: [
+      { question: "How far is Hesperia from the studio?", answer: "About 4.1 miles (about 10 minutes) via Seventh Ave, according to Google Maps. Times vary with traffic." },
+      { question: "Is it cheaper to bring my pet to the studio?", answer: "Usually, yes. Mobile grooming adds about $10\u201315 for gas and a convenience fee. From Hesperia the studio is only about 10 minutes away, so many pet parents choose whichever fits their day." },
+    ],
   },
   {
     city: "Apple Valley",
     slug: "/mobile-dog-cat-grooming-apple-valley-ca",
     intro:
-      "Apple Valley is part of the High Desert community Pampered Puppies has served for years, both in the Victorville studio and through mobile visits.",
+      "Apple Valley is about 11 miles from the Pampered Puppies studio in Victorville, roughly a 20-minute drive via Yucca Loma Rd according to Google Maps. Pampered Puppies At Your Door brings mobile dog and cat grooming to Apple Valley homes, so you don't have to make that trip.",
     angle:
-      "Apple Valley's larger properties make in-driveway grooming especially convenient — no crate, no car ride, just Ellen coming to your door.",
+      "Mobile grooming is a good fit for pets who get anxious in the car or in a busy waiting room. Let us know ahead of time if your pet is anxious or aggressive, so we can prepare.",
+    gettingHere: ["Google Maps routes the trip between Apple Valley and the studio via Yucca Loma Rd: about 10.8 miles, roughly 20 minutes.", "Cats are welcome too. Mobile visits cover dogs and cats, including baths, deshedding and nail clipping."],
+    faqs: [
+      { question: "How far is Apple Valley from the studio?", answer: "About 10.8 miles (about 20 minutes) via Yucca Loma Rd, according to Google Maps. Times vary with traffic." },
+      { question: "My pet gets anxious. Is mobile grooming better?", answer: "It can be: there's no car ride and no waiting room. Tell us about your pet's temperament when you call, so we can prepare and give them one-on-one attention." },
+    ],
   },
   {
     city: "Oro Grande",
     slug: "/mobile-dog-cat-grooming-oro-grande-ca",
     intro:
-      "Oro Grande is one of the smaller High Desert communities north of Victorville that Pampered Puppies reaches through its mobile grooming service.",
+      "Oro Grande is about 11 miles north of the Pampered Puppies studio, roughly 15 to 20 minutes via I-15 N and U.S. Route 66 according to Google Maps. Pampered Puppies At Your Door brings mobile dog and cat grooming to Oro Grande, or you can drive in to the Victorville studio.",
     angle:
-      "For Oro Grande pet parents further from town, in-driveway grooming with Pampered Puppies At Your Door skips the drive into Victorville altogether.",
+      "Call to check mobile availability for your Oro Grande address and the day you want. We'll confirm the price, including the mobile fee, before the appointment.",
+    gettingHere: ["Google Maps routes the trip via I-15 N and U.S. Route 66: about 10.8 miles, roughly 15 to 20 minutes.", "For coats that need more than a bath, deshedding, dematting and conditioning treatments are all on the dog services list."],
+    faqs: [
+      { question: "How far is Oro Grande from the studio?", answer: "About 10.8 miles (about 15\u201320 minutes) via I-15 N and U.S. Route 66, according to Google Maps. Times vary with traffic." },
+      { question: "Can you handle a matted or heavily shedding coat?", answer: "Yes. Dematting, deshedding and conditioning treatments are all on our dog services list. Final pricing depends on breed, coat condition and temperament, and we confirm it at the consultation." },
+    ],
   },
   {
     city: "Adelanto",
     slug: "/mobile-dog-cat-grooming-adelanto-ca",
     intro:
-      "Adelanto is part of the High Desert community Pampered Puppies' mobile grooming service reaches on its regular route out of Victorville.",
+      "Adelanto is about 14 miles from the Pampered Puppies studio in Victorville, roughly 20 to 25 minutes via I-15 N and Air Expressway according to Google Maps. Pampered Puppies At Your Door brings mobile dog and cat grooming to Adelanto homes.",
     angle:
-      "Whether it's a quick bath or a full groom, Pampered Puppies At Your Door brings the same one-on-one, low-cage-time care to Adelanto driveways.",
+      "Whether it's a quick bath or a full haircut, mobile visits get the same one-on-one attention as the studio, with minimal cage or kennel time.",
+    gettingHere: ["Google Maps routes the trip via I-15 N and Air Base Rd / Air Expressway: about 14.3 miles, roughly 20 to 25 minutes.", "Flea treatment and removal and tick removal are both on the services list, alongside baths, haircuts, nail trims and ear cleaning."],
+    faqs: [
+      { question: "How far is Adelanto from the studio?", answer: "About 14.3 miles (about 20\u201325 minutes) via I-15 N and Air Base Rd/Air Expy, according to Google Maps. Times vary with traffic." },
+      { question: "Do you treat fleas and ticks?", answer: "Yes. Flea treatment and removal and tick removal are available for dogs, and flea and tick removal for cats. Let us know when you book so we can plan for it." },
+    ],
   },
   {
     city: "Barstow",
     slug: "/mobile-dog-cat-grooming-barstow-ca",
     intro:
-      "Barstow pet parents don't have to make the drive to Victorville — Pampered Puppies At Your Door serves Barstow as part of its regular High Desert mobile route.",
+      "Barstow is the farthest town Pampered Puppies serves: about 37 miles from the Victorville studio, roughly 40 minutes up I-15 N according to Google Maps. Pampered Puppies At Your Door brings mobile dog and cat grooming to Barstow, so your pet skips that drive.",
     angle:
-      "Mobile grooming means your pet skips the car ride and the waiting room entirely — Ellen comes to Barstow and grooms right at your home.",
+      "Because of the distance, call to check mobile availability for your Barstow address before you book. We'll confirm the price, including the mobile fee, on the call.",
+    gettingHere: ["Google Maps routes the trip via I-15 N: about 37.5 miles, roughly 40 minutes each way.", "That's a long ride for a nervous pet, which is where an in-driveway groom helps most. Tell us about your pet's temperament when you call."],
+    faqs: [
+      { question: "How far is Barstow from the studio?", answer: "About 37.5 miles (about 40 minutes) via I-15 N, according to Google Maps. Times vary with traffic." },
+      { question: "How do I check if you can come to my Barstow address?", answer: "Call 760-881-3171 with your address and the day you'd like. Barstow is about 40 minutes from the studio, so we confirm mobile availability before booking." },
+    ],
   },
   {
     city: "Helendale",
     slug: "/mobile-dog-cat-grooming-helendale-ca",
     intro:
-      "Helendale is one of the smaller High Desert communities Pampered Puppies reaches through its mobile grooming service.",
+      "Helendale is about 23 miles north of the Pampered Puppies studio, roughly 30 to 35 minutes along U.S. Route 66 according to Google Maps. Pampered Puppies At Your Door brings mobile dog and cat grooming to Helendale homes.",
     angle:
-      "For Helendale residents further from town, in-driveway grooming with Pampered Puppies At Your Door skips the trip into Victorville altogether.",
+      "Call to check mobile availability for your Helendale address and the day you want. If you'd rather come in, the Victorville studio is open to Helendale residents too.",
+    gettingHere: ["Google Maps routes the trip along U.S. Route 66: about 23.3 miles, roughly 30 to 35 minutes.", "Ellen Flores Karikari has 35+ years of hands-on dog and cat grooming experience, and the team is first-aid trained, including for seizures and heart attacks."],
+    faqs: [
+      { question: "How far is Helendale from the studio?", answer: "About 23.3 miles (about 30\u201335 minutes) via U.S. Route 66, according to Google Maps. Times vary with traffic." },
+      { question: "Is the team trained for emergencies?", answer: "Yes. The team is first-aid trained for pet emergencies, including seizures and heart attacks. Let us know about any health issues when you book." },
+    ],
   },
 ] as const;
 

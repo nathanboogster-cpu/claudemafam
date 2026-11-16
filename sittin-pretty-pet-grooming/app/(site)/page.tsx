@@ -114,7 +114,7 @@ export default function HomePage() {
               Pets aren&apos;t kenneled between steps — a calmer, more comfortable visit from start to finish.
             </p>
           </div>
-          <SecondaryLinkButton location="home_cage_free" variant="secondary" label="Learn More" href={PATHS.cageFree} />
+          <SecondaryLinkButton location="home_cage_free" variant="secondary" label="About Cage-Free Grooming" href={PATHS.cageFree} />
         </div>
       </section>
 

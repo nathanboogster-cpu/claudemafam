@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { PATHS, SITE_URL, serviceAreas, serviceAreaGeneral } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
@@ -150,6 +151,8 @@ export default function MobileGroomingPage() {
           </p>
         </div>
       </section>
+
+      <RelatedPosts path={PATHS.mobile} />
 
       <section className="mx-auto max-w-6xl px-4 pb-16 text-center">
         <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">

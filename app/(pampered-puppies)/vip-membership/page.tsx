@@ -1,3 +1,4 @@
+import { RelatedPosts } from "@/components/RelatedPosts";
 import type { Metadata } from "next";
 import { PATHS, SITE_URL, vipMembership } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
@@ -68,6 +69,8 @@ export default function VipMembershipPage() {
           </ol>
         </div>
       </section>
+
+      <RelatedPosts path={PATHS.membership} />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
         <FaqBlock items={membershipFaqs} title="VIP Membership FAQ" />

@@ -181,6 +181,20 @@ export const services = [
     summary: "A quick, discreet anal gland expression, on its own or added to a bath or groom.",
     isFlagship: false,
   },
+  {
+    slug: "puppy-grooming",
+    name: "Puppy Grooming",
+    shortName: "Puppy Grooming",
+    summary: "A gentle, patient first grooming experience to help your puppy get comfortable with the salon.",
+    isFlagship: false,
+  },
+  {
+    slug: "dog-deshedding",
+    name: "Dog Deshedding Treatment",
+    shortName: "Deshedding",
+    summary: "A deshedding bath and thorough brush-out to clear loose undercoat from heavy shedders.",
+    isFlagship: false,
+  },
 ] as const;
 
 export type ServiceSlug = (typeof services)[number]["slug"];
