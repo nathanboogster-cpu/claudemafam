@@ -49,9 +49,10 @@ export const people = {
 
 // Towns served, nearest first. The first five are from the client's older
 // website. Rosemont, Villanova, Wynnewood and Radnor were added by the agency:
-// Main Line towns within about a 10-minute drive of the salon, with median
-// household incomes at or above the Pennsylvania median (2019-2023 ACS).
-// Drive times are estimates from distance, not measured routes.
+// Main Line towns within a short drive of the salon, with median household
+// incomes at or above the Pennsylvania median (2019-2023 ACS). Town-page
+// routes, distances and times are Google Maps driving directions looked up
+// on 2026-11-16 (weekday afternoon); real times vary with traffic.
 export const serviceAreas = [
   "Bryn Mawr",
   "Rosemont",
@@ -218,6 +219,11 @@ export const townPages = [
       "Rosemont, just west of Bryn Mawr, spans Lower Merion and Radnor townships, and it is one of the towns our salon on County Line Road serves.",
     angle:
       "Rosemont dog owners are close to the salon at 723 County Line Rd. Can't drop off? Call with your address and we will confirm whether pickup and delivery covers it.",
+    gettingHere: ["Google Maps puts the salon about 0.8 miles from Rosemont, roughly a 5-minute drive along County Line Rd. For most Rosemont dog owners, dropping off is quicker than arranging a pickup.", "Because the trip is so short, a Bath & Pamper visit (from $75) between full grooms is easy to fit in."],
+    faqs: [
+      { question: "How far is the salon from Rosemont?", answer: "About 0.8 miles (about 5 minutes) via County Line Rd, according to Google Maps. Times vary with traffic." },
+      { question: "Is Bath & Pamper enough between full grooms?", answer: "For many dogs, yes. Bath & Pamper (from $75) is a gentle bath, blow dry, brushing and nail trim. When the coat needs reshaping, The Works (from $115) adds a full haircut or tidy-up trim." },
+    ],
   },
   {
     city: "Haverford",
@@ -226,6 +232,11 @@ export const townPages = [
       "Haverford sits between Bryn Mawr and Ardmore on the Main Line, and it is one of the towns our salon on County Line Road serves.",
     angle:
       "Haverford dog owners can bring their dog to the salon. Rather not make the trip? Call with your address and we will confirm whether pickup and delivery covers it.",
+    gettingHere: ["From Haverford, Google Maps routes you via E Railroad Ave and E Haverford Rd: about 1.4 miles, roughly 6 minutes to 723 County Line Rd.", "Every bath uses water from our tankless heater, so it stays warm for the whole wash. That helps dogs who get anxious or shiver at bath time."],
+    faqs: [
+      { question: "How far is the salon from Haverford?", answer: "About 1.4 miles (about 6 minutes) via E Railroad Ave and E Haverford Rd, according to Google Maps. Times vary with traffic." },
+      { question: "My dog gets nervous at bath time. Will that be a problem?", answer: "Tell us when you call so we know ahead of time. Our tankless heater keeps the bath warm from the first rinse to the last, which helps dogs who shiver or tense up in cool water." },
+    ],
   },
   {
     city: "Ardmore",
@@ -234,6 +245,11 @@ export const townPages = [
       "Ardmore spans Lower Merion Township in Montgomery County and Haverford Township in Delaware County. It is one of the Eastern Main Line towns our Bryn Mawr salon serves.",
     angle:
       "Ardmore dog owners can drop off at 723 County Line Rd, or call to ask about pickup and delivery from their address.",
+    gettingHere: ["Google Maps routes Ardmore drivers along Montgomery Ave: about 2.6 miles, roughly 11 minutes to the salon, depending on traffic.", "If a drop-off doesn't fit your day, call with your Ardmore address and we'll confirm whether pickup and delivery covers it."],
+    faqs: [
+      { question: "How far is the salon from Ardmore?", answer: "About 2.6 miles (about 11 minutes) via Montgomery Ave, according to Google Maps. Times vary with traffic." },
+      { question: "Who will groom my dog?", answer: "Theresa Pelletier, who has over 50 years of experience caring for dogs, and her daughter Jolie, who has 15 years of professional grooming experience. They work side by side." },
+    ],
   },
   {
     city: "Villanova",
@@ -242,6 +258,11 @@ export const townPages = [
       "Villanova spans Radnor Township in Delaware County and Lower Merion Township in Montgomery County, and it is one of the towns our Bryn Mawr salon serves.",
     angle:
       "Villanova dog owners can bring their dog to the salon on County Line Road, or call to ask whether we can pick up from their address.",
+    gettingHere: ["From Villanova, Google Maps routes you via Lancaster Ave and County Line Rd: about 2.1 miles, roughly 7 minutes.", "We groom doodles and poodles. The Works (from $115) includes a full haircut or a tidy-up trim, and Full Spa Day adds a skin and coat treatment."],
+    faqs: [
+      { question: "How far is the salon from Villanova?", answer: "About 2.1 miles (about 7 minutes) via Lancaster Ave and County Line Rd, according to Google Maps. Times vary with traffic." },
+      { question: "Do you groom doodles?", answer: "Yes. Doodles and poodles usually book The Works (from $115) or Full Spa Day (from $150). Tell us your dog's coat type when you call, and we'll suggest which fits." },
+    ],
   },
   {
     city: "Wynnewood",
@@ -250,6 +271,11 @@ export const townPages = [
       "Wynnewood, east of Ardmore in Lower Merion Township, Montgomery County, is one of the Eastern Main Line towns our Bryn Mawr salon serves.",
     angle:
       "Wynnewood dog owners can drop off at the salon, or call with their address to ask about pickup and delivery.",
+    gettingHere: ["Google Maps routes Wynnewood drivers along Lancaster Ave: about 3 miles, roughly 12 minutes to 723 County Line Rd.", "We wash with chemical-free products, and every package includes a full blow dry so the coat isn't left damp."],
+    faqs: [
+      { question: "How far is the salon from Wynnewood?", answer: "About 3.0 miles (about 12 minutes) via Lancaster Ave, according to Google Maps. Times vary with traffic." },
+      { question: "What products do you use?", answer: "We wash with chemical-free products, in warm water from our tankless heater. If your dog's skin is red, flaky or itchy, check with your vet as well." },
+    ],
   },
   {
     city: "Havertown",
@@ -258,6 +284,11 @@ export const townPages = [
       "Havertown is in Haverford Township, Delaware County, and it is one of the towns our salon on County Line Road in Bryn Mawr serves.",
     angle:
       "Havertown dog owners can bring their dog to the salon, or call with their address to ask whether we can pick up and bring their dog home clean.",
+    gettingHere: ["From Havertown, Google Maps routes you via N Eagle Rd: about 4.2 miles, roughly 13 minutes, depending on traffic.", "It's one of our longer trips, so ask about pickup and delivery when you call. Give us your Havertown address and we'll confirm whether we cover it."],
+    faqs: [
+      { question: "How far is the salon from Havertown?", answer: "About 4.2 miles (about 13 minutes) via N Eagle Rd, according to Google Maps. Times vary with traffic." },
+      { question: "Is pickup and delivery available that far out?", answer: "Call 610-525-7387 with your Havertown address. We'll tell you whether pickup and delivery covers it before you book." },
+    ],
   },
   {
     city: "Gladwyne",
@@ -266,6 +297,11 @@ export const townPages = [
       "Gladwyne is in Lower Merion Township, Montgomery County, and it is one of the towns our salon on County Line Road in Bryn Mawr serves.",
     angle:
       "Gladwyne dog owners can bring their dog to the salon, or call to ask whether we can pick up from their address and bring their dog home after the groom.",
+    gettingHere: ["Google Maps routes Gladwyne drivers via Black Rock Rd and Morris Ave: about 3.1 miles, roughly 11 minutes to the salon.", "For a full refresh, Full Spa Day (from $150) adds a skin and coat treatment such as de-shedding or deep conditioning, plus paw balm and teeth brushing."],
+    faqs: [
+      { question: "How far is the salon from Gladwyne?", answer: "About 3.1 miles (about 11 minutes) via Black Rock Rd and Morris Ave, according to Google Maps. Times vary with traffic." },
+      { question: "What's included in Full Spa Day?", answer: "Everything in The Works, plus a skin and coat treatment such as de-shedding or deep conditioning, paw balm and teeth brushing. It starts at $150." },
+    ],
   },
   {
     city: "Radnor",
@@ -274,6 +310,11 @@ export const townPages = [
       "Radnor, west of Villanova in Radnor Township, Delaware County, is one of the Main Line towns our Bryn Mawr salon serves.",
     angle:
       "Radnor dog owners can bring their dog to the salon at 723 County Line Rd, or call with their address to ask about pickup and delivery.",
+    gettingHere: ["From Radnor, Google Maps routes you east along County Line Rd: about 4 miles, roughly 13 minutes.", "Puppies are welcome. A Bath & Pamper visit can be a gentle way to get a young dog used to the salon before their first haircut."],
+    faqs: [
+      { question: "How far is the salon from Radnor?", answer: "About 4.0 miles (about 13 minutes) via County Line Rd, according to Google Maps. Times vary with traffic." },
+      { question: "Can I bring my puppy?", answer: "Yes. A Bath & Pamper visit (from $75) is a gentle first groom. When your puppy is ready for a haircut, The Works (from $115) adds a full haircut or tidy-up trim." },
+    ],
   },
 ] as const;
 
@@ -285,7 +326,8 @@ export type TownPage = (typeof townPages)[number];
 // packages include it, and the page's starting price is the cheapest of
 // those. Sources checked: the current site, the old site, Yelp, the Google
 // listing and directory listings. None lists any service beyond the
-// packages and pickup and delivery.
+// packages and pickup and delivery. The two entries at the end (puppy,
+// doodle) describe which packages fit those dogs; see the note above them.
 export type PackageName = (typeof packages)[number]["name"];
 
 export const servicePages = [
@@ -434,6 +476,59 @@ export const servicePages = [
     packages: ["Full Spa Day"],
     guideSlug: "why-teeth-brushing-matters-radnor",
     photo: "groomed-black-white-fluffy-dog",
+  },
+  // Puppy and doodle grooming are not separate services: they are the same
+  // three packages, applied to puppies and to curly-coated dogs. Both appear
+  // in the business's Google reviews (puppies, including a young
+  // Bernedoodle; doodles and standard poodles), which is the source for
+  // listing them. No puppy- or doodle-specific procedure or price is claimed.
+  {
+    slug: "puppy-grooming",
+    name: "Puppy Grooming",
+    schemaName: "Puppy Grooming",
+    seoTitle: "Puppy Grooming in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "Puppy grooming at I Love Dogs in Bryn Mawr, PA: a gentle first groom through our Bath & Pamper (from $75) or The Works packages. Call 610-525-7387.",
+    hook: "Is your puppy due for their very first groom?",
+    intro:
+      "We groom puppies through the same packages as every other dog. For a first visit, Bath & Pamper keeps things short and simple: a warm bath, blow dry, brushing and nail trim. Once your puppy's coat needs shaping, The Works adds a haircut or tidy-up trim.",
+    included: [
+      "Bath & Pamper: a warm bath, blow dry, brushing and nail trim",
+      "The Works: everything in Bath & Pamper, plus a haircut or tidy-up trim, ear cleaning and a cologne spritz",
+      "Tell us it's your puppy's first groom when you call, and we'll suggest which fits",
+    ],
+    goodToKnow: [
+      "Many owners book a first groom once their puppy has had its vaccinations. Ask your vet if you're not sure.",
+      "Getting a puppy used to baths, brushing and having their paws handled early makes every future groom easier.",
+      "Coats that keep growing, such as doodle and poodle coats, need regular grooming for life, so starting young helps.",
+    ],
+    packages: ["Bath & Pamper", "The Works"],
+    guideSlug: "warm-bath-nervous-dogs-haverford",
+    photo: "fluffy-cream-puppy",
+  },
+  {
+    slug: "doodle-grooming",
+    name: "Doodle & Poodle Grooming",
+    schemaName: "Doodle Grooming",
+    seoTitle: "Doodle & Poodle Grooming in Bryn Mawr, PA | I Love Dogs",
+    description:
+      "Doodle and poodle grooming at I Love Dogs in Bryn Mawr, PA: a full haircut or tidy-up trim in The Works (from $115) or Full Spa Day. Call 610-525-7387.",
+    hook: "Is your doodle's coat starting to tangle or lose its shape?",
+    intro:
+      "Doodles and poodles have curly or wavy coats that keep growing, so they need regular haircuts. We groom them through The Works, with a full haircut or a tidy-up trim, or Full Spa Day, which adds a skin and coat treatment.",
+    included: [
+      "The Works: a warm bath, blow dry, brushing and nail trim, plus a full haircut or tidy-up trim, ear cleaning and a cologne spritz",
+      "Full Spa Day: everything in The Works, plus a skin and coat treatment, paw balm and teeth brushing",
+      "Tell us the length and style you'd like when you call",
+    ],
+    goodToKnow: [
+      "Curly and wavy coats mat close to the skin, often behind the ears, under the legs and around the collar, so brushing between visits matters.",
+      "A coat that's already matted may need to be clipped shorter than you'd like. Regular appointments help you keep the length.",
+      "Floppy, hairy ears are common in doodles and poodles, which is why ear cleaning is part of The Works.",
+    ],
+    packages: ["The Works", "Full Spa Day"],
+    guideSlug: "haircut-or-tidy-up-trim-wynnewood",
+    photo: "before-after-apricot-curly-dog",
   },
 ] as const satisfies readonly {
   slug: string;

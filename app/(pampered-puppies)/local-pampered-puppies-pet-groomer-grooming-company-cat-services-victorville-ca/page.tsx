@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { PATHS, SITE_URL, catServices, serviceAreaPages } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
@@ -123,6 +124,8 @@ export default function CatGroomingPage() {
           />
         </div>
       </section>
+
+      <RelatedPosts path={PATHS.cat} />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
         <FaqBlock items={catFaqs} title="Cat Grooming FAQ" />

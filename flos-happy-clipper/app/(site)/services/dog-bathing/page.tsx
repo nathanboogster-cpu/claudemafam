@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CallButton, SecondaryLinkButton } from "@/components/CTAButton";
@@ -109,6 +110,8 @@ export default function DogBathingPage() {
           </Link>
         </div>
       </section>
+
+      <RelatedPosts service="dog-bathing" />
 
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <FaqBlock items={faqs} />

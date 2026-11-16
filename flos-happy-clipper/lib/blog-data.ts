@@ -130,7 +130,7 @@ export const blogPosts: BlogPost[] = [
         text: "Most dogs get more comfortable with grooming over repeated visits as it becomes a familiar routine rather than something new and unpredictable. If your dog had a rough first experience somewhere else, it's worth mentioning that too — a groomer who knows the history can adjust their approach accordingly.",
       },
     ],
-    relatedServiceSlugs: ["dog-grooming", "dog-bathing"],
+    relatedServiceSlugs: ["dog-grooming", "dog-bathing", "puppy-grooming"],
   },
   {
     slug: "dog-ear-cleaning-101",

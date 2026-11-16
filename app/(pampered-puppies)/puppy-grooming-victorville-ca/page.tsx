@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { PATHS, SITE_URL } from "@/lib/site-data";
 import { CallButton, BookButton } from "@/components/CTAButton";
 import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
@@ -132,6 +133,8 @@ export default function PuppyGroomingPage() {
           />
         </div>
       </section>
+
+      <RelatedPosts path={PATHS.puppy} />
 
       <section className="mx-auto max-w-6xl px-4 py-12">
         <FaqBlock items={puppyFaqs} title="Puppy Grooming FAQ" />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ReserveButton, CallButton } from "@/components/CTAButton";
@@ -192,6 +193,8 @@ export default function DogDaycarePage() {
           </Link>
         </div>
       </section>
+
+      <RelatedPosts service="dog-daycare" />
 
       {/* FAQ */}
       <section className="mx-auto max-w-6xl px-4 py-16">

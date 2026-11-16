@@ -312,8 +312,9 @@ export const mainNav: NavItem[] = [
 //                                   neighborhoods; the north-east of the city
 //                                   is further, so copy names those areas.
 // Left out as over 20 minutes: Belmont, San Carlos, Redwood City, Half Moon
-// Bay, Montara. Drive times are estimates (no maps API from the build
-// environment); confirm them with the owner.
+// Bay, Montara. The ~minutes above were the original estimates; the
+// `drive` text on each area is Google Maps driving directions from San Bruno
+// looked up on 2026-11-16 (weekday afternoon).
 //
 // Income is a selection rule only: it never appears on the site.
 // `intro` is public geography, not a business claim. `nearby` are the slugs
@@ -328,6 +329,8 @@ export const serviceAreas = [
       "San Bruno sits between Interstate 280 and US 101, just west of San Francisco International Airport, from Tanforan up to the ridge along Skyline Boulevard.",
     local: "San Bruno is our home base, so your street is never far from where the van starts its day.",
     nearby: ["south-san-francisco", "millbrae", "pacifica"],
+    drive: null,
+    faqs: [{"question": "Is there a travel fee in San Bruno?", "answer": "Our booking page lists a $20 travel fee. San Bruno is our home base, so it's the shortest trip the van makes. You'll see the full price before you confirm."}, {"question": "Can you groom two pets in one visit?", "answer": "Yes. Book both pets in the same appointment. For example, a nail trim is $50 for the first pet and $25 for a second pet on the same visit."}],
   },
   {
     city: "South San Francisco",
@@ -337,6 +340,8 @@ export const serviceAreas = [
       "South San Francisco runs from Sign Hill and its famous \"The Industrial City\" letters down to Orange Memorial Park and west to Westborough.",
     local: "South San Francisco borders San Bruno, so it is one of the shortest trips our van makes.",
     nearby: ["san-bruno", "brisbane", "daly-city"],
+    drive: "about 3.6 miles, roughly 8 minutes via US-101 N",
+    faqs: [{"question": "How far does the van travel to reach South San Francisco?", "answer": "From San Bruno, where the van is based, it's about 3.6 miles, roughly 8 minutes via US-101 N, according to Google Maps. Times vary with traffic."}, {"question": "Do you groom cats in South San Francisco?", "answer": "Yes. We groom cats as well as dogs, and cat grooming and cat baths are both on our booking page."}],
   },
   {
     city: "Millbrae",
@@ -346,6 +351,8 @@ export const serviceAreas = [
       "Millbrae climbs from the Millbrae Station, where BART and Caltrain meet, up through quiet residential streets toward the hills west of El Camino Real.",
     local: "Millbrae is the next town south of San Bruno, a few minutes from our base.",
     nearby: ["san-bruno", "burlingame", "hillsborough"],
+    drive: "about 3 miles, roughly 10 minutes via El Camino Real",
+    faqs: [{"question": "How far does the van travel to reach Millbrae?", "answer": "From San Bruno, where the van is based, it's about 3 miles, roughly 10 minutes via El Camino Real, according to Google Maps. Times vary with traffic."}, {"question": "My dog sheds everywhere. Can you help?", "answer": "Yes. De-shedding is an add-on you can book with a bath or groom. It removes loose undercoat so less of it ends up on your floors."}],
   },
   {
     city: "Brisbane",
@@ -354,6 +361,8 @@ export const serviceAreas = [
     intro: "Brisbane is a small town tucked against San Bruno Mountain on the Bay side of US 101, between South San Francisco and the city.",
     local: "Brisbane's hillside streets are a short drive up 101 from our San Bruno base.",
     nearby: ["south-san-francisco", "daly-city", "san-francisco"],
+    drive: "about 5 miles, roughly 10 minutes via US-101 N",
+    faqs: [{"question": "How far does the van travel to reach Brisbane?", "answer": "From San Bruno, where the van is based, it's about 5 miles, roughly 10 minutes via US-101 N, according to Google Maps. Times vary with traffic."}, {"question": "My dog got sprayed by a skunk. Can you help?", "answer": "Yes. Skunk-Off is one of our main services. Book it online or call (415) 754-0813, and the van comes to you, so your dog doesn't have to ride in your car."}],
   },
   {
     city: "Burlingame",
@@ -363,6 +372,8 @@ export const serviceAreas = [
       "Burlingame's tree-lined streets run from the shops on Burlingame Avenue and Broadway up into the hills toward Skyline Boulevard.",
     local: "From the flats near the Bay to the Burlingame Hills, our van parks right outside your home.",
     nearby: ["millbrae", "hillsborough", "san-mateo"],
+    drive: "about 5 to 7 miles, roughly 15 to 20 minutes via US-101 S or El Camino Real",
+    faqs: [{"question": "How far does the van travel to reach Burlingame?", "answer": "From San Bruno, where the van is based, it's about 5 to 7 miles, roughly 15 to 20 minutes via US-101 S or El Camino Real, according to Google Maps. Times vary with traffic."}, {"question": "How much is a nail trim?", "answer": "A nail trim is $50 for the first pet and $25 for a second pet on the same visit."}],
   },
   {
     city: "Colma",
@@ -371,6 +382,8 @@ export const serviceAreas = [
     intro: "Colma is a small town between Daly City and South San Francisco, best known for the cemeteries that cover most of its land.",
     local: "Colma's homes are a short hop from our San Bruno base along I-280 and El Camino Real.",
     nearby: ["daly-city", "south-san-francisco", "san-bruno"],
+    drive: "about 6 miles, roughly 13 minutes via I-280 N",
+    faqs: [{"question": "How far does the van travel to reach Colma?", "answer": "From San Bruno, where the van is based, it's about 6 miles, roughly 13 minutes via I-280 N, according to Google Maps. Times vary with traffic."}, {"question": "What if my dog's coat is matted?", "answer": "Tell us when you book. Detangling is a $30 add-on with a bath or groom, and matted coats carry an extra $30 charge, so you'll know the price up front."}],
   },
   {
     city: "Hillsborough",
@@ -380,6 +393,8 @@ export const serviceAreas = [
       "Hillsborough is a quiet, residential town in the hills above Burlingame and San Mateo, with winding roads, big lots and no downtown of its own.",
     local: "Hillsborough's homes sit along long, winding roads, which makes a groomer who comes to your door especially handy.",
     nearby: ["burlingame", "san-mateo", "millbrae"],
+    drive: "about 7 miles, roughly 15 to 20 minutes via I-280 S",
+    faqs: [{"question": "How far does the van travel to reach Hillsborough?", "answer": "From San Bruno, where the van is based, it's about 7 miles, roughly 15 to 20 minutes via I-280 S, according to Google Maps. Times vary with traffic."}, {"question": "Where does the van park?", "answer": "The van parks at your home for the whole appointment. Your pet is groomed inside it and is back with you right after."}],
   },
   {
     city: "Pacifica",
@@ -388,6 +403,8 @@ export const serviceAreas = [
     intro: "Pacifica runs along the coast on Highway 1, from Sharp Park and Rockaway Beach to Linda Mar and Pedro Point.",
     local: "Pacifica is just over the hill from San Bruno on Sneath Lane and Skyline Boulevard, so coast-side pets are an easy stop.",
     nearby: ["san-bruno", "daly-city", "south-san-francisco"],
+    drive: "about 10 miles, roughly 15 minutes via I-280 N and CA-1 S",
+    faqs: [{"question": "How far does the van travel to reach Pacifica?", "answer": "From San Bruno, where the van is based, it's about 10 miles, roughly 15 minutes via I-280 N and CA-1 S, according to Google Maps. Times vary with traffic."}, {"question": "Can you add teeth brushing?", "answer": "Yes. Teeth brushing is a $10 add-on with a bath or groom."}],
   },
   {
     city: "Daly City",
@@ -396,6 +413,8 @@ export const serviceAreas = [
     intro: "Daly City sits just south of San Francisco, from Westlake and Serramonte to the bluffs above the ocean.",
     local: "Daly City is a short drive up I-280 from our San Bruno base.",
     nearby: ["colma", "pacifica", "san-francisco"],
+    drive: "about 6.6 miles, roughly 12 minutes via I-280 N",
+    faqs: [{"question": "How far does the van travel to reach Daly City?", "answer": "From San Bruno, where the van is based, it's about 6.6 miles, roughly 12 minutes via I-280 N, according to Google Maps. Times vary with traffic."}, {"question": "Can I book just a bath?", "answer": "Yes. Dog baths are one of our main services, and you can add a $20 face trim to a bath to tidy up around the eyes and muzzle."}],
   },
   {
     city: "San Mateo",
@@ -405,6 +424,8 @@ export const serviceAreas = [
       "San Mateo stretches from the Bay shoreline at Coyote Point through downtown and Central Park to the hills west of Highway 92.",
     local: "San Mateo is a straight run down US 101 or I-280 from our San Bruno base.",
     nearby: ["burlingame", "hillsborough", "foster-city"],
+    drive: "about 9.6 miles, roughly 20 minutes via US-101 S",
+    faqs: [{"question": "How far does the van travel to reach San Mateo?", "answer": "From San Bruno, where the van is based, it's about 9.6 miles, roughly 20 minutes via US-101 S, according to Google Maps. Times vary with traffic."}, {"question": "Do you offer anal gland expression?", "answer": "Yes, as an add-on with a bath or groom. You can choose it when you book online."}],
   },
   {
     city: "Foster City",
@@ -413,6 +434,8 @@ export const serviceAreas = [
     intro: "Foster City is a planned city built on reclaimed land along the Bay, laced with lagoons, at the western end of the San Mateo Bridge.",
     local: "Foster City is at the southern edge of our area, still a short drive down 101 from San Bruno.",
     nearby: ["san-mateo", "hillsborough", "burlingame"],
+    drive: "about 12 miles, roughly 20 to 25 minutes via US-101 S",
+    faqs: [{"question": "How far does the van travel to reach Foster City?", "answer": "From San Bruno, where the van is based, it's about 12 miles, roughly 20 to 25 minutes via US-101 S, according to Google Maps. Times vary with traffic."}, {"question": "Is Foster City inside your service area?", "answer": "Yes, it's the southern edge of it. Call (415) 754-0813 or ask when you book online if you'd like us to confirm your street."}],
   },
   {
     city: "San Francisco",
@@ -422,6 +445,8 @@ export const serviceAreas = [
       "We groom in San Francisco's southern and western neighborhoods, the closest to the Peninsula: the Sunset, Parkside, Lakeshore, West Portal, St. Francis Wood, Ingleside, Glen Park and the Excelsior.",
     local: "Those neighborhoods are a short drive up I-280 or Skyline Boulevard from our San Bruno base.",
     nearby: ["daly-city", "brisbane", "pacifica"],
+    drive: "about 9.5 miles to the Excelsior via US-101 N, roughly 20 minutes, and about 12 miles to the Sunset via I-280 N, roughly 25 minutes",
+    faqs: [{"question": "How far does the van travel to reach San Francisco?", "answer": "From San Bruno, where the van is based, it's about 9.5 miles to the Excelsior via US-101 N, roughly 20 minutes, and about 12 miles to the Sunset via I-280 N, roughly 25 minutes, according to Google Maps. Times vary with traffic."}, {"question": "Do you cover the whole city?", "answer": "We groom in San Francisco's southern and western neighborhoods, the ones closest to the Peninsula. If you're elsewhere in the city, call (415) 754-0813 and we'll tell you whether we can reach you."}],
   },
 ] as const;
 

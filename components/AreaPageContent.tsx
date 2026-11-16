@@ -28,10 +28,7 @@ export function AreaPageContent({ area }: { area: Area }) {
   const otherAreas = serviceAreaPages.filter((a) => a.city !== area.city);
 
   const faqs = [
-    {
-      question: `Does Pampered Puppies really serve ${area.city}?`,
-      answer: `Yes — ${area.city} is one of the areas covered by "Pampered Puppies At Your Door," our mobile grooming service based out of Victorville.`,
-    },
+    ...area.faqs,
     {
       question: "How does mobile pricing work?",
       answer:
@@ -94,6 +91,15 @@ export function AreaPageContent({ area }: { area: Area }) {
           aspect="portrait"
           src="/images/van-interior-full.jpg"
         />
+      </section>
+
+      <section className="mx-auto max-w-4xl px-4 pb-12">
+        <h2 className="font-display text-2xl font-bold text-ink">Between {area.city} and Our Studio</h2>
+        <div className="mt-4 space-y-4 text-ink-soft leading-relaxed">
+          {area.gettingHere.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
       </section>
 
       <section className="bg-white border-y border-border">

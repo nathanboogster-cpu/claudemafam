@@ -122,6 +122,15 @@ export default async function ServiceAreaPage({
         </div>
       </section>
 
+      <section className="mx-auto max-w-4xl px-4 pt-14">
+        <h2 className="font-bw-display text-2xl font-bold text-bw-ink sm:text-3xl">{content.gettingHereTitle}</h2>
+        <div className="mt-4 space-y-4 text-bw-ink-soft">
+          {content.gettingHere.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="font-bw-display text-2xl font-bold text-bw-ink sm:text-3xl">Services Available for {area.city}</h2>
         <div className="mt-5 flex flex-wrap gap-3">

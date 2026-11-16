@@ -21,18 +21,10 @@ export function TownPageContent({ town }: { town: TownPage }) {
   const post = blogPostForTown(town.city);
 
   const faqs = [
-    {
-      question: `Do you serve ${town.city}?`,
-      answer: `Yes. ${town.city} is one of the towns we serve from our salon at ${business.addressFull}.`,
-    },
+    ...town.faqs,
     {
       question: `Can you pick up my dog in ${town.city}?`,
       answer: `We offer pickup and delivery. Call ${business.phoneDisplay} with your ${town.city} address so we can confirm we cover it.`,
-    },
-    {
-      question: "How much does dog grooming cost?",
-      answer:
-        "Packages start at $75 for Bath & Pamper, $115 for The Works and $150 for Full Spa Day. Final prices are quoted when we meet your dog and depend on size, coat length, coat type and condition.",
     },
     {
       question: "Do you groom at my home?",
@@ -82,6 +74,15 @@ export function TownPageContent({ town }: { town: TownPage }) {
             </div>
           </div>
           <StudioInfoCard location={`${loc}_hero`} />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-4 pt-12">
+        <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">Getting to Our Salon From {town.city}</h2>
+        <div className="mt-4 space-y-4 text-ink-soft leading-relaxed">
+          {town.gettingHere.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
         </div>
       </section>
 
