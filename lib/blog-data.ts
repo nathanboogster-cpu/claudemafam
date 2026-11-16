@@ -212,6 +212,80 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "is-a-pet-grooming-membership-worth-it",
+    title: "Is a Pet Grooming Membership Worth It?",
+    description:
+      "How to tell if a pet grooming membership or loyalty plan actually pays off, and what a good one should include.",
+    date: "2026-11-12",
+    category: "Pet Care",
+    excerpt:
+      "Grooming is a recurring cost, not a one-time one — which makes it worth asking whether a membership plan actually saves you money.",
+    relatedPath: PATHS.membership,
+    relatedLabel: "Learn about our VIP Membership",
+    content: [
+      {
+        type: "paragraph",
+        text: "Most pets need professional grooming on a repeating schedule — every 4 to 8 weeks depending on coat type — which means it's a recurring cost, not a one-time one. That's exactly what makes it worth asking whether a membership or loyalty plan actually saves you money over a year of visits, rather than just assuming it does.",
+      },
+      { type: "heading", text: "What a good grooming membership should include" },
+      {
+        type: "list",
+        items: [
+          "A straightforward discount on every visit, not just your first one",
+          "No blackout dates or complicated restrictions on when the discount applies",
+          "Some kind of scheduling benefit, like priority booking, since grooming slots fill up",
+          "A fee structure where the math actually works out for how often your pet needs grooming",
+        ],
+      },
+      { type: "heading", text: "Running the numbers before you sign up" },
+      {
+        type: "paragraph",
+        text: "The simplest way to check if a membership is worth it: take your pet's typical per-visit cost, multiply the plan's discount percentage against it, then multiply that savings by how many times a year your pet actually gets groomed. If that total savings is close to or more than the membership fee itself, it's a good deal — if your pet only gets groomed once or twice a year, the math usually doesn't favor a membership.",
+      },
+      {
+        type: "paragraph",
+        text: "Our own PPG VIP Membership is a straightforward example of this: $99 a year for 18% off every grooming visit plus priority scheduling, no blackout dates. For a pet groomed every 6–8 weeks, that discount adds up quickly — it's worth asking your groomer directly whether a plan like this makes sense for your specific pet and schedule.",
+      },
+    ],
+  },
+  {
+    slug: "winter-coat-and-paw-care-for-your-dog",
+    title: "Winter Coat and Paw Care for Your Dog in the High Desert",
+    description:
+      "How cold, dry High Desert winters affect a dog's coat and paws differently than summer heat, and what grooming adjustments help.",
+    date: "2026-11-16",
+    category: "Grooming Tips",
+    excerpt:
+      "High Desert winters bring cold, dry air that affects a dog's coat and paws in different ways than summer heat does — and the grooming approach should shift with it.",
+    relatedPath: PATHS.dog,
+    relatedLabel: "See our Dog Grooming services",
+    content: [
+      {
+        type: "paragraph",
+        text: "High Desert days can still feel mild in winter, but nights and mornings drop cold, and the air stays dry year-round. That combination affects a dog's coat and paws differently than summer heat does, and it's worth adjusting grooming habits for the season rather than sticking with a summer routine straight through winter.",
+      },
+      { type: "heading", text: "Don't over-shave in cold months" },
+      {
+        type: "paragraph",
+        text: "A dog's coat is natural insulation, and shaving it down too short right before cold weather removes that protection when they need it most. For breeds that are typically trimmed short, keeping a slightly longer length through the winter months — rather than the shortest possible cut — helps them stay comfortably warm without sacrificing a tidy look.",
+      },
+      { type: "heading", text: "Paw care in cold, dry weather" },
+      {
+        type: "list",
+        items: [
+          "Trim the fur between paw pads so it doesn't collect ice, mud, or de-icing chemicals on walks",
+          "Check pads regularly for cracking or dryness — cold pavement and low humidity are hard on paw skin",
+          "Wipe paws down after walks on treated sidewalks or roads to remove salt or ice-melt residue",
+          "Keep nails trimmed — longer nails can make it harder for a dog to get solid footing on cold, slick surfaces",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "If a paw pad looks cracked, raw, or your dog is limping or favoring a paw, that goes beyond routine grooming — have a veterinarian take a look before it gets worse. For everything else, a seasonal check-in with your groomer about coat length and paw care is an easy way to keep your dog comfortable all winter.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
