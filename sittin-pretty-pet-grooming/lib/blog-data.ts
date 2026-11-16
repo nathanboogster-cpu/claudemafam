@@ -1103,6 +1103,58 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedServiceSlugs: ["dog-grooming", "cat-grooming", "puppy-first-groom"],
   },
+  {
+    slug: "do-cats-need-baths",
+    title: "Do Cats Need Baths? When a Bath Helps and How to Make It Easier",
+    metaDescription:
+      "Most cats rarely need a bath, but some do. When a bath helps a cat, how to bathe a cat at home more calmly, and when it's better left to a cat groomer.",
+    excerpt:
+      "Most healthy cats keep themselves clean, but there are times a bath really helps. Here's when, and how to make it go more smoothly.",
+    eyebrow: "Cat Grooming",
+    publishedAt: "2026-11-16",
+    heroPhotoKey: "catGrooming",
+    body: [
+      {
+        type: "p",
+        text: "Most healthy cats don't need routine baths. Their rough tongues and constant self-grooming do a remarkable job of keeping their coats clean. But there are times when a bath genuinely helps, and cat owners around Funkstown and Hagerstown ask about it often, especially as cats settle in indoors for the colder months and long coats start to look a little greasy or unkempt.",
+      },
+      { type: "h2", text: "When a Bath Can Help" },
+      {
+        type: "list",
+        items: [
+          "Long-haired cats whose coats have become greasy, dull, or clumpy, especially along the back and around the tail.",
+          "Senior, overweight, or arthritic cats who can no longer reach every spot to groom themselves.",
+          "A litter box mishap or anything sticky or messy caught in the fur.",
+          "Skin conditions where your veterinarian has recommended a medicated shampoo.",
+          "As part of a professional groom, where a bath and thorough dry help lift out loose undercoat.",
+        ],
+      },
+      {
+        type: "p",
+        text: "One important exception: if your cat gets into something that could be toxic, like antifreeze, essential oils, cleaning products, or anything you're unsure of, call your vet right away. Cats swallow whatever is on their fur while they groom, so the vet should be your first call, not the bathtub.",
+      },
+      { type: "h2", text: "If You Bathe Your Cat at Home" },
+      {
+        type: "list",
+        items: [
+          "Brush thoroughly first. Water tightens tangles into mats, especially in long coats.",
+          "Trim nails a day ahead if you can, for your own sake.",
+          "Use a shampoo made for cats. Never use a dog shampoo, and especially never a dog flea shampoo, since some ingredients that are safe for dogs are toxic to cats.",
+          "Use a sink or tub with just a few inches of lukewarm water and a towel or non-slip mat on the bottom so your cat has secure footing.",
+          "Skip the face. Clean it gently with a damp washcloth instead.",
+          "Rinse thoroughly. Leftover shampoo can irritate the skin and gets licked off later.",
+          "Towel dry well and keep your cat in a warm, draft-free room until the coat is completely dry, which matters more in November than in July.",
+          "Keep it short, stay calm, and have a second person help if you can.",
+        ],
+      },
+      { type: "h2", text: "When to Leave It to a Groomer" },
+      {
+        type: "p",
+        text: "Some cats simply panic in water, and that's not a battle worth fighting at home. A professional groom also makes more sense for long-haired cats with a heavy undercoat, cats that are already matted, and seniors who need gentle, careful handling. Cats need a different touch than dogs, and Sittin' Pretty is one of the few local groomers cat owners in Funkstown, Hagerstown, Halfway, and across Washington County trust specifically for cat grooming. Our Funkstown salon is cage-free, so your cat isn't kenneled between steps. Give us a call if your cat could use some help.",
+      },
+    ],
+    relatedServiceSlugs: ["cat-grooming", "deshedding-treatment"],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
