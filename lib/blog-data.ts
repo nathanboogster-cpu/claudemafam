@@ -286,6 +286,43 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "grooming-considerations-for-senior-dogs",
+    title: "Grooming Considerations for Senior Dogs",
+    description:
+      "How grooming needs shift as a dog ages, from skin and joint changes to session length, and what to ask your groomer for an older dog.",
+    date: "2026-11-19",
+    category: "Pet Care",
+    excerpt:
+      "A senior dog's grooming needs aren't about fear the way a nervous dog's can be — they're about physical comfort, and that calls for a different approach.",
+    relatedPath: PATHS.anxious,
+    relatedLabel: "See our Anxious & Senior Dog Grooming page",
+    content: [
+      {
+        type: "paragraph",
+        text: "A senior dog's grooming needs aren't about fear the way a nervous dog's can be — they're about physical comfort. As dogs age, their skin, joints, and stamina all change, and a grooming routine that worked fine for years can need some real adjustments to stay comfortable.",
+      },
+      { type: "heading", text: "What changes as dogs age" },
+      {
+        type: "list",
+        items: [
+          "Skin tends to get thinner and drier, making it more sensitive to handling and water temperature",
+          "Joint stiffness or arthritis can make standing for a long groom, or holding certain positions, uncomfortable",
+          "Coats can mat more easily if an older dog is less active and self-maintaining than they used to be",
+          "Nails may grow thicker or more brittle, and quicker to overgrow if a senior dog is walking less",
+        ],
+      },
+      { type: "heading", text: "Grooming adjustments that help" },
+      {
+        type: "paragraph",
+        text: "Shorter sessions with more breaks, warm water, and extra support getting on and off the grooming table all make a real difference for an older dog. More frequent brushing between appointments also helps prevent the kind of matting that would otherwise require a longer, more involved dematting session later. A patient, low-cage-time approach — the same one that helps anxious dogs — tends to suit senior dogs well too.",
+      },
+      {
+        type: "paragraph",
+        text: "If you notice new lumps, bumps, unusual sensitivity, or signs of pain during grooming, it's worth having your veterinarian take a look rather than waiting until the next appointment. Otherwise, letting your groomer know your dog is a senior — and what specifically has gotten harder for them — helps them adjust their pace and approach from the start.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
