@@ -323,6 +323,43 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "flea-and-tick-prevention-what-grooming-can-and-cant-do",
+    title: "Flea and Tick Prevention: What Grooming Can (and Can't) Do",
+    description:
+      "How professional grooming helps catch and remove fleas and ticks, and why it's not a substitute for ongoing veterinary prevention between visits.",
+    date: "2026-11-23",
+    category: "Pet Care",
+    excerpt:
+      "Grooming is genuinely useful against fleas and ticks, but it's easy to overestimate what it can do on its own.",
+    relatedPath: PATHS.dog,
+    relatedLabel: "See our Dog Grooming services",
+    content: [
+      {
+        type: "paragraph",
+        text: "A professional groom is genuinely useful against fleas and ticks — but it's easy to overestimate what it can do on its own. Knowing the difference between what grooming handles well and what it can't replace helps keep your pet actually protected, not just freshly bathed.",
+      },
+      { type: "heading", text: "What grooming can do" },
+      {
+        type: "list",
+        items: [
+          "Catch fleas, ticks, or flea dirt during the groom that you might not have noticed at home",
+          "Remove fleas and ticks already present through bathing and flea/tick treatment",
+          "Spot early skin irritation, hot spots, or scabbing caused by bites",
+          "Find ticks hiding in dense, long, or matted fur that's hard to check at home",
+        ],
+      },
+      { type: "heading", text: "What grooming can't do" },
+      {
+        type: "paragraph",
+        text: "A single grooming appointment removes what's already there — it doesn't create ongoing protection between visits. New fleas and ticks can still latch on the day after a groom. Year-round prevention really comes down to a vet-prescribed product (oral, topical, or a collar), not grooming frequency. Grooming is a good way to catch a problem early and deal with what's already present, but it works alongside prevention, not instead of it.",
+      },
+      {
+        type: "paragraph",
+        text: "If you find a tick still attached, notice signs of flea allergy dermatitis (excessive scratching, hair loss, scabbing), or your pet seems unusually itchy or lethargic, that's a question for your veterinarian rather than something grooming alone can resolve. Flea treatment and tick removal are part of our regular service list for both dogs and cats, so it's worth mentioning any concerns when you book.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
