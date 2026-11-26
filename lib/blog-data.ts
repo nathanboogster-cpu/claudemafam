@@ -360,6 +360,43 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "why-teeth-brushing-belongs-in-your-dogs-grooming-routine",
+    title: "Why Teeth Brushing Belongs in Your Dog's Grooming Routine",
+    description:
+      "Dental care is easy to overlook in a grooming routine focused on coat and nails — here's why it matters and what helps between appointments.",
+    date: "2026-11-26",
+    category: "Grooming Tips",
+    excerpt:
+      "Most grooming routines focus on coat and nails, but dental care deserves a place in the rotation too.",
+    relatedPath: PATHS.dog,
+    relatedLabel: "See our Dog Grooming services",
+    content: [
+      {
+        type: "paragraph",
+        text: "Most grooming routines focus on coat, nails, and ears — dental care is easy to overlook in the mix. But a dog's teeth and gums benefit from regular attention just as much as their coat does, and it's worth building into the same routine rather than treating it as a separate concern.",
+      },
+      { type: "heading", text: "Why it matters beyond fresh breath" },
+      {
+        type: "paragraph",
+        text: "Plaque and tartar buildup isn't just cosmetic — left unaddressed, it can lead to gum disease, which affects more than just the mouth over time. Bad breath is often the first sign pet parents notice, but by the time it's noticeable, some buildup has usually already set in.",
+      },
+      { type: "heading", text: "What helps between grooming visits" },
+      {
+        type: "list",
+        items: [
+          "Brushing a few times a week with a dog-safe toothpaste — never human toothpaste, which can contain ingredients that are unsafe for dogs",
+          "Dental chews or toys designed to help scrape plaque off naturally during normal chewing",
+          "Routine veterinary checkups, which typically include a look at your dog's teeth and gums",
+          "Watching for bad breath, bleeding gums, loose teeth, or your dog seeming reluctant to chew",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "If you notice loose teeth, bleeding or swollen gums, or your dog showing pain while eating, that goes beyond what grooming can address — have a veterinarian take a look. Teeth brushing is part of our regular dog grooming service list, so it's an easy thing to add to a routine appointment if you're not keeping up with it at home.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
