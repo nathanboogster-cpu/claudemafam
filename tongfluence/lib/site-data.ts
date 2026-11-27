@@ -1,3 +1,4 @@
+import type { ProofScreenshot } from "./proof";
 // ---------------------------------------------------------------------------
 // TONGFLUENCE — single source of truth for every fact published on this site.
 // Nothing factual should be hardcoded in a page; add it here first.
@@ -372,6 +373,33 @@ export const gbpCallsProof = {
     return this.perDayAfter / this.perDayBefore;
   },
 } as const;
+
+// ---------------------------------------------------------------------------
+// MORE RESULTS — the compact row under the Carlos block. One tile per client,
+// the figure worded exactly as read from Google's monthly chart. `screenshots`
+// is the slot for the Performance chart images; empty renders nothing.
+// ---------------------------------------------------------------------------
+export const moreResults = {
+  heading: "More results",
+  items: [
+    {
+      slug: "pet-spa-luxe",
+      client: "Pet Spa Luxe",
+      value: "~17 / mo",
+      label: "Google profile actions in Oct 2026, up from ~2 in June",
+      screenshots: [] as ProofScreenshot[],
+    },
+    {
+      slug: "bark-and-bork-mobile-pet-spa",
+      client: "Bark and Bork",
+      value: "~11 / mo",
+      label: "calls from Google in Oct 2026, up from 0 in June–July",
+      screenshots: [] as ProofScreenshot[],
+    },
+  ],
+  method:
+    "Source: Google Business Profile Performance (Jun–Nov 2026; November partial) and on-site click tracking. Figures marked ~ are read from Google's monthly chart. Clicks are taps on Call/Book buttons, not confirmed bookings.",
+};
 
 export const headlineResult: HeadlineResult | null = {
   claim: "3× more calls from Google, in one month",
