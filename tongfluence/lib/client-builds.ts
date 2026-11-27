@@ -8,11 +8,17 @@
 //   per article. Counted directly from each build's lib/site-data.ts and
 //   lib/blog-data.ts, not estimated.
 //
-//   Nothing here is a performance claim. No rankings, traffic, call volume,
-//   lead counts or review growth appear on this site, because none of that has
-//   been measured and exported yet. What is published is what was built —
-//   which is verifiable by opening the sites.
+//   The page counts are not a performance claim. What is published there is
+//   what was built, which is verifiable by opening the sites.
+//
+//   `results` is the one place a build carries measured figures. Each line is
+//   read from Google Business Profile → Performance or from the build's own
+//   click tracking, worded exactly as read, with the period stated. Figures
+//   marked ~ are read off Google's monthly chart. Clicks are taps on Call and
+//   Book buttons, not confirmed bookings. `screenshots` holds the report
+//   images once exported; empty until then, and nothing renders for it.
 // ---------------------------------------------------------------------------
+import type { ProofScreenshot } from "./proof";
 
 export type BusinessType = "Mobile grooming" | "Grooming salon" | "Salon + mobile" | "Grooming, daycare & boarding";
 
@@ -33,6 +39,9 @@ export type ClientBuild = {
   problem: string;
   // Does this build have its own full case study page?
   hasCaseStudy: boolean;
+  // Measured results, shown on the case-study card under the page counts.
+  // Absent until there is a figure read from a real report.
+  results?: { lines: string[]; screenshots: ProofScreenshot[] };
 };
 
 export const clientBuilds: ClientBuild[] = [
@@ -48,6 +57,14 @@ export const clientBuilds: ClientBuild[] = [
     problem:
       "A mobile groomer whose van covers six counties, with one page trying to speak to all of them.",
     hasCaseStudy: true,
+    results: {
+      lines: [
+        "~2 → ~17 Google profile actions / month, Jun → Oct 2026",
+        "90 call & booking clicks from the website in the last 30 days (16 call · 74 book)",
+        "391 call & booking clicks since click tracking began",
+      ],
+      screenshots: [],
+    },
   },
   {
     slug: "sittin-pretty-pet-grooming",
@@ -72,6 +89,13 @@ export const clientBuilds: ClientBuild[] = [
     problem:
       "A mobile spa in the biggest grooming market in the country, with a booking system that had to stay.",
     hasCaseStudy: true,
+    results: {
+      lines: [
+        "0 → ~11 calls / month from Google, Jun → Oct 2026",
+        "30 calls and 113 profile actions from Google, Jun–Nov 2026",
+      ],
+      screenshots: [],
+    },
   },
   {
     slug: "flos-happy-clipper",

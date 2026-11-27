@@ -9,6 +9,7 @@ import { Section, SectionHeading, Eyebrow } from "@/components/Section";
 import { BookCallButton, SecondaryCTA } from "@/components/CTAButton";
 import { ProofStrip } from "@/components/ProofStrip";
 import { GbpCallsProof } from "@/components/GbpCallsProof";
+import { MoreResults } from "@/components/MoreResults";
 import { Testimonials } from "@/components/Testimonials";
 import { TrustPills } from "@/components/TrustPills";
 import { DogStrip } from "@/components/DogStrip";
@@ -182,6 +183,7 @@ export default function HomePage() {
           </Reveal>
           <div className="mt-8">
             <GbpCallsProof location="home_walkthrough" />
+            <MoreResults location="home_more_results" />
           </div>
         </Section>
       ) : null}

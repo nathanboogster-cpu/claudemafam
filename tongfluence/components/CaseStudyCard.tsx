@@ -4,7 +4,8 @@ import Link from "next/link";
 import type { ClientBuild } from "@/lib/client-builds";
 import { caseStudyPath } from "@/lib/site-data";
 import { EVENTS, trackEvent } from "@/lib/track";
-import { ArrowRightIcon, MapPinIcon, ScissorsIcon } from "./icons";
+import { ArrowRightIcon, ChartIcon, MapPinIcon, ScissorsIcon } from "./icons";
+import { ProofScreenshots } from "./ProofScreenshots";
 
 export function CaseStudyCard({ build, location }: { build: ClientBuild; location: string }) {
   return (
@@ -41,6 +42,21 @@ export function CaseStudyCard({ build, location }: { build: ClientBuild; locatio
           <dd className="font-tf-display text-lg font-bold text-tf-ink">{build.pages.areas}</dd>
         </div>
       </dl>
+
+      {build.results ? (
+        <div className="mt-4 border-t border-tf-border pt-4">
+          <p className="text-xs text-tf-ink-soft">Results</p>
+          <ul className="mt-2 space-y-1.5">
+            {build.results.lines.map((line) => (
+              <li key={line} className="flex gap-2 text-sm font-medium leading-snug text-tf-ink">
+                <ChartIcon className="mt-0.5 h-4 w-4 shrink-0 text-tf-brown-dark" />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+          <ProofScreenshots items={build.results.screenshots} className="mt-3" />
+        </div>
+      ) : null}
 
       <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-tf-brown-dark">
         Read the build
